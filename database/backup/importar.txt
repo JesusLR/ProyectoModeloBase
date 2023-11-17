@@ -1,0 +1,1 @@
+/Applications/xampp/xamppfiles/bin/mysql -u root -p scem_dis < scem_2019_01_21.sql 

@@ -1,0 +1,141 @@
+@extends('layouts.dashboard')
+
+@section('template_title')
+    Programas Educación Continua
+@endsection
+
+@section('head')
+    {!! HTML::style(asset('/vendors/data-tables/css/jquery.dataTables.min.css'), array('type' => 'text/css', 'rel' => 'stylesheet')) !!}
+@endsection
+
+@section('breadcrumbs')
+    <a href="{{url('/')}}" class="breadcrumb">Inicio</a>
+    <label class="breadcrumb">Programas educación continua</label>
+@endsection
+
+@section('content')
+
+<div id="table-datatables">
+    <h4 class="header">PROGRAMAS EDUCACIÓN CONTINUA</h4>
+    @php use App\Models\User; @endphp
+    <a href="{{ url('/progeducontinua/create') }}" class="btn-large waves-effect  darken-3" type="button">Agregar
+        <i class="material-icons left">add</i>
+    </a>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col s12">
+            <table id="tbl-educontinua" class="responsive-table display" cellspacing="0" width="100%">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Clave</th>
+                    <th>Nombre Programa</th>
+                    <th>Tipo</th>
+                    <th>Escuela responsable</th>
+                    <th>Clave ubicacion</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th></th>
+                      <th class="non_searchable"></th>
+                  </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="preloader">
+    <div id="preloader"></div>
+</div>
+
+@endsection
+
+@section('footer_scripts')
+
+{!! HTML::script(asset('/vendors/data-tables/js/jquery.dataTables.min.js'), array('type' => 'text/javascript')) !!}
+{!! HTML::script(asset('/js/scripts/data-tables.js'), array('type' => 'text/javascript')) !!}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#tbl-educontinua').dataTable({
+            "language":{"url":base_url+"/api/lang/javascript/datatables"},
+            "serverSide": true,
+            "dom": '"top"i',
+            "pageLength": 5,
+            "ajax": {
+              "type" : "GET",
+              'url': base_url+"/api/progeducontinua",
+              beforeSend: function () {
+                $('.preloader').fadeIn(200,function(){$(this).append('<div id="preloader"></div>');;});
+              },
+              complete: function () {
+                $('.preloader').fadeOut(200,function(){$('#preloader').remove();});
+              },
+            },
+            "columns":[
+              {data: "id"},
+              {data: "ecClave"},
+              {data: "ecNombre"},
+              {data: "tipoprograma.tpNombre"},
+              {data: "escuela.escNombre"},
+              {data: "ubicacion.ubiClave"},
+              {data: "action", name: "action"}
+            ],
+            //Apply the search
+            initComplete: function () {
+                this.api().columns().every(function () {
+                    var column = this;
+                    var columnClass = column.footer().className;
+                    if(columnClass != 'non_searchable'){
+                        var input = document.createElement("input");
+                        $(input).attr("placeholder", "Buscar");
+                        $(input).appendTo($(column.footer()).empty())
+                        .on('change', function () {
+                            column.search($(this).val(), false, false, true).draw();
+                        });
+                    }
+                });
+            }
+        });
+
+
+        /*
+        * BOTÓN PARA ELIMINAR PROGRAMA.
+        */
+        $('#tbl-educontinua').on('click', '.btn-borrar', function() {
+            var programa_id = $(this).data('id');
+            programa_id && borrar_programa(programa_id);
+        });
+
+
+
+
+    });
+
+
+    function borrar_programa(programa_id) {
+        swal({
+            type: 'warning',
+            title: 'Borrar programa #' + programa_id,
+            text: 'Seguro que deseas eliminar este registro?',
+            showCancelButton: true,
+            cancelButtonText: 'No',
+            confirmButtonText: 'Sí',
+            closeOnConfirm: false
+        }, function(){
+            $('#delete_'+programa_id).submit();
+        });
+    }//borrar_programa
+    
+</script>
+
+
+@endsection

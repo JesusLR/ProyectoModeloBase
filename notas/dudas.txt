@@ -1,0 +1,10 @@
+Pasos para cambiar alumno de carrera
+en preinscritos 
+1) dar de baja al alumno en preinscritos
+2) eliminar registro de preinscritos
+3) agregar nuevo preinscritos
+
+
+
+Importante: 
+Si se da da de baja al alumno en alumnos, es baja total.

@@ -1,0 +1,28 @@
+materias
+planes
+->programas
+  ->escuelas
+    ->departamentos
+      ->ubicacion
+
+
+
+EMPLEADOS
+
+estatus de un empleado
+A = Activo
+B = Baja
+S = Suspendido
+
+
+ESCOLARIDAD MAESTRO
+ ultimo grado escolar = "S"
+
+   grupos->leftJoin('escolaridad', function ($join) {
+        $join->on('escolaridad.empleado_id', '=', 'grupos.empleado_id') ;
+        $join->where('escolaridad.escoUltimoGrado', '=', 'S') ;
+      })
+   ->leftJoin('abreviaturastitulos', 'escolaridad.abreviaturaTitulo_id', '=', 'abreviaturastitulos.id')
+
+
+

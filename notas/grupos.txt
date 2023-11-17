@@ -1,0 +1,69 @@
+grupos
+
+  empleado
+    escuela (empleado_id = director escuela)
+
+  plan
+    programa(carrera)
+
+
+un grupo tiene solo una materia
+pueden haber muchos grupos con una misma materia
+los coordinadores crean grupos a ofrecer en la carrera
+
+
+un maestro puede tener varios grupos (padres)
+	un grupo padre puede tener varios grupos hijos
+	si grupo_equivalente_id = null entonces es grupo padre
+	si grupo_equivalente_id != null entonces es grupo hijo
+
+	agarrar id del grupo padre y buscar todos sus grupos hijos con id grupo_equivalente_id != null
+      
+        ultimo curso de un maestro = 
+		todos los grupos de ese maestro
+			obtener el periodo (mayor anio periodo, con mayor numero periodo)
+
+
+BUSCAR CGT DE UN GRUPO
+filtrar grupos por:
+-plan_id
+-periodo_id
+-gpoSemestre
+-gpoTurno
+
+
+
+
+
+cgt = grupo generacion
+  se conforma de = grado(ej. 1),  grupo (ej. a), plan del programa (ej. 2016), programa (ej. arquitectura), periodo (ej. 3 - 2018)
+
+  se crean grupos A, B dependiendo del cupo. Se puede poner cualquier clave de grupo.
+
+  un alumno puede tomar clase con otro grupo =>
+	cgt != grupo por materias.
+
+
+crear un cgt / crear grupos al cgt 
+dar de alta alumno y preinscribes a cgt
+inscritos: cuando los alumnos se meten a los grupos
+
+
+
+
+grupo generacion (cgt)
+	periodo semestral
+    3 = agosto - diciembre (es la primera inscripcion de pago)
+	  1 = enero - junio      (inscripcion pago)
+	
+	(agosto-enero semestres impares, febrero-julio semestres pares)
+
+        pagConcPago = concepto de pago
+           00 => periodo 1
+           99 => periodo 3 
+	pagClaveAlu => alumnos
+        perAnioPago => columna año pago (periodos)
+
+
+
+

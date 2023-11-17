@@ -1,0 +1,42 @@
+una profesion tiene muchos usuarios
+  un usuario pertenece a una profesion
+
+
+
+
+obtener pagos por alumno-periodo
+
+año inscripcion = tabla periodos->perAnioPago
+
+
+
+1) tabla $cursos->where("cursos.id" = $curso_id)
+->periodo
+  ->perAnioPago
+->alumnos
+  ->aluClave (clave pago)
+
+2) tabla pagos
+  ->where("pagClaveAlu" = $curso->alumno->aluClave)
+  ->where("pagAnioPer" = $curso->periodo->perAnioPago)
+  ->where("pagEstado" = "A")
+  ->whereIn("pagConcPago", [0,1,2,3,4,5,6,7,8,9,10,11,12,00,99])
+  ->leftJoin("conceptospago", "pagos.pagConcPago",  "=", "conceptospago.conpClave")	
+
+
+ pagEstado "A" = Aplicado
+
+
+
+ ------------------------------------------
+
+
+Tablas orden 
+CGT - CURSOS - INSCRITOS - GRUPOS
+
+cgt       = grupo generacion
+cursos    = alumnos que pertenecen a cgt (grupo generacion)
+inscritos = alumnos con cgt que pertenecen a grupos-materia diferentes
+grupos    = una materia que pertenece a un plan, a periodo, y a un semestre, con un maestro asignado 
+
+

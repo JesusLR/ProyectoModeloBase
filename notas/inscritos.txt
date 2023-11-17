@@ -1,0 +1,1 @@
+usualmente se agarran inscritos que no sean baja,  curso.curEstado = B(aja)

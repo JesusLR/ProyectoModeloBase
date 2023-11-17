@@ -1,0 +1,1 @@
+/Applications/xampp/xamppfiles/bin/mysqldump -u root -p scem_dis > /Users/ismaelparedes/Desktop/scem_2018_12_19.sql

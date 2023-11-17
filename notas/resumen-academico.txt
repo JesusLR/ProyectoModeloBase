@@ -1,0 +1,9 @@
+Para saber el primer curso de un alumno
+  
+  de Resumen Academico obtener
+    alumno_id, resPeriodoIngreso
+
+  en curso->cgt =>
+    Buscar por curso->alumno_id, curso->periodo_id
+    me debe dar una sola fila
+    

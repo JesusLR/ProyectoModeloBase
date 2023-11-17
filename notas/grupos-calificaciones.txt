@@ -1,0 +1,23 @@
+grupos->estado_act
+
+A = Abierto sin calificar
+B = Abierto con calificacion
+C = Cerrado
+
+A: 
+  Coordinador = Modificar calificaciones
+  Maestro     = Capturar calificaciones
+
+B:
+  Usuarios "B", "A" = Pueden Modificar
+
+C: 
+  Nadie puede cambiar calificaciones
+
+
+
+(Archivos enviados a SEP se cambia estatus de B a C)
+Se cambia el estatus de A a B del grupo al guardar ordinario.
+
+
+Modulo calificaciones: Docente/SCEM

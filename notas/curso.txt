@@ -1,0 +1,87 @@
+curso
+
+
+
+cursos es la relacion de alumnos por cgt
+
+
+
+
+  si ($concepto =  [00, 01, 02, 03, 04, 05]))
+      el periodo del curso es 1
+  si ($concepto > 05 o $concepto = 99) {
+      el periodo del curso es 3
+
+
+
+
+
+
+
+anio escolar = anio inicio => perAnioPago   -   anio final => perAnioPago + 1
+
+
+*alumnos no tienen periodos repetidos
+*segey = curTipoIngreso
+
+estados de un curso
+curEstado
+B = baja
+R = regular (pagado)
+C = condicionado
+A = condicionado2
+P = preinscrito (no ha pagado)
+
+
+
+tipo de ingreso (SEGEY)
+curTipoIngreso
+NI = nuevo ingreso
+PI = primer ingreso
+RO = repetidor
+RI = reinscripcion
+RE = reingreso
+EQ = revalidacion
+OY = oyente
+XX = otro
+
+en materias (historico, tipoAcreditación)
+CI = curso inicial
+CR = curso repeticion
+X1 = extra 1
+X2 = extra 2
+X3 = extra 3
+X4 = extra 4
+X5 = extra 5
+EE = curso especial
+RV = Revalidacion
+RC = Recursamiento
+CP = Certificado Parcial
+
+
+
+obtener ultimo curso actual que esta llevando un alumno 
+    en historico
+    $ultimoCurso = $historialFirst->alumno->cursos()->where("curEstado", "=", "R")->orderByDesc("curFechaRegistro")->first();
+
+
+    Buscar y obtener si el alunmo se encuentra en el ultimo curso actual
+    $curso = Curso::with("alumno")
+      ->whereHas('alumno', function($query) use ($request) {
+        if ($request->aluClave) {
+          $query->where('aluClave', '=', $request->aluClave);//
+        }
+      })
+      // ->whereHas('periodo', function($query) use ($request) {
+      //   if ($request->perActual) {
+      //     $query->where('perActual', '=', $request->perActual);//
+      //   }
+      // })
+    ->get();
+    
+
+    $cursoActual = $curso->filter(function ($item, $key) {
+      return $item->periodo->id == $item->periodo->departamento->perActual;
+    })->first();
+
+

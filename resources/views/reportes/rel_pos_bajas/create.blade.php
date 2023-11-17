@@ -1,0 +1,228 @@
+@extends('layouts.dashboard')
+
+@section('template_title')
+    Reportes
+@endsection
+
+@section('breadcrumbs')
+  <a href="{{url('/')}}" class="breadcrumb">Inicio</a>
+  <a href="" class="breadcrumb">Posibles bajas por reprobación</a>
+@endsection
+
+@section('content')
+
+  @php
+      $ubicacion_id = Auth::user()->empleado->escuela->departamento->ubicacion->id;
+  @endphp
+
+<div class="row">
+  <div class="col s12 ">
+    {!! Form::open(['onKeypress' => 'return disableEnterKey(event)','url' => 'reporte/rel_pos_bajas/imprimir', 'method' => 'POST', 'target' => '_blank']) !!}
+      <div class="card ">
+        <div class="card-content ">
+          <span class="card-title">Posibles bajas por reprobación</span>
+          {{-- NAVIGATION BAR--}}
+          <nav class="nav-extended">
+            <div class="nav-content">
+              <ul class="tabs tabs-transparent">
+                <li class="tab"><a class="active" href="#filtros">Filtros de búsqueda</a></li>
+              </ul>
+            </div>
+          </nav>
+
+          {{-- GENERAL BAR--}}
+
+            <div class="row">
+              <div class="col s12 m12 l6">
+                <div class="card-panel amber lighten-5">
+                  <p>Proporcione el período del segundo curso concluido para validar el último año.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s12 m6 l4">
+                <br>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" name="aluBaja" id="aluBaja">
+                  <label class="custom-control-label" for="aluBaja">Incluir alumnos dados de baja</label>
+                </div>
+              </div>
+              <div class="col s12 m6 l4">
+                <br>
+                <select name="parcial" id="parcial" data-parcial="{{old('parcial')}}" class="browser-default validate select2" style="width: 100%;">
+                  <option value="">No incluir parciales</option>
+                  <option value="inscCalificacionParcial1">1er. Parcial</option>
+                  <option value="inscCalificacionParcial2">2do. Parcial</option>
+                  <option value="inscCalificacionParcial3">3er. Parcial</option>
+                  <option value="inscPromedioParciales">Promedio Parciales</option>
+                  <option value="inscCalificacionOrdinario">Ordinario</option>
+                  <option value="incsCalificacionFinal">Calificacion Final</option>
+                </select>
+              </div>
+              <div class="col s12 m6 l4">
+                <div class="input-field" id="campo_calificacion">
+                  <input type="number" name="calificacion_maxima" id="calificacion_maxima" class="validate" 
+                    value="{{old('calificacion_maxima')}}"
+                    max="100" min="0">
+                  <label for="calificacion_maxima">Calificación máxima</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s12 m6 l4">
+                  <label for="ubicacion_id">Ubicación*</label>
+                  <select name="ubicacion_id" id="ubicacion_id" data-ubicacion-id="{{old('ubicacion_id')}}" class="browser-default validate select2" style="width:100%;" required>
+                      <option value="">SELECCIONE UNA OPCIÓN</option>
+                      @foreach($ubicaciones as $ubicacion)
+                          <option value="{{$ubicacion->id}}">{{$ubicacion->ubiClave}} - {{$ubicacion->ubiNombre}}</option>
+                      @endforeach
+                  </select>
+              </div>
+              <div class="col s12 m6 l4">
+                  <label for="departamento_id">Departamento*</label>
+                  <select name="departamento_id" id="departamento_id" data-departamento-id="{{old('departamento_id')}}" class="browser-default validate select2" style="width:100%;" required>
+                      <option value="">SELECCIONE UNA OPCIÓN</option>
+                  </select>
+              </div>
+              <div class="col s12 m6 l4">
+                  <label for="periodo_id">Periodo*</label>
+                  <select name="periodo_id" id="periodo_id" data-periodo-id="{{old('periodo_id')}}" class="browser-default validate select2" style="width:100%;" required>
+                      <option value="">SELECCIONE UNA OPCIÓN</option>
+                  </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s12 m6 l4">
+                  <label for="escuela_id">Escuela*</label>
+                  <select name="escuela_id" id="escuela_id" data-escuela-id="{{old('escuela_id')}}" class="browser-default validate select2" style="width:100%;" required>
+                      <option value="">SELECCIONE UNA OPCIÓN</option>
+                  </select>
+              </div>
+              <div class="col s12 m6 l4">
+                  <label for="programa_id">Programa*</label>
+                  <select name="programa_id" id="programa_id" data-programa-id="{{old('programa_id')}}" class="browser-default validate select2" style="width:100%;" required>
+                      <option value="">SELECCIONE UNA OPCIÓN</option>
+                  </select>
+              </div>
+              <div class="col s12 m6 l4">
+                <div class="input-field col s12 m6 l6">
+                  {!! Form::number('cgtGradoSemestre', NULL, array('id' => 'cgtGradoSemestre', 'class' => 'validate','min'=>'0','max'=>'12')) !!}
+                  {!! Form::label('cgtGradoSemestre', 'Grado', array('class' => '')); !!}
+                </div> 
+                <div class="input-field col s12 m6 l6">
+                  {!! Form::text('cgtGrupo', NULL, array('id' => 'cgtGrupo', 'class' => 'validate','min'=>'0')) !!}
+                  {!! Form::label('cgtGrupo','Grupo', array('class' => '')); !!}
+                </div> 
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s12 m6 l4">
+                <div class="input-field col s12 m6 l6">
+                  {!! Form::number('aluClave', NULL, array('id' => 'aluClave', 'class' => 'validate','min'=>'0','max'=>'12')) !!}
+                  {!! Form::label('aluClave', 'Clave de pago', array('class' => '')); !!}
+                </div>
+                <div class="input-field col s12 m6 l6">
+                  {!! Form::text('aluMatricula', NULL, array('id' => 'aluMatricula', 'class' => 'validate','min'=>'0')) !!}
+                  {!! Form::label('aluMatricula', 'Matricula del Alumno', array('class' => '')); !!}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 m6 l4">
+                <div class="input-field col s12 m6 l6">
+                  {!! Form::text('perApellido1', NULL, array('id' => 'perApellido1', 'class' => 'validate','min'=>'0')) !!}
+                  {!! Form::label('perApellido1', 'Apellido Paterno', array('class' => '')); !!}
+                </div>
+                <div class="input-field col s12 m6 l6">
+                  {!! Form::text('perApellido2', NULL, array('id' => 'perApellido2', 'class' => 'validate','min'=>'0')) !!}
+                  {!! Form::label('perApellido2', 'Apellido Materno', array('class' => '')); !!}
+                </div>
+              </div>
+              <div class="col s12 m6 l4">
+                <div class="input-field">
+                  {!! Form::text('perNombre', NULL, array('id' => 'perNombre', 'class' => 'validate','min'=>'0')) !!}
+                  {!! Form::label('perNombre', 'Nombre', array('class' => '')); !!}
+                </div>
+              </div>
+            </div>
+
+
+
+            </div>
+
+          </div>
+        </div>
+        <div class="card-action">
+          {!! Form::button('<i class="material-icons left">picture_as_pdf</i> GENERAR REPORTE', ['class' => 'btn-large waves-effect  darken-3','type' => 'submit']) !!}
+        </div>
+      </div>
+    {!! Form::close() !!}
+  </div>
+</div>
+
+  {{-- Script de funciones auxiliares  --}}
+  {!! HTML::script(asset('js/funcionesAuxiliares.js'), array('type' => 'text/javascript')) !!}
+
+@endsection
+
+
+@section('footer_scripts')
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        var ubicacion = $('#ubicacion_id');
+        var departamento = $('#departamento_id');
+        var escuela = $('#escuela_id');
+        let selector_parcial = $('#parcial');
+        let campo_calificacion = $('#campo_calificacion');
+
+        var ubicacion_id = {!! json_encode(old('ubicacion_id')) !!} || {!! json_encode($ubicacion_id) !!};
+        if(ubicacion_id) {
+            ubicacion.val(ubicacion_id).select2();
+            getDepartamentos(ubicacion_id);
+        }
+
+        ubicacion.on('change', function() {
+            this.value ? getDepartamentos(this.value) : resetSelect('departamento_id');
+        });
+
+        departamento.on('change', function() {
+            if(this.value) {
+                getPeriodos(this.value);
+                getEscuelas(this.value);
+            } else {
+                resetSelect('periodo_id');
+                resetSelect('escuela_id');
+            }
+        });
+
+        escuela.on('change', function() {
+            this.value ? getProgramas(this.value) : resetSelect('programa_id');
+        });
+
+        apply_data_to_select('parcial', 'parcial');
+
+        actualizar_formulario(campo_calificacion, selector_parcial);
+        selector_parcial.on('change', function() {
+          actualizar_formulario(campo_calificacion, this);
+        });
+        
+    });
+
+    function actualizar_formulario(fields_div, selector) {
+      if(selector.value) {
+        fields_div.show();
+        applyRequired(['calificacion_maxima']);
+      } else {
+        fields_div.hide();
+        emptyElements(['calificacion_maxima']);
+        unsetRequired([['calificacion_maxima']]);
+      }
+    }
+</script>
+
+@endsection

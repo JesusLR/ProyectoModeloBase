@@ -1,0 +1,44 @@
+PERMISO (Acciones) (Control escolar) en laravel=utils->validaPermiso
+  A,B,E => Cualquier accion (modulos)
+  C => Valida sobre el permiso de su carrera
+
+(Coordinador, director) *pueden tener muchas carreras
+
+
+
+Acceder al controlador (D) (por defecto todos) Solo para consultas. (middleware)
+
+
+-------------------------------------------------------
+
+
+USUARIO
+  => perfil y permiso por modulo
+
+por usuario
+  A = Todo
+  B = Usuarios control academico (tramites)
+  C = Coordinadores/Directores
+  D = Consultas
+  E = especial /ciertas acciones extras
+  P = Solo pagos
+
+
+
+
+--------------------------------------------------------------------------
+Desarrollo de nuevo modulo con permisos
+
+1 .- $this->middleware('permisos:#nuevomodulo',['except' => ['index','show','list']]);
+
+2 .- ir a ModuloController
+  => agregar nuevo modulo al final de la lista
+    Modules::create([
+        'name'  => 'Historico',      <- poner cualquier nombre para saber el modulo al que se refiere
+        'slug'  => '#nuevomodulo',
+        'class' => 'Administración', <- depende del menu en el que se encuentre
+    ]);
+
+3 .- ir a: menu administracion -> crear modulos
+
+4 .- ir a: menu administracion -> crear permiso-modulo
