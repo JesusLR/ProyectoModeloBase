@@ -15,11 +15,11 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Optativa;
-use App\Http\Models\Materia;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Cgt;
-use App\Http\Models\Periodo;
+use App\Models\Optativa;
+use App\Models\Materia;
+use App\Models\Ubicacion;
+use App\Models\Cgt;
+use App\Models\Periodo;
 use App\Models\User;
 
 class OptativaController extends Controller

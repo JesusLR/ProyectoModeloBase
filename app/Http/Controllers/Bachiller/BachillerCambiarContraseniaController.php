@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Bachiller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Bachiller\Bachiller_empleados;
+use App\Models\Bachiller\Bachiller_empleados;
 use App\Models\User_docente;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -35,7 +35,7 @@ class BachillerCambiarContraseniaController extends Controller
      */
     public function create()
     {
-        $empleados = Bachiller_empleados::select(             
+        $empleados = Bachiller_empleados::select(
             'bachiller_empleados.id as empleado_id',
             'bachiller_empleados.empNombre',
             'bachiller_empleados.empApellido1',
@@ -64,7 +64,7 @@ class BachillerCambiarContraseniaController extends Controller
 
         if($request->ajax()){
 
-            $empleados = Bachiller_empleados::select(             
+            $empleados = Bachiller_empleados::select(
                 'bachiller_empleados.id',
                 'bachiller_empleados.empNombre',
                 'bachiller_empleados.empApellido1',
@@ -81,7 +81,7 @@ class BachillerCambiarContraseniaController extends Controller
             ->join('ubicacion', 'departamentos.ubicacion_id', '=', 'ubicacion.id')
             ->where('bachiller_empleados.id', '=', $id)
             ->get();
-         
+
 
             return response()->json($empleados);
         }
@@ -94,7 +94,7 @@ class BachillerCambiarContraseniaController extends Controller
      */
     public function store(Request $request)
     {
-        
+
 
         $validator = Validator::make($request->all(), [
             'password'          =>  'required|min:8|max:20|regex:/^.*?(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*$/',
@@ -113,7 +113,7 @@ class BachillerCambiarContraseniaController extends Controller
         }
 
         $bachiller_empleado = Bachiller_empleados::findOrfail($request->empleado_id);
-        // validamos escuela_id para saber que campos habilitar 
+        // validamos escuela_id para saber que campos habilitar
         if($bachiller_empleado->escuela_id == "23"){
             $campus_cme = 1;
         }else{
@@ -135,7 +135,7 @@ class BachillerCambiarContraseniaController extends Controller
         $docente = User_docente::create([
             'empleado_id' => $request->empleado_id,
             'password'    => Hash::make($request->password),
-            'token'       => str_random(64),
+            'token'       => Str::random(64),
             'bachiller'  => 1,
             'superior'  => 0,
             'posgrado'  => 0,
@@ -144,12 +144,12 @@ class BachillerCambiarContraseniaController extends Controller
             'campus_cva'  => $campus_cva,
             'campus_cch'  => $campus_cch
         ]);
-        
+
         $empleado = Bachiller_empleados::where('id', $request->empleado_id)->first();
         $empleado->update([
             'empCorreo1' => $request->empCorreo1
         ]);
-        
+
 
         alert()->success('Escuela Modelo', 'Contraseña guardada correctamente.')->showConfirmButton();
         return redirect('bachiller_cambiar_contrasenia');
@@ -163,7 +163,7 @@ class BachillerCambiarContraseniaController extends Controller
      */
     public function show($id)
     {
-        
+
         $docente = User_docente::findOrFail($id);
         $empleado = Bachiller_empleados::where('id', $docente->empleado_id)->first();
 
@@ -218,7 +218,7 @@ class BachillerCambiarContraseniaController extends Controller
 
         $bachiller_empleado = Bachiller_empleados::findOrfail($request->empleado_id);
 
-        // validamos escuela_id para saber que campos habilitar 
+        // validamos escuela_id para saber que campos habilitar
         if($bachiller_empleado->escuela_id == "23"){
             $campus_cme = 1;
         }else{
@@ -263,7 +263,7 @@ class BachillerCambiarContraseniaController extends Controller
     public function list() {
 
         $docentes = User_docente::select(
-            'users_docentes.id', 
+            'users_docentes.id',
             'bachiller_empleados.id as empleado_id',
             'bachiller_empleados.empNombre',
             'bachiller_empleados.empApellido1',
@@ -283,7 +283,7 @@ class BachillerCambiarContraseniaController extends Controller
         ->latest('users_docentes.created_at');
 
         return DataTables::eloquent($docentes)
-        
+
         ->filterColumn('empleadoID', function ($query, $keyword) {
             $query->whereRaw("CONCAT(bachiller_empleados.id) like ?", ["%{$keyword}%"]);
         })
@@ -315,7 +315,7 @@ class BachillerCambiarContraseniaController extends Controller
 
         ->filterColumn('ubicacion', function($query, $keyword) {
             $query->whereRaw("CONCAT(ubiNombre) like ?", ["%{$keyword}%"]);
-            
+
         })
         ->addColumn('ubicacion', function($query) {
             return $query->ubiNombre;
@@ -323,7 +323,7 @@ class BachillerCambiarContraseniaController extends Controller
 
         ->filterColumn('correo_empleado', function($query, $keyword) {
             $query->whereRaw("CONCAT(empCorreo1) like ?", ["%{$keyword}%"]);
-            
+
         })
         ->addColumn('correo_empleado', function($query) {
             return $query->empCorreo1;
@@ -331,21 +331,21 @@ class BachillerCambiarContraseniaController extends Controller
 
         ->filterColumn('departamento', function($query, $keyword) {
             $query->whereRaw("CONCAT(depNombre) like ?", ["%{$keyword}%"]);
-            
+
         })
         ->addColumn('departamento', function($query) {
             return $query->depNombre;
         })
 
 
-       
+
         ->addColumn('action', static function(User_docente $docente) {
 
             $ubicacion = Auth::user()->empleado->escuela->departamento->ubicacion->ubiClave;
             $sistemas = Auth::user()->departamento_sistemas;
 
             $btnEditar = "";
-            
+
             $action_url = '/bachiller_cambiar_contrasenia';
             if($ubicacion == $docente->ubiClave || $sistemas == 1){
                 $btnEditar = Utils::btn_edit($docente->id, $action_url);
@@ -355,7 +355,7 @@ class BachillerCambiarContraseniaController extends Controller
                         .Utils::btn_show($docente->id, $action_url)
                         .$btnEditar.
                    '</div>';
-        })  
+        })
         ->make(true);
     }//list.
 

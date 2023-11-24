@@ -7,13 +7,13 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\Escuela;
-use App\Http\Models\Empleado;
-use App\Http\Models\Grupo;
-use App\Http\Models\Horario;
-use App\Http\Models\HorarioAdmivo;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Escuela;
+use App\Models\Empleado;
+use App\Models\Grupo;
+use App\Models\Horario;
+use App\Models\HorarioAdmivo;
 use App\Http\Helpers\Utils;
 
 use RealRashid\SweetAlert\Facades\Alert;

@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Curso;
-use App\Http\Models\Periodo;
-use App\Http\Models\Materia;
-use App\Http\Models\Historico;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\ResumenAcademico;
-use App\Http\Models\Calificacion;
+use App\Models\Curso;
+use App\Models\Periodo;
+use App\Models\Materia;
+use App\Models\Historico;
+use App\Models\Ubicacion;
+use App\Models\ResumenAcademico;
+use App\Models\Calificacion;
 use App\Http\Helpers\Utils;
 use App\clases\personas\MetodosPersonas as Personas;
 use App\clases\historicos\MetodosHistoricos;
@@ -175,7 +175,7 @@ class PosiblesBajasController extends Controller
     }
 
     /**
-    * @param App\Http\Models\Curso
+    * @param App\Models\Curso
     */
     private static function extraer_info_curso($curso) {
 
@@ -332,7 +332,7 @@ class PosiblesBajasController extends Controller
     }
 
     /**
-    * @param App\Http\Models\Calificacion
+    * @param App\Models\Calificacion
     * @param string $parcial
     * @param int $calificacion_minima
     */

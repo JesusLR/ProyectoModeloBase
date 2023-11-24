@@ -4,7 +4,7 @@ namespace App\Http\Requests\Revalidaciones;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-use App\Http\Models\Materia;
+use App\Models\Materia;
 
 class RevalidarRequest extends FormRequest
 {

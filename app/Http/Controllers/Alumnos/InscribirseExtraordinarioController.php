@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Extraordinario;
-use App\Http\Models\Departamento;
-use App\Http\Models\Alumno;
-use App\Http\Models\Curso;
-use App\Http\Models\PreinscritoExtraordinario;
+use App\Models\Extraordinario;
+use App\Models\Departamento;
+use App\Models\Alumno;
+use App\Models\Curso;
+use App\Models\PreinscritoExtraordinario;
 
 use App\clases\personas\MetodosPersonas;
 use Yajra\DataTables\Facades\DataTables;
@@ -221,7 +221,7 @@ class InscribirseExtraordinarioController extends Controller
     /**
     * devuelve las materias reprobadas del alumno.
     *
-    * @param  App\Http\Models\Alumno $alumno
+    * @param  App\Models\Alumno $alumno
     * @return Collection $reprobadas
     */
     public function reprobadas_alumno($alumno) {

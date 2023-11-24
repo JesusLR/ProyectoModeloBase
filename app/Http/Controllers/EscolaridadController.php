@@ -15,10 +15,10 @@ use Validator;
 use Debugbar;
 
 use App\Models\User;
-use App\Http\Models\Escolaridad;
-use App\Http\Models\Profesion;
-use App\Http\Models\Abreviatura;
-use App\Http\Models\Empleado;
+use App\Models\Escolaridad;
+use App\Models\Profesion;
+use App\Models\Abreviatura;
+use App\Models\Empleado;
 use App\Http\Helpers\Utils;
 use App\clases\escolaridades\MetodosEscolaridades;
 

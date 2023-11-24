@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Bachiller\Reportes;
 
 use App\Http\Controllers\Controller;
-use App\Http\Models\Bachiller\Bachiller_extraordinarios;
-use App\Http\Models\Bachiller\Bachiller_grupos;
+use App\Models\Bachiller\Bachiller_extraordinarios;
+use App\Models\Bachiller\Bachiller_grupos;
 use DB;
 use PDF;
 use Carbon\Carbon;
 
 
 use Illuminate\Http\Request;
-use App\Http\Models\Ubicacion;
+use App\Models\Ubicacion;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class BachillerActasPendientesYucatanController extends Controller

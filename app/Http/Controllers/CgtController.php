@@ -15,13 +15,13 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Cgt;
-use App\Http\Models\Grupo;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Empleado;
-use App\Http\Models\Periodo;
-use App\Http\Models\Programa;
-use App\Http\Models\Plan;
+use App\Models\Cgt;
+use App\Models\Grupo;
+use App\Models\Ubicacion;
+use App\Models\Empleado;
+use App\Models\Periodo;
+use App\Models\Programa;
+use App\Models\Plan;
 
 class CgtController extends Controller
 {

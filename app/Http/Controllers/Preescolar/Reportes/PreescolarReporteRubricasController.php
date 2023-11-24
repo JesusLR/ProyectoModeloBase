@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Preescolar\Reportes;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Departamento;
-use App\Http\Models\Preescolar\Preescolar_rubricas;
-use App\Http\Models\Ubicacion;
+use App\Models\Departamento;
+use App\Models\Preescolar\Preescolar_rubricas;
+use App\Models\Ubicacion;
 use Illuminate\Support\Facades\DB;
 use PDF;
 

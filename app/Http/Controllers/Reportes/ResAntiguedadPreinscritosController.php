@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Reportes;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Models\Curso;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Ficha;
-use App\Http\Models\Programa;
-use App\Http\Models\Periodo;
-use App\Http\Models\Calificacion;
-use App\Http\Models\Departamento;
-use App\Http\Models\Inscrito;
+use App\Models\Curso;
+use App\Models\Ubicacion;
+use App\Models\Ficha;
+use App\Models\Programa;
+use App\Models\Periodo;
+use App\Models\Calificacion;
+use App\Models\Departamento;
+use App\Models\Inscrito;
 
 use App\Http\Helpers\Utils;
 

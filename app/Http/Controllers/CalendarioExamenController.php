@@ -8,9 +8,9 @@ use App\Http\Requests\CalendarioExamen\UpdateCalendarioExamen;
 
 use Auth;
 use App\Models\User;
-use App\Http\Models\CalendarioExamen;
-use App\Http\Models\Extraordinario;
-use App\Http\Models\Ubicacion;
+use App\Models\CalendarioExamen;
+use App\Models\Extraordinario;
+use App\Models\Ubicacion;
 
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;

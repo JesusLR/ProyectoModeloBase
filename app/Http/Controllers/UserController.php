@@ -16,12 +16,12 @@ use Validator;
 use Debugbar;
 
 use App\Models\User;
-use App\Http\Models\Empleado;
+use App\Models\Empleado;
 use App\Models\Modules;
 use App\Models\Permission;
 use App\Models\Permission_module_user;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Permiso_programa_user;
+use App\Models\Ubicacion;
+use App\Models\Permiso_programa_user;
 
 class UserController extends Controller
 {
@@ -123,7 +123,7 @@ class UserController extends Controller
                 'username.unique'   => "El usuario ya existe",
                 'password.min'      => 'La contraseña debe tener al menos 8 caracteres',
                 'password.max'      => 'La longitud máxima de la contraseña es de 20 caracteres',
-                'password.regex'    => 'La contraseña debe tener al menos una Mayúscula, una minúscula y un número.', 
+                'password.regex'    => 'La contraseña debe tener al menos una Mayúscula, una minúscula y un número.',
             ]
         );
 
@@ -135,7 +135,7 @@ class UserController extends Controller
                     'empleado_id'      => $request->input('empleado_id'),
                     'username'         => $request->input('username'),
                     'password'         => bcrypt($request->input('password')),
-                    'token'            => str_random(64),
+                    'token'            => Str::random(64),
                 ]);
 
 
@@ -217,7 +217,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {   
+    {
         $validacionPassword = "";
         $validacionPasswordConfirmacion = "";
         if ($request->password) {

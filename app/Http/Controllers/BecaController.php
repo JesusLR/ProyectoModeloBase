@@ -10,8 +10,8 @@ use DB;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Beca;
-use App\Http\Models\Ubicacion;
+use App\Models\Beca;
+use App\Models\Ubicacion;
 use App\Models\User;
 
 class BecaController extends Controller

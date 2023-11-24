@@ -15,7 +15,7 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Abreviatura;
+use App\Models\Abreviatura;
 use App\Models\User;
 
 class AbreviaturaController extends Controller

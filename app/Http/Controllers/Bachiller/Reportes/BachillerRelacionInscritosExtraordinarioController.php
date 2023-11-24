@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Bachiller\Bachiller_inscritosextraordinarios;
-use App\Http\Models\Escuela;
-use App\Http\Models\Plan;
-use App\Http\Models\Programa;
+use App\Models\Bachiller\Bachiller_inscritosextraordinarios;
+use App\Models\Escuela;
+use App\Models\Plan;
+use App\Models\Programa;
 use Carbon\Carbon;
 use Exception;
 use PDF;
@@ -131,7 +131,7 @@ class BachillerRelacionInscritosExtraordinarioController extends Controller
     }
 
     /**
-     * @param App\Http\Models\InscritoExtraordinario
+     * @param App\Models\InscritoExtraordinario
      */
     private static function info_esencial($inscrito) {
 

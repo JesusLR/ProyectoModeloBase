@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Models\Logs_personas_autorizadas;
+use App\Models\Logs_personas_autorizadas;
 use Illuminate\Http\Request;
 
 class PersonasAutorizadasLogsController extends Controller

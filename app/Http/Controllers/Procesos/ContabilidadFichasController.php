@@ -16,9 +16,9 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Escuela;
-use App\Http\Models\Ficha;
-use App\Http\Models\Empleado;
+use App\Models\Escuela;
+use App\Models\Ficha;
+use App\Models\Empleado;
 use App\Models\User;
 
 class ContabilidadFichasController extends Controller

@@ -9,11 +9,11 @@ use Illuminate\Support\Collection;
 use Auth;
 use Validator;
 
-use App\Http\Models\ServicioSocial;
-use App\Http\Models\Alumno;
-use App\Http\Models\Curso;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\ResumenAcademico;
+use App\Models\ServicioSocial;
+use App\Models\Alumno;
+use App\Models\Curso;
+use App\Models\Ubicacion;
+use App\Models\ResumenAcademico;
 use App\Http\Helpers\Utils;
 use App\clases\serviciosocial\MetodosServicioSocial as Servicios;
 use App\clases\personas\MetodosPersonas as Personas;

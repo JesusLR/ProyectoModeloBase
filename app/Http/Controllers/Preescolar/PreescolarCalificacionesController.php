@@ -18,21 +18,21 @@ use Debugbar;
 use PDF;
 
 
-use App\Http\Models\Grupo;
-use App\Http\Models\Curso;
-use App\Http\Models\Cgt;
-use App\Http\Models\Aula;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Empleado;
-use App\Http\Models\Periodo;
-use App\Http\Models\Programa;
-use App\Http\Models\Plan;
-use App\Http\Models\Escuela;
-use App\Http\Models\Persona;
-use App\Http\Models\Preescolar\Preescolar_grupo; //rutas prescolar
-use App\Http\Models\Preescolar\Preescolar_inscrito; //rutas prescolar
-use App\Http\Models\Preescolar\Preescolar_materia; //rutas prescolar
-use App\Http\Models\Preescolar\Preescolar_calificacion; //rutas prescolar
+use App\Models\Grupo;
+use App\Models\Curso;
+use App\Models\Cgt;
+use App\Models\Aula;
+use App\Models\Ubicacion;
+use App\Models\Empleado;
+use App\Models\Periodo;
+use App\Models\Programa;
+use App\Models\Plan;
+use App\Models\Escuela;
+use App\Models\Persona;
+use App\Models\Preescolar\Preescolar_grupo; //rutas prescolar
+use App\Models\Preescolar\Preescolar_inscrito; //rutas prescolar
+use App\Models\Preescolar\Preescolar_materia; //rutas prescolar
+use App\Models\Preescolar\Preescolar_calificacion; //rutas prescolar
 
 use App\Http\Controllers\Controller;
 

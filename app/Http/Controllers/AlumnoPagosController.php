@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Models\Alumno;
-use App\Http\Models\Pago;
+use App\Models\Alumno;
+use App\Models\Pago;
 
 use Yajra\DataTables\Facades\DataTables;
 

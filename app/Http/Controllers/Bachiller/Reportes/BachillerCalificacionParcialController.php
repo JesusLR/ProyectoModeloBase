@@ -5,15 +5,15 @@ namespace App\Http\Controllers\Bachiller\Reportes;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Firmante;
-use App\Http\Models\Calificacion;
-use App\Http\Models\Curso;
-use App\Http\Models\Minutario;
+use App\Models\Ubicacion;
+use App\Models\Firmante;
+use App\Models\Calificacion;
+use App\Models\Curso;
+use App\Models\Minutario;
 use App\Http\Helpers\Utils;
 use App\clases\personas\MetodosPersonas;
 use App\clases\cgts\MetodosCgt;
-use App\Http\Models\Bachiller\Bachiller_inscritos;
+use App\Models\Bachiller\Bachiller_inscritos;
 use DB;
 use PDF;
 use Carbon\Carbon;
@@ -110,7 +110,7 @@ class BachillerCalificacionParcialController extends Controller
   }
 
   /**
-  * @param App\Http\Models\Curso
+  * @param App\Models\Curso
   */
   private static function buscarCalificaciones($curso)
   {
@@ -130,7 +130,7 @@ class BachillerCalificacionParcialController extends Controller
   }
 
   /**
-  * @param App\Http\Models\Curso
+  * @param App\Models\Curso
   */
   private static function obtenerInfoAlumno($curso)
   {
@@ -162,8 +162,8 @@ class BachillerCalificacionParcialController extends Controller
 
 
   /**
-  * @param App\Http\Models\Periodo $periodo_seleccionado
-  * @param App\Http\Models\Periodo $periodo_actual
+  * @param App\Models\Periodo $periodo_seleccionado
+  * @param App\Models\Periodo $periodo_actual
   */
   private static function definir_es_fue($periodo_seleccionado, $periodo_actual)
   {
@@ -175,7 +175,7 @@ class BachillerCalificacionParcialController extends Controller
 
 
   /**
-  * @param App\Http\Models\Curso
+  * @param App\Models\Curso
   */
   private static function crear_minutario($curso) 
   {

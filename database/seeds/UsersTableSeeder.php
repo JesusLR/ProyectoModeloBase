@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
             'empleado_id'                    => 1,
             'username'                       => 'ISMAEL',
             'password'                       => Hash::make('12345678'),
-            'token'                          => str_random(64),
+            'token'                          => Str::random(64),
         ]);
     }
 }

@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Bachiller\Reportes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Bachiller\Bachiller_inscritos_evidencias;
-use App\Http\Models\Ubicacion;
+use App\Models\Bachiller\Bachiller_inscritos_evidencias;
+use App\Models\Ubicacion;
 use Carbon\Carbon;
 use PDF;
 

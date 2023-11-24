@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Secundaria\Reportes;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Periodo;
-use App\Http\Models\Secundaria\Secundaria_grupos;
-use App\Http\Models\Secundaria\Secundaria_materias;
-use App\Http\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Secundaria\Secundaria_grupos;
+use App\Models\Secundaria\Secundaria_materias;
+use App\Models\Ubicacion;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use PDF;

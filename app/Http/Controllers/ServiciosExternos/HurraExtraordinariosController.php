@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\Plan;
-use App\Http\Models\Historico;
-use App\Http\Models\Curso;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Plan;
+use App\Models\Historico;
+use App\Models\Curso;
 
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -148,7 +148,7 @@ class HurraExtraordinariosController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Historico
+     * @param App\Models\Historico
      */
     private static function info_esencial($historico, $planes, $periodos): array {
 

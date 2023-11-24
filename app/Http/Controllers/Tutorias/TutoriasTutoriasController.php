@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Tutorias;
 use Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Tutorias\Tutorias_alumnos;
-use App\Http\Models\Tutorias\Tutorias_detalle_tutorias;
-use App\Http\Models\Tutorias\Tutorias_pregunta_respuestas;
-use App\Http\Models\Tutorias\Tutorias_tutores;
-use App\Http\Models\Tutorias\Tutorias_tutorias;
+use App\Models\Tutorias\Tutorias_alumnos;
+use App\Models\Tutorias\Tutorias_detalle_tutorias;
+use App\Models\Tutorias\Tutorias_pregunta_respuestas;
+use App\Models\Tutorias\Tutorias_tutores;
+use App\Models\Tutorias\Tutorias_tutorias;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 

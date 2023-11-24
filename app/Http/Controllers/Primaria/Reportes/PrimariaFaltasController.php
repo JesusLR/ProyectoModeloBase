@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Primaria\Reportes;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Curso;
+use App\Models\Ubicacion;
+use App\Models\Curso;
 
 use App\Http\Helpers\Utils;
-use App\Http\Models\Primaria\Primaria_falta;
+use App\Models\Primaria\Primaria_falta;
 use Carbon\Carbon;
 use PDF;
 use RealRashid\SweetAlert\Facades\Alert;

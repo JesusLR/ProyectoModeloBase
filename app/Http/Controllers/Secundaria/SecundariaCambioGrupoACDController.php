@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Secundaria;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Secundaria\Secundaria_grupos;
-use App\Http\Models\Ubicacion;
+use App\Models\Secundaria\Secundaria_grupos;
+use App\Models\Ubicacion;
 use Illuminate\Support\Facades\DB;
 
 class SecundariaCambioGrupoACDController extends Controller

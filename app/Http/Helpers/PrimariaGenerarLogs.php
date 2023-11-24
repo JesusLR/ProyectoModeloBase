@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Helpers;
 
-use App\Http\Models\Primaria\Primaria_UsuarioLog;
+use App\Models\Primaria\Primaria_UsuarioLog;
 use Carbon\Carbon;
 
 class PrimariaGenerarLogs

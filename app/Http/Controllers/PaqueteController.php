@@ -12,12 +12,12 @@ use Auth;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Cgt;
-use App\Http\Models\Grupo;
-use App\Http\Models\Curso;
-use App\Http\Models\Paquete;
-use App\Http\Models\Paquete_detalle;
-use App\Http\Models\Ubicacion;
+use App\Models\Cgt;
+use App\Models\Grupo;
+use App\Models\Curso;
+use App\Models\Paquete;
+use App\Models\Paquete_detalle;
+use App\Models\Ubicacion;
 
 class PaqueteController extends Controller
 {

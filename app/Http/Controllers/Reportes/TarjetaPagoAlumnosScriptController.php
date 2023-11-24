@@ -6,13 +6,13 @@ use PDF;
 use Ficha;
 
 use Carbon\Carbon;
-use App\Http\Models\Pago;
-use App\Http\Models\Cuota;
-use App\Http\Models\Curso;
+use App\Models\Pago;
+use App\Models\Cuota;
+use App\Models\Curso;
 use App\Http\Helpers\Utils;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Ubicacion;
+use App\Models\Ubicacion;
 
 use App\Http\Controllers\Controller;
 

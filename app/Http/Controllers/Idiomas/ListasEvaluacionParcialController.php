@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Idiomas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Grupo;
-use App\Http\Models\Idiomas\Idiomas_grupos;
-use App\Http\Models\Idiomas\Idiomas_calificaciones_materia;
-use App\Http\Models\Inscrito;
+use App\Models\Ubicacion;
+use App\Models\Grupo;
+use App\Models\Idiomas\Idiomas_grupos;
+use App\Models\Idiomas\Idiomas_calificaciones_materia;
+use App\Models\Inscrito;
 
 use DB;
 use PDF;

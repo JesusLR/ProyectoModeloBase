@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Bachiller;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Bachiller\Bachiller_agenda_colores;
-use App\Http\Models\Bachiller\Bachiller_agendas;
+use App\Models\Bachiller\Bachiller_agenda_colores;
+use App\Models\Bachiller\Bachiller_agendas;
 
 class BachillerAgendaController extends Controller
 {

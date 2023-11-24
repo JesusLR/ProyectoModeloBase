@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Primaria;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Primaria\Primaria_materia;
-use App\Http\Models\Primaria\Primaria_materias_asignaturas;
-use App\Http\Models\Ubicacion;
+use App\Models\Primaria\Primaria_materia;
+use App\Models\Primaria\Primaria_materias_asignaturas;
+use App\Models\Ubicacion;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;

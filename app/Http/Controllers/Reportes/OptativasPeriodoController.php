@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Reportes;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Models\Municipio;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Estado;
-use App\Http\Models\Programa;
-use App\Http\Models\Periodo;
-use App\Http\Models\Calificacion;
-use App\Http\Models\Inscrito;
+use App\Models\Municipio;
+use App\Models\Ubicacion;
+use App\Models\Estado;
+use App\Models\Programa;
+use App\Models\Periodo;
+use App\Models\Calificacion;
+use App\Models\Inscrito;
 
 use Carbon\Carbon;
 

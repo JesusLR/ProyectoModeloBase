@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Http\Models\Municipio;
+use App\Models\Municipio;
 
 class MunicipiosTableSeeder extends Seeder
 {

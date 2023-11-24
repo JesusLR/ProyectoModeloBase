@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Tutorias;
 use Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Tutorias\Tutorias_permiso_roles;
-use App\Http\Models\Tutorias\Tutorias_permisos;
-use App\Http\Models\Tutorias\Tutorias_roles;
-use App\Http\Models\Tutorias\Tutorias_usuario;
+use App\Models\Tutorias\Tutorias_permiso_roles;
+use App\Models\Tutorias\Tutorias_permisos;
+use App\Models\Tutorias\Tutorias_roles;
+use App\Models\Tutorias\Tutorias_usuario;
 use Illuminate\Database\QueryException;
 use Yajra\DataTables\Facades\DataTables;
 

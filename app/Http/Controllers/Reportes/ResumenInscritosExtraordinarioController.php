@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\Extraordinario;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Extraordinario;
 
 use Carbon\Carbon;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -89,7 +89,7 @@ class ResumenInscritosExtraordinarioController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Extraordinario
+     * @param App\Models\Extraordinario
      */
     private static function info_esencial($extraordinario) {
         $plan = $extraordinario->materia->plan;

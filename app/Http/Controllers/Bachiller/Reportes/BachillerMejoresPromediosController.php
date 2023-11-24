@@ -8,9 +8,9 @@ use App\clases\personas\MetodosPersonas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Bachiller\Bachiller_historico;
-use App\Http\Models\Curso;
-use App\Http\Models\Ubicacion;
+use App\Models\Bachiller\Bachiller_historico;
+use App\Models\Curso;
+use App\Models\Ubicacion;
 use Carbon\Carbon;
 use Exception;
 use PDF;
@@ -158,7 +158,7 @@ class BachillerMejoresPromediosController extends Controller
   
     /**
     * @param Collection $cursos
-    * @param App\Http\Models\Plan
+    * @param App\Models\Plan
     * @return Collection
     */
     private static function buscarHistoricos($cursos, $plan, $periodo_id): Collection

@@ -14,14 +14,14 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Grupo;
-use App\Http\Models\Curso;
+use App\Models\Grupo;
+use App\Models\Curso;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Bachiller\Bachiller_asistencia;
-use App\Http\Models\Bachiller\Bachiller_grupos;
-use App\Http\Models\Bachiller\Bachiller_inscritos;
-use App\Http\Models\Departamento;
+use App\Models\Bachiller\Bachiller_asistencia;
+use App\Models\Bachiller\Bachiller_grupos;
+use App\Models\Bachiller\Bachiller_inscritos;
+use App\Models\Departamento;
 
 class BachillerInscritosController extends Controller
 {

@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Primaria;
 use Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Alumno;
-use App\Http\Models\Pais;
-use App\Http\Models\Primaria\Primaria_alumnos_entrevista;
-use App\Http\Models\Primaria\Primaria_expediente_entrevista_inicial;
+use App\Models\Alumno;
+use App\Models\Pais;
+use App\Models\Primaria\Primaria_alumnos_entrevista;
+use App\Models\Primaria\Primaria_expediente_entrevista_inicial;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\QueryException;
@@ -17,9 +17,9 @@ use PDF;
 use Yajra\DataTables\Facades\DataTables;
 use App\clases\departamentos\MetodosDepartamentos as Departamentos;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Estado;
-use App\Http\Models\Municipio;
-use App\Http\Models\Persona;
+use App\Models\Estado;
+use App\Models\Municipio;
+use App\Models\Persona;
 use Illuminate\Support\Str;
 
 

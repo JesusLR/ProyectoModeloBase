@@ -5,12 +5,12 @@ namespace App\Http\Controllers\Bachiller\Reportes;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Extraordinario;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Optativa;
+use App\Models\Extraordinario;
+use App\Models\Ubicacion;
+use App\Models\Optativa;
 use App\clases\personas\MetodosPersonas;
-use App\Http\Models\Bachiller\Bachiller_empleados;
-use App\Http\Models\Bachiller\Bachiller_inscritosextraordinarios;
+use App\Models\Bachiller\Bachiller_empleados;
+use App\Models\Bachiller\Bachiller_inscritosextraordinarios;
 use Luecano\NumeroALetras\NumeroALetras;
 use Carbon\Carbon;
 use PDF;

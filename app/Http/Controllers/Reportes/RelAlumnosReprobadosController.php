@@ -8,12 +8,12 @@ use PDF;
 use Carbon\Carbon;
 use App\Http\Helpers\Utils;
 
-use App\Http\Models\Periodo;
-use App\Http\Models\Escuela;
-use App\Http\Models\Programa;
+use App\Models\Periodo;
+use App\Models\Escuela;
+use App\Models\Programa;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Ubicacion;
+use App\Models\Ubicacion;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 

@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Reportes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\Plan;
-use App\Http\Models\Curso;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Plan;
+use App\Models\Curso;
 
 use App\clases\personas\MetodosPersonas;
 use RealRashid\SweetAlert\Facades\Alert;

@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Reportes;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Calificacion;
+use App\Models\Ubicacion;
+use App\Models\Calificacion;
 use App\Http\Helpers\Utils;
 
 use DB;

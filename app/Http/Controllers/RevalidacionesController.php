@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\Revalidaciones\RevalidarRequest;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\ResumenAcademico;
-use App\Http\Models\Materia;
-use App\Http\Models\Periodo;
-use App\Http\Models\Historico;
+use App\Models\Ubicacion;
+use App\Models\ResumenAcademico;
+use App\Models\Materia;
+use App\Models\Periodo;
+use App\Models\Historico;
 use App\clases\alumnos\MetodosAlumnos;
 
 use Exception;

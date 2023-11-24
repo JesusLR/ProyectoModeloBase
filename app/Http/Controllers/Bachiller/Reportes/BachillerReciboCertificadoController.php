@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Bachiller\Reportes;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Models\Bachiller\Bachiller_pago_certificado;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Curso;
+use App\Models\Bachiller\Bachiller_pago_certificado;
+use App\Models\Ubicacion;
+use App\Models\Curso;
 
 use App\Http\Helpers\Utils;
 use Carbon\Carbon;

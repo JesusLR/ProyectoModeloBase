@@ -3,7 +3,7 @@
 namespace App\Http\Requests\ConceptoPago;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Http\Models\ConceptoPago;
+use App\Models\ConceptoPago;
 
 class UpdateConceptoPago extends FormRequest
 {

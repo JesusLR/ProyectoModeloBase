@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Models\Cgt;
-use App\Http\Models\Curso;
-use App\Http\Models\Alumno;
-use App\Http\Models\MatriculaAnterior;
+use App\Models\Cgt;
+use App\Models\Curso;
+use App\Models\Alumno;
+use App\Models\MatriculaAnterior;
 use App\clases\personas\MetodosPersonas;
 
 use DB;
@@ -127,8 +127,8 @@ class CambiarMatriculasController extends Controller
     }
 
     /**
-    * @param App\Http\Models\Programa $programa
-    * @param App\Http\Models\Alumno $alumno
+    * @param App\Models\Programa $programa
+    * @param App\Models\Alumno $alumno
     * @param string $nueva_matricula
     */
     public static function registrarCambio($programa, $alumno, $nueva_matricula) {

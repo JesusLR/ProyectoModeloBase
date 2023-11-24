@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\Escuela;
-use App\Http\Models\Programa;
-use App\Http\Models\Plan;
-use App\Http\Models\Beca;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Escuela;
+use App\Models\Programa;
+use App\Models\Plan;
+use App\Models\Beca;
 use App\Http\Helpers\UltimaFechaPago;
 
 use Carbon\Carbon;

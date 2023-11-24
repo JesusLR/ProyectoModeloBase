@@ -5,7 +5,7 @@ namespace App\Http\Controllers\ServiciosExternos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Curso;
+use App\Models\Curso;
 
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -69,7 +69,7 @@ class HurraAlumnosController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Curso
+     * @param App\Models\Curso
      */
     private static function info_esencial($curso): array {
         $cgt = $curso->cgt;

@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Reportes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Grupo;
-use App\Http\Models\Inscrito;
+use App\Models\Ubicacion;
+use App\Models\Grupo;
+use App\Models\Inscrito;
 use App\clases\personas\MetodosPersonas;
 use App\clases\calificaciones\MetodosCalificaciones;
 

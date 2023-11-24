@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Plan;
-use App\Http\Models\Periodo;
-use App\Http\Models\Curso;
-use App\Http\Models\Tutorias\Tutorias_categoria_preguntas;
-use App\Http\Models\Tutorias\Tutorias_formularios;
-use App\Http\Models\Tutorias\Tutorias_respuestas;
-use App\Http\Models\Tutorias\Tutorias_pregunta_respuestas;
+use App\Models\Ubicacion;
+use App\Models\Plan;
+use App\Models\Periodo;
+use App\Models\Curso;
+use App\Models\Tutorias\Tutorias_categoria_preguntas;
+use App\Models\Tutorias\Tutorias_formularios;
+use App\Models\Tutorias\Tutorias_respuestas;
+use App\Models\Tutorias\Tutorias_pregunta_respuestas;
 use App\Http\Helpers\Utils;
 use App\clases\cgts\MetodosCgt;
 
@@ -156,7 +156,7 @@ class ReporteCuantitativoRespuestaController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Curso $curso
+     * @param App\Models\Curso $curso
      * @param Illuminate\Support\Collection $respuestas
      */
     // public static function info_esencial($curso, $respuestas)

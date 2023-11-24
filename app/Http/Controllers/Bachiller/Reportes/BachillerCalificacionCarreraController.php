@@ -5,17 +5,17 @@ namespace App\Http\Controllers\Bachiller\Reportes;
 use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Historico;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Firmante;
-use App\Http\Models\Curso;
-use App\Http\Models\Minutario;
+use App\Models\Historico;
+use App\Models\Ubicacion;
+use App\Models\Firmante;
+use App\Models\Curso;
+use App\Models\Minutario;
 use App\Http\Helpers\Utils;
 use App\clases\historicos\MetodosHistoricos;
 use App\clases\cgts\MetodosCgt;
 use App\clases\personas\MetodosPersonas;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Bachiller\Bachiller_historico;
+use App\Models\Bachiller\Bachiller_historico;
 use DB;
 use PDF;
 use Carbon\Carbon;
@@ -273,7 +273,7 @@ class BachillerCalificacionCarreraController extends Controller
 
 
   /**
-  * @param App\Http\Models\Plan
+  * @param App\Models\Plan
   */
   private function buscarHistoricos($plan): Collection
   {
@@ -298,7 +298,7 @@ class BachillerCalificacionCarreraController extends Controller
   }
 
   /**
-  * @param App\Http\Models\Plan
+  * @param App\Models\Plan
   */
   private function buscarCursosDeAlumno($plan): Collection
   {
@@ -332,8 +332,8 @@ class BachillerCalificacionCarreraController extends Controller
 
 
   /**
-  * @param App\Http\Models\Historico $bachiller_historico
-  * @param App\Http\Models\Curso $curso
+  * @param App\Models\Historico $bachiller_historico
+  * @param App\Models\Curso $curso
   */
   private function info_materia_cursada($bachiller_historico, $curso = null): array
   {
@@ -368,7 +368,7 @@ class BachillerCalificacionCarreraController extends Controller
 
 
   /**
-  * @param App\Http\Models\Curso
+  * @param App\Models\Curso
   */
   private function obtener_info_alumno($curso)
   {
@@ -392,7 +392,7 @@ class BachillerCalificacionCarreraController extends Controller
 
 
   /**
-  * @param App\Http\Models\Firmante
+  * @param App\Models\Firmante
   */
   private function obtener_info_firmante($firmante)
   {
@@ -405,8 +405,8 @@ class BachillerCalificacionCarreraController extends Controller
 
 
   /**
-  * @param App\Http\Models\Periodo $periodo_seleccionado
-  * @param App\Http\Models\Periodo $periodo_actual
+  * @param App\Models\Periodo $periodo_seleccionado
+  * @param App\Models\Periodo $periodo_actual
   */
   private function definir_es_fue($periodo_seleccionado, $periodo_actual)
   {
@@ -430,7 +430,7 @@ class BachillerCalificacionCarreraController extends Controller
 
 
   /**
-  * @param App\Http\Models\Curso
+  * @param App\Models\Curso
   */
   private static function crear_minutario($curso)
   {

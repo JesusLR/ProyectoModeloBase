@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Preescolar\Reportes;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Curso;
-use App\Http\Models\Periodo;
-use App\Http\Models\Ubicacion;
+use App\Models\Curso;
+use App\Models\Periodo;
+use App\Models\Ubicacion;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 

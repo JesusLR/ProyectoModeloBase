@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ConceptoPago\StoreConceptoPago;
 use App\Http\Requests\ConceptoPago\UpdateConceptoPago;
 
-use App\Http\Models\ConceptoPago;
+use App\Models\ConceptoPago;
 
 use Yajra\DataTables\Facades\DataTables;
 use RealRashid\SweetAlert\Facades\Alert;

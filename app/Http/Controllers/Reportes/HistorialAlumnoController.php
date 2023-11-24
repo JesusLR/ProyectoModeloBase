@@ -7,16 +7,16 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Plan;
-use App\Http\Models\Curso;
-use App\Http\Models\Grupo;
-use App\Http\Models\Alumno;
-use App\Http\Models\Firmante;
-use App\Http\Models\Programa;
-use App\Http\Models\ResumenAcademico;
-use App\Http\Models\Historico;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\AlumnoRestringido;
+use App\Models\Plan;
+use App\Models\Curso;
+use App\Models\Grupo;
+use App\Models\Alumno;
+use App\Models\Firmante;
+use App\Models\Programa;
+use App\Models\ResumenAcademico;
+use App\Models\Historico;
+use App\Models\Ubicacion;
+use App\Models\AlumnoRestringido;
 use App\Http\Helpers\Utils;
 
 use DB;

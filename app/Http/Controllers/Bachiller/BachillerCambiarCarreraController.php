@@ -4,18 +4,18 @@ namespace App\Http\Controllers\Bachiller;
 
 use Illuminate\Http\Request;
 
-use App\Http\Models\Curso;
-use App\Http\Models\Cgt;
-use App\Http\Models\Ubicacion;
+use App\Models\Curso;
+use App\Models\Cgt;
+use App\Models\Ubicacion;
 use App\clases\cambiar_carrera\Notificacion;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Bachiller\Bachiller_cch_inscritos;
-use App\Http\Models\Bachiller\Bachiller_inscritos;
-use App\Http\Models\Departamento;
-use App\Http\Models\Escuela;
-use App\Http\Models\Periodo;
-use App\Http\Models\Plan;
-use App\Http\Models\Programa;
+use App\Models\Bachiller\Bachiller_cch_inscritos;
+use App\Models\Bachiller\Bachiller_inscritos;
+use App\Models\Departamento;
+use App\Models\Escuela;
+use App\Models\Periodo;
+use App\Models\Plan;
+use App\Models\Programa;
 use DB;
 use Exception;
 use Carbon\Carbon;

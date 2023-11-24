@@ -15,9 +15,9 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Programa;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Empleado;
+use App\Models\Programa;
+use App\Models\Ubicacion;
+use App\Models\Empleado;
 use App\Models\User;
 
 class ProgramaController extends Controller

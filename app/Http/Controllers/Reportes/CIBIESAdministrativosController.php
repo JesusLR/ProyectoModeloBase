@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Empleado;
-use App\Http\Models\Periodo;
+use App\Models\Ubicacion;
+use App\Models\Empleado;
+use App\Models\Periodo;
 use App\Http\Helpers\Utils;
 
 use RealRashid\SweetAlert\Facades\Alert;
@@ -72,7 +72,7 @@ class CIBIESAdministrativosController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Empleado
+     * @param App\Models\Empleado
      */
     private static function info_esencial($empleado) {
         

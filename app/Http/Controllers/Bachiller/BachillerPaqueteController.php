@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Bachiller;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Bachiller\Bachiller_grupos;
-use App\Http\Models\Bachiller\Bachiller_paquete_detalle;
-use App\Http\Models\Bachiller\Bachiller_paquetes;
+use App\Models\Bachiller\Bachiller_grupos;
+use App\Models\Bachiller\Bachiller_paquete_detalle;
+use App\Models\Bachiller\Bachiller_paquetes;
 use Illuminate\Database\QueryException;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
@@ -16,12 +16,12 @@ use Auth;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Cgt;
-use App\Http\Models\Grupo;
-use App\Http\Models\Curso;
-use App\Http\Models\Paquete;
-use App\Http\Models\Paquete_detalle;
-use App\Http\Models\Ubicacion;
+use App\Models\Cgt;
+use App\Models\Grupo;
+use App\Models\Curso;
+use App\Models\Paquete;
+use App\Models\Paquete_detalle;
+use App\Models\Ubicacion;
 
 class BachillerPaqueteController extends Controller
 {

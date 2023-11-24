@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Tutorias;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Tutorias\Tutorias_alumnos;
-use App\Http\Models\Tutorias\Tutorias_pregunta_respuestas;
-use App\Http\Models\Tutorias\Tutorias_respuestas;
-use App\Http\Models\Tutorias\Tutorias_tutores;
-use App\Http\Models\Ubicacion;
+use App\Models\Tutorias\Tutorias_alumnos;
+use App\Models\Tutorias\Tutorias_pregunta_respuestas;
+use App\Models\Tutorias\Tutorias_respuestas;
+use App\Models\Tutorias\Tutorias_tutores;
+use App\Models\Ubicacion;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use PhpOffice\PhpWord\SimpleType\Zoom;

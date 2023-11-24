@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests\AlumnoRestringido\StoreRestringido;
 use Auth;
 
-use App\Http\Models\AlumnoRestringido;
-use App\Http\Models\NivelListaNegra;
-use App\Http\Models\Alumno;
+use App\Models\AlumnoRestringido;
+use App\Models\NivelListaNegra;
+use App\Models\Alumno;
 use App\Models\User;
 
 use Yajra\DataTables\Facades\DataTables;

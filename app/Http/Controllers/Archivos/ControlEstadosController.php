@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Archivos;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Http\Models\Ubicacion;
+use App\Models\Ubicacion;
 use Illuminate\Support\Facades\DB;
-use App\Http\Models\ControlEstados;
+use App\Models\ControlEstados;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;

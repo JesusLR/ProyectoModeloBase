@@ -5,18 +5,18 @@ namespace App\Http\Controllers\EducacionContinua\Reportes;
 use DB;
 use PDF;
 use Carbon\Carbon;
-use App\Http\Models\Aula;
-use App\Http\Models\Pago;
+use App\Models\Aula;
+use App\Models\Pago;
 use App\Http\Helpers\Utils;
 use App\Http\Helpers\UltimaFechaPago;
 use Illuminate\Http\Request;
-use App\Http\Models\Empleado;
+use App\Models\Empleado;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\TiposPrograma;
+use App\Models\Ubicacion;
+use App\Models\TiposPrograma;
 use App\Http\Controllers\Controller;
-use App\Http\Models\InscritosEduCont;
-use App\Http\Models\EducacionContinua;
+use App\Models\InscritosEduCont;
+use App\Models\EducacionContinua;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class RelAluProgEduconController extends Controller

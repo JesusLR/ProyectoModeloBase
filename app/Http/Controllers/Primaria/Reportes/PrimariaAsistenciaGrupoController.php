@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Primaria\Reportes;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Curso;
+use App\Models\Ubicacion;
+use App\Models\Curso;
 
 use App\Http\Helpers\Utils;
 use Carbon\Carbon;

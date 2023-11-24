@@ -15,8 +15,8 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Acuerdo;
-use App\Http\Models\Ubicacion;
+use App\Models\Acuerdo;
+use App\Models\Ubicacion;
 use App\Models\User;
 
 class AcuerdoController extends Controller

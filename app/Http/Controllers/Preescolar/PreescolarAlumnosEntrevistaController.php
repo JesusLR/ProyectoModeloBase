@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Preescolar;
 
 use App\Http\Controllers\Controller;
-use App\Http\Models\Pais;
-use App\Http\Models\Preescolar\Preescolar_alumnos_entrevista;
+use App\Models\Pais;
+use App\Models\Preescolar\Preescolar_alumnos_entrevista;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 

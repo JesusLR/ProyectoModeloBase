@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Reportes;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Departamento;
-use App\Http\Models\Escuela;
-use App\Http\Models\Ubicacion;
+use App\Models\Departamento;
+use App\Models\Escuela;
+use App\Models\Ubicacion;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use PhpOffice\PhpSpreadsheet\Cell\DataType;

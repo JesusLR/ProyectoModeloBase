@@ -6,9 +6,9 @@ use DB;
 use PDF;
 use Carbon\Carbon;
 
-use App\Http\Models\Grupo;
-use App\Http\Models\Extraordinario;
-use App\Http\Models\Ubicacion;
+use App\Models\Grupo;
+use App\Models\Extraordinario;
+use App\Models\Ubicacion;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

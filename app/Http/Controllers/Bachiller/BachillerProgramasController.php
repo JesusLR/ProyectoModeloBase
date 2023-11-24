@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Bachiller;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Bachiller\Bachiller_empleados;
-use App\Http\Models\Programa;
-use App\Http\Models\Ubicacion;
+use App\Models\Bachiller\Bachiller_empleados;
+use App\Models\Programa;
+use App\Models\Ubicacion;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Yajra\DataTables\Facades\DataTables;

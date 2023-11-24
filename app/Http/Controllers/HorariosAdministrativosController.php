@@ -17,12 +17,12 @@ use Debugbar;
 
 use App\Models\User;
 
-use App\Http\Models\Grupo;
-use App\Http\Models\Empleado;
-use App\Http\Models\HorarioAdmivo;
-use App\Http\Models\Periodo;
-use App\Http\Models\Horario;
-use App\Http\Models\Ubicacion;
+use App\Models\Grupo;
+use App\Models\Empleado;
+use App\Models\HorarioAdmivo;
+use App\Models\Periodo;
+use App\Models\Horario;
+use App\Models\Ubicacion;
 use Doctrine\DBAL\Driver\PDOConnection;
 
 

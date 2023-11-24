@@ -15,24 +15,24 @@ use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use App\Models\User;
 use App\Models\User_docente;
-use App\Http\Models\Persona;
-use App\Http\Models\Idiomas\Idiomas_grupos;
-use App\Http\Models\Alumno;
-use App\Http\Models\Pais;
-use App\Http\Models\Estado;
-use App\Http\Models\Idiomas\Idiomas_empleados;
-use App\Http\Models\Gimnasio\Gimnasio_usuarios;
-use App\Http\Models\Gimnasio\Gimnasio_tipos_usuario;
-use App\Http\Models\Municipio;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Puesto;
+use App\Models\Persona;
+use App\Models\Idiomas\Idiomas_grupos;
+use App\Models\Alumno;
+use App\Models\Pais;
+use App\Models\Estado;
+use App\Models\Idiomas\Idiomas_empleados;
+use App\Models\Gimnasio\Gimnasio_usuarios;
+use App\Models\Gimnasio\Gimnasio_tipos_usuario;
+use App\Models\Municipio;
+use App\Models\Ubicacion;
+use App\Models\Puesto;
 use App\Http\Helpers\Utils;
 use App\clases\personas\MetodosPersonas;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Curso;
-use App\Http\Models\Pago;
+use App\Models\Curso;
+use App\Models\Pago;
 use PDF;
 use Codedge\Fpdf\Fpdf\Fpdf;
 use App\Http\Helpers\GenerarReferencia;
@@ -842,7 +842,7 @@ class GimnasioUsuarioController extends Controller
     }
 
     /**
-    * @param App\Http\Models\UsuaGim $usuariogim
+    * @param App\Models\UsuaGim $usuariogim
     * @param boolean $invertido
     */
     public function nombreCompleto($usuariogim, $invertido = false): String
@@ -854,7 +854,7 @@ class GimnasioUsuarioController extends Controller
     }
 
     /**
-    * @param App\Http\Models\UsuaGim
+    * @param App\Models\UsuaGim
     */
     public function generar_referencia($usuariogim, $clave_pago)
     {

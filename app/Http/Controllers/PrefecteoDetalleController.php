@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Models\PrefecteoDetalle;
+use App\Models\PrefecteoDetalle;
 
 use Exception;
 use RealRashid\SweetAlert\Facades\Alert;

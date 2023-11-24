@@ -10,36 +10,36 @@ use App\clases\personas\MetodosPersonas;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Alumno;
-use App\Http\Models\Bachiller\Bachiller_alumnos_historia_clinica;
-use App\Http\Models\Bachiller\Bachiller_alumnos_historia_clinica_actividades;
-use App\Http\Models\Bachiller\Bachiller_alumnos_historia_clinica_conducta;
-use App\Http\Models\Bachiller\Bachiller_alumnos_historia_clinica_desarrollo;
-use App\Http\Models\Bachiller\Bachiller_alumnos_historia_clinica_familiares;
-use App\Http\Models\Bachiller\Bachiller_alumnos_historia_clinica_habitos;
-use App\Http\Models\Bachiller\Bachiller_alumnos_historia_clinica_heredo;
-use App\Http\Models\Bachiller\Bachiller_alumnos_historia_clinica_medica;
-use App\Http\Models\Bachiller\Bachiller_alumnos_historia_clinica_nacimiento;
-use App\Http\Models\Bachiller\Bachiller_alumnos_historia_clinica_sociales;
-use App\Http\Models\Bachiller\SecundariaProcedencia;
-use App\Http\Models\Baja;
-use App\Http\Models\Beca;
-use App\Http\Models\Candidato;
-use App\Http\Models\ConceptoBaja;
-use App\Http\Models\Curso;
-use App\Http\Models\Departamento;
-use App\Http\Models\Empleado;
-use App\Http\Models\Estado;
-use App\Http\Models\MatriculaAnterior;
-use App\Http\Models\Minutario;
-use App\Http\Models\Municipio;
-use App\Http\Models\Pago;
-use App\Http\Models\Pais;
-use App\Http\Models\Persona;
-use App\Http\Models\PreparatoriaProcedencia;
-use App\Http\Models\Programa;
-use App\Http\Models\Tutor;
-use App\Http\Models\Ubicacion;
+use App\Models\Alumno;
+use App\Models\Bachiller\Bachiller_alumnos_historia_clinica;
+use App\Models\Bachiller\Bachiller_alumnos_historia_clinica_actividades;
+use App\Models\Bachiller\Bachiller_alumnos_historia_clinica_conducta;
+use App\Models\Bachiller\Bachiller_alumnos_historia_clinica_desarrollo;
+use App\Models\Bachiller\Bachiller_alumnos_historia_clinica_familiares;
+use App\Models\Bachiller\Bachiller_alumnos_historia_clinica_habitos;
+use App\Models\Bachiller\Bachiller_alumnos_historia_clinica_heredo;
+use App\Models\Bachiller\Bachiller_alumnos_historia_clinica_medica;
+use App\Models\Bachiller\Bachiller_alumnos_historia_clinica_nacimiento;
+use App\Models\Bachiller\Bachiller_alumnos_historia_clinica_sociales;
+use App\Models\Bachiller\SecundariaProcedencia;
+use App\Models\Baja;
+use App\Models\Beca;
+use App\Models\Candidato;
+use App\Models\ConceptoBaja;
+use App\Models\Curso;
+use App\Models\Departamento;
+use App\Models\Empleado;
+use App\Models\Estado;
+use App\Models\MatriculaAnterior;
+use App\Models\Minutario;
+use App\Models\Municipio;
+use App\Models\Pago;
+use App\Models\Pais;
+use App\Models\Persona;
+use App\Models\PreparatoriaProcedencia;
+use App\Models\Programa;
+use App\Models\Tutor;
+use App\Models\Ubicacion;
 use App\Models\Modules;
 use App\Models\Permission;
 use App\Models\Permission_module_user;
@@ -51,8 +51,8 @@ use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 use Validator;
 use App\clases\SCEM\MailerBAC;
-use App\Http\Models\ListaNegra;
-use App\Http\Models\TutorAlumno;
+use App\Models\ListaNegra;
+use App\Models\TutorAlumno;
 use Illuminate\Support\Str;
 use PDF;
 
@@ -1410,7 +1410,7 @@ class BachillerAlumnosController extends Controller
 	}
 
 	/**
-	* @param App\Http\Models\Baja
+	* @param App\Models\Baja
 	*/
 	private function armar_mensaje_de_notificacion_update($alumno)
 	{

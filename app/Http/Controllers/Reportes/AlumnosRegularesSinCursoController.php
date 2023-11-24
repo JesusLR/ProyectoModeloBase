@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Curso;
-use App\Http\Models\Alumno;
-use App\Http\Models\ResumenAcademico;
+use App\Models\Curso;
+use App\Models\Alumno;
+use App\Models\ResumenAcademico;
 
 use Carbon\Carbon;
 use RealRashid\SweetAlert\Facades\Alert;

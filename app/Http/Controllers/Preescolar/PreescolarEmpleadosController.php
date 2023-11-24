@@ -8,19 +8,19 @@ use Debugbar;
 use Validator;
 use Carbon\Carbon;
 use App\Models\User;
-use App\Http\Models\Pais;
+use App\Models\Pais;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Estado;
+use App\Models\Estado;
 use Illuminate\Support\Str;
-use App\Http\Models\Persona;
+use App\Models\Persona;
 use App\Models\User_docente;
-use App\Http\Models\Grupo;
-use App\Http\Models\Alumno;
+use App\Models\Grupo;
+use App\Models\Alumno;
 
 use Illuminate\Http\Request;
-use App\Http\Models\Empleado;
-use App\Http\Models\Municipio;
-use App\Http\Models\Ubicacion;
+use App\Models\Empleado;
+use App\Models\Municipio;
+use App\Models\Ubicacion;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -28,8 +28,8 @@ use Yajra\DataTables\Facades\DataTables;
 
 use App\clases\personas\MetodosPersonas;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Departamento;
-use App\Http\Models\Preescolar\Preescolar_UsuarioLog;
+use App\Models\Departamento;
+use App\Models\Preescolar\Preescolar_UsuarioLog;
 use Exception;
 
 class PreescolarEmpleadosController extends Controller
@@ -96,7 +96,7 @@ class PreescolarEmpleadosController extends Controller
                 $query->whereRaw("CONCAT(perTelefono1) like ?", ["%{$keyword}%"]);
             })
             ->addColumn('telefono', function ($query) {
-                return $query->perTelefono1;                
+                return $query->perTelefono1;
             })
 
             ->addColumn('empEstado', function ($query) {
@@ -312,13 +312,13 @@ class PreescolarEmpleadosController extends Controller
                     } else {
                         $campus_cme = 0;
                     }
-        
+
                     if ($request->ubicacion_id == 2) {
                         $campus_cva = 1;
                     } else {
                         $campus_cva = 0;
                     }
-        
+
                     if ($request->ubicacion_id == 3) {
                         $campus_cch = 1;
                     } else {
@@ -332,7 +332,7 @@ class PreescolarEmpleadosController extends Controller
                     }else{
                         $maternal = 0;
                     }
-            
+
                     if($departamento->depClave == "PRE"){
                         $preescolar = 1;
                     }else{
@@ -343,7 +343,7 @@ class PreescolarEmpleadosController extends Controller
                         User_docente::create([
                             'empleado_id'      => $empleado->id,
                             'password'         => bcrypt($request->password),
-                            'token'            => str_random(64),
+                            'token'            => Str::random(64),
                             'maternal'         => $maternal,
                             'preescolar'       => $preescolar,
                             'primaria'         => 0,
@@ -606,7 +606,7 @@ class PreescolarEmpleadosController extends Controller
             } else {
                 $campus_cch = 0;
             }
-            
+
             $departamento = Departamento::find($request->departamento_id);
 
             if($departamento->depClave == "MAT"){
@@ -614,18 +614,18 @@ class PreescolarEmpleadosController extends Controller
             }else{
                 $maternal = 0;
             }
-    
+
             if($departamento->depClave == "PRE"){
                 $preescolar = 1;
             }else{
                 $preescolar = 0;
             }
-    
+
 
             $user_docente = User_docente::where('empleado_id', $empleado->id)->first();
 
             if ($user_docente != "") {
-                // actualizar el campus 
+                // actualizar el campus
                 $user_docente->update([
                     'campus_cme' => $campus_cme,
                     'campus_cva' => $campus_cva,
@@ -635,7 +635,7 @@ class PreescolarEmpleadosController extends Controller
 
             if ($request->password) {
                 $user_docente = User_docente::where('empleado_id',$empleado->id)->first();
-                if ($user_docente) {                    
+                if ($user_docente) {
                     $user_docente->password = bcrypt($request->password);
                     $user_docente->preescolar = 1;
                     $user_docente->save();
@@ -643,7 +643,7 @@ class PreescolarEmpleadosController extends Controller
                     $userDocente = User_docente::create([
                         'empleado_id'      => $empleado->id,
                         'password'         => bcrypt($request->password),
-                        'token'            => str_random(64),
+                        'token'            => Str::random(64),
                         'maternal'         => $maternal,
                         'preescolar'       => $preescolar,
                         'primaria'         => 0,
@@ -658,7 +658,7 @@ class PreescolarEmpleadosController extends Controller
                         'campus_cch' => $campus_cch
                     ]);
 
-        
+
                 }
             }
 
@@ -816,7 +816,7 @@ class PreescolarEmpleadosController extends Controller
                 User_docente::create([
                     'empleado_id'      => $empleado->id,
                     'password'         => bcrypt($request->input('password')),
-                    'token'            => str_random(64),
+                    'token'            => Str::random(64),
                 ]);
             }
         } catch (Exception $e) {
@@ -833,7 +833,7 @@ class PreescolarEmpleadosController extends Controller
         }else{
             return $empleado;
         }
-        
+
     }//alumno_crearEmpleado.
 
     public function cambioEstado()
@@ -863,7 +863,7 @@ class PreescolarEmpleadosController extends Controller
             ->join('personas', 'empleados.persona_id', '=', 'personas.id')
             ->join('puestos', 'puestos.id', 'empleados.puesto_id')
             ->join('escuelas', 'escuelas.id', 'empleados.escuela_id')
-            ->join('departamentos', 'departamentos.id', 'escuelas.departamento_id')            
+            ->join('departamentos', 'departamentos.id', 'escuelas.departamento_id')
             ->whereIn('empleados.empEstado', ['A', 'B'])
             ->whereIn('departamentos.depClave', ['MAT', 'PRE']);
 

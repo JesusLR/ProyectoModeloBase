@@ -6,8 +6,8 @@ use App\clases\departamentos\MetodosDepartamentos;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Cgt;
-use App\Http\Models\Departamento;
+use App\Models\Cgt;
+use App\Models\Departamento;
 use Illuminate\Database\QueryException;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
@@ -18,9 +18,9 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Escuela;
-use App\Http\Models\Plan;
-use App\Http\Models\Programa;
+use App\Models\Escuela;
+use App\Models\Plan;
+use App\Models\Programa;
 use Illuminate\Support\Facades\Auth;
 
 class BachillerFuncionesGenericasController extends Controller

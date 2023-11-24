@@ -4,7 +4,7 @@ namespace App\Exports;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
-use App\Http\Models\Empleado;
+use App\Models\Empleado;
 
 use Maatwebsite\Excel\Concerns\FromCollection;
 use DB;

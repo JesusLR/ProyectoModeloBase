@@ -3,7 +3,7 @@ namespace App\clases\alumnos;
 
 use Illuminate\Support\Facades\DB;
 
-use App\Http\Models\Alumno;
+use App\Models\Alumno;
 use App\Models\User;
 use App\Http\Helpers\Utils;
 use App\clases\SCEM\Mailer;
@@ -57,7 +57,7 @@ class Notificacion {
 	}
 
 	/**
-	* @param App\Http\Models\Baja
+	* @param App\Models\Baja
 	*/
 	private function armar_mensaje_registro_eliminado()
 	{

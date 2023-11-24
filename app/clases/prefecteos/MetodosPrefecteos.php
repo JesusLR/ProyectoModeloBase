@@ -5,9 +5,9 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Hash;
 
-use App\Http\Models\Prefecteo;
-use App\Http\Models\PrefecteoDetalle;
-use App\Http\Models\Horario;
+use App\Models\Prefecteo;
+use App\Models\PrefecteoDetalle;
+use App\Models\Horario;
 
 use Exception;
 use Carbon\Carbon;
@@ -159,7 +159,7 @@ class MetodosPrefecteos
     * Cada item de la Collection resultante, es un array listo para crear un PrefecteoDetalle.
     *
     * @param Collection $horarios
-    * @param App\Http\Models\Prefecteo $prefecteo
+    * @param App\Models\Prefecteo $prefecteo
     */
     public static function mapearHorariosConModelo($horarios, $prefecteo): Collection
     {
@@ -182,7 +182,7 @@ class MetodosPrefecteos
 
 
     /**
-    * @param App\Http\Models\Prefecteo $prefecteo
+    * @param App\Models\Prefecteo $prefecteo
     * @param Collection $horarios
     */
     public static function filtrarHorariosConcurrentes($prefecteo, $horarios): Collection

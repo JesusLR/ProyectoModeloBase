@@ -4,7 +4,7 @@ namespace App\Exports;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 use App\Models\User;
-use App\Http\Models\Periodo;
+use App\Models\Periodo;
 use App\Http\Helpers\UltimaFechaPago;
 use DB;
 
@@ -18,7 +18,7 @@ class ResumenDeudoresExport implements FromCollection
 
 	/**
 	* @param App\Models\User $user;
-	* @param App\Http\Models\Periodo $periodo;
+	* @param App\Models\Periodo $periodo;
 	*/
 	public function __construct(User $user, Periodo $periodo)
 	{

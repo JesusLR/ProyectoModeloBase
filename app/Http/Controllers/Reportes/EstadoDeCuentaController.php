@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Reportes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Curso;
-use App\Http\Models\Pago;
+use App\Models\Curso;
+use App\Models\Pago;
 
 use App\Http\Helpers\Utils;
 use RealRashid\SweetAlert\Facades\Alert;

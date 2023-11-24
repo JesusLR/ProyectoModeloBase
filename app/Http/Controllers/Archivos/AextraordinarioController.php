@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Cgt;
-use App\Http\Models\Grupo;
-use App\Http\Models\Inscrito;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\ClaveProfesor;
-use App\Http\Models\Extraordinario;
-use App\Http\Models\InscritoExtraordinario;
+use App\Models\Cgt;
+use App\Models\Grupo;
+use App\Models\Inscrito;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\ClaveProfesor;
+use App\Models\Extraordinario;
+use App\Models\InscritoExtraordinario;
 
 use Carbon\Carbon;
 

@@ -474,8 +474,8 @@
   <body>
 
     @php
-      use App\Http\Models\Bachiller\Bachiller_empleados;
-      use App\Http\Models\Bachiller\Bachiller_horariosadmivos;
+      use App\Models\Bachiller\Bachiller_empleados;
+      use App\Models\Bachiller\Bachiller_horariosadmivos;
     @endphp
    
     <header>

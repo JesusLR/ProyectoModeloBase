@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Bachiller;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Portal_configuracion;
+use App\Models\Portal_configuracion;
 use Illuminate\Database\QueryException;
 use Yajra\DataTables\Facades\DataTables;
 

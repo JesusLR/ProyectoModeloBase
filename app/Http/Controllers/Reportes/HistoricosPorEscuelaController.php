@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\Programa;
-use App\Http\Models\Historico;
-use App\Http\Models\ResumenAcademico;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Programa;
+use App\Models\Historico;
+use App\Models\ResumenAcademico;
 use App\clases\historicos\MetodosHistoricos;
 
 use RealRashid\SweetAlert\Facades\Alert;
@@ -91,7 +91,7 @@ class HistoricosPorEscuelaController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Historico
+     * @param App\Models\Historico
      */
     private static function info_esencial($historico) {
 

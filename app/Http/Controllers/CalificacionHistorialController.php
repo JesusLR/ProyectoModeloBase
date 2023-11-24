@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Models\CalificacionHistorial;
+use App\Models\CalificacionHistorial;
 
 use Yajra\DataTables\Facades\DataTables;
 

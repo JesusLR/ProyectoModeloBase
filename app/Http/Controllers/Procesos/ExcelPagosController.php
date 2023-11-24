@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Pago;
-use App\Http\Models\Curso;
-use App\Http\Models\Cecc;
-use App\Http\Models\ConceptoReferenciaUbicacion;
+use App\Models\Pago;
+use App\Models\Curso;
+use App\Models\Cecc;
+use App\Models\ConceptoReferenciaUbicacion;
 
 use DB;
 use Carbon\Carbon;
@@ -121,8 +121,8 @@ class ExcelPagosController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Pago
-     * @param App\Http\Models\Curso
+     * @param App\Models\Pago
+     * @param App\Models\Curso
      */
     private static function info_esencial($pago, $curso = null) {
 

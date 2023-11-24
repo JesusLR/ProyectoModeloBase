@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Archivos;
 
 use DB;
-use App\Http\Models\Cgt;
-use App\Http\Models\Curso;
+use App\Models\Cgt;
+use App\Models\Curso;
 use Illuminate\Http\Request;
-use App\Http\Models\Inscrito;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Departamento;
+use App\Models\Inscrito;
+use App\Models\Ubicacion;
+use App\Models\Departamento;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 

@@ -5,11 +5,11 @@ use Auth;
 use DateTime;
 use Carbon\Carbon;
 use App\Models\Modules;
-use App\Http\Models\Pago;
+use App\Models\Pago;
 use Akaunting\Money\Money;
 use App\Models\Permission;
 use App\Models\Permission_module_user;
-use App\Http\Models\Permiso_programa_user;
+use App\Models\Permiso_programa_user;
 use Illuminate\Support\Facades\DB;
 
 class UltimaFechaPago

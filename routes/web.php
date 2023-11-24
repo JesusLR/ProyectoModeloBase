@@ -2,9 +2,9 @@
 
 use App\Models\User;
 use App\Models\User_docente;
-use App\Http\Models\Empleado;
-use App\Http\Models\Escuela;
-use App\Http\Models\Departamento;
+use App\Models\Empleado;
+use App\Models\Escuela;
+use App\Models\Departamento;
 
 /*
 |--------------------------------------------------------------------------

@@ -3,7 +3,7 @@ namespace App\Exports;
 
 use Illuminate\Support\Collection;
 
-use App\Http\Models\Periodo;
+use App\Models\Periodo;
 use App\Http\Helpers\UltimaFechaPago;
 
 use Maatwebsite\Excel\Concerns\FromCollection;
@@ -16,7 +16,7 @@ class RelacionInscritosPrimeroExport implements FromCollection
 	public $ubicacion;
 
 	/**
-	* @param App\Http\Models\Periodo
+	* @param App\Models\Periodo
 	*/
 	public function __construct(Periodo $periodo) {
 		$this->periodo = $periodo;

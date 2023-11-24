@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Beca;
-use App\Http\Models\Pago;
-use App\Http\Models\Cuota;
-use App\Http\Models\Curso;
+use App\Models\Ubicacion;
+use App\Models\Beca;
+use App\Models\Pago;
+use App\Models\Cuota;
+use App\Models\Curso;
 use App\Http\Helpers\Utils;
 use App\Http\Helpers\GenerarReferencia;
 

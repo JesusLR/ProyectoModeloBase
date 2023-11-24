@@ -11,10 +11,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\EducacionContinua\StoreProgEduContinuaRequest;
 
 use App\Models\User;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\EducacionContinua;
-use App\Http\Models\TiposPrograma;
-use App\Http\Models\Empleado;
+use App\Models\Ubicacion;
+use App\Models\EducacionContinua;
+use App\Models\TiposPrograma;
+use App\Models\Empleado;
 use App\Http\Helpers\Utils;
 
 

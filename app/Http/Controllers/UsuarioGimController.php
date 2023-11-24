@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Models\UsuaGim;
-use App\Http\Models\UsuaGimTipo;
-use App\Http\Models\Curso;
-use App\Http\Models\Alumno;
+use App\Models\UsuaGim;
+use App\Models\UsuaGimTipo;
+use App\Models\Curso;
+use App\Models\Alumno;
 use App\Http\Requests\UsuaGim\StoreUsuaGimRequest;
 use App\Http\Requests\UsuaGim\UpdateUsuaGimRequest;
 use App\clases\usuariogim\MetodosUsuaGim;

@@ -7,10 +7,10 @@ use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Models\Alumno;
-use App\Http\Models\Bachiller\Bachiller_historico;
-use App\Http\Models\Historico;
-use App\Http\Models\TutorAlumno;
+use App\Models\Alumno;
+use App\Models\Bachiller\Bachiller_historico;
+use App\Models\Historico;
+use App\Models\TutorAlumno;
 
 class MetodosAlumnos
 {
@@ -294,8 +294,8 @@ class MetodosAlumnos
     /**
      * Devuelve las materias que el alumno no ha cursado, es decir, que no tiene registros en hisróricos.
      *
-     * @param App\Http\Models\Alumno $alumno
-     * @param App\Http\Models\Plan $plan
+     * @param App\Models\Alumno $alumno
+     * @param App\Models\Plan $plan
      */
     public static function materiasFaltantes($alumno, $plan): Collection {
         $materias_plan = $plan->materias;
@@ -320,10 +320,10 @@ class MetodosAlumnos
     }
     /**
      * Utiliza procReprobadasAlumno para obtener los ids de las materias, y devolver la lista de materias reprobadas
-     * desde Eloquent, para conservar los atributos y propiedades de App\Http\Models\Materia
+     * desde Eloquent, para conservar los atributos y propiedades de App\Models\Materia
      *
-     * @param App\Http\Models\Alumno $alumno
-     * @param App\Http\Models\Plan $plan
+     * @param App\Models\Alumno $alumno
+     * @param App\Models\Plan $plan
      */
     public static function materiasReprobadasEloquent($alumno, $plan) : Collection {
         $reprobadas = self::materias_reprobadas($alumno->aluClave);

@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 
-use App\Http\Models\Calificacion;
+use App\Models\Calificacion;
 
-use App\Http\Models\Idiomas\Idiomas_grupos;
-use App\Http\Models\Idiomas\Idiomas_calificaciones_materia;
+use App\Models\Idiomas\Idiomas_grupos;
+use App\Models\Idiomas\Idiomas_calificaciones_materia;
 
-use App\Http\Models\Ubicacion;
+use App\Models\Ubicacion;
 use App\Http\Helpers\Utils;
 use App\clases\personas\MetodosPersonas;
 

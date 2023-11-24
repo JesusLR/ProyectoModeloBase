@@ -17,9 +17,9 @@ use Validator;
 use Debugbar;
 
 
-use App\Http\Models\Escuela;
-use App\Http\Models\Referencia;
-use App\Http\Models\Empleado;
+use App\Models\Escuela;
+use App\Models\Referencia;
+use App\Models\Empleado;
 use App\Models\User;
 
 class ContabilidadReferenciasController extends Controller

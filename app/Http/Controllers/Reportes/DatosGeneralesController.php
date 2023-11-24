@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Reportes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Curso;
-use App\Http\Models\Municipio;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Programa;
-use App\Http\Models\Periodo;
+use App\Models\Curso;
+use App\Models\Municipio;
+use App\Models\Ubicacion;
+use App\Models\Programa;
+use App\Models\Periodo;
 
 use Carbon\Carbon;
 use PDF;

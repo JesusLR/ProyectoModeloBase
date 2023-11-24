@@ -5,8 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Hash;
 
-use App\Http\Models\UsuaGim;
-use App\Http\Models\Pago;
+use App\Models\UsuaGim;
+use App\Models\Pago;
 use App\Http\Helpers\GenerarReferencia;
 
 use Exception;
@@ -64,7 +64,7 @@ class MetodosUsuaGim
 
 
     /**
-    * @param App\Http\Models\UsuaGim $usuariogim
+    * @param App\Models\UsuaGim $usuariogim
     * @param boolean $invertido
     */
     public static function nombreCompleto($usuariogim, $invertido = false): String
@@ -78,7 +78,7 @@ class MetodosUsuaGim
 
 
     /**
-    * @param App\Http\Models\UsuaGim
+    * @param App\Models\UsuaGim
     */
     public static function generar_referencia($usuariogim)
     {   

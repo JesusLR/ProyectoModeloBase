@@ -7,27 +7,27 @@ use Debugbar;
 use Validator;
 use Carbon\Carbon;
 use App\Models\User;
-use App\Http\Models\Pais;
+use App\Models\Pais;
 
-use App\Http\Models\Plan;
+use App\Models\Plan;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Acuerdo;
-use App\Http\Models\Escuela;
-use App\Http\Models\Persona;
+use App\Models\Acuerdo;
+use App\Models\Escuela;
+use App\Models\Persona;
 use Illuminate\Http\Request;
-use App\Http\Models\Programa;
-use App\Http\Models\Candidato;
-use App\Http\Models\Municipio;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Departamento;
+use App\Models\Programa;
+use App\Models\Candidato;
+use App\Models\Municipio;
+use App\Models\Ubicacion;
+use App\Models\Departamento;
 use PHPMailer\PHPMailer\PHPMailer;
-use App\Http\Models\CandidatoClave;
+use App\Models\CandidatoClave;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Database\QueryException;
 use Yajra\DataTables\Facades\DataTables;
-use App\Http\Models\PreparatoriaProcedencia;
-use App\Http\Models\Empleado;
-use App\Http\Models\Alumno;
+use App\Models\PreparatoriaProcedencia;
+use App\Models\Empleado;
+use App\Models\Alumno;
 
 class CandidatosPrimerIngresoController extends Controller
 {

@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Helpers;
 
-use App\Http\Models\UsuarioLog;
+use App\Models\UsuarioLog;
 
 class GenerarLogs
 {

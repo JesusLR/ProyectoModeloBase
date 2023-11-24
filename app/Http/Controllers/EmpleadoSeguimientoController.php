@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Models\EmpleadoSeguimiento;
-use App\Http\Models\Empleado;
-use App\Http\Models\Ubicacion;
+use App\Models\EmpleadoSeguimiento;
+use App\Models\Empleado;
+use App\Models\Ubicacion;
 use App\Models\User;
 use Auth;
 use Validator;

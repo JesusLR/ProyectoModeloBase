@@ -7,27 +7,27 @@ use Validator;
 use Auth;
 
 use App\Http\Helpers\Utils;
-use App\Http\Models\Cgt;
-use App\Http\Models\Curso;
-use App\Http\Models\Departamento;
-use App\Http\Models\Inscrito;
-use App\Http\Models\InscritosRechazados;
-use App\Http\Models\Periodo;
-use App\Http\Models\Plan;
-use App\Http\Models\Prerequisito;
-use App\Http\Models\Programa;
-use App\Http\Models\Ubicacion;
+use App\Models\Cgt;
+use App\Models\Curso;
+use App\Models\Departamento;
+use App\Models\Inscrito;
+use App\Models\InscritosRechazados;
+use App\Models\Periodo;
+use App\Models\Plan;
+use App\Models\Prerequisito;
+use App\Models\Programa;
+use App\Models\Ubicacion;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Alumno;
-use App\Http\Models\Bachiller\Bachiller_cch_grupos;
-use App\Http\Models\Bachiller\Bachiller_cch_inscritos;
-use App\Http\Models\Bachiller\Bachiller_mes_evaluaciones;
-use App\Http\Models\Escuela;
+use App\Models\Alumno;
+use App\Models\Bachiller\Bachiller_cch_grupos;
+use App\Models\Bachiller\Bachiller_cch_inscritos;
+use App\Models\Bachiller\Bachiller_mes_evaluaciones;
+use App\Models\Escuela;
 
 
 class BachillerAsignarGrupoSEQController extends Controller

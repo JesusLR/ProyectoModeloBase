@@ -5,12 +5,12 @@ namespace App\Http\Controllers\Reportes;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Materia;
-use App\Http\Models\Programa;
-use App\Http\Models\Plan;
-use App\Http\Models\Acuerdo;
-use App\Http\Models\Prerequisito;
-use App\Http\Models\Ubicacion;
+use App\Models\Materia;
+use App\Models\Programa;
+use App\Models\Plan;
+use App\Models\Acuerdo;
+use App\Models\Prerequisito;
+use App\Models\Ubicacion;
 
 use PDF;
 use DB;

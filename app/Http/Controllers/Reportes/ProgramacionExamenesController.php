@@ -6,13 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 
-use App\Http\Models\InscritoExtraordinario;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\Programa;
-use App\Http\Models\Aula;
-use App\Http\Models\Extraordinario;
-use App\Http\Models\Optativa;
+use App\Models\InscritoExtraordinario;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Programa;
+use App\Models\Aula;
+use App\Models\Extraordinario;
+use App\Models\Optativa;
 
 use Carbon\Carbon;
 use Validator;
@@ -335,7 +335,7 @@ class ProgramacionExamenesController extends Controller
   }
 
   /**
-   * @param App\Http\Models\Extraordinario
+   * @param App\Models\Extraordinario
    */
   private static function info_esencial($extraordinario) {
     $materia = $extraordinario->materia;

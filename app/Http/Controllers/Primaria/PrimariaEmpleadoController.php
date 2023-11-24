@@ -8,19 +8,19 @@ use Debugbar;
 use Validator;
 use Carbon\Carbon;
 use App\Models\User;
-use App\Http\Models\Pais;
+use App\Models\Pais;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Estado;
+use App\Models\Estado;
 use Illuminate\Support\Str;
-use App\Http\Models\Persona;
+use App\Models\Persona;
 use App\Models\User_docente;
-use App\Http\Models\Grupo;
-use App\Http\Models\Alumno;
+use App\Models\Grupo;
+use App\Models\Alumno;
 
 use Illuminate\Http\Request;
-use App\Http\Models\Empleado;
-use App\Http\Models\Municipio;
-use App\Http\Models\Ubicacion;
+use App\Models\Empleado;
+use App\Models\Municipio;
+use App\Models\Ubicacion;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -28,9 +28,9 @@ use Yajra\DataTables\Facades\DataTables;
 
 use App\clases\personas\MetodosPersonas;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Primaria\Primaria_empleado;
-use App\Http\Models\Primaria\Primaria_UsuarioLog;
-use App\Http\Models\Puesto;
+use App\Models\Primaria\Primaria_empleado;
+use App\Models\Primaria\Primaria_UsuarioLog;
+use App\Models\Puesto;
 use Exception;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 
@@ -345,7 +345,7 @@ class PrimariaEmpleadoController extends Controller
                     User_docente::create([
                         'empleado_id'               => $empleado->id,
                         'password'                  => bcrypt($request->input('password')),
-                        'token'                     => str_random(64),
+                        'token'                     => Str::random(64),
                         'maternal'                  => 0,
                         'preescolar'                => 0,
                         'primaria'                  => 1,
@@ -620,7 +620,7 @@ class PrimariaEmpleadoController extends Controller
             $user_docente = User_docente::where('empleado_id', $empleado->id)->first();
 
             if ($user_docente != "") {
-                // actualizar el campus 
+                // actualizar el campus
                 $user_docente->update([
                     'campus_cme' => $campus_cme,
                     'campus_cva' => $campus_cva,
@@ -638,7 +638,7 @@ class PrimariaEmpleadoController extends Controller
                     $userDocente = User_docente::create([
                         'empleado_id'      => $empleado->id,
                         'password'         => bcrypt($request->password),
-                        'token'            => str_random(64),
+                        'token'            => Str::random(64),
                         'maternal'         => 0,
                         'preescolar'       => 0,
                         'primaria'         => 1,
@@ -815,7 +815,7 @@ class PrimariaEmpleadoController extends Controller
                 User_docente::create([
                     'empleado_id'      => $empleado->id,
                     'password'         => bcrypt($request->input('password')),
-                    'token'            => str_random(64),
+                    'token'            => Str::random(64),
                 ]);
             }
         } catch (Exception $e) {
@@ -863,8 +863,8 @@ class PrimariaEmpleadoController extends Controller
         'primaria_empleados.empNombre',
         'primaria_empleados.empApellido1',
         'primaria_empleados.empApellido2',
-        'primaria_empleados.empTelefono', 
-        'puestos.puesNombre', 
+        'primaria_empleados.empTelefono',
+        'puestos.puesNombre',
         'escuelas.escClave')
         ->join('puestos', 'puestos.id', 'primaria_empleados.puesto_id')
         ->join('escuelas', 'escuelas.id', 'primaria_empleados.escuela_id')
@@ -908,8 +908,8 @@ class PrimariaEmpleadoController extends Controller
             ]);
         }
 
-        
-        
+
+
 
         $empleados = Primaria_empleado::whereIn('id', $listado->keys())->get()->keyBy('id');
         DB::beginTransaction();
@@ -920,7 +920,7 @@ class PrimariaEmpleadoController extends Controller
 
                     $fechaActual = Carbon::now('CDT');
                     $fecha = $fechaActual->format('Y-m-d H:i:s');
-                    
+
                     $empleado->update(['empEstado' =>  $info['nuevo_estado']]);
                     Primaria_UsuarioLog::create([
                         'nombre_tabla' => 'primaria_empleados',

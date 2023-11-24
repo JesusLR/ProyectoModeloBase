@@ -3,8 +3,8 @@ namespace App\clases\cursos;
 
 use Illuminate\Support\Facades\DB;
 
-use App\Http\Models\Curso;
-use App\Http\Models\Baja;
+use App\Models\Curso;
+use App\Models\Baja;
 use App\Http\Helpers\Utils;
 use App\clases\SCEM\Mailer;
 use App\clases\personas\MetodosPersonas;
@@ -78,7 +78,7 @@ class NotificacionPreescolar {
 	}
 
 	/**
-	* @param App\Http\Models\Baja
+	* @param App\Models\Baja
 	*/
 	private function armar_mensaje_de_baja($baja)
 	{

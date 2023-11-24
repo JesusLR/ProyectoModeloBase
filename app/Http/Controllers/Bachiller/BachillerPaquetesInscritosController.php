@@ -7,17 +7,17 @@ use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use App\Http\Models\Bachiller\Bachiller_paquetes;
-use App\Http\Models\Bachiller\Bachiller_paquete_detalle;
-use App\Http\Models\Bachiller\Bachiller_inscritos;
-use App\Http\Models\Bachiller\Bachiller_historico;
-use App\Http\Models\Bachiller\Bachiller_materias;
-use App\Http\Models\Bachiller\Bachiller_materias_acd;
-use App\Http\Models\Bachiller\Bachiller_grupos;
-use App\Http\Models\Cgt;
-use App\Http\Models\Curso;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Alumno;
+use App\Models\Bachiller\Bachiller_paquetes;
+use App\Models\Bachiller\Bachiller_paquete_detalle;
+use App\Models\Bachiller\Bachiller_inscritos;
+use App\Models\Bachiller\Bachiller_historico;
+use App\Models\Bachiller\Bachiller_materias;
+use App\Models\Bachiller\Bachiller_materias_acd;
+use App\Models\Bachiller\Bachiller_grupos;
+use App\Models\Cgt;
+use App\Models\Curso;
+use App\Models\Ubicacion;
+use App\Models\Alumno;
 use PHPMailer\PHPMailer\PHPMailer;
 
 class BachillerPaquetesInscritosController extends Controller

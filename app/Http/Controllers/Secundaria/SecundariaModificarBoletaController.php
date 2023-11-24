@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Secundaria;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Secundaria\Secundaria_mes_evaluaciones;
-use App\Http\Models\Ubicacion;
+use App\Models\Secundaria\Secundaria_mes_evaluaciones;
+use App\Models\Ubicacion;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

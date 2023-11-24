@@ -7,10 +7,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 
-use App\Http\Models\InscritoExtraordinario;
-use App\Http\Models\Historico;
-use App\Http\Models\ResumenAcademico;
-use App\Http\Models\Curso;
+use App\Models\InscritoExtraordinario;
+use App\Models\Historico;
+use App\Models\ResumenAcademico;
+use App\Models\Curso;
 
 use RealRashid\SweetAlert\Facades\Alert;
 use Carbon\Carbon;

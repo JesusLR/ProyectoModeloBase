@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Preescolar;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Preescolar\Preescolar_rubricas_tipo;
-use App\Http\Models\Programa;
+use App\Models\Preescolar\Preescolar_rubricas_tipo;
+use App\Models\Programa;
 use Illuminate\Database\QueryException;
 use Yajra\DataTables\Facades\DataTables;
 use Validator;

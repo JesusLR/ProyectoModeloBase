@@ -5,17 +5,17 @@ namespace App\Http\Controllers\Reportes;
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\Utils;
 use Illuminate\Http\Request;
-use App\Http\Models\Grupo;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Materia;
-use App\Http\Models\Programa;
-use App\Http\Models\Periodo;
-use App\Http\Models\Calificacion;
-use App\Http\Models\Cgt;
-use App\Http\Models\Departamento;
-use App\Http\Models\Escuela;
-use App\Http\Models\Inscrito;
-use App\Http\Models\Plan;
+use App\Models\Grupo;
+use App\Models\Ubicacion;
+use App\Models\Materia;
+use App\Models\Programa;
+use App\Models\Periodo;
+use App\Models\Calificacion;
+use App\Models\Cgt;
+use App\Models\Departamento;
+use App\Models\Escuela;
+use App\Models\Inscrito;
+use App\Models\Plan;
 
 
 use Carbon\Carbon;

@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Pago;
-use App\Http\Models\Ficha;
+use App\Models\Pago;
+use App\Models\Ficha;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Empleado;
-use App\Http\Models\TiposPrograma;
-use App\Http\Models\InscritosEduCont;
-use App\Http\Models\EducacionContinua;
+use App\Models\Empleado;
+use App\Models\TiposPrograma;
+use App\Models\InscritosEduCont;
+use App\Models\EducacionContinua;
 use App\clases\personas\MetodosPersonas as Personas;
 
 use DB;
@@ -208,7 +208,7 @@ class RelPagosEduconController extends Controller
 
 
   /**
-  * @param App\Http\Models\EducacionContinua $programa
+  * @param App\Models\EducacionContinua $programa
   */
   private static function obtenerInfoPrograma($programa)
   {
@@ -229,7 +229,7 @@ class RelPagosEduconController extends Controller
 
 
   /**
-  * @param App\Http\Models\InscritosEduCont $inscrito
+  * @param App\Models\InscritosEduCont $inscrito
   */
   private static function obtenerInfoInscrito($inscrito)
   {
@@ -244,7 +244,7 @@ class RelPagosEduconController extends Controller
 
 
   /**
-  * @param App\Http\Models\Pago $pago
+  * @param App\Models\Pago $pago
   */
   private static function obtenerInfoPago($pago)
   {
@@ -259,7 +259,7 @@ class RelPagosEduconController extends Controller
 
 
   /**
-  * @param App\Http\Models\Ficha
+  * @param App\Models\Ficha
   */
   private static function obtenerInfoFicha($ficha)
   {

@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Primaria\Reportes;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Alumno;
-use App\Http\Models\Conceptoscursoestado;
-use App\Http\Models\Periodo;
-use App\Http\Models\Primaria\Primaria_expediente_entrevista_inicial;
-use App\Http\Models\Programa;
-use App\Http\Models\Ubicacion;
+use App\Models\Alumno;
+use App\Models\Conceptoscursoestado;
+use App\Models\Periodo;
+use App\Models\Primaria\Primaria_expediente_entrevista_inicial;
+use App\Models\Programa;
+use App\Models\Ubicacion;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use PDF;

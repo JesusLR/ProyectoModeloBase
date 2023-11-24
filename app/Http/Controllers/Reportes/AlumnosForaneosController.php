@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Reportes;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Curso;
+use App\Models\Ubicacion;
+use App\Models\Curso;
 use App\clases\personas\MetodosPersonas;
 use App\clases\cgts\MetodosCgt;
 use App\Http\Helpers\Utils;

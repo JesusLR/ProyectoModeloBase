@@ -15,8 +15,8 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Pais;
-use App\Http\Models\Municipio;
+use App\Models\Pais;
+use App\Models\Municipio;
 
 class MunicipioController extends Controller
 {

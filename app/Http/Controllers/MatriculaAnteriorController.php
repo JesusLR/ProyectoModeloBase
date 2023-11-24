@@ -15,7 +15,7 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\MatriculaAnterior;
+use App\Models\MatriculaAnterior;
 
 class MatriculaAnteriorController extends Controller
 {

@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-use App\Http\Models\ResumenAcademico;
-use App\Http\Models\Ubicacion;
+use App\Models\ResumenAcademico;
+use App\Models\Ubicacion;
 use App\Http\Helpers\Utils;
 
 use Yajra\DataTables\Facades\DataTables;

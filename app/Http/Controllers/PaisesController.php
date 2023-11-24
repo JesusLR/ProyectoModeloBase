@@ -15,7 +15,7 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Pais;
+use App\Models\Pais;
 use App\Models\User;
 
 class PaisesController extends Controller

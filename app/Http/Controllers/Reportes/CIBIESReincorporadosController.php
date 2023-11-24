@@ -7,10 +7,10 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\Curso;
-use App\Http\Models\Calificacion;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Curso;
+use App\Models\Calificacion;
 use App\clases\periodos\MetodosPeriodos;
 
 use RealRashid\SweetAlert\Facades\Alert;
@@ -93,7 +93,7 @@ class CIBIESReincorporadosController extends Controller
 
     /**
      * @param Illuminate\Http\Request $request
-     * @param App\Http\Models\Periodo $periodo
+     * @param App\Models\Periodo $periodo
      */
     public function buscarReprobadosQuery($request, $periodo)
     {
@@ -124,7 +124,7 @@ class CIBIESReincorporadosController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Curso
+     * @param App\Models\Curso
      */
     private static function info_esencial($curso)
     {

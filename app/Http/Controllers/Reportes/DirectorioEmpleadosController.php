@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Departamento;
-use App\Http\Models\Empleado;
-use App\Http\Models\Puesto;
+use App\Models\Ubicacion;
+use App\Models\Departamento;
+use App\Models\Empleado;
+use App\Models\Puesto;
 
 use RealRashid\SweetAlert\Facades\Alert;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -86,7 +86,7 @@ class DirectorioEmpleadosController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Empleado
+     * @param App\Models\Empleado
      */
     private static function info_esencial($empleado) {
         $persona = $empleado->persona;
@@ -109,7 +109,7 @@ class DirectorioEmpleadosController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Ubicacion $ubicacion
+     * @param App\Models\Ubicacion $ubicacion
      * @param Illuminate\Support\Collection $directorio
      */
     public function generarExcel($ubicacion, $directorio) {

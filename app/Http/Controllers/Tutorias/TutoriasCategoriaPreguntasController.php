@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Tutorias;
 use Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Tutorias\Tutorias_categoria_preguntas;
+use App\Models\Tutorias\Tutorias_categoria_preguntas;
 use Illuminate\Database\QueryException;
 use Yajra\DataTables\Facades\DataTables;
 

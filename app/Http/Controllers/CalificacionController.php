@@ -9,20 +9,20 @@ use Validator;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Modules;
-use App\Http\Models\Curso;
-use App\Http\Models\Grupo;
+use App\Models\Curso;
+use App\Models\Grupo;
 use App\Models\Permission;
 use App\Http\Helpers\Utils;
-use App\Http\Models\MatriculaAnterior;
-use App\Http\Models\Portal_configuracion;
+use App\Models\MatriculaAnterior;
+use App\Models\Portal_configuracion;
 use Illuminate\Support\Str;
 
-use App\Http\Models\Escuela;
-use App\Http\Models\Materia;
-use App\Http\Models\Optativa;
+use App\Models\Escuela;
+use App\Models\Materia;
+use App\Models\Optativa;
 use Illuminate\Http\Request;
-use App\Http\Models\Inscrito;
-use App\Http\Models\Calificacion;
+use App\Models\Inscrito;
+use App\Models\Calificacion;
 use Illuminate\Support\Facades\DB;
 use App\Models\Permission_module_user;
 use Illuminate\Database\QueryException;
@@ -32,8 +32,8 @@ use App\clases\Recolectores\AlumnosReprobadosParcialesRecolector;
 use App\clases\calificaciones\NotificacionReprobadosParciales;
 use App\clases\calificaciones\MetodosCalificaciones;
 
-use App\Http\Models\Extraordinario;
-use App\Http\Models\InscritoExtraordinario;
+use App\Models\Extraordinario;
+use App\Models\InscritoExtraordinario;
 
 use Exception;
 
@@ -315,7 +315,7 @@ class CalificacionController extends Controller
                     $calificacion->motivofalta_id           = $inscMotivoFalta           != null ? $inscMotivoFalta           : $calificacion->motivofalta_id;
 
                     /**
-                     * Si el modelo sufrió cambios, registrará un App\Http\Models\CalificacionHistorial
+                     * Si el modelo sufrió cambios, registrará un App\Models\CalificacionHistorial
                      */
                     if($calificacion->isDirty()) {
                         MetodosCalificaciones::crearHistorial($calificacion_anterior, $calificacion);
