@@ -168,6 +168,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Barryvdh\DomPDF\ServiceProvider::class,
+        Spatie\LaravelIgnition\IgnitionServiceProvider::class,
     ],
 
     /*
