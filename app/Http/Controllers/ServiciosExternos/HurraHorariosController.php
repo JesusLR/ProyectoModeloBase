@@ -5,7 +5,7 @@ namespace App\Http\Controllers\ServiciosExternos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Grupo;
+use App\Models\Grupo;
 
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -64,7 +64,7 @@ class HurraHorariosController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Grupo
+     * @param App\Models\Grupo
      */
     private static function info_esencial($grupo): array {
         $materia = $grupo->materia;

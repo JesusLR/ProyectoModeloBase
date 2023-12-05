@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Lang;
 use Illuminate\Http\Request;
 use App\Http\Helpers\Utils;
-use App\Http\Models\ReciboPago;
-use App\Http\Models\ConceptoPago;
-use App\Http\Models\Cuota;
-use App\Http\Models\Curso;
+use App\Models\ReciboPago;
+use App\Models\ConceptoPago;
+use App\Models\Cuota;
+use App\Models\Curso;
 use App\Models\User;
 
 use RealRashid\SweetAlert\Facades\Alert;

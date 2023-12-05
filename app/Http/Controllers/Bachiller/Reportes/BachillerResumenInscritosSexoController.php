@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Http\Helpers\Utils;
-use App\Http\Models\Periodo;
-use App\Http\Models\Plan;
-use App\Http\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Plan;
+use App\Models\Ubicacion;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use PDF;

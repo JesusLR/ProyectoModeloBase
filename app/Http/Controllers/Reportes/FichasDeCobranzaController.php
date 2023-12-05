@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ficha;
+use App\Models\Ficha;
 use App\clases\personas\MetodosPersonas;
 
 use Carbon\Carbon;
@@ -57,7 +57,7 @@ class FichasDeCobranzaController extends Controller
     }
 
     /**
-	* @param App\Http\Models\Ficha
+	* @param App\Models\Ficha
     */
     private static function info_esencial($ficha)
     {

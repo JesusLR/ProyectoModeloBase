@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
-use App\Http\Models\Historico;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Curso;
+use App\Models\Historico;
+use App\Models\Ubicacion;
+use App\Models\Curso;
 use App\Http\Helpers\Utils;
 use App\clases\personas\MetodosPersonas;
 use App\clases\cgts\MetodosCgt;
@@ -159,7 +159,7 @@ class MejoresPromediosController extends Controller
 
   /**
   * @param Collection $cursos
-  * @param App\Http\Models\Plan
+  * @param App\Models\Plan
   * @return Collection
   */
   private static function buscarHistoricos($cursos, $plan): Collection

@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Curso;
+use App\Models\Ubicacion;
+use App\Models\Curso;
 use App\clases\personas\MetodosPersonas;
 
 use Carbon\Carbon;
@@ -78,7 +78,7 @@ class ListaPorTipoIngresoController extends Controller
     }
 
     /**
-	* @param App\Http\Models\Curso
+	* @param App\Models\Curso
     */
     private static function info_esencial($curso)
     {

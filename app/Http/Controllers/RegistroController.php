@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Registro\StoreRegistro;
 use Auth;
 
-use App\Http\Models\Registro;
-use App\Http\Models\Ubicacion;
+use App\Models\Registro;
+use App\Models\Ubicacion;
 
 use Yajra\DataTables\Facades\DataTables;
 use RealRashid\SweetAlert\Facades\Alert;

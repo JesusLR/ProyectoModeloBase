@@ -6,9 +6,9 @@ use App\clases\historicos\MetodosHistoricos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Bachiller\Bachiller_historico;
-use App\Http\Models\Curso;
-use App\Http\Models\Ubicacion;
+use App\Models\Bachiller\Bachiller_historico;
+use App\Models\Curso;
+use App\Models\Ubicacion;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 

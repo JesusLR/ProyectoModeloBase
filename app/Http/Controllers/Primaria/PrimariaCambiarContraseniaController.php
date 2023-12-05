@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Primaria;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Primaria\Primaria_empleado;
+use App\Models\Primaria\Primaria_empleado;
 use App\Models\User_docente;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -36,7 +36,7 @@ class PrimariaCambiarContraseniaController extends Controller
      */
     public function create()
     {
-        $empleados = Primaria_empleado::select(             
+        $empleados = Primaria_empleado::select(
             'primaria_empleados.id as empleado_id',
             'primaria_empleados.empNombre',
             'primaria_empleados.empApellido1',
@@ -64,7 +64,7 @@ class PrimariaCambiarContraseniaController extends Controller
 
         if($request->ajax()){
 
-            $empleados = Primaria_empleado::select(             
+            $empleados = Primaria_empleado::select(
                 'primaria_empleados.id',
                 'primaria_empleados.empNombre',
                 'primaria_empleados.empApellido1',
@@ -81,7 +81,7 @@ class PrimariaCambiarContraseniaController extends Controller
             ->join('ubicacion', 'departamentos.ubicacion_id', '=', 'ubicacion.id')
             ->where('primaria_empleados.id', '=', $id)
             ->get();
-         
+
 
             return response()->json($empleados);
         }
@@ -94,7 +94,7 @@ class PrimariaCambiarContraseniaController extends Controller
      */
     public function store(Request $request)
     {
-        
+
 
         $validator = Validator::make($request->all(), [
             'password'          =>  'required|min:8|max:20|regex:/^.*?(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*$/',
@@ -123,7 +123,7 @@ class PrimariaCambiarContraseniaController extends Controller
         $docente = User_docente::create([
             'empleado_id' => $request->empleado_id,
             'password'    => Hash::make($request->password),
-            'token'       => str_random(64),
+            'token'       => Str::random(64),
             'maternal' => 0,
             'preescolar' => 0,
             'primaria' => 1,
@@ -137,12 +137,12 @@ class PrimariaCambiarContraseniaController extends Controller
             'campus_cva' => $primaria_empleado->ubiClave == "CVA" ? 1 : 0,
             'campus_cch' => $primaria_empleado->ubiClave == "CCH" ? 1 : 0
         ]);
-        
+
         $empleado = Primaria_empleado::where('id', $request->empleado_id)->first();
         $empleado->update([
             'empCorreo1' => $request->empCorreo1
         ]);
-        
+
 
         alert()->success('Escuela Modelo', 'Contraseña guardada correctamente.')->showConfirmButton();
         return redirect('primaria_cambiar_contrasenia');
@@ -156,7 +156,7 @@ class PrimariaCambiarContraseniaController extends Controller
      */
     public function show($id)
     {
-        
+
         $docente = User_docente::findOrFail($id);
         $empleado = Primaria_empleado::where('id', $docente->empleado_id)->first();
 
@@ -194,7 +194,7 @@ class PrimariaCambiarContraseniaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
         $validator = Validator::make($request->all(), [
             'password'          =>  'required|min:8|max:20|regex:/^.*?(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*$/',
             'confirmPassword'   =>  'required|same:password',
@@ -209,10 +209,10 @@ class PrimariaCambiarContraseniaController extends Controller
             return redirect()->back()->withErrors($validator);
         }
 
-        
+
         $primaria_empleado = Primaria_empleado::findOrfail($request->empleado_id);
 
-        // validamos escuela_id para saber que campos habilitar 
+        // validamos escuela_id para saber que campos habilitar
         if($primaria_empleado->escuela_id == "20"){
             $campus_cme = 1;
         }else{
@@ -258,7 +258,7 @@ class PrimariaCambiarContraseniaController extends Controller
     public function list() {
 
         $docentes = User_docente::select(
-            'users_docentes.id', 
+            'users_docentes.id',
             'primaria_empleados.id as empleado_id',
             'primaria_empleados.empNombre',
             'primaria_empleados.empApellido1',
@@ -278,7 +278,7 @@ class PrimariaCambiarContraseniaController extends Controller
         ->latest('users_docentes.created_at');
 
         return DataTables::eloquent($docentes)
-        
+
         ->filterColumn('empleadoID', function ($query, $keyword) {
             $query->whereRaw("CONCAT(primaria_empleados.id) like ?", ["%{$keyword}%"]);
         })
@@ -310,7 +310,7 @@ class PrimariaCambiarContraseniaController extends Controller
 
         ->filterColumn('ubicacion', function($query, $keyword) {
             $query->whereRaw("CONCAT(ubiNombre) like ?", ["%{$keyword}%"]);
-            
+
         })
         ->addColumn('ubicacion', function($query) {
             return $query->ubiNombre;
@@ -318,7 +318,7 @@ class PrimariaCambiarContraseniaController extends Controller
 
         ->filterColumn('correo_empleado', function($query, $keyword) {
             $query->whereRaw("CONCAT(empCorreo1) like ?", ["%{$keyword}%"]);
-            
+
         })
         ->addColumn('correo_empleado', function($query) {
             return $query->empCorreo1;
@@ -326,14 +326,14 @@ class PrimariaCambiarContraseniaController extends Controller
 
         ->filterColumn('departamento', function($query, $keyword) {
             $query->whereRaw("CONCAT(depNombre) like ?", ["%{$keyword}%"]);
-            
+
         })
         ->addColumn('departamento', function($query) {
             return $query->depNombre;
         })
 
 
-       
+
         ->addColumn('action', static function(User_docente $docente) {
 
             $action_url = '/primaria_cambiar_contrasenia';
@@ -357,7 +357,7 @@ class PrimariaCambiarContraseniaController extends Controller
                         .Utils::btn_show($docente->id, $action_url)
                         .$btnEditar.
                    '</div>';
-        })  
+        })
         ->make(true);
     }//list.
 

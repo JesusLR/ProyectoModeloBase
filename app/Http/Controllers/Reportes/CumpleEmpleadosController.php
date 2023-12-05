@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Reportes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Departamento;
-use App\Http\Models\Periodo;
-use App\Http\Models\Grupo;
-use App\Http\Models\Empleado;
+use App\Models\Ubicacion;
+use App\Models\Departamento;
+use App\Models\Periodo;
+use App\Models\Grupo;
+use App\Models\Empleado;
 
 use DB;
 use PDF;

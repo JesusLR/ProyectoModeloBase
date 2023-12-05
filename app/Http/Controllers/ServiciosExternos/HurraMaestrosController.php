@@ -5,7 +5,7 @@ namespace App\Http\Controllers\ServiciosExternos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Empleado;
+use App\Models\Empleado;
 
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -58,7 +58,7 @@ class HurraMaestrosController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Empleado
+     * @param App\Models\Empleado
      */
     private static function info_esencial($empleado): array 
     {

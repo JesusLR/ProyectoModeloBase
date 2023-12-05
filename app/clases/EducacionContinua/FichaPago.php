@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use Auth;
-use App\Http\Models\EducacionContinua;
-use App\Http\Models\InscritosEduCont;
-use App\Http\Models\Ficha;
-use App\Http\Models\Referencia;
-use App\Http\Models\Convenio;
+use App\Models\EducacionContinua;
+use App\Models\InscritosEduCont;
+use App\Models\Ficha;
+use App\Models\Referencia;
+use App\Models\Convenio;
 use App\Http\Helpers\GenerarReferencia;
 use App\clases\personas\MetodosPersonas;
 
@@ -49,7 +49,7 @@ class FichaPago
 	protected $clabe_BBVA = '012914002018521323';
 
 	/**
-	* @param App\Http\Models\InscritosEduCont
+	* @param App\Models\InscritosEduCont
 	* @param string $concepto
 	* @param string $banco
 	* @param int | float $importe (opcional)
@@ -93,7 +93,7 @@ class FichaPago
 
 
 	/**
-	* Crea un App\Http\Models\Ficha y manipula $ficha_pago
+	* Crea un App\Models\Ficha y manipula $ficha_pago
 	*/
 	public function registrarFicha()
 	{
@@ -199,7 +199,7 @@ class FichaPago
 
 
 	/**
-	* Mapea la info de $inscrito, devuelve un array listo para crear un App\Http\Models\Ficha.
+	* Mapea la info de $inscrito, devuelve un array listo para crear un App\Models\Ficha.
 	*/
 	public function obtener_datos_ficha(): array
 	{

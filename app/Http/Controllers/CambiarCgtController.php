@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\Cgt;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Cgt;
 use App\Http\Helpers\Utils;
 
 use RealRashid\SweetAlert\Facades\Alert;
@@ -66,7 +66,7 @@ class CambiarCgtController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Curso
+     * @param App\Models\Curso
      */
     private static function info_esencial($curso) {
         $alumno = $curso->alumno;
@@ -83,8 +83,8 @@ class CambiarCgtController extends Controller
 
     /**
      * @param Illuminate\Http\Request $request
-     * @param App\Http\Models\Cgt $cgt_actual
-     * @param App\Http\Models\Cgt $cgt_asignado
+     * @param App\Models\Cgt $cgt_actual
+     * @param App\Models\Cgt $cgt_asignado
      */
     private static function obtenerInfoReporte($request, $cgt_actual, $cgt_asignado) {
         $periodo = Periodo::with('departamento.ubicacion')->findOrFail($request->periodo_id);

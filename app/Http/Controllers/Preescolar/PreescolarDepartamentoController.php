@@ -16,9 +16,9 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Preescolar\Preescolar_departamento;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
+use App\Models\Preescolar\Preescolar_departamento;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
 use App\Models\User;
 use App\clases\departamentos\MetodosDepartamentos;
 

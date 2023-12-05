@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Horario;
+use App\Models\Ubicacion;
+use App\Models\Horario;
 
 use RealRashid\SweetAlert\Facades\Alert;
 use Carbon\Carbon;

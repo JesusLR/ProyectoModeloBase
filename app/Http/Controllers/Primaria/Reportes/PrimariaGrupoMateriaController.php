@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Primaria\Reportes;
 
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Primaria\Primaria_empleado;
-use App\Http\Models\Primaria\Primaria_grupo;
-use App\Http\Models\Primaria\Primaria_inscrito;
+use App\Models\Primaria\Primaria_empleado;
+use App\Models\Primaria\Primaria_grupo;
+use App\Models\Primaria\Primaria_inscrito;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Ubicacion;
+use App\Models\Ubicacion;
 
 use Carbon\Carbon;
 use PDF;

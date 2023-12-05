@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Preescolar;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Preescolar\Preescolar_agenda;
-use App\Http\Models\Preescolar\Preescolar_agenda_colores;
+use App\Models\Preescolar\Preescolar_agenda;
+use App\Models\Preescolar\Preescolar_agenda_colores;
 
 
 class PreescolarAgendaController extends Controller

@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Secundaria\Reportes;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Curso;
-use App\Http\Models\Ubicacion;
+use App\Models\Curso;
+use App\Models\Ubicacion;
 use Carbon\Carbon;
 use PDF;
 

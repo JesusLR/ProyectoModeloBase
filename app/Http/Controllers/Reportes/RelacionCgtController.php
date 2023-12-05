@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
-use App\Http\Models\Cgt;
-use App\Http\Models\Ubicacion;
+use App\Models\Cgt;
+use App\Models\Ubicacion;
 use App\clases\cgts\MetodosCgt;
 use App\Http\Helpers\Utils;
 

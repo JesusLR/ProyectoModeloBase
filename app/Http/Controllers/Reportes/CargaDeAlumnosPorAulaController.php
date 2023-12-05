@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\Horario;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Horario;
 use App\Http\Helpers\Utils;
 
 use RealRashid\SweetAlert\Facades\Alert;
@@ -79,7 +79,7 @@ class CargaDeAlumnosPorAulaController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Horario
+     * @param App\Models\Horario
      */
     private static function info_esencial($horario) {
         $grupo = $horario->grupo;

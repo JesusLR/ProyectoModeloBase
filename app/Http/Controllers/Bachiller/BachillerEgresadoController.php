@@ -6,16 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use App\Http\Models\Egresado;
-use App\Http\Models\Pago;
-use App\Http\Models\ConceptoTitulacion;
-use App\Http\Models\ConceptoModoTitulacion;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\Curso;
+use App\Models\Egresado;
+use App\Models\Pago;
+use App\Models\ConceptoTitulacion;
+use App\Models\ConceptoModoTitulacion;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Curso;
 
 use App\Http\Helpers\Utils;
-use App\Http\Models\Bachiller\Bachiller_resumenacademico;
+use App\Models\Bachiller\Bachiller_resumenacademico;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 use Carbon\Carbon;

@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Bachiller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Bachiller\Bachiller_cch_horarios;
-use App\Http\Models\Bachiller\Bachiller_cch_horariosadmivos;
-use App\Http\Models\Bachiller\Bachiller_empleados;
-use App\Http\Models\Bachiller\Bachiller_horarios;
-use App\Http\Models\Bachiller\Bachiller_horariosadmivos;
+use App\Models\Bachiller\Bachiller_cch_horarios;
+use App\Models\Bachiller\Bachiller_cch_horariosadmivos;
+use App\Models\Bachiller\Bachiller_empleados;
+use App\Models\Bachiller\Bachiller_horarios;
+use App\Models\Bachiller\Bachiller_horariosadmivos;
 use Illuminate\Database\QueryException;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
@@ -23,11 +23,11 @@ use Debugbar;
 
 use App\Models\User;
 
-use App\Http\Models\Empleado;
-use App\Http\Models\HorarioAdmivo;
-use App\Http\Models\Periodo;
-use App\Http\Models\Horario;
-use App\Http\Models\Ubicacion;
+use App\Models\Empleado;
+use App\Models\HorarioAdmivo;
+use App\Models\Periodo;
+use App\Models\Horario;
+use App\Models\Ubicacion;
 use Doctrine\DBAL\Driver\PDOConnection;
 
 class BachillerHorariosAdministrativosSEQController extends Controller

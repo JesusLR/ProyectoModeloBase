@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Preescolar;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Empleado;
-use App\Http\Models\Programa;
-use App\Http\Models\Ubicacion;
+use App\Models\Empleado;
+use App\Models\Programa;
+use App\Models\Ubicacion;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Yajra\DataTables\Facades\DataTables;

@@ -11,13 +11,13 @@ use App\Models\User;
 use App\Http\Helpers\Utils;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Http\Models\Empleado;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\TiposPrograma;
+use App\Models\Empleado;
+use App\Models\Ubicacion;
+use App\Models\TiposPrograma;
 
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Http\Models\EducacionContinua;
+use App\Models\EducacionContinua;
 use Illuminate\Database\QueryException;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;

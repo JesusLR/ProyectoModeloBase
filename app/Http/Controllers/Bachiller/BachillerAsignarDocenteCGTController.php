@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Bachiller;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Departamento;
-use App\Http\Models\Bachiller\Bachiller_empleados;
-use App\Http\Models\Cgt;
-use App\Http\Models\Ubicacion;
+use App\Models\Departamento;
+use App\Models\Bachiller\Bachiller_empleados;
+use App\Models\Cgt;
+use App\Models\Ubicacion;
 use Illuminate\Support\Facades\DB;
 
 class BachillerAsignarDocenteCGTController extends Controller

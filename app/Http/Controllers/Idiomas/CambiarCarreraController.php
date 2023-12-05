@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Idiomas;
 
 use Illuminate\Http\Request;
 
-use App\Http\Models\Idiomas\Idiomas_cursos;
-use App\Http\Models\Idiomas\Idiomas_grupos;
-use App\Http\Models\Idiomas\Idiomas_resumen_calificacion;
-use App\Http\Models\Idiomas\Idiomas_calificaciones_materia;
-use App\Http\Models\Ubicacion;
+use App\Models\Idiomas\Idiomas_cursos;
+use App\Models\Idiomas\Idiomas_grupos;
+use App\Models\Idiomas\Idiomas_resumen_calificacion;
+use App\Models\Idiomas\Idiomas_calificaciones_materia;
+use App\Models\Ubicacion;
 use App\clases\cambiar_carrera\idiomas\Notificacion;
 use App\Http\Controllers\Controller;
 

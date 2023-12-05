@@ -15,11 +15,11 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Materia;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Plan;
-use App\Http\Models\Cgt;
-use App\Http\Models\Prerequisito;
+use App\Models\Materia;
+use App\Models\Ubicacion;
+use App\Models\Plan;
+use App\Models\Cgt;
+use App\Models\Prerequisito;
 use App\Models\User;
 
 class MateriaController extends Controller

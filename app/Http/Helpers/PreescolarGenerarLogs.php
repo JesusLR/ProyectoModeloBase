@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Helpers;
 
-use App\Http\Models\Preescolar\Preescolar_UsuarioLog;
+use App\Models\Preescolar\Preescolar_UsuarioLog;
 use Carbon\Carbon;
 
 class PreescolarGenerarLogs

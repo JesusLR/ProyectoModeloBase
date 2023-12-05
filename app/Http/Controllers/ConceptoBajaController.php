@@ -15,7 +15,7 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\ConceptoBaja;
+use App\Models\ConceptoBaja;
 use App\Models\User;
 
 class ConceptoBajaController extends Controller

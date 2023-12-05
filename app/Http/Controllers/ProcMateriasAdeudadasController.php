@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Models\Alumno;
+use App\Models\Alumno;
 use DB;
 use Yajra\DataTables\Facades\DataTables;
 

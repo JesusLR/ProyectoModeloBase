@@ -14,15 +14,15 @@ use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use App\Models\User;
 use App\Models\User_docente;
-use App\Http\Models\Persona;
-use App\Http\Models\Idiomas\Idiomas_grupos;
-use App\Http\Models\Alumno;
-use App\Http\Models\Pais;
-use App\Http\Models\Estado;
-use App\Http\Models\Idiomas\Idiomas_empleados;
-use App\Http\Models\Municipio;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Puesto;
+use App\Models\Persona;
+use App\Models\Idiomas\Idiomas_grupos;
+use App\Models\Alumno;
+use App\Models\Pais;
+use App\Models\Estado;
+use App\Models\Idiomas\Idiomas_empleados;
+use App\Models\Municipio;
+use App\Models\Ubicacion;
+use App\Models\Puesto;
 use App\Http\Helpers\Utils;
 use App\clases\personas\MetodosPersonas;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -249,7 +249,7 @@ class IdiomasEmpleadoController extends Controller
                     User_docente::create([
                         'empleado_id'      => $empleado->id,
                         'password'         => bcrypt($request->input('password')),
-                        'token'            => str_random(64),
+                        'token'            => Str::random(64),
                     ]);
                 }
 
@@ -465,7 +465,7 @@ class IdiomasEmpleadoController extends Controller
 
         try {
             $empleado = Idiomas_empleados::findOrFail($id);
-            
+
             $empleado->empCurp       = $request->empCurp;
             $empleado->empApellido1  = $request->empApellido1;
             $empleado->empApellido2  = $request->empApellido2;
@@ -479,7 +479,7 @@ class IdiomasEmpleadoController extends Controller
             $empleado->empDireccionCalle   = $request->empDirCalle;
             $empleado->empDireccionNumero  = $request->empDirNumExt;
             $empleado->empDireccionColonia = $request->empDirColonia;
-            
+
             $empleado->empHoras      = Utils::validaEmpty($request->empHoras);
             $empleado->empCredencial    = $request->empCredencial;
             $empleado->empNomina        = Utils::validaEmpty($request->empNomina);
@@ -501,7 +501,7 @@ class IdiomasEmpleadoController extends Controller
                     $userDocente = User_docente::create([
                         'empleado_id'      => $empleado->id,
                         'password'         => bcrypt($request->password),
-                        'token'            => str_random(64),
+                        'token'            => Str::random(64),
                     ]);
                 }
             }
@@ -660,7 +660,7 @@ class IdiomasEmpleadoController extends Controller
                 User_docente::create([
                     'empleado_id'      => $empleado->id,
                     'password'         => bcrypt($request->input('password')),
-                    'token'            => str_random(64),
+                    'token'            => Str::random(64),
                 ]);
             }
         } catch (Exception $e) {
@@ -677,6 +677,6 @@ class IdiomasEmpleadoController extends Controller
         }else{
             return $empleado;
         }
-        
+
     }
 }

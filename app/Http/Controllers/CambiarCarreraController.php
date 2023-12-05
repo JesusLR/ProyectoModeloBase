@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Models\Curso;
-use App\Http\Models\Cgt;
-use App\Http\Models\Ubicacion;
+use App\Models\Curso;
+use App\Models\Cgt;
+use App\Models\Ubicacion;
 use App\clases\cambiar_carrera\Notificacion;
 
 use DB;

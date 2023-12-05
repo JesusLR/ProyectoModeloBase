@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Bachiller;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Bachiller\Bachiller_cch_calificaciones_observaciones;
-use App\Http\Models\Ubicacion;
+use App\Models\Bachiller\Bachiller_cch_calificaciones_observaciones;
+use App\Models\Ubicacion;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 

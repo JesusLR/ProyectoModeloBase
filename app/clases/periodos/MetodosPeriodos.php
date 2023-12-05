@@ -4,14 +4,14 @@ namespace App\clases\periodos;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Models\Periodo;
+use App\Models\Periodo;
 
 class MetodosPeriodos
 {
     /**
     * Devuelve los periodos anteriores, dado un periodo.
     *
-    * @param App\Http\Models\Periodo $periodo.
+    * @param App\Models\Periodo $periodo.
     * @param string $perEstado. (opcional)
     */
     public static function buscarAnteriores($periodo,$perEstado = null){
@@ -28,7 +28,7 @@ class MetodosPeriodos
     /**
     * Devuelve los periodos siguientes, dado un periodo.
     *
-    * @param App\Http\Models\Periodo $periodo.
+    * @param App\Models\Periodo $periodo.
     * @param string $perEstado. (opcional)
     */
     public static function buscarSiguientes($periodo, $perEstado = null) {

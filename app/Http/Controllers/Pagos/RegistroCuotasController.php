@@ -15,11 +15,11 @@ use Illuminate\Database\QueryException;
 
 use App\Models;
 use App\Models\User;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Departamento;
-use App\Http\Models\Escuela;
-use App\Http\Models\Programa;
-use App\Http\Models\Cuota;
+use App\Models\Ubicacion;
+use App\Models\Departamento;
+use App\Models\Escuela;
+use App\Models\Programa;
+use App\Models\Cuota;
 use App\Http\Helpers\Utils;
 use App\clases\cuotas\MetodosCuotas;
 

@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Actividades;
-use App\Http\Models\Empleado;
-use App\Http\Models\Ubicacion;
+use App\Models\Actividades;
+use App\Models\Empleado;
+use App\Models\Ubicacion;
 use Illuminate\Database\QueryException;
 use Yajra\DataTables\Facades\DataTables;
 use Validator;

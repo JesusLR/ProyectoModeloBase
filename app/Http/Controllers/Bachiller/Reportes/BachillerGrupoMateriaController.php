@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Bachiller\Reportes;
 
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Bachiller\Bachiller_empleados;
-use App\Http\Models\Bachiller\Bachiller_grupos;
-use App\Http\Models\Bachiller\Bachiller_inscritos;
+use App\Models\Bachiller\Bachiller_empleados;
+use App\Models\Bachiller\Bachiller_grupos;
+use App\Models\Bachiller\Bachiller_inscritos;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Ubicacion;
+use App\Models\Ubicacion;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;

@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\PreinscritoExtraordinario;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\PreinscritoExtraordinario;
 use App\Http\Helpers\Utils;
 
 use RealRashid\SweetAlert\Facades\Alert;
@@ -71,7 +71,7 @@ class RelacionSolicitudesExtraordinarioController extends Controller
     }
 
     /**
-     * @param App\Http\Models\PreinscritoExtraordinario
+     * @param App\Models\PreinscritoExtraordinario
      */
     private static function info_esencial($preinscrito) {
         $alumno = $preinscrito->alumno;

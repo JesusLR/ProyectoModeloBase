@@ -15,7 +15,7 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Profesion;
+use App\Models\Profesion;
 use App\Models\User;
 
 class ProfesionController extends Controller

@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Primaria;
 use App\clases\cgts\MetodosCgt;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Alumno;
-use App\Http\Models\Curso;
-use App\Http\Models\Departamento;
-use App\Http\Models\Ubicacion;
+use App\Models\Alumno;
+use App\Models\Curso;
+use App\Models\Departamento;
+use App\Models\Ubicacion;
 use Illuminate\Support\Facades\DB;
 
 class PrimariaMateriasInscritoController extends Controller

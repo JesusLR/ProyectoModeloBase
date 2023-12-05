@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Validator;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Grupo;
-use App\Http\Models\Historico;
-use App\Http\Models\Calificacion;
-use App\Http\Models\ResumenAcademico;
+use App\Models\Ubicacion;
+use App\Models\Grupo;
+use App\Models\Historico;
+use App\Models\Calificacion;
+use App\Models\ResumenAcademico;
 use App\Http\Helpers\Utils;
 use App\clases\personas\MetodosPersonas;
 use App\clases\SCEM\Mailer as ScemMailer;

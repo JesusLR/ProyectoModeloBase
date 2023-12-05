@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Reportes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Programa;
-use App\Http\Models\Grupo;
-use App\Http\Models\Empleado;
-use App\Http\Models\Horario;
-use App\Http\Models\HorarioAdmivo;
-use App\Http\Models\Escolaridad;
+use App\Models\Ubicacion;
+use App\Models\Programa;
+use App\Models\Grupo;
+use App\Models\Empleado;
+use App\Models\Horario;
+use App\Models\HorarioAdmivo;
+use App\Models\Escolaridad;
 use App\clases\personas\MetodosPersonas as Personas;
 
 use Carbon\Carbon;
@@ -173,7 +173,7 @@ class EstadisticaMaestrosController extends Controller
 
     /**
     * @param int $empleado_id
-    * @param App\Http\Models\Periodo
+    * @param App\Models\Periodo
     */
     private static function calcularAntiguedad($empleado_id, $periodo)
     {

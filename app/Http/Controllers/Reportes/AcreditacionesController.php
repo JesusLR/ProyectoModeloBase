@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Reportes;
 use DB;
 use Auth;
 use Carbon\Carbon;
-use App\Http\Models\Cgt;
-use App\Http\Models\Pago;
-use App\Http\Models\Grupo;
+use App\Models\Cgt;
+use App\Models\Pago;
+use App\Models\Grupo;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Periodo;
+use App\Models\Periodo;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Ubicacion;
+use App\Models\Ubicacion;
 use App\Http\Controllers\Controller;
 
 use Maatwebsite\Excel\Facades\Excel;

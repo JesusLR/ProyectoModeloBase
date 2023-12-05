@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Curso;
-use App\Http\Models\Egresado;
-use App\Http\Models\Acuerdo;
+use App\Models\Ubicacion;
+use App\Models\Curso;
+use App\Models\Egresado;
+use App\Models\Acuerdo;
 use App\Http\Helpers\Utils;
 use App\clases\periodos\MetodosPeriodos;
 
@@ -206,7 +206,7 @@ class EstadisticaLicenciaturaController extends Controller
 
 
     /**
-    * @param App\Http\Models\Persona
+    * @param App\Models\Persona
     */
     private function obtenerInfoPersona($persona)
     {

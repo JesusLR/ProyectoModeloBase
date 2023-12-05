@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Reportes;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Grupo;
-use App\Http\Models\Inscrito;
-use App\Http\Models\Horario;
+use App\Models\Ubicacion;
+use App\Models\Grupo;
+use App\Models\Inscrito;
+use App\Models\Horario;
 
 use DB;
 use PDF;

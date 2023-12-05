@@ -14,12 +14,12 @@ use \PhpOffice\PhpSpreadsheet\Style\Color;
 use \PhpOffice\PhpSpreadsheet\Style\Fill;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\Departamento;
-use App\Http\Models\Escuela;
-use App\Http\Models\Programa;
-use App\Http\Models\Plan;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Departamento;
+use App\Models\Escuela;
+use App\Models\Programa;
+use App\Models\Plan;
 use Validator;
 use DB;
 use PDF;

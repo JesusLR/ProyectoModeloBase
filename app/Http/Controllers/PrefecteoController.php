@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Prefecteo;
-use App\Http\Models\PrefecteoDetalle;
+use App\Models\Ubicacion;
+use App\Models\Prefecteo;
+use App\Models\PrefecteoDetalle;
 use App\Http\Requests\Prefecteo\StorePrefecteoRequest;
 use App\Http\Helpers\Utils;
 use App\clases\prefecteos\MetodosPrefecteos;

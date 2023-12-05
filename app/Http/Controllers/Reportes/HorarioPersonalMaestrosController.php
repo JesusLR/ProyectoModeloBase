@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Reportes;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Empleado;
-use App\Http\Models\Grupo;
-use App\Http\Models\Horario;
-use App\Http\Models\HorarioAdmivo;
+use App\Models\Ubicacion;
+use App\Models\Empleado;
+use App\Models\Grupo;
+use App\Models\Horario;
+use App\Models\HorarioAdmivo;
 
 use DB;
 use PDF;
@@ -132,7 +132,7 @@ class HorarioPersonalMaestrosController extends Controller
 
   /**
   * @param Collection $empleados
-  * @param App\Http\Models\Periodo $periodo
+  * @param App\Models\Periodo $periodo
   */
   private static function obtenerGruposDeMaestros($empleados, $periodo): Collection
   {

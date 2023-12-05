@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Collection;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Curso;
-use App\Http\Models\Cgt;
-use App\Http\Models\Beca;
-use App\Http\Models\Bachiller\Bachiller_resumenacademico;
-use App\Http\Models\Pago;
+use App\Models\Ubicacion;
+use App\Models\Curso;
+use App\Models\Cgt;
+use App\Models\Beca;
+use App\Models\Bachiller\Bachiller_resumenacademico;
+use App\Models\Pago;
 use App\clases\periodos\MetodosPeriodos;
 
 use Carbon\Carbon;
@@ -115,9 +115,9 @@ class BachillerPreinscripcionAutomaticaController extends Controller
     * Verifica que no sea el último grado del alumno.
     * Busca el cgtSiguiente y si existe, retorna sus datos.
     *
-    * @param App\Http\Models\Cgt
-    * @param App\Http\Models\Plan
-    * @param App\Http\Models\Periodo $periodo_siguiente
+    * @param App\Models\Cgt
+    * @param App\Models\Plan
+    * @param App\Models\Periodo $periodo_siguiente
     */
     public static function validarCgt($cgt, $plan, $periodo_siguiente){
 
@@ -135,8 +135,8 @@ class BachillerPreinscripcionAutomaticaController extends Controller
     }
 
     /**
-    * @param App\Http\Models\Cgt
-    * @param App\Http\Models\Periodo
+    * @param App\Models\Cgt
+    * @param App\Models\Periodo
     */
     private static function crearCgt($cgt, $periodo) {
 
@@ -160,7 +160,7 @@ class BachillerPreinscripcionAutomaticaController extends Controller
 
     /**
     * @param Collection $cursos
-    * @param App\Http\Models\Periodo $periodo_siguiente
+    * @param App\Models\Periodo $periodo_siguiente
     */
     private static function descartar_ya_inscritos($cursos, $periodo_siguiente) : Collection
     {
@@ -185,8 +185,8 @@ class BachillerPreinscripcionAutomaticaController extends Controller
     }
 
     /**
-    * @param App\Http\Models\Curso $curso
-    * @param App\Http\Models\Cgt $cgtSiguiente
+    * @param App\Models\Curso $curso
+    * @param App\Models\Cgt $cgtSiguiente
     * @param string $curEstado
     */
     private static function registrar_nuevo_curso($curso, $cgtSiguiente, $curEstado)
@@ -219,8 +219,8 @@ class BachillerPreinscripcionAutomaticaController extends Controller
     }
 
     /**
-    * @param App\Http\Models\Curso $curso_anterior
-    * @param App\Http\Models\Plan
+    * @param App\Models\Curso $curso_anterior
+    * @param App\Models\Plan
     */
     private static function procesar_resumen_academico($curso_anterior, $plan) {
         $resumenes_alumno = self::$resumenesData->pull($curso_anterior->alumno_id) ?: new Collection;
@@ -253,7 +253,7 @@ class BachillerPreinscripcionAutomaticaController extends Controller
 
     /**
     * @param Collection $cursos
-    * @param App\Http\Models\Periodo $periodo_siguiente
+    * @param App\Models\Periodo $periodo_siguiente
     */
     private static function quienes_no_han_pagado($cursos, $periodo_siguiente) {
         $cursos_regulares = $cursos->where('curEstado', 'R');
@@ -275,7 +275,7 @@ class BachillerPreinscripcionAutomaticaController extends Controller
 
     /**
     * @param Collection $cursos
-    * @param App\Http\Models\Periodo
+    * @param App\Models\Periodo
     */
     private static function buscarPagos($cursos, $periodo) {
 
@@ -287,7 +287,7 @@ class BachillerPreinscripcionAutomaticaController extends Controller
 
     /**
     * @param string $curPlanPago
-    * @param App\Http\Models\Ubicacion
+    * @param App\Models\Ubicacion
     */
     private static function obtener_conceptos_requeridos($curPlanPago, $ubicacion) {
 

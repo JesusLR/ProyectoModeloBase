@@ -8,19 +8,19 @@ use Debugbar;
 use Validator;
 use Carbon\Carbon;
 use App\Models\User;
-use App\Http\Models\Pais;
+use App\Models\Pais;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Estado;
+use App\Models\Estado;
 use Illuminate\Support\Str;
-use App\Http\Models\Persona;
+use App\Models\Persona;
 use App\Models\User_docente;
-use App\Http\Models\Grupo;
-use App\Http\Models\Alumno;
+use App\Models\Grupo;
+use App\Models\Alumno;
 
 use Illuminate\Http\Request;
-use App\Http\Models\Empleado;
-use App\Http\Models\Municipio;
-use App\Http\Models\Ubicacion;
+use App\Models\Empleado;
+use App\Models\Municipio;
+use App\Models\Ubicacion;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -28,12 +28,12 @@ use Yajra\DataTables\Facades\DataTables;
 
 use App\clases\personas\MetodosPersonas;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Departamento;
-use App\Http\Models\Escuela;
-use App\Http\Models\Primaria\Primaria_empleado;
-use App\Http\Models\Puesto;
-use App\Http\Models\Secundaria\Secundaria_empleados;
-use App\Http\Models\Secundaria\Secundaria_UsuarioLog;
+use App\Models\Departamento;
+use App\Models\Escuela;
+use App\Models\Primaria\Primaria_empleado;
+use App\Models\Puesto;
+use App\Models\Secundaria\Secundaria_empleados;
+use App\Models\Secundaria\Secundaria_UsuarioLog;
 use Exception;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 
@@ -132,7 +132,7 @@ class SecundariaEmpleadoController extends Controller
             ->addColumn('ubicacion', function ($query) {
                 return $query->ubiNombre;
             })
-            
+
             ->addColumn('action', function ($query) {
 
 
@@ -146,7 +146,7 @@ class SecundariaEmpleadoController extends Controller
                     $btnEditar = '<a href="secundaria_empleado/' . $query->id . '/edit" class="button button--icon js-button js-ripple-effect" title="Editar">
                         <i class="material-icons">edit</i>
                     </a>';
-               
+
 
                     $btnBaja = '<a href="#" data-id="' . $query->id . '" class="button button--icon js-button js-ripple-effect btn-darBaja" title="Dar de baja">
                         <i class="material-icons">arrow_downward</i>
@@ -170,7 +170,7 @@ class SecundariaEmpleadoController extends Controller
 
                 return '<a href="secundaria_empleado/' . $query->id . '" class="button button--icon js-button js-ripple-effect" title="Ver">
                     <i class="material-icons">visibility</i>
-                </a>' 
+                </a>'
                 . $btnEditar
                 . $btnBaja
                 . $btnBorrar;
@@ -359,11 +359,11 @@ class SecundariaEmpleadoController extends Controller
 
             if ($empleado->save()) {
                 if ($request->input('password')) {
-               
+
                     User_docente::create([
                         'empleado_id'      => $empleado->id,
                         'password'         => bcrypt($request->input('password')),
-                        'token'            => str_random(64),
+                        'token'            => Str::random(64),
                         'maternal'         => 0,
                         'preescolar'       => 0,
                         'primaria'         => 0,
@@ -627,7 +627,7 @@ class SecundariaEmpleadoController extends Controller
                     $userDocente = User_docente::create([
                         'empleado_id'      => $empleado->id,
                         'password'         => bcrypt($request->password),
-                        'token'            => str_random(64),
+                        'token'            => Str::random(64),
                     ]);
                 }
             }
@@ -688,7 +688,7 @@ class SecundariaEmpleadoController extends Controller
         $empleado = Secundaria_empleados::findOrFail($id);
         $escuela = Escuela::find($empleado->escuela_id);
         $departamento = Departamento::find($escuela->departamento_id);
-        
+
         $periodos_ids = [$departamento->perActual, $departamento->perSig];
 
         $grupo = $empleado->secundaria_grupos()
@@ -794,7 +794,7 @@ class SecundariaEmpleadoController extends Controller
                 User_docente::create([
                     'empleado_id'      => $empleado->id,
                     'password'         => bcrypt($request->input('password')),
-                    'token'            => str_random(64),
+                    'token'            => Str::random(64),
                 ]);
             }
         } catch (Exception $e) {
@@ -842,8 +842,8 @@ class SecundariaEmpleadoController extends Controller
         'secundaria_empleados.empNombre',
         'secundaria_empleados.empApellido1',
         'secundaria_empleados.empApellido2',
-        'secundaria_empleados.empTelefono', 
-        'puestos.puesNombre', 
+        'secundaria_empleados.empTelefono',
+        'puestos.puesNombre',
         'escuelas.escClave')
         ->join('puestos', 'puestos.id', 'secundaria_empleados.puesto_id')
         ->join('escuelas', 'escuelas.id', 'secundaria_empleados.escuela_id')
@@ -887,8 +887,8 @@ class SecundariaEmpleadoController extends Controller
             ]);
         }
 
-        
-        
+
+
 
         $empleados = Secundaria_empleados::whereIn('id', $listado->keys())->get()->keyBy('id');
         DB::beginTransaction();
@@ -899,7 +899,7 @@ class SecundariaEmpleadoController extends Controller
 
                     $fechaActual = Carbon::now('CDT');
                     $fecha = $fechaActual->format('Y-m-d H:i:s');
-                    
+
                     $empleado->update(['empEstado' =>  $info['nuevo_estado']]);
                     Secundaria_UsuarioLog::create([
                         'nombre_tabla' => 'secundaria_empleados',

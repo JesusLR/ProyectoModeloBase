@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Reportes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
+use App\Models\Ubicacion;
 use App\clases\Recolectores\AlumnosReprobadosParcialesRecolector;
 
 use Exception;

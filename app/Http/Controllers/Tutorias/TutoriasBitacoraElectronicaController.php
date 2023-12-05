@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Tutorias;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Tutorias\Tutorias_bitacoras;
+use App\Models\Tutorias\Tutorias_bitacoras;
 use Yajra\DataTables\Facades\DataTables;
 
 class TutoriasBitacoraElectronicaController extends Controller

@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Reportes;
 
 use App\Http\Controllers\Controller;
-use App\Http\Models\Cgt;
+use App\Models\Cgt;
 use Illuminate\Http\Request;
-use App\Http\Models\Curso;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Departamento;
-use App\Http\Models\Estado;
-use App\Http\Models\Programa;
-use App\Http\Models\Periodo;
-use App\Http\Models\ConceptoTitulacion;
-use App\Http\Models\Egresado;
-use App\Http\Models\Inscrito;
+use App\Models\Curso;
+use App\Models\Ubicacion;
+use App\Models\Departamento;
+use App\Models\Estado;
+use App\Models\Programa;
+use App\Models\Periodo;
+use App\Models\ConceptoTitulacion;
+use App\Models\Egresado;
+use App\Models\Inscrito;
 
 use App\Http\Helpers\Utils;
 

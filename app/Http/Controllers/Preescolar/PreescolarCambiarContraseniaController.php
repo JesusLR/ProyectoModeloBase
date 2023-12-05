@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Preescolar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Empleado;
-use App\Http\Models\Persona;
+use App\Models\Empleado;
+use App\Models\Persona;
 use App\Models\User_docente;
 use Illuminate\Support\Facades\Hash;
 use Validator;
@@ -35,7 +35,7 @@ class PreescolarCambiarContraseniaController extends Controller
      */
     public function create()
     {
-        $empleados = Empleado::select(             
+        $empleados = Empleado::select(
             'empleados.id',
             'personas.perNombre',
             'personas.perApellido1',
@@ -64,7 +64,7 @@ class PreescolarCambiarContraseniaController extends Controller
 
         if($request->ajax()){
 
-            $empleados = Empleado::select(             
+            $empleados = Empleado::select(
                 'empleados.id',
                 'personas.perNombre',
                 'personas.perApellido1',
@@ -82,7 +82,7 @@ class PreescolarCambiarContraseniaController extends Controller
             ->join('ubicacion', 'departamentos.ubicacion_id', '=', 'ubicacion.id')
             ->where('empleados.id', '=', $id)
             ->get();
-         
+
 
             return response()->json($empleados);
         }
@@ -95,7 +95,7 @@ class PreescolarCambiarContraseniaController extends Controller
      */
     public function store(Request $request)
     {
-        
+
 
         $validator = Validator::make($request->all(), [
             'password'          =>  'required|min:8|max:20|regex:/^.*?(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*$/',
@@ -119,7 +119,7 @@ class PreescolarCambiarContraseniaController extends Controller
         ->join('ubicacion', 'departamentos.ubicacion_id', '=', 'ubicacion.id')
         ->where('empleados.id', $request->empleado_id)->first();
 
-        // validamos escuela_id para saber que campos habilitar 
+        // validamos escuela_id para saber que campos habilitar
         if($preescolar_empleado->ubicacion == "CME"){
             $campus_cme = 1;
         }else{
@@ -153,7 +153,7 @@ class PreescolarCambiarContraseniaController extends Controller
         $docente = User_docente::create([
             'empleado_id' => $request->empleado_id,
             'password'    => Hash::make($request->password),
-            'token'       => str_random(64),
+            'token'       => Str::random(64),
             'maternal' => $maternal,
             'preescolar' => $preescolar,
             'bachiller'  => 0,
@@ -164,14 +164,14 @@ class PreescolarCambiarContraseniaController extends Controller
             'campus_cva'  => $campus_cva,
             'campus_cch'  => $campus_cch
         ]);
-   
+
 
         $empleado = Empleado::where('id', $request->empleado_id)->first();
         $empleado->update([
             'empCorreo1' => $request->empCorreo1
         ]);
-        
-        
+
+
 
         alert()->success('Escuela Modelo', 'Contraseña guardada correctamente.')->showConfirmButton();
         return redirect('preescolar_cambiar_contrasenia');
@@ -247,7 +247,7 @@ class PreescolarCambiarContraseniaController extends Controller
         ->join('ubicacion', 'departamentos.ubicacion_id', '=', 'ubicacion.id')
         ->where('empleados.id', $request->empleado_id)->first();
 
-          // validamos escuela_id para saber que campos habilitar 
+          // validamos escuela_id para saber que campos habilitar
           if($preescolar_empleado->ubicacion == "CME"){
             $campus_cme = 1;
         }else{
@@ -280,7 +280,7 @@ class PreescolarCambiarContraseniaController extends Controller
 
         $docente = User_docente::findOrFail($id)->update([
             'maternal' => $maternal,
-            'preescolar' => $preescolar,      
+            'preescolar' => $preescolar,
             'campus_cme'  => $campus_cme,
             'campus_cva'  => $campus_cva,
             'campus_cch'  => $campus_cch,
@@ -305,7 +305,7 @@ class PreescolarCambiarContraseniaController extends Controller
     public function list() {
 
         $docentes = User_docente::select(
-            'users_docentes.id', 
+            'users_docentes.id',
             'empleados.id as empleado_id',
             'personas.perNombre',
             'personas.perApellido1',
@@ -325,11 +325,11 @@ class PreescolarCambiarContraseniaController extends Controller
         ->whereIn('departamentos.depClave', ['PRE', 'MAT'])
         ->latest('users_docentes.created_at');
 
-        return DataTables::eloquent($docentes)      
+        return DataTables::eloquent($docentes)
 
         ->filterColumn('empleadoID', function($query, $keyword) {
             $query->whereRaw("CONCAT(empleados.id) like ?", ["%{$keyword}%"]);
-            
+
         })
         ->addColumn('empleadoID', function($query) {
             return $query->empleado_id;
@@ -337,7 +337,7 @@ class PreescolarCambiarContraseniaController extends Controller
 
         ->filterColumn('nombre', function($query, $keyword) {
             $query->whereRaw("CONCAT(perNombre) like ?", ["%{$keyword}%"]);
-            
+
         })
         ->addColumn('nombre', function($query) {
             return $query->perNombre;
@@ -345,7 +345,7 @@ class PreescolarCambiarContraseniaController extends Controller
 
         ->filterColumn('apellido1', function($query, $keyword) {
             $query->whereRaw("CONCAT(perApellido1) like ?", ["%{$keyword}%"]);
-            
+
         })
         ->addColumn('apellido1', function($query) {
             return $query->perApellido1;
@@ -353,7 +353,7 @@ class PreescolarCambiarContraseniaController extends Controller
 
         ->filterColumn('apellido2', function($query, $keyword) {
             $query->whereRaw("CONCAT(perApellido2) like ?", ["%{$keyword}%"]);
-            
+
         })
         ->addColumn('apellido2', function($query) {
             return $query->perApellido2;
@@ -361,7 +361,7 @@ class PreescolarCambiarContraseniaController extends Controller
 
         ->filterColumn('ubicacion', function($query, $keyword) {
             $query->whereRaw("CONCAT(ubiNombre) like ?", ["%{$keyword}%"]);
-            
+
         })
         ->addColumn('ubicacion', function($query) {
             return $query->ubiNombre;
@@ -369,7 +369,7 @@ class PreescolarCambiarContraseniaController extends Controller
 
         ->filterColumn('correo_empleado', function($query, $keyword) {
             $query->whereRaw("CONCAT(empCorreo1) like ?", ["%{$keyword}%"]);
-            
+
         })
         ->addColumn('correo_empleado', function($query) {
             return $query->empCorreo1;
@@ -377,14 +377,14 @@ class PreescolarCambiarContraseniaController extends Controller
 
         ->filterColumn('departamento', function($query, $keyword) {
             $query->whereRaw("CONCAT(depNombre) like ?", ["%{$keyword}%"]);
-            
+
         })
         ->addColumn('departamento', function($query) {
             return $query->depNombre;
         })
 
 
-       
+
         ->addColumn('action', static function(User_docente $docente) {
             $action_url = '/preescolar_cambiar_contrasenia';
 
@@ -392,7 +392,7 @@ class PreescolarCambiarContraseniaController extends Controller
                         .Utils::btn_show($docente->id, $action_url)
                         .Utils::btn_edit($docente->id, $action_url).
                    '</div>';
-        })  
+        })
         ->make(true);
     }//list.
 

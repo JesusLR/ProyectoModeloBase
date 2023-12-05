@@ -14,16 +14,16 @@ use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use App\Models\User;
 use App\Models\User_docente;
-use App\Http\Models\Persona;
-use App\Http\Models\Grupo;
-use App\Http\Models\Alumno;
-use App\Http\Models\Pais;
-use App\Http\Models\Estado;
-use App\Http\Models\Empleado;
-use App\Http\Models\Municipio;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Puesto;
-use App\Http\Models\UsuarioLog;
+use App\Models\Persona;
+use App\Models\Grupo;
+use App\Models\Alumno;
+use App\Models\Pais;
+use App\Models\Estado;
+use App\Models\Empleado;
+use App\Models\Municipio;
+use App\Models\Ubicacion;
+use App\Models\Puesto;
+use App\Models\UsuarioLog;
 use App\Http\Helpers\Utils;
 use App\clases\personas\MetodosPersonas;
 use Exception;
@@ -283,7 +283,7 @@ class EmpleadoController extends Controller
                         User_docente::create([
                             'empleado_id'      => $empleado->id,
                             'password'         => bcrypt($request->input('password')),
-                            'token'            => str_random(64),
+                            'token'            => Str::random(64),
                         ]);
                     }
 
@@ -535,10 +535,10 @@ class EmpleadoController extends Controller
                     $userDocente = User_docente::create([
                         'empleado_id'      => $empleado->id,
                         'password'         => bcrypt($request->password),
-                        'token'            => str_random(64),
+                        'token'            => Str::random(64),
                     ]);
 
-        
+
                 }
             }
 
@@ -706,7 +706,7 @@ class EmpleadoController extends Controller
                 User_docente::create([
                     'empleado_id'      => $empleado->id,
                     'password'         => bcrypt($request->input('password')),
-                    'token'            => str_random(64),
+                    'token'            => Str::random(64),
                 ]);
             }
         } catch (Exception $e) {
@@ -723,7 +723,7 @@ class EmpleadoController extends Controller
         }else{
             return $empleado;
         }
-        
+
     }//alumno_crearEmpleado.
 
     public function cambioHoras()

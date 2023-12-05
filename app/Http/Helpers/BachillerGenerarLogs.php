@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Helpers;
 
-use App\Http\Models\Bachiller\Bachiller_UsuarioLog;
+use App\Models\Bachiller\Bachiller_UsuarioLog;
 use Carbon\Carbon;
 
 class BachillerGenerarLogs

@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Departamento;
-use App\Http\Models\Empleado;
-use App\Http\Models\Grupo;
+use App\Models\Ubicacion;
+use App\Models\Departamento;
+use App\Models\Empleado;
+use App\Models\Grupo;
 use App\Http\Helpers\Utils;
 use App\clases\personas\MetodosPersonas;
 
@@ -103,7 +103,7 @@ class ConstanciaDocenteController extends Controller
     }
 
     /**
-	* @param App\Http\Models\Empleado
+	* @param App\Models\Empleado
     */
     private static function info_empleado($empleado)
     {
@@ -149,7 +149,7 @@ class ConstanciaDocenteController extends Controller
     
 
     /**
-	* @param App\Http\Models\Grupo
+	* @param App\Models\Grupo
     */
     private static function info_materia_impartida($grupo)
     {

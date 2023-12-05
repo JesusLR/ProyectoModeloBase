@@ -6,13 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
-use App\Http\Models\Historico;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Curso;
-use App\Http\Models\Minutario;
-use App\Http\Models\Materia;
-use App\Http\Models\Firmante;
-use App\Http\Models\Periodo;
+use App\Models\Historico;
+use App\Models\Ubicacion;
+use App\Models\Curso;
+use App\Models\Minutario;
+use App\Models\Materia;
+use App\Models\Firmante;
+use App\Models\Periodo;
 use App\Http\Helpers\Utils;
 use App\clases\periodos\MetodosPeriodos;
 use App\clases\personas\MetodosPersonas;
@@ -140,7 +140,7 @@ class CalificacionFinalController extends Controller
 
   /**
   * @param Illuminate\Http\Request
-  * @param App\Http\Models\Periodo
+  * @param App\Models\Periodo
   */
   private function buscarCurso($request, $periodo)
   {
@@ -193,7 +193,7 @@ class CalificacionFinalController extends Controller
   /**
   * crea un array con la info del alumno para el reporte
   *
-  * @param App\Http\Models\Curso
+  * @param App\Models\Curso
   */
   private static function obtenerInfoAlumno($curso)
   {
@@ -215,7 +215,7 @@ class CalificacionFinalController extends Controller
 
 
   /**
-  * @param App\Http\Models\Firmante
+  * @param App\Models\Firmante
   */
   private static function obtenerInfoFirmante($firmante)
   {
@@ -228,7 +228,7 @@ class CalificacionFinalController extends Controller
 
 
   /**
-  * @param App\Http\Models\Periodo
+  * @param App\Models\Periodo
   */
   private static function obtenerInfoPeriodo($periodo)
   {
@@ -239,8 +239,8 @@ class CalificacionFinalController extends Controller
   }
 
   /**
-  * @param App\Http\Models\Periodo $periodo_seleccionado
-  * @param App\Http\Models\Periodo $periodo_actual
+  * @param App\Models\Periodo $periodo_seleccionado
+  * @param App\Models\Periodo $periodo_actual
   */
   private function definir_es_fue($periodo_seleccionado, $periodo_actual)
   {
@@ -252,7 +252,7 @@ class CalificacionFinalController extends Controller
 
 
   /**
-  * @param App\Http\Models\Curso
+  * @param App\Models\Curso
   */
   private static function crear_minutario($curso)
   {

@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Idiomas;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Curso;
-use App\Http\Models\Idiomas\Idiomas_cursos;
+use App\Models\Ubicacion;
+use App\Models\Curso;
+use App\Models\Idiomas\Idiomas_cursos;
 
 use App\Http\Helpers\Utils;
 use Carbon\Carbon;

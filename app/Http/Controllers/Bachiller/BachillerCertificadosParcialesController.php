@@ -6,12 +6,12 @@ use App\clases\alumnos\MetodosAlumnos;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\Revalidaciones\RevalidarRequest;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Materia;
-use App\Http\Models\Periodo;
+use App\Models\Ubicacion;
+use App\Models\Materia;
+use App\Models\Periodo;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Bachiller\Bachiller_historico;
-use App\Http\Models\Bachiller\Bachiller_resumenacademico;
+use App\Models\Bachiller\Bachiller_historico;
+use App\Models\Bachiller\Bachiller_resumenacademico;
 use Exception;
 use Carbon\Carbon;
 use Yajra\DataTables\Facades\DataTables;

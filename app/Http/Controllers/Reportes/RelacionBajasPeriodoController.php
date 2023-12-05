@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Baja;
-use App\Http\Models\Pago;
+use App\Models\Ubicacion;
+use App\Models\Baja;
+use App\Models\Pago;
 
 use PDF;
 use Carbon\Carbon;

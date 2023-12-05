@@ -15,9 +15,9 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Periodo;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Departamento;
+use App\Models\Periodo;
+use App\Models\Ubicacion;
+use App\Models\Departamento;
 use App\Models\User;
 
 class PeriodoController extends Controller

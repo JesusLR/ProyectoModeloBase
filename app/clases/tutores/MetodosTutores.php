@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Hash;
 
-use App\Http\Models\Tutor;
-use App\Http\Models\Alumno;
-use App\Http\Models\TutorAlumno;
+use App\Models\Tutor;
+use App\Models\Alumno;
+use App\Models\TutorAlumno;
 
 class MetodosTutores
 {

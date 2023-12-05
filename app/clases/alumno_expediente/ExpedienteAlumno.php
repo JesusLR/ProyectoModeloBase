@@ -1,10 +1,10 @@
 <?php
 namespace App\clases\alumno_expediente;
 
-use App\Http\Models\Bachiller\Bachiller_alumnos_historia_clinica;
-use App\Http\Models\Preescolar\Preescolar_alumnos_historia_clinica;
-use App\Http\Models\Primaria\Primaria_expediente_entrevista_inicial;
-use App\Http\Models\Secundaria\Secundaria_alumnos_historia_clinica;
+use App\Models\Bachiller\Bachiller_alumnos_historia_clinica;
+use App\Models\Preescolar\Preescolar_alumnos_historia_clinica;
+use App\Models\Primaria\Primaria_expediente_entrevista_inicial;
+use App\Models\Secundaria\Secundaria_alumnos_historia_clinica;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Collection;

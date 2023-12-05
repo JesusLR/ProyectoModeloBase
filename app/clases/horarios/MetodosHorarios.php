@@ -1,13 +1,13 @@
 <?php
 namespace App\clases\horarios;
 
-use App\Http\Models\Bachiller\Bachiller_cch_horarios;
-use App\Http\Models\Bachiller\Bachiller_horarios;
+use App\Models\Bachiller\Bachiller_cch_horarios;
+use App\Models\Bachiller\Bachiller_horarios;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Hash;
 
-use App\Http\Models\Horario;
+use App\Models\Horario;
 
 use Exception;
 use Carbon\Carbon;
@@ -37,7 +37,7 @@ class MetodosHorarios
     /**
     * Creado para GrupoController, método eliminarHorario()
     *
-    * @param App\Http\Models\Grupo
+    * @param App\Models\Grupo
     */
     public static function buscarHorariosEquivalentes($horario)
     {

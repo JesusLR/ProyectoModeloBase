@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
 
-use App\Http\Models\Curso;
-use App\Http\Models\Historico;
-use App\Http\Models\Minutario;
-use App\Http\Models\Firmante;
-use App\Http\Models\Ubicacion;
+use App\Models\Curso;
+use App\Models\Historico;
+use App\Models\Minutario;
+use App\Models\Firmante;
+use App\Models\Ubicacion;
 
 use RealRashid\SweetAlert\Facades\Alert;
 use Carbon\Carbon;

@@ -8,27 +8,27 @@ use Debugbar;
 use Validator;
 use Carbon\Carbon;
 use App\Models\User;
-use App\Http\Models\Cgt;
-use App\Http\Models\Pais;
-use App\Http\Models\Plan;
-use App\Http\Models\Curso;
-use App\Http\Models\Grupo;
+use App\Models\Cgt;
+use App\Models\Pais;
+use App\Models\Plan;
+use App\Models\Curso;
+use App\Models\Grupo;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Estado;
+use App\Models\Estado;
 
 use Illuminate\Support\Str;
-use App\Http\Models\Periodo;
+use App\Models\Periodo;
 use Illuminate\Http\Request;
-use App\Http\Models\Programa;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Calificacion;
-use App\Http\Models\Departamento;
+use App\Models\Programa;
+use App\Models\Ubicacion;
+use App\Models\Calificacion;
+use App\Models\Departamento;
 use Illuminate\Support\Facades\DB;
-use App\Http\Models\InscritoExtraCur;
+use App\Models\InscritoExtraCur;
 use Illuminate\Database\QueryException;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
-use App\Http\Models\CalificacionExtraCur;
+use App\Models\CalificacionExtraCur;
 
 
 class ExtracurricularController extends Controller

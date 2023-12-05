@@ -1,7 +1,7 @@
 <?php 
 namespace App\clases\cambiar_carrera;
 
-use App\Http\Models\Curso;
+use App\Models\Curso;
 use App\clases\SCEM\Mailer;
 use App\clases\personas\MetodosPersonas;
 
@@ -36,7 +36,7 @@ class Notificacion
 	}
 
 	/**
-	* @param App\Http\Models\Curso $curso_anterior;
+	* @param App\Models\Curso $curso_anterior;
 	*/
 	public function cambioRealizado(Curso $curso_anterior)
 	{
@@ -72,7 +72,7 @@ class Notificacion
 	}
 
 	/**
-	* @param App\Http\Models\Curso $curso_anterior
+	* @param App\Models\Curso $curso_anterior
 	*/
 	public function armarMensajeDeCambio(Curso $curso_anterior)
 	{

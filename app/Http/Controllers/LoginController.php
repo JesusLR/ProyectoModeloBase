@@ -70,7 +70,7 @@ class LoginController extends Controller
                 $ruta = '/home';
             }
 
-            
+
 
             if (Auth::user()->bachiller == 1)
             {

@@ -15,7 +15,7 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\ConceptoTitulacion;
+use App\Models\ConceptoTitulacion;
 use App\Models\User;
 
 class ConceptoTitulacionController extends Controller

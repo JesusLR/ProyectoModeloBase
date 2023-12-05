@@ -1,8 +1,8 @@
 <?php
 namespace App\clases\cursos;
 
-use App\Http\Models\Curso;
-use App\Http\Models\BecaHistorial;
+use App\Models\Curso;
+use App\Models\BecaHistorial;
 
 use Carbon\Carbon;
 
@@ -27,7 +27,7 @@ class MetodosCursos
 	 * Crea un registro en becas_historial recolectando la información del
 	 * curso proporcionado.
 	 * 
-	 * @param App\Http\Models\Curso
+	 * @param App\Models\Curso
 	 */
 	public static function crearHistorialDeBeca($curso): BecaHistorial
 	{
@@ -46,8 +46,8 @@ class MetodosCursos
 	 * Verifica si existen cambios en los campos:
 	 * curTipoBeca, curPorcentajeBeca, curObservacionesBeca.
 	 * 
-	 * @param App\Http\Models\Curso $curso_actual
-	 * @param App\Http\Models\Curso $curso_anterior
+	 * @param App\Models\Curso $curso_actual
+	 * @param App\Models\Curso $curso_anterior
 	 */
 	public static function hayCambioDeBeca($curso_actual, $curso_anterior): bool
 	{

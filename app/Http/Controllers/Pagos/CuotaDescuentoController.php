@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Pagos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\CuotaDescuento;
-use App\Http\Models\Cuota;
+use App\Models\CuotaDescuento;
+use App\Models\Cuota;
 use App\Http\Helpers\Utils;
 use App\clases\cuotas\MetodosCuotas;
 

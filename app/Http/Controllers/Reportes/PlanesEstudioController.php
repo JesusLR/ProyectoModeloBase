@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Reportes;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Plan;
-use App\Http\Models\Materia;
+use App\Models\Ubicacion;
+use App\Models\Plan;
+use App\Models\Materia;
 
 use Carbon\Carbon;
 use PDF;

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Edocta;
+use App\Models\Edocta;
 use App\clases\personas\MetodosPersonas;
 use App\Http\Helpers\Utils;
 

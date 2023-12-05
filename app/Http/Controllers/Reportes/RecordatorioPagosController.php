@@ -8,12 +8,12 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\Curso;
-use App\Http\Models\Pago;
-use App\Http\Models\ConceptoPago;
-use App\Http\Models\Mensaje;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Curso;
+use App\Models\Pago;
+use App\Models\ConceptoPago;
+use App\Models\Mensaje;
 use App\Http\Helpers\Utils;
 use App\clases\personas\MetodosPersonas as Personas;
 use App\clases\cgts\MetodosCgt;
@@ -160,7 +160,7 @@ class RecordatorioPagosController extends Controller
     }#imprimir
 
     /**
-    * @param App\Http\Models\Curso
+    * @param App\Models\Curso
     */
     private static function infoEsencialCurso($curso) {
     	$alumno = $curso->alumno;
@@ -187,7 +187,7 @@ class RecordatorioPagosController extends Controller
     }
 
 	    /**
-    * @param App\Http\Models\Curso
+    * @param App\Models\Curso
     */
     private static function semestre_inmediato_anterior($curso) {
 		$perAnioPago = $curso->periodo->perAnioPago;
@@ -244,7 +244,7 @@ class RecordatorioPagosController extends Controller
 
     /**
     * @param Collection $alumnos
-    * @param App\Http\Models\Periodo $periodo
+    * @param App\Models\Periodo $periodo
     */
     private static function buscarPagosDeAlumnos($alumnos, $periodo) {
 

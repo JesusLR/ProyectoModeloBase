@@ -485,7 +485,7 @@
     </style>
 	</head>
   @php
-  use App\Http\Models\Secundaria\Secundaria_inscritos;
+  use App\Models\Secundaria\Secundaria_inscritos;
   @endphp
   <body>
     <header>

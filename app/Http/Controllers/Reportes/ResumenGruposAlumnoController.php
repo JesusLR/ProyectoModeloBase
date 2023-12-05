@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Reportes;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Horario;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Curso;
-use App\Http\Models\Cgt;
+use App\Models\Horario;
+use App\Models\Ubicacion;
+use App\Models\Curso;
+use App\Models\Cgt;
 
 use Carbon\Carbon;
 

@@ -6,11 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Departamento;
-use App\Http\Models\Beca;
-use App\Http\Models\Curso;
-use App\Http\Models\Calificacion;
+use App\Models\Ubicacion;
+use App\Models\Departamento;
+use App\Models\Beca;
+use App\Models\Curso;
+use App\Models\Calificacion;
 use App\clases\personas\MetodosPersonas;
 use App\clases\alumnos\MetodosAlumnos;
 use App\clases\cgts\MetodosCgt;
@@ -209,7 +209,7 @@ class AlumnosBecadosController extends Controller
 
 
   /**
-  * @param App\Http\Models\Curso
+  * @param App\Models\Curso
   */
   private static function obtener_info_alumno($curso)
   {

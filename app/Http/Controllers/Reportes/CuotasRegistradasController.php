@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Departamento;
-use App\Http\Models\Escuela;
-use App\Http\Models\Programa;
+use App\Models\Ubicacion;
+use App\Models\Departamento;
+use App\Models\Escuela;
+use App\Models\Programa;
 
 use Exception;
 use Carbon\Carbon;

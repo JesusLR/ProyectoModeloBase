@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\MotivosFalta;
+use App\Models\MotivosFalta;
 
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -69,7 +69,7 @@ class HurraCalificacionesController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Calificacion
+     * @param App\Models\Calificacion
      */
     private static function info_esencial($calificacion): array {
         $motivo = $calificacion->motivofalta_id ? self::$motivosFalta->get($calificacion->motivofalta_id) : null;

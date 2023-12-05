@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Preescolar;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Departamento;
-use App\Http\Models\Periodo;
-use App\Http\Models\Plan;
-use App\Http\Models\Preescolar\Preescolar_calendario_calificaciones;
-use App\Http\Models\Ubicacion;
+use App\Models\Departamento;
+use App\Models\Periodo;
+use App\Models\Plan;
+use App\Models\Preescolar\Preescolar_calendario_calificaciones;
+use App\Models\Ubicacion;
 use Illuminate\Database\QueryException;
 use Yajra\DataTables\Facades\DataTables;
 use Validator;

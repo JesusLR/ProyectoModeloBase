@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Bachiller;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Bachiller\Bachiller_porcentajes;
-use App\Http\Models\Departamento;
-use App\Http\Models\Escuela;
-use App\Http\Models\Periodo;
-use App\Http\Models\Ubicacion;
+use App\Models\Bachiller\Bachiller_porcentajes;
+use App\Models\Departamento;
+use App\Models\Escuela;
+use App\Models\Periodo;
+use App\Models\Ubicacion;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Yajra\DataTables\Facades\DataTables;

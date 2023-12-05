@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\Grupo;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Grupo;
 use App\Http\Helpers\Utils;
 
 use RealRashid\SweetAlert\Facades\Alert;
@@ -72,7 +72,7 @@ class OcupacionDeAulaController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Grupo
+     * @param App\Models\Grupo
      */
     private static function info_esencial($grupo): array {
         $materia = $grupo->materia;

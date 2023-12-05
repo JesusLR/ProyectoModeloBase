@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Bachiller\Reportes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Curso;
-use App\Http\Models\Departamento;
-use App\Http\Models\Periodo;
-use App\Http\Models\TutorAlumno;
-use App\Http\Models\Ubicacion;
+use App\Models\Curso;
+use App\Models\Departamento;
+use App\Models\Periodo;
+use App\Models\TutorAlumno;
+use App\Models\Ubicacion;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 

@@ -18,19 +18,19 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Curso;
-use App\Http\Models\Alumno;
-use App\Http\Models\Cuota;
-use App\Http\Models\ConceptoPago;
-use App\Http\Models\Ficha;
-use App\Http\Models\ConceptoReferenciaUbicacion;
+use App\Models\Curso;
+use App\Models\Alumno;
+use App\Models\Cuota;
+use App\Models\ConceptoPago;
+use App\Models\Ficha;
+use App\Models\ConceptoReferenciaUbicacion;
 
 use App\Http\Helpers\GenerarReferencia;
 
 
 
 use App\Http\Helpers\Referencia;
-use App\Http\Models\Conceptospago_aex;
+use App\Models\Conceptospago_aex;
 use Codedge\Fpdf\Fpdf\Fpdf;
 
 class PreescolarFichaGeneralActividadesController extends Controller

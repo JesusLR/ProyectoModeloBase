@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\EducacionContinua;
-use App\Http\Models\Ficha;
+use App\Models\Ubicacion;
+use App\Models\EducacionContinua;
+use App\Models\Ficha;
 use App\Exports\FichasIncorrectasEduContinuaExport;
 
 use Carbon\Carbon;

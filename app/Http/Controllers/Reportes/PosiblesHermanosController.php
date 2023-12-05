@@ -6,10 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
-use App\Http\Models\Pago;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\Curso;
+use App\Models\Pago;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Curso;
 use App\Http\Helpers\Utils;
 use App\clases\personas\MetodosPersonas;
 use App\clases\alumnos\MetodosAlumnos;
@@ -147,7 +147,7 @@ class PosiblesHermanosController extends Controller
   }# imprimir
 
   /**
-  * @param App\Http\Models\Curso
+  * @param App\Models\Curso
   */
   private static function mapear_info_alumno($curso): array
   {

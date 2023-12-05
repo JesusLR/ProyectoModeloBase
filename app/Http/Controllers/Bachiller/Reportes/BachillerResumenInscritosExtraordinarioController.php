@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Bachiller\Bachiller_extraordinarios;
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\Extraordinario;
+use App\Models\Bachiller\Bachiller_extraordinarios;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Extraordinario;
 
 use Carbon\Carbon;
 use Exception;
@@ -134,7 +134,7 @@ class BachillerResumenInscritosExtraordinarioController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Extraordinario
+     * @param App\Models\Extraordinario
      */
     private static function info_esencial($extraordinario) {
         $plan = $extraordinario->bachiller_materia->plan;

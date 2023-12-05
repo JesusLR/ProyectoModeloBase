@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use Validator;
 
 use App\Models\User;
-use App\Http\Models\Materia;
+use App\Models\Materia;
 use Illuminate\Http\Request;
-use App\Http\Models\Historico;
+use App\Models\Historico;
 
-use App\Http\Models\Ubicacion;
+use App\Models\Ubicacion;
 use Illuminate\Support\Facades\DB;
-use App\Http\Models\ResumenAcademico;
+use App\Models\ResumenAcademico;
 use Illuminate\Database\QueryException;
 use Yajra\DataTables\Facades\DataTables;
 

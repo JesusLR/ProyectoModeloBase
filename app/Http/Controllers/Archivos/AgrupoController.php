@@ -6,10 +6,10 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\Grupo;
-use App\Http\Models\ClaveProfesor;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Grupo;
+use App\Models\ClaveProfesor;
 
 use Maatwebsite\Excel\Facades\Excel;
 

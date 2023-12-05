@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Departamento;
-use App\Http\Models\Empleado;
+use App\Models\Ubicacion;
+use App\Models\Departamento;
+use App\Models\Empleado;
 
 use PDF;
 use Carbon\Carbon;
@@ -74,7 +74,7 @@ class DocentesEncuestadosController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Empleado
+     * @param App\Models\Empleado
      */
     private static function info_esencial($empleado): array {
         $persona = $empleado->persona;

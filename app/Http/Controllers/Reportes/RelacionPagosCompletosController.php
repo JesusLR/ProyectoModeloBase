@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\Curso;
-use App\Http\Models\Pago;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Curso;
+use App\Models\Pago;
 use App\Http\Helpers\Utils;
 use App\Http\Helpers\UltimaFechaPago;
 
@@ -119,7 +119,7 @@ class RelacionPagosCompletosController extends Controller
 
     /**
      * @param Illuminate\Http\Request $request
-     * @param App\Http\Models\Periodo $periodoBase
+     * @param App\Models\Periodo $periodoBase
      */
     private static function buscarCursosBases($request, $periodoBase) {
 
@@ -141,7 +141,7 @@ class RelacionPagosCompletosController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Curso
+     * @param App\Models\Curso
      * @param Illuminate\Support\Collection $pagos
      */
     private static function info_esencial_alumno($curso, $pagos) {
@@ -188,7 +188,7 @@ class RelacionPagosCompletosController extends Controller
      * - departamento PRI no paga inscripción 00.
      * - Campus CVA tiene 13 pagos.
      * 
-     * @param App\Http\Models\Curso $curso
+     * @param App\Models\Curso $curso
      * @param Illuminate\Support\Collection $pagos
      */
     private static function tieneTodosLosPagos($curso, $pagos) {
@@ -206,7 +206,7 @@ class RelacionPagosCompletosController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Periodo $periodo
+     * @param App\Models\Periodo $periodo
      * @param Illuminate\Support\Collection $alumnos
      */
     private static function buscarCursosPorPeriodo($periodo, $alumnos) {
@@ -340,7 +340,7 @@ class RelacionPagosCompletosController extends Controller
      * Si el alumno tiene un 'cursos_antes' en el periodo_id indicado, devuelve el atributo solicitado.
      * 
      * @param array $alumno_info
-     * @param App\Http\Models\Periodo $periodo
+     * @param App\Models\Periodo $periodo
      * @param string $atributo_curso
      */
     private static function mostrarAtributoDeCurso($alumno, $periodo, $atributo_curso) {

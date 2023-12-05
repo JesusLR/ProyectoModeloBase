@@ -6,8 +6,8 @@ use Lang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-use App\Http\Models\Alumno;
-use App\Http\Models\PreinscritoExtraordinario;
+use App\Models\Alumno;
+use App\Models\PreinscritoExtraordinario;
 use App\Http\Helpers\Utils;
 
 use RealRashid\SweetAlert\Facades\Alert;

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Pagos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ficha;
+use App\Models\Ficha;
 
 use App\clases\personas\MetodosPersonas;
 use Yajra\DataTables\Facades\DataTables;

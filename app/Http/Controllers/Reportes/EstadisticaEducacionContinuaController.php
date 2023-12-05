@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\InscritosEduCont;
+use App\Models\Ubicacion;
+use App\Models\InscritosEduCont;
 
 use Exception;
 use Carbon\Carbon;

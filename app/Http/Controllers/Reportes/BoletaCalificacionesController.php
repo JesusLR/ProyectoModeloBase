@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 
-use App\Http\Models\Calificacion;
-use App\Http\Models\Ubicacion;
+use App\Models\Calificacion;
+use App\Models\Ubicacion;
 use App\Http\Helpers\Utils;
 use App\clases\personas\MetodosPersonas;
 
@@ -145,9 +145,9 @@ class BoletaCalificacionesController extends Controller
   }
 
   /**
-  * @param App\Http\Models\Alumno $alumno
-  * @param App\Http\Models\Plan $plan
-  * @param App\Http\Models\Programa $programa
+  * @param App\Models\Alumno $alumno
+  * @param App\Models\Plan $plan
+  * @param App\Models\Programa $programa
   */
   private static function materiasAdeudadas($alumno, $plan, $programa): Collection
   {

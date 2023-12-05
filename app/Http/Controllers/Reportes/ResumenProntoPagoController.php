@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Departamento;
-use App\Http\Models\Curso;
-use App\Http\Models\Pago;
+use App\Models\Departamento;
+use App\Models\Curso;
+use App\Models\Pago;
 use App\Http\Helpers\Utils;
 use App\clases\departamentos\MetodosDepartamentos;
 
@@ -111,7 +111,7 @@ class ResumenProntoPagoController extends Controller
     * - Después del 15 y antes de fin de mes = 'Normal'.
     * - El siguiente mes = 'Recargo'.
     *
-    * @param App\Http\Models\Pago
+    * @param App\Models\Pago
     */
     private static function obtenerTipoDePago($pago) 
     {

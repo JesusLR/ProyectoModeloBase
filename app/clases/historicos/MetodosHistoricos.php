@@ -3,16 +3,16 @@ namespace App\clases\historicos;
 
 use Illuminate\Http\Request;
 
-use App\Http\Models\Historico;
-use App\Http\Models\Materia;
+use App\Models\Historico;
+use App\Models\Materia;
 
 
 class MetodosHistoricos
 {
 
 	/**
-	* @param App\Http\Models\Historico
-	* @param App\Http\Models\Materia
+	* @param App\Models\Historico
+	* @param App\Models\Materia
 	*/
 	public static function definirCalificacion($historico, $materia)
 	{

@@ -15,8 +15,8 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Estado;
-use App\Http\Models\Pais;
+use App\Models\Estado;
+use App\Models\Pais;
 
 class EstadoController extends Controller
 {

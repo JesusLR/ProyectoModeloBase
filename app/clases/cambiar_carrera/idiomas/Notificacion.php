@@ -1,7 +1,7 @@
 <?php 
 namespace App\clases\cambiar_carrera\idiomas;
 
-use App\Http\Models\Idiomas\Idiomas_cursos;
+use App\Models\Idiomas\Idiomas_cursos;
 use App\clases\SCEM\Mailer;
 use App\clases\personas\MetodosPersonas;
 
@@ -55,7 +55,7 @@ class Notificacion
 	}
 
 	/**
-	* @param App\Http\Models\Idiomas_cursos $curso_anterior;
+	* @param App\Models\Idiomas_cursos $curso_anterior;
 	*/
 	public function cambioRealizado(Idiomas_cursos $curso_anterior)
 	{
@@ -90,7 +90,7 @@ class Notificacion
 	}
 
 	/**
-	* @param App\Http\Models\Idiomas_cursos $curso_anterior
+	* @param App\Models\Idiomas_cursos $curso_anterior
 	*/
 	public function armarMensajeDeCambio(Idiomas_cursos $curso_anterior)
 	{

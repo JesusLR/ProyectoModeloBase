@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Models\PreinscritoExtraordinario;
-use App\Http\Models\InscritoExtraordinario;
-use App\Http\Models\Materia;
-use App\Http\Models\Plan;
+use App\Models\PreinscritoExtraordinario;
+use App\Models\InscritoExtraordinario;
+use App\Models\Materia;
+use App\Models\Plan;
 use App\Http\Helpers\Utils;
 use Yajra\DataTables\Facades\DataTables;
 use Exception;
@@ -254,7 +254,7 @@ class PreinscritoExtraordinarioController extends Controller
     /**
     * Envía la notifiación por mail cuando el alumno ha sido inscrito a Extraordinario.
     *
-    * @param App\Http\Models\PreinscritoExtraordinario $preinscrito
+    * @param App\Models\PreinscritoExtraordinario $preinscrito
     * @return \Illuminate\Http\Response
     */
     public function notificar($preinscrito) {

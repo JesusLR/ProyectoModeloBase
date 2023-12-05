@@ -17,17 +17,17 @@ use Storage;
 
 
 
-use App\Http\Models\Curso;
-use App\Http\Models\Edocta;
-use App\Http\Models\Alumno;
-use App\Http\Models\Ficha;
-use App\Http\Models\Referencia;
-use App\Http\Models\UsuaGim;
-use App\Http\Models\Idioma;
-use App\Http\Models\InscProg;
-use App\Http\Models\Aextra;
-use App\Http\Models\ConcAextra;
-use App\Http\Models\Pago;
+use App\Models\Curso;
+use App\Models\Edocta;
+use App\Models\Alumno;
+use App\Models\Ficha;
+use App\Models\Referencia;
+use App\Models\UsuaGim;
+use App\Models\Idioma;
+use App\Models\InscProg;
+use App\Models\Aextra;
+use App\Models\ConcAextra;
+use App\Models\Pago;
 
 class PagoController extends Controller
 {

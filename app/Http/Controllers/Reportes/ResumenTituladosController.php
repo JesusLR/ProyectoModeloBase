@@ -7,8 +7,8 @@ use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Egresado;
-use App\Http\Models\Ubicacion;
+use App\Models\Egresado;
+use App\Models\Ubicacion;
 
 use Carbon\Carbon;
 use RealRashid\SweetAlert\Facades\Alert;

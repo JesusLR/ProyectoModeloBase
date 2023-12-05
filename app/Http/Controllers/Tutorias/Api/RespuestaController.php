@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Tutorias\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Tutorias\Tutorias_respuestas;
+use App\Models\Tutorias\Tutorias_respuestas;
 
 class RespuestaController extends Controller
 {

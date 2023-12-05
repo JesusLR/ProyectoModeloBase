@@ -16,9 +16,9 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Estado;
-use App\Http\Models\Municipio;
+use App\Models\Ubicacion;
+use App\Models\Estado;
+use App\Models\Municipio;
 use App\Models\User;
 
 class PreescolarUbicacionController extends Controller

@@ -3,19 +3,19 @@
 namespace App\Http\Controllers\Bachiller;
 
 use App\Http\Controllers\Controller;
-use App\Http\Models\Bachiller\Bachiller_empleados;
-use App\Http\Models\Bachiller\Bachiller_historico;
-use App\Http\Models\Bachiller\Bachiller_inscritos;
-use App\Http\Models\Bachiller\Bachiller_inscritosextraordinarios;
-use App\Http\Models\Bachiller\Bachiller_materias;
-use App\Http\Models\Bachiller\Bachiller_resumenacademico;
+use App\Models\Bachiller\Bachiller_empleados;
+use App\Models\Bachiller\Bachiller_historico;
+use App\Models\Bachiller\Bachiller_inscritos;
+use App\Models\Bachiller\Bachiller_inscritosextraordinarios;
+use App\Models\Bachiller\Bachiller_materias;
+use App\Models\Bachiller\Bachiller_resumenacademico;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 
-use App\Http\Models\Curso;
-use App\Http\Models\Ubicacion;
+use App\Models\Curso;
+use App\Models\Ubicacion;
 use RealRashid\SweetAlert\Facades\Alert;
 use Carbon\Carbon;
 use Validator;

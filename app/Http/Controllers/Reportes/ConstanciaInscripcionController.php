@@ -6,11 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
-use App\Http\Models\Curso;
-use App\Http\Models\Firmante;
-use App\Http\Models\Inscrito;
-use App\Http\Models\Minutario;
-use App\Http\Models\Ubicacion;
+use App\Models\Curso;
+use App\Models\Firmante;
+use App\Models\Inscrito;
+use App\Models\Minutario;
+use App\Models\Ubicacion;
 
 use PDF;
 use Carbon\Carbon;

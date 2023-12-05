@@ -2,7 +2,7 @@
 namespace App\clases\serviciosocial;
  
 use Illuminate\Http\Request;
-use App\Http\Models\ServicioSocial;
+use App\Models\ServicioSocial;
 
 class MetodosServicioSocial
 {

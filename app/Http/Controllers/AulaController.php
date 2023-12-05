@@ -15,8 +15,8 @@ use URL;
 use Validator;
 use Debugbar;
 
-use App\Http\Models\Aula;
-use App\Http\Models\Ubicacion;
+use App\Models\Aula;
+use App\Models\Ubicacion;
 use App\Models\User;
 
 class AulaController extends Controller

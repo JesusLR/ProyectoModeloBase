@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Curso;
-use App\Http\Models\BecaHistorial;
+use App\Models\Curso;
+use App\Models\BecaHistorial;
 
 use Yajra\DataTables\Facades\DataTables;
 use RealRashid\SweetAlert\Facades\Alert;

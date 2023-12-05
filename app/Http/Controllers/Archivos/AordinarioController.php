@@ -8,13 +8,13 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Periodo;
-use App\Http\Models\Escuela;
-use App\Http\Models\Plan;
-use App\Http\Models\Grupo;
-use App\Http\Models\Inscrito;
-use App\Http\Models\Calificacion;
+use App\Models\Ubicacion;
+use App\Models\Periodo;
+use App\Models\Escuela;
+use App\Models\Plan;
+use App\Models\Grupo;
+use App\Models\Inscrito;
+use App\Models\Calificacion;
 use App\clases\personas\MetodosPersonas;
 use App\clases\calificaciones\MetodosCalificaciones;
 
@@ -125,7 +125,7 @@ class AordinarioController extends Controller
     }
 
     /**
-    * @param App\Http\Models\Grupo
+    * @param App\Models\Grupo
     */
     private static function info_esencial_grupo($grupo) 
     {
@@ -217,7 +217,7 @@ class AordinarioController extends Controller
     }
 
     /**
-    * @param App\Http\Models\Inscrito
+    * @param App\Models\Inscrito
     */
     private static function info_esencial_inscrito($inscrito)
     {
@@ -317,7 +317,7 @@ class AordinarioController extends Controller
     }
 
     /**
-    * @param App\Http\Models\Calificacion
+    * @param App\Models\Calificacion
     */
     private static function info_esencial_calificacion($calificacion)
     {

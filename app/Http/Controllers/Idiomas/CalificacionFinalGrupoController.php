@@ -5,15 +5,15 @@ namespace App\Http\Controllers\Idiomas;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Models\Ubicacion;
-use App\Http\Models\Curso;
-use App\Http\Models\Departamento;
-use App\Http\Models\Escuela;
-use App\Http\Models\Periodo;
-use App\Http\Models\Programa;
-use App\Http\Models\Plan;
-use App\Http\Models\Idiomas\Idiomas_cursos;
-use App\Http\Models\Idiomas\Idiomas_grupos;
+use App\Models\Ubicacion;
+use App\Models\Curso;
+use App\Models\Departamento;
+use App\Models\Escuela;
+use App\Models\Periodo;
+use App\Models\Programa;
+use App\Models\Plan;
+use App\Models\Idiomas\Idiomas_cursos;
+use App\Models\Idiomas\Idiomas_grupos;
 
 use App\Http\Helpers\Utils;
 use Carbon\Carbon;

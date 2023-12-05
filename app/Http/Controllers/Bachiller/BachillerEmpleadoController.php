@@ -8,19 +8,19 @@ use Debugbar;
 use Validator;
 use Carbon\Carbon;
 use App\Models\User;
-use App\Http\Models\Pais;
+use App\Models\Pais;
 use App\Http\Helpers\Utils;
-use App\Http\Models\Estado;
+use App\Models\Estado;
 use Illuminate\Support\Str;
-use App\Http\Models\Persona;
+use App\Models\Persona;
 use App\Models\User_docente;
-use App\Http\Models\Grupo;
-use App\Http\Models\Alumno;
+use App\Models\Grupo;
+use App\Models\Alumno;
 
 use Illuminate\Http\Request;
-use App\Http\Models\Empleado;
-use App\Http\Models\Municipio;
-use App\Http\Models\Ubicacion;
+use App\Models\Empleado;
+use App\Models\Municipio;
+use App\Models\Ubicacion;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -28,10 +28,10 @@ use Yajra\DataTables\Facades\DataTables;
 
 use App\clases\personas\MetodosPersonas;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Primaria\Primaria_empleado;
-use App\Http\Models\Puesto;
-use App\Http\Models\Bachiller\Bachiller_empleados;
-use App\Http\Models\Bachiller\Bachiller_UsuarioLog;
+use App\Models\Primaria\Primaria_empleado;
+use App\Models\Puesto;
+use App\Models\Bachiller\Bachiller_empleados;
+use App\Models\Bachiller\Bachiller_UsuarioLog;
 use Exception;
 
 class BachillerEmpleadoController extends Controller
@@ -317,7 +317,7 @@ class BachillerEmpleadoController extends Controller
                     User_docente::create([
                         'empleado_id'      => $empleado->id,
                         'password'         => bcrypt($request->input('password')),
-                        'token'            => str_random(64),
+                        'token'            => Str::random(64),
                         'maternal'         => 0,
                         'preescolar'       => 0,
                         'primaria'         => 0,
@@ -406,7 +406,7 @@ class BachillerEmpleadoController extends Controller
         $departamento = $empleado->escuela->departamento;
         $departamento_id = $empleado->escuela->departamento->id;
 
-        //   validamos si es merida o valladolid 
+        //   validamos si es merida o valladolid
         if ($departamento_id == "7" || $departamento_id == "17") {
             $grupo = $empleado->bachiller_grupos()
                 ->whereIn('periodo_id', [$departamento->perActual, $departamento->perSig])
@@ -604,7 +604,7 @@ class BachillerEmpleadoController extends Controller
             $user_docente = User_docente::where('empleado_id', $empleado->id)->first();
 
             if ($user_docente != "") {
-                // actualizar el campus 
+                // actualizar el campus
                 $user_docente->update([
                     'campus_cme' => $campus_cme,
                     'campus_cva' => $campus_cva,
@@ -635,7 +635,7 @@ class BachillerEmpleadoController extends Controller
                     $userDocente = User_docente::create([
                         'empleado_id'      => $empleado->id,
                         'password'         => bcrypt($request->password),
-                        'token'            => str_random(64),
+                        'token'            => Str::random(64),
                         'maternal'         => 0,
                         'preescolar'       => 0,
                         'primaria'         => 0,
@@ -812,7 +812,7 @@ class BachillerEmpleadoController extends Controller
                 User_docente::create([
                     'empleado_id'      => $empleado->id,
                     'password'         => bcrypt($request->input('password')),
-                    'token'            => str_random(64),
+                    'token'            => Str::random(64),
                 ]);
             }
         } catch (Exception $e) {
@@ -860,8 +860,8 @@ class BachillerEmpleadoController extends Controller
         'bachiller_empleados.empNombre',
         'bachiller_empleados.empApellido1',
         'bachiller_empleados.empApellido2',
-        'bachiller_empleados.empTelefono', 
-        'puestos.puesNombre', 
+        'bachiller_empleados.empTelefono',
+        'puestos.puesNombre',
         'escuelas.escClave')
         ->join('puestos', 'puestos.id', 'bachiller_empleados.puesto_id')
         ->join('escuelas', 'escuelas.id', 'bachiller_empleados.escuela_id')
@@ -905,8 +905,8 @@ class BachillerEmpleadoController extends Controller
             ]);
         }
 
-        
-        
+
+
 
         $empleados = Bachiller_empleados::whereIn('id', $listado->keys())->get()->keyBy('id');
         DB::beginTransaction();
@@ -917,7 +917,7 @@ class BachillerEmpleadoController extends Controller
 
                     $fechaActual = Carbon::now('CDT');
                     $fecha = $fechaActual->format('Y-m-d H:i:s');
-                    
+
                     $empleado->update(['empEstado' =>  $info['nuevo_estado']]);
                     Bachiller_UsuarioLog::create([
                         'nombre_tabla' => 'bachiller_empleados',

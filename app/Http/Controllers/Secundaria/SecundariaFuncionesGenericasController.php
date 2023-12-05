@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Secundaria;
 use App\clases\departamentos\MetodosDepartamentos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Models\Plan;
-use App\Http\Models\Programa;
+use App\Models\Plan;
+use App\Models\Programa;
 use Illuminate\Support\Facades\Auth;
 
 class SecundariaFuncionesGenericasController extends Controller

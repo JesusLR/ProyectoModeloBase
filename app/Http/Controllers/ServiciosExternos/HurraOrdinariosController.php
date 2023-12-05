@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
-use App\Http\Models\Grupo;
+use App\Models\Grupo;
 
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -62,7 +62,7 @@ class HurraOrdinariosController extends Controller
     }
 
     /**
-     * @param App\Http\Models\Grupo
+     * @param App\Models\Grupo
      */
     private static function info_esencial($grupo): array {
         $periodo = $grupo->periodo;
