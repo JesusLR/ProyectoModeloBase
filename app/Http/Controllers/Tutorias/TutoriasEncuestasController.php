@@ -83,7 +83,7 @@ class TutoriasEncuestasController extends Controller
 
             ->filterColumn('semestre', function($query, $keyword) {
                 $query->whereRaw("CONCAT(cgtGradoSemestre) like ?", ["%{$keyword}%"]);
-            
+
             })
             ->addColumn('semestre',function($query) {
                 return $query->cgtGradoSemestre;
@@ -91,7 +91,7 @@ class TutoriasEncuestasController extends Controller
 
             ->filterColumn('apellido1', function($query, $keyword) {
                 $query->whereRaw("CONCAT(ApellidoPaterno) like ?", ["%{$keyword}%"]);
-            
+
             })
             ->addColumn('apellido1',function($query) {
                 return $query->apellido_patermo_alumno;
@@ -99,7 +99,7 @@ class TutoriasEncuestasController extends Controller
 
             ->filterColumn('apellido2', function($query, $keyword) {
                 $query->whereRaw("CONCAT(ApellidoMaterno) like ?", ["%{$keyword}%"]);
-            
+
             })
             ->addColumn('apellido2',function($query) {
                 return $query->apellido_materno_alumno;
@@ -107,7 +107,7 @@ class TutoriasEncuestasController extends Controller
 
             ->filterColumn('nombre_alumno', function($query, $keyword) {
                 $query->whereRaw("CONCAT(perNombre) like ?", ["%{$keyword}%"]);
-            
+
             })
             ->addColumn('nombre_alumno',function($query) {
                 return $query->perNombre;
@@ -115,7 +115,7 @@ class TutoriasEncuestasController extends Controller
 
             ->filterColumn('clave_pago', function($query, $keyword) {
                 $query->whereRaw("CONCAT(aluClave) like ?", ["%{$keyword}%"]);
-            
+
             })
             ->addColumn('clave_pago',function($query) {
                 return $query->aluClave;
@@ -123,7 +123,7 @@ class TutoriasEncuestasController extends Controller
 
             ->filterColumn('periodo', function ($query, $keyword) {
                 $query->whereRaw("CONCAT(perAnioPago) like ?", ["%{$keyword}%"]);
-                
+
             })
             ->addColumn('periodo', function ($query) {
                 return $query->perAnioPago;
@@ -246,8 +246,8 @@ class TutoriasEncuestasController extends Controller
                     'Semestre' => $curso->cgtGradoSemestre
                 ]);
 
-                
-                
+
+
                 // if($curso->aluMatricula == ""){
                 //     $aluMatricula = "VACIO";
                 // }else{
@@ -293,7 +293,7 @@ class TutoriasEncuestasController extends Controller
                 // $aluMatricula = "VACIO";
                 // $perCorreo1 = "VACIO";
                 // $perApellido2 = "VACIO";
-                
+
             }
         }
 
@@ -350,7 +350,7 @@ class TutoriasEncuestasController extends Controller
         $tutorias_formulario = Tutorias_formularios::where('FormularioID', '=', $FormularioID)
         ->where('Estatus', '=', 1)
         ->whereNull('deleted_at')
-        ->first();       
+        ->first();
 
 
         $tutorias_respuestas = Tutorias_preguntas::select(
@@ -391,14 +391,14 @@ class TutoriasEncuestasController extends Controller
 
         if(count($tutorias_respuestas) > 0){
             $categorias_grupo = $tutorias_respuestas->groupBy('CategoriaPreguntaID');
-            $pregunta_grupo = $tutorias_respuestas->groupBy('PreguntaID');           
+            $pregunta_grupo = $tutorias_respuestas->groupBy('PreguntaID');
 
         }else{
             $categorias_grupo = [];
             $pregunta_grupo = [];
         }
 
-        // consulta todo lo relacionado al formulario 
+        // consulta todo lo relacionado al formulario
         $tutorias_respuestas = Tutorias_respuestas::select(
             'tutorias_respuestas.RespuestaID',
             'tutorias_respuestas.Nombre AS Nombre_Respuesta',
@@ -447,7 +447,7 @@ class TutoriasEncuestasController extends Controller
             $tutorias_respuestas_grupo = $tutorias_respuestas->groupBy('RespuestaID');
         }else{
             $tutorias_respuestas_grupo = [];
-        }       
+        }
 
 
         $alumno = Tutorias_alumnos::select('tutorias_alumnos.*',
@@ -458,7 +458,7 @@ class TutoriasEncuestasController extends Controller
         ->first();
 
 
-        // respuestas del alumno 
+        // respuestas del alumno
         $categoria_respuestas_alumnos = Tutorias_pregunta_respuestas::select(
             'tutorias_pregunta_respuestas.PreguntaRespuestaID',
             'tutorias_pregunta_respuestas.Tipo as Tipo_Respondido',
@@ -521,17 +521,17 @@ class TutoriasEncuestasController extends Controller
         ->orderBy('tutorias_categoria_preguntas.orden_visual_categoria', 'ASC')
         ->orderBy('tutorias_preguntas.orden_visual_pregunta', 'ASC')
         ->get();
-                
+
         if(count($categoria_respuestas_alumnos) > 0){
             $categorias_grupo_respondido = $categoria_respuestas_alumnos->groupBy('CategoriaPreguntaID');
-            $pregunta_grupo_respondido = $categoria_respuestas_alumnos->groupBy('PreguntaID');           
+            $pregunta_grupo_respondido = $categoria_respuestas_alumnos->groupBy('PreguntaID');
 
         }else{
             $categorias_grupo_respondido = [];
             $pregunta_grupo_respondido = [];
         }
 
-       
+
 
         return view('tutorias.alumnos.encuesta_new', [
             "alumno" => $alumno,
@@ -934,7 +934,7 @@ class TutoriasEncuestasController extends Controller
         'tutorias_categoria_preguntas.orden_visual_categoria')
         ->join('tutorias_preguntas', 'tutorias_pregunta_respuestas.PreguntaID', '=', 'tutorias_preguntas.PreguntaID')
         ->leftJoin('tutorias_respuestas', 'tutorias_pregunta_respuestas.RespuestaID', '=', 'tutorias_respuestas.RespuestaID')
-        ->leftJoin('tutorias_categoria_preguntas', 'tutorias_preguntas.CategoriaPreguntaID', '=', 'tutorias_categoria_preguntas.CategoriaPreguntaID')        
+        ->leftJoin('tutorias_categoria_preguntas', 'tutorias_preguntas.CategoriaPreguntaID', '=', 'tutorias_categoria_preguntas.CategoriaPreguntaID')
         ->where('tutorias_respuestas.estatus', 'SI')
         ->where('tutorias_preguntas.Estatus', '=', 1)
         ->where('tutorias_pregunta_respuestas.AlumnoID', '=', $AlumnoID)
@@ -1129,7 +1129,7 @@ class TutoriasEncuestasController extends Controller
 
                 ]);
             }
-            // Actualizamos solo las preguntas con respuesta abierta 
+            // Actualizamos solo las preguntas con respuesta abierta
             for($xx = 0; $xx < count($request->PreguntaID); $xx++){
                 $tutRsp = Tutorias_respuestas::where('Nombre', '=', null)
                ->where('PreguntaID', '=', $request->PreguntaID[$xx])
@@ -1146,7 +1146,7 @@ class TutoriasEncuestasController extends Controller
                         'Semaforizacion' => $value->Semaforizacion
 
                     ]);
-               }               
+               }
            }
             alert('Escuela Modelo', 'La encuesta se guardo con éxito', 'success')->showConfirmButton();
             // return redirect('tutorias_encuestas/encuesta/'.$FormularioID.'/'.$AlumnoID);
@@ -1292,7 +1292,7 @@ class TutoriasEncuestasController extends Controller
 
                 ]);
             }
-            // Actualizamos solo las preguntas con respuesta abierta 
+            // Actualizamos solo las preguntas con respuesta abierta
             for($xx = 0; $xx < count($request->PreguntaID); $xx++){
                 $tutRsp = Tutorias_respuestas::where('Nombre', '=', null)
                ->where('PreguntaID', '=', $request->PreguntaID[$xx])
@@ -1309,7 +1309,7 @@ class TutoriasEncuestasController extends Controller
                         'Semaforizacion' => $value->Semaforizacion
 
                     ]);
-               }               
+               }
            }
             alert('Escuela Modelo', 'La encuesta se guardo con éxito', 'success')->showConfirmButton();
             // return redirect('tutorias_encuestas/encuesta/'.$FormularioID.'/'.$AlumnoID);
@@ -1343,7 +1343,7 @@ class TutoriasEncuestasController extends Controller
 
 		$this->mail = new Mailer([
 			'username_email' => 'inasistencias@modelo.edu.mx', // 'inasistencias@unimodelo.com',
-			'password_email' => 'xNAQ9SWHtY', // 'CKbfWK9JT4',
+			'password_email' => 'PqzKQ1U6l5JV', // 'CKbfWK9JT4',
 			'to_email' => $toMail,
 			'to_name' => '',
 			'cc_email' => '',
@@ -1372,7 +1372,7 @@ class TutoriasEncuestasController extends Controller
         ->where('tutorias_pregunta_respuestas.FormularioID', $formularioId)->where('tutorias_pregunta_respuestas.AlumnoID', $alumnoId)->first();
 
         $preguntas = Tutorias_preguntas::where('FormularioID', $formularioId)->get();
-        
+
         $nombreCompleto = $alumno->perNombre.' '.$alumno->perApellido1.' '.$alumno->perApellido2;
 
         $tutoriasRespuestas = [];
@@ -1484,12 +1484,12 @@ class TutoriasEncuestasController extends Controller
                 $preguntaRespuesta->save();
             }
 
-            DB::statement('call procTutoriasActualizarDatosCorrespondientes'); 
+            DB::statement('call procTutoriasActualizarDatosCorrespondientes');
 
 
             $busca_formulario = Tutorias_formularios::findOrFail($FormularioID);
             if($busca_formulario->Tipo == 3){
-                // Aqui metes la función para el envio de correos 
+                // Aqui metes la función para el envio de correos
                 // tus parametros son: $FormularioID, $AlumnoID
             }
 
@@ -1499,9 +1499,9 @@ class TutoriasEncuestasController extends Controller
 
 
     }
-   
 
-    
+
+
     /**
      * Display the specified resource.
      *

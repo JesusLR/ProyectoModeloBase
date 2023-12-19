@@ -29,7 +29,7 @@ class Notificacion {
 	{
 		$this->mail = new Mailer([
 			'username_email' => 'bajas@modelo.edu.mx', // 'bajas@unimodelo.com',
-			'password_email' => 'Caf28347',
+			'password_email' => 'c1IcMH4OoY39',
 			'to_email' => 'luislara@modelo.edu.mx',
 			'to_name' => '',
 			'cc_email' => '',
@@ -44,7 +44,7 @@ class Notificacion {
 			$coordinador_secretaria_academica = 'jpereira@modelo.edu.mx';
 		} else if($this->ubicacion->ubiClave == 'CVA') {
 			$director_campus = 'ppineda@modelo.edu.mx'; // 'aime@modelo.edu.mx';
-		} 
+		}
 		/*else if($this->ubicacion->ubiClave == 'CME') {
 			$this->mail->agregar_destinatario('@modelo.edu.mx');
 		}*/
@@ -52,7 +52,7 @@ class Notificacion {
 		$this->mail->agregar_destinatario('eail@modelo.edu.mx');
 		$this->mail->agregar_destinatario($director_campus);
 		$this->mail->agregar_destinatario($coordinador_secretaria_academica);
-		
+
 		$this->mail->enviar();
 	}
 
@@ -62,7 +62,7 @@ class Notificacion {
 	private function armar_mensaje_registro_eliminado()
 	{
 		$usuario = auth()->user();
-		$usuario_creador = User::find($this->alumno->getOriginal()['usuario_at']); 
+		$usuario_creador = User::find($this->alumno->getOriginal()['usuario_at']);
 		$nombre_empleado = MetodosPersonas::nombreCompleto($usuario->empleado->persona);
 		$nombre_alumno = MetodosPersonas::nombreCompleto($this->persona);
 

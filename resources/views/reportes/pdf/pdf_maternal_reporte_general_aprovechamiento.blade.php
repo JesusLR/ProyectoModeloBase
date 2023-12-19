@@ -480,7 +480,7 @@
 <body>
 
     @php
-    use App\Models\Preescolar\Preescolar_inscrito;
+    use App\Http\Models\Preescolar\Preescolar_inscrito;
     @endphp
 <header>
     <div class="row" style="margin-top: 0px;">

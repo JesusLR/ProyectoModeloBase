@@ -29,7 +29,7 @@ class PrimariaContanciaPasaporteController extends Controller
     public function imprimir(Request $request)
     {
         # code...
-        // query de seleccion de alumno 
+        // query de seleccion de alumno
         $curso_alumno = Curso::select(
             "cursos.id",
             "cursos.curPrimariaFoto",
@@ -111,14 +111,14 @@ class PrimariaContanciaPasaporteController extends Controller
         $parametro_ubicacion = $curso_alumno[0]->ubiClave;
 
 
-        // buscar el grupo al que el alumno pertenece 
-        // $resultado_array =  DB::select("call procPrimariaObtieneGrupoCurso(" . $id_curso . ")");       
+        // buscar el grupo al que el alumno pertenece
+        // $resultado_array =  DB::select("call procPrimariaObtieneGrupoCurso(" . $id_curso . ")");
 
         // $resultado_grupo = collect($resultado_array);
         // $parametro_grupo = $resultado_grupo[0]->gpoClave;
 
 
-        // valida que grado es para escribir lo que corresponda 
+        // valida que grado es para escribir lo que corresponda
         $gradoEnLetras = "";
 
         if($request->formato == "ESPAÑOL") {
@@ -145,7 +145,7 @@ class PrimariaContanciaPasaporteController extends Controller
 
         if($request->formato == "INGLES")
         {
-            
+
             if ($parametro_grado == 1) {
                 $gradoEnLetras = "FIRST GRADE";
             }
@@ -167,7 +167,7 @@ class PrimariaContanciaPasaporteController extends Controller
 
         }
 
-        // obtener fecha del sistema 
+        // obtener fecha del sistema
         $fechaActual = Carbon::now('America/Merida');
         setlocale(LC_TIME, 'es_ES.UTF-8');
         // En windows
@@ -255,29 +255,29 @@ class PrimariaContanciaPasaporteController extends Controller
             }
         }
 
-        
-        
 
 
-        // fecha que se mostrara en PDF 
-        
+
+
+        // fecha que se mostrara en PDF
+
         if($request->formato == "ESPAÑOL") {
             if($curso_alumno[0]->ubiClave == "CME"){
-                $fechahoy = 'Mérida, Yuc., a ' . $fechaDia . ' a ' . strtolower($mesLetras) . ' de ' . $fechaAnio . '.';
+                $fechahoy = 'Mérida, Yuc., a ' . $fechaDia . ' de ' . strtolower($mesLetras) . ' de ' . $fechaAnio . '.';
                 $campus = "primariaCME";
             }
             if($curso_alumno[0]->ubiClave == "CVA"){
-                $fechahoy = 'Valladolid, Yuc., a ' . $fechaDia . ' a ' . strtolower($mesLetras) . ' de ' . $fechaAnio . '.';
+                $fechahoy = 'Valladolid, Yuc., a ' . $fechaDia . ' de ' . strtolower($mesLetras) . ' de ' . $fechaAnio . '.';
                 $campus = "primariaCVA";
             }
         }
-        
+
         if($request->formato == "INGLES") {
             if($parametro_ubicacion === "CME"){
-                $fechahoy = 'Merida, Yuc., ' . $fechaDia . 'st ' . strtolower($mesLetras) . ', ' . $fechaAnio . '.';
+                $fechahoy = 'MÉRIDA, YUC., ' . $fechaDia . 'ST ' . strtoupper($mesLetras) . ', ' . $fechaAnio . '.';
                 $campus = "primariaCME";
             }else{
-                $fechahoy = 'Valladolid, Yuc., ' . $fechaDia . 'st ' . strtolower($mesLetras) . ', ' . $fechaAnio . '.';
+                $fechahoy = 'VALLADOLID, YUC., ' . $fechaDia . 'ST ' . strtoupper($mesLetras) . ', ' . $fechaAnio . '.';
                 $campus = "primariaCVA";
             }
         }
@@ -299,7 +299,7 @@ class PrimariaContanciaPasaporteController extends Controller
             "parametro_ubicacion" => $parametro_ubicacion,
             "incluyeFoto" => $request->incluyeFoto,
             "campus" => $campus
-        ]); 
+        ]);
 
         $pdf->defaultFont = 'Calibri';
 

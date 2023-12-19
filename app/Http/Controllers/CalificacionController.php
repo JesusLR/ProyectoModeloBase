@@ -133,8 +133,8 @@ class CalificacionController extends Controller
                     ->get();
 
                     $inscritos = $inscritos->map(function ($item, $key) {
-                        $item->sortByNombres = $item->curso->alumno->persona->perApellido1 . "-" . 
-                        $item->curso->alumno->persona->perApellido2  . "-" . 
+                        $item->sortByNombres = $item->curso->alumno->persona->perApellido1 . "-" .
+                        $item->curso->alumno->persona->perApellido2  . "-" .
                         $item->curso->alumno->persona->perNombre;
 
                         return $item;
@@ -188,7 +188,7 @@ class CalificacionController extends Controller
             return redirect()->back()->withInput();
         }
 
-    
+
         if ($grupo->estado_act == "C") {
             alert('Escuela Modelo', 'El estado actual del grupo no permite modificación de calificaciones', 'warning')->showConfirmButton();
             return redirect()->back()->withInput();
@@ -205,14 +205,14 @@ class CalificacionController extends Controller
             $inscFaltasParcial2Col        = $request->has("calificaciones.inscFaltasParcial2")        ? collect($calificaciones["inscFaltasParcial2"])        : collect();
             if ($TERCER_PARCIAL) {
                 $inscCalificacionParcial3Col  = $request->has("calificaciones.inscCalificacionParcial3")  ? collect($calificaciones["inscCalificacionParcial3"])  : collect();
-                $inscFaltasParcial3Col        = $request->has("calificaciones.inscFaltasParcial3")        ? collect($calificaciones["inscFaltasParcial3"])        : collect();
             }
+            $inscFaltasParcial3Col        = $request->has("calificaciones.inscFaltasParcial3")        ? collect($calificaciones["inscFaltasParcial3"])        : collect();
             $inscPromedioParcialesCol     = $request->has("calificaciones.inscPromedioParciales")     ? collect($calificaciones["inscPromedioParciales"])     : collect();
             $inscCalificacionOrdinarioCol = $request->has("calificaciones.inscCalificacionOrdinario") ? collect($calificaciones["inscCalificacionOrdinario"]) : collect();
             $incsCalificacionFinalCol     = $request->has("calificaciones.incsCalificacionFinal")     ? collect($calificaciones["incsCalificacionFinal"])     : collect();
             $inscMotivoFaltaCol           = $request->has("calificaciones.inscMotivoFalta")           ? collect($calificaciones["inscMotivoFalta"])           : collect();
 
-            
+
             /**
              * Verificar que en los parciales:
              * - Si ponen faltas a un alumno, la calificacion es obligatoria.
@@ -232,7 +232,7 @@ class CalificacionController extends Controller
                     return ($faltas && intval($faltas) > 30) || ($faltas && is_null($calificacion));
                 });
             }
-            
+
             $condicion = ($datosIncorrectosParcial1->isNotEmpty() || $datosIncorrectosParcial2->isNotEmpty());
 
             if ($TERCER_PARCIAL) {
@@ -254,7 +254,7 @@ class CalificacionController extends Controller
             foreach ($inscritos as $inscrito) {
                 $calificacion = Calificacion::where('inscrito_id', $inscrito->id)->first();
                 $calificacion_anterior = clone $calificacion;
- 
+
                 $inscCalificacionParcial1 = $inscCalificacionParcial1Col->filter(function ($value, $key) use ($inscrito) {
                     return $key == $inscrito->id;
                 })->first();
@@ -273,10 +273,10 @@ class CalificacionController extends Controller
                     $inscCalificacionParcial3 = $inscCalificacionParcial3Col->filter(function ($value, $key) use ($inscrito) {
                         return $key == $inscrito->id;
                     })->first();
-                    $inscFaltasParcial3 = $inscFaltasParcial3Col->filter(function ($value, $key) use ($inscrito) {
-                        return $key == $inscrito->id;
-                    })->first();
                 }
+                $inscFaltasParcial3 = $inscFaltasParcial3Col->filter(function ($value, $key) use ($inscrito) {
+                    return $key == $inscrito->id;
+                })->first();
 
                 $inscPromedioParciales = $inscPromedioParcialesCol->filter(function ($value, $key) use ($inscrito) {
                     return $key == $inscrito->id;
@@ -294,6 +294,8 @@ class CalificacionController extends Controller
                 $motivoFalta = DB::table("motivosfalta")->where("id", "=", $inscMotivoFalta)->first();
                 $motivoFalta = $motivoFalta ? $motivoFalta->mfAbreviatura: "";
 
+                //alternativa para guardar promedios
+                $promedio = intval(round(($inscCalificacionParcial1 + $inscCalificacionParcial2) / 2));
 
                 if ($calificacion) {
                     $calificacion->inscCalificacionParcial1  = $inscCalificacionParcial1  != null ? $inscCalificacionParcial1  : $calificacion->inscCalificacionParcial1;
@@ -302,12 +304,17 @@ class CalificacionController extends Controller
                     $calificacion->inscFaltasParcial2        = $inscFaltasParcial2        != null ? $inscFaltasParcial2        : $calificacion->inscFaltasParcial2;
                     if ($TERCER_PARCIAL) {
                         $calificacion->inscCalificacionParcial3  = $inscCalificacionParcial3  != null ? $inscCalificacionParcial3  : $calificacion->inscCalificacionParcial3;
-                        $calificacion->inscFaltasParcial3        = $inscFaltasParcial3        != null ? $inscFaltasParcial3        : $calificacion->inscFaltasParcial3;
                     }
+                    $calificacion->inscFaltasParcial3        = $inscFaltasParcial3        != null ? $inscFaltasParcial3        : $calificacion->inscFaltasParcial3;
                     $calificacion->inscPromedioParciales     = $inscPromedioParciales     != null ? $inscPromedioParciales     : $calificacion->inscPromedioParciales;
+                    $calificacion->inscPromedioParciales     = $promedio;
                     if (!in_array($motivoFalta, ['NPE', 'SDE'])) {
                         $calificacion->inscCalificacionOrdinario = $inscCalificacionOrdinario != null ? $inscCalificacionOrdinario : $calificacion->inscCalificacionOrdinario;
-                        $calificacion->incsCalificacionFinal     = $incsCalificacionFinal     != null ? $incsCalificacionFinal     : $calificacion->incsCalificacionFinal;
+                        if ($grupo->materia->matTipoAcreditacion == 'N') {
+                            $calificacion->incsCalificacionFinal     = $incsCalificacionFinal != null ? $incsCalificacionFinal : $calificacion->incsCalificacionFinal;
+                        } else {
+                            $calificacion->incsCalificacionFinal     = $inscCalificacionOrdinario != null ? $inscCalificacionOrdinario : $calificacion->inscCalificacionOrdinario;
+                        }
                     } else {
                         $calificacion->inscCalificacionOrdinario = 0;
                         $calificacion->incsCalificacionFinal     = 0;
@@ -328,7 +335,7 @@ class CalificacionController extends Controller
 
 
 
-            
+
 
 
 
@@ -397,10 +404,10 @@ class CalificacionController extends Controller
         //OBTENER Extraordinario e inscritos
         $extraordinario  = Extraordinario::with('materia.plan.programa','periodo','empleado.persona')->find($extraordinario_id);
         $inscritoextra  = InscritoExtraordinario::with('alumno.persona')->where('extraordinario_id',$extraordinario_id)->where('iexEstado','!=','C')->get();
-    
+
         $inscritos = $inscritoextra->map(function ($item, $key) {
-            $item->sortByNombres = $item->alumno->persona->perApellido1 . "-" . 
-            $item->alumno->persona->perApellido2  . "-" . 
+            $item->sortByNombres = $item->alumno->persona->perApellido1 . "-" .
+            $item->alumno->persona->perApellido2  . "-" .
             $item->alumno->persona->perNombre;
             $item->iexEstado;
 
@@ -438,7 +445,7 @@ class CalificacionController extends Controller
 
             $inscEx  = $request->has("calificacion.inscEx")  ? collect($calificacion["inscEx"])  : collect();
             $asistencia = $request->has("calificacion.asistencia")  ? collect($calificacion["asistencia"])  : collect();
-            
+
             foreach ($inscritoextra as $inscrito) {
                 $inscritoEx  = InscritoExtraordinario::find($inscrito->id);
                 $calificacionEx = $inscEx->filter(function ($value, $key) use ($inscrito) {
@@ -450,16 +457,16 @@ class CalificacionController extends Controller
                 })->first();
 
 
-                     
+
                 if ($miAsistencia != 10) {
                     #$calificacionEx = 0;
                     $calificacionEx = $tipoMateria == 'N' ? 0 : 1;
                 }
-               
+
                 if ($inscritoEx) {
                     $inscritoEx->iexCalificacion  = !is_null($calificacionEx) ? $calificacionEx  : $inscritoEx->iexCalificacion;
                     $inscritoEx->motivofalta_id = $miAsistencia;
-                    $inscritoEx->save(); 
+                    $inscritoEx->save();
                 }
             }
 
@@ -479,13 +486,13 @@ class CalificacionController extends Controller
         //OBTENER Extraordinario e inscritos
 
         $grupo = Grupo::find($grupo_id);
-        $inscritos = Inscrito::with('curso.cgt.periodo', 'curso.cgt.plan.programa', 'curso.alumno', 'calificacion')->where('grupo_id', $grupo_id)->get(); 
+        $inscritos = Inscrito::with('curso.cgt.periodo', 'curso.cgt.plan.programa', 'curso.alumno', 'calificacion')->where('grupo_id', $grupo_id)->get();
 
         $optativa = Optativa::where('materia_id',$grupo->materia->id)->first();
-    
+
         $inscritos = $inscritos->map(function ($item, $key) {
-            $item->nombreCompleto = $item->curso->alumno->persona->perApellido1 . "-" . 
-            $item->curso->alumno->persona->perApellido2  . "-" . 
+            $item->nombreCompleto = $item->curso->alumno->persona->perApellido1 . "-" .
+            $item->curso->alumno->persona->perApellido2  . "-" .
             $item->curso->alumno->persona->perNombre;
             $item->curso->alumno->aluMatricula;
 
@@ -497,14 +504,14 @@ class CalificacionController extends Controller
 
     }
 
-    
+
 
     public function storeMatricula(Request $request)
     {
         $grupo_id = $request->grupo_id;
         //OBTENER Inscritos
         $inscritos = Inscrito::with('curso.cgt.periodo', 'curso.cgt.plan.programa', 'curso.alumno', 'calificacion')
-        ->where('grupo_id', $grupo_id)->get(); 
+        ->where('grupo_id', $grupo_id)->get();
 
         try {
 
@@ -519,7 +526,7 @@ class CalificacionController extends Controller
                 $programa = $inscrito->curso->cgt->plan->programa;
 
                 $matriculaAnterior = MatriculaAnterior::where('alumno_id',$alumno->id)->where('programa_id',$programa->id)->first();
-            
+
                 $nuevaMatricula = $insc->filter(function ($value, $key) use ($inscrito) {
                     return $key == $inscrito->id;
                 })->first();
@@ -544,11 +551,11 @@ class CalificacionController extends Controller
                 //Se actualiza la matricula del alumno
                 if ($alumno) {
                     $alumno->aluMatricula  = $nuevaMatricula  != null ? $nuevaMatricula  : $alumno->aluMatricula;
-                    $alumno->save(); 
+                    $alumno->save();
                 }
-                
+
             });
-            
+
             alert('Escuela Modelo', 'Se actualizaron las matriculas con éxito', 'success')->showConfirmButton();
             return redirect('calificacion/matricula/' . $grupo_id)->withInput();
         } catch (QueryException $e) {

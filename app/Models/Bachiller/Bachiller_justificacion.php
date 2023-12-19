@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class Bachiller_justificacion extends Model
 {
     use SoftDeletes;
-    
+
     protected $table = 'bachiller_justificaciones';
 
     /**
@@ -21,7 +21,7 @@ class Bachiller_justificacion extends Model
     protected $guarded = ['id'];
 
 
-    protected $fillable = [        
+    protected $fillable = [
         'curso_id',
         'jusRazonFalta',
         'jusFechaInicio',

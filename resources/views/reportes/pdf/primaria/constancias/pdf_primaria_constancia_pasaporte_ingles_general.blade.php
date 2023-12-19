@@ -596,6 +596,12 @@
     .bordered {
       border: 1px solid #000;
     }
+
+    .fotoAlumno{
+      width: 2.5cm;
+      height: 3cm;
+      margin-left: -3.1cm;
+    }
   </style>
 </head>
 
@@ -631,7 +637,7 @@
           @if ($item->curPrimariaFoto != "")          
             @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus .'/'. $item->curPrimariaFoto)))
       
-              <p><img style="width:65px; float: left; margin-top: 165px; margin-left: -2.7cm;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus. '/' . $item->curPrimariaFoto) }}"></p>
+              <p><img class="fotoAlumno" style="float: left; margin-top: 165px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus. '/' . $item->curPrimariaFoto) }}"></p>
             @endif
           @endif
         @endif
@@ -642,7 +648,7 @@
         <br>
         <br>
 
-        <p>To whom it may concern:</p>
+        <p>{{ strtoupper("To whom it may concern:") }}</p>
         
         <br>
         <br>

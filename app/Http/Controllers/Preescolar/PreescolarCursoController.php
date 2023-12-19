@@ -6,6 +6,7 @@ use Lang;
 use App\clases\alumno_expediente\ExpedienteAlumno;
 use App\clases\alumnos\MetodosAlumnos;
 use App\clases\cuotas\MetodosCuotas;
+use App\clases\cursos\MetodosCursos;
 use App\clases\cursos\NotificacionPreescolar;
 use App\Models\CuotaDescuento;
 use App\Models\Departamento;
@@ -198,14 +199,14 @@ class PreescolarCursoController extends Controller
                 $btnFichaPagoBBVA = "";
                 $btnFichaPagoHSBC = "";
 
-                // Obtener las personas autorizadas 
+                // Obtener las personas autorizadas
                 $expediente = ExpedienteAlumno::buscaPersonasAutirizadas($query->depClave, $query->alumno_id);
-                // Obtener la IP de la maquina local 
+                // Obtener la IP de la maquina local
                 $localIP = getHostByName(getHostName());
 
                 $user_id = Auth::id();
 
-             
+
                 $btnFichaPagoBBVA = '<a href="#modalFichaPago" data-curso-id="' . $query->curso_id . '" data-pedir-confirmacion="' . $pedirConfirmacion . '"  class=" btn-modal-ficha-pago-sinvalidar button button--icon js-button js-ripple-effect" title="Ficha BBVA">
                     <i class="material-icons">local_atm</i>
                 </a>';
@@ -268,7 +269,7 @@ class PreescolarCursoController extends Controller
                     $btnFichaPagoBBVA = "";
                     $btnFichaPagoHSBC = "";
 
-                    // / validamos las personas autorizadas 
+                    // / validamos las personas autorizadas
                     if ($expediente[0] == "" && $expediente[1] == "") {
                             $btnFichaPagoBBVA = '<a href="#modalFichaPago" data-curso-id="' . $query->curso_id . '" data-pedir-confirmacion="' . $pedirConfirmacion . '"  class="btn-modal-ficha-pago-sinvalidar button button--icon js-button js-ripple-effect" title="Ficha BBVA">
                         <i class="material-icons">local_atm</i>
@@ -290,7 +291,7 @@ class PreescolarCursoController extends Controller
                             </form>';
                     }
 
-                    
+
 
                     if ($query->curEstado == "B" || $query->curEstado == "R" || $query->curEstado == "X") {
                         $btnFichaPagoBBVA = "";
@@ -341,7 +342,7 @@ class PreescolarCursoController extends Controller
                     ) {
 
 
-                        // validamos las personas autorizadas 
+                        // validamos las personas autorizadas
                         if ($expediente[0] == "" && $expediente[1] == "") {
                             $btnEditarCurso = '<a href="/preescolar_curso/' . $query->curso_id . '/edit" class="button button--icon js-button js-ripple-effect" title="Editar">
                                 <i class="material-icons">edit</i>
@@ -362,11 +363,11 @@ class PreescolarCursoController extends Controller
                             <i class="material-icons">visibility</i>
                         </a>';
 
-                        // observaciones 
+                        // observaciones
                         $btnObservaciones = '<a href="/preescolar_curso/observaciones/' . $query->curso_id . '" class="button button--icon js-button js-ripple-effect" title="Observaciones">
                             <i class="material-icons">subtitles</i>
                         </a>';
-                        
+
                         $verAlumnoDetalle = '<a href="#modalAlumnoDetalle-preescolar" data-alumno-id="' . $query->alumno_id . '" class="modal-trigger btn-modal-alumno-detalle-preescolar button button--icon js-button js-ripple-effect " title="Ver Alumno Detalle">
                             <i class="material-icons">face</i>
                         </a>';
@@ -376,14 +377,14 @@ class PreescolarCursoController extends Controller
                             <i class="material-icons">attach_money</i>
                         </a>';
                     } else {
-                        // ver alumno 
+                        // ver alumno
                         $verAlumno = '<form style="display: inline-block;" id="autorizado_' . $query->curso_id . '" action="/preescolar_curso/' . $query->curso_id . '">
                         <a href="#" data-alumno_id="' . $query->alumno_id . '" data-persona1="' . $expediente[0] . '" data-persona2="' . $expediente[1] . '" data-curso_id="' . $query->curso_id . '" data-movimiento="PREESCOLAR VER PREINSCRITO" data-ip="' . $localIP . '" data-usuario_at="' . $user_id . '" data-departamento="' . $query->depClave . '" class="button button--icon js-button js-ripple-effect confirm-autorizado" title="Ver">
                             <i class="material-icons">visibility</i>
                         </a>
                         </form>';
 
-                        // observaciones 
+                        // observaciones
                         $btnObservaciones = '<form style="display: inline-block;" id="autorizado_' . $query->curso_id . '" action="/preescolar_curso/observaciones/' . $query->curso_id . '">
                         <a href="#" data-alumno_id="' . $query->alumno_id . '" data-persona1="' . $expediente[0] . '" data-persona2="' . $expediente[1] . '" data-curso_id="' . $query->curso_id . '" data-movimiento="PREESCOLAR OBSERVACIONES" data-ip="' . $localIP . '" data-usuario_at="' . $user_id . '" data-departamento="' . $query->depClave . '" class="button button--icon js-button js-ripple-effect confirm-autorizado" title="Observaciones">
                             <i class="material-icons">subtitles</i>
@@ -406,7 +407,7 @@ class PreescolarCursoController extends Controller
 
                     $btnMostrarAcciones = $verAlumnoDetalle
                         . $verAlumno . $btnFichaPagoBBVA . $btnFichaPagoHSBC . $btnHistorialPagos
-                        
+
                         . $btnTarjetaPagoBBVA . $btnTarjetaPagoHSBC . $btnEditarCurso .
                         '<a href="#modalBajaCursoPreescolar" data-curso-id="' . $query->curso_id . '" class="modal-trigger btn-modal-baja-curso button button--icon js-button js-ripple-effect " title="Baja curso">
                         <i class="material-icons">archive</i>
@@ -864,19 +865,26 @@ class PreescolarCursoController extends Controller
         $alumnoAluEstado = $alumno->aluEstado;
         $eliddelalumno = $request->alumno_id;
 
+        if($departamento->ubicacion_id == 1){
+            $campus = "preescolarCME";
+        }else{
+            $campus = "preescolarCVA";
+        }
 
         $imageName = "";
         //si viene de la vista candidatos
         if ($request->es_candidato_tiene_foto) {
             $imageName =  $alumno->candidato->perCurp . "-" . $alumno->candidato->perFoto;
-            $path = File::copy(env("PROJECT_PATH") . $alumno->candidato->perFoto, env("PROJECT_PATH") . $imageName);
+            $path = File::copy(storage_path(env("PREESCOLAR_IMAGEN_CURSO_PATH") . $alumno->candidato->perFoto),
+                storage_path(env("PREESCOLAR_IMAGEN_CURSO_PATH") . $imageName));
         }
 
         //si no viene de la vista candidatos
         if (!$request->es_candidato_tiene_foto) {
-            if ($request->curExaniFoto) {
-                $imageName = $alumno->persona->perCurp . "-" . time() . '.' . request()->curExaniFoto->getClientOriginalExtension();
-                $path = $request->curExaniFoto->move(env("PROJECT_PATH"), $imageName);
+            if ($request->curPrimariaFoto) {
+                $imageName = $alumno->aluClave . "-" . time() . '.' .request()->curPrimariaFoto->getClientOriginalExtension();
+                $path = $request->curPrimariaFoto->move(storage_path(env("PREESCOLAR_IMAGEN_CURSO_PATH").$periodo->perAnioPago."/".$campus),
+                    $imageName);
             }
         }
 
@@ -935,6 +943,7 @@ class PreescolarCursoController extends Controller
             if (!$esMismoPlan) $curAnioCuotas = null;
         }
 
+
         //-----------------------
 
         try {
@@ -958,7 +967,12 @@ class PreescolarCursoController extends Controller
                 'curEstado'             => $elCursoEstado,
                 'curExani'              => $request->curExani,
                 'curExaniFoto'          => $imageName,
+                'curPreescolarFoto'       => $imageName
             ]);
+
+            if($curso_anterior && MetodosCursos::hayCambioDeBeca($laNuevaPreinscripcion, $curso_anterior)) {
+                $beca_historial = MetodosCursos::crearHistorialDeBeca($laNuevaPreinscripcion);
+            }
 
             //VERIFICAR SI TIENE MAS DE UN CURSO EN DIFERENTES PERIODOS
             // Y SI ALUESTADO ESTA EN N
@@ -1081,6 +1095,8 @@ class PreescolarCursoController extends Controller
         $estadoCurso = ESTADO_CURSO;
         $tiposBeca = Beca::get();
         $opcionTitulo = SI_NO;
+        $periodo = Periodo::findOrFail($curso->periodo_id);
+        $departamento = Departamento::find($periodo->departamento_id);
 
         // fechas de la tabla cursos
         $fecha_creacion = $curso->created_at;
@@ -1095,10 +1111,15 @@ class PreescolarCursoController extends Controller
             $lafechabuena = $fecha_creacion;
             $quemostrar = "Fecha de creación";
         }
+        if($departamento->ubicacion_id == 1){
+            $campus = "preescolarCME";
+        }else{
+            $campus = "preescolarCVA";
+        }
 
         $usuario_at = User::with('empleado.persona')->where('id', $curso->usuario_at)->first();
 
-        return view('preescolar.curso_preinscrito.show', compact('curso', 'tiposIngreso', 'planesPago', 'estadoCurso', 'tiposBeca', 'opcionTitulo', 'usuario_at', 'lafechabuena', 'quemostrar'));
+        return view('preescolar.curso_preinscrito.show', compact('curso', 'tiposIngreso', 'planesPago', 'estadoCurso', 'tiposBeca', 'opcionTitulo', 'usuario_at', 'lafechabuena', 'quemostrar','periodo','departamento', 'campus'));
     }
 
 
@@ -1291,7 +1312,7 @@ class PreescolarCursoController extends Controller
      */
     public function edit($id)
     {
-        $curso = Curso::with('alumno.persona', 'cgt', 'periodo')->findOrFail($id);
+        $curso = Curso::with('alumno.persona', 'cgt.plan.programa.escuela.departamento.ubicacion', 'periodo')->findOrFail($id);
         $cgts = Cgt::where([
             ['plan_id', $curso->cgt->plan_id],
             ['periodo_id', $curso->cgt->periodo_id],
@@ -1312,13 +1333,21 @@ class PreescolarCursoController extends Controller
         $opcionTitulo = SI_NO;
         $tiposBeca = Beca::get();
 
+        $perAnioPago = $curso->periodo->perAnioPago;
+
+        if($curso->cgt->plan->programa->escuela->departamento->ubicacion->id == 1){
+            $campus = "preescolarCME";
+        }else{
+            $campus = "preescolarCVA";
+        }
+
         //VALIDA PERMISOS EN EL PROGRAMA
         if (Utils::validaPermiso('curso', $curso->cgt->plan->programa_id, "editar")) {
             alert()->error('Ups...', 'Sin privilegios en el programa!')->showConfirmButton()->autoClose(5000);
 
             return redirect()->route('curso_preescolar.index');
         } else {
-            return view('preescolar.curso_preinscrito.edit', compact('curso', 'cgts', 'tiposIngreso', 'planesPago', 'tiposBeca', 'estadoCurso', 'opcionTitulo', 'permiso', 'cgt_actual'));
+            return view('preescolar.curso_preinscrito.edit', compact('curso', 'cgts', 'tiposIngreso', 'planesPago', 'tiposBeca', 'estadoCurso', 'opcionTitulo', 'permiso', 'cgt_actual','perAnioPago','campus'));
         }
     }
 
@@ -1340,15 +1369,38 @@ class PreescolarCursoController extends Controller
 
         // dd($request->curTipoIngreso);
         try {
-            $curso = Curso::with('alumno.persona', 'cgt')->findOrFail($id);
+            $curso = Curso::with('alumno.persona', 'cgt.plan.programa.escuela.departamento')->findOrFail($id);
+            $curso_anterior = clone $curso; # Clon para luego revisar si cambió.
+            $departamento = $curso->cgt->plan->programa->escuela->departamento;
+            $periodo = $curso->periodo;
+
+            $alumno = $curso->alumno;
+
+
+            if($departamento->ubicacion_id == 1){
+                $campus = "preescolarCME";
+            }else{
+                $campus = "preescolarCVA";
+            }
 
             $imageName = "";
-            if ($request->curExaniFoto) {
-                //$imageName = time().'.'.request()->curExaniFoto->getClientOriginalExtension();
-                //$path = $request->curExaniFoto->move(storage_path("/app/public/cursos/exani"), $imageName);
-                $imageName = $curso->alumno->persona->perCurp . "-" . time() . '.' . request()->curExaniFoto->getClientOriginalExtension();
-                $path = $request->curExaniFoto->move(env("PROJECT_PATH"), $imageName);
+            //si viene de la vista candidatos
+            // if ($request->es_candidato_tiene_foto) {
+            //     $imageName =  $alumno->candidato->perCurp . "-" . $alumno->candidato->perFoto;
+            //     $path = File::copy(storage_path(env("PREESCOLAR_IMAGEN_CURSO_PATH") . $alumno->candidato->perFoto),
+            //         storage_path(env("PREESCOLAR_IMAGEN_CURSO_PATH") . $imageName));
+            // }
+
+            //si no viene de la vista candidatos
+            if (!$request->es_candidato_tiene_foto) {
+                if ($request->curPreescolarFoto) {
+                    $imageName = $alumno->aluClave . "-" . time() . '.' .request()->curPreescolarFoto->getClientOriginalExtension();
+                    $path = $request->curPreescolarFoto->move(storage_path(env("PREESCOLAR_IMAGEN_CURSO_PATH").$periodo->perAnioPago."/".$campus),
+                        $imageName);
+                }
             }
+
+            // return $imageName;
 
             if (User::permiso("curso") != "P") {
                 $curso->cgt_id                  = $request->cgt_id;
@@ -1360,6 +1412,10 @@ class PreescolarCursoController extends Controller
                 $curso->curExani                = $request->curExani;
                 if ($request->curExaniFoto) {
                     $curso->curExaniFoto = $imageName;
+                }
+
+                if ($request->curPreescolarFoto) {
+                    $curso->curPreescolarFoto = $imageName;
                 }
             }
 
@@ -1377,10 +1433,15 @@ class PreescolarCursoController extends Controller
                 $curso->curTipoBeca             = $request->curTipoBeca;
                 $curso->curPorcentajeBeca       = Utils::validaEmpty($request->curPorcentajeBeca);
                 $curso->curObservacionesBeca    = $request->curObservacionesBeca;
+                // $curso->curPreescolarFoto       = $imageName;
             }
 
 
             $curso->save();
+
+            if($curso_anterior && MetodosCursos::hayCambioDeBeca($curso, $curso_anterior)) {
+                $beca_historial = MetodosCursos::crearHistorialDeBeca($curso);
+            }
 
             $userId = Auth::id();
 
@@ -2835,6 +2896,21 @@ class PreescolarCursoController extends Controller
             return redirect()->back()->withInput();
         }
 
+        if($depClave == "PRE"){
+            if(MetodosAlumnos::esAlumnoDeudorNivelMAT(
+                $curso->alumno->aluClave,
+                $ubiClave,
+                'MAT',
+                $cuoConcepto,
+                $perAnioPago
+            )) {
+                alert('Escuela Modelo', 'El alumno tiene una deuda de pago con la Escuela (Maternal). Favor de remitirlo al departamento correspondiente para regularizar sus pagos.', 'warning')->showConfirmButton();
+                return redirect()->back()->withInput();
+            }
+        }
+
+
+
         //VERIFICA EL NIVEL EDUCATIVO DEL CURSO
         $departamento_clave = $curso->cgt->plan->programa->escuela->departamento->depClave;
         if ($departamento_clave == "PRE" || $departamento_clave == "MAT") {
@@ -3640,6 +3716,19 @@ class PreescolarCursoController extends Controller
         )) {
             alert('Escuela Modelo', 'El alumno tiene una deuda de pago con la Escuela. Favor de remitirlo al departamento correspondiente para regularizar sus pagos.', 'warning')->showConfirmButton();
             return redirect()->back()->withInput();
+        }
+
+        if($depClave == "PRE"){
+            if(MetodosAlumnos::esAlumnoDeudorNivelMAT(
+                $curso->alumno->aluClave,
+                $ubiClave,
+                'MAT',
+                $cuoConcepto,
+                $perAnioPago
+            )) {
+                alert('Escuela Modelo', 'El alumno tiene una deuda de pago con la Escuela (Maternal). Favor de remitirlo al departamento correspondiente para regularizar sus pagos.', 'warning')->showConfirmButton();
+                return redirect()->back()->withInput();
+            }
         }
 
         //VERIFICA EL NIVEL EDUCATIVO DEL CURSO

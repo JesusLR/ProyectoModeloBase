@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\clases\cambiar_carrera\idiomas;
 
 use App\Models\Idiomas\Idiomas_cursos;
@@ -61,7 +61,7 @@ class Notificacion
 	{
 		$this->mail = new Mailer([
 			'username_email' => 'bajas@modelo.edu.mx', // 'bajas@unimodelo.com',
-			'password_email' => 'Caf28347',
+			'password_email' => 'c1IcMH4OoY39',
 			'to_email' => 'luislara@modelo.edu.mx',
 			'to_name' => '',
 			'cc_email' => '',
@@ -85,7 +85,7 @@ class Notificacion
 		// $this->mail->agregar_destinatario('eail@modelo.edu.mx');
 		// $this->mail->agregar_destinatario($director_campus);
 		// $this->mail->agregar_destinatario($coordinador_secretaria_academica);
-		
+
 		$this->mail->enviar();
 	}
 

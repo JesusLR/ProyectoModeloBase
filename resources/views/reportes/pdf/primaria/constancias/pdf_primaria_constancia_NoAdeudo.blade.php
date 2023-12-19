@@ -483,6 +483,12 @@
       .bordered {
         border:1px solid #000;
       }
+
+      .fotoAlumno{
+        width: 2.5cm;
+        height: 3cm;
+        margin-left: -3.1cm;
+      }
     </style>
 	</head>
   
@@ -505,7 +511,7 @@
           <p>A quien corresponda:</p>
           @if ($foto == "con_foto")
               @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus .'/'. $curPrimariaFoto)))              
-              <p><img style="width:65px; float: left; margin-top: 54px; margin-left: -2.7cm;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus. '/' . $curPrimariaFoto) }}"></p>
+              <p><img class="fotoAlumno" style="float: left; margin-top: 54px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus. '/' . $curPrimariaFoto) }}"></p>
             @endif
           @endif
           <br>
@@ -515,20 +521,20 @@
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
             La que suscribe, 
             @if ($parametro_ubicacion == "CME")
-            MAOE. María Trinidad Díaz Cervera
+            MAOE. María Trinidad Díaz Cervera,
             @endif
             @if ($parametro_ubicacion == "CVA")
-              Mtra. Arely Martinez Díaz
+              Mtra. Arely Martinez Díaz,
             @endif  
-            directora de la Escuela Primaria Incorporada “Modelo” establecida en esta ciudad HACE CONSTAR:
+            directora de la Escuela Primaria Modelo con clave {{ $depClaveOficial }} establecida en esta ciudad, HACE CONSTAR:
           </p>
           <br>
           <br>
           <br>
 
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-            {{$genero}} <strong>{{$alumno}}</strong> {{$parametro_consideracion}} regular del {{$grado}} GRUPO “{{$grupo}}” 
-            en el curso escolar {{$periodo}} y durante el tiempo que estudió en este plantel estuvo al corriente en el pago de sus colegiaturas, por lo que <b>NO ADEUDA</b>.
+            {{$genero}} <strong>{{$alumno}}</strong> {{$parametro_consideracion}} regular del {{$grado}}, GRUPO “{{$grupo}}” 
+            de este plantel en el curso escolar  {{$periodo}} y, durante el tiempo que estudió en éste, estuvo al corriente en el pago de sus colegiaturas, por lo que <b>NO ADEUDA</b>.
           </p>
 
           <br>
@@ -536,19 +542,19 @@
           <br>
 
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-            Y a pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día de hoy, en la ciudad de
+            A pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día de hoy en la ciudad de
             @if ($parametro_ubicacion == "CME")
-            Mérida
+            Mérida,
             @endif
             @if ($parametro_ubicacion == "CVA")
-            Valladolid
+            Valladolid,
             @endif
              Yucatán, México.
           </p>
         </div>
       </div>
       
-      <br><br><br><br><br><br><br><br><br>      <br><br><br><br><br>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
       <div class="row">
         <div class="columns medium-12">
@@ -556,10 +562,10 @@
           <p class="tcenter"><b>A T E N T A M E N T E</b></p>
           <br><br>
           @if ($parametro_ubicacion == "CME")
-            <p class="tcenter"><b>MAOE. MARÍA TRINIDAD DÍAZ CERVERA.</b></p>
+            <p class="tcenter"><b>MAOE. MARÍA TRINIDAD DÍAZ CERVERA</b></p>
           @endif
           @if ($parametro_ubicacion == "CVA")
-          <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ.</b></p>
+          <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ</b></p>
           @endif
           <p class="tcenter"><b>DIRECTORA</b></p>
         

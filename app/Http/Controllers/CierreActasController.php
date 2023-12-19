@@ -147,7 +147,7 @@ class CierreActasController extends Controller
         $actas_pendientes = new Collection;
     	$actCerradas = 0;
     	DB::beginTransaction();
-    	for ($i=0; $i < $tGpos; $i++) { 
+    	for ($i=0; $i < $tGpos; $i++) {
     		$grupo = $grupos->get($i);
     		$plan_id = $grupo->plan_id;
     		$materia_id = $grupo->materia_id;
@@ -159,15 +159,15 @@ class CierreActasController extends Controller
                 $histNombreOficial = ucwords($grupo->optativa->optNombre);
                 $histComplementoNombre  = strtoupper($histNombreOficial);
 			}
-						
+
 				$inscritos = $grupo->inscritos()->get();
 				$inscritoIds = $inscritos->map(function ($item, $key) {
 					return $item->id;
 				});
 				$calificaciones = Calificacion::whereIn("inscrito_id", $inscritoIds)->get();
-				
 
-				$califFinalVacia = false; 
+
+				$califFinalVacia = false;
 				foreach ($calificaciones as $calificacion) {
 					if (is_null($calificacion->inscCalificacionOrdinario)) {
 						$califFinalVacia = true;
@@ -178,13 +178,13 @@ class CierreActasController extends Controller
                     $actas_pendientes->push($grupo);
                 } else {
 					$tins = count($inscritos); #Total de Inscritos.
-					for ($x=0; $x < $tins; $x++) { 
+					for ($x=0; $x < $tins; $x++) {
 						$inscrito = $inscritos->get($x);
 						$curso  = $inscrito->curso;
 						$alumno = $curso->alumno;
 						$tipoIng = $curso->curTipoIngreso;
 						$calificaciones = $inscrito->calificacion()->first();
-						
+
 
 						/*
 						* Si curTipoIngreso = 'OY' (oyente)  No realizan las siguientes acciones.
@@ -256,7 +256,7 @@ class CierreActasController extends Controller
 						throw $e;
 					}
 				}
-	    	
+
     	}//FIN for $tGpos.
 
 /* ---------------------------------------------------------------------------------- */
@@ -279,7 +279,7 @@ class CierreActasController extends Controller
     	*/
     	foreach ($datos as $key => $alumno) {
     		$issues = collect([]); #almacenaará incidencias, en caso de existir.
-    		$hasIssue = false; 
+    		$hasIssue = false;
     		$alu_id = $alumno['alumno_id'];
     		$plan = $alumno['plan'];
     		$inscrito = $alumno['inscrito'];
@@ -287,12 +287,12 @@ class CierreActasController extends Controller
     		$grupo = $inscrito->grupo;
     		$aluDep = $plan->programa->escuela->departamento;
     		$calMin = $aluDep->depCalMinAprob;
-    		
+
     		/*
     		* -> Obtener Historicos del alumno y borrarlos de $histData.
     		* -> filtrar por históricos pertenecientes al plan actual.
     		*/
-    		$histAlumno = $histData->filter(function($value,$key) 
+    		$histAlumno = $histData->filter(function($value,$key)
     			use($alu_id,$histData,$plan){
     			if($value->alumno_id == $alu_id){
     				$a = $histData->pull($key);
@@ -459,11 +459,11 @@ class CierreActasController extends Controller
 					'user_at' => auth()->user()->id
 				]);
 			}
-			
+
 
 
     	}//FIN foreach $datos.
-    	
+
 
     	// if($tGpos == $actCerradas){
 	    	//Se realizan los cabios en la base de datos.
@@ -482,11 +482,11 @@ class CierreActasController extends Controller
                 }
             }
     	// }else{
-    	// 	alert()->error('Error','ha ocurrido un error, 
+    	// 	alert()->error('Error','ha ocurrido un error,
     	// 		favor de intentar nuevamente');
     	// 	return back()->withInput();
     	// }
-    	
+
     }//FIN function cierreActas.
 
     public function actas_pendientes_pdf($grupos) {
@@ -496,7 +496,7 @@ class CierreActasController extends Controller
           "grupo1" => $grupos->first(),
           "grupos" => $grupos->groupBy(['plan.programa.progClave', 'gpoSemestre']),
           "nombreArchivo" => 'pdf_actas_pendientes_cerrar',
-          'tituloHead' => $t = 'ACTAS DE EXAMEN ORDINARIO PENDIENTES POR CERRAR 
+          'tituloHead' => $t = 'ACTAS DE EXAMEN ORDINARIO PENDIENTES POR CERRAR
                           Y CAPTURAR',
           "fechaActual" => $fechaActual->toDateString(),
           "horaActual" => $fechaActual->toTimeString(),

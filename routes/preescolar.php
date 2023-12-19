@@ -19,6 +19,21 @@ Route::get('preescolar_curso/crearReferenciaHSBC/{curso_id}/{tienePagoCeneval}',
 Route::delete('preescolar_curso/eliminar/{id}','Preescolar\PreescolarCursoController@destroy')->name('preescolar_curso.destroy');
 Route::get('api/preescolar_curso/conceptosBaja','Preescolar\PreescolarCursoController@conceptosBaja');
 
+Route::get('preescolar_curso_images/{filename}/{folder}/{folderCampus}', function ($filename, $folder, $folderCampus)
+{
+    //$path = app_path('upload') . '/' . $filename;
+
+    $path = storage_path(env("PREESCOLAR_IMAGEN_CURSO_PATH") . $folder ."/".$folderCampus."/".$filename);
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+
+    return $response;
+});
+
 
 // Modulo de alumnos
 Route::get('preescolar_alumnos','Preescolar\PreescolarAlumnoController@index')->name('preescolar_alumnos.index');
@@ -75,7 +90,7 @@ Route::get('preescolar_cgt_materias/obtenerMaterias/{periodo_id}/{programa_id}/{
 Route::post('preescolar_cgt_materias','Preescolar\PreescolarCGTMateriasController@store')->name('preescolar.preescolar_cgt_materias.store');
 
 
-// grupo rubricas 
+// grupo rubricas
 Route::get('preescolar_grupo_rubricas','Preescolar\PreescolarGruposRubricaController@index')->name('preescolar.preescolar_grupo_rubricas.index');
 Route::get('preescolar_grupo_rubricas/obtenerMaterias/{periodo_id}/{programa_id}/{plan_id}/{cgt_id}', 'Preescolar\PreescolarGruposRubricaController@obtenerMaterias');
 Route::post('preescolar_grupo_rubricas','Preescolar\PreescolarGruposRubricaController@store')->name('preescolar.preescolar_grupo_rubricas.store');
@@ -347,7 +362,7 @@ Route::get('preescolar_cambiar_contrasenia/{id}', 'Preescolar\PreescolarCambiarC
 Route::post('preescolar_cambiar_contrasenia', 'Preescolar\PreescolarCambiarContraseniaController@store')->name('preescolar.preescolar_cambiar_contrasenia.store');
 Route::put('preescolar_cambiar_contrasenia/{id}', 'Preescolar\PreescolarCambiarContraseniaController@update')->name('preescolar.preescolar_cambiar_contrasenia.update');
 
-// ajustar plantilla rubricas 
+// ajustar plantilla rubricas
 Route::get('preescolar_modificar_plantilla_calificaciones', 'Preescolar\PreescolarCambiarPlantillaController@index')->name('preescolar.preescolar_modificar_plantilla_calificaciones.index');
 Route::post('preescolar_modificar_plantilla_calificaciones', 'Preescolar\PreescolarCambiarPlantillaController@actualizar_plantilla')->name('preescolar.preescolar_modificar_plantilla_calificaciones.actualizar_plantilla');
 

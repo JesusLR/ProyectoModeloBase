@@ -192,10 +192,10 @@
                         }
                     },
                     "columns":[
-                        {data: "empleado_id",name:"empleados.id"},
-                        {data: "perApellido1", name: "personas.perApellido1"},
-                        {data: "perApellido2", name: "personas.perApellido2"},
-                        {data: "perNombre", name: "personas.perNombre"},
+                        {data: "empleado_id"},
+                        {data: "empApellido1"},
+                        {data: "empApellido2"},
+                        {data: "empNombre"},
                         {data: "puesNombre",name:"puestos.puesNombre"},
                         {data: "empEstado"},
                         {data: "empCredencial"},
@@ -285,10 +285,10 @@
                 }
             },
             "columns":[
-                {data: "empleado_id",name:"empleados.id"},
-                {data: "perApellido1", name: "personas.perApellido1"},
-                {data: "perApellido2", name: "personas.perApellido2"},
-                {data: "perNombre", name: "personas.perNombre"},
+                {data: "empleado_id"},
+                {data: "empApellido1"},
+                {data: "empApellido2"},
+                {data: "empNombre"},
                 {data: "puesNombre",name:"puestos.puesNombre"},
                 {data: "empEstado"},
                 {data: "empCredencial"},

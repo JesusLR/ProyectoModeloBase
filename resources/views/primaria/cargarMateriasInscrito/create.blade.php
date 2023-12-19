@@ -312,7 +312,7 @@ use App\Models\User;
 
       function alumno_precargar_datos(data) {  
 
-        if(data.curso.curEstado == "R"){
+        /*if(data.curso.curEstado == "R"){*/
             $("#ubicacion_id option[value='']").remove();
             $("#departamento_id option[value='']").remove();
             $("#escuela_id option[value='']").remove();
@@ -342,11 +342,13 @@ use App\Models\User;
             
             //Mostrar el boton de guardar
             $("#boton-cargar-materias").show();
-        }else{
+        /*}else{
             $("#boton-cargar-materias").hide();
 
             swal("Sin información", "Verificar si el alumno se encuentra inscrito al período actual y el estado del curso sea REGULAR", "info");
-        }
+        }*/
+
+        
 
        
 

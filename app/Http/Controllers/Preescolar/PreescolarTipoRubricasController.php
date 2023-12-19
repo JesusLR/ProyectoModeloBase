@@ -51,14 +51,14 @@ class PreescolarTipoRubricasController extends Controller
         ->orderBy('preescolar_rubricas_tipo.id', 'ASC');
 
         return DataTables::of($rubricas_tipo)
-        
+
         ->filterColumn('ubicacion', function($query, $keyword) {
             $query->whereRaw("CONCAT(ubiNombre) like ?", ["%{$keyword}%"]);
         })
         ->addColumn('ubicacion', function($query) {
             return $query->ubiNombre;
         })
-       
+
         ->filterColumn('escuela', function($query, $keyword) {
             $query->whereRaw("CONCAT(escNombre) like ?", ["%{$keyword}%"]);
         })
@@ -67,7 +67,7 @@ class PreescolarTipoRubricasController extends Controller
         })
 
 
-        
+
         ->filterColumn('programa', function($query, $keyword) {
             $query->whereRaw("CONCAT(progNombre) like ?", ["%{$keyword}%"]);
         })
@@ -109,11 +109,11 @@ class PreescolarTipoRubricasController extends Controller
             $request->all(),
             [
                 'tipo'  => 'required',
-                
+
             ],
             [
                 'tipo.required' => 'El campo Tipo es obligatorio.',
-                
+
             ]
         );
 
@@ -152,7 +152,7 @@ class PreescolarTipoRubricasController extends Controller
     {
         $preescolar_rubricas_tipo = Preescolar_rubricas_tipo::findOrFail($id);
         $programa = Programa::findOrFail($preescolar_rubricas_tipo->programa_id);
-        
+
         return view('preescolar.tipo_rubricas.show', [
             'preescolar_rubricas_tipo' => $preescolar_rubricas_tipo,
             'programa' => $programa
@@ -169,7 +169,7 @@ class PreescolarTipoRubricasController extends Controller
     {
         $preescolar_rubricas_tipo = Preescolar_rubricas_tipo::findOrFail($id);
         $programa = Programa::findOrFail($preescolar_rubricas_tipo->programa_id);
-        
+
         return view('preescolar.tipo_rubricas.edit', [
             'preescolar_rubricas_tipo' => $preescolar_rubricas_tipo,
             'programa' => $programa
@@ -191,11 +191,11 @@ class PreescolarTipoRubricasController extends Controller
             $request->all(),
             [
                 'tipo'  => 'required',
-                
+
             ],
             [
                 'tipo.required' => 'El campo Tipo es obligatorio.',
-                
+
             ]
         );
 

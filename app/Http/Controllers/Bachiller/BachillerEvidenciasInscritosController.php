@@ -348,13 +348,13 @@ class BachillerEvidenciasInscritosController extends Controller
             return back();
         }
 
-        if(count($bachiller_inscritos) > 0){          
+        if(count($bachiller_inscritos) > 0){
 
             foreach ($bachiller_inscritos as $inscrito) {
                 $bachiller_inscrito_id = $inscrito->id;
 
                 foreach ($bachiller_evidencias as $evidencia) {
-                    $evidencia_id = $evidencia->id; 
+                    $evidencia_id = $evidencia->id;
 
                     $bachiller_inscritos_evidencias =  Bachiller_inscritos_evidencias::where('evidencia_id', '=', $evidencia_id)
                     ->where('bachiller_inscrito_id', '=', $bachiller_inscrito_id)
@@ -362,7 +362,7 @@ class BachillerEvidenciasInscritosController extends Controller
                     ->first();
 
 
-                    // Si esta vacio creara el registro 
+                    // Si esta vacio creara el registro
                     if($bachiller_inscritos_evidencias == ""){
 
                         $procBachillerAgregaEvidenciaAlumno = DB::select("call procBachillerAgregaEvidenciaAlumno(
@@ -375,7 +375,7 @@ class BachillerEvidenciasInscritosController extends Controller
                 }
             }
 
-            
+
 
         }
 
@@ -692,11 +692,16 @@ class BachillerEvidenciasInscritosController extends Controller
             // ciclo para guardar las evidencias
             for ($x = 0; $x < count($bachiller_inscrito_evidencia_id); $x++) {
 
+                if($ievPuntos[$x] == NULL){
+                    $puntos_nuevos[$x] = 0.0;
+                }else{
+                    $puntos_nuevos[$x] = $ievPuntos[$x];
+                }
                 DB::table('bachiller_inscritos_evidencias')
                     ->where('id', $bachiller_inscrito_evidencia_id[$x])
                     ->update([
                         'bachiller_inscrito_id' => $bachiller_inscrito_id[$x],
-                        'ievPuntos' => $ievPuntos[$x],
+                        'ievPuntos' => $puntos_nuevos[$x],
                         'ievClaveCualitativa1' => $ievClaveCualitativa1[$x],
                         'ievClaveCualitativa2' => $ievClaveCualitativa2[$x],
                         'ievClaveCualitativa3' => $ievClaveCualitativa3[$x],
@@ -752,6 +757,17 @@ class BachillerEvidenciasInscritosController extends Controller
                 ]);
             }
 
+
+            $faltantes = DB::select("SELECT
+            COUNT(*) AS total_null
+            FROM
+                bachiller_inscritos_evidencias
+                INNER JOIN bachiller_inscritos ON bachiller_inscritos_evidencias.bachiller_inscrito_id = bachiller_inscritos.id
+            WHERE
+            bachiller_inscritos_evidencias.deleted_at IS NULL
+            AND bachiller_inscritos.deleted_at IS NULL
+            AND bachiller_inscritos.bachiller_grupo_id = $bachiller_grupo_id
+            AND bachiller_inscritos_evidencias.ievPuntos IS NULL");
 
             alert('Escuela Modelo', 'Los puntos evidencias se han actualizado con éxito', 'success')->showConfirmButton();
             return back();

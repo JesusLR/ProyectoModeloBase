@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\clases\cambiar_carrera;
 
 use App\Models\Curso;
@@ -42,7 +42,7 @@ class Notificacion
 	{
 		$this->mail = new Mailer([
 			'username_email' => 'bajas@modelo.edu.mx', // 'bajas@unimodelo.com',
-			'password_email' => 'Caf28347',
+			'password_email' => 'c1IcMH4OoY39',
 			'to_email' => 'luislara@modelo.edu.mx',
 			'to_name' => '',
 			'cc_email' => '',
@@ -59,7 +59,7 @@ class Notificacion
 		} else if($this->ubicacion->ubiClave == 'CVA') {
 			$director_campus = ''; // 'aime@modelo.edu.mx';
 			$this->mail->agregar_destinatario('mtuz@modelo.edu.mx');
-		} 
+		}
 		/*else if($this->ubicacion->ubiClave == 'CME') {
 			$this->mail->agregar_destinatario('sil_bar@modelo.edu.mx');
 		}*/
@@ -67,7 +67,7 @@ class Notificacion
 		$this->mail->agregar_destinatario('eail@modelo.edu.mx');
 		$this->mail->agregar_destinatario($director_campus);
 		$this->mail->agregar_destinatario($coordinador_secretaria_academica);
-		
+
 		$this->mail->enviar();
 	}
 

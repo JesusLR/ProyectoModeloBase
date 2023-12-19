@@ -23,8 +23,8 @@
                 {{ url()->current() ==  url('reporte/preescolar_resumen_inscritos') ? "selected": "" }}>Resumen inscritos</option>
 
                 {{--  Reporte de alumnos becados   --}}
-                <option value="{{ route('primaria_reporte.primaria_alumnos_becados.reporte') }}"
-                {{ url()->current() ==  route('primaria_reporte.primaria_alumnos_becados.reporte') ? "selected": "" }}>Rel. alumnos becados</option>
+                {{--  <option value="{{ route('preescolar_reporte.preescolar_alumnos_becados.reporte') }}"
+                {{ url()->current() ==  route('preescolar_reporte.preescolar_alumnos_becados.reporte') ? "selected": "" }}>Rel. alumnos becados</option>  --}}
             </optgroup>
 
             {{-- Pagos --}}

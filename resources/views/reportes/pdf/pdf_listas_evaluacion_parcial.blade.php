@@ -569,17 +569,24 @@
                 <th align="center" style="font-weight: 400; width: 30px;">2do Parcial<br> Calif</th>
                 <th align="center" style="font-weight: 400; width: 30px;">Falt</th>
                 @else
-                <th align="center" style="font-weight: 400; width: 80px;">1er Parcial Calificación</th>
-                <th align="center" style="font-weight: 400; width: 80px;">Faltas</th>
+                <th align="center" style="font-weight: 400; width: 30px;">1er Parcial Calificación</th>
+                <th align="center" style="font-weight: 400; width: 30px;">Faltas</th>
 
 
-                <th align="center" style="font-weight: 400; width: 80px;">2do Parcial Calificación</th>
-                <th align="center" style="font-weight: 400; width: 80px;">Faltas</th>
+                <th align="center" style="font-weight: 400; width: 30px;">2do Parcial Calificación</th>
+                <th align="center" style="font-weight: 400; width: 30px;">Faltas</th>
                 @endif
 
                 @if($TERCER_PARCIAL)
                 <th align="center" style="font-weight: 400; width: 30px;">3er Parcial <br> Calif</th>
-                <th align="center" style="font-weight: 400; width: 30px;">Falt</th>
+                <th align="center" style="font-weight: 400; width: 30px;">3er Parcial <br> Falt</th>
+                @else
+                  @if ($grupo->periodo->perAnioPago <= 2022)
+                  <th align="center" style="font-weight: 400; width: 30px;">3er Parcial <br> Calif</th>
+                  <th align="center" style="font-weight: 400; width: 30px;">Faltas</th>
+                  @else
+                  <th align="center" style="font-weight: 400; width: 30px;">Faltas <br> Ordinario</th>
+                  @endif
                 @endif
 
 
@@ -619,12 +626,12 @@
                   </td>
                   @else
                   <td style="" align="right">
-                    <div style="display: inline-block;font-weight: 400; border-bottom: .5px solid #000; width: 50px; height: 15px; padding-right: 30px;">
+                    <div style="display: inline-block;font-weight: 400; border-bottom: .5px solid #000; width: 50px; height: 15px; padding-right: 15px;">
                       {{$inscrito["inscCalificacionParcial1"]}}
                     </div>
                   </td>
                   <td style="" align="right">
-                    <div style="display: inline-block;font-weight: 400; border-bottom: .5px solid #000; width: 50px; height: 15px; padding-right: 30px;">
+                    <div style="display: inline-block;font-weight: 400; border-bottom: .5px solid #000; width: 50px; height: 15px; padding-right: 15px;">
                       {{$inscrito["inscFaltasParcial1"]}}
                     </div>
                   </td>
@@ -632,12 +639,12 @@
 
 
                   <td style="" align="right">
-                    <div style="display: inline-block;font-weight: 400; border-bottom: .5px solid #000; width: 50px; height: 15px; padding-right: 30px;">
+                    <div style="display: inline-block;font-weight: 400; border-bottom: .5px solid #000; width: 50px; height: 15px; padding-right: 15px;">
                       {{$inscrito["inscCalificacionParcial2"]}}
                     </div>
                   </td>
                   <td style="" align="right">
-                    <div style="display: inline-block;font-weight: 400; border-bottom: .5px solid #000; width: 50px; height: 15px; padding-right: 30px;">
+                    <div style="display: inline-block;font-weight: 400; border-bottom: .5px solid #000; width: 50px; height: 15px; padding-right: 15px;">
                       {{$inscrito["inscFaltasParcial2"]}}
                     </div>
                   </td>
@@ -647,15 +654,34 @@
 
                   @if($TERCER_PARCIAL)
                   <td style="" align="center">
-                    <div style="display: inline-block;font-weight: 400; border-bottom: .5px solid #000; width: 30px; height: 15px;">
+                    <div style="display: inline-block;font-weight: 400; border-bottom: .5px solid #000; width: 50px; height: 15px;">
                       {{$inscrito["inscCalificacionParcial3"]}}
                     </div>
                   </td>
                   <td style="" align="center">
-                    <div style="display: inline-block;font-weight: 400; border-bottom: .5px solid #000; width: 30px; height: 15px;">
+                    <div style="display: inline-block;font-weight: 400; border-bottom: .5px solid #000; width: 30px; height: 15px; padding-right: 15px;">
                       {{$inscrito["inscFaltasParcial3"]}}
                     </div>
                   </td>
+                  @else
+                    @if ($grupo->periodo->perAnioPago <= 2022)
+                    <td style="" align="center">
+                      <div style="display: inline-block;font-weight: 400; border-bottom: .5px solid #000; width: 50px; height: 15px;">
+                        {{$inscrito["inscCalificacionParcial3"]}}
+                      </div>
+                    </td>
+                    <td style="" align="center">
+                      <div style="display: inline-block;font-weight: 400; border-bottom: .5px solid #000; width: 30px; height: 15px; padding-right: 15px;">
+                        {{$inscrito["inscFaltasParcial3"]}}
+                      </div>
+                    </td>
+                    @else
+                    <td style="" align="center">
+                      <div style="display: inline-block;font-weight: 400; border-bottom: .5px solid #000; width: 50px; height: 15px; padding-right: 15px;">
+                        {{$inscrito["inscFaltasParcial3"]}}
+                      </div>
+                    </td>
+                    @endif
                   @endif
 
                   

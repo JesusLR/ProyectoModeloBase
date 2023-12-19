@@ -587,7 +587,7 @@
               {{$parametro_genero_alumno}} <b>{{$curso->perApellido1.' '.$curso->perApellido2.' '.$curso->perNombre}} con número de matrícula {{$curso->aluClave}} </b>  {{$parametro_consideracion}} 
               regular de este plantel, al {{$gradoEnLetras}} GRUPO “{{$gpoClave}}”, 
               del ciclo escolar {{$periodo}}, 
-              durante el tiempo que ha estudiado en este plantel, se ha observado buena conducta y cumplido con el reglamento de la escuela.
+              durante el tiempo que ha estudiado en este plantel, se ha observado buena conducta y cumplimiento del reglamento de la escuela.
             </p>
   
             <br>

@@ -386,7 +386,7 @@ class SecundariaAplicarPagosController extends Controller
   public function enviarNotificacion($correo, $nombre_destinatario, $pago, $cambioFormaAplico)
   {
     $info['username_email'] = 'cobranza@modelo.edu.mx'; // 'cobranza@unimodelo.com';
-    $info['password_email'] = 'cFULf33Qvk'; // 'GKxwm788';
+    $info['password_email'] = 'l6Ik38NruWSc'; // 'cFULf33Qvk'; // 'GKxwm788';
     $info['to_email'] = $correo;
     $info['to_name'] = $nombre_destinatario;
     $info['cc_email'] = "";

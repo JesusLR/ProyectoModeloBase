@@ -74,7 +74,7 @@ class BachillerPaquetesInscritosController extends Controller
             ->orderBy('personas.perApellido2', 'asc')
             ->get();
 
-           
+
             return response()->json($gruposClave);*/
 
             $resultado_array =  DB::select("call procBachillerAlumnosNoInscritos(".
@@ -753,7 +753,7 @@ class BachillerPaquetesInscritosController extends Controller
             $mail->Host = 'smtp.office365.com'; //'mail.unimodelo.com';           // Specify main and backup SMTP servers
             $mail->SMTPAuth = true;                       // Enable SMTP authentication
             $mail->Username = 'inscripciones@modelo.edu.mx'; // 'inscripciones@unimodelo.com'; // SMTP username
-            $mail->Password = 'i7X6nFLrfghu5ua';                 // SMTP password
+            $mail->Password = 'nUUg106J95bV'; // 'i7X6nFLrfghu5ua';                 // SMTP password
             $mail->SMTPSecure = 'tls'; //'ssl';                    // Enable TLS encryption, `ssl` also accepted
             $mail->Port = 587; // 465;                            // TCP port to connect to
             $mail->setFrom('inscripciones@modelo.edu.mx', 'Universidad Modelo');

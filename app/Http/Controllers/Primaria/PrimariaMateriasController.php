@@ -155,8 +155,8 @@ class PrimariaMateriasController extends Controller
         'primaria_materias_acd.gpoGrado',
         'primaria_materias_acd.gpoMatComplementaria',
         'primaria_materias.matClave',
-        'primaria_materias.matNombre', 
-        'primaria_materias.matSemestre', 
+        'primaria_materias.matNombre',
+        'primaria_materias.matSemestre',
         'primaria_materias.matPrerequisitos',
         'planes.id as plan_id',
         'planes.planClave',
@@ -181,11 +181,11 @@ class PrimariaMateriasController extends Controller
         ->orderBy('primaria_materias_acd.id', 'DESC');
 
         return DataTables::of($materias)
-        
+
 
             // ->filterColumn('numero_periodo', function($query, $keyword) {
             //     $query->whereRaw("CONCAT(perNumero) like ?", ["%{$keyword}%"]);
-               
+
             //   })
             //   ->addColumn('numero_periodo',function($query) {
             //       return $query->perNumero;
@@ -193,7 +193,7 @@ class PrimariaMateriasController extends Controller
 
               ->filterColumn('anio', function($query, $keyword) {
                 $query->whereRaw("CONCAT(perAnioPago) like ?", ["%{$keyword}%"]);
-               
+
               })
               ->addColumn('anio',function($query) {
                   return $query->perAnioPago;
@@ -201,7 +201,7 @@ class PrimariaMateriasController extends Controller
 
               ->filterColumn('materiaComplementaria', function($query, $keyword) {
                 $query->whereRaw("CONCAT(gpoMatComplementaria) like ?", ["%{$keyword}%"]);
-               
+
               })
               ->addColumn('materiaComplementaria',function($query) {
                   return $query->gpoMatComplementaria;
@@ -224,7 +224,7 @@ class PrimariaMateriasController extends Controller
                 }else{
                     $btnBorrar = "";
                 }
-  
+
                 return '<a href="' . route('primaria.primaria_materia.show_acd', ['id' => $query->id]) . '" class="button button--icon js-button js-ripple-effect" title="Ver">
                     <i class="material-icons">visibility</i>
                 </a>
@@ -232,7 +232,7 @@ class PrimariaMateriasController extends Controller
                     <i class="material-icons">edit</i>
                 </a>'.$btnBorrar;
             })
-         
+
         ->make(true);
     }
 
@@ -337,8 +337,8 @@ class PrimariaMateriasController extends Controller
         $materias_acd = Primaria_materia::select(
         'primaria_materias.id as primaria_materia_id',
         'primaria_materias.matClave',
-        'primaria_materias.matNombre', 
-        'primaria_materias.matSemestre', 
+        'primaria_materias.matNombre',
+        'primaria_materias.matSemestre',
         'primaria_materias.matPrerequisitos',
         'planes.id as plan_id',
         'planes.planClave',
@@ -370,8 +370,8 @@ class PrimariaMateriasController extends Controller
 
         $primaria_materia = Primaria_materia::select('primaria_materias.id as materia_id',
         'primaria_materias.matClave',
-        'primaria_materias.matNombre', 
-        'primaria_materias.matSemestre', 
+        'primaria_materias.matNombre',
+        'primaria_materias.matSemestre',
         'primaria_materias.matPrerequisitos',
         'primaria_materias.plan_id',
         'planes.planClave',
@@ -591,12 +591,12 @@ class PrimariaMateriasController extends Controller
     {
 
         // return $request->periodo_id2;
-       
+
 
 
         DB::beginTransaction();
         try {
-            
+
             $materias = $request->materias_acd;
 
             foreach ($materias as $key => $materia) {
@@ -657,8 +657,8 @@ class PrimariaMateriasController extends Controller
         'primaria_materias_acd.gpoGrado',
         'primaria_materias_acd.gpoMatComplementaria',
         'primaria_materias.matClave',
-        'primaria_materias.matNombre', 
-        'primaria_materias.matSemestre', 
+        'primaria_materias.matNombre',
+        'primaria_materias.matSemestre',
         'primaria_materias.matPrerequisitos',
         'primaria_materias.id as primaria_materia_id',
         'planes.id as plan_id',
@@ -723,8 +723,8 @@ class PrimariaMateriasController extends Controller
         'primaria_materias_acd.gpoGrado',
         'primaria_materias_acd.gpoMatComplementaria',
         'primaria_materias.matClave',
-        'primaria_materias.matNombre', 
-        'primaria_materias.matSemestre', 
+        'primaria_materias.matNombre',
+        'primaria_materias.matSemestre',
         'primaria_materias.matPrerequisitos',
         'primaria_materias.id as primaria_materia_id',
         'planes.id as plan_id',
@@ -841,7 +841,7 @@ class PrimariaMateriasController extends Controller
         //     return back()->withInput();
         // }
 
-        
+
         $existeClaveMateria = Primaria_materias_acd::where("primaria_materia_id", "=", $request->primaria_materia_id)
         ->where("plan_id", "=", $request->plan_id)
         ->where("periodo_id", "=", $request->periodo_id)
@@ -857,7 +857,7 @@ class PrimariaMateriasController extends Controller
             }
         }
 
-        
+
 
 
         try {
@@ -956,9 +956,9 @@ class PrimariaMateriasController extends Controller
 
             $materia_acd = Primaria_materias_acd::find($id);
 
-            
 
-            
+
+
             try {
                 $programa_id = $materia->plan->programa_id;
                 if (Utils::validaPermiso('materia', $programa_id)) {
@@ -977,9 +977,9 @@ class PrimariaMateriasController extends Controller
                     alert()->error('Ups...' . 'No se puede eliminar este registro debido que hay grupos cargados a esta materia complementaria')->showConfirmButton();
 
                 }
-    
-               
-                
+
+
+
             } catch (QueryException $e) {
                 $errorCode = $e->errorInfo[1];
                 $errorMessage = $e->errorInfo[2];

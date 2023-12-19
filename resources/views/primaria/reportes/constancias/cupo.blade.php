@@ -13,7 +13,7 @@
 
   @php
       $ubicacion_id = Auth::user()->empleado->escuela->departamento->ubicacion->id;
-      use App\Models\Departamento;
+      use App\Http\Models\Departamento;
   @endphp
 
 <div class="row">

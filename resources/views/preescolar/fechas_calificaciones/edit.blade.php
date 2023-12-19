@@ -50,7 +50,7 @@ use App\Models\User;
                                 {!! Form::label('departamento_id', 'Departamento *', array('class' => '')); !!}
                                 <div style="position:relative">
                                     <select id="departamento_id" data-departamento-id="{{$preescolar_calificaciones_fechas->departamento_id}}" class="browser-default validate select2" required name="departamento_id" style="width: 100%;">
-                                        {{--  <option value="{{$preescolar_calificaciones_fechas->departamento_id}}">{{$preescolar_calificaciones_fechas->depClave.'-'.$preescolar_calificaciones_fechas->depNombre}}</option>  --}}
+                                        <option value="{{$preescolar_calificaciones_fechas->departamento_id}}">{{$preescolar_calificaciones_fechas->depClave.'-'.$preescolar_calificaciones_fechas->depNombre}}</option>
                                     </select>
                                    
                                 </div>
@@ -59,7 +59,7 @@ use App\Models\User;
                                 {!! Form::label('escuela_id', 'Escuela *', array('class' => '')); !!}
                                 <div style="position: relative;">
                                     <select id="escuela_id" class="browser-default validate select2" data-escuela-id="{{$preescolar_calificaciones_fechas->escuela_id}}" required name="escuela_id" style="width: 100%;">
-                                        {{--  <option value="{{$preescolar_calificaciones_fechas->escuela_id}}">{{$preescolar_calificaciones_fechas->escClave.'-'.$preescolar_calificaciones_fechas->escNombre}}</option>  --}}
+                                        <option value="{{$preescolar_calificaciones_fechas->escuela_id}}">{{$preescolar_calificaciones_fechas->escClave.'-'.$preescolar_calificaciones_fechas->escNombre}}</option>
                                     </select>
                                     
                                 </div>
@@ -206,11 +206,11 @@ use App\Models\User;
 @section('footer_scripts')
 
 
-@include('preescolar.scripts.departamentos')
-@include('preescolar.scripts.escuelas')
-@include('preescolar.scripts.programas')
-@include('preescolar.scripts.planes')
-@include('preescolar.scripts.periodos')
+{{--  @include('preescolar.scripts.departamentos')
+{{--  @include('preescolar.scripts.escuelas')  --}}
+{{--  @include('preescolar.scripts.programas')  --}}
+{{--  @include('preescolar.scripts.planes')  --}}
+{{--  @include('preescolar.scripts.periodos')  --}}
 
 
 @endsection

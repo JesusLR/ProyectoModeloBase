@@ -41,7 +41,7 @@ class NotificacionSecundaria {
 	{
 		$this->mail = new Mailer([
 			'username_email' => 'bajas@modelo.edu.mx', // 'bajas@modelo.edu.mx', // bajas@unimodelo.com
-			'password_email' => 'Caf28347',
+			'password_email' => 'c1IcMH4OoY39',
 			'to_email' => 'luislara@modelo.edu.mx',
 			'to_name' => '',
 			'cc_email' => '',

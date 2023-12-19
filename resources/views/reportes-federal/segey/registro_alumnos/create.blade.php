@@ -32,6 +32,17 @@
 
           {{-- GENERAL BAR--}}
           <div id="filtros">
+            <div class="row">
+
+              <div class="col s12 m6 l4" style="margin-top:10px;">
+                {!! Form::label('tipoArchivo', 'Tipo de archivo', ['class' => '']); !!}
+                <select name="tipoArchivo" id="tipoArchivo" class="browser-default validate select2" style="width: 100%;">
+                  <option value="PDF">PDF</option>
+                  <option value="EXCEL">EXCEL</option>
+                </select>
+              </div>
+
+            </div>
 
             <div class="row">
 

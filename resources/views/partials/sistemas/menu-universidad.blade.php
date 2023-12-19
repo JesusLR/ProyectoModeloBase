@@ -1316,6 +1316,22 @@
                                                     </a>
                                                 </li>
                                             @endif
+                                            @if(auth()->user()->isAdmin('cibies_nuevo_ingreso'))
+                                                <li>
+                                                    <a href="{{ url('reporte/cibies_sustentantes') }}">
+                                                        <i class="material-icons">keyboard_arrow_right</i>
+                                                        <span>CIBIES Sustentantes</span>
+                                                    </a>
+                                                </li>
+                                            @endif
+                                            @if(auth()->user()->isAdmin('cibies_nuevo_ingreso'))
+                                            <li>
+                                                <a href="{{ url('reporte/cibies_datos') }}">
+                                                    <i class="material-icons">keyboard_arrow_right</i>
+                                                    <span>CIBIES Datos</span>
+                                                </a>
+                                            </li>
+                                            @endif
                                             <li>
                                                 <a href="{{ url('reporte/resumen_inscritos') }}">
                                                     <i class="material-icons">keyboard_arrow_right</i>

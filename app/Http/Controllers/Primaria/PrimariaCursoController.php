@@ -6,6 +6,7 @@ use Lang;
 use App\clases\alumno_expediente\ExpedienteAlumno;
 use App\clases\alumnos\MetodosAlumnos;
 use App\clases\cuotas\MetodosCuotas;
+use App\clases\cursos\MetodosCursos;
 use App\clases\cursos\NotificacionPrimaria;
 use App\Http\Helpers\ClubdePanchito;
 use App\Http\Helpers\SuperUsuario;
@@ -169,10 +170,10 @@ class PrimariaCursoController extends Controller
                 // vamos a consultar la lista negra lnNivel = 2 es fichas de pago
                 $restringido = ListaNegra::where('lnNivel', 2)->where('alumno_id', $query->alumno_id)->first();
 
-                
-                // Obtener las personas autorizadas 
+
+                // Obtener las personas autorizadas
                 $expediente = ExpedienteAlumno::buscaPersonasAutirizadas($query->depClave, $query->alumno_id);
-                // Obtener la IP de la maquina local 
+                // Obtener la IP de la maquina local
                 $localIP = getHostByName(getHostName());
 
                 $user_id = Auth::id();
@@ -189,9 +190,9 @@ class PrimariaCursoController extends Controller
 
                     $ubicacionClave = Auth::user()->empleado->escuela->departamento->ubicacion;
 
-                    
 
-                    // / / validamos las personas autorizadas 
+
+                    // / / validamos las personas autorizadas
                     if ($expediente[0] == "" && $expediente[1] == "") {
                         $btnFichaPagoBBVA = '<a href="#modalFichaPago" data-curso-id="' . $query->curso_id . '" data-pedir-confirmacion="'.$pedirConfirmacion.'"  class=" btn-modal-ficha-pago-sin-validar button button--icon js-button js-ripple-effect" title="Ficha BBVA">
                         <i class="material-icons">local_atm</i>
@@ -222,20 +223,20 @@ class PrimariaCursoController extends Controller
                     $btnTarjetaPagoHSBC = "";
                     if ($query->curEstado == "R") {
                         if( ( SuperUsuario::tieneSuperPoder($userDepClave, $userClave) )
-                            || ClubdePanchito::esAmigo($userDepClave, $userClave) 
-                            || ($userClave == "GINAESTHER") 
-                            || ($userClave == "ARELYMAR") 
-                            || ($userClave == "LOLHACG") 
-                            || ($userClave == "MCARRILLO") 
+                            || ClubdePanchito::esAmigo($userDepClave, $userClave)
+                            || ($userClave == "GINAESTHER")
+                            || ($userClave == "ARELYMAR")
+                            || ($userClave == "LOLHACG")
+                            || ($userClave == "MCARRILLO")
                            )
                         {
-                                
+
 
                             if ($expediente[0] == "" && $expediente[1] == "") {
                                 $btnTarjetaPagoBBVA = '<a target="_blank" href="tarjetaPagoAlumno/' . $query->curso_id .'/BBVA" class="button modal-trigger button--icon js-button js-ripple-effect" title="BBVA">
                                         <i class="material-icons">format_bold</i>
                                 </a>';
-    
+
                                 $btnTarjetaPagoHSBC = '<a target="_blank" href="tarjetaPagoAlumno/' . $query->curso_id .'/HSBC" class="button modal-trigger button--icon js-button js-ripple-effect" title="HSBC">
                                     <i class="material-icons">strikethrough_s</i>
                                 </a>';
@@ -245,7 +246,7 @@ class PrimariaCursoController extends Controller
                                                     <i class="material-icons">format_bold</i>
                                                 </a>
                                                 </form>';
-        
+
                                         $btnTarjetaPagoHSBC = '<form style="display: inline-block;" id="autorizado_' . $query->curso_id . '" action="tarjetaPagoAlumno/' . $query->curso_id .'/HSBC">
                                             <a href="#" data-alumno_id="' . $query->alumno_id . '" data-persona1="' . $expediente[0] . '" data-persona2="' . $expediente[1] . '" data-curso_id="' . $query->curso_id . '" data-movimiento="PRIMARIA TARJETA PAGO HSBC PREINSCRITO" data-ip="' . $localIP . '" data-usuario_at="' . $user_id . '" data-departamento="' . $query->depClave . '" class="button button--icon js-button js-ripple-effect confirm-autorizado" title="HSBC">
                                                 <i class="material-icons">strikethrough_s</i>
@@ -260,7 +261,7 @@ class PrimariaCursoController extends Controller
                     $btnBajaCurso = "";
                     $btnCambiarEstado = "";
                     $btnEliminarCurso = "";
-                    $btnConstanciaEstudioSinFoto = "";
+                    $btnConstanciaEstudioSinFoto1 = "";
                     $btnConstanciaEstudioConFoto = "";
                     $btnConstanciaNoAdeudo = "";
                     $btnConstanciaNoAdeudoSinFoto = "";
@@ -296,9 +297,9 @@ class PrimariaCursoController extends Controller
                                 $btnEditar = '<a href="/primaria_curso/' . $query->curso_id . '/edit" class="button button--icon js-button js-ripple-effect" title="Editar">
                                 <i class="material-icons">edit</i> </a>';
                             }
-                            
+
                         }
-                        
+
                         if (SuperUsuario::tieneSuperPoder($userDepClave, $userClave))
                         {
                             if ($permisoA) {
@@ -321,17 +322,17 @@ class PrimariaCursoController extends Controller
                                 </form>';
                        // }
                     }
-                   
 
-                    
+
+
                     $verAlumnoDetalle = "";
                     $btnVer = "";
                     $btnHistorialPagos = "";
                     $btnObservaciones =  "";
 
 
-                    if ($expediente[0] == "" && $expediente[1] == "") {                    
-                        
+                    if ($expediente[0] == "" && $expediente[1] == "") {
+
                         $verAlumnoDetalle = '<a href="#modalAlumnoDetalle-primaria" data-alumno-id="' . $query->alumno_id . '" class="modal-trigger btn-modal-alumno-detalle-primaria button button--icon js-button js-ripple-effect " title="Ver Alumno Detalle">
                             <i class="material-icons">face</i>
                         </a>';
@@ -341,13 +342,13 @@ class PrimariaCursoController extends Controller
                             <i class="material-icons">visibility</i>
                         </a>';
 
-                        // historial pagos 
+                        // historial pagos
                         $btnHistorialPagos = '<a href="#modalHistorialPagosPrimaria" data-nombres="' . $query->perNombre." ".$query->perApellido1." ".$query->perApellido2 .
                             '" data-aluclave="'. $query->aluClave .'" data-curso-id="' . $query->curso_id . '" class="modal-trigger btn-modal-historial-pagos-primaria button button--icon js-button js-ripple-effect" title="Historial Pagos">
                             <i class="material-icons">attach_money</i>
                         </a>';
 
-                        // / observaciones 
+                        // / observaciones
                         $btnObservaciones = '<a href="/primaria_curso/observaciones/'.$query->curso_id.'" class="button button--icon js-button js-ripple-effect" title="Observaciones">
                             <i class="material-icons">subtitles</i>
                         </a>';
@@ -356,10 +357,10 @@ class PrimariaCursoController extends Controller
                                 <i class="material-icons">assignment_turned_in</i>
                             </a>';
 
-                        
+
 
                         if ($query->curEstado == "R") {
-                            
+
                             // boleta
                             $btnBoleta = '<a target="_blank" href="boletaAlumnoCurso/'.$query->curso_id.'" class="button button--icon js-button js-ripple-effect" title="Boleta">
                                 <i class="material-icons">assignment_ind</i>
@@ -369,14 +370,14 @@ class PrimariaCursoController extends Controller
                             <i class="material-icons">picture_as_pdf</i>
                             </a>';
 
-                            $btnConstanciaEstudioSinFoto = '<a href="primaria_reporte/constancia_estudio/imprimir/' . $query->curso_id . '/sin_foto" target="_blank" class="button button--icon js-button js-ripple-effect" title="Constancia de estudio (sin foto)" >
+                            $btnConstanciaEstudioSinFoto1 = '<a href="primaria_reporte/constancia_estudio/imprimir/' . $query->curso_id . '/sin_foto" target="_blank" class="button button--icon js-button js-ripple-effect" title="Constancia de estudio (sin foto)" >
                                 <i class="material-icons">picture_as_pdf</i>
                                 </a>';
 
                             $btnConstanciaEstudioConFoto = '<a href="primaria_reporte/constancia_estudio/imprimir/' . $query->curso_id . '/con_foto" target="_blank" class="button button--icon js-button js-ripple-effect" title="Constancia de estudio (con foto)" >
                                 <i class="material-icons">picture_as_pdf</i>
                                 </a>';
-                            
+
 
                             $btnConstanciaDeCupo = '<a href="primaria_reporte/constancia_de_cupo/imprimir/' . $query->curso_id . '" target="_blank" class="button button--icon js-button js-ripple-effect" title="Constancia de cupo" >
                             <i class="material-icons">picture_as_pdf</i>
@@ -397,7 +398,7 @@ class PrimariaCursoController extends Controller
                             $btnConstanciaPasaporteInglesSinFoto = '<a href="primaria_reporte/constancia_pasaporte_ingles/imprimir/' . $query->curso_id . '/sin_foto" target="_blank" class="button button--icon js-button js-ripple-effect" title="Constancia Pasaporte Ingles (sin foto)" >
                                 <i class="material-icons">picture_as_pdf</i>
                             </a>';
-                            
+
                             $btnConstanciaPasaporteFoto = '<a href="primaria_reporte/constancia_pasaporte/imprimir/' . $query->curso_id . '/con_foto" target="_blank" class="button button--icon js-button js-ripple-effect" title="Constancia Pasaporte (con foto)" >
                                 <i class="material-icons">picture_as_pdf</i>
                             </a>';
@@ -405,8 +406,8 @@ class PrimariaCursoController extends Controller
                             $btnConstanciaPasaporteSinFoto = '<a href="primaria_reporte/constancia_pasaporte/imprimir/' . $query->curso_id . '/sin_foto" target="_blank" class="button button--icon js-button js-ripple-effect" title="Constancia Pasaporte (sin foto)" >
                                 <i class="material-icons">picture_as_pdf</i>
                             </a>';
-                        }                       
-                        
+                        }
+
 
                         $esDeudor = MetodosAlumnos::esDeudorPrimariaCOVID($query->alumno_id, $query->perAnioPago);
                         if (!$esDeudor)
@@ -420,9 +421,9 @@ class PrimariaCursoController extends Controller
                             </a>';
                         }
 
-                        
+
                     } else {
-                        
+
 
                         $verAlumnoDetalle = '<form style="display: inline-block;" id="autorizado_' . $query->curso_id . '">
                         <a href="#" data-alumno_id="' . $query->alumno_id . '" data-persona1="' . $expediente[0] . '" data-persona2="' . $expediente[1] . '" data-curso_id="' . $query->curso_id . '" data-movimiento="PRIMARIA VER ALUMNO DETALLE" data-ip="' . $localIP . '" data-usuario_at="' . $user_id . '" data-departamento="' . $query->depClave . '" data-alumno-id="' . $query->alumno_id . '" class="modal-trigger btn-modal-alumno-detalle-primaria button button--icon js-button js-ripple-effect confirm-autorizado" title="Ver Alumno Detalle">
@@ -430,21 +431,21 @@ class PrimariaCursoController extends Controller
                         </a>
                         </form>';
 
-                        // ver curso 
+                        // ver curso
                         $btnVer = '<form style="display: inline-block;" id="autorizado_' . $query->curso_id . '" action="/primaria_curso/'.$query->curso_id.'">
                         <a href="#" data-alumno_id="' . $query->alumno_id . '" data-persona1="' . $expediente[0] . '" data-persona2="' . $expediente[1] . '" data-curso_id="' . $query->curso_id . '" data-movimiento="PRIMARIA VER PREINSCRITO" data-ip="' . $localIP . '" data-usuario_at="' . $user_id . '" data-departamento="' . $query->depClave . '" class="button button--icon js-button js-ripple-effect confirm-autorizado" title="Ver">
                             <i class="material-icons">visibility</i>
                         </a>
                         </form>';
 
-                        // historial pagos 
+                        // historial pagos
                         $btnHistorialPagos = '<form style="display: inline-block;" id="autorizado_' . $query->curso_id . '">
                         <a href="#" data-alumno_id="' . $query->alumno_id . '" data-persona1="' . $expediente[0] . '" data-persona2="' . $expediente[1] . '" data-curso_id="' . $query->curso_id . '" data-movimiento="PRIMARIA HISTORIAL PAGOS" data-ip="' . $localIP . '" data-usuario_at="' . $user_id . '" data-departamento="' . $query->depClave . '" data-nombres="' . $query->perNombre . " " . $query->perApellido1 . " " . $query->perApellido2 . '" data-aluclave="' . $query->aluClave . '" data-curso-id="' . $query->curso_id . '" class="modal-trigger btn-modal-historial-pagos-primaria button button--icon js-button js-ripple-effect confirm-autorizado" title="Historial Pagos">
                             <i class="material-icons">attach_money</i>
                         </a>
                         </form>';
 
-                        // observaciones 
+                        // observaciones
                         $btnObservaciones = '<form style="display: inline-block;" id="autorizado_' . $query->curso_id . '" action="/primaria_curso/observaciones/' . $query->curso_id . '">
                         <a href="#" data-alumno_id="' . $query->alumno_id . '" data-persona1="' . $expediente[0] . '" data-persona2="' . $expediente[1] . '" data-curso_id="' . $query->curso_id . '" data-movimiento="PRIMARIA OBSERVACIONES" data-ip="' . $localIP . '" data-usuario_at="' . $user_id . '" data-departamento="' . $query->depClave . '" class="button button--icon js-button js-ripple-effect confirm-autorizado" title="Observaciones">
                             <i class="material-icons">subtitles</i>
@@ -470,7 +471,7 @@ class PrimariaCursoController extends Controller
                             </a>
                             </form>';
 
-                            $btnConstanciaEstudiosinFoto = '<form style="display: inline-block;" id="autorizado_' . $query->curso_id . '" action="primaria_reporte/constancia_estudio/imprimir/' . $query->curso_id . '/sin_foto">
+                            $btnConstanciaEstudioSinFoto1 = '<form style="display: inline-block;" id="autorizado_' . $query->curso_id . '" action="primaria_reporte/constancia_estudio/imprimir/' . $query->curso_id . '/sin_foto">
                                 <a href="#" data-alumno_id="' . $query->alumno_id . '" data-persona1="' . $expediente[0] . '" data-persona2="' . $expediente[1] . '" data-curso_id="' . $query->curso_id . '" data-movimiento="PRIMARIA CONSTANCIA DE ESTUDIO SIN FOTO" data-ip="' . $localIP . '" data-usuario_at="' . $user_id . '" data-departamento="' . $query->depClave . '" class="button button--icon js-button js-ripple-effect confirm-autorizado" title="Constancia de estudio (sin foto)">
                                     <i class="material-icons">picture_as_pdf</i>
                                 </a>
@@ -483,7 +484,7 @@ class PrimariaCursoController extends Controller
                                     </a>
                                     </form>';
                                 }
-                            
+
 
                             $btnConstanciaDeCupo = '<form style="display: inline-block;" id="autorizado_' . $query->curso_id . '" action="primaria_reporte/constancia_de_cupo/imprimir/' . $query->curso_id . '">
                             <a href="#" data-alumno_id="' . $query->alumno_id . '" data-persona1="' . $expediente[0] . '" data-persona2="' . $expediente[1] . '" data-curso_id="' . $query->curso_id . '" data-movimiento="PRIMARIA CONSTANCIA DE CUPO" data-ip="' . $localIP . '" data-usuario_at="' . $user_id . '" data-departamento="' . $query->depClave . '" class="button button--icon js-button js-ripple-effect confirm-autorizado" title="Constancia de cupo">
@@ -502,7 +503,7 @@ class PrimariaCursoController extends Controller
                                     <i class="material-icons">picture_as_pdf</i>
                                 </a>
                                 </form>';
-                            
+
 
                             $btnConstanciaPasaporteInglesFoto = '<form style="display: inline-block;" id="autorizado_' . $query->curso_id . '" action="primaria_reporte/constancia_pasaporte_ingles/imprimir/' . $query->curso_id . '/con_foto">
                             <a href="#" data-alumno_id="' . $query->alumno_id . '" data-persona1="' . $expediente[0] . '" data-persona2="' . $expediente[1] . '" data-curso_id="' . $query->curso_id . '" data-movimiento="PRIMARIA CONSTANCIA PASAPORTE INGLES CON FOTO" data-ip="' . $localIP . '" data-usuario_at="' . $user_id . '" data-departamento="' . $query->depClave . '" class="button button--icon js-button js-ripple-effect confirm-autorizado" title="Constancia Pasaporte Ingles (con foto)">
@@ -527,13 +528,13 @@ class PrimariaCursoController extends Controller
                                 <i class="material-icons">picture_as_pdf</i>
                             </a>
                             </form>';
-                            
+
                         }
 
                         $esDeudor = MetodosAlumnos::esDeudorPrimariaCOVID($query->alumno_id, $query->perAnioPago);
                         if (!$esDeudor)
                         {
-                            
+
                             $btnConstanciaNoAdeudo = '<form style="display: inline-block;" id="autorizado_' . $query->curso_id . '" action="primaria_reporte/constancia_no_adeudo/imprimir/' . $query->curso_id . '/con_foto">
                                 <a href="#" data-alumno_id="' . $query->alumno_id . '" data-persona1="' . $expediente[0] . '" data-persona2="' . $expediente[1] . '" data-curso_id="' . $query->curso_id . '" data-movimiento="PRIMARIA CONSTANCIA NO ADEUDO CON FOTO" data-ip="' . $localIP . '" data-usuario_at="' . $user_id . '" data-departamento="' . $query->depClave . '" class="button button--icon js-button js-ripple-effect confirm-autorizado" title="Constancia no adeudo (con foto)">
                                     <i class="material-icons">picture_as_pdf</i>
@@ -546,9 +547,9 @@ class PrimariaCursoController extends Controller
                                 </a>
                             </form>';
                         }
-                        
 
-                        
+
+
                     }
 
                     if ($restringido) { // el alumno esta en lista negra para fichas de pagos
@@ -570,7 +571,7 @@ class PrimariaCursoController extends Controller
                         .$btnGruposAlumnos
                         .$btnBoleta
                         .$btnBoletaACD
-                        .$btnConstanciaEstudioSinFoto
+                        .$btnConstanciaEstudioSinFoto1
                         .$btnConstanciaEstudioConFoto
                         .$btnConstanciaNoAdeudo
                         .$btnConstanciaNoAdeudoSinFoto
@@ -1191,6 +1192,10 @@ class PrimariaCursoController extends Controller
                 'curPrimariaFoto'          => $imageName,
             ]);
 
+            if($curso_anterior && MetodosCursos::hayCambioDeBeca($laNuevaPreinscripcion, $curso_anterior)) {
+                $beca_historial = MetodosCursos::crearHistorialDeBeca($laNuevaPreinscripcion);
+            }
+
             //VERIFICAR SI TIENE MAS DE UN CURSO EN DIFERENTES PERIODOS
             // Y SI ALUESTADO ESTA EN N
             if ($alumnoAluEstado == "N")
@@ -1501,7 +1506,7 @@ class PrimariaCursoController extends Controller
      */
     public function edit($id)
     {
-        $curso = Curso::with('alumno.persona','cgt','periodo')->findOrFail($id);
+        $curso = Curso::with('alumno.persona','cgt.plan.programa.escuela.departamento.ubicacion','periodo')->findOrFail($id);
         $cgts = Cgt::where([
             ['plan_id', $curso->cgt->plan_id],
             ['periodo_id', $curso->cgt->periodo_id],
@@ -1532,13 +1537,21 @@ class PrimariaCursoController extends Controller
         $opcionTitulo = SI_NO;
         $tiposBeca = Beca::get();
 
+        $perAnioPago = $curso->periodo->perAnioPago;
+
+        if($curso->cgt->plan->programa->escuela->departamento->ubicacion->id == 1){
+            $campus = "primariaCME";
+        }else{
+            $campus = "primariaCVA";
+        }
+
         //VALIDA PERMISOS EN EL PROGRAMA
         if (Utils::validaPermiso('curso', $curso->cgt->plan->programa_id,"editar")) {
             alert()->error('Ups...', 'Sin privilegios en el programa!')->showConfirmButton()->autoClose(5000);
 
             return redirect()->route('primaria_curso.index');
         } else {
-            return view('primaria.cursos.edit', compact('curso', 'cgts', 'tiposIngreso', 'planesPago', 'tiposBeca', 'estadoCurso', 'opcionTitulo', 'permiso'));
+            return view('primaria.cursos.edit', compact('curso', 'cgts', 'tiposIngreso', 'planesPago', 'tiposBeca', 'estadoCurso', 'opcionTitulo', 'permiso', 'perAnioPago', 'campus'));
         }
 
     }
@@ -1565,6 +1578,8 @@ class PrimariaCursoController extends Controller
             $periodo = Periodo::findOrFail($curso->periodo_id);
             $departamento = Departamento::findOrFail($periodo->departamento_id);
             $ubicacion = $departamento->ubicacion_id;
+
+            $curso_anterior = clone $curso; # Clon para luego revisar si cambió.
 
             if($ubicacion == 1){
                 $campus = "primariaCME";
@@ -1613,6 +1628,10 @@ class PrimariaCursoController extends Controller
 
 
             $curso->save();
+
+            if($curso_anterior && MetodosCursos::hayCambioDeBeca($curso, $curso_anterior)) {
+                $beca_historial = MetodosCursos::crearHistorialDeBeca($curso);
+            }
 
             $userId = Auth::id();
             $resultUpdate =  DB::select("call procInscritosExaniPago99PorCurso("
@@ -2828,6 +2847,29 @@ class PrimariaCursoController extends Controller
             return redirect()->back()->withInput();
         }
 
+        if(MetodosAlumnos::esAlumnoDeudorNivelMAT(
+            $curso->alumno->aluClave,
+            $ubiClave,
+            'MAT',
+            $cuoConcepto,
+            $perAnioPago
+        )) {
+            alert('Escuela Modelo', 'El alumno tiene una deuda de pago con la Escuela (Maternal). Favor de remitirlo al departamento correspondiente para regularizar sus pagos.', 'warning')->showConfirmButton();
+            return redirect()->back()->withInput();
+        }
+
+
+        if(MetodosAlumnos::esAlumnoDeudorNivelPRE(
+            $curso->alumno->aluClave,
+            $ubiClave,
+            'PRE',
+            $cuoConcepto,
+            $perAnioPago
+        )) {
+            alert('Escuela Modelo', 'El alumno tiene una deuda de pago con la Escuela (Preescolar). Favor de remitirlo al departamento correspondiente para regularizar sus pagos.', 'warning')->showConfirmButton();
+            return redirect()->back()->withInput();
+        }
+
         //VERIFICA EL NIVEL EDUCATIVO DEL CURSO
         $departamento_clave = $curso->cgt->plan->programa->escuela->departamento->depClave;
         if ($departamento_clave == "PRI")
@@ -3499,6 +3541,29 @@ class PrimariaCursoController extends Controller
             $perAnioPago
         )) {
             alert('Escuela Modelo', 'El alumno tiene una deuda de pago con la Escuela. Favor de remitirlo al departamento correspondiente para regularizar sus pagos.', 'warning')->showConfirmButton();
+            return redirect()->back()->withInput();
+        }
+
+        if(MetodosAlumnos::esAlumnoDeudorNivelMAT(
+            $curso->alumno->aluClave,
+            $ubiClave,
+            $depClave,
+            $cuoConcepto,
+            $perAnioPago
+        )) {
+            alert('Escuela Modelo', 'El alumno tiene una deuda de pago con la Escuela (Maternal). Favor de remitirlo al departamento correspondiente para regularizar sus pagos.', 'warning')->showConfirmButton();
+            return redirect()->back()->withInput();
+        }
+
+
+        if(MetodosAlumnos::esAlumnoDeudorNivelPRE(
+            $curso->alumno->aluClave,
+            $ubiClave,
+            $depClave,
+            $cuoConcepto,
+            $perAnioPago
+        )) {
+            alert('Escuela Modelo', 'El alumno tiene una deuda de pago con la Escuela (Preescolar). Favor de remitirlo al departamento correspondiente para regularizar sus pagos.', 'warning')->showConfirmButton();
             return redirect()->back()->withInput();
         }
 

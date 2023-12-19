@@ -62,7 +62,7 @@ class EstadisticaMaestrosController extends Controller
     		$query->where('ubicacion_id', $request->ubicacion_id)
     			  ->where('perAnio', $request->perAnio)
     			  ->whereIn('perNumero', [3, 6]);
-    		if($request->departamento_id) 
+    		if($request->departamento_id)
     			$query->where('departamento_id', $request->departamento_id);
     	})
     	->whereHas('grupo.plan.programa', static function($query) use ($request) {
@@ -130,7 +130,7 @@ class EstadisticaMaestrosController extends Controller
     * @param array
     */
     private static function buscarEmpleados($horarios)
-    {	
+    {
     	$empleados_ids_grupos = $horarios['grupos']->pluck('grupo.empleado_id');
     	$empleados_ids_administrativos = $horarios['administrativos']->pluck('empleado_id');
     	$ids = $empleados_ids_administrativos->concat($empleados_ids_grupos)->unique();
@@ -153,7 +153,7 @@ class EstadisticaMaestrosController extends Controller
     /**
     * @param Collection
     */
-    private static function buscarAntiguedad($empleados) 
+    private static function buscarAntiguedad($empleados)
     {
     	$grupos = Grupo::with('periodo')->whereIn('empleado_id', $empleados->pluck('id'))
     	->get()->sortByDesc('periodo.perFechaInicial')->keyBy('empleado_id')
@@ -296,11 +296,11 @@ class EstadisticaMaestrosController extends Controller
  		$sin_antiguedad = $empleados->where('antiguedad', 'Sin datos');
  		$niveles_educativos = $empleados->groupBy('nivel_educativo')->sortKeys()->keys();
  		$filas_horas = [
-    		'Tiempo completo' => [40,168], 'Tres cuartos de tiempo' => [21,39], 
+    		'Tiempo completo' => [40,168], 'Tres cuartos de tiempo' => [21,39],
     		'Medio tiempo' => [20, 20.5], 'Por horas' => [1, 19],
     	];
 		$filas_por_horas = [
-    		'1 a 4 horas' => [1,4], '5 a 8 horas' => [5,8], 
+    		'1 a 4 horas' => [1,4], '5 a 8 horas' => [5,8],
     		'9 a 12 horas' => [9, 12], '13 a 16 horas' => [13, 16],
 			'17 a 20 horas' => [17, 19], 'Más de 20 horas' => [19, 19],
     	];
@@ -312,7 +312,7 @@ class EstadisticaMaestrosController extends Controller
 
     	$seccion = $word->addSection();
     	$seccion->addText($info['ubicacion'], $titulo, $centrado);
-    	if($info['departamento']) 
+    	if($info['departamento'])
     		$seccion->addText($info['departamento'], $subtitulo, $centrado);
     	if($info['escuela'])
     		$seccion->addText($info['escuela'], $subtitulo, $centrado);

@@ -135,24 +135,24 @@
                 
                 <div class="row">
                     <div class="col s12 m6 l4">
-                        {!! Form::label('curExaniFoto', 'Foto exani', ['class' => '']); !!}
+                        {!! Form::label('curPreescolarFoto', 'Foto del Curso', ['class' => '']); !!}
                         <div class="input-field">
-                            @if ($curso->curExaniFoto && !strpos($curso->curExaniFoto, '.pdf'))
-                                <img style="width:200px;" src="{{url('/exani_images/' . $curso->curExaniFoto) }}" alt="">
+                            @if ($curso->curPreescolarFoto && !strpos($curso->curPreescolarFoto, '.pdf'))
+                                <img style="width:200px;" src="{{url('/preescolar_curso_images/' . $curso->curPreescolarFoto . '/' . $periodo->perAnioPago.'/'.$campus) }}" alt="">
                             @endif
 
-                            @if($curso->curExaniFoto && strpos($curso->curExaniFoto, '.pdf'))
+                            @if($curso->curPreescolarFoto && strpos($curso->curPreescolarFoto, '.pdf'))
                                 <label>Imagen</label>
-                                <embed src="/exani_images/{{$curso->curExaniFoto}}"
+                                <embed src="/preescolar_curso_images/{{$curso->curPreescolarFoto}}/{{$periodo->perAnioPago}}/{{$campus}}"
                                     type="application/pdf"
                                     width="100%"
-                                    height="600px" /> 
+                                    height="600px" />
                             @endif
                         </div>
                     </div>
-                    <div class="col s12 m6 l4">
+                    <div class="col s12 m6 l4" style="visibility: hidden;">
                         <div class="input-field">
-                            {!! Form::number('curExani', $curso->curExani, ['id' => 'curExani', 'class' => 'validate','readonly', 'min' => '900', 'max' => '1300']) !!}
+                            {!! Form::number('curExani', $curso->curExani, ['id' => 'curExani', 'class' => 'validate','readonly', 'disable' => false,'min' => '900', 'max' => '1300']) !!}
                             {!! Form::label('curExani', 'Resultado Calificación Exani', ['class' => '']); !!}
                         </div>
                     </div>

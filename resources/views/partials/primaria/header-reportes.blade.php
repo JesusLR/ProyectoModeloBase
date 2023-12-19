@@ -89,7 +89,8 @@
                         {{--  Calificaciones de grupo  --}}
                         <option value="{{ route('primaria_reporte.calificaciones_grupo.reporte') }}"
                         {{ url()->current() ==  route('primaria_reporte.calificaciones_grupo.reporte') ? "selected": "" }}>Res. por grupo</option>
-
+                        <option value="{{ route('primaria.calificaciones_grupo_campos_formativos.reporte') }}"
+                        {{ url()->current() ==  route('primaria.calificaciones_grupo_campos_formativos.reporte') ? "selected": "" }}>Res. por grupo Campos Formativos</option>
                         {{--  Calificaciones por materia  --}}
                         <option value="{{ route('primaria_reporte.calificacion_por_materia.reporte') }}"
                         {{ url()->current() ==  route('primaria_reporte.calificacion_por_materia.reporte') ? "selected": "" }}>Res. por materia</option>

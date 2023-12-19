@@ -477,7 +477,7 @@ class PrimariaCalificacionesController extends Controller
             ->where('primaria_grupos.id', $id)
             ->get();
 
-        // actualizamos el estado del grupo 
+        // actualizamos el estado del grupo
         if (count($primaria_calificaciones) <= 0) {
             DB::update("UPDATE primaria_grupos SET estado_act='B' WHERE id=$id");
         }
@@ -488,26 +488,26 @@ class PrimariaCalificacionesController extends Controller
             . $alumnos_inscritos[0]->plan_id . ", "
             . $alumnos_inscritos[0]->periodo_id . ")");
         $mesEvidencia = collect($resultado_array);
-       
 
-        // validaremos si tiene calificaciones y si es menor a uno lo creamos 
+
+        // validaremos si tiene calificaciones y si es menor a uno lo creamos
         if(count($alumnos_inscritos) > 0){
-            // creamos un ciclo para agregar calificaciones de todos los meses 
+            // creamos un ciclo para agregar calificaciones de todos los meses
             if (count($mesEvidencia) > 0) {
                 foreach ($mesEvidencia as $key => $mes_evidencia) {
                     //dd($mesEvidencia[0]->id);
                     // $resultado_repetidos =  DB::select("call procPrimariaCalificacionesInexistentesRepetidos("
                     //     . $value->id . ", " . $id . ")");
-                    
+
 
                     foreach($alumnos_inscritos as $jey => $alumno){
 
-                    
+
                         $califica = Primaria_calificacione::where('primaria_inscrito_id', $alumno->id)
                         ->where('mes_evaluacion', $mes_evidencia->mes)
                         ->whereNull('deleted_at')
                         ->get();
-   
+
                         if(count($califica) < 1){
                             // $resultado_repetidos =  DB::select("call procPrimariaCalificacionesInexistentesRepetidos("
                             //  . $mes_evidencia->id . ", " . $id . ")");
@@ -525,7 +525,7 @@ class PrimariaCalificacionesController extends Controller
                     }
                 }
 
-               
+
             }
         }
 
@@ -778,11 +778,11 @@ class PrimariaCalificacionesController extends Controller
                             'updated_at' => $fechaActual->format('Y-m-d H:i:s')
                         ]);
 
-                    
-                    // para actualizar faltas y retardos 
+
+                    // para actualizar faltas y retardos
                     if($primaria_falta == ""){
-                        
-                        Primaria_falta::create([
+
+                        $primaria_falta_new = Primaria_falta::create([
                             'curso_id' => $inscrito->curso_id,
                             'retTotalSep' => $retTotalSep[$i],
                             'falTotalSep' => $falTotalSep[$i],
@@ -793,7 +793,7 @@ class PrimariaCalificacionesController extends Controller
                     }else{
 
                         // return Primaria_falta::find($primaria_falta->id)
-                        
+
                         DB::table('primaria_faltas')
                         ->where('id', $primaria_falta->id)
                         ->update([
@@ -817,19 +817,19 @@ class PrimariaCalificacionesController extends Controller
 
 
                         if($primaria_falta == ""){
-                        
-                            Primaria_falta::create([
+
+                            $primaria_falta_new = Primaria_falta::create([
                                 'curso_id' => $inscrito->curso_id,
                                 'retTotalOct' => $retTotalOct[$i],
                                 'falTotalOct' => $falTotalOct[$i],
                                 'created_at' => $fechaActual->format('Y-m-d H:i:s'),
                                 'usuario_at' => auth()->user()->id
                             ]);
-    
+
                         }else{
-    
+
                             // return Primaria_falta::find($primaria_falta->id)
-                            
+
                             DB::table('primaria_faltas')
                             ->where('id', $primaria_falta->id)
                             ->update([
@@ -852,19 +852,19 @@ class PrimariaCalificacionesController extends Controller
                         ]);
 
                         if($primaria_falta == ""){
-                        
-                            Primaria_falta::create([
+
+                            $primaria_falta_new = Primaria_falta::create([
                                 'curso_id' => $inscrito->curso_id,
                                 'retTotalNov' => $retTotalNov[$i],
                                 'falTotalNov' => $falTotalNov[$i],
                                 'created_at' => $fechaActual->format('Y-m-d H:i:s'),
                                 'usuario_at' => auth()->user()->id
                             ]);
-    
+
                         }else{
-    
+
                             // return Primaria_falta::find($primaria_falta->id)
-                            
+
                             DB::table('primaria_faltas')
                             ->where('id', $primaria_falta->id)
                             ->update([
@@ -875,8 +875,6 @@ class PrimariaCalificacionesController extends Controller
                             ]);
                         }
                 }
-
-
 
                 //DICIEMBRE
                 if ($numero_evaluacion == "4") {
@@ -890,19 +888,19 @@ class PrimariaCalificacionesController extends Controller
 
 
                         if($primaria_falta == ""){
-                        
-                            Primaria_falta::create([
+
+                            $primaria_falta_new = Primaria_falta::create([
                                 'curso_id' => $inscrito->curso_id,
                                 'retTotalDic' => $retTotalDic[$i],
                                 'falTotalDic' => $falTotalDic[$i],
                                 'created_at' => $fechaActual->format('Y-m-d H:i:s'),
                                 'usuario_at' => auth()->user()->id
                             ]);
-    
+
                         }else{
-    
+
                             // return Primaria_falta::find($primaria_falta->id)
-                            
+
                             DB::table('primaria_faltas')
                             ->where('id', $primaria_falta->id)
                             ->update([
@@ -925,19 +923,19 @@ class PrimariaCalificacionesController extends Controller
                         ]);
 
                         if($primaria_falta == ""){
-                        
-                            Primaria_falta::create([
+
+                            $primaria_falta_new = Primaria_falta::create([
                                 'curso_id' => $inscrito->curso_id,
                                 'retTotalEne' => $retTotalEne[$i],
                                 'falTotalEne' => $falTotalEne[$i],
                                 'created_at' => $fechaActual->format('Y-m-d H:i:s'),
                                 'usuario_at' => auth()->user()->id
                             ]);
-    
+
                         }else{
-    
+
                             // return Primaria_falta::find($primaria_falta->id)
-                            
+
                             DB::table('primaria_faltas')
                             ->where('id', $primaria_falta->id)
                             ->update([
@@ -960,19 +958,19 @@ class PrimariaCalificacionesController extends Controller
                         ]);
 
                         if($primaria_falta == ""){
-                        
-                            Primaria_falta::create([
+
+                            $primaria_falta_new = Primaria_falta::create([
                                 'curso_id' => $inscrito->curso_id,
                                 'retTotalFeb' => $retTotalFeb[$i],
                                 'falTotalFeb' => $falTotalFeb[$i],
                                 'created_at' => $fechaActual->format('Y-m-d H:i:s'),
                                 'usuario_at' => auth()->user()->id
                             ]);
-    
+
                         }else{
-    
+
                             // return Primaria_falta::find($primaria_falta->id)
-                            
+
                             DB::table('primaria_faltas')
                             ->where('id', $primaria_falta->id)
                             ->update([
@@ -995,19 +993,19 @@ class PrimariaCalificacionesController extends Controller
                         ]);
 
                         if($primaria_falta == ""){
-                        
-                            Primaria_falta::create([
+
+                            $primaria_falta_new = Primaria_falta::create([
                                 'curso_id' => $inscrito->curso_id,
                                 'retTotalMar' => $retTotalMar[$i],
                                 'falTotalMar' => $falTotalMar[$i],
                                 'created_at' => $fechaActual->format('Y-m-d H:i:s'),
                                 'usuario_at' => auth()->user()->id
                             ]);
-    
+
                         }else{
-    
+
                             // return Primaria_falta::find($primaria_falta->id)
-                            
+
                             DB::table('primaria_faltas')
                             ->where('id', $primaria_falta->id)
                             ->update([
@@ -1030,19 +1028,19 @@ class PrimariaCalificacionesController extends Controller
                         ]);
 
                         if($primaria_falta == ""){
-                        
-                            Primaria_falta::create([
+
+                            $primaria_falta_new = Primaria_falta::create([
                                 'curso_id' => $inscrito->curso_id,
                                 'retTotalAbr' => $retTotalAbr[$i],
                                 'falTotalAbr' => $falTotalAbr[$i],
                                 'created_at' => $fechaActual->format('Y-m-d H:i:s'),
                                 'usuario_at' => auth()->user()->id
                             ]);
-    
+
                         }else{
-    
+
                             // return Primaria_falta::find($primaria_falta->id)
-                            
+
                             DB::table('primaria_faltas')
                             ->where('id', $primaria_falta->id)
                             ->update([
@@ -1065,19 +1063,19 @@ class PrimariaCalificacionesController extends Controller
                         ]);
 
                         if($primaria_falta == ""){
-                        
-                            Primaria_falta::create([
+
+                            $primaria_falta_new = Primaria_falta::create([
                                 'curso_id' => $inscrito->curso_id,
                                 'retTotalMay' => $retTotalMay[$i],
                                 'falTotalMay' => $falTotalMay[$i],
                                 'created_at' => $fechaActual->format('Y-m-d H:i:s'),
                                 'usuario_at' => auth()->user()->id
                             ]);
-    
+
                         }else{
-    
+
                             // return Primaria_falta::find($primaria_falta->id)
-                            
+
                             DB::table('primaria_faltas')
                             ->where('id', $primaria_falta->id)
                             ->update([
@@ -1100,19 +1098,19 @@ class PrimariaCalificacionesController extends Controller
                         ]);
 
                         if($primaria_falta == ""){
-                        
-                            Primaria_falta::create([
+
+                            $primaria_falta_new = Primaria_falta::create([
                                 'curso_id' => $inscrito->curso_id,
                                 'retTotalJun' => $retTotalJun[$i],
                                 'falTotalJun' => $falTotalJun[$i],
                                 'created_at' => $fechaActual->format('Y-m-d H:i:s'),
                                 'usuario_at' => auth()->user()->id
                             ]);
-    
+
                         }else{
-    
+
                             // return Primaria_falta::find($primaria_falta->id)
-                            
+
                             DB::table('primaria_faltas')
                             ->where('id', $primaria_falta->id)
                             ->update([
@@ -1123,6 +1121,18 @@ class PrimariaCalificacionesController extends Controller
                             ]);
                         }
                 }
+
+
+
+                // validamos si el registro se acaba de crear
+                if($primaria_falta == ""){
+                    $falta_id = $primaria_falta_new->id;
+                }else{
+                    $falta_id = $primaria_falta->id;
+                }
+
+
+                DB::select("call procPrimariaActualizaTrimFaltas(".$falta_id.")");
             }
 
             alert('Escuela Modelo', 'Las calificaciones se actualizaron con éxito', 'success')->showConfirmButton();
@@ -1257,7 +1267,7 @@ class PrimariaCalificacionesController extends Controller
             $parametro_tipo = $resultado_registro->carrera; //PRB
             $depClaveOficial = $resultado_registro->depClaveOficial;
 
-          
+
             //$fechaActual = Carbon::now();
             $fechaActual = Carbon::now('America/Merida');
 

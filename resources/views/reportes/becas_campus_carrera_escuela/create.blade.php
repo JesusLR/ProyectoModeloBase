@@ -35,6 +35,8 @@
                     <option value="campus">CAMPUS | DEPARTAMENTO (NIVEL)</option>
                     <option value="escuela">ESCUELA</option>
                     <option value="carrera">PROGRAMA</option>
+                    <option value="tipobeca">CAMPUS | DEPARTAMENTO (TIPO BECA - ORDEN POR ESCUELA)</option>
+                    <option value="tipoordenbeca">CAMPUS | DEPARTAMENTO (TIPO BECA - ORDEN POR BECA)</option>
                 </select>
               </div>
               <div class="col s12 m6 l4">

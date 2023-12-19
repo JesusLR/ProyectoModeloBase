@@ -108,6 +108,10 @@ class BecasController extends Controller
                             $query->whereIn('perNumero', [0, 3]);
                         }
                     }
+                    if($request->tipoReporte == "tipobeca" || $request->tipoReporte == "tipoordenbeca")
+                    {
+                        $query->whereIn('perNumero', [0, 3]);
+                    }
                 }
 
 
@@ -187,6 +191,7 @@ class BecasController extends Controller
             $perAnioPago = $curso->periodo->perAnioPago;
             $aluClave = $curso->alumno->aluClave;
             $cgtid = $curso->cgt->id;
+            $curTipoBeca = $curso->curTipoBeca;
 
             $cuotaImpDesc = 0;
             $cuotaImpMens10 = 0;
@@ -318,7 +323,8 @@ class BecasController extends Controller
                     "ubiNivelProgramaBeca" => $ubicacionClave.strval($depNivel).$progNombre.$numBeca,
                     "ubiNivelEscuelaBeca" => $ubicacionClave.strval($depNivel).$escNombre.$numBeca,
                     "beca"    => $beca,
-                    "porBeca" => $porBeca
+                    "porBeca" => $porBeca,
+                    "curTipoBeca" => $curTipoBeca
                 ]);
 
             }
@@ -344,6 +350,19 @@ class BecasController extends Controller
             $nombreArchivo = 'pdf_becas_escuelas';
             $ordenado =$pagos->sortBy('ubiNivelEscuelaBeca');
             $agrupado = $ordenado->groupBy("ubiNivelEscuelaBeca");
+        }elseif($tipoReporte == "tipobeca")
+        {
+            $nombreArchivo = 'pdf_becas_tipo';
+            $ordenado = $pagos->sortBy('ubiClaveEscuela');
+            $agrupado = $ordenado->groupBy("ubiClaveEscuela");
+        }elseif($tipoReporte == "tipoordenbeca")
+        {
+            $nombreArchivo = 'pdf_becas_tipo_agrupado';
+            $ordenado = $pagos->sortBy('ubiClaveEscuela');
+            $agrupado1 = $ordenado->sortBy('curTipoBeca');
+            $agrupado = $agrupado1->groupBy("curTipoBeca");
+
+
         }
 
         // Unix

@@ -275,6 +275,217 @@ class MetodosAlumnos
         return ($pagos_deudores_collection->isEmpty()) ? false : true;
     }
 
+    public static function esAlumnoDeudorNivelMAT($aluClave, $ubiClave, $depaClave, $cveConcepto, $perAnioPago): bool
+    {
+        $user_id = Auth::id();
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+        // Output: 54esmdr0qf
+        $temporary_table_name = "_" . substr(str_shuffle($permitted_chars), 0, 15);
+
+        $result =  DB::select("call procDeudasAlumnoCualquierNivel("
+            .$user_id
+            .",'".$aluClave
+            ."','".$ubiClave
+            ."','".$depaClave
+            ."','".$temporary_table_name
+            ."','I','".$cveConcepto
+            ."',".$perAnioPago
+            .")");
+
+        $pagos_deudores_array = DB::select('select * from '.$temporary_table_name);
+        $pagos_deudores_collection = collect( $pagos_deudores_array );
+
+        DB::statement( 'DROP TABLE IF EXISTS '.$temporary_table_name );
+
+        /*
+        if($pagos_deudores_collection->isEmpty()) {
+            alert()->warning('Sin coincidencias', 'No hay datos que coincidan con la información proporcionada.')->showConfirmButton();
+            return back()->withInput();
+        }*/
+        return ($pagos_deudores_collection->isEmpty()) ? false : true;
+    }
+
+    public static function esAlumnoDeudorNivelPRE($aluClave, $ubiClave, $depaClave, $cveConcepto, $perAnioPago): bool
+    {
+        $user_id = Auth::id();
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+        // Output: 54esmdr0qf
+        $temporary_table_name = "_" . substr(str_shuffle($permitted_chars), 0, 15);
+
+        $result =  DB::select("call procDeudasAlumnoCualquierNivel("
+            .$user_id
+            .",'".$aluClave
+            ."','".$ubiClave
+            ."','".$depaClave
+            ."','".$temporary_table_name
+            ."','I','".$cveConcepto
+            ."',".$perAnioPago
+            .")");
+
+        $pagos_deudores_array = DB::select('select * from '.$temporary_table_name);
+        $pagos_deudores_collection = collect( $pagos_deudores_array );
+
+        DB::statement( 'DROP TABLE IF EXISTS '.$temporary_table_name );
+
+        /*
+        if($pagos_deudores_collection->isEmpty()) {
+            alert()->warning('Sin coincidencias', 'No hay datos que coincidan con la información proporcionada.')->showConfirmButton();
+            return back()->withInput();
+        }*/
+        return ($pagos_deudores_collection->isEmpty()) ? false : true;
+    }
+
+    public static function esAlumnoDeudorNivelPRI($aluClave, $ubiClave, $depaClave, $cveConcepto, $perAnioPago): bool
+    {
+        $user_id = Auth::id();
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+        // Output: 54esmdr0qf
+        $temporary_table_name = "_" . substr(str_shuffle($permitted_chars), 0, 15);
+
+        $result =  DB::select("call procDeudasAlumnoCualquierNivel("
+            .$user_id
+            .",'".$aluClave
+            ."','".$ubiClave
+            ."','".$depaClave
+            ."','".$temporary_table_name
+            ."','I','".$cveConcepto
+            ."',".$perAnioPago
+            .")");
+
+        $pagos_deudores_array = DB::select('select * from '.$temporary_table_name);
+        $pagos_deudores_collection = collect( $pagos_deudores_array );
+
+        DB::statement( 'DROP TABLE IF EXISTS '.$temporary_table_name );
+
+        /*
+        if($pagos_deudores_collection->isEmpty()) {
+            alert()->warning('Sin coincidencias', 'No hay datos que coincidan con la información proporcionada.')->showConfirmButton();
+            return back()->withInput();
+        }*/
+        return ($pagos_deudores_collection->isEmpty()) ? false : true;
+    }
+
+    public static function esAlumnoDeudorNivelSEC($aluClave, $ubiClave, $depaClave, $cveConcepto, $perAnioPago): bool
+    {
+        $user_id = Auth::id();
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+        // Output: 54esmdr0qf
+        $temporary_table_name = "_" . substr(str_shuffle($permitted_chars), 0, 15);
+
+        $result =  DB::select("call procDeudasAlumnoCualquierNivel("
+            .$user_id
+            .",'".$aluClave
+            ."','".$ubiClave
+            ."','".$depaClave
+            ."','".$temporary_table_name
+            ."','I','".$cveConcepto
+            ."',".$perAnioPago
+            .")");
+
+        $pagos_deudores_array = DB::select('select * from '.$temporary_table_name);
+        $pagos_deudores_collection = collect( $pagos_deudores_array );
+
+        DB::statement( 'DROP TABLE IF EXISTS '.$temporary_table_name );
+
+        /*
+        if($pagos_deudores_collection->isEmpty()) {
+            alert()->warning('Sin coincidencias', 'No hay datos que coincidan con la información proporcionada.')->showConfirmButton();
+            return back()->withInput();
+        }*/
+        return ($pagos_deudores_collection->isEmpty()) ? false : true;
+    }
+
+    public static function esAlumnoDeudorNivelBAC($aluClave, $ubiClave, $depaClave, $cveConcepto, $perAnioPago): bool
+    {
+        $user_id = Auth::id();
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+        // Output: 54esmdr0qf
+        $temporary_table_name = "_" . substr(str_shuffle($permitted_chars), 0, 15);
+
+        $result =  DB::select("call procDeudasAlumnoCualquierNivel("
+            .$user_id
+            .",'".$aluClave
+            ."','".$ubiClave
+            ."','".$depaClave
+            ."','".$temporary_table_name
+            ."','I','".$cveConcepto
+            ."',".$perAnioPago
+            .")");
+
+        $pagos_deudores_array = DB::select('select * from '.$temporary_table_name);
+        $pagos_deudores_collection = collect( $pagos_deudores_array );
+
+        DB::statement( 'DROP TABLE IF EXISTS '.$temporary_table_name );
+
+        /*
+        if($pagos_deudores_collection->isEmpty()) {
+            alert()->warning('Sin coincidencias', 'No hay datos que coincidan con la información proporcionada.')->showConfirmButton();
+            return back()->withInput();
+        }*/
+        return ($pagos_deudores_collection->isEmpty()) ? false : true;
+    }
+
+    public static function esAlumnoDeudorNivelSUP($aluClave, $ubiClave, $depaClave, $cveConcepto, $perAnioPago): bool
+    {
+        $user_id = Auth::id();
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+        // Output: 54esmdr0qf
+        $temporary_table_name = "_" . substr(str_shuffle($permitted_chars), 0, 15);
+
+        $result =  DB::select("call procDeudasAlumnoCualquierNivel("
+            .$user_id
+            .",'".$aluClave
+            ."','".$ubiClave
+            ."','".$depaClave
+            ."','".$temporary_table_name
+            ."','I','".$cveConcepto
+            ."',".$perAnioPago
+            .")");
+
+        $pagos_deudores_array = DB::select('select * from '.$temporary_table_name);
+        $pagos_deudores_collection = collect( $pagos_deudores_array );
+
+        DB::statement( 'DROP TABLE IF EXISTS '.$temporary_table_name );
+
+        /*
+        if($pagos_deudores_collection->isEmpty()) {
+            alert()->warning('Sin coincidencias', 'No hay datos que coincidan con la información proporcionada.')->showConfirmButton();
+            return back()->withInput();
+        }*/
+        return ($pagos_deudores_collection->isEmpty()) ? false : true;
+    }
+
+    public static function esAlumnoDeudorNivelPOS($aluClave, $ubiClave, $depaClave, $cveConcepto, $perAnioPago): bool
+    {
+        $user_id = Auth::id();
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+        // Output: 54esmdr0qf
+        $temporary_table_name = "_" . substr(str_shuffle($permitted_chars), 0, 15);
+
+        $result =  DB::select("call procDeudasAlumnoCualquierNivel("
+            .$user_id
+            .",'".$aluClave
+            ."','".$ubiClave
+            ."','".$depaClave
+            ."','".$temporary_table_name
+            ."','I','".$cveConcepto
+            ."',".$perAnioPago
+            .")");
+
+        $pagos_deudores_array = DB::select('select * from '.$temporary_table_name);
+        $pagos_deudores_collection = collect( $pagos_deudores_array );
+
+        DB::statement( 'DROP TABLE IF EXISTS '.$temporary_table_name );
+
+        /*
+        if($pagos_deudores_collection->isEmpty()) {
+            alert()->warning('Sin coincidencias', 'No hay datos que coincidan con la información proporcionada.')->showConfirmButton();
+            return back()->withInput();
+        }*/
+        return ($pagos_deudores_collection->isEmpty()) ? false : true;
+    }
+
+
     /**
     * Recibe el aluClave de un alumno y devuelve sus materias reprobadas.
     */

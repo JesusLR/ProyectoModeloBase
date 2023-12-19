@@ -41,7 +41,7 @@ class Notificacion {
 	{
 		$this->mail = new Mailer([
 			'username_email' => 'bajas@modelo.edu.mx', // 'bajas@unimodelo.com',
-			'password_email' => 'Caf28347',
+			'password_email' => 'c1IcMH4OoY39',
 			'to_email' => 'luislara@modelo.edu.mx',
 			'to_name' => '',
 			'cc_email' => '',
@@ -57,7 +57,7 @@ class Notificacion {
 		} else if($this->ubicacion->ubiClave == 'CVA') {
 			$director_campus = 'ppineda@modelo.edu.mx'; // 'aime@modelo.edu.mx';
 			$this->mail->agregar_destinatario('mtuz@modelo.edu.mx');
-		} 
+		}
 		/*else if($this->ubicacion->ubiClave == 'CME') {
 			$this->mail->agregar_destinatario('sil_bar@modelo.edu.mx');
 		}*/
@@ -75,10 +75,10 @@ class Notificacion {
 
 		if($coordinador_carrera && $coordinador_carrera->empCorreo1)
 			$this->mail->agregar_destinatario($coordinador_carrera->empCorreo1);
-		
+
 		if(!$director_carrera || !$coordinador_carrera)
 			$this->mail->agregar_destinatario('aosorio@modelo.edu.mx');
-		
+
 		$this->mail->enviar();
 	}
 

@@ -596,6 +596,12 @@
     .bordered {
       border: 1px solid #000;
     }
+
+    .fotoAlumno{
+      width: 2.5cm;
+      height: 3cm;
+      margin-left: -3.1cm;
+    }
   </style>
 </head>
 
@@ -631,7 +637,7 @@
           @if ($item->curPrimariaFoto != "")          
             @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus .'/'. $item->curPrimariaFoto)))
       
-              <p><img style="width:65px; float: left; margin-top: 165px; margin-left: -2.7cm;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus. '/' . $item->curPrimariaFoto) }}"></p>
+              <p><img class="fotoAlumno" style="float: left; margin-top: 165px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus. '/' . $item->curPrimariaFoto) }}"></p>
             @endif
           @endif
         @endif
@@ -651,12 +657,12 @@
         <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
           La que suscribe, 
           @if ($parametro_ubicacion == "CME")
-          MAOE. María Trinidad Díaz Cervera 
+          MAOE. María Trinidad Díaz Cervera,
           @endif
           @if ($parametro_ubicacion == "CVA")
-          Mtra. Arely Martinez Díaz
+          Mtra. Arely Martinez Díaz,
           @endif
-          directora de la Escuela Primaria Incorporada “Modelo” con clave de trabajo {{ $item->depClaveOficial }}, establecida en esta ciudad HACE CONSTAR:
+          directora de la Escuela Primaria Modelo con clave {{ $item->depClaveOficial }} establecida en esta ciudad, HACE CONSTAR:
         </p>
         <br>
         <br>
@@ -669,13 +675,13 @@
           Que la niña
           @endif
           <b>{{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}} con número de matrícula {{ $item->aluClave }}</b> cuya fotografía aparece al margen, 
-          es alumno regular de esta institución, 
+          es alumno regular de esta institución 
           @if ($item->perSexo == "M")
           inscrito
           @else
           inscrita
           @endif           
-          al {{ $grado }} GRUPO “{{ $item->cgtGrupo }}” del ciclo escolar {{ $periodo }}.
+          al {{ $grado }}, GRUPO “{{ $item->cgtGrupo }}” del ciclo escolar {{ $periodo }}.
         </p>
 
         <br>
@@ -697,9 +703,9 @@
         <p class="tcenter"><b>A T E N T A M E N T E</b></p>
         <br><br><br><br>
         @if ($parametro_ubicacion == "CME")
-        <p class="tcenter"><b>MAOE. MARÍA TRINIDAD DÍAZ CERVERA.</b></p>
+        <p class="tcenter"><b>MAOE. MARÍA TRINIDAD DÍAZ CERVERA</b></p>
         @else
-        <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ.</b></p>
+        <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ</b></p>
         @endif
         
         <p class="tcenter"><b>DIRECTORA</b></p>

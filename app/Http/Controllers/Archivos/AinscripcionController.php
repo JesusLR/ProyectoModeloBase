@@ -91,7 +91,7 @@ class AinscripcionController extends Controller
             });
         }
 
-        
+
 
 
         $folioIteradorSup = 0;
@@ -127,7 +127,7 @@ class AinscripcionController extends Controller
 
                 $file = fopen(base_path().'/temp/03_Pre-Insc_Sup/Pendientes/' . $filename, 'w');
 
-            
+
 
             } else if ($cgt->curso->cgt->periodo->departamento->depClave == "POS") {
                 $curOpcionTitulo = ($cgt->curso->curOpcionTitulo == "N") ? "-ORD": "-TIT";
@@ -161,15 +161,17 @@ class AinscripcionController extends Controller
                 'CURP', 'GRUPO', 'TURNO'
             ];
             if($cgt->curso->cgt->periodo->departamento->depClave == "POS") {
-                $columns[] = 'TIPO_INGRESO';
+                $columns[] = 'TIPO_INGRESO_ESPECIALIDAD';
+                $columns[] = 'TIPO_INGRESO_MAESTRIA';
+                $columns[] = 'TIPO_INGRESO_DOCTORADO';
             }
-            
+
 
             // fputs($file, implode(",", $columns) . PHP_EOL);
             fputs($file, iconv("UTF-8", "ISO-8859-1//TRANSLIT", implode(",", $columns)) . PHP_EOL);
 
             $inscritos = $grupos->unique("curso.id");
-            
+
             foreach ($inscritos as $inscrito) {
                 $ubicacion = "";
                 if ($inscrito->curso->cgt->plan->programa->escuela->departamento->ubicacion->ubiClave == "CME") {
@@ -180,14 +182,27 @@ class AinscripcionController extends Controller
                 }
 
                 # Si es POSGRADO, se agrega la columna tipo ingreso
+                $campoTipoIngresoEspecialidad = "";
+                $campoTipoIngresoMaestria = "";
+                $campoTipoIngresoDoctorado = "";
                 $campoTipoIngreso = "";
                 if($inscrito->curso->periodo->departamento->depClave == "POS") {
-                    $campoTipoIngreso = "," . ($inscrito->curso->curOpcionTitulo == 'N' ? 'INGRESO ORDINARIO' : 'OPCION DE TITULACION DE LICENCIATURA');
+                    $escClave = $inscrito->curso->cgt->plan->programa->escuela->escClave;
+                    $txtEspecialidad = '';
+                    $txtMaestria = '';
+                    $txtDoctorado = '';
+                    if ($escClave == 'ESP') $txtEspecialidad = 'OPCIÓN DE TITULACION DE LICENCIATURA';
+                    if ($escClave == 'MAE') $txtMaestria = 'OPCIÓN DE TITULACION DE LICENCIATURA';
+                    if ($escClave == 'DOC') $txtDoctorado = 'OPCIÓN DE TITULACION DE MAESTRÍA';
+                    $campoTipoIngresoEspecialidad = "," . ($inscrito->curso->curOpcionTitulo == 'N' ? '' : $txtEspecialidad);
+                    $campoTipoIngresoMaestria = "," . ($inscrito->curso->curOpcionTitulo == 'N' ? '' : $txtMaestria);
+                    $campoTipoIngresoDoctorado = "," . ($inscrito->curso->curOpcionTitulo == 'N' ? '' : $txtDoctorado);
+                    $campoTipoIngreso = $campoTipoIngresoEspecialidad . $campoTipoIngresoMaestria . $campoTipoIngresoDoctorado;
                 }
 
                 // si la curp tiene estos formatos se cambia por una cadena vacia para forzar un error
                 $curp = (
-                    $inscrito->curso->alumno->persona->perCurp == 'XEXX010101HNEXXXA4' 
+                    $inscrito->curso->alumno->persona->perCurp == 'XEXX010101HNEXXXA4'
                     || $inscrito->curso->alumno->persona->perCurp == 'XEXX010101HNEXXXA8'
                     || $inscrito->curso->alumno->persona->perCurp == 'XEXX010101MNEXXXA4'
                     || $inscrito->curso->alumno->persona->perCurp == 'XEXX010101MNEXXXA8'
@@ -201,7 +216,7 @@ class AinscripcionController extends Controller
                     . "," . $inscrito->grupo->gpoClave
                     . "," . $inscrito->grupo->gpoTurno
                     . $campoTipoIngreso; #Se agrega solo si es POSGRADO
-                
+
                 fputs($file, iconv("UTF-8", "ISO-8859-1//TRANSLIT", $row_info) . PHP_EOL);
             }
 
@@ -243,14 +258,14 @@ class AinscripcionController extends Controller
 
 
 
-        
+
         if ($departamento->depClave != "POS") {
             $cgtGrupo = $cgtGrupo->groupBy(function ($item, $key) {
                 return $item->curso->cgt->id . "-" . $item->grupo->gpoClave . "-" . $item->grupo->gpoTurno;
             })->sortBy(function ($item, $key) {
                 $cgt = explode( '-', trim($key) );
                 $cgt = collect($cgt)->first();
-    
+
                 return $cgt;
             });
         }
@@ -334,13 +349,13 @@ class AinscripcionController extends Controller
             $columns = [
                 'MATRICULA', 'CURSO', 'GRUPO', 'TURNO'
             ];
-            
+
 
             fputs($file, iconv("UTF-8", "ISO-8859-1//TRANSLIT", implode(",", $columns)) . PHP_EOL);
 
 
             $inscritos = $grupos->unique("curso.id");
-            
+
             foreach ($inscritos as $inscrito) {
                 $row_info = $inscrito->curso->alumno->aluMatricula
                     . "," .  $inscrito->grupo->gpoSemestre

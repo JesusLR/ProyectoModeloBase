@@ -474,9 +474,9 @@
   <body>
 
     @php
-      use App\Models\Empleado;
-      use App\Models\HorarioAdmivo;
-      use App\Models\Horario;
+      use App\Http\Models\Empleado;
+      use App\Http\Models\HorarioAdmivo;
+      use App\Http\Models\Horario;
     @endphp
    
     <header>

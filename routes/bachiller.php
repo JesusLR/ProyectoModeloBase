@@ -1126,7 +1126,7 @@ Route::get('bachiller_reporte/bachiller_escuela_procedencia','Bachiller\Reportes
 Route::post('bachiller_reporte/bachiller_escuela_procedencia/imprimir','Bachiller\Reportes\BachillerEscuelaProcedenciaController@imprimir')->name('bachiller.bachiller_escuela_procedencia.imprimir');
 
 
-// reporte de certificados pagados 
+// reporte de certificados pagados
 Route::get('bachiller_reporte/bachiller_certificados_pagados','Bachiller\Reportes\BachillerReciboCertificadoController@reporte')->name('bachiller.bachiller_certificados_pagados.reporte');
 Route::post('bachiller_reporte/bachiller_certificados_pagados/imprimir','Bachiller\Reportes\BachillerReciboCertificadoController@imprimir')->name('bachiller.bachiller_certificados_pagados.imprimir');
 

@@ -207,7 +207,7 @@ class BachillerExtraordinarioController extends Controller
                     <i class="material-icons">visibility</i>
                 </a>'
                 . $btnCalificaciones .
-                
+
                 '<form class="form-acta-examen' . $query->extraordinario_id . '" target="_blank" action="bachiller_recuperativos/actaexamen/' . $query->extraordinario_id . '" method="POST" style="display: inline;">
                     <input type="hidden" name="_token" value="' . csrf_token() . '">
                     <a href="#" data-id="' . $query->extraordinario_id . '" class="button button--icon js-button js-ripple-effect confirm-acta-examen" title="Acta de examen recuperativo">
@@ -295,7 +295,7 @@ class BachillerExtraordinarioController extends Controller
         }
 
         $fechaActual = Carbon::now('America/Merida');
-        
+
 
         $periodoDelExamen = null;
         if($extraordinario->extFecha < $fechaActual){
@@ -401,7 +401,7 @@ class BachillerExtraordinarioController extends Controller
             })
 
 
-            
+
 
             ->filterColumn('iexEstado_', function ($query, $keyword) {
                 $query->whereRaw("CONCAT(iexEstado) like ?", ["%{$keyword}%"]);
@@ -662,7 +662,7 @@ class BachillerExtraordinarioController extends Controller
             INNER JOIN bachiller_fechas_regularizacion ON bachiller_fechas_regularizacion.id = bachiller_extraordinarios.bachiller_fecha_regularizacion_id
             INNER JOIN planes ON planes.id = bachiller_fechas_regularizacion.plan_id
             INNER JOIN bachiller_materias ON bachiller_materias.id = bachiller_extraordinarios.bachiller_materia_id
-            WHERE bachiller_inscritosextraordinarios.deleted_at IS NULL            
+            WHERE bachiller_inscritosextraordinarios.deleted_at IS NULL
             AND periodos.id = $periodo_id
             AND planes.id = $plan_id
             AND bachiller_extraordinarios.deleted_at IS NULL
@@ -741,7 +741,7 @@ class BachillerExtraordinarioController extends Controller
             'bachiller_empleados.empApellido1',
             'bachiller_empleados.empApellido2',
             'bachiller_empleados.empNombre',
-            'bachiller_inscritosextraordinarios.iexEstado'        
+            'bachiller_inscritosextraordinarios.iexEstado'
         )
         ->join('alumnos', 'bachiller_inscritosextraordinarios.alumno_id', '=', 'alumnos.id')
         ->join('bachiller_extraordinarios', 'bachiller_inscritosextraordinarios.extraordinario_id', '=', 'bachiller_extraordinarios.id')
@@ -762,10 +762,10 @@ class BachillerExtraordinarioController extends Controller
         $aceptadaSinOrdinario = false;
 
         $ultOportunidad = false;
-        
+
         $nombreArchivo = "pdf_recibo_extraordinario_varios";
         //Cargar vista del PDF
-       
+
         // view('reportes.pdf.bachiller.certificado.pdf_bachiller_certificado');
         $pdf = PDF::loadView('bachiller.extraordinario.pdf.' . $nombreArchivo, [
             'bachiller_inscritosextraordinarios' => $bachiller_inscritosextraordinarios,
@@ -2307,7 +2307,7 @@ class BachillerExtraordinarioController extends Controller
                 $extHoraFinSesion18 = null;
                 $extMinutoFinSesion18 = null;
             }
-            
+
             $extraordinario = Bachiller_extraordinarios::findOrFail($id);
             $extraordinario->bachiller_empleado_id = $request->empleado_id;
             $extraordinario->bachiller_empleado_sinodal_id = $request->empleado_sinodal_id;
@@ -2336,7 +2336,7 @@ class BachillerExtraordinarioController extends Controller
             $extraordinario->extMinutoInicioViernes = $extMinutoInicioViernes;
             $extraordinario->extMinutoFinViernes = $extMinutoFinViernes;
             $extraordinario->extMinutoInicioSabado = $extMinutoInicioSabado;
-            $extraordinario->extMinutoFinSabado = $extMinutoFinSabado;      
+            $extraordinario->extMinutoFinSabado = $extMinutoFinSabado;
 
             $extraordinario->save();
         } catch (QueryException $e) {
@@ -2365,7 +2365,11 @@ class BachillerExtraordinarioController extends Controller
             return redirect()->back();
         }
 
-        if ($extraordinario->bachiller_inscritos()->count() + $extraordinario->bachiller_preinscritos()->count() > 0) {
+        $Bachiller_inscritosextraordinarios = Bachiller_inscritosextraordinarios::where('extraordinario_id', $extraordinario->id)->where('iexEstado', '!=', 'C')->get();
+
+        // $Bachiller_inscritosextraordinarios->count()
+
+        if ($Bachiller_inscritosextraordinarios->count() + $extraordinario->bachiller_preinscritos()->count() > 0) {
             alert("No se puede borrar el recuperativo #{$extraordinario->id}", 'Actualmente hay alumnos inscritos a este recuperativo o en proceso de solicitud. Ya se ha generado una ficha pendiente por pagar. Favor de dirigirse a la opción PREINSCRITOS EXTRAORDINARIOS y revisar quienes son los alumnos que desean inscribirse a este examen. Es importante que se comunique con ellos para validar que no hayan pagado la inscripción a este examen que desea eliminar', 'warning')->showConfirmButton();
             return redirect()->back();
         }
@@ -2542,7 +2546,7 @@ class BachillerExtraordinarioController extends Controller
             'bachiller_extraordinarios.extAulaViernes',
             'bachiller_extraordinarios.extHoraInicioSabado',
             'bachiller_extraordinarios.extHoraFinSabado',
-            'bachiller_extraordinarios.extAulaSabado',     
+            'bachiller_extraordinarios.extAulaSabado',
             'bachiller_extraordinarios.extMinutoInicioLunes',
             'bachiller_extraordinarios.extMinutoFinLunes',
             'bachiller_extraordinarios.extMinutoInicioMartes',
@@ -2554,7 +2558,7 @@ class BachillerExtraordinarioController extends Controller
             'bachiller_extraordinarios.extMinutoInicioViernes',
             'bachiller_extraordinarios.extMinutoFinViernes',
             'bachiller_extraordinarios.extMinutoInicioSabado',
-            'bachiller_extraordinarios.extMinutoFinSabado',      
+            'bachiller_extraordinarios.extMinutoFinSabado',
 
             'periodos.id as periodo_id',
             'periodos.perNumero',
@@ -2671,7 +2675,7 @@ class BachillerExtraordinarioController extends Controller
             ->whereDate('iexFecha', '=', $extraordinario->extFecha)->get();
 
 
-        // buscamos para obtener la cantidad maxima de alumnos 
+        // buscamos para obtener la cantidad maxima de alumnos
         $bachiller_fechas_regularizacion = Bachiller_fechas_regularizacion::find($extraordinario->bachiller_fecha_regularizacion_id);
 
         if ($extraordinario->extTipo == "ACOMPAÑAMIENTO") {
@@ -2700,7 +2704,7 @@ class BachillerExtraordinarioController extends Controller
             if ($extraordinario->extAlumnosInscritos < $total_permitidos) {
 
                 try {
-    
+
                     $inscritoExt = new Bachiller_inscritosextraordinarios;
                     $inscritoExt->alumno_id = $request->alumno_id;
                     $inscritoExt->extraordinario_id = $request->extraordinario_id;
@@ -2709,16 +2713,16 @@ class BachillerExtraordinarioController extends Controller
                     $inscritoExt->iexEstado = $request->iexEstado;
                     $inscritoExt->iexFolioHistorico = NULL;
                     $inscritoExt->save();
-    
+
                     $extra = $inscritoExt->bachiller_extraordinario;
                     $extraUpdated = $this->updateNumInscritosExtra($extra);
-    
+
                     $extPago = $inscritoExt->bachiller_extraordinario->extPago;
                     $pagoLetras = NumeroALetras::convert($extPago, 'PESOS', true);
-    
-    
+
+
                     if ($request->ubicacion_id == 1 || $request->ubicacion_id == 2 || $request->ubicacion_id == 4) {
-    
+
                         //Yucatán
                         $inscrito = Bachiller_inscritos::with('curso', 'bachiller_grupo')
                             ->whereHas('curso', function ($query) use ($inscritoExt) {
@@ -2728,7 +2732,7 @@ class BachillerExtraordinarioController extends Controller
                                 $query->where('bachiller_materia_id', $inscritoExt->bachiller_extraordinario->bachiller_materia_id);
                             })
                             ->first();
-    
+
                         // aun no hay tabla pendiente
                         if ($inscrito) {
                             $calificaciones = Bachiller_inscritos::where('id', $inscrito->id)
@@ -2739,7 +2743,7 @@ class BachillerExtraordinarioController extends Controller
                         } else {
                             $aceptadaSinOrdinario = true;
                         }
-    
+
                         $historicosX2 = Bachiller_historico::where('alumno_id', $inscritoExt->alumno_id)
                             ->where('bachiller_materia_id', $inscritoExt->bachiller_extraordinario->bachiller_materia_id)
                             ->where('histTipoAcreditacion', 'O1')->get();
@@ -2765,7 +2769,7 @@ class BachillerExtraordinarioController extends Controller
                         } else {
                             $aceptadaSinOrdinario = true;
                         }
-    
+
                         $historicosX2 = Bachiller_historico::where('alumno_id', $inscritoExt->alumno_id)
                             ->where('bachiller_materia_id', $inscritoExt->bachiller_extraordinario->bachiller_materia_id)
                             ->where('histTipoAcreditacion', 'X2')->get();
@@ -2773,9 +2777,9 @@ class BachillerExtraordinarioController extends Controller
                             $ultOportunidad = true;
                         }
                     }
-    
-    
-    
+
+
+
                     if ($extraUpdated) {
                         alert('Escuela Modelo', 'La solicitud de recuperativo se ha guardado correctamente', 'success')->showConfirmButton();
                     } else {
@@ -2787,7 +2791,7 @@ class BachillerExtraordinarioController extends Controller
                         )
                             ->showConfirmButton();
                     }
-    
+
                     // Unix
                     setlocale(LC_TIME, 'es_ES.UTF-8');
                     // En windows
@@ -2807,12 +2811,12 @@ class BachillerExtraordinarioController extends Controller
                     $pdf->setPaper('letter', 'portrait');
                     $pdf->defaultFont = 'Times Sans Serif';
                     // return $pdf->stream($nombreArchivo . '.pdf');
-    
+
                     return redirect()->back();
                 } catch (QueryException $e) {
                     $errorCode = $e->errorInfo[1];
                     $errorMessage = $e->errorInfo[2];
-    
+
                     alert()->error('Error...' . $errorCode, $errorMessage)->showConfirmButton();
                     return redirect()->back()->withInput();
                 }
@@ -2821,7 +2825,7 @@ class BachillerExtraordinarioController extends Controller
                 return redirect()->back()->withInput();
             }
         }
-        
+
     }
 
 
@@ -2849,7 +2853,7 @@ class BachillerExtraordinarioController extends Controller
     {
         $solicitud = Bachiller_inscritosextraordinarios::with('bachiller_extraordinario')->findOrFail($id);
 
-        
+
         $alumno = Alumno::select('personas.perApellido1', 'personas.perApellido2', 'personas.perNombre')
         ->leftJoin('personas', 'alumnos.persona_id', '=', 'personas.id')
         ->where('alumnos.id', $solicitud->alumno_id)
@@ -2881,7 +2885,7 @@ class BachillerExtraordinarioController extends Controller
         $inscritoExtraordinario = Bachiller_inscritosextraordinarios::findOrFail($id);
         $bachiller_extraordinarios = Bachiller_extraordinarios::find($inscritoExtraordinario->extraordinario_id);
 
-         // buscamos para obtener la cantidad maxima de alumnos 
+         // buscamos para obtener la cantidad maxima de alumnos
          $bachiller_fechas_regularizacion = Bachiller_fechas_regularizacion::find($bachiller_extraordinarios->bachiller_fecha_regularizacion_id);
 
          if ($bachiller_extraordinarios->extTipo == "ACOMPAÑAMIENTO") {
@@ -2895,15 +2899,15 @@ class BachillerExtraordinarioController extends Controller
         if($request->input('iexEstado') != "C"){
             if ($bachiller_extraordinarios->extAlumnosInscritos <= $total_permitidos) {
                 try {
-                
+
                     $inscritoExtraordinario->iexCalificacion    = $request->input('iexCalificacion');
                     $inscritoExtraordinario->iexEstado          = $request->input('iexEstado');
                     $inscritoExtraordinario->iexTipoPago          = $request->input('iexTipoPago');
                     $inscritoExtraordinario->save();
-        
+
                     $extra = $inscritoExtraordinario->bachiller_extraordinario;
                     $extraUpdated = $this->updateNumInscritosExtra($extra);
-        
+
                     if ($extraUpdated) {
                         alert('Escuela Modelo', 'La solicitud del recuperativo se ha actualizado con éxito', 'success')->showConfirmButton();
                     } else {
@@ -2916,12 +2920,12 @@ class BachillerExtraordinarioController extends Controller
                         )
                             ->showConfirmButton();
                     }
-        
+
                     return redirect('solicitudes/bachiller_recuperativos');
                 } catch (QueryException $e) {
                     $errorCode = $e->errorInfo[1];
                     $errorMessage = $e->errorInfo[2];
-        
+
                     alert()->error('Error...' . $errorCode, $errorMessage)->showConfirmButton();
                     return redirect('edit/bachiller_solicitud/' . $id)->withInput();
                 }
@@ -2931,15 +2935,15 @@ class BachillerExtraordinarioController extends Controller
             }
         }else{
             try {
-                
+
                 $inscritoExtraordinario->iexCalificacion    = $request->input('iexCalificacion');
                 $inscritoExtraordinario->iexEstado          = $request->input('iexEstado');
                 $inscritoExtraordinario->iexTipoPago          = $request->input('iexTipoPago');
                 $inscritoExtraordinario->save();
-    
+
                 $extra = $inscritoExtraordinario->bachiller_extraordinario;
                 $extraUpdated = $this->updateNumInscritosExtra($extra);
-    
+
                 if ($extraUpdated) {
                     alert('Escuela Modelo', 'La solicitud del recuperativo se ha actualizado con éxito', 'success')->showConfirmButton();
                 } else {
@@ -2952,20 +2956,20 @@ class BachillerExtraordinarioController extends Controller
                     )
                         ->showConfirmButton();
                 }
-    
+
                 return redirect('solicitudes/bachiller_recuperativos');
             } catch (QueryException $e) {
                 $errorCode = $e->errorInfo[1];
                 $errorMessage = $e->errorInfo[2];
-    
+
                 alert()->error('Error...' . $errorCode, $errorMessage)->showConfirmButton();
                 return redirect('edit/bachiller_solicitud/' . $id)->withInput();
             }
         }
 
-        
 
-       
+
+
     }
 
 
@@ -3423,7 +3427,7 @@ class BachillerExtraordinarioController extends Controller
                     $inscritoEx->save();
 
 
-                    
+
                     Bachiller_UsuarioLog::create([
                         'alumno_id' => $inscritoEx->alumno_id,
                         'nombre_tabla' => 'bachiller_inscritosextraordinarios',
@@ -3453,7 +3457,7 @@ class BachillerExtraordinarioController extends Controller
 
                         DB::update("UPDATE bachiller_historico SET histCalificacion=$calificacionActual WHERE id=$inscrito->iexFolioHistorico");
 
-                        
+
                     }
                 }
             }
@@ -3605,7 +3609,7 @@ class BachillerExtraordinarioController extends Controller
                             $resumen->save();
                         } catch (\Exception $e) {
                             DB::rollBack();
-                            alert()->error('Error', 'ha ocurrido un error, 
+                            alert()->error('Error', 'ha ocurrido un error,
                             favor de intentar nuevamente');
                             return back()->withInput();
                             throw $e;
@@ -3646,7 +3650,7 @@ class BachillerExtraordinarioController extends Controller
                             $resumen->save();
                         } catch (\Exception $e) {
                             DB::rollBack();
-                            alert()->error('Error', 'ha ocurrido un error, 
+                            alert()->error('Error', 'ha ocurrido un error,
                             favor de intentar nuevamente');
                             return back()->withInput();
                             throw $e;
@@ -3748,9 +3752,9 @@ class BachillerExtraordinarioController extends Controller
         return "<p>{$nombre_empleado} ({$usuario->username}) ha realizado el cambio de calificaciones a recuperativos:</p>
 		<br>
 		<p><b>Actualizando los registros de los alumnos inscritos al recuperativo con folio: </b> {$text}</p>
-		
+
 		<br>
-		
+
 		<br>
 		<p>Favor de no responder a este correo automatizado.</p>
 		";

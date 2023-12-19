@@ -37,7 +37,7 @@ class ListasEvaluacionParcialController extends Controller
     ]);
   }
 
-  
+
   public function listasEvaluacionParcial($request)
   {
     $grupos = Grupo::with('plan.programa.escuela.departamento.ubicacion', 'periodo', 'empleado.persona', 'materia')
@@ -71,7 +71,7 @@ class ListasEvaluacionParcialController extends Controller
         return false;
       }
 
-    //obtener escolaridad de los directores 
+    //obtener escolaridad de los directores
     $directorIds = $grupos->map(function ($item, $key) {
       return $item->plan->programa->escuela->empleado->id;
     })->unique()->all();
@@ -102,10 +102,10 @@ class ListasEvaluacionParcialController extends Controller
       ->leftJoin("personas", "alumnos.persona_id", "=", "personas.id")
       ->where("cursos.curEstado", "<>", "B")
     ->get();// tiene repetidos los id de alumnos
-      
+
     $inscritos = $inscritos->map(function ($item, $key) {
-      $alumno = $item->curso->alumno->persona->perApellido1 . "-" . 
-          $item->curso->alumno->persona->perApellido2  . "-" . 
+      $alumno = $item->curso->alumno->persona->perApellido1 . "-" .
+          $item->curso->alumno->persona->perApellido2  . "-" .
           $item->curso->alumno->persona->perNombre;
 
       $item->sortByNombres = Str::slug($alumno, "-");
@@ -122,7 +122,7 @@ class ListasEvaluacionParcialController extends Controller
         return $key == $grupoId;
       })->first();
 
-      if ($inscritosGpo) {      
+      if ($inscritosGpo) {
         $item->inscritos = $inscritosGpo->all();
       } else {
         $item->inscritos = [];
@@ -134,7 +134,7 @@ class ListasEvaluacionParcialController extends Controller
     if($grupos->isEmpty()) {
       return false;
     }
-    
+
     return collect($grupos)->where("inscritos_gpo", ">", 0)->sortBy("gpoSemestre");
   }
 

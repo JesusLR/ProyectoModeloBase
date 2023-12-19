@@ -43,7 +43,8 @@ class PrimariaConstanciaBuenaConductaController extends Controller
             "cgt.cgtGrupo",
             "periodos.id as periodo_id",
             "periodos.perAnioPago",
-            "ubicacion.ubiClave"
+            "ubicacion.ubiClave",
+            "departamentos.depClaveOficial"
         )
             ->join("alumnos", "cursos.alumno_id", "=", "alumnos.id")
             ->join("personas", "alumnos.persona_id", "=", "personas.id")
@@ -106,9 +107,9 @@ class PrimariaConstanciaBuenaConductaController extends Controller
         $parametro_ubicacion = $curso_alumno[0]->ubiClave;
 
 
-        
 
-        // valida que grado es para escribir lo que corresponda 
+
+        // valida que grado es para escribir lo que corresponda
         // $gradoEnLetras = "";
         // if ($parametro_grado == 1) {
         //     $gradoEnLetras = "PRIMER GRADO";
@@ -129,7 +130,7 @@ class PrimariaConstanciaBuenaConductaController extends Controller
         //     $gradoEnLetras = "SEXTO GRADO";
         // }
 
-        // obtener fecha del sistema 
+        // obtener fecha del sistema
         $fechaActual = Carbon::now('America/Merida');
         setlocale(LC_TIME, 'es_ES.UTF-8');
         // En windows
@@ -180,11 +181,11 @@ class PrimariaConstanciaBuenaConductaController extends Controller
 
 
         if($parametro_ubicacion == "CME"){
-            $fechahoy = 'MÉRIDA, YUC., ' . $fechaDia . ' DE ' . strtolower($mesLetras) . ' DE ' . $fechaAnio . '.';
+            $fechahoy = 'Mérida, Yuc., ' . $fechaDia . ' de ' . strtolower($mesLetras) . ' de ' . $fechaAnio . '.';
             $campus = "primariaCME";
         }
         if($parametro_ubicacion == "CVA"){
-            $fechahoy = 'VALLADOLID, YUC., ' . $fechaDia . ' DE ' . strtolower($mesLetras) . ' DE ' . $fechaAnio . '.';
+            $fechahoy = 'Valladolid, Yuc., ' . $fechaDia . ' de ' . strtolower($mesLetras) . ' de ' . $fechaAnio . '.';
             $campus = "primariaCVA";
         }
 

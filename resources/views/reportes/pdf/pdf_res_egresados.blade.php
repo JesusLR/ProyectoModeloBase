@@ -533,7 +533,9 @@
               <th align="center" style="width:20px;" class="boldFont">Total</th>
             </tr>
             @foreach($ubicacion as $escuela)
+              @php $subtotal = 0; @endphp
               @foreach($escuela as $carr)
+                @php $subtotal += $carr['carTotal']; @endphp
                 <tr>
                   @if($tipoReporte == 'P')
                     <td align="center">{{$perNum}}</td>
@@ -541,12 +543,21 @@
                   @endif
                   <td align="center">{{$carr['progClave']}}</td>
                   <td>{{$carr['progNombre']}}</td>
-                  <td align="center">{{$carr['carTotal']}}</td>
+                  <td align="right">{{$carr['carTotal']}}</td>
                 </tr>
                 @php
                   $total = $total + $carr['carTotal'];
                 @endphp
               @endforeach <!-- FIN foreach carr -->
+              <tr>
+                @if($tipoReporte == 'P')
+                <td></td>
+                <td></td>
+                @endif
+                <td align="center" class="boldFont">{{ $carr['escClave'] }}</td>
+                <td></td>
+                <td align="right" class="totalCell">{{$subtotal}}</td>
+              </tr>
               <tr>
                 @if($tipoReporte == 'P')
                 <td colspan="5">&nbsp;</td>
@@ -561,7 +572,7 @@
               @else
               <td colspan="2" class="boldFont">Total de Egresados</td>
               @endif
-              <td align="center" class="totalCell boldFont">{{$total}}</td>
+              <td align="right" class="totalCell boldFont">{{$total}}</td>
             </tr>
           </table>
         </div>

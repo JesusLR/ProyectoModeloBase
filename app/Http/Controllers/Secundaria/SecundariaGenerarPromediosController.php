@@ -35,14 +35,14 @@ class SecundariaGenerarPromediosController extends Controller
     public function generarPromedio(Request $request)
     {
 
-        // Seleccionamos 
+        // Seleccionamos
         $ubicacion = Ubicacion::findOrFail($request->ubicacion_id);
         $periodo = Periodo::findOrFail($request->periodo_id);
 
         $resultado_array =  DB::select("call procSecundariaPromediosTrimestres(" . $request->periodo_id . ")");
         $resultado_collection = collect($resultado_array);
 
-        
+
         Empleado::select('personas.perApellido1', 'personas.perApellido2', 'personas.perNombre')
         ->join('personas', 'empleados.persona_id', '=', 'personas.id')
         ->where('empleados.id', auth()->user()->empleado_id)
@@ -50,7 +50,7 @@ class SecundariaGenerarPromediosController extends Controller
 
         if ($resultado_collection) {
 
-            // Correos destino 
+            // Correos destino
             $to_email_luis = "luislara@modelo.edu.mx";
             $to_name_luis = "Luis Lara";
 
@@ -86,12 +86,12 @@ class SecundariaGenerarPromediosController extends Controller
             ->where('empleados.id', auth()->user()->empleado_id)
             ->first();
 
-            
+
             $ELUSUARIOQUECLICKEOELBOTONAZO = $empleado->empNombre . " " . $empleado->empApellido1 . " " . $empleado->empApellido2;
 
-            //CORREO REMITENTE DE PROMEDIOS 
+            //CORREO REMITENTE DE PROMEDIOS
             $username_email = "promedios@modelo.edu.mx"; // "promedios@unimodelo.com";
-            $password_email = "8k>QbEr.QC3v"; // "2AU8a7T5Cu";
+            $password_email = "tcRl0TDr6ry3"; // "2AU8a7T5Cu";
 
             $mail = new PHPMailer(true);
             // Server settings
@@ -113,7 +113,7 @@ class SecundariaGenerarPromediosController extends Controller
             $mail->addCC($to_email_eduardo , $to_name_eduardo);
             $mail->addCC($to_email_enrique , $to_name_enrique);
 
-            // Para el envio  
+            // Para el envio
             if($ubicacion->ubiClave == "CME"){
                 $mail->addCC($to_email_Lourdes , $to_name_Lourdes);
             }

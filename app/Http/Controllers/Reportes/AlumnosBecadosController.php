@@ -44,7 +44,7 @@ class AlumnosBecadosController extends Controller
     $tiposBeca = Beca::get();
     $estadosCurso = ESTADO_CURSO;
 
-    return View('reportes/alumnos_becados.create', [
+    return view('reportes.alumnos_becados.create', [
       'tiposBeca' => $tiposBeca,
       'estadosCurso' => $estadosCurso,
       'anioActual' => Carbon::now('America/Merida')->year,
@@ -55,27 +55,30 @@ class AlumnosBecadosController extends Controller
 
   public function imprimir(Request $request)
   {
+    $departamento = Departamento::find($request->departamento_id);
+    $depClave = $departamento->depClave;
+
     $this->perAnioPago = $request->perAnioPago;
     $this->buscarDesdeRequest($request);
 
-    if($this->alumnos->isEmpty()) {
+    if ($this->alumnos->isEmpty()) {
       alert('Sin coincidencias', 'No hay datos que coincidan con la información proporcionada.', 'warning')->showConfirmButton();
       return back()->withInput();
     }
 
     $this->alumnos = $this->alumnos->keyBy('alumno_id');
     # ---------------------------------------------------------------------------------
-    if($request->validar_hermanos) {
-      $this->buscarPosiblesHermanos($this->alumnos);
+    if ($request->validar_hermanos) {
+      $this->buscarPosiblesHermanos($this->alumnos, $depClave);
       $this->filtrar_solo_hermanos();
     }
 
-    if($this->alumnos->isEmpty()) {
+    if ($this->alumnos->isEmpty()) {
       alert('Sin coincidencias', 'No hay datos que coincidan con la información proporcionada.', 'warning')->showConfirmButton();
       return back()->withInput();
     }
     # ---------------------------------------------------------------------------------
-    $cursos_ids = $this->obtener_cursos_ids($request->promedio_de_curso);
+    $cursos_ids = $this->obtener_cursos_ids($request->promedio_de_curso, $depClave);
     $promedios = $this->buscar_promedios($cursos_ids);
     $this->agregarPromedioPorAlumno($promedios);
     $this->definir_orden_agrupacion($request->validar_hermanos);
@@ -88,120 +91,209 @@ class AlumnosBecadosController extends Controller
       "nombreArchivo" => $nombreArchivo,
       "tiposBecas" => $request->curTipoBeca ? Beca::where('bcaClave', $request->curTipoBeca)->get() : Beca::all(),
       "departamento" => Departamento::find($request->departamento_id),
-      "cicloEscolar" => $this->perAnioPago.'-'.($this->perAnioPago + 1),
+      "cicloEscolar" => $this->perAnioPago . '-' . ($this->perAnioPago + 1),
       "fechaActual" => $fechaActual->format('d/m/Y'),
       "horaActual" => $fechaActual->format('H:i:s'),
-    ])->stream($nombreArchivo.'.pdf');
+    ])->stream($nombreArchivo . '.pdf');
   } #imprimir.
 
 
 
   /**
-  * @param Illuminate\Http\Request
-  */
+   * @param Illuminate\Http\Request
+   */
   private function buscarDesdeRequest($request)
   {
-    Curso::with(['alumno.persona', 'cgt.plan.programa'])
-    ->whereHas('periodo.departamento', static function($query) use ($request) {
-      $query->where('perAnioPago', $request->perAnioPago)
-      ->where('perNumero', 3)
-      ->where('departamento_id', $request->departamento_id)
-      ->where('ubicacion_id', $request->ubicacion_id);
-    })
-    ->whereHas('cgt.plan.programa', static function($query) use ($request) {
-      if($request->cgtGradoSemestre) {
-        $query->where('cgtGradoSemestre', $request->cgtGradoSemestre);
-      }
-      if($request->cgtGrupo) {
-        $query->where('cgtGrupo', $request->cgtGrupo);
-      }
-      if($request->programa_id) {
-        $query->where('programa_id', $request->programa_id);
-      }
-      if($request->escuela_id) {
-        $query->where('escuela_id', $request->escuela_id);
-      }
-    })
-    ->whereHas('alumno.persona', static function($query) use ($request) {
-      if($request->aluMatricula) {
-        $query->where('aluMatricula', $request->aluMatricula);
-      }
-      if($request->aluClave) {
-        $query->where('aluClave', $request->aluClave);
-      }
-      if($request->perApellido1) {
-        $query->where('perApellido1', 'like', "%{$request->perApellido1}%");
-      }
-      if($request->perApellido2) {
-        $query->where('perApellido2', 'like', "%{$request->perApellido2}%");
-      }
-      if($request->perNombre) {
-        $query->where('perNombre', 'like', "%{$request->perNombre}%");
-      }
-    })
-    ->where(static function($query) use ($request) {
-      $query->whereNotNull('curTipoBeca');
-      if($request->curTipoBeca) {
-        $query->where('curTipoBeca', $request->curTipoBeca);
-      }
-      if($request->curPorcentajeBeca) {
-        $query->where('curPorcentajeBeca', $request->curPorcentajeBeca);
-      }
-      if($request->curEstado) {
-        if($request->curEstado == 'T') $query->where('curEstado', '<>', 'B');
-        if($request->curEstado == 'RCA') $query->whereIn('curEstado', ['R', 'C', 'A']);
-        if(!in_array($request->curEstado, ['T', 'RCA'])) $query->where('curEstado', $request->curEstado);
-      }
-      if($request->curFechaRegistro) {
-        $query->where('curFechaRegistro', $request->curFechaRegistro);
-      }
-      if($request->curObservacionesBeca) {
-        $query->where('curObservacionesBeca', 'like', "%{$request->curObservacionesBeca}%");
-      }
-    })
-    ->oldest('curFechaRegistro')
-    ->chunk(100, function($cursos) {
 
-      if($cursos->isEmpty()) return false;
-      $this->mapear_cursos($cursos);
+    $departamento = Departamento::find($request->departamento_id);
 
-    });
-  }#filtrarDesdeRequest.
+    if ($departamento->depClave == "MAT" || $departamento->depClave == "PRE" || $departamento->depClave == "PRI" || $departamento->depClave == "SEC") {
+      Curso::with(['alumno.persona', 'cgt.plan.programa'])
+        ->whereHas('periodo.departamento', static function ($query) use ($request) {
+          $query->where('perAnioPago', $request->perAnioPago)
+            ->where('perNumero', 0)
+            ->where('departamento_id', $request->departamento_id)
+            ->where('ubicacion_id', $request->ubicacion_id);
+        })
+        ->whereHas('cgt.plan.programa', static function ($query) use ($request) {
+          if ($request->cgtGradoSemestre) {
+            $query->where('cgtGradoSemestre', $request->cgtGradoSemestre);
+          }
+          if ($request->cgtGrupo) {
+            $query->where('cgtGrupo', $request->cgtGrupo);
+          }
+          if ($request->programa_id) {
+            $query->where('programa_id', $request->programa_id);
+          }
+          if ($request->escuela_id) {
+            $query->where('escuela_id', $request->escuela_id);
+          }
+        })
+        ->whereHas('alumno.persona', static function ($query) use ($request) {
+          if ($request->aluMatricula) {
+            $query->where('aluMatricula', $request->aluMatricula);
+          }
+          if ($request->aluClave) {
+            $query->where('aluClave', $request->aluClave);
+          }
+          if ($request->perApellido1) {
+            $query->where('perApellido1', 'like', "%{$request->perApellido1}%");
+          }
+          if ($request->perApellido2) {
+            $query->where('perApellido2', 'like', "%{$request->perApellido2}%");
+          }
+          if ($request->perNombre) {
+            $query->where('perNombre', 'like', "%{$request->perNombre}%");
+          }
+        })
+        ->where(static function ($query) use ($request) {
+          $query->whereNotNull('curTipoBeca');
+          if ($request->curTipoBeca) {
+            $query->where('curTipoBeca', $request->curTipoBeca);
+          }
+          if ($request->curPorcentajeBeca) {
+            $query->where('curPorcentajeBeca', $request->curPorcentajeBeca);
+          }
+          if ($request->curEstado) {
+            if ($request->curEstado == 'T') $query->where('curEstado', '<>', 'B');
+            if ($request->curEstado == 'RCA') $query->whereIn('curEstado', ['R', 'C', 'A']);
+            if (!in_array($request->curEstado, ['T', 'RCA'])) $query->where('curEstado', $request->curEstado);
+          }
+          if ($request->curFechaRegistro) {
+            $query->where('curFechaRegistro', $request->curFechaRegistro);
+          }
+          if ($request->curObservacionesBeca) {
+            $query->where('curObservacionesBeca', 'like', "%{$request->curObservacionesBeca}%");
+          }
+        })
+        ->oldest('curFechaRegistro')
+        ->chunk(100, function ($cursos) {
+
+          if ($cursos->isEmpty()) return false;
+          $this->mapear_cursos($cursos);
+        });
+    } else {
+      Curso::with(['alumno.persona', 'cgt.plan.programa'])
+        ->whereHas('periodo.departamento', static function ($query) use ($request) {
+          $query->where('perAnioPago', $request->perAnioPago)
+            ->where('perNumero', 3)
+            ->where('departamento_id', $request->departamento_id)
+            ->where('ubicacion_id', $request->ubicacion_id);
+        })
+        ->whereHas('cgt.plan.programa', static function ($query) use ($request) {
+          if ($request->cgtGradoSemestre) {
+            $query->where('cgtGradoSemestre', $request->cgtGradoSemestre);
+          }
+          if ($request->cgtGrupo) {
+            $query->where('cgtGrupo', $request->cgtGrupo);
+          }
+          if ($request->programa_id) {
+            $query->where('programa_id', $request->programa_id);
+          }
+          if ($request->escuela_id) {
+            $query->where('escuela_id', $request->escuela_id);
+          }
+        })
+        ->whereHas('alumno.persona', static function ($query) use ($request) {
+          if ($request->aluMatricula) {
+            $query->where('aluMatricula', $request->aluMatricula);
+          }
+          if ($request->aluClave) {
+            $query->where('aluClave', $request->aluClave);
+          }
+          if ($request->perApellido1) {
+            $query->where('perApellido1', 'like', "%{$request->perApellido1}%");
+          }
+          if ($request->perApellido2) {
+            $query->where('perApellido2', 'like', "%{$request->perApellido2}%");
+          }
+          if ($request->perNombre) {
+            $query->where('perNombre', 'like', "%{$request->perNombre}%");
+          }
+        })
+        ->where(static function ($query) use ($request) {
+          $query->whereNotNull('curTipoBeca');
+          if ($request->curTipoBeca) {
+            $query->where('curTipoBeca', $request->curTipoBeca);
+          }
+          if ($request->curPorcentajeBeca) {
+            $query->where('curPorcentajeBeca', $request->curPorcentajeBeca);
+          }
+          if ($request->curEstado) {
+            if ($request->curEstado == 'T') $query->where('curEstado', '<>', 'B');
+            if ($request->curEstado == 'RCA') $query->whereIn('curEstado', ['R', 'C', 'A']);
+            if (!in_array($request->curEstado, ['T', 'RCA'])) $query->where('curEstado', $request->curEstado);
+          }
+          if ($request->curFechaRegistro) {
+            $query->where('curFechaRegistro', $request->curFechaRegistro);
+          }
+          if ($request->curObservacionesBeca) {
+            $query->where('curObservacionesBeca', 'like', "%{$request->curObservacionesBeca}%");
+          }
+        })
+        ->oldest('curFechaRegistro')
+        ->chunk(100, function ($cursos) {
+
+          if ($cursos->isEmpty()) return false;
+          $this->mapear_cursos($cursos);
+        });
+    }
+  } #filtrarDesdeRequest.
 
 
   /**
-  * @param Collection
-  */
-  private function buscarPosiblesHermanos($alumnos)
+   * @param Collection
+   */
+  private function buscarPosiblesHermanos($alumnos, $depClave)
   {
     $apellidos_combinaciones = $alumnos->pluck('apellidos_filtrados')->flatten();
 
-    Curso::with(['alumno.persona', 'cgt.plan.programa'])
-    ->whereHas('periodo', function($query) {
-      $query->where('perAnioPago', $this->perAnioPago)
-      ->where('perNumero', 3);
-    })
-    ->whereHas('alumno.persona', static function($query) use ($apellidos_combinaciones) {
-      $sql = DB::raw("CONCAT(perApellido1,' ',perApellido2)");
-      $query->whereIn($sql, $apellidos_combinaciones);
-    })
-    ->whereNotIn('alumno_id', $this->alumnos->pluck('alumno_id'))
-    ->oldest('curFechaRegistro')
-    ->chunk(100, function($cursos) {
+    if ($depClave == "MAT" || $depClave == "PRE" || $depClave == "PRI" || $depClave == "SEC") {
+      Curso::with(['alumno.persona', 'cgt.plan.programa'])
+        ->whereHas('periodo', function ($query) {
+          $query->where('perAnioPago', $this->perAnioPago)
+            ->where('perNumero', 0);
+        })
+        ->whereHas('alumno.persona', static function ($query) use ($apellidos_combinaciones) {
+          $sql = DB::raw("CONCAT(perApellido1,' ',perApellido2)");
+          $query->whereIn($sql, $apellidos_combinaciones);
+        })
+        ->whereNotIn('alumno_id', $this->alumnos->pluck('alumno_id'))
+        ->oldest('curFechaRegistro')
+        ->chunk(100, function ($cursos) {
 
-      if($cursos->isEmpty()) return false;
-      $this->mapear_cursos($cursos);
+          if ($cursos->isEmpty()) return false;
+          $this->mapear_cursos($cursos);
+        });
+    } else {
 
-    });
+      // para universidad y BAC
+      Curso::with(['alumno.persona', 'cgt.plan.programa'])
+        ->whereHas('periodo', function ($query) {
+          $query->where('perAnioPago', $this->perAnioPago)
+            ->where('perNumero', 3);
+        })
+        ->whereHas('alumno.persona', static function ($query) use ($apellidos_combinaciones) {
+          $sql = DB::raw("CONCAT(perApellido1,' ',perApellido2)");
+          $query->whereIn($sql, $apellidos_combinaciones);
+        })
+        ->whereNotIn('alumno_id', $this->alumnos->pluck('alumno_id'))
+        ->oldest('curFechaRegistro')
+        ->chunk(100, function ($cursos) {
+
+          if ($cursos->isEmpty()) return false;
+          $this->mapear_cursos($cursos);
+        });
+    }
   }
 
 
   /**
-  * @param Collection
-  */
-  private function mapear_cursos($cursos) 
+   * @param Collection
+   */
+  private function mapear_cursos($cursos)
   {
-    $cursos->each(function($curso) {
+    $cursos->each(function ($curso) {
       $alumno = self::obtener_info_alumno($curso);
       $this->alumnos->push($alumno);
     });
@@ -209,8 +301,8 @@ class AlumnosBecadosController extends Controller
 
 
   /**
-  * @param App\Models\Curso
-  */
+   * @param App\Models\Curso
+   */
   private static function obtener_info_alumno($curso)
   {
     $cgt = $curso->cgt;
@@ -229,21 +321,21 @@ class AlumnosBecadosController extends Controller
       'grupo' => $cgt->cgtGrupo,
       'curEstado' => $curso->curEstado,
       'curTipoBeca' => $curso->curTipoBeca,
-      'curPorcentajeBeca' => $curso->curPorcentajeBeca ? $curso->curPorcentajeBeca.'%' : '',
+      'curPorcentajeBeca' => $curso->curPorcentajeBeca ? $curso->curPorcentajeBeca . '%' : '',
       'curObservacionesBeca' => $curso->curObservacionesBeca,
-      'programa_grado_grupo' => $programa->progClave.'-'.MetodosCgt::stringOrden($cgt->cgtGradoSemestre, $cgt->cgtGrupo),
+      'programa_grado_grupo' => $programa->progClave . '-' . MetodosCgt::stringOrden($cgt->cgtGradoSemestre, $cgt->cgtGrupo),
     ]);
   }
 
 
   /**
-  * - Solo deja alumnos que tengan posibles hermanos
-  */
+   * - Solo deja alumnos que tengan posibles hermanos
+   */
   private function filtrar_solo_hermanos()
   {
-    $this->alumnos = $this->alumnos->groupBy(static function($alumno) {
+    $this->alumnos = $this->alumnos->groupBy(static function ($alumno) {
       return $alumno['apellidos_filtrados'][0]; #apellidos sin tildes.
-    })->filter(static function($coincidencias_apellidos) {
+    })->filter(static function ($coincidencias_apellidos) {
       return $coincidencias_apellidos->count() > 1;
     })->flatten(1)->keyBy('alumno_id');
   }
@@ -251,52 +343,63 @@ class AlumnosBecadosController extends Controller
 
 
   /**
-  * @param string
-  */
-  private function obtener_cursos_ids($promedio_de_curso = null)
+   * @param string
+   */
+  private function obtener_cursos_ids($promedio_de_curso = null, $depClave)
   {
-    return $promedio_de_curso 
-        ? $this->alumnos->pluck('curso_id') 
-        : self::buscarCursosAnteriores($this->alumnos, $this->perAnioPago - 1);
+    return $promedio_de_curso
+      ? $this->alumnos->pluck('curso_id')
+      : self::buscarCursosAnteriores($this->alumnos, $this->perAnioPago - 1, $depClave);
   }
 
 
 
   /**
-  * @param Collection
-  */
-  private function buscarCursosAnteriores($alumnos, $perAnioPago)
+   * @param Collection
+   */
+  private function buscarCursosAnteriores($alumnos, $perAnioPago, $depClave)
   {
-    return Curso::whereIn('alumno_id', $alumnos->pluck('alumno_id'))
-    ->whereHas('periodo', static function($query) use ($perAnioPago) {
-      $query->where('perNumero', 1)
-      ->where('perAnioPago', $perAnioPago);
-    })
-    ->oldest('curFechaRegistro')->pluck('id', 'alumno_id');
+
+    if ($depClave == "MAT" || $depClave == "PRE" || $depClave == "PRI" || $depClave == "SEC") {
+      return Curso::whereIn('alumno_id', $alumnos->pluck('alumno_id'))
+        ->whereHas('periodo', static function ($query) use ($perAnioPago) {
+          $query->whereIn('perNumero', [0, 1])
+            ->where('perAnioPago', $perAnioPago);
+        })
+        ->oldest('curFechaRegistro')->pluck('id', 'alumno_id');
+    } else {
+      // para BAC y UNI
+      return Curso::whereIn('alumno_id', $alumnos->pluck('alumno_id'))
+        ->whereHas('periodo', static function ($query) use ($perAnioPago) {
+          $query->where('perNumero', 1)
+            ->where('perAnioPago', $perAnioPago);
+        })
+        ->oldest('curFechaRegistro')->pluck('id', 'alumno_id');
+    }
   }
 
 
   /**
-  * @param array
-  */
+   * @param array
+   */
   private function buscar_promedios($cursos_ids)
   {
     return Calificacion::with('inscrito.curso')
-    ->whereHas('inscrito.curso', static function($query) use ($cursos_ids) {
-      $query->whereIn('curso_id', $cursos_ids);
-    })
-    ->whereHas('inscrito.grupo.materia', static function($query) {
-      $query->where('matTipoAcreditacion', 'N');
-    })->get()->pluck('incsCalificacionFinal', 'inscrito.curso.alumno_id');
+      ->whereHas('inscrito.curso', static function ($query) use ($cursos_ids) {
+        $query->whereIn('curso_id', $cursos_ids);
+      })
+      ->whereHas('inscrito.grupo.materia', static function ($query) {
+        $query->where('matTipoAcreditacion', 'N');
+      })->get()->pluck('incsCalificacionFinal', 'inscrito.curso.alumno_id');
   }
 
 
   /**
-  * @param array
-  */
+   * @param array
+   */
   private function agregarPromedioPorAlumno($promedios)
   {
-    $this->alumnos->each(static function($alumno, $alumno_id) use ($promedios) {
+    $this->alumnos->each(static function ($alumno, $alumno_id) use ($promedios) {
       $promedio = $promedios->pull($alumno_id);
       $alumno->put('promedio', $promedio);
     });
@@ -304,16 +407,14 @@ class AlumnosBecadosController extends Controller
 
 
   /**
-  * @param string
-  */
+   * @param string
+   */
   private function definir_orden_agrupacion($validar_hermanos = null)
   {
-    $this->alumnos = $this->alumnos->sortBy(static function($alumno) use ($validar_hermanos) {
+    $this->alumnos = $this->alumnos->sortBy(static function ($alumno) use ($validar_hermanos) {
       return $validar_hermanos ? $alumno['apellidos_filtrados'][0] : $alumno['programa_grado_grupo'];
-    })->groupBy(static function($alumno) use ($validar_hermanos) {
+    })->groupBy(static function ($alumno) use ($validar_hermanos) {
       return $validar_hermanos ? $alumno['apellidos_filtrados'][0] : $alumno['programa_grado_grupo'];
     })->sortKeys();
   }
-
-
 }

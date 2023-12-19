@@ -39,7 +39,7 @@ class NotificacionReprobadosParciales
 	{
 		$this->mail = new Mailer([
 			'username_email' => 'parciales@modelo.edu.mx', // 'parciales@unimodelo.com',
-			'password_email' => 'tF8R4ssEWp', // 'JYtbj678',
+			'password_email' => '2TvgO5jB5iqk', // 'tF8R4ssEWp', // 'JYtbj678',
 			'to_email' => 'luislara@modelo.edu.mx',
 			'to_name' => '',
 			'cc_email' => '',
@@ -56,7 +56,7 @@ class NotificacionReprobadosParciales
 			$this->mail->agregar_destinatario($director->empCorreo1);
 		if($coordinador && $coordinador->empCorreo1)
 			$this->mail->agregar_destinatario($coordinador->empCorreo1);
-		
+
 		$this->mail->enviar();
 	}
 
@@ -65,7 +65,7 @@ class NotificacionReprobadosParciales
 	*/
 	private function armar_mensaje_reprobados_parciales()
 	{
-		$usuario = auth()->user(); 
+		$usuario = auth()->user();
 		$nombre_empleado = $usuario->empleado->persona->nombreCompleto();
 
 		return "<p>{$nombre_empleado} ({$usuario->username}) ha capturado calificaciones y aparecen alumnos reprobados: </p>

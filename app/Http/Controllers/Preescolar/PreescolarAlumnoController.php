@@ -259,9 +259,9 @@ class PreescolarAlumnoController extends Controller
                         '" data-aluClave="' . $query->aluClave . '" data-alumno-id="'.$query->alumno_id.'" class="modal-trigger btn-modal-historial-pagos-preescolar button button--icon js-button js-ripple-effect" title="Historial Pagos">
                         <i class="material-icons">attach_money</i>
                     </a>';
-                    
+
                 if (User::permiso("alumno") == "A" || User::permiso("alumno") == "B" || User::permiso("alumno") == "C") {
-                    
+
 
                     $btnAlumnoPagos = '';
                 }
@@ -307,13 +307,13 @@ class PreescolarAlumnoController extends Controller
             'nuevo_password.required'        => 'La contraseña nueva es requerida.',
             'nuevo_confirmPassword.required' => 'La contraseña de verificación es requerida.'
         ]);
-  
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator);
         }
 
         DB::update("UPDATE users_alumnos SET password='".$request->nuevo_password."' WHERE id=$alumno->user_id");
-        
+
         alert('Escuela Modelo', 'Contraseña guardada correctamente', 'success')->showConfirmButton();
         return redirect()->back();
     }
@@ -520,7 +520,7 @@ class PreescolarAlumnoController extends Controller
 
         $fechaActual = Carbon::now('CDT')->format('Y-m-d');
         $esCurpValida = "accepted";
-        $perCurpValida = 'required|max:18|unique:personas,deleted_at,NULL';
+        $perCurpValida = 'required|max:18|unique:personas,perCurp,NULL,deleted_at'; //esta validacion me esta marcando error
         if ($request->paisId != "1") {
             $esCurpValida = "";
             $perCurpValida  = 'max:18';
@@ -664,19 +664,19 @@ class PreescolarAlumnoController extends Controller
 
 
 
-            
+
             // * Si existen tutores, se realiza la vinculación a este alumno.
-                
+
             if ($request->tutores) {
                 $tutores = $request->tutores;
                 $dataTutores = collect([]);
                 foreach ($tutores as $key => $tutor) {
                     $tutor = explode('~', $tutor);
-                    
+
                     $tutNombre = $tutor[0];
                     $tutTelefono = $tutor[1];
 
-                   
+
                     $tutor = Tutor::where('tutNombre', 'like', '%' . $tutNombre . '%')
                         ->where('tutTelefono', $tutTelefono)->first();
                     if ($tutor) {
@@ -797,7 +797,7 @@ class PreescolarAlumnoController extends Controller
         ->where('preescolar_alumnos_historia_clinica.alumno_id', $id)
         ->first();
 
-        // Validamos que la consulta no este vacia 
+        // Validamos que la consulta no este vacia
         if($expediente != ""){
             $personaAutorizada1 = $expediente->famAutorizado1;
             $personaAutorizada2 = $expediente->famAutorizado2;

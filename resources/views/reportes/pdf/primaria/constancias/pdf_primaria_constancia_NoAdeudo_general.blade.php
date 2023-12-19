@@ -483,6 +483,12 @@
       .bordered {
         border:1px solid #000;
       }
+
+      .fotoAlumno{
+        width: 2.5cm;
+        height: 3cm;
+        margin-left: -3.1cm;
+      }
     </style>
 	</head>
   
@@ -519,19 +525,19 @@
               <div class="columns medium-12">
                 <p class="tright">{{$fechaHoy}}</p>
                 <br>
-                <p class="tright">ASUNTO: CONST. DE NO ADEUDO</p>
+                <p class="tright"><b>ASUNTO</b>: CONST. DE NO ADEUDO</p>
                 <br>
                 <br>
                 <br>
                 <br>
       
                 <br>
-                <p>A QUIEN CORRESPONDA:</p>
+                <p>A quien corresponda:</p>
                 @if ($incluyeFoto == "SI")
                   @if ($item->curPrimariaFoto != "")          
                     @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus .'/'. $item->curPrimariaFoto)))
               
-                      <p><img style="width:65px; float: left; margin-top: 55px; margin-left: -2.7cm;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus. '/' . $item->curPrimariaFoto) }}"></p>
+                      <p><img class="fotoAlumno" style="float: left; margin-top: 55px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus. '/' . $item->curPrimariaFoto) }}"></p>
                     @endif
                   @endif
                 @endif
@@ -542,12 +548,12 @@
                 <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
                   La que suscribe, 
                   @if ($ubicacion == "CME")
-                  Profra. María Trinidad Díaz Cervera,
+                  MAOE. María Trinidad Díaz Cervera,
                   @endif
                   @if ($ubicacion == "CVA")
                   Mtra. Arely Martinez Díaz,
                   @endif
-                  directora de la Escuela Primaria Incorporada “Modelo” establecida en esta ciudad HACE CONSTAR:
+                  directora de la Escuela Primaria Modelo con clave {{ $item->depClaveOficial }} establecida en esta ciudad, HACE CONSTAR:
                 </p>
                 <br>
                 <br>
@@ -557,8 +563,9 @@
                 <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
                   @if($item->perSexo == "F") Que la niña @endif 
                   @if($item->perSexo == "M") Que el niño @endif
-                  <strong>{{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}}</strong> @if($item->perSexo == "F") fue alumna @endif @if($item->perSexo == "M") fue alumno @endif regular de este plantel, en el {{$grado}} GRUPO “{{$parametro_grupo}}”, 
-                  en el curso escolar {{$periodo}} y durante el tiempo que estudió en este plantel ha  estado  al corriente en sus pagos por lo que <b>NO ADEUDA</b>.
+                  <strong>{{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}}</strong> @if($item->perSexo == "F") fue alumna @endif @if($item->perSexo == "M") fue alumno @endif regular del {{$grado}}, GRUPO “{{$parametro_grupo}}” 
+                  en el curso escolar {{$periodo}} y, durante el
+                  tiempo que estudió en éste, estuvo al corriente en el pago de sus colegiaturas, por lo que <b>NO ADEUDA</b>.
                 </p>
       
                 <br>
@@ -566,12 +573,12 @@
                 <br>
       
                 <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-                  Y a pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día de hoy, en la ciudad de Mérida Yucatán, México.
+                  A pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día de hoy en la ciudad de @if ($ubicacion == "CVA") Valladolid, @endif @if ($ubicacion == "CME") Mérida, @endif Yucatán, México.
                 </p>
               </div>
             </div>
   
-            <br><br><br><br><br><br><br><br><br>      <br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   
             <div class="row">
               <div class="columns medium-12">
@@ -579,9 +586,9 @@
                 <p class="tcenter"><b>ATENTAMENTE</b></p>
                 <br><br>
                 @if ($ubicacion == "CME")
-                <p class="tcenter"><b>PROFRA. MARÍA TRINIDAD DÍAZ CERVERA.</b></p>
+                <p class="tcenter"><b>MAOE. MARÍA TRINIDAD DÍAZ CERVERA</b></p>
                 @else
-                <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ.</b></p>
+                <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ</b></p>
                 @endif
                 <p class="tcenter"><b>DIRECTORA</b></p>
               

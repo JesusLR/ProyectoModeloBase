@@ -596,6 +596,12 @@
     .bordered {
       border: 1px solid #000;
     }
+
+    .fotoAlumno{
+      width: 2.5cm;
+      height: 3cm;
+      margin-left: -3.1cm;
+    }
   </style>
 </head>
 
@@ -632,7 +638,7 @@
           @if ($item->curPrimariaFoto != "")          
             @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus .'/'. $item->curPrimariaFoto)))
       
-              <p><img style="width:65px; float: left; margin-top: 165px; margin-left: -2.7cm;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus. '/' . $item->curPrimariaFoto) }}"></p>
+              <p><img class="fotoAlumno" style="float: left; margin-top: 165px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus. '/' . $item->curPrimariaFoto) }}"></p>
             @endif
           @endif
         @endif
@@ -666,13 +672,12 @@
         <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
           La que suscribe, 
           @if ($parametro_ubicacion == "CME")
-          MAOE. María Trinidad Díaz Cervera 
+          MAOE. María Trinidad Díaz Cervera, 
           @endif
           @if ($parametro_ubicacion == "CVA")
-          Mtra. Arely Martinez Díaz
+          Mtra. Arely Martinez Díaz,
           @endif
-          directora de la Escuela Primaria Incorporada “Modelo”
-          establecida en esta ciudad HACE CONSTAR:
+          directora de la Escuela Primaria Modelo con clave {{ $item->depClaveOficial }} establecida en esta ciudad, HACE CONSTAR:
         </p>
         <br>
         <br>
@@ -682,7 +687,7 @@
           
           Que el niño @endif <b>{{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}}</b>@if ($item->perSexo == "F") es alumna @endif
           @if ($item->perSexo == "M")es alumno @endif regular de este
-          plantel,  @if ($item->perSexo == "M") inscrito @else inscrita @endif a {{$grado}} GRUPO 
+          plantel,  @if ($item->perSexo == "M") inscrito @else inscrita @endif a {{$grado}}, GRUPO 
           @php
             $resultado_array =  DB::select("call procPrimariaObtieneGrupoCurso(" . $item->id . ")");       
 
@@ -697,9 +702,7 @@
           @endphp
           
           “{{$parametro_grupo}}”,
-          del ciclo escolar {{$periodo}},
-          durante el tiempo que ha estudiado en este plantel, se ha observado buena conducta, así como con el cumplimiento del reglamento de la escuela.
-          de la escuela.
+          del ciclo escolar {{$periodo}}.
         </p>
 
         <br>
@@ -708,7 +711,7 @@
 
         <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
           Y a pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día
-          de hoy, en la ciudad de @if ($parametro_ubicacion == "CME") Mérida, @else Valladolid, @endif Yucatán, México.
+          de hoy en la ciudad de @if ($parametro_ubicacion == "CME") Mérida, @else Valladolid, @endif Yucatán, México.
         </p>
       </div>
     </div>
@@ -726,9 +729,9 @@
         <p class="tcenter"><b>A T E N T A M E N T E</b></p>
         <br><br><br><br>
         @if ($parametro_ubicacion == "CME")
-        <p class="tcenter"><b>MAOE. MARÍA TRINIDAD DÍAZ CERVERA.</b></p>
+        <p class="tcenter"><b>MAOE. MARÍA TRINIDAD DÍAZ CERVERA</b></p>
         @else
-        <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ.</b></p>
+        <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ</b></p>
         @endif
         
         <p class="tcenter"><b>DIRECTORA</b></p>

@@ -16,6 +16,7 @@ use App\Models\Horario;
 use App\Models\Periodo;
 use App\Models\Departamento;
 use App\Models\Plan;
+use App\Models\Optativa;
 use App\Models\Preescolar\Preescolar_grupo;
 use App\Models\Preescolar\Preescolar_materia;
 use App\Models\Programa;
@@ -386,7 +387,7 @@ class PreescolarGrupoController extends Controller
 
         $cgts = Cgt::where([['plan_id', $grupo->plan_id],['periodo_id', $grupo->periodo_id]])->get();
         $materias = Preescolar_materia::where([['plan_id', '=', $grupo->plan_id],['matSemestre', '=', $grupo->gpoGrado]])->get();
-        // $optativas = Optativa::where('materia_id', '=', $grupo->materia_id)->get();
+        $optativas = Optativa::where('materia_id', '=', $grupo->materia_id)->get();
 
 
 

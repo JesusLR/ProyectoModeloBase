@@ -475,6 +475,15 @@
           page-break-after: always;
       }
 
+      .img-foto{
+        border: 2px solid #0e2e42;
+        position: absolute;
+        background: orange;        
+        height: 100px;
+        right: 76px;
+        top: -117px;
+      }
+
     </style>
 	</head>
   <body>
@@ -490,6 +499,7 @@
               <h3 style="margin-top:0px; margin-bottom: 0px; text-align: center;">ESCUELA MODELO</h3>
               <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">{{$cicloEscolar}}</h4>
               <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">REPORTE DE LOS AVANCES DE APROVECHAMIENTO DEL ALUMNO(A)</h4>
+              
           </div>
       </div>
   </header>
@@ -499,6 +509,19 @@
     </div>
 </footer>
 @foreach ($cursos_grupo as $itemCurso)
+
+  @if ($itemCurso->curPreescolarFoto != "")
+
+  @if (file_exists(base_path('storage/app/public/preescolar/cursos/fotos/' . $itemCurso->perAnioPago . '/' . $campus .'/'. $itemCurso->curPreescolarFoto)))
+  <img class="img-foto" style="" src="{{base_path('storage/app/public/preescolar/cursos/fotos/' . $itemCurso->perAnioPago . '/' . $campus .'/'. $itemCurso->curPreescolarFoto) }}" alt="">
+
+  @else
+    <img class="img-foto"  src="" alt="">    
+  @endif
+
+  @else
+  <img class="img-foto"  src="" alt="">    
+  @endif
   <div class="row" >
       <h4 style="margin-top:0px; margin-bottom: 5px; text-align: left;">{{$kinderGradoTrimestre}}</h4>
       <p style="width:100%; text-align: left; border-style: solid;">Nombre del alumno(a): <strong>{{$itemCurso->perNombre}} {{$itemCurso->perApellido1}} {{$itemCurso->perApellido2}}</strong></p>
