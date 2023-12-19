@@ -284,6 +284,12 @@
                 @if(auth()->user()->isAdmin('cibies_reincorporados'))
                     <option value="{{ url('reporte/cibies_reincorporados') }}" {{ url()->current() ==  url('reporte/cibies_reincorporados') ? "selected": "" }}>CIBIES Reincorporados</option>
                 @endif
+                @if(auth()->user()->isAdmin('cibies_nuevo_ingreso'))
+                <option value="{{ url('reporte/cibies_sustentantes') }}" {{ url()->current() ==  url('reporte/cibies_sustentantes') ? "selected": "" }}>CIBIES Sustentantes</option>
+                @endif
+                @if(auth()->user()->isAdmin('cibies_nuevo_ingreso'))
+                <option value="{{ url('reporte/cibies_datos') }}" {{ url()->current() ==  url('reporte/cibies_datos') ? "selected": "" }}>CIBIES Datos</option>
+                @endif
                 <option value="{{ url('reporte/resumen_inscritos') }}" {{ url()->current() ==  url('reporte/resumen_inscritos') ? "selected": "" }}>Resumen Inscritos SUP</option>
                 <option value="{{ url('reporte/listas_para_estadisticas') }}" {{ url()->current() ==  url('reporte/listas_para_estadisticas') ? "selected": "" }}>Listas de alumnos</option>
                 <option value="{{ url('reporte/estadistica_estatal_licenciatura') }}" {{ url()->current() ==  url('reporte/estadistica_estatal_licenciatura') ? "selected": "" }}>Estatales de Licenciatura</option>

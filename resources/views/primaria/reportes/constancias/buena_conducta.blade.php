@@ -162,7 +162,7 @@
 {{--  @include('secundaria.scripts.funcionesAuxiliares')  --}}
 @include('primaria.scripts.preferencias')
 @include('primaria.scripts.departamentos')
-@include('primaria.scripts.escuelas')
+@include('primaria.scripts.escuelas_todos')
 @include('primaria.scripts.programas')
 @include('primaria.scripts.planes')
 @include('primaria.scripts.periodos')

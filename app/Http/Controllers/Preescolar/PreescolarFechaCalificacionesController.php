@@ -174,7 +174,7 @@ class PreescolarFechaCalificacionesController extends Controller
                 }
 
 
-                // validaciones para el trimestre 1 
+                // validaciones para el trimestre 1
                 if ($trimestre1_docente_inicio >= $periodo->perFechaInicial && $trimestre1_docente_inicio <= $periodo->perFechaFinal) {
                     if ($trimestre1_docente_fin > $trimestre1_docente_inicio) {
                         if ($trimestre1_administrativo_edicion > $trimestre1_docente_inicio && $trimestre1_administrativo_edicion < $periodo->perFechaFinal && $trimestre1_administrativo_edicion > $trimestre1_docente_fin) {
@@ -198,7 +198,7 @@ class PreescolarFechaCalificacionesController extends Controller
                 }
 
 
-                // validaciones para el trimestre 2 
+                // validaciones para el trimestre 2
                 if ($trimestre2_docente_inicio > $trimestre1_alumnos_publicacion) {
                     if ($trimestre2_docente_inicio >= $periodo->perFechaInicial && $trimestre2_docente_inicio <= $periodo->perFechaFinal) {
                         if ($trimestre2_docente_fin > $trimestre2_docente_inicio) {
@@ -278,7 +278,7 @@ class PreescolarFechaCalificacionesController extends Controller
                 }
                 // else {
 
-                //     // validaciones para el trimestre 1 
+                //     // validaciones para el trimestre 1
                 //     if ($trimestre1_docente_inicio > $periodo->perFechaInicial && $trimestre1_docente_inicio < $periodo->perFechaFinal) {
                 //         if ($trimestre1_docente_fin > $trimestre1_docente_inicio) {
                 //             if ($trimestre1_administrativo_edicion > $trimestre1_docente_inicio && $trimestre1_administrativo_edicion < $trimestre1_docente_fin) {
@@ -302,7 +302,7 @@ class PreescolarFechaCalificacionesController extends Controller
                 //     }
 
 
-                //     // validaciones para el trimestre 2 
+                //     // validaciones para el trimestre 2
                 //     if ($trimestre2_docente_inicio > $trimestre1_docente_fin || $trimestre2_docente_fin < $periodo->perFechaFinal) {
                 //         if ($trimestre2_docente_fin > $trimestre2_docente_inicio) {
                 //             if ($trimestre2_administrativo_edicion > $trimestre2_docente_inicio && $trimestre2_administrativo_edicion < $trimestre2_docente_fin) {
@@ -326,7 +326,7 @@ class PreescolarFechaCalificacionesController extends Controller
                 //     }
 
 
-                //     // validaciones para el trimestre  
+                //     // validaciones para el trimestre
                 //     if ($trimestre3_docente_inicio > $trimestre2_docente_fin) {
                 //         if ($trimestre3_docente_fin > $trimestre3_docente_inicio || $trimestre3_docente_fin < $periodo->perFechaFinal) {
                 //             if ($trimestre3_administrativo_edicion > $trimestre3_docente_inicio && $trimestre3_administrativo_edicion < $trimestre3_docente_fin) {
@@ -432,7 +432,7 @@ class PreescolarFechaCalificacionesController extends Controller
             ->join('departamentos', 'escuelas.departamento_id', '=', 'departamentos.id')
             ->join('ubicacion', 'departamentos.ubicacion_id', '=', 'ubicacion.id')
             ->findOrFail($id);
-
+            // dd($preescolar_calificaciones_fechas);
         return view('preescolar.fechas_calificaciones.edit', [
             "preescolar_calificaciones_fechas" => $preescolar_calificaciones_fechas
         ]);
@@ -480,7 +480,7 @@ class PreescolarFechaCalificacionesController extends Controller
 
                 if($exist != ""){
                     if ($exist->id == $id) {
-                        // validaciones para el trimestre 1 
+                        // validaciones para el trimestre 1
                         if ($trimestre1_docente_inicio >= $periodo->perFechaInicial && $trimestre1_docente_inicio <= $periodo->perFechaFinal) {
                             if ($trimestre1_docente_fin > $trimestre1_docente_inicio) {
                                 if ($trimestre1_administrativo_edicion > $trimestre1_docente_inicio && $trimestre1_administrativo_edicion < $periodo->perFechaFinal && $trimestre1_administrativo_edicion > $trimestre1_docente_fin) {
@@ -502,9 +502,9 @@ class PreescolarFechaCalificacionesController extends Controller
                             alert('Escuela Modelo', 'La fecha de inicio del trimestre 1 no puede ser menor a la fecha de inicio del período seleccionado ni mayor a la fecha de fin del período seleccionado', 'warning')->showConfirmButton();
                             return redirect('preescolar_fecha_de_calificaciones/' . $id . '/edit')->withErrors($validator)->withInput();
                         }
-    
-    
-                        // validaciones para el trimestre 2 
+
+
+                        // validaciones para el trimestre 2
                         if ($trimestre2_docente_inicio > $trimestre1_alumnos_publicacion) {
                             if ($trimestre2_docente_inicio >= $periodo->perFechaInicial && $trimestre2_docente_inicio <= $periodo->perFechaFinal) {
                                 if ($trimestre2_docente_fin > $trimestre2_docente_inicio) {
@@ -531,8 +531,8 @@ class PreescolarFechaCalificacionesController extends Controller
                             alert('Escuela Modelo', 'La fecha de inicio del trimestre 2 debe ser mayor a la fecha de publición del trimestre 1', 'warning')->showConfirmButton();
                             return redirect('preescolar_fecha_de_calificaciones/' . $id . '/edit')->withErrors($validator)->withInput();
                         }
-    
-    
+
+
                         if ($trimestre3_docente_inicio > $trimestre1_alumnos_publicacion && $trimestre3_docente_inicio > $trimestre2_alumnos_publicacion) {
                             if ($trimestre3_docente_inicio >= $periodo->perFechaInicial && $trimestre3_docente_inicio <= $periodo->perFechaFinal) {
                                 if ($trimestre3_docente_fin > $trimestre3_docente_inicio) {
@@ -559,7 +559,7 @@ class PreescolarFechaCalificacionesController extends Controller
                             alert('Escuela Modelo', 'La fecha de inicio del trimestre 3 debe ser mayor a la fecha de publición del trimestre 1 y 2', 'warning')->showConfirmButton();
                             return redirect('preescolar_fecha_de_calificaciones/' . $id . '/edit')->withErrors($validator)->withInput();
                         }
-    
+
                         if ($trimestreUno = "Todo Bien" && $trimestreDos = "Todo Bien" && $trimestreTres = "Todo Bien") {
                             $preescolar_calificaciones_fechas->update([
                                 'plan_id' => $plan_id,
@@ -588,7 +588,7 @@ class PreescolarFechaCalificacionesController extends Controller
                         }
                     }
                 }else{
-                    // validaciones para el trimestre 1 
+                    // validaciones para el trimestre 1
                     if ($trimestre1_docente_inicio >= $periodo->perFechaInicial && $trimestre1_docente_inicio <= $periodo->perFechaFinal) {
                         if ($trimestre1_docente_fin > $trimestre1_docente_inicio) {
                             if ($trimestre1_administrativo_edicion > $trimestre1_docente_inicio && $trimestre1_administrativo_edicion < $periodo->perFechaFinal && $trimestre1_administrativo_edicion > $trimestre1_docente_fin) {
@@ -612,7 +612,7 @@ class PreescolarFechaCalificacionesController extends Controller
                     }
 
 
-                    // validaciones para el trimestre 2 
+                    // validaciones para el trimestre 2
                     if ($trimestre2_docente_inicio > $trimestre1_alumnos_publicacion) {
                         if ($trimestre2_docente_inicio >= $periodo->perFechaInicial && $trimestre2_docente_inicio <= $periodo->perFechaFinal) {
                             if ($trimestre2_docente_fin > $trimestre2_docente_inicio) {
@@ -691,7 +691,7 @@ class PreescolarFechaCalificacionesController extends Controller
                     }
                 }
 
-                
+
 
 
 
@@ -756,7 +756,7 @@ class PreescolarFechaCalificacionesController extends Controller
             ->join('departamentos', 'escuelas.departamento_id', '=', 'departamentos.id')
             ->join('ubicacion', 'departamentos.ubicacion_id', '=', 'ubicacion.id')
             ->findOrFail($id);
-
+            dd($preescolar_calificaciones_fechas);
         return view('preescolar.fechas_calificaciones.show', [
             "preescolar_calificaciones_fechas" => $preescolar_calificaciones_fechas
         ]);

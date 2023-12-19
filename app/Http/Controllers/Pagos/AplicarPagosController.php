@@ -254,7 +254,7 @@ class AplicarPagosController extends Controller
         }
 
         $this->enviarNotificacion('flopezh@modelo.edu.mx', 'Francisco Lopez', $pago, $cambioFormaAplico);
-        
+
     } catch (QueryException $e) {
       $errorCode = $e->errorInfo[1];
       $errorMessage = $e->errorInfo[2];
@@ -504,10 +504,10 @@ class AplicarPagosController extends Controller
   * @param App\Models\Pago $pago
   * @param boolean $cambioFormaAplico
   */
-  public function enviarNotificacion($correo, $nombre_destinatario, $pago, $cambioFormaAplico) 
+  public function enviarNotificacion($correo, $nombre_destinatario, $pago, $cambioFormaAplico)
   {
     $info['username_email'] = 'cobranza@modelo.edu.mx'; // 'cobranza@unimodelo.com';
-    $info['password_email'] = 'cFULf33Qvk'; // 'GKxwm788';
+    $info['password_email'] = 'l6Ik38NruWSc'; // 'cFULf33Qvk'; // 'GKxwm788';
     $info['to_email'] = $correo;
     $info['to_name'] = $nombre_destinatario;
     $info['cc_email'] = "";

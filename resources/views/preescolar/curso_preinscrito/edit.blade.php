@@ -164,7 +164,31 @@
                             <option value="N" @if($curso->curOpcionTitulo == "N") {{ 'selected' }} @endif>NO</option>
                         </select>
                     </div>
+                    
+                    <div class="row">
 
+                        <div class="col s12 m6 l8">
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                <span>Foto del Curso (.jpg)</span>
+                                <input value="" type="file" name="curPreescolarFoto">
+                                </div>
+                                <div class="file-path-wrapper">
+                                <input class="file-path validate"  type="text">
+                                </div>
+                            </div>
+                            @if ($curso->curPreescolarFoto)
+                                <img style="width:200px;" src="{{url('/preescolar_curso_images/' . $curso->curPreescolarFoto . '/' . $perAnioPago.'/'.$campus) }}" alt="">
+                            @endif
+                        </div>
+                        <div class="col s12 m6 l4" style="visibility: hidden;">
+                            <div class="input-field">
+                                {!! Form::number('curExani', $curso->curExani, ['id' => 'curExani','', 'min' => '0', 'max' => '1300']) !!}
+                                {!! Form::label('curExani', 'Resultado Calificación Exani', ['class' => '']); !!}
+                            </div>
+                        </div>
+    
+                    </div>
                 </div>
 
                 <div class="row" style="display: none">

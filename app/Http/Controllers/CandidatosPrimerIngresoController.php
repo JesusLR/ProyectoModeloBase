@@ -81,7 +81,7 @@ class CandidatosPrimerIngresoController extends Controller
                 return '<a href="candidatos_primer_ingreso/' . $query->id . '" class="button button--icon js-button js-ripple-effect" title="Ver">
                     <i class="material-icons">visibility</i>
                 </a>
-                
+
                 <a href="candidatos_primer_ingreso/cancel/' . $query->id . '" class="button button--icon js-button js-ripple-effect" title="Cancelar estado del candidato">
                     <i class="material-icons">cancel</i>
                 </a>';
@@ -327,7 +327,7 @@ class CandidatosPrimerIngresoController extends Controller
                 : "";
 
 
-                
+
                 $existePersona = Persona::where("perApellido1", "=", $request->perApellido1)
                     ->where("perApellido2", "=", $request->perApellido2)
                     ->where("perNombre", "like", '%'.$request->perNombre.'%')
@@ -386,7 +386,7 @@ class CandidatosPrimerIngresoController extends Controller
                     $mail->Host =  'smtp.office365.com'; //'mail.unimodelo.com';           // Specify main and backup SMTP servers
                     $mail->SMTPAuth = true;                       // Enable SMTP authentication
                     $mail->Username = 'candidatos@modelo.edu.mx'; //'mail.unimodelo.com'; // 'candidatos@modelo.edu.mx'; // SMTP username
-                    $mail->Password = 'Tuv72389';                 // SMTP password
+                    $mail->Password = 'N3tE3LM9Wyl2';                 // SMTP password
                     $mail->SMTPSecure = 'tls'; //'ssl';                    // Enable TLS encryption, `ssl` also accepted
                     $mail->Port = 587; // 465;                            // TCP port to connect to
                     $mail->setFrom('candidatos@modelo.edu.mx', 'Universidad Modelo');
@@ -401,7 +401,7 @@ class CandidatosPrimerIngresoController extends Controller
                         . " " . $request->input('perApellido1')
                         . " ". $request->input('perApellido2');
 
-                    
+
                     $msgExistePersona = "";
                     if ($existePersona) {
                         $msgExistePersona = '<p><b>El nombre completo o curp del candidato ya se encuentra registrado '.
@@ -473,7 +473,7 @@ class CandidatosPrimerIngresoController extends Controller
             $existeAlumno = Alumno::where('persona_id', $existeNombre->id)->first();
             $datoEmpleado = $existeEmpleado ? "\nNo. Empleado: {$existeEmpleado->id}" : "";
             $datoAlumno = $existeAlumno ? "\nClave de Pago: {$existeAlumno->aluClave}" : "";
-            
+
             $mensaje = "El nombre y apellidos existen en nuestra base de datos, pero no es posible verificar automáticamente debido a falta de datos. Favor de verificar que exista el alumno o empleado. \n{$datoEmpleado} {$datoAlumno}";
             $disabled = 'disabled';
             return view('candidatos.show',compact('candidato', 'municipio', 'preparatoriaProcedencia', 'mensaje', 'disabled'));

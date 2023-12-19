@@ -628,7 +628,7 @@
     @php
         $pos = 0;
         use App\Http\Helpers\Utils;
-        use App\Models\Bachiller\Bachiller_grupos;
+        use App\Http\Models\Bachiller\Bachiller_grupos;
 
         
     @endphp

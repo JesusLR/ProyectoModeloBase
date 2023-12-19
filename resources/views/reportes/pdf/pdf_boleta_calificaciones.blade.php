@@ -555,7 +555,11 @@
               <th align="center" style=" width: 200px;">ASIGNATURAS</th>
               <th align="center">Parc. 1 <br>Cal. Fal.</th>
               <th align="center">Parc. 2 <br>Cal. Fal.</th>
+              @if ($perAnioPago <= 2022)
               <th align="center">Parc. 3 <br>Cal. Fal.</th>
+              @else
+              <th align="center">Faltas <br> Ordinario</th>
+              @endif
               <th align="center">Prom. Parc.</th>
               <th align="center">Calif Ordi.</th>
               <th align="center">Calif Final</th>
@@ -597,6 +601,7 @@
                     @endif
                   </td>
 
+                  @if ($perAnioPago <= 2022)
                   <td align="center">
                     @if (es_reprobada($calificacion, 'inscCalificacionParcial3'))
                       <strong>{{mostrarCalificacion($calificacion, 'inscCalificacionParcial3')}}</strong>
@@ -607,6 +612,13 @@
                       {{mostrarFaltas($calificacion['inscFaltasParcial3'])}}
                     @endif
                   </td>
+                  @else
+                  <td align="center">
+                    @if(mostrarCalificacion($calificacion, 'inscCalificacionParcial3') || mostrarCalificacion($calificacion, 'inscCalificacionParcial3') == 0)
+                      {{mostrarFaltas($calificacion['inscFaltasParcial3'])}}
+                    @endif
+                  </td>
+                  @endif
 
                   <td align="center">
                     @if (es_reprobada($calificacion, 'inscCalificacionParcial3'))

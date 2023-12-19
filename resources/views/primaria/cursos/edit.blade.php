@@ -162,7 +162,7 @@
                             </div>
                         </div>
                         @if ($curso->curPrimariaFoto)
-                            <img style="width:200px;" src="{{url('/primaria_curso_images/' . $curso->curPrimariaFoto) }}" alt="">
+                                <img style="width:200px;" src="{{url('/primaria_curso_images/' . $curso->curPrimariaFoto . '/' . $perAnioPago.'/'.$campus) }}" alt="">
                         @endif
                     </div>
                     <div class="col s12 m6 l4" style="visibility: hidden;">

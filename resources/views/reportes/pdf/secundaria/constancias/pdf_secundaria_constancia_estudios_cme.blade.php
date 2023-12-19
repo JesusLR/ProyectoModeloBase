@@ -527,7 +527,7 @@
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
             {{$genero}} <b>{{$alumno}} con número de matrícula {{$clave}} </b>  {{$parametro_consideracion}} regular de este plantel, al {{$grado}} GRUPO “{{$grupo}}”, 
             del ciclo escolar {{$periodo}}, 
-            durante el tiempo que ha estudiado en este plantel, se ha observado buena conducta y cumplido con el reglamento de la escuela.
+            durante el tiempo que ha estudiado en este plantel, se ha observado buena conducta y cumplimiento del reglamento de la escuela.
           </p>
 
           <br>

@@ -234,7 +234,7 @@ class BachillerJustificacionesController extends Controller
             ]);
 
 
-            // retornamos a la view para obtener el id nuevo 
+            // retornamos a la view para obtener el id nuevo
             session()->flash('msg', $bachiller_pago_certificado->id);
             return redirect()->back()->with('success', 'El registro de pago de certificado se ha creado con éxito');
         } catch (QueryException $e) {
@@ -603,7 +603,7 @@ class BachillerJustificacionesController extends Controller
             ]);
 
 
-            // retornamos a la view para obtener el id nuevo 
+            // retornamos a la view para obtener el id nuevo
             session()->flash('msg', $id);
             return redirect()->back()->with('success', 'El registro de pago de certificado se ha actualizado con éxito');
         } catch (QueryException $e) {
@@ -632,11 +632,11 @@ class BachillerJustificacionesController extends Controller
             $bachiller_justificacion->update([
                 'jusEstado' => "NO"
             ]);
-            
-            
+
+
         }
 
-        
+
         alert('Escuela Modelo', 'El estado de la justificación se ha cambiado con éxito', 'success')->showConfirmButton();
         return back();
     }

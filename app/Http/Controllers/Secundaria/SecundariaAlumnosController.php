@@ -54,8 +54,8 @@ use PDF;
 
 class SecundariaAlumnosController extends Controller
 {
-   
-    
+
+
     /**
      * Create a new controller instance.
      *
@@ -303,13 +303,13 @@ class SecundariaAlumnosController extends Controller
             'nuevo_password.required'        => 'La contraseña nueva es requerida.',
             'nuevo_confirmPassword.required' => 'La contraseña de verificación es requerida.'
         ]);
-  
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator);
         }
 
         DB::update("UPDATE users_alumnos SET password='".$request->nuevo_password."' WHERE id=$alumno->user_id");
-        
+
         alert('Escuela Modelo', 'Contraseña guardada correctamente', 'success')->showConfirmButton();
         return redirect()->back();
     }
@@ -375,7 +375,7 @@ class SecundariaAlumnosController extends Controller
         if($request->ajax()){
             $alumnos = Alumno::with("persona")
                 ->where('aluEstado', '!=', 'B')
-                ->whereIn('aluEstado', ['E','R', 'N'])            
+                ->whereIn('aluEstado', ['E','R', 'N'])
                 ->whereHas('persona', function($query) use ($request) {
 
                     if($request->perApellido1){
@@ -389,12 +389,12 @@ class SecundariaAlumnosController extends Controller
                     if($request->perNombre){
                         $query->whereRaw("CONCAT(perNombre) like ?", ["%{$request->perNombre}%"]);
                     }
-                    
+
                 });
 
             if ($request->aluClave) {
                $alumnos = $alumnos->where('aluClave', '=', $request->aluClave);
-            } 
+            }
 
             $alumnos = $alumnos->get();
 
@@ -662,8 +662,8 @@ class SecundariaAlumnosController extends Controller
                 'sec_nombre_ex_escuela' => $request->sec_nombre_ex_escuela
             ]);
 
-            //Validamos si existe eb la tabla de historia clinica 
-            
+            //Validamos si existe eb la tabla de historia clinica
+
             $secundaria_alumnos_historia_clinica_consulta = Secundaria_alumnos_historia_clinica::where('alumno_id', '=', $alumno->id)->first();
             if ($secundaria_alumnos_historia_clinica_consulta === null) {
                 $secundaria_alumnos_historia_clinica = Secundaria_alumnos_historia_clinica::create([
@@ -862,7 +862,7 @@ class SecundariaAlumnosController extends Controller
         ->where('secundaria_alumnos_historia_clinica.alumno_id', $id)
         ->first();
 
-        // Validamos que la consulta no este vacia 
+        // Validamos que la consulta no este vacia
         if($expediente != ""){
             $personaAutorizada1 = $expediente->famAutorizado1;
             $personaAutorizada2 = $expediente->famAutorizado2;
@@ -1019,7 +1019,7 @@ class SecundariaAlumnosController extends Controller
                 'perDirColonia' => $request->perDirColonia
             ]);
 
-            
+
             $alumno->update([
                 // 'aluNivelIngr'    => Utils::validaEmpty($request->aluNivelIngr),
                 // 'aluGradoIngr'    => Utils::validaEmpty($request->aluGradoIngr),

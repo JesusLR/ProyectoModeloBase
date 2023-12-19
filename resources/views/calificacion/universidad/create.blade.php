@@ -29,7 +29,7 @@
               <div class="nav-content">
                 <ul class="tabs tabs-transparent">
                   <li class="tab"><a class="active" href="#parciales">Parciales</a></li>
-                  <li class="tab"><a href="#ordinarios">Ordinarios</a></li>
+                  <li class="tab"><a id="tabOrdinarios" href="#ordinarios">Ordinarios</a></li>
                 </ul>
               </div>
             </nav>
@@ -101,8 +101,8 @@
                                 <th>Fa2</th>
                                 @if($TERCER_PARCIAL)
                                 <th>Pa3</th>
-                                <th>Fa3</th>
                                 @endif
+                                <th>Fa3</th>
                                 <th>ProPar</th>
                             </tr>
                             </thead>
@@ -111,13 +111,13 @@
                                     $consecutivo=1;
                                     $tabindexP1=100;
                                     $tabindexP2=200;
+                                    $tabindexP3=300;
                                     if ($TERCER_PARCIAL) {
-                                        $tabindexP3=300;
                                         $tabindexPR=400;
                                         $tabindexOR=500;
                                     } else {
-                                        $tabindexPR=300;
-                                        $tabindexOR=400;
+                                        $tabindexPR=400;
+                                        $tabindexOR=500;
                                     }
                                 @endphp
 
@@ -198,6 +198,7 @@
                                                 data-inscritoid="{{$inscrito->id}}">
                                         </td>
 
+                                        @endif
                                         <td>
                                             <input tabindex='{{$tabindexP3}}'
                                             name="calificaciones[inscFaltasParcial3][{{$inscrito->id}}]"
@@ -213,7 +214,6 @@
                                                    @endphp
                                             value="{{$inscrito->calificacion->inscFaltasParcial3}}">
                                         </td>
-                                        @endif
 
                                         <td>
                                             <input tabindex='{{$tabindexPR}}'
@@ -234,7 +234,7 @@
                                             <select name="calificaciones[inscCalificacionParcial1][{{$inscrito->id}}]" <?= ($grupo->estado_act == 'C') ? 'readonly onfocus="this.blur()"' : '' ?>>
                                                 <option value="" selected>SELECCIONA</option>
                                                 <option value="0" @if($inscrito->calificacion->inscCalificacionParcial1 == "0") {{ 'selected' }} @endif>APROBADO</option>
-                                                <option value="1" @if($inscrito->calificacion->inscCalificacionParcial1 == "1") {{ 'selected' }} @endif>REPROBADO</option>
+                                                <option value="1" @if($inscrito->calificacion->inscCalificacionParcial1 == "1") {{ 'selected' }} @endif>NO APROBADO</option>
                                             </select>
                                         </td>
                                         <td><input name="calificaciones[inscFaltasParcial1][{{$inscrito->id}}]" type="number" min="0" max="100" onKeyPress="if(this.value.length==3) return false;" <?= ($grupo->estado_act == 'C') ? 'readonly  onfocus="this.blur()"' : '' ?> value="{{$inscrito->calificacion->inscFaltasParcial1}}"></td>
@@ -242,7 +242,7 @@
                                             <select name="calificaciones[inscCalificacionParcial2][{{$inscrito->id}}]" <?= ($grupo->estado_act == 'C') ? 'readonly  onfocus="this.blur()"' : '' ?>>
                                                 <option value="" selected>SELECCIONA</option>
                                                 <option value="0" @if($inscrito->calificacion->inscCalificacionParcial2 == "0") {{ 'selected' }} @endif>APROBADO</option>
-                                                <option value="1" @if($inscrito->calificacion->inscCalificacionParcial2 == "1") {{ 'selected' }} @endif>REPROBADO</option>
+                                                <option value="1" @if($inscrito->calificacion->inscCalificacionParcial2 == "1") {{ 'selected' }} @endif>NO APROBADO</option>
                                             </select>
                                         </td>
                                         <td><input name="calificaciones[inscFaltasParcial2][{{$inscrito->id}}]" type="number" min="0" max="100" onKeyPress="if(this.value.length==3) return false;" <?= ($grupo->estado_act == 'C') ? 'readonly  onfocus="this.blur()"' : '' ?> value="{{$inscrito->calificacion->inscFaltasParcial2}}"></td>
@@ -251,14 +251,14 @@
                                             <select name="calificaciones[inscCalificacionParcial3][{{$inscrito->id}}]" <?= ($grupo->estado_act == 'C') ? 'readonly  onfocus="this.blur()"' : '' ?>>
                                                 <option value="" selected>SELECCIONA</option>
                                                 <option value="0" @if($inscrito->calificacion->inscCalificacionParcial3 == "0") {{ 'selected' }} @endif>APROBADO</option>
-                                                <option value="1" @if($inscrito->calificacion->inscCalificacionParcial3 == "1") {{ 'selected' }} @endif>REPROBADO</option>
+                                                <option value="1" @if($inscrito->calificacion->inscCalificacionParcial3 == "1") {{ 'selected' }} @endif>NO APROBADO</option>
                                             </select>
                                         </td>
+                                        @endif
                                         <td>
                                             <input name="calificacione2s[inscFaltasParcial3][{{$inscrito->id}}]"
                                             type="number" class="calif" min="0" max="100"  <?= ($grupo->estado_act == 'C') ? 'readonly  onfocus="this.blur()"' : '' ?>
                                             value="{{$inscrito->calificacion->inscFaltasParcial3}}"></td>
-                                            @endif
                                         <td>
                                         </td>
                                     @endif
@@ -333,15 +333,15 @@
                                                 <select name="calificaciones[inscCalificacionOrdinario][{{$inscrito->id}}]" >
                                                     <option value="" selected >SELECCIONA</option>
                                                     <option value="0" @if($inscrito->calificacion->inscCalificacionOrdinario == "0") {{ 'selected' }} @endif>APROBADO</option>
-                                                    <option value="1" @if($inscrito->calificacion->inscCalificacionOrdinario == "1") {{ 'selected' }} @endif>REPROBADO</option>
+                                                    <option value="1" @if($inscrito->calificacion->inscCalificacionOrdinario == "1") {{ 'selected' }} @endif>NO APROBADO</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                    <input name="calificaciones[incsCalificacionFinal][{{$inscrito->id}}]"
-                                                        id="incsCalificacionFinal{{$inscrito->id}}"
-                                                        type="number" min="0" max="1"
-                                                        readonly  onfocus="this.blur()"
-                                                        value="{{$inscrito->calificacion->incsCalificacionFinal}}">
+                                                <select name="calificaciones[incsCalificacionFinal][{{$inscrito->id}}]" >
+                                                    <option value="" selected >SELECCIONA</option>
+                                                    <option value="0" @if($inscrito->calificacion->incsCalificacionFinal == "0") {{ 'selected' }} @endif>APROBADO</option>
+                                                    <option value="1" @if($inscrito->calificacion->incsCalificacionFinal == "1") {{ 'selected' }} @endif>NO APROBADO</option>
+                                                </select>
                                             </td>
                                         @endif
                                         <td>
@@ -386,6 +386,34 @@
 {!! HTML::script(asset('/js/scripts/data-tables.js'), array('type' => 'text/javascript')) !!}
 <script type="text/javascript">
     $(document).ready(function() {
+
+        let matTipoAcreditacion = "{{ $grupo->materia->matTipoAcreditacion }}";
+        
+        if (matTipoAcreditacion == 'N') {
+            $('ul.tabs').on('click', 'a#tabOrdinarios', function(e) {
+                let calificaciones = [];
+                $("input[type=number][name^='calificaciones[inscFaltasParcial3]']").each(function() {
+                    let value = $(this).val();
+                    if (value) {
+                        calificaciones.push(value);
+                    }
+                });
+                
+                if (calificaciones.length !== $("input[type=number][name^='calificaciones[inscFaltasParcial3]']").length) {
+                    swal({
+                        html:true,
+                        title: "Espera...",
+                        text: "Antes de continuar, por favor ingresa las faltas del tercer parcial",
+                        showConfirmButton: true,
+                        confirmButtonText: "Ok",
+                    });
+                    $('ul.tabs').tabs('select_tab', 'parciales');
+                } else {
+                    $('ul.tabs').tabs('select_tab', 'ordinarios');
+                }
+            });
+        }
+
         $('#tbl-parciales').dataTable({
             "language":{"url":base_url+"/api/lang/javascript/datatables"},
             "dom": '"top"i',

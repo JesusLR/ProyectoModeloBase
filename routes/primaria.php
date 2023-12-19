@@ -206,7 +206,7 @@ Route::post('primaria_calificacion/calificaciones','Primaria\PrimariaCalificacio
 Route::get('boletaAlumnoCurso/{curso_id}','Primaria\PrimariaCalificacionesController@boletadesdecurso')->name('boletadesdecurso');
 
 
-// Calificaciones generales 
+// Calificaciones generales
 Route::get('primaria_calificacion_general','Primaria\PrimariaCalificacionesGeneralesController@viewCalificacionGeneral')->name('primaria.primaria_calificacion_general.viewCalificacionGeneral');
 Route::get('datos/primaria_calificacion_general/lista_de_alumnos/{periodo_id}/{programa_id}/{plan_id}/{cgt_id}','Primaria\PrimariaCalificacionesGeneralesController@getAlumnosCalificaciones');
 Route::get('calificaciones/primaria_calificacion_general/{curso_id}','Primaria\PrimariaCalificacionesGeneralesController@obtenerListaMateriaCalificaciones');
@@ -374,7 +374,7 @@ Route::get('primaria_inscrito_modalidad/getMateriasAsignaturas/{periodo_id}/{pla
 Route::post('primaria_inscrito_modalidad/getAlumnosMateriasAsignaturas','Primaria\PrimariaInscritoModalidadController@getAlumnosMateriasAsignaturas')->name('primaria.primaria.primaria_inscrito_modalidad.getAlumnosMateriasAsignaturas');
 Route::post('primaria_inscrito_modalidad/guardarInscritosModalidad','Primaria\PrimariaInscritoModalidadController@guardarInscritosModalidad')->name('primaria.primaria.primaria_inscrito_modalidad.guardarInscritosModalidad');
 
-// Docente modalidad 
+// Docente modalidad
 Route::get('primaria_docente_inscrito_modalidad','Primaria\PrimariaDocenteModalidadController@index')->name('primaria.primaria_docente_inscrito_modalidad.index');
 Route::post('primaria_docente_inscrito_modalidad/getAlumnoMateriasAsignaturas','Primaria\PrimariaDocenteModalidadController@getAlumnoMateriasAsignaturas')->name('primaria.primaria_docente_inscrito_modalidad.getAlumnoMateriasAsignaturas');
 Route::post('primaria_docente_inscrito_modalidad/store','Primaria\PrimariaDocenteModalidadController@store')->name('primaria.primaria_docente_inscrito_modalidad.store');
@@ -492,9 +492,43 @@ Route::post('primaria_fecha_publicacion_calificacion_alumno','Primaria\PrimariaF
 Route::put('primaria_fecha_publicacion_calificacion_alumno/{id}','Primaria\PrimariaFechaPublicacionAlumnoController@update')->name('primaria.primaria_fecha_publicacion_calificacion_alumno.update');
 
 
-// Generar promedios trimestrales 
+// Generar promedios trimestrales
 Route::get('primaria_generar_promedios', 'Primaria\PrimariaGenerarPromediosController@index')->name('primaria.primaria_generar_promedios.index');
 Route::post('primaria_generar_promedios', 'Primaria\PrimariaGenerarPromediosController@generarPromedio')->name('primaria.primaria_generar_promedios.generarPromedio');
+
+
+// campos formativos
+Route::get('primaria_campos_formativos', 'Primaria\PrimariaCamposFormativosController@index')->name('primaria.primaria_campos_formativos.index');
+Route::get('primaria_campos_formativos/list', 'Primaria\PrimariaCamposFormativosController@list');
+Route::get('primaria_campos_formativos/create', 'Primaria\PrimariaCamposFormativosController@create')->name('primaria.primaria_campos_formativos.create');
+Route::get('primaria_campos_formativos/{id}/edit', 'Primaria\PrimariaCamposFormativosController@edit')->name('primaria.primaria_campos_formativos.edit');
+Route::get('primaria_campos_formativos/{id}', 'Primaria\PrimariaCamposFormativosController@show')->name('primaria.primaria_campos_formativos.show');
+Route::post('primaria_campos_formativos', 'Primaria\PrimariaCamposFormativosController@store')->name('primaria.primaria_campos_formativos.store');
+Route::put('primaria_campos_formativos/{id}','Primaria\PrimariaCamposFormativosController@update')->name('primaria.primaria_campos_formativos.update');
+Route::delete('primaria_campos_formativos/{id}','Primaria\PrimariaCamposFormativosController@destroy')->name('primaria.primaria_campos_formativos.destroy');
+
+// campos formativos observaciones
+Route::get('primaria_campos_formativos_observaciones', 'Primaria\PrimariaCamposFormativosObservacionesController@index')->name('primaria.primaria_campos_formativos_observaciones.index');
+Route::get('primaria_campos_formativos_observaciones/list', 'Primaria\PrimariaCamposFormativosObservacionesController@list');
+Route::get('primaria_campos_formativos_observaciones/create', 'Primaria\PrimariaCamposFormativosObservacionesController@create')->name('primaria.primaria_campos_formativos_observaciones.create');
+Route::get('primaria_campos_formativos_observaciones/{id}/edit', 'Primaria\PrimariaCamposFormativosObservacionesController@edit')->name('primaria.primaria_campos_formativos_observaciones.edit');
+Route::get('primaria_campos_formativos_observaciones/{id}', 'Primaria\PrimariaCamposFormativosObservacionesController@show')->name('primaria.primaria_campos_formativos_observaciones.show');
+Route::post('primaria_campos_formativos_observaciones', 'Primaria\PrimariaCamposFormativosObservacionesController@store')->name('primaria.primaria_campos_formativos_observaciones.store');
+Route::put('primaria_campos_formativos_observaciones/{id}','Primaria\PrimariaCamposFormativosObservacionesController@update')->name('primaria.primaria_campos_formativos_observaciones.update');
+Route::delete('primaria_campos_formativos_observaciones/{id}','Primaria\PrimariaCamposFormativosObservacionesController@destroy')->name('primaria.primaria_campos_formativos_observaciones.destroy');
+
+
+// campos formativos materias
+Route::get('primaria_campos_formativos_materias', 'Primaria\PrimariaCamposFormativosMateriasController@index')->name('primaria.primaria_campos_formativos_materias.index');
+Route::get('primaria_campos_formativos_materias/list', 'Primaria\PrimariaCamposFormativosMateriasController@list');
+Route::get('primaria_campos_formativos_materias/obtenerMaterias/{programa_id}/{plan_id}/{grado}', 'Primaria\PrimariaCamposFormativosMateriasController@obtenerMaterias');
+Route::get('primaria_campos_formativos_materias/create', 'Primaria\PrimariaCamposFormativosMateriasController@create')->name('primaria.primaria_campos_formativos_materias.create');
+Route::get('primaria_campos_formativos_materias/{id}/edit', 'Primaria\PrimariaCamposFormativosMateriasController@edit')->name('primaria.primaria_campos_formativos_materias.edit');
+Route::get('primaria_campos_formativos_materias/{id}', 'Primaria\PrimariaCamposFormativosMateriasController@show')->name('primaria.primaria_campos_formativos_materias.show');
+Route::post('primaria_campos_formativos_materias', 'Primaria\PrimariaCamposFormativosMateriasController@store')->name('primaria.primaria_campos_formativos_materias.store');
+Route::put('primaria_campos_formativos_materias/{id}','Primaria\PrimariaCamposFormativosMateriasController@update')->name('primaria.primaria_campos_formativos_materias.update');
+Route::delete('primaria_campos_formativos_materias/{id}','Primaria\PrimariaCamposFormativosMateriasController@destroy')->name('primaria.primaria_campos_formativos_materias.destroy');
+
 
 
 /* --------------------------------------------------------------------------------------- */
@@ -709,3 +743,7 @@ Route::post('reporte/primaria_mejores_promedios/imprimir', 'Primaria\Reportes\Pr
 //Listas de faltas
 Route::get('reporte/primaria_faltas', 'Primaria\Reportes\PrimariaFaltasController@reporte')->name('primaria.primaria_faltas.reporte');
 Route::post('reporte/primaria_faltas/imprimir', 'Primaria\Reportes\PrimariaFaltasController@imprimir')->name('primaria.primaria_faltas.imprimir');
+
+// calificaciones campos formativos
+Route::get('reporte/calificaciones_grupo_campos_formativos', 'Primaria\Reportes\PrimariaCalificacionCamposFormativosGrupoController@reporte')->name('primaria.calificaciones_grupo_campos_formativos.reporte');
+Route::post('reporte/calificaciones_grupo_campos_formativos/imprimir', 'Primaria\Reportes\PrimariaCalificacionCamposFormativosGrupoController@imprimir')->name('primaria.calificaciones_grupo_campos_formativos.imprimir');

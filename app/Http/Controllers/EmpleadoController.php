@@ -19,7 +19,11 @@ use App\Models\Grupo;
 use App\Models\Alumno;
 use App\Models\Pais;
 use App\Models\Estado;
+use App\Models\Escuela;
 use App\Models\Empleado;
+use App\Models\Primaria\Primaria_empleado;
+use App\Models\Secundaria\Secundaria_empleados;
+use App\Models\Bachiller\Bachiller_empleados;
 use App\Models\Municipio;
 use App\Models\Ubicacion;
 use App\Models\Puesto;
@@ -283,7 +287,7 @@ class EmpleadoController extends Controller
                         User_docente::create([
                             'empleado_id'      => $empleado->id,
                             'password'         => bcrypt($request->input('password')),
-                            'token'            => Str::random(64),
+                            'token'            => str_random(64),
                         ]);
                     }
 
@@ -535,7 +539,7 @@ class EmpleadoController extends Controller
                     $userDocente = User_docente::create([
                         'empleado_id'      => $empleado->id,
                         'password'         => bcrypt($request->password),
-                        'token'            => Str::random(64),
+                        'token'            => str_random(64),
                     ]);
 
 
@@ -706,7 +710,7 @@ class EmpleadoController extends Controller
                 User_docente::create([
                     'empleado_id'      => $empleado->id,
                     'password'         => bcrypt($request->input('password')),
-                    'token'            => Str::random(64),
+                    'token'            => str_random(64),
                 ]);
             }
         } catch (Exception $e) {
@@ -745,21 +749,82 @@ class EmpleadoController extends Controller
         ));
     }
 
-    public function listEmpleadosHoras($escuela = null)
+    public function listEmpleadosHoras($escuelaId = null)
     {
-        $empleados = Empleado::select('empleados.id as empleado_id','empleados.empCredencial','empleados.empNomina','empleados.empEstado', 'empleados.empHorasCon',
-            'personas.perNombre','personas.perApellido1','personas.perApellido2','personas.perTelefono1', 'puestos.puesNombre', 'escuelas.escClave')
+        $empleados = Empleado::select(
+            'empleados.id as empleado_id',
+            'empleados.empCredencial',
+            'empleados.empNomina',
+            'empleados.empEstado',
+            'empleados.empHorasCon',
+            'personas.perNombre AS empNombre',
+            'personas.perApellido1 AS empApellido1',
+            'personas.perApellido2 AS empApellido2',
+            'personas.perTelefono1 AS empTelefono',
+            'puestos.puesNombre',
+            'escuelas.escClave')
             ->join('personas', 'empleados.persona_id', '=', 'personas.id')
             ->join('puestos', 'puestos.id', 'empleados.puesto_id')
             ->join('escuelas', 'escuelas.id', 'empleados.escuela_id')
             ->whereIn('empleados.empEstado', ['A', 'B']);
 
-        if ($escuela) $empleados->where('escuelas.id', $escuela);
+        if ($escuelaId) {
+            $escuela = Escuela::find($escuelaId);
+            if ($escuela->escClave == 'PRI') {
+                $empleados = Primaria_empleado::select(
+                    'primaria_empleados.id AS empleado_id',
+                    'primaria_empleados.empCredencial',
+                    'primaria_empleados.empNomina',
+                    'primaria_empleados.empEstado',
+                    'primaria_empleados.empHoras AS empHorasCon',
+                    'primaria_empleados.empNombre',
+                    'primaria_empleados.empApellido1',
+                    'primaria_empleados.empApellido2',
+                    'primaria_empleados.empTelefono',
+                    'puestos.puesNombre',
+                    'escuelas.escClave')
+                ->join('puestos', 'puestos.id', 'primaria_empleados.puesto_id')
+                ->join('escuelas', 'escuelas.id', 'primaria_empleados.escuela_id')
+                ->whereIn('primaria_empleados.empEstado', ['A', 'B']);
+            } elseif ($escuela->escClave == 'SEC') {
+                $empleados = Secundaria_empleados::select(
+                    'secundaria_empleados.id as empleado_id',
+                    'secundaria_empleados.empCredencial',
+                    'secundaria_empleados.empNomina',
+                    'secundaria_empleados.empEstado',
+                    'secundaria_empleados.empHoras AS empHorasCon',
+                    'secundaria_empleados.empNombre',
+                    'secundaria_empleados.empApellido1',
+                    'secundaria_empleados.empApellido2',
+                    'secundaria_empleados.empTelefono',
+                    'puestos.puesNombre',
+                    'escuelas.escClave')
+                ->join('puestos', 'puestos.id', 'secundaria_empleados.puesto_id')
+                ->join('escuelas', 'escuelas.id', 'secundaria_empleados.escuela_id')
+                ->whereIn('secundaria_empleados.empEstado', ['A', 'B']);
+            } elseif ($escuela->escClave == 'BAC') {
+                $empleados = Bachiller_empleados::select(
+                    'bachiller_empleados.id as empleado_id',
+                    'bachiller_empleados.empCredencial',
+                    'bachiller_empleados.empNomina',
+                    'bachiller_empleados.empEstado',
+                    'bachiller_empleados.empHoras AS empHorasCon',
+                    'bachiller_empleados.empNombre',
+                    'bachiller_empleados.empApellido1',
+                    'bachiller_empleados.empApellido2',
+                    'bachiller_empleados.empTelefono',
+                    'puestos.puesNombre',
+                    'escuelas.escClave')
+                ->join('puestos', 'puestos.id', 'bachiller_empleados.puesto_id')
+                ->join('escuelas', 'escuelas.id', 'bachiller_empleados.escuela_id')
+                ->whereIn('bachiller_empleados.empEstado', ['A', 'B']);
+            }
+
+            $empleados->where('escuelas.id', $escuelaId);
+        }
 
         return Datatables::of($empleados)
             ->addColumn('action', function($query) {
-                $checked = ($query->empEstado == 'A') ? 'checked' : '';
-
                 return '<div class="row">
                             <div class="col s10">
                                 <input class="horas_empleado_input" type="number" min="0" value="'.$query->empHorasCon.'" data-empleado-id="'.$query->empleado_id.'">
@@ -885,17 +950,55 @@ class EmpleadoController extends Controller
         }
 
         $empleados = Empleado::whereIn('id', $listado->keys())->get()->keyBy('id');
+        $primaria = Primaria_empleado::whereIn('id', $listado->keys())->get()->keyBy('id');
+        $secundaria = Secundaria_empleados::whereIn('id', $listado->keys())->get()->keyBy('id');
+        $bachiller = Bachiller_empleados::whereIn('id', $listado->keys())->get()->keyBy('id');
         DB::beginTransaction();
         try {
-            $listado->each(static function($info, $empleado_id) use ($empleados) {
-                $empleado = $empleados->get($empleado_id);
-                if($empleado->empEstado != $info['nuevas_horas']) {
-                    $empleado->update(['empHorasCon' =>  $info['nuevas_horas']]);
-                    UsuarioLog::create([
-                        'nombre_tabla' => 'empleados',
-                        'registro_id'  => $empleado->id,
-                        'nombre_controlador_accion' => 'EmpleadoController@update'
-                      ]);
+            $listado->each(static function($info, $empleado_id) use ($empleados, $primaria, $secundaria, $bachiller) {
+                if ($empleados->isNotEmpty()) {
+                    $empleado = $empleados->get($empleado_id);
+                    if($empleado->empHorasCon != $info['nuevas_horas']) {
+                        $empleado->update(['empHorasCon' =>  $info['nuevas_horas']]);
+                        UsuarioLog::create([
+                            'nombre_tabla' => 'empleados',
+                            'registro_id'  => $empleado->id,
+                            'nombre_controlador_accion' => 'EmpleadoController@update'
+                          ]);
+                    }
+                }
+                if ($primaria->isNotEmpty()) {
+                    $pri_empleado = $primaria->get($empleado_id);
+                    if($pri_empleado->empHoras != $info['nuevas_horas']) {
+                        $pri_empleado->update(['empHoras' =>  $info['nuevas_horas']]);
+                        UsuarioLog::create([
+                            'nombre_tabla' => 'primaria_empleados',
+                            'registro_id'  => $pri_empleado->id,
+                            'nombre_controlador_accion' => 'EmpleadoController@update'
+                          ]);
+                    }
+                }
+                if ($secundaria->isNotEmpty()) {
+                    $sec_empleado = $secundaria->get($empleado_id);
+                    if($sec_empleado->empHoras != $info['nuevas_horas']) {
+                        $sec_empleado->update(['empHoras' =>  $info['nuevas_horas']]);
+                        UsuarioLog::create([
+                            'nombre_tabla' => 'secundaria_empleados',
+                            'registro_id'  => $sec_empleado->id,
+                            'nombre_controlador_accion' => 'EmpleadoController@update'
+                          ]);
+                    }
+                }
+                if ($bachiller->isNotEmpty()) {
+                    $bac_empleado = $bachiller->get($empleado_id);
+                    if($bac_empleado->empHoras != $info['nuevas_horas']) {
+                        $bac_empleado->update(['empHoras' =>  $info['nuevas_horas']]);
+                        UsuarioLog::create([
+                            'nombre_tabla' => 'bachiller_empleados',
+                            'registro_id'  => $bac_empleado->id,
+                            'nombre_controlador_accion' => 'EmpleadoController@update'
+                          ]);
+                    }
                 }
             });
         } catch (Exception $e) {

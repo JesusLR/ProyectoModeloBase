@@ -41,7 +41,7 @@ class NotificacionPrimaria {
 	{
 		$this->mail = new Mailer([
 			'username_email' => 'bajas@modelo.edu.mx', // 'bajas@unimodelo.com',
-			'password_email' => 'Caf28347',
+			'password_email' => 'c1IcMH4OoY39',
 			'to_email' => 'luislara@modelo.edu.mx',
 			'to_name' => '',
 			'cc_email' => '',
@@ -65,10 +65,10 @@ class NotificacionPrimaria {
 
 		// if($coordinador_carrera && $coordinador_carrera->empCorreo1)
 		// 	$this->mail->agregar_destinatario($coordinador_carrera->empCorreo1);
-		
+
 		if(!$director_carrera || !$coordinador_carrera)
 			$this->mail->agregar_destinatario('aosorio@modelo.edu.mx');
-		
+
 		$this->mail->enviar();
 	}
 

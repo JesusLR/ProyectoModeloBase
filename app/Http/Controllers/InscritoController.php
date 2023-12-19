@@ -73,7 +73,7 @@ class InscritoController extends Controller
     {
         $inscritos = Inscrito::select('inscritos.id as inscrito_id','alumnos.aluClave',
             'personas.perNombre','personas.perApellido1','personas.perApellido2','periodos.perNumero',
-            'periodos.perAnio','cgt.cgtGradoSemestre','grupos.gpoClave', 'materias.matClave','materias.matNombreOficial as matNombre', 
+            'periodos.perAnio','cgt.cgtGradoSemestre','grupos.gpoClave', 'materias.matClave','materias.matNombreOficial as matNombre',
             'optativas.optClaveEspecifica', 'optativas.optNombre', 'planes.planClave',
             'programas.progClave','escuelas.escClave','departamentos.depClave','ubicacion.ubiClave')
         ->join('cursos', 'inscritos.curso_id', '=', 'cursos.id')
@@ -95,7 +95,7 @@ class InscritoController extends Controller
         $permiso = User::permiso("inscrito");
 
 
-     
+
 
 
         return Datatables::of($inscritos)
@@ -209,7 +209,7 @@ class InscritoController extends Controller
             $curso_id = $request->curso_id;
 
             $curso = Curso::with('alumno.persona')->where("id", "=", $curso_id)->whereNotIn("curEstado", ["B"])->first();
-      
+
             if ($curso) {
 
 
@@ -242,18 +242,18 @@ class InscritoController extends Controller
 
 
                     // $cursos = [$curso->id];
-        
+
                     $alumnosSinDerecho = $this->postDesinscribirReprobados($curso->id, $historicoList, $paq->grupo_id);
                     $alumnosSinDerecho = $alumnosSinDerecho->unique();
                     $alumnosSinDerechos->push($alumnosSinDerecho);
 
-        
+
                     $cursoSinDerecho = $alumnosSinDerecho->filter(function ($value, $key) use ($request) {
                         return $value->curso->id ==  $request->curso_id;
                     });
                     //FIN FILTRO TIENE DERECHO A INSCRIBIRSE A CURSOS
 
-             
+
                     if (!$existeInscritoEnCurso && $cursoSinDerecho->count() == 0) {
                         if (!$hayAlumnosDeudores) {
                             $hayAlumnosDeudores = $this->inscribirAlumno($curso_id, $paq->grupo_id, 'paquete', $ubicacion);
@@ -287,7 +287,7 @@ class InscritoController extends Controller
     {
 
         if ($alumnosSinDerecho->count() > 0) {
-            
+
             //envio de correo
             $to_name = Auth::user()->empleado->persona->perNombre
             . " " . Auth::user()->empleado->persona->perApellido1
@@ -307,7 +307,7 @@ class InscritoController extends Controller
                 break;
             }
             //$unAlumno = $alumnosSinDerecho(0);
-            
+
 
             $modulo = "INSCRITOS";
             $mailSeguimiento = DB::table("empleadosseguimiento")
@@ -321,7 +321,7 @@ class InscritoController extends Controller
             } else {
                 $to_email = 'aosorio@modelo.edu.mx';
             }
-            
+
 
 
             $mail = new PHPMailer(true);
@@ -334,7 +334,7 @@ class InscritoController extends Controller
             $mail->Host = 'smtp.office365.com'; //'mail.unimodelo.com';           // Specify main and backup SMTP servers
             $mail->SMTPAuth = true;                       // Enable SMTP authentication
             $mail->Username = 'inscripciones@modelo.edu.mx'; // 'inscripciones@unimodelo.com'; // SMTP username
-            $mail->Password = 'i7X6nFLrfghu5ua';                 // SMTP password
+            $mail->Password = 'nUUg106J95bV'; // 'i7X6nFLrfghu5ua';                 // SMTP password
             $mail->SMTPSecure = 'tls'; //'ssl';                    // Enable TLS encryption, `ssl` also accepted
             $mail->Port = 587; // 465;                            // TCP port to connect to
             $mail->setFrom('inscripciones@modelo.edu.mx', 'Universidad Modelo');
@@ -424,7 +424,7 @@ class InscritoController extends Controller
             $curso = Curso::where("id", "=", $curso_id)->whereNotIn("curEstado", ["B"])->first();
             $cgt = Cgt::where("id", "=", $curso->cgt_id)->first();
 
-            
+
             //VALIDA EL SEMESTRE DEL CGT
             $grupos = Grupo::with('materia', 'empleado.persona', 'plan.programa', 'periodo')
                 ->where('gpoSemestre', '=', $cgt->cgtGradoSemestre)
@@ -469,7 +469,7 @@ class InscritoController extends Controller
                 $cursoSinDerecho = $alumnosSinDerecho->filter(function ($value, $key) use ($request) {
                     return $value->curso->id ==  $request->curso_id;
                 });
-                
+
                 $cursoSinDerecho = collect();
                 // if(!$existeInscritoEnCurso && $cursoSinDerecho->count() == 0) {
                 //     $this->inscribirAlumno($curso_id, $grupo->id);
@@ -536,7 +536,7 @@ class InscritoController extends Controller
 
 
             $cgt_id = $request->cgt_id;
-   
+
 
             //CURSO SEGUN EL CGT SELECCIONADO
             $cursos = Curso::with('alumno.persona')->where([ ['cgt_id', '=', $cgt_id] ])->whereNotIn("curEstado", ["B"])->get();
@@ -582,13 +582,13 @@ class InscritoController extends Controller
                             $query->where('periodo_id', $grupo->periodo_id);
                         })
                     ->first();
-                    
+
                     // $cursos = [$curso_id];
                     $alumnosSinDerecho = $this->postDesinscribirReprobados($curso_id, $historicoList, $grupo->id);
                     $alumnosSinDerecho = $alumnosSinDerecho->unique();
 
                     $alumnosSinDerechos->push($alumnosSinDerecho);
-        
+
                     $cursoSinDerecho = $alumnosSinDerecho->filter(function ($value, $key) use ($curso_id) {
                         return $value->curso->id ==  $curso_id;
                     });
@@ -604,7 +604,7 @@ class InscritoController extends Controller
                     }
                 }
             }
-            
+
             $mensaje = $hayAlumnosDeudores ? 'Se ha inscrito con éxito pero se encontraron alumnos con deudas' : 'Se ha inscrito con éxito';
             alert('Escuela Modelo', $mensaje, 'success')->showConfirmButton();
             return back()->with(compact('cursoSinDerecho'));
@@ -615,7 +615,7 @@ class InscritoController extends Controller
 
             return redirect('create/grupoCompleto')->withInput();
         }
-        
+
     }
 
     /**
@@ -744,7 +744,7 @@ class InscritoController extends Controller
                         if ($grupo_first) {
                             $this->mail = new Mailer([
                                 'username_email' => 'inscripciones@modelo.edu.mx', // 'inscripciones@unimodelo.com',
-                                'password_email' => 'i7X6nFLrfghu5ua',
+                                'password_email' => 'nUUg106J95bV', // 'i7X6nFLrfghu5ua',
                                 'to_email' => 'luislara@modelo.edu.mx', // 'iran.canul@modelo.edu.mx',
                                 'to_name' => '',
                                 'cc_email' => '',
@@ -774,13 +774,13 @@ class InscritoController extends Controller
                                 $director_campus = 'cesauri@modelo.edu.mx';
                                 $coordinador_secretaria_academica = 'sil_bar@modelo.edu.mx';
                             }
-                    
+
                             $this->mail->agregar_destinatario('eail@modelo.edu.mx');
                             $this->mail->agregar_destinatario('flopezh@modelo.edu.mx');
                             $this->mail->agregar_destinatario('luislara@modelo.edu.mx');
                             $this->mail->agregar_destinatario($director_campus);
                             $this->mail->agregar_destinatario($coordinador_secretaria_academica);
-                            
+
                             $this->mail->enviar();
                         }
                     }
@@ -832,7 +832,7 @@ class InscritoController extends Controller
     /**
      * Función para sustituir la view de MySQL 'vwhistoricoaprobados'.
      * el resultado se manda al proceso de desinscribir reprobados.
-     * 
+     *
      * @param Illuminate\Http\Request
      */
     private static function buscarHistoricos(Request $request) {
@@ -1012,7 +1012,7 @@ class InscritoController extends Controller
 
         $inscrito = Inscrito::findOrFail($inscritoId);
         $inscrito->grupo_id = $request->gpoId;
-        
+
         if ($inscrito->save()) {
             $grupoAnterior = Grupo::findOrFail($grupoAnteriorId);
             $grupoAnterior->inscritos_gpo = $grupoAnterior->inscritos_gpo -1;
@@ -1061,7 +1061,7 @@ class InscritoController extends Controller
     //         if (($reprobado->count()) > 0) {
     //             $alumnosSinDerecho->push([
     //                 "curso" => $curso,
-    //                 "razon" =>  "ALUMNO REPROBADO"   
+    //                 "razon" =>  "ALUMNO REPROBADO"
     //             ]);
     //         }
 
@@ -1079,7 +1079,7 @@ class InscritoController extends Controller
     //         if (($reprobado->count()) > 0) {
     //             $alumnosSinDerecho->push([
     //                 "curso" => $curso,
-    //                 "razon" =>  "ALUMNO REPROBADO"   
+    //                 "razon" =>  "ALUMNO REPROBADO"
     //             ]);
     //         }
 
@@ -1088,7 +1088,7 @@ class InscritoController extends Controller
     //     }
     // }
 
-    
+
     public function postDesinscribirReprobados($curso_id, $historicoList, $grupoId)
     {
         $cursos = Curso::with('cgt.plan.programa.escuela.departamento.ubicacion', 'periodo', 'alumno.persona')
@@ -1115,7 +1115,7 @@ class InscritoController extends Controller
     		$resumenAcademicoAlumno = DB::table('resumenacademico')
                 ->where('alumno_id', $curso->alumno->id)->where('plan_id', $planID)
             ->first();
-            
+
 
 
             if ($resumenAcademicoAlumno) {
@@ -1136,19 +1136,19 @@ class InscritoController extends Controller
 
                 if ($esCursoEsRevalidador) {
                     $planID = $curso->cgt->plan->id;
-        
-        
+
+
                     $resumenAcademicoAlumno = DB::table('resumenacademico')
                         ->where('alumno_id', $curso->alumno->id)->where('plan_id', $planID)
                     ->first();
-        
-        
+
+
                     $cursoDeIngreso = Curso::with("cgt")
                         ->where("alumno_id", "=", $resumenAcademicoAlumno->alumno_id)
                         ->where("periodo_id", "=", $resumenAcademicoAlumno->resPeriodoIngreso)
                     ->first();
-        
-        
+
+
                     $materiasPermitidas = Materia::where("plan_id", "=", $planID)
                         ->where("matSemestre", "<", $cursoDeIngreso->cgt->cgtGradoSemestre)
                         ->where("matSemestre", ">=", $cursoDeIngreso->cgt->cgtGradoSemestre - 4)
@@ -1184,7 +1184,7 @@ class InscritoController extends Controller
 
                 if ($existeMateriasReprobadas->isNotEmpty()) {
                     //ALUMNO SIN DERECHO A INSCRIPCION
- 
+
                     //si es curso revalidador excluir materias
                     if ($esCursoEsRevalidador) {
                         $existeMateriasReprobadas = $existeMateriasReprobadas->whereNotIn("materia_id", $materiasPermitidas);
@@ -1200,7 +1200,7 @@ class InscritoController extends Controller
                 }
 
 
-    
+
                 //BUSCAR SI EL ALUMNO NO CURSÓ MATERIAS DE 3 SEMESTRES ANTERIORES
                 $listMateriaAlumno = $historicoList
                     ->where("materia.matSemestre", "=", $curso->cgt->cgtGradoSemestre - 3)
@@ -1219,7 +1219,7 @@ class InscritoController extends Controller
                     $materiasNoCursadas = $materiasNoCursadas->whereNotIn("id", $materiasPermitidas);
                 }
 
-                
+
                 if ($materiasNoCursadas->count() > 0) {
 
                     $curso->razon = "ALUMNO NO CURSÓ MATERIAS DE MAS DE UN AÑO";
@@ -1263,7 +1263,7 @@ class InscritoController extends Controller
                 }
 
 
-    
+
                 //materias no cursadas en lo que va del plan
                 $listMateriaAlumnoPlan = $historicoList
                     ->where("materia.matSemestre", "<", $curso->cgt->cgtGradoSemestre)
@@ -1283,7 +1283,7 @@ class InscritoController extends Controller
                     $materiasNoCursadasPlan = $materiasNoCursadasPlan->whereNotIn("id", $materiasPermitidas);
                 }
 
-                
+
                 if ($materiasNoCursadasPlan->count() > 0) {
 
                     $curso->razon = "ALUMNO NO CURSÓ MATERIAS EN LO QUE VA DEL PLAN";
@@ -1297,12 +1297,12 @@ class InscritoController extends Controller
                 $totalMateriasDeuda = $cantMateriasReprobadasPlan + $cantMateriasNoCursadasPlan;
 
                 if ($totalMateriasDeuda > 3) {
-                        
+
                     $curso->razon = "TOTAL DEBE / NO CURSÓ MATERIAS EN LO QUE VA DEL PLAN";
                     $alumnosSinDerecho->push((Object) [
                         "curso" => $curso
                     ]);
-                
+
                 }
                 // FIN ----------------------------------------------------------------------------------
 
@@ -1339,7 +1339,7 @@ class InscritoController extends Controller
 
                 if ($materiasPrerequisito->count() > 0) {
                     foreach ($materiasPrerequisito as $key => $value) {
-        
+
                         //materias reprobadas en lo que va del plan
                         $materiasReprobadasPrereq = $historicoList
                             ->where("alumno_id", "=", $curso->alumno_id)
@@ -1437,40 +1437,40 @@ class InscritoController extends Controller
                     ->where("curso_id", "=", $alumno->curso->id)
                     ->where("grupo_id", "=", $grupoId)
                 ->exists()) {
-                
+
             // dd($alumno->curso->periodo_id);
 
                     InscritosRechazados::create([
                         'alumno_id' => $alumno->curso->alumno->id,
                         'aluClave' => $alumno->curso->alumno->aluClave,
-                        'perNombre' => $alumno->curso->alumno->persona->perNombre, 
-                        'perApellido1' => $alumno->curso->alumno->persona->perApellido1, 
-                        'perApellido2' => $alumno->curso->alumno->persona->perApellido2, 
+                        'perNombre' => $alumno->curso->alumno->persona->perNombre,
+                        'perApellido1' => $alumno->curso->alumno->persona->perApellido1,
+                        'perApellido2' => $alumno->curso->alumno->persona->perApellido2,
                         'curso_id' => $alumno->curso->id,
                         'ubicacion_id' => $alumno->curso->cgt->plan->programa->escuela->departamento->ubicacion->id,
-                        'ubiClave' =>  $alumno->curso->cgt->plan->programa->escuela->departamento->ubicacion->ubiClave, 
-                        'ubiNombre' => $alumno->curso->cgt->plan->programa->escuela->departamento->ubicacion->ubiNombre, 
-                        'departamento_id' => $alumno->curso->cgt->plan->programa->escuela->departamento->id, 
-                        'depNivel' => $alumno->curso->cgt->plan->programa->escuela->departamento->depNivel, 
+                        'ubiClave' =>  $alumno->curso->cgt->plan->programa->escuela->departamento->ubicacion->ubiClave,
+                        'ubiNombre' => $alumno->curso->cgt->plan->programa->escuela->departamento->ubicacion->ubiNombre,
+                        'departamento_id' => $alumno->curso->cgt->plan->programa->escuela->departamento->id,
+                        'depNivel' => $alumno->curso->cgt->plan->programa->escuela->departamento->depNivel,
                         'depClave' => $alumno->curso->cgt->plan->programa->escuela->departamento->depClave,
                         'depNombre' => $alumno->curso->cgt->plan->programa->escuela->departamento->depNombre,
-                        'escuela_id' => $alumno->curso->cgt->plan->programa->escuela->id, 
-                        'escNombre' => $alumno->curso->cgt->plan->programa->escuela->escNombre, 
+                        'escuela_id' => $alumno->curso->cgt->plan->programa->escuela->id,
+                        'escNombre' => $alumno->curso->cgt->plan->programa->escuela->escNombre,
                         'programa_id' => $alumno->curso->cgt->plan->programa->id,
-                        'progNombre' => $alumno->curso->cgt->plan->programa->progNombre, 
-                        'periodo_id' => $alumno->curso->periodo_id, 
-                        'perNumero' => $alumno->curso->periodo->perNumero, 
+                        'progNombre' => $alumno->curso->cgt->plan->programa->progNombre,
+                        'periodo_id' => $alumno->curso->periodo_id,
+                        'perNumero' => $alumno->curso->periodo->perNumero,
                         'perAnio' => $alumno->curso->periodo->perAnio,
-                        'cgt_id' => $alumno->curso->cgt->id, 
-                        'grupo_id' => $grupoId, 
-                        'materia_id' => $grupoAInscribir->materia->id, 
-                        'matClave' => $grupoAInscribir->materia->matClave, 
-                        'matNombre' => $grupoAInscribir->materia->matNombreOficial, 
-                        'plan_id' => $grupoAInscribir->materia->plan->id, 
-                        'planClave' => $grupoAInscribir->materia->plan->planClave, 
-                        'gpoSemestre' => $grupoAInscribir->gpoSemestre, 
-                        'gpoClave' => $grupoAInscribir->gpoClave, 
-                        'gpoTurno' => $grupoAInscribir->gpoTurno, 
+                        'cgt_id' => $alumno->curso->cgt->id,
+                        'grupo_id' => $grupoId,
+                        'materia_id' => $grupoAInscribir->materia->id,
+                        'matClave' => $grupoAInscribir->materia->matClave,
+                        'matNombre' => $grupoAInscribir->materia->matNombreOficial,
+                        'plan_id' => $grupoAInscribir->materia->plan->id,
+                        'planClave' => $grupoAInscribir->materia->plan->planClave,
+                        'gpoSemestre' => $grupoAInscribir->gpoSemestre,
+                        'gpoClave' => $grupoAInscribir->gpoClave,
+                        'gpoTurno' => $grupoAInscribir->gpoTurno,
                         'rechazadoInscrito' => "NO"
                     ]);
                 }
@@ -1479,7 +1479,7 @@ class InscritoController extends Controller
 
         // dd($alumnosSinDerecho);
 
-       
+
 
 
         return $alumnosSinDerecho;
@@ -1493,7 +1493,7 @@ class InscritoController extends Controller
     }
 
 
-    
+
 
 
 }

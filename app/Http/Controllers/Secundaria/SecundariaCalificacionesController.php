@@ -432,7 +432,7 @@ class SecundariaCalificacionesController extends Controller
             ->get();
 
 
-        
+
 
         $grupos_calificaciones = collect($calificaciones);
 
@@ -460,7 +460,7 @@ class SecundariaCalificacionesController extends Controller
         ->orderBy('secundaria_grupos_evidencias.secundaria_mes_evaluacion_id', 'ASC')
         ->get();
 
-        
+
         if(count($secundaria_grupos_evidencias) > 0){
 
             if(count($secundaria_inscritos) > 0){
@@ -473,7 +473,7 @@ class SecundariaCalificacionesController extends Controller
                         ->get();
 
                         if(count($califica) < 1){
-                            
+
                             Secundaria_calificaciones::create([
                                 'secundaria_inscrito_id' => $inscrito->id,
                                 'secundaria_grupo_evidencia_id' => $evidencia->id,
@@ -494,7 +494,7 @@ class SecundariaCalificacionesController extends Controller
         }
 
 
-        
+
         $mes_evaluacion = Secundaria_mes_evaluaciones::get();
 
         return view('secundaria.calificaciones.calificaciones-edit', [
@@ -506,7 +506,7 @@ class SecundariaCalificacionesController extends Controller
     }
 
     public function recuperativos($id)
-    {     
+    {
 
         $secundaria_inscritos = Secundaria_inscritos::select(
             'secundaria_inscritos.id',
@@ -659,7 +659,7 @@ class SecundariaCalificacionesController extends Controller
         ]);
     }
 
-    // FUNCION PARA CALIFICAR RECUPERATIVOS 
+    // FUNCION PARA CALIFICAR RECUPERATIVOS
     public function guardarCalificacionRecuperativo(Request $request)
     {
         $secundaria_inscrito_id = $request->secundaria_inscrito_id;
@@ -668,15 +668,15 @@ class SecundariaCalificacionesController extends Controller
         $inscRecuperativoTrimestre3 = $request->inscRecuperativoTrimestre3;
 
 
-        for ($i=0; $i < count($secundaria_inscrito_id) ; $i++) { 
-            
+        for ($i=0; $i < count($secundaria_inscrito_id) ; $i++) {
+
             DB::table('secundaria_inscritos')
             ->where('id', $secundaria_inscrito_id[$i])
             ->update([
 
                 'inscRecuperativoTrimestre1' => $inscRecuperativoTrimestre1[$i],
                 'inscRecuperativoTrimestre2' => $inscRecuperativoTrimestre2[$i],
-                'inscRecuperativoTrimestre3' => $inscRecuperativoTrimestre3[$i]           
+                'inscRecuperativoTrimestre3' => $inscRecuperativoTrimestre3[$i]
 
             ]);
         }
@@ -685,21 +685,21 @@ class SecundariaCalificacionesController extends Controller
         return back();
     }
 
-    // FUNCION PARA CALIFICAR EXTRAORDINARIOS 
+    // FUNCION PARA CALIFICAR EXTRAORDINARIOS
     public function guardarCalificacionExtraordinario(Request $request)
     {
         return $secundaria_inscrito_id = $request->secundaria_inscrito_id;
         $inscRecuperativoTrimestre1 = $request->inscRecuperativoTrimestre1;
         $inscRecuperativoTrimestre2 = $request->inscRecuperativoTrimestre2;
 
-        for ($i=0; $i < count($secundaria_inscrito_id) ; $i++) { 
-            
+        for ($i=0; $i < count($secundaria_inscrito_id) ; $i++) {
+
             DB::table('secundaria_inscritos')
             ->where('id', $secundaria_inscrito_id[$i])
             ->update([
 
                 'inscRecuperativoTrimestre1' => $inscRecuperativoTrimestre1[$i],
-                'inscRecuperativoTrimestre2' => $inscRecuperativoTrimestre2[$i]            
+                'inscRecuperativoTrimestre2' => $inscRecuperativoTrimestre2[$i]
 
             ]);
         }
@@ -849,7 +849,7 @@ class SecundariaCalificacionesController extends Controller
         $faltaMay = $request->faltaMay;
         $faltaJun = $request->faltaJun;
 
-        // conducta 
+        // conducta
         $conductaSep = $request->conductaSep;
         $conductaOct = $request->conductaOct;
         $conductaNov = $request->conductaNov;
@@ -895,7 +895,7 @@ class SecundariaCalificacionesController extends Controller
                         'promedio_mes' => $promedioTotal[$i],
                         'usuario_at' => auth()->user()->id,
                         'updated_at' => $fechaActual->format('Y-m-d H:i:s')
-                        
+
 
                     ]);
 
@@ -1143,7 +1143,7 @@ class SecundariaCalificacionesController extends Controller
 
 
 
-            // obtener los porcentajes 
+            // obtener los porcentajes
             $secundaria_porcentajes = Secundaria_porcentajes::where('departamento_id', '=', $cursos->departamento_id)
                 ->where('periodo_id', '=', $cursos->periodo_id)
                 ->whereNull('deleted_at')

@@ -6,6 +6,7 @@ use Lang;
 use App\clases\alumno_expediente\ExpedienteAlumno;
 use App\clases\alumnos\MetodosAlumnos;
 use App\clases\cuotas\MetodosCuotas;
+use App\clases\cursos\MetodosCursos;
 use App\clases\cursos\NotificacionSecundaria;
 use App\Http\Helpers\ClubdePanchito;
 use App\Http\Helpers\SuperUsuario;
@@ -1348,6 +1349,10 @@ class SecundariaCursoController extends Controller
                 'curSecundariaFoto'      => $imageName,
             ]);
 
+            if($curso_anterior && MetodosCursos::hayCambioDeBeca($laNuevaPreinscripcion, $curso_anterior)) {
+                $beca_historial = MetodosCursos::crearHistorialDeBeca($laNuevaPreinscripcion);
+            }
+
             //VERIFICAR SI TIENE MAS DE UN CURSO EN DIFERENTES PERIODOS
             // Y SI ALUESTADO ESTA EN N
             if ($alumnoAluEstado == "N") {
@@ -1715,6 +1720,7 @@ class SecundariaCursoController extends Controller
         try {
             $curso = Curso::with('alumno.persona', 'cgt')->findOrFail($id);
             $periodo = Periodo::findOrFail($curso->periodo_id);
+            $curso_anterior = clone $curso; # Clon para luego revisar si cambió.
 
             $ubicacion = $periodo->departamento->ubicacion->id;
 
@@ -1769,6 +1775,10 @@ class SecundariaCursoController extends Controller
 
 
             $curso->save();
+
+            if($curso_anterior && MetodosCursos::hayCambioDeBeca($curso, $curso_anterior)) {
+                $beca_historial = MetodosCursos::crearHistorialDeBeca($curso);
+            }
 
             // $userId = Auth::id();
             // $resultUpdate =  DB::select("call procInscritosExaniPago99PorCurso("
@@ -2936,6 +2946,40 @@ class SecundariaCursoController extends Controller
             return redirect()->back()->withInput();
         }
 
+        if(MetodosAlumnos::esAlumnoDeudorNivelMAT(
+            $curso->alumno->aluClave,
+            $ubiClave,
+            $depClave,
+            $cuoConcepto,
+            $perAnioPago
+        )) {
+            alert('Escuela Modelo', 'El alumno tiene una deuda de pago con la Escuela (Maternal). Favor de remitirlo al departamento correspondiente para regularizar sus pagos.', 'warning')->showConfirmButton();
+            return redirect()->back()->withInput();
+        }
+
+
+        if(MetodosAlumnos::esAlumnoDeudorNivelPRE(
+            $curso->alumno->aluClave,
+            $ubiClave,
+            $depClave,
+            $cuoConcepto,
+            $perAnioPago
+        )) {
+            alert('Escuela Modelo', 'El alumno tiene una deuda de pago con la Escuela (Preescolar). Favor de remitirlo al departamento correspondiente para regularizar sus pagos.', 'warning')->showConfirmButton();
+            return redirect()->back()->withInput();
+        }
+
+        if(MetodosAlumnos::esAlumnoDeudorNivelPRI(
+            $curso->alumno->aluClave,
+            $ubiClave,
+            $depClave,
+            $cuoConcepto,
+            $perAnioPago
+        )) {
+            alert('Escuela Modelo', 'El alumno tiene una deuda de pago con la Escuela (Primaria). Favor de remitirlo al departamento correspondiente para regularizar sus pagos.', 'warning')->showConfirmButton();
+            return redirect()->back()->withInput();
+        }
+
         //VERIFICA EL NIVEL EDUCATIVO DEL CURSO
         $departamento_clave = $curso->cgt->plan->programa->escuela->departamento->depClave;
         if ($departamento_clave == "SEC") {
@@ -3740,6 +3784,40 @@ class SecundariaCursoController extends Controller
             $perAnioPago
         )) {
             alert('Escuela Modelo', 'El alumno tiene una deuda de pago con la Escuela. Favor de remitirlo al departamento correspondiente para regularizar sus pagos.', 'warning')->showConfirmButton();
+            return redirect()->back()->withInput();
+        }
+
+        if(MetodosAlumnos::esAlumnoDeudorNivelMAT(
+            $curso->alumno->aluClave,
+            $ubiClave,
+            $depClave,
+            $cuoConcepto,
+            $perAnioPago
+        )) {
+            alert('Escuela Modelo', 'El alumno tiene una deuda de pago con la Escuela (Maternal). Favor de remitirlo al departamento correspondiente para regularizar sus pagos.', 'warning')->showConfirmButton();
+            return redirect()->back()->withInput();
+        }
+
+
+        if(MetodosAlumnos::esAlumnoDeudorNivelPRE(
+            $curso->alumno->aluClave,
+            $ubiClave,
+            $depClave,
+            $cuoConcepto,
+            $perAnioPago
+        )) {
+            alert('Escuela Modelo', 'El alumno tiene una deuda de pago con la Escuela (Preescolar). Favor de remitirlo al departamento correspondiente para regularizar sus pagos.', 'warning')->showConfirmButton();
+            return redirect()->back()->withInput();
+        }
+
+        if(MetodosAlumnos::esAlumnoDeudorNivelPRI(
+            $curso->alumno->aluClave,
+            $ubiClave,
+            $depClave,
+            $cuoConcepto,
+            $perAnioPago
+        )) {
+            alert('Escuela Modelo', 'El alumno tiene una deuda de pago con la Escuela (Primaria). Favor de remitirlo al departamento correspondiente para regularizar sus pagos.', 'warning')->showConfirmButton();
             return redirect()->back()->withInput();
         }
 

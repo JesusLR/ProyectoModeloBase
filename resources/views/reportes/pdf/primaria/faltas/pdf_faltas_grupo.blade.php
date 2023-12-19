@@ -506,7 +506,7 @@
       </footer>
     @php
       $totalLoops = 0;
-      use App\Models\Primaria\Primaria_falta;
+      use App\Http\Models\Primaria\Primaria_falta;
     @endphp
     @foreach ($datos as $programa)
       

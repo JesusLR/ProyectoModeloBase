@@ -605,7 +605,7 @@ class IdiomasCalificacionesController extends Controller
                     'rc'.$request->idiomas_grupo_evidencia_id => $total,
                     'rc'.$request->idiomas_grupo_evidencia_id.'Ponderado' => $pond,
                 ]);
-    
+
                 foreach ($materias as $id => $calificacion) {
                     // if ($calificacion > $porcentaje) {
                     //     alert()->error('Error...', 'La calificación con valor: '.$calificacion.' no debe exceder: '.$porcentaje)->showConfirmButton();

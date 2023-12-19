@@ -551,10 +551,10 @@
               <th align="center" style="font-weight: 400; width: 230px;">Nombre del Alumno</th>
               <th align="center" style="font-weight: 400; width: 5px;"></th>
               <th align="center" style="font-weight: 400; width: 70px;">Prom. Calif. Parc.</th>
-              <th align="center" style="font-weight: 400; width: 70px;">Prom. Pond. {{$escuelaPorcentajeExamenParcial}}%</th>
-              <th align="center" style="font-weight: 400; width: 70px;">Calif. Exame. Ordin.</th>
-              <th align="center" style="font-weight: 400; width: 70px;">Calif. Pond. {{$escuelaPorcentajeExamenOrdinario}}%</th>
-              <th align="center" style="font-weight: 400; width: 70px;">Calif. Finales</th>
+              <th align="center" style="font-weight: 400; width: 40px;">Prom. Pond. {{$escuelaPorcentajeExamenParcial}}%</th>
+              <th align="center" style="font-weight: 400; width: 100px;">Calif. Exame. Ordin.</th>
+              <th align="center" style="font-weight: 400; width: 40px;">Calif. Pond. {{$escuelaPorcentajeExamenOrdinario}}%</th>
+              <th align="center" style="font-weight: 400; width: 100px;">Calif. Finales</th>
               <th  style="font-weight: 400; width: 40px;">Falt.</th>
               <th align="center" style="font-weight: 400;"></th>
             </tr>
@@ -581,7 +581,11 @@
                     ||($inscrito->inscCalificacionParcial3 < 0
                     || (!is_null($inscrito->motivofalta_id) && $inscrito->motivofalta_id != 10)
                     || $inscrito->inscCalificacionParcial3 == null))
-                    <span>**</span>
+                    <span>
+                      @if($inscrito->grupo->materia->matTipoAcreditacion == "N")
+                      **
+                      @endif
+                    </span>
                   @endif
                 </td>
 
@@ -612,7 +616,19 @@
                   @elseif($inscrito->inscCalificacionOrdinario == -1)
                     NPE
                   @else
+                    @if ($inscrito->grupo->materia->matTipoAcreditacion == "A")
+
+                      @if($inscrito->inscCalificacionOrdinario == 0)
+                      APROBADO
+                      @else
+                      NO APROBADO
+                      @endif
+                      
+                    @else
+
                     {{$inscrito->inscCalificacionOrdinario}}
+
+                    @endif
                   @endif
                 </td>
 
@@ -634,10 +650,10 @@
 
                     @if ($inscrito->grupo->materia->matTipoAcreditacion == "A")
                       @if ($inscrito->incsCalificacionFinal == 1)
-                        NA
+                        NO APROBADO
                       @endif
                       @if ($inscrito->incsCalificacionFinal == 0)
-                        A
+                        APROBADO
                       @endif
                       @if($inscrito->incsCalificacionFinal == -1)
                         NPE
@@ -651,7 +667,7 @@
                         {{$inscrito->incsCalificacionFinal}}
                       @endif
                     @endif
-                    
+
                   @endif
                 </td>
 

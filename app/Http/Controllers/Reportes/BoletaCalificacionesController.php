@@ -43,7 +43,7 @@ class BoletaCalificacionesController extends Controller
     if(!Auth::check()) {
       return redirect('login');
     }
-    
+
     $calificaciones = Calificacion::with('inscrito.curso.alumno.persona','inscrito.grupo.materia.plan')
 
       ->whereHas('inscrito.curso.alumno.persona', static function($query) use ($request) {
@@ -73,7 +73,7 @@ class BoletaCalificacionesController extends Controller
       alert()->warning('Sin datos', 'No hay registros que coincidan con la información proporcionada. Favor de verificar')->showConfirmButton();
       return back()->withInput();
     }
-    
+
     $datos = collect();
     $fechaActual = Carbon::now('America/Merida');
 
@@ -81,6 +81,7 @@ class BoletaCalificacionesController extends Controller
     $registro1 = $calificaciones->first();
     $programa = $registro1->inscrito->curso->cgt->plan->programa;
     $periodo = $registro1->inscrito->curso->periodo;
+    $perAnioPago = $periodo->perAnioPago;
     $ubicacion = $periodo->departamento->ubicacion;
 
     $periodo = Utils::fecha_string($periodo->perFechaInicial, 'mesCorto').' - '
@@ -113,6 +114,7 @@ class BoletaCalificacionesController extends Controller
       "programa" => $programa,
       "periodo" => $periodo,
       "ubicacion" => $ubicacion,
+      'perAnioPago' => $perAnioPago,
     ])->stream($nombreArchivo.'.pdf');
 
   }# imprimir
@@ -160,6 +162,6 @@ class BoletaCalificacionesController extends Controller
 
 
 
-  
+
 
 }

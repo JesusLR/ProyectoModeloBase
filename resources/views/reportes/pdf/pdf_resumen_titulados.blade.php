@@ -284,7 +284,7 @@
       body{
         font-family: 'sans-serif';
         font-size: 12px;
-        margin-top: 25px;
+        margin-top: 35px;
         margin-left: 5px;
         margin-right: 5px;
       }
@@ -533,8 +533,10 @@
             </tr>
           </thead>
           <tbody>
-          @foreach($escuelas as $escuela)
+          @foreach($escuelas as $escClave => $escuela)
+            @php $subtotal = 0; @endphp
             @foreach($escuela as $carrera)
+              @php $subtotal += $carrera['total']; @endphp
               <tr>
                 @if($tipoReporte == 'P')
                   <td class="tcenter">{{$carrera['perNumero']}}</td>
@@ -542,14 +544,25 @@
                 @endif
                 <td class="tcenter">{{$carrera['progClave']}}</td>
                 <td>{{$carrera['progNombre']}}</td>
-                <td class="tcenter">{{$carrera['total']}}</td>
+                <td align="right">{{$carrera['total']}}</td>
               </tr>
             @endforeach <!-- foreach carrera -->
-            @if($tipoReporte == 'P')
-              <tr>
+            <tr>
+              @if($tipoReporte == 'P')
+              <td></td>
+              <td></td>
+              @endif
+              <td align="center" class="boldFont">{{ $escClave }}</td>
+              <td></td>
+              <td align="right" class="totalCell">{{$subtotal}}</td>
+            </tr>
+            <tr>
+              @if($tipoReporte == 'P')
                 <td colspan="5">&nbsp;</td>
-              </tr>
-            @endif
+              @else
+                <td colspan="3">&nbsp;</td>
+              @endif
+            </tr>
           @endforeach <!-- foreach escuela -->
 
             <tr>
@@ -557,7 +570,7 @@
                 <td colspan="4" class="boldFont">Total de Titulados</td>
                 <td align="center" class="totalCell boldFont">{{$total}}</td>
               @else
-                <td colspan="2" class="boldFont">Total de Egresados</td>
+                <td colspan="2" class="boldFont">Total de Titulados</td>
                 <td align="center" class="totalCell boldFont">{{$total}}</td>
               @endif
             </tr>

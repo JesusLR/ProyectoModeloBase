@@ -29,7 +29,7 @@ class PrimariaContanciaCupoController extends Controller
     public function imprimir(Request $request)
     {
         # code...
-        // query de seleccion de alumno 
+        // query de seleccion de alumno
         $curso_alumno = Curso::select(
             "cursos.id",
             "cursos.curPrimariaFoto",
@@ -104,7 +104,7 @@ class PrimariaContanciaCupoController extends Controller
 
         // $inscrito = collect($inscrito);
 
-        
+
         // $parametro_alumno = $inscrito[0]->nombres . ' ' . $inscrito[0]->ape_paterno . ' ' . $inscrito[0]->ape_materno;
         $parametro_grupo = $curso_alumno[0]->cgtGradoSemestre;
         $parametro_periodo_incio = $curso_alumno[0]->perAnioPago;
@@ -113,10 +113,10 @@ class PrimariaContanciaCupoController extends Controller
         // valida el genero
 
 
-        
 
 
-        // obtener fecha del sistema 
+
+        // obtener fecha del sistema
         $fechaActual = Carbon::now('America/Merida');
         setlocale(LC_TIME, 'es_ES.UTF-8');
         // En windows
@@ -126,33 +126,33 @@ class PrimariaContanciaCupoController extends Controller
         $fechaMes = $fechaActual->format('m');
         $fechaAnio = $fechaActual->format('Y');
 
-        // valida que grado es para escribir lo que corresponda 
+        // valida que grado es para escribir lo que corresponda
         $gradoEnLetras = "";
         $gradoSiguiente = "";
         if ($curso_alumno[0]->cgtGradoSemestre == 1
         ) {
             $gradoEnLetras = "primer grado";
-            $gradoSiguiente = "2do";
+            $gradoSiguiente = "SEGUNDO GRADO";
         }
         if ($curso_alumno[0]->cgtGradoSemestre == 2
         ) {
             $gradoEnLetras = "segundo grado";
-            $gradoSiguiente = "3er";
+            $gradoSiguiente = "TERCER GRADO";
         }
         if ($curso_alumno[0]->cgtGradoSemestre == 3
         ) {
             $gradoEnLetras = "tercer grado";
-            $gradoSiguiente = "4to";
+            $gradoSiguiente = "CUARTO GRADO";
         }
         if ($curso_alumno[0]->cgtGradoSemestre == 4
         ) {
             $gradoEnLetras = "cuarto grado";
-            $gradoSiguiente = "5to";
+            $gradoSiguiente = "QUINTO GRADO";
         }
         if ($curso_alumno[0]->cgtGradoSemestre == 5
         ) {
             $gradoEnLetras = "quinto grado";
-            $gradoSiguiente = "6to";
+            $gradoSiguiente = "SEXTO GRADO";
         }
         if ($curso_alumno[0]->cgtGradoSemestre == 6
         ) {
@@ -160,7 +160,7 @@ class PrimariaContanciaCupoController extends Controller
             $gradoSiguiente = "";
         }
 
-        // meeses en letras 
+        // meeses en letras
         $mesLetras = "";
         if ($fechaMes == "01") {
             $mesLetras = "Enero";
@@ -211,17 +211,17 @@ class PrimariaContanciaCupoController extends Controller
         }
 
 
-        // fecha que se mostrara en PDF 
+        // fecha que se mostrara en PDF
         if($curso_alumno[0]->ubiClave == "CME"){
-            $fechahoy = 'Mérida, Yucatán, a ' . $fechaDia . ' de ' . strtolower($mesLetras) . ' de ' . $fechaAnio . '.';
+            $fechahoy = 'Mérida, Yuc., a ' . $fechaDia . ' de ' . strtolower($mesLetras) . ' de ' . $fechaAnio . '.';
             $campus = "primariaCME";
         }
 
         if($curso_alumno[0]->ubiClave == "CVA"){
-            $fechahoy = 'Valladolid, Yucatán, a ' . $fechaDia . ' de ' . strtolower($mesLetras) . ' de ' . $fechaAnio . '.';
+            $fechahoy = 'Valladolid, Yuc., a ' . $fechaDia . ' de ' . strtolower($mesLetras) . ' de ' . $fechaAnio . '.';
             $campus = "primariaCVA";
         }
-        
+
 
         $parametro_NombreArchivo = "pdf_primaria_constancia_cupo_general";
         // view('reportes.pdf.primaria.constancias.pdf_primaria_constancia_cupo_general');
@@ -237,7 +237,7 @@ class PrimariaContanciaCupoController extends Controller
             'ubicacion' => $curso_alumno[0]->ubiClave,
             'incluyeFoto' => $request->incluyeFoto,
             'campus' => $campus
-            
+
         ]);
 
         $pdf->defaultFont = 'Calibri';

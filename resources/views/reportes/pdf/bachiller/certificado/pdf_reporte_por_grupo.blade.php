@@ -505,7 +505,7 @@
         <div class="page-number"></div>
       </footer>
     @php
-      use App\Models\Bachiller\Bachiller_pago_certificado;
+      use App\Http\Models\Bachiller\Bachiller_pago_certificado;
       $totalLoops = 0;
     @endphp
     @foreach ($datos as $programa)

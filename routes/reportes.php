@@ -638,6 +638,14 @@ Route::post('reporte/horarios_administrativos/imprimir', 'Reportes\HorariosAdmin
 Route::get('reporte/resumen_escuelas', 'Reportes\ResEscuelasController@reporte');
 Route::post('reporte/resumen_escuelas/imprimir', 'Reportes\ResEscuelasController@imprimir');
 
-// Cardex Academico  
+// Cardex Academico
 Route::get('reporte/kardex_academico', 'Reportes\KardexAcademicoController@reporte');
 Route::post('reporte/kardex_academico/imprimir', 'Reportes\KardexAcademicoController@imprimir');
+
+// reporte CIBIES Sustentantes
+Route::get('reporte/cibies_sustentantes', 'Reportes\CIBIESSustentantesController@reporte');
+Route::post('reporte/cibies_sustentantes/imprimir', 'Reportes\CIBIESSustentantesController@imprimir');
+
+// reporte CIBIES Datos
+Route::get('reporte/cibies_datos', 'Reportes\CIBIESDatosController@reporte');
+Route::post('reporte/cibies_datos/imprimir', 'Reportes\CIBIESDatosController@imprimir');

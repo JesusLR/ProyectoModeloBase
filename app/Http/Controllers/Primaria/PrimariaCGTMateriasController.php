@@ -45,7 +45,7 @@ class PrimariaCGTMateriasController extends Controller
         //
     }
 
-    
+
     public function obtenerMaterias(Request $request, $periodo_id, $programa_id, $plan_id, $cgt_id)
     {
         if($request->ajax()){
@@ -58,12 +58,12 @@ class PrimariaCGTMateriasController extends Controller
                 'cgt.cgtTurno',
                 'periodos.id as periodo_id',
                 'programas.id as programa_id',
-                'planes.id as plan_id')       
+                'planes.id as plan_id')
             ->join('planes', 'cgt.plan_id', '=', 'planes.id')
             ->join('periodos', 'cgt.periodo_id', '=', 'periodos.id')
-            ->join('programas', 'planes.programa_id', '=', 'programas.id') 
-            ->join('escuelas', 'programas.escuela_id', '=', 'escuelas.id')            
-            ->join('departamentos', 'escuelas.departamento_id', '=', 'departamentos.id')            
+            ->join('programas', 'planes.programa_id', '=', 'programas.id')
+            ->join('escuelas', 'programas.escuela_id', '=', 'escuelas.id')
+            ->join('departamentos', 'escuelas.departamento_id', '=', 'departamentos.id')
             ->where('departamentos.depClave', 'PRI')
             ->where('periodos.id', $periodo_id)
             ->where('programas.id', $programa_id)
@@ -74,8 +74,8 @@ class PrimariaCGTMateriasController extends Controller
             $materias = Primaria_materia::select(
             'primaria_materias.id',
             'primaria_materias.matClave',
-            'primaria_materias.matNombre', 
-            'primaria_materias.matSemestre', 
+            'primaria_materias.matNombre',
+            'primaria_materias.matSemestre',
             'primaria_materias.matPrerequisitos',
             'planes.planClave',
             'programas.progNombre',
@@ -93,14 +93,14 @@ class PrimariaCGTMateriasController extends Controller
             ->join('programas', 'planes.programa_id', '=', 'programas.id')
             ->join('escuelas', 'programas.escuela_id', '=', 'escuelas.id')
             ->join('departamentos', 'escuelas.departamento_id', '=', 'departamentos.id')
-            ->join('ubicacion', 'departamentos.ubicacion_id', '=', 'ubicacion.id') 
-            ->where('departamentos.depClave', 'PRI')   
-            ->where('primaria_materias.matSemestre', $cgtGrado[0]->cgtGradoSemestre) 
+            ->join('ubicacion', 'departamentos.ubicacion_id', '=', 'ubicacion.id')
+            ->where('departamentos.depClave', 'PRI')
+            ->where('primaria_materias.matSemestre', $cgtGrado[0]->cgtGradoSemestre)
             ->where('cgt.cgtGrupo', $cgtGrado[0]->cgtGrupo)
             ->where('cgt.cgtTurno', $cgtGrado[0]->cgtTurno)
             ->where('periodos.id', $periodo_id)
             ->where('programas.id', $programa_id)
-            ->where('planes.id', $plan_id)     
+            ->where('planes.id', $plan_id)
             ->where('cgt.id', $cgt_id)
             ->where('primaria_materias.matVigentePlanPeriodoActual', '=', 'SI')
             ->get();
@@ -116,11 +116,11 @@ class PrimariaCGTMateriasController extends Controller
      */
     public function store(Request $request)
     {
-        
-       
+
+
 
         if ($request->ajax()) {
-            
+
             $cgtGrupo = $request->input("cgtGrupo");
             $cgtTurno = $request->input("cgtTurno");
 
@@ -131,34 +131,34 @@ class PrimariaCGTMateriasController extends Controller
             $cgt_id = $request->input('cgt_id');
             $matSemestre = $request->input('matSemestre');
 
-            // crear las materias evidencias 
+            // crear las materias evidencias
             DB::select("call procPrimariaMateriasEvidenciasPeriodoActual()");
-            
+
 
             if($primaria_materia != ""){
                 $total_id_materias = count($primaria_materia);
-                for ($x=0; $x < $total_id_materias; $x++) { 
-                    for ($i=0; $i < count($primaria_materia) ; $i++) { 
+                for ($x=0; $x < $total_id_materias; $x++) {
+                    for ($i=0; $i < count($primaria_materia) ; $i++) {
                         $grupo = DB::statement('call procPrimariaAgregaGruposInscritos(?, ?, ?, ?, ?, ?, ?)',[$primaria_materia[$i], $plan_id, $periodo_id, $cgt_id, $matSemestre, $cgtGrupo, $cgtTurno]);
-                    }  
+                    }
                     return response()->json([
                         'res' => true,
                         'grupo' => $grupo
                         ]);
-                   
-                }  
+
+                }
             }else{
                 return response()->json([
                     'res' => 'error',
                     ]);
             }
 
-            
-                    
-        }
-       
 
-        
+
+        }
+
+
+
     }
 
     /**

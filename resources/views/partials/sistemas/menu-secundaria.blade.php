@@ -486,6 +486,12 @@
                                                 </a>
                                             </li>
                                             <li>
+                                                <a href="{{ route('secundaria.secundaria_boleta_campos_formativos.reporteBoleta') }}">
+                                                    <i class="material-icons">keyboard_arrow_right</i>
+                                                    <span>Boleta (Campos Formativos)</span>
+                                                </a>
+                                            </li>
+                                            <li>
                                                 <a href="{{ route('secundaria.secundaria_boleta_de_calificaciones_acd.reporteBoleta') }}">
                                                     <i class="material-icons">keyboard_arrow_right</i>
                                                     <span>Boleta ACD</span>

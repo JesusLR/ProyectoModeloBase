@@ -56,7 +56,8 @@ class Curso extends Model
         'curAnioCuotas',
         'curExani',
         'curExaniFoto',
-        'curPrimariaFoto', 
+        'curPreescolarFoto',
+        'curPrimariaFoto',
         'curSecundariaFoto',
         'curBachillerFoto',
         'usuario_at'
@@ -65,7 +66,7 @@ class Curso extends Model
     protected $dates = [
         'deleted_at',
     ];
-    
+
     /**
    * Override parent boot and Call deleting event
    *
@@ -114,7 +115,7 @@ class Curso extends Model
     {
         return $this->belongsTo(Periodo::class);
     }
-    
+
     public function cgt()
     {
         return $this->belongsTo(Cgt::class);

@@ -483,6 +483,12 @@
       .bordered {
         border:1px solid #000;
       }
+
+      .fotoAlumno{
+        width: 2.5cm;
+        height: 3cm;
+        margin-left: -3.1cm;
+      }
     </style>
 	</head>
   
@@ -498,7 +504,7 @@
           <p class="tright"><b>SUBJECT</b>: PROOF OF STUDIES</p>
           @if ($foto == "con_foto")
             @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus .'/'. $curPrimariaFoto)))              
-              <p><img style="width:65px; float: left; margin-top: 165px; margin-left: -2.7cm;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus. '/' . $curPrimariaFoto) }}"></p>
+              <p><img class="fotoAlumno" style="float: left; margin-top: 165px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus. '/' . $curPrimariaFoto) }}"></p>
             @endif
           @endif
           <br>
@@ -507,7 +513,7 @@
           <br>
           <br>
           <br>
-          <p>To whom it may concern:</p>
+          <p>{{ strtoupper("To whom it may concern:") }}</p>
           <br>
           <br>
          
@@ -538,10 +544,10 @@
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
             And at the request of the interested party and for the purposes that are required, this certificate is issued today, in the city of 
             @if ($parametro_ubicacion == "CME")
-            Mérida
+            Mérida,
             @endif
             @if ($parametro_ubicacion == "CVA")
-            Valladolid
+            Valladolid,
             @endif 
             Yucatán, México.
           </p>

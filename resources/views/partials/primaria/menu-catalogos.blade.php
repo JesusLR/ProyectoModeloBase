@@ -58,6 +58,7 @@
                                     <span>Materias Asignaturas</span>
                                 </a>
                             </li>
+                            
 
                             {{--  cgts   --}}
                             <li>
@@ -116,6 +117,24 @@
                     <a href="{{ route('primaria.primaria_materia.index') }}">
                         <i class="material-icons">keyboard_arrow_right</i>
                         <span>Materias</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('primaria.primaria_campos_formativos.index') }}">
+                        <i class="material-icons">keyboard_arrow_right</i>
+                        <span>Campos Formativos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('primaria.primaria_campos_formativos_observaciones.index') }}">
+                        <i class="material-icons">keyboard_arrow_right</i>
+                        <span>Campos Formativos Observaciones</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('primaria.primaria_campos_formativos_materias.index') }}">
+                        <i class="material-icons">keyboard_arrow_right</i>
+                        <span>Campos Formativos Materias</span>
                     </a>
                 </li>
             </ul>

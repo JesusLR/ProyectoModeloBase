@@ -24,7 +24,9 @@
 
     <optgroup label="Prim. Catálogos">
         <option value="{{ route('primaria.primaria_materia.index') }}" {{ url()->current() ==  route('primaria.primaria_materia.index') ? "selected": "" }}>Materias</option>
-        
+        <option value="{{ route('primaria.primaria_campos_formativos.index') }}" {{ url()->current() ==  route('primaria.primaria_campos_formativos.index') ? "selected": "" }}>Campos Formativos</option>
+        <option value="{{ route('primaria.primaria_campos_formativos_observaciones.index') }}" {{ url()->current() ==  route('primaria.primaria_campos_formativos_observaciones.index') ? "selected": "" }}>Campos Formativos Observaciones</option>
+        <option value="{{ route('primaria.primaria_campos_formativos_materias.index') }}" {{ url()->current() ==  route('primaria.primaria_campos_formativos_materias.index') ? "selected": "" }}>Campos Formativos Materias</option>
     </optgroup>
 
 @endif

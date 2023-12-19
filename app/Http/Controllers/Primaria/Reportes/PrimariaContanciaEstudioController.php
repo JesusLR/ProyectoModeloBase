@@ -29,7 +29,7 @@ class PrimariaContanciaEstudioController extends Controller
     public function imprimir(Request $request)
     {
         # code...
-        // query de seleccion de alumno 
+        // query de seleccion de alumno
         $curso_alumno = Curso::select(
             "cursos.id",
             "cursos.curPrimariaFoto",
@@ -45,7 +45,8 @@ class PrimariaContanciaEstudioController extends Controller
             "cgt.cgtGrupo",
             "periodos.id as periodo_id",
             "periodos.perAnioPago",
-            "ubicacion.ubiClave"
+            "ubicacion.ubiClave",
+            "departamentos.depClaveOficial"
         )
             ->join("alumnos", "cursos.alumno_id", "=", "alumnos.id")
             ->join("personas", "alumnos.persona_id", "=", "personas.id")
@@ -110,14 +111,14 @@ class PrimariaContanciaEstudioController extends Controller
         $parametro_ubicacion = $curso_alumno[0]->ubiClave;
 
 
-        // buscar el grupo al que el alumno pertenece 
-        // $resultado_array =  DB::select("call procPrimariaObtieneGrupoCurso(" . $id_curso . ")");       
+        // buscar el grupo al que el alumno pertenece
+        // $resultado_array =  DB::select("call procPrimariaObtieneGrupoCurso(" . $id_curso . ")");
 
         // $resultado_grupo = collect($resultado_array);
         // $parametro_grupo = $resultado_grupo[0]->gpoClave;
 
 
-        // valida que grado es para escribir lo que corresponda 
+        // valida que grado es para escribir lo que corresponda
         $gradoEnLetras = "";
         if ($parametro_grado == 1) {
             $gradoEnLetras = "PRIMER GRADO";
@@ -138,7 +139,7 @@ class PrimariaContanciaEstudioController extends Controller
             $gradoEnLetras = "SEXTO GRADO";
         }
 
-        // obtener fecha del sistema 
+        // obtener fecha del sistema
         $fechaActual = Carbon::now('America/Merida');
         setlocale(LC_TIME, 'es_ES.UTF-8');
         // En windows
@@ -188,7 +189,7 @@ class PrimariaContanciaEstudioController extends Controller
         }
 
 
-        // fecha que se mostrara en PDF 
+        // fecha que se mostrara en PDF
         if($curso_alumno[0]->ubiClave == "CME"){
             $fechahoy = 'Mérida, Yuc., a ' . $fechaDia . ' de ' . strtolower($mesLetras) . ' de ' . $fechaAnio . '.';
             $campus = "primariaCME";
@@ -197,7 +198,7 @@ class PrimariaContanciaEstudioController extends Controller
             $fechahoy = 'Valladolid, Yuc., a ' . $fechaDia . ' de ' . strtolower($mesLetras) . ' de ' . $fechaAnio . '.';
             $campus = "primariaCVA";
         }
-        
+
 
         $parametro_NombreArchivo = "pdf_primaria_constancia_estudios_general";
         // view('reportes.pdf.primaria.constancias.pdf_primaria_constancia_estudios_general');
@@ -211,7 +212,7 @@ class PrimariaContanciaEstudioController extends Controller
             "parametro_ubicacion" => $parametro_ubicacion,
             "incluyeFoto" => $request->incluyeFoto,
             "campus" => $campus
-        ]); 
+        ]);
 
         $pdf->defaultFont = 'Calibri';
 

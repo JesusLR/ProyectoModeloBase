@@ -189,7 +189,12 @@
                                                         <span>Res. por grupo</span>
                                                     </a>
                                                 </li>
-
+                                                <li>
+                                                    <a href="{{ route('primaria.calificaciones_grupo_campos_formativos.reporte') }}">
+                                                        <i class="material-icons">keyboard_arrow_right</i>
+                                                        <span>Res. por grupo Campos Formativos</span>
+                                                    </a>
+                                                </li>
                                                 <li>
                                                     <a href="{{ route('primaria_reporte.calificacion_por_materia.reporte') }}">
                                                         <i class="material-icons">keyboard_arrow_right</i>

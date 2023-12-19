@@ -484,6 +484,11 @@
         border:1px solid #000;
       }
 
+      .fotoAlumno{
+        width: 2.5cm;
+        height: 3cm;
+        margin-left: -3.1cm;
+      }
     </style>
 	</head>
   
@@ -528,7 +533,7 @@
             @if ($curso->curPrimariaFoto != "")   
               @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $curso->perAnioPago . '/' . $campus .'/'. $curso->curPrimariaFoto)))
            
-                <p><img style="width:65px; float: left; margin-top: 165px; margin-left: -2.7cm;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $curso->perAnioPago . '/' . $campus. '/' . $curso->curPrimariaFoto) }}"></p>      
+                <p><img class="fotoAlumno" style="float: left; margin-top: 165px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $curso->perAnioPago . '/' . $campus. '/' . $curso->curPrimariaFoto) }}"></p>      
 
               @endif
             @endif
@@ -557,22 +562,23 @@
           <br>
           <br>
         
+         
           <br>
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">La que suscribe,
             @if ($parametro_ubicacion == "CME")
-            MAOE. Ma. María Trinidad Díaz Cervera
+            MAOE. María Trinidad Díaz Cervera,
             @endif
             @if ($parametro_ubicacion == "CVA")
-            Mtra. Arely Martinez Díaz
+            Mtra. Arely Martinez Díaz,
             @endif              
-            directora de la Escuela Primaria Incorporada “Modelo” establecida en esta ciudad HACE CONSTAR:</p>
+            directora de la Escuela Primaria Modelo con clave {{ $curso->depClaveOficial }} establecida en esta ciudad, HACE CONSTAR:</p>
           <br>
           <br>
           <br>
           
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">{{$parametro_genero_alumno}} <strong>{{$curso->perApellido1.' '.$curso->perApellido2.' '.$curso->perNombre}} </strong>fue  {{$parametroAlumno}} regular 
-            del {{$curso->cgtGradoSemestre}}, GRUPO “{{$curso->cgtGrupo}}”, de este plantel en el curso escolar {{$periodo}}, 
-            y durante el tiempo que estudió en este plantel se le observó  <strong>BUENA CONDUCTA</strong> así como el cumplimiento del reglamento de la escuela.
+            del {{$curso->cgtGradoSemestre}}, GRUPO “{{$curso->cgtGrupo}}”, de este plantel en el curso escolar {{$periodo}} 
+            y, durante el tiempo que estudió en éste, se le observó  <strong>BUENA CONDUCTA</strong>.
           </p>
 
           <br>
@@ -581,23 +587,19 @@
 
           @if ($parametro_ubicacion == "CME")
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-            A pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia el día de hoy en la ciudad de Mérida Yucatán, México.
+            A pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia el día de hoy en la ciudad de Mérida, Yucatán, México.
           </p>
           @endif   
 
           @if ($parametro_ubicacion == "CVA")
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-            A pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia el día de hoy en la ciudad de Valladolid Yucatán, México.
+            A pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia el día de hoy en la ciudad de Valladolid, Yucatán, México.
           </p>
           @endif  
         </div>
       </div>
       
-      @if ($parametro_ubicacion == "CME")
       <br><br><br><br><br><br><br><br><br><br><br><br>
-      @else    
-      <br><br><br><br><br><br><br><br>
-      @endif
 
       <div class="row">
         <div class="columns medium-12">
@@ -605,10 +607,10 @@
           <p class="tcenter"><b>A T E N T A M E N T E</b></p>
           <br><br><br>
           @if ($parametro_ubicacion == "CME")
-          <p class="tcenter"><b>MAOE. MARÍA TRINIDAD DÍAZ CERVERA.</b></p>
+          <p class="tcenter"><b>MAOE. MARÍA TRINIDAD DÍAZ CERVERA</b></p>
           @endif
           @if ($parametro_ubicacion == "CVA")
-          <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ.</b></p>
+          <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ</b></p>
           @endif
           <p class="tcenter"><b>DIRECTORA</b></p>
         

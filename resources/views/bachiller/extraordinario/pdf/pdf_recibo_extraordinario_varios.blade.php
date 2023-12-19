@@ -595,8 +595,8 @@
 
 @php
 use Luecano\NumeroALetras\NumeroALetras;
-use App\Models\Bachiller\Bachiller_inscritos;
-use App\Models\Bachiller\Bachiller_historico;
+use App\Http\Models\Bachiller\Bachiller_inscritos;
+use App\Http\Models\Bachiller\Bachiller_historico;
 @endphp
 <header>
 

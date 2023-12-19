@@ -483,6 +483,12 @@
       .bordered {
         border:1px solid #000;
       }
+
+      .fotoAlumno{
+        width: 2.5cm;
+        height: 3cm;
+        margin-left: -3.1cm;
+      }
     </style>
 	</head>
   
@@ -498,7 +504,7 @@
           <p class="tright"><b>ASUNTO</b>: CONSTANCIA DE ESTUDIOS</p>
           @if ($foto == "con_foto")
             @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus .'/'. $curPrimariaFoto)))              
-              <p><img style="width:65px; float: left; margin-top: 165px; margin-left: -2.7cm;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus. '/' . $curPrimariaFoto) }}"></p>
+              <p><img class="fotoAlumno" style="float: left; margin-top: 165px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus. '/' . $curPrimariaFoto) }}"></p>
             @endif
           @endif
           <br>
@@ -510,25 +516,25 @@
           <p>A quien corresponda:</p>
           <br>
           <br>
-         
+          
           <br>
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
             La que suscribe, 
             @if ($parametro_ubicacion == "CME")
-            MAOE. María Trinidad Díaz Cervera
+            MAOE. María Trinidad Díaz Cervera,
             @endif
             @if ($parametro_ubicacion == "CVA")
-              Mtra. Arely Martinez Díaz
+              Mtra. Arely Martinez Díaz,
             @endif  
-            directora de la Escuela Primaria Incorporada “Modelo” con clave de trabajo {{ $depClaveOficial }}, establecida en esta ciudad HACE CONSTAR:
+            directora de la Escuela Primaria Modelo con clave {{ $depClaveOficial }} establecida en esta ciudad, HACE CONSTAR:
           </p>
           <br>
           <br>
           <br>
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
 
-           {{ $genero }} <b>{{$alumno}} con número de matrícula {{ $clave  }}</b> cuya fotografía aparece al margen, es alumno regular de esta institución,
-           @if($sexo == "M") inscrito @else inscrita @endif al {{ $grado }} GRUPO "{{ $grupo }}" del ciclo escolar {{ $periodo }}.
+           {{ $genero }} <b>{{$alumno}} con número de matrícula {{ $clave  }}</b> cuya fotografía aparece al margen, es alumno regular de esta institución
+            @if($sexo == "M") inscrito @else inscrita @endif al {{ $grado }}, GRUPO "{{ $grupo }}" del ciclo escolar {{ $periodo }}.
           </p>
 
           <br>
@@ -538,10 +544,10 @@
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
             A pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia el día de hoy en la ciudad de
             @if ($parametro_ubicacion == "CME")
-            Mérida
+            Mérida,
             @endif
             @if ($parametro_ubicacion == "CVA")
-            Valladolid
+            Valladolid,
             @endif 
             Yucatán, México.
           </p>
@@ -556,10 +562,10 @@
           <p class="tcenter"><b>A T E N T A M E N T E</b></p>
           <br><br><br><br>
           @if ($parametro_ubicacion == "CME")
-            <p class="tcenter"><b>MAOE. MARÍA TRINIDAD DÍAZ CERVERA.</b></p>
+            <p class="tcenter"><b>MAOE. MARÍA TRINIDAD DÍAZ CERVERA</b></p>
           @endif
           @if ($parametro_ubicacion == "CVA")
-          <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ.</b></p>
+          <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ</b></p>
           @endif
           
           <p class="tcenter"><b>DIRECTORA</b></p>

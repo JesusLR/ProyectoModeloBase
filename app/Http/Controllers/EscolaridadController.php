@@ -222,7 +222,7 @@ class EscolaridadController extends Controller
             $escolaridad->escoFechaDocumento    = $request->input('escoFechaDocumento');
             $escolaridad->escoObservaciones     = $request->input('escoObservaciones');
             $escolaridad->save();
-            
+
         }catch (QueryException $e){
             DB::rollBack();
             $errorCode = $e->errorInfo[1];

@@ -29,7 +29,7 @@ class PrimariaConstanciaNoAdeudoController extends Controller
     public function imprimir(Request $request)
     {
         # code...
-        // query de seleccion de alumno 
+        // query de seleccion de alumno
         $curso_alumno = Curso::select(
             "cursos.id",
             "alumnos.id as alumno_id",
@@ -45,7 +45,8 @@ class PrimariaConstanciaNoAdeudoController extends Controller
             "periodos.id as periodo_id",
             "periodos.perAnioPago",
             "ubicacion.ubiClave",
-            "cursos.curPrimariaFoto"
+            "cursos.curPrimariaFoto",
+            "departamentos.depClaveOficial"
         )
             ->join("alumnos", "cursos.alumno_id", "=", "alumnos.id")
             ->join("personas", "alumnos.persona_id", "=", "personas.id")
@@ -108,7 +109,7 @@ class PrimariaConstanciaNoAdeudoController extends Controller
         $perAnioPago = $curso_alumno[0]->perAnioPago;
 
 
-        // valida que grado es para escribir lo que corresponda 
+        // valida que grado es para escribir lo que corresponda
         $gradoEnLetras = "";
         if ($parametro_grado == 1) {
             $gradoEnLetras = "PRIMER GRADO";
@@ -129,7 +130,7 @@ class PrimariaConstanciaNoAdeudoController extends Controller
             $gradoEnLetras = "SEXTO GRADO";
         }
 
-        // obtener fecha del sistema 
+        // obtener fecha del sistema
         $fechaActual = Carbon::now('America/Merida');
         setlocale(LC_TIME, 'es_ES.UTF-8');
         // En windows
@@ -179,24 +180,24 @@ class PrimariaConstanciaNoAdeudoController extends Controller
         }
 
         if($curso_alumno[0]->ubiClave == "CME"){
-            // fecha que se mostrara en PDF 
-            $fechahoy = 'MÉRIDA, YUC., A ' . $fechaDia . ' DE ' . strtolower($mesLetras) . ' DE ' . $fechaAnio . '.';
+            // fecha que se mostrara en PDF
+            $fechahoy = 'Mérida, Yuc., a ' . $fechaDia . ' de ' . strtolower($mesLetras) . ' de ' . $fechaAnio . '.';
             $campus = "primariaCME";
         }
 
         if($curso_alumno[0]->ubiClave == "CVA"){
-            // fecha que se mostrara en PDF 
-            $fechahoy = 'VALLADOLID, YUC., A ' . $fechaDia . ' DE ' . strtolower($mesLetras) . ' DE ' . $fechaAnio . '.';
+            // fecha que se mostrara en PDF
+            $fechahoy = 'Valladolid, Yuc., a ' . $fechaDia . ' de ' . strtolower($mesLetras) . ' de ' . $fechaAnio . '.';
             $campus = "primariaCVA";
         }
 
-        
+
 
         $parametro_NombreArchivo = "pdf_primaria_constancia_NoAdeudo_general";
         // view('reportes.pdf.primaria.constancias.pdf_primaria_constancia_NoAdeudo_general');
         $pdf = PDF::loadView('reportes.pdf.primaria.constancias.' . $parametro_NombreArchivo, [
             "genero" => $parametro_genero_alumno,
-            // "alumno" => $parametro_alumno,     
+            // "alumno" => $parametro_alumno,
             "grado" => $gradoEnLetras,
             // "grupo" => $parametro_grupo,
             "fechaHoy" => $fechahoy,

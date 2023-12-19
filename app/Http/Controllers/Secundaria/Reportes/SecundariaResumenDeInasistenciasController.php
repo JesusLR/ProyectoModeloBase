@@ -36,8 +36,8 @@ class SecundariaResumenDeInasistenciasController extends Controller
     public function reporteResumenInasistencias(Request $request)
     {
 
-        
-        // agrupa los alumnos 
+
+        // agrupa los alumnos
         $calificacionesInscritos = DB::table('secundaria_inscritos')
         ->select(
             'alumnos.aluClave',
@@ -79,7 +79,7 @@ class SecundariaResumenDeInasistenciasController extends Controller
             ->get();
 
         $resultado_collection1 = collect($calificacionesInscritos);
-        // si no hay datos muestra alerta 
+        // si no hay datos muestra alerta
         if ($resultado_collection1->isEmpty()) {
             alert()->warning('Sin coincidencias', 'No hay calificaciones capturadas para este grupo. Favor de verificar.')->showConfirmButton();
             return back()->withInput();
@@ -87,7 +87,7 @@ class SecundariaResumenDeInasistenciasController extends Controller
 
 
 
-        // filtra las calificaciones de acuerdo al mes que el usuario indique 
+        // filtra las calificaciones de acuerdo al mes que el usuario indique
         $mesEvaluar = $request->mesEvaluar;
         $conceptos = $request->conceptos;
         $periodo = Periodo::find($request->periodo_id);
@@ -128,12 +128,12 @@ class SecundariaResumenDeInasistenciasController extends Controller
         //     }
         // }
 
-        // llama al procedure de los alumnos a buscar 
+        // llama al procedure de los alumnos a buscar
         $resultado_array =  DB::select("call procSecundariaCalificacionesGrupo(" . $perAnioPago . ", " . $gpoGrado . ", '" . $gpoClave . "', '" . $conceptos . "'," . $programa_id . "," . $plan_id . ")");
 
         $resultado_collection = collect($resultado_array);
 
-        // si no hay datos muestra alerta 
+        // si no hay datos muestra alerta
         if ($resultado_collection->isEmpty()) {
             alert()->warning('Sin coincidencias', 'No hay calificaciones capturadas para este grupo. Favor de verificar.')->showConfirmButton();
             return back()->withInput();
@@ -147,9 +147,9 @@ class SecundariaResumenDeInasistenciasController extends Controller
         $parametro_progClave = $resultado_registro->progClave;
         $parametro_planClave = $resultado_registro->planClave;
         $parametro_progNombre = $resultado_registro->progNombre;
-       
 
-        // consulta para llenar los datos de la cabecera del pdf 
+
+        // consulta para llenar los datos de la cabecera del pdf
         $datos_cabecera = Secundaria_inscritos::select(
             'secundaria_inscritos.id',
             'secundaria_inscritos.inscCalificacionSep',
@@ -238,11 +238,11 @@ class SecundariaResumenDeInasistenciasController extends Controller
         // En windows
         setlocale(LC_TIME, 'spanish');
 
-        // obtiene las materias que se relacionan con el alumno en curso 
+        // obtiene las materias que se relacionan con el alumno en curso
         $materia_alumos =  DB::select("SELECT DISTINCT
-        sm.matClave, 
+        sm.matClave,
         sm.matNombre,
-        sm.matNombreCorto		
+        sm.matNombreCorto
         FROM
         cursos
         INNER JOIN periodos ON cursos.periodo_id = periodos.id
@@ -302,7 +302,7 @@ class SecundariaResumenDeInasistenciasController extends Controller
                 "tipoCalificacionVista" => $tipoCalificacionVista,
                 "tipoFinal" => $tipoFinal,
                 "modoCalificacion" => $modoCalificacion,
-                
+
             ]);
 
             $pdf->setPaper('letter', 'landscape');

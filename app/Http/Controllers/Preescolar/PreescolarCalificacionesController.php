@@ -329,7 +329,7 @@ class PreescolarCalificacionesController extends Controller
                 ->get();
 
 
-            
+
         } elseif ($trimestre_a_evaluar == 2) {
             $calificaciones_array = DB::table('preescolar_calificaciones')
                 ->where('preescolar_calificaciones.preescolar_inscrito_id', $inscrito_id)
@@ -428,6 +428,17 @@ class PreescolarCalificacionesController extends Controller
             $kinderGradoTrimestre = "MATERNAL " . $gpoGrado . $gpoClave . " - " . $numeroReporte;
         }
 
+        $curso = Curso::find($inscritos->curso_id);
+        $curPreescolarFoto = $curso->curPreescolarFoto;
+
+        $ubicacion = $curso->cgt->plan->programa->escuela->departamento->ubicacion;
+        $periodo = $curso->periodo;
+
+        if($ubicacion->id == 1){
+            $campus = "preescolarCME";
+        }else{
+            $campus = "preescolarCVA";
+        }
         // return $calificaciones_collection;
         // view('reportes.pdf.preescolar.calificaciones.pdf_preescolar_reporte_aprovechamiento');
         // view('reportes.pdf.pdf_preescolar_reporte_aprovechamiento');
@@ -444,7 +455,10 @@ class PreescolarCalificacionesController extends Controller
             "trimestre_faltas" => $trimestre_faltas,
             "trimestre_observaciones" => $trimestre_observaciones,
             "trimestre_a_evaluar" => $trimestre_a_evaluar,
-            "nombreArchivo" => $nombreArchivo
+            "nombreArchivo" => $nombreArchivo,
+            "curPreescolarFoto" => $curPreescolarFoto,
+            "campus" => $campus,
+            "perAnioPago" => $periodo->perAnioPago
         ]);
 
 
@@ -472,6 +486,7 @@ class PreescolarCalificacionesController extends Controller
             'periodos.perAnio',
             'cursos.curEstado',
             'cursos.curTipoIngreso',
+            'cursos.curPreescolarFoto',
             'cgt.cgtGradoSemestre',
             'cgt.cgtGrupo',
             'planes.id as plan_id',
@@ -483,6 +498,7 @@ class PreescolarCalificacionesController extends Controller
             'escuelas.escClave',
             'departamentos.depNombre',
             'departamentos.depClave',
+            'ubicacion.id as ubicacion_id',
             'ubicacion.ubiNombre',
             'ubicacion.ubiClave',
             'preescolar_grupos.gpoGrado',
@@ -527,6 +543,14 @@ class PreescolarCalificacionesController extends Controller
             ->get();
 
         //dd($calificaciones_array);
+
+
+
+        if($cursos_grupo[0]->ubicacion_id == 1){
+            $campus = "preescolarCME";
+        }else{
+            $campus = "preescolarCVA";
+        }
 
         $grupos_collection = collect($cursos_grupo);
 
@@ -606,7 +630,8 @@ class PreescolarCalificacionesController extends Controller
             "nombreArchivo" => $nombreArchivo,
             "trimestre" => $trimestre_a_evaluar,
             "trimestre_a_evaluar" => $trimestre_a_evaluar,
-            "cursos_grupo" => $grupos_collection
+            "cursos_grupo" => $grupos_collection,
+            "campus" => $campus
 
         ]);
 

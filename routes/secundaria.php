@@ -402,7 +402,7 @@ Route::get('secundaria_cambio_grupo_acd','Secundaria\SecundariaCambioGrupoACDCon
 Route::get('secundaria_cambio_grupo_acd/cargar_grupos_actuales/{periodo_id}/{programa_id}/{plan_id}/{aluClave}','Secundaria\SecundariaCambioGrupoACDController@cargar_grupos_acd_actuales')->name('secundaria.secundaria_cambio_grupo_acd.cargar_grupos_acd_actuales');
 Route::post('secundaria_cambio_grupo_acd','Secundaria\SecundariaCambioGrupoACDController@cambiar_grupo_acd')->name('secundaria.secundaria_cambio_grupo_acd.cambiar_grupo_acd');
 
-// Generar promedios trimestrales 
+// Generar promedios trimestrales
 Route::get('secundaria_generar_promedios', 'Secundaria\SecundariaGenerarPromediosController@index')->name('secundaria.secundaria_generar_promedios.index');
 Route::post('secundaria_generar_promedios', 'Secundaria\SecundariaGenerarPromediosController@generarPromedio')->name('secundaria.secundaria_generar_promedios.generarPromedio');
 
@@ -563,7 +563,7 @@ Route::get('reporte/secundaria_datos_completos_alumno', 'Secundaria\Reportes\Sec
 Route::get('reporte/secundaria_datos_completos_alumno/getAlumnosCursosEduardo/secundaria', 'Secundaria\Reportes\SecundariaReporteAlumnosExcelController@getAlumnosCursosEduardo');
 
 
-// Reporte de alumnos sin ACD 
+// Reporte de alumnos sin ACD
 Route::get('reporte/secundaria_alumnos_no_inscritos_materias', 'Secundaria\Reportes\SecundariaAlumnosNoInscritosMateriasController@index')->name('secundaria.secundaria_alumnos_no_inscritos_materias.index');
 Route::get('reporte/secundaria_alumnos_no_inscritos_materias/getGrupoACDFiltro/{plan_id}/{periodo_id}/{grado}', 'Secundaria\Reportes\SecundariaAlumnosNoInscritosMateriasController@getGrupoACDFiltro');
 Route::get('reporte/secundaria_alumnos_no_inscritos_materias/getGrupoMateriaFiltro/{plan_id}/{periodo_id}/{grado}', 'Secundaria\Reportes\SecundariaAlumnosNoInscritosMateriasController@getGrupoMateriaFiltro');
@@ -585,7 +585,7 @@ Route::get('secundaria_lista_de_interasados','Secundaria\Reportes\SecundariaList
 Route::post('secundaria_lista_de_interasados/imprimir','Secundaria\Reportes\SecundariaListaDeInteresadosController@imprimir')->name('secundaria.secundaria_lista_de_interasados.imprimir');
 
 
-//Listas de alumnos no inscritos 
+//Listas de alumnos no inscritos
 Route::get('reporte/secundaria_no_inscritos', 'Secundaria\Reportes\SecundariaAlumnosNoInscritosMateriasNormalesController@reporte')->name('secundaria.secundaria_no_inscritos.reporte');
 Route::post('reporte/secundaria_no_inscritos/imprimir', 'Secundaria\Reportes\SecundariaAlumnosNoInscritosMateriasNormalesController@imprimir')->name('secundaria.secundaria_no_inscritos.imprimir');
 
@@ -604,12 +604,12 @@ Route::post('reporte/secundaria_asistencia_grupo/imprimir', 'Secundaria\Reportes
 Route::get('reporte/secundaria_recuperativos', 'Secundaria\Reportes\SecundariaConcentradoRecuperativosController@reporte')->name('secundaria.secundaria_recuperativos.reporte');
 Route::post('reporte/secundaria_recuperativos/imprimir', 'Secundaria\Reportes\SecundariaConcentradoRecuperativosController@imprimir')->name('secundaria.secundaria_recuperativos.imprimir');
 
-// constancia de buena conducta 
+// constancia de buena conducta
 Route::get('reporte/secundaria_constancia_buena_conducta', 'Secundaria\Reportes\SecundariaConstanciaBuenaConductaController@reporte')->name('secundaria.secundaria_constancia_buena_conducta.reporte');
 Route::post('reporte/secundaria_constancia_buena_conducta/imprimir', 'Secundaria\Reportes\SecundariaConstanciaBuenaConductaController@imprimir')->name('secundaria.secundaria_constancia_buena_conducta.imprimir');
 
 
-// Constancia de estudios 
+// Constancia de estudios
 Route::get('reporte/secundaria_constancia_estudios', 'Secundaria\Reportes\SecundariaConstanciaEstudiosController@reporte')->name('secundaria.secundaria_constancia_estudios.reporte');
 Route::post('reporte/secundaria_constancia_estudios/imprimir', 'Secundaria\Reportes\SecundariaConstanciaEstudiosController@imprimir')->name('secundaria.secundaria_constancia_estudios.imprimir');
 //Resumen de inscritos por sexo
@@ -618,3 +618,7 @@ Route::post('secundaria_reporte/secundaria_inscritos_sexo/imprimir','Secundaria\
 
 Route::get('secundaria_reporte/secundaria_acd_faltantes','Secundaria\Reportes\SecundariaACDFaltantesController@reporte')->name('secundaria.secundaria_acd_faltantes.reporte');
 Route::post('secundaria_reporte/secundaria_acd_faltantes/imprimir','Secundaria\Reportes\SecundariaACDFaltantesController@imprimir')->name('secundaria.secundaria_acd_faltantes.imprimir');
+
+// Boleta de calificaciones
+Route::get('reporte/secundaria_boleta_campos_formativos', 'Secundaria\Reportes\SecundariaBoletaCamposFormativosController@reporteBoleta')->name('secundaria.secundaria_boleta_campos_formativos.reporteBoleta');
+Route::post('reporte/secundaria_boleta_campos_formativos/imprimir', 'Secundaria\Reportes\SecundariaBoletaCamposFormativosController@boletadesdecurso')->name('secundaria_boleta_campos_formativos.imprimir.boletadesdecurso');

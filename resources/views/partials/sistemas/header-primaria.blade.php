@@ -13,6 +13,9 @@
             <option value="{{ route('primaria.primaria_plan.index') }}" {{ url()->current() ==  route('primaria.primaria_plan.index') ? "selected": "" }}>Planes</option>
             <option value="{{ route('primaria.primaria_materia.index') }}" {{ url()->current() ==  route('primaria.primaria_materia.index') ? "selected": "" }}>Materias</option>
             <option value="{{ route('primaria.primaria_materias_asignaturas.index') }}" {{ url()->current() ==  route('primaria.primaria_materias_asignaturas.index') ? "selected": "" }}>Materias Asignaturas</option>
+            <option value="{{ route('primaria.primaria_campos_formativos.index') }}" {{ url()->current() ==  route('primaria.primaria_campos_formativos.index') ? "selected": "" }}>Campos Formativos</option>
+            <option value="{{ route('primaria.primaria_campos_formativos_observaciones.index') }}" {{ url()->current() ==  route('primaria.primaria_campos_formativos_observaciones.index') ? "selected": "" }}>Campos Formativos Observaciones</option>
+            <option value="{{ route('primaria.primaria_campos_formativos_materias.index') }}" {{ url()->current() ==  route('primaria.primaria_campos_formativos_materias.index') ? "selected": "" }}>Campos Formativos Materias</option>
             <option value="{{ route('primaria.primaria_cgt.index') }}" {{ url()->current() ==  route('primaria.primaria_cgt.index') ? "selected": "" }}>CGT</option>
             <option value="{{ route('primaria.primaria_categoria_contenido.index') }}" {{ url()->current() ==  route('primaria.primaria_categoria_contenido.index') ? "selected": "" }}>Perf. Cat. Contenidos </option>
             <option value="{{ route('primaria.primaria_calificador.index') }}" {{ url()->current() ==  route('primaria.primaria_calificador.index') ? "selected": "" }}>Perf. Calificadores </option>
@@ -228,6 +231,9 @@
                 {{--  Calificaciones de grupo  --}}
                 <option value="{{ route('primaria_reporte.calificaciones_grupo.reporte') }}"
                     {{ url()->current() ==  route('primaria_reporte.calificaciones_grupo.reporte') ? "selected": "" }}>Res. por grupo</option>
+
+                <option value="{{ route('primaria.calificaciones_grupo_campos_formativos.reporte') }}"
+                    {{ url()->current() ==  route('primaria.calificaciones_grupo_campos_formativos.reporte') ? "selected": "" }}>Res. por grupo Campos Formativos</option>
 
                 {{--  Calificaciones por materia  --}}
                 <option value="{{ route('primaria_reporte.calificacion_por_materia.reporte') }}"

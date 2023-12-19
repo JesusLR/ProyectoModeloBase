@@ -483,6 +483,12 @@
       .bordered {
         border:1px solid #000;
       }
+
+      .fotoAlumno{
+        width: 2.5cm;
+        height: 3cm;
+        margin-left: -3.1cm;
+      }
     </style>
   </head>
   
@@ -509,11 +515,12 @@ use App\Http\Helpers\TruncarDecimales;
             {{--  @if ($foto == "con_foto")  --}}
             @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus .'/'. $curPrimariaFoto)))
 
-            <p><img style="width:65px; float: left; margin-top: 68px; margin-left: -2.7cm;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus. '/' . $curPrimariaFoto) }}"></p>
+            <p><img class="fotoAlumno" style="float: left; margin-top: 68px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus. '/' . $curPrimariaFoto) }}"></p>
             @endif
           {{--  @endif  --}}
             <br>
             <br>
+            
 
             <p>A quien corresponda:</p>
             <br>
@@ -526,15 +533,13 @@ use App\Http\Helpers\TruncarDecimales;
                 @if ($parametro_ubicacion == "CVA")
                   Mtra. Arely Martinez Díaz,
                 @endif   
-                directora de la Escuela
-                Primaria Particular Incorporada Modelo, clave C.T. @if ($parametro_ubicacion == "CME") {{$parametro_CCT}} @else {{$parametro_CCT}} @endif de esta ciudad
-                hace constar {{$genero}}:
+                directora de la Escuela Primaria Modelo con clave {{ $parametro_CCT }} establecida en esta ciudad, HACE CONSTAR {{ $genero }}:
             </p>
             <br>
             <p style="text-align: center"><b>{{$alumno}}</b></p>
             <br>
             <p style="font-size: 15px; text-align: justify;">
-              obtuvo las siguientes calificaciones en el {{$grado}}, grupo "{{$grupo}}" en el
+              obtuvo las siguientes calificaciones en el {{strtoupper($grado)}}, GRUPO "{{$grupo}}" del
           curso escolar {{$periodo_inicio}}-{{$periodo_fin}}:
               
               {{--  obtuvo el promedio en las asignaturas academicas en el {{$grado}},
@@ -631,7 +636,7 @@ use App\Http\Helpers\TruncarDecimales;
 
     <br>
     <div class="row">
-        <p style="font-size: 15px; text-align: justify;">y está inscrito al {{$gradoSiguiente}} grado de
+        <p style="font-size: 15px; text-align: justify;">Y está inscrito al {{$gradoSiguiente}} de
             primaria en esta institución
             durante el próximo año lectivo ({{$periodo_fin}}-{{$periodo_siguiente}}) y cuenta con el cupo
             correspondiente el cual está a su disposición.</p>
@@ -639,12 +644,19 @@ use App\Http\Helpers\TruncarDecimales;
         <br>
 
         <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-            A pedimento del interesado y para los fines legales que correspondan se
-            expide la presente constancia con la fecha de hoy.
+          A pedimento del interesado y para los fines legales que correspondan se expide la presente constancia con la fecha de hoy en la ciudad de 
+          @if ($parametro_ubicacion == "CME")
+          Mérida, Yucatán, México.
+          @else
+          Valladolid, Yucatán, México.
+          @endif
+          
+
+
         </p>
     </div>
 
-    <br><br>
+    <br><br><br><br><br><br><br>
 
     <div class="row">
         <div class="columns medium-12">
@@ -652,10 +664,10 @@ use App\Http\Helpers\TruncarDecimales;
             <p class="tcenter"><b>ATENTAMENTE</b></p>
             <br><br><br><br>
             @if ($parametro_ubicacion == "CME")
-            <p class="tcenter"><b>MAOE. MARÍA TRINIDAD DÍAZ CERVERA.</b></p>
+            <p class="tcenter"><b>MAOE. MARÍA TRINIDAD DÍAZ CERVERA</b></p>
             @endif
             @if ($parametro_ubicacion == "CVA")
-            <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ.</b></p>
+            <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ</b></p>
             @endif
             <p class="tcenter"><b>DIRECTORA</b></p>
 
