@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -120px;
         right: 0px;
@@ -666,7 +667,7 @@
           @else
           L.E.S. Yendy Noemí Vidal Martínez
           @endif
-         
+
         </p>
         <br>
         <p>Observaciones: Para cualquier aclaración, dirigirse al director correspondiente</p>

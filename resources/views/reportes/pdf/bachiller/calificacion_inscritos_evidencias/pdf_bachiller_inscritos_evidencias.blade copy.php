@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 7px;
         right: 0px;
@@ -471,23 +472,23 @@
       }
 
       .punteado2{
-        border-top: 1px dotted; 
-        border-right: 1px dotted; 
-        border-bottom: 1px dotted; 
+        border-top: 1px dotted;
+        border-right: 1px dotted;
+        border-bottom: 1px dotted;
         border-left: 1px dotted;
       }
 
       .punteado{
-        border-top: 1px dotted; 
-        border-right: 1px dotted; 
-        border-bottom: 1px; 
+        border-top: 1px dotted;
+        border-right: 1px dotted;
+        border-bottom: 1px;
         border-left: 1px dotted;
       }
 
       .punteado3{
-        border-top: 1px ; 
-        border-right: 0px dotted; 
-        border-bottom: 1px dotted; 
+        border-top: 1px ;
+        border-right: 0px dotted;
+        border-bottom: 1px dotted;
         border-left: 1px dotted;
       }
     </style>
@@ -496,13 +497,13 @@
   <body>
 
     @php
-        
+
       use App\Http\Helpers\Utils;
 
       $periodoI = \Carbon\Carbon::parse($alumnos[0]->perFechaInicial)->format('d').'/'.Utils::num_meses_corto_string(\Carbon\Carbon::parse($alumnos[0]->perFechaInicial)->format('m')).'/'.\Carbon\Carbon::parse($alumnos[0]->perFechaInicial)->format('Y');
         $periodoF = \Carbon\Carbon::parse($alumnos[0]->perFechaFinal)->format('d').'/'.Utils::num_meses_corto_string(\Carbon\Carbon::parse($alumnos[0]->perFechaFinal)->format('m')).'/'.\Carbon\Carbon::parse($alumnos[0]->perFechaFinal)->format('Y');
         $periodoVigente = $periodoI.' al '.$periodoF.' ('.$alumnos[0]->perNumero.'-'.$alumnos[0]->perAnio.')';
-    @endphp 
+    @endphp
     <header>
       <div class="row">
         <div class="columns medium-6">
@@ -563,7 +564,7 @@
         $periodoAsignado2 = 0;
         $periodoAsignado3 = 0;
     @endphp
-    
+
     <div class="row">
       <div class="columns medium-12">
         <table class="table">
@@ -574,11 +575,11 @@
               <td class="punteado" colspan="1" align="center" style="font-weight: 400;widtd: 350px;"><b>Nombre del</b></td>
               @if ($parametro_ubicacion == "CME")
                 <td class="punteado" colspan="{{count($totalEvidecias)+1}}" align="center" style="font-weight: 400; widtd: 20px;"><b>Actividades de aprendizaje/Puntos Máx</b></td>
-              @endif    
-              
+              @endif
+
               @if ($parametro_ubicacion == "CVA")
               <td class="punteado" colspan="{{count($totalEvidecias)+3}}" align="center" style="font-weight: 400; widtd: 20px;"><b>Número de evidencia(s)</b></td>
-               @endif 
+               @endif
             </tr>
             <tr>
               <td class="punteado3" align="center" style="font-weight: 400;"><b>#</b></td>
@@ -588,23 +589,23 @@
                 @foreach ($totalEvidecias as $evidencias => $totalEvideciasVal)
                   @foreach ($totalEvideciasVal as $ite)
                     @if ($evidencias == $ite->eviNumero && $pos9++ == 1)
-                    <td class="punteado2" align="center" style="font-weight: 400; widtd: 20px;"><b>{{$evidencias}}</b><br><b>{{number_format((float)$ite->eviPuntos, 1, '.', '')}}</b></td> 
-                    
+                    <td class="punteado2" align="center" style="font-weight: 400; widtd: 20px;"><b>{{$evidencias}}</b><br><b>{{number_format((float)$ite->eviPuntos, 1, '.', '')}}</b></td>
+
                       @php
                           $sumaEvidenciasReales = $sumaEvidenciasReales + $ite->eviPuntos;
                       @endphp
-                    @endif                  
-                  @endforeach      
+                    @endif
+                  @endforeach
                   @php
                   $pos9 = 1;
-                  @endphp          
+                  @endphp
                 @endforeach
-              @endif   
+              @endif
 
               @if ($parametro_ubicacion == "CME")
                 <td class="punteado2" align="center" style="font-weight: 400; widtd: 20px;"><b>Total</b> <br> <b>{{$sumaEvidenciasReales}}</b></td>
-              @endif 
-              
+              @endif
+
               @if ($parametro_ubicacion == "CVA")
                 @foreach ($totalEvidecias as $evidencias => $totalEvideciasVal)
                   @foreach ($totalEvideciasVal as $ite)
@@ -617,13 +618,13 @@
                         @php
                             $periodoAsignado1 = $periodoAsignado1 + $ite->eviPuntos;
                         @endphp
-                      </td> 
-                      @endif                    
-                    @endif                  
-                  @endforeach      
+                      </td>
+                      @endif
+                    @endif
+                  @endforeach
                   @php
                   $pos4 = 1;
-                  @endphp          
+                  @endphp
                 @endforeach
               @endif
 
@@ -645,13 +646,13 @@
                         @php
                             $periodoAsignado2 = $periodoAsignado2 + $ite->eviPuntos;
                         @endphp
-                      </td> 
-                      @endif                    
-                    @endif                  
-                  @endforeach      
+                      </td>
+                      @endif
+                    @endif
+                  @endforeach
                   @php
                   $pos5 = 1;
-                  @endphp          
+                  @endphp
                 @endforeach
               @endif
 
@@ -661,7 +662,7 @@
                 <b>{{number_format((float)$periodoAsignado2, 1, '.', '')}}</b>
               </td>
               @endif
-              
+
 
               @if ($parametro_ubicacion == "CVA")
                 @foreach ($totalEvidecias as $evidencias => $totalEvideciasVal)
@@ -674,13 +675,13 @@
                         @php
                             $periodoAsignado3 = $periodoAsignado3 + $ite->eviPuntos;
                         @endphp
-                      </td> 
-                      @endif                    
-                    @endif                  
-                  @endforeach      
+                      </td>
+                      @endif
+                    @endif
+                  @endforeach
                   @php
                   $pos6 = 1;
-                  @endphp          
+                  @endphp
                 @endforeach
               @endif
 
@@ -690,7 +691,7 @@
                 <b>{{number_format((float)$periodoAsignado3, 1, '.', '')}}</b>
               </td>
               @endif
-               
+
             </tr>
           </thead>
           <tbody>
@@ -710,12 +711,12 @@
                               @php
                                   $sumaEvidencias = $sumaEvidencias +  $itemEv->ievPuntos;
                               @endphp
-                            @endif       
+                            @endif
                             @php
                               $pos3 = 1;
-                            @endphp                    
-                          @endforeach  
-                              
+                            @endphp
+                          @endforeach
+
                         @endforeach
 
                         <td class="punteado2" align="center">{{$sumaEvidencias}}</td>
@@ -723,11 +724,11 @@
                   @endif
                 @endforeach
                 @php
-                $pos2 = 1;         
-                $sumaEvidencias = 0;     
+                $pos2 = 1;
+                $sumaEvidencias = 0;
                 @endphp
               @endforeach
-            @endif           
+            @endif
 
 
 
@@ -748,11 +749,11 @@
                                     $periodo1 = $periodo1 + $itemEv->ievPuntos;
                                 @endphp
                               @endif
-                            @endif       
+                            @endif
                             @php
                               $pos3 = 1;
-                            @endphp                    
-                          @endforeach                              
+                            @endphp
+                          @endforeach
                         @endforeach
                         <td class="punteado2" align="center"><b>{{$periodo1}}</b></td>
 
@@ -770,11 +771,11 @@
                                     $periodo2 = $periodo2 + $itemEv->ievPuntos;
                                 @endphp
                               @endif
-                            @endif       
+                            @endif
                             @php
                               $pos6 = 1;
-                            @endphp                    
-                          @endforeach                              
+                            @endphp
+                          @endforeach
                         @endforeach
 
                         <td class="punteado2" align="center"><b>{{$periodo2}}</b></td>
@@ -795,11 +796,11 @@
                                     $periodo3 = $periodo3 + $itemEv->ievPuntos;
                                 @endphp
                               @endif
-                            @endif       
+                            @endif
                             @php
                               $pos7 = 1;
-                            @endphp                    
-                          @endforeach                              
+                            @endphp
+                          @endforeach
                         @endforeach
 
                         <td class="punteado2" align="center"><b>{{$periodo3}}</b></td>
@@ -812,15 +813,15 @@
                   @endif
                 @endforeach
                 @php
-                $pos2 = 1;              
+                $pos2 = 1;
                 @endphp
               @endforeach
-            @endif     
+            @endif
           </tbody>
         </table>
       </div>
     </div>
 
-    
+
   </body>
 </html>

@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -504,7 +505,7 @@
 
 			{{--  @php  --}}
         {{--  $inscritos = $grupo['inscritos'];  --}}
-        
+
         // dd($grupos, $grupo, $inscritos);
 			{{--  @endphp
       @if (!is_null($inscritos))  --}}
@@ -525,7 +526,7 @@
 
             {{-- Muestra si es por mes  --}}
             @if ($tipoReporte == "porMes")
-            <p>Mes : {{$mesEvaluar}} Incluye insc, 
+            <p>Mes : {{$mesEvaluar}} Incluye insc,
               @if ($conceptos == "R")
                 regular ({{$conceptos}})
               @endif
@@ -552,23 +553,23 @@
 
             {{-- Muestra si es por bimestre --}}
             @if ($tipoReporte == "porBimestre")
-            <p>Bimestre : 
+            <p>Bimestre :
               @if ($bimestreEvaluar == "BIMESTRE1")
-                1            
-              @endif 
+                1
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE2")
-                2            
-              @endif 
+                2
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE3")
-                3            
-              @endif 
+                3
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE4")
-                4            
-              @endif 
+                4
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE5")
-                5            
-              @endif 
-              Incluye insc, 
+                5
+              @endif
+              Incluye insc,
               @if ($conceptos == "R")
                 regular ({{$conceptos}})
               @endif
@@ -595,18 +596,18 @@
 
             {{-- Muestra si es por trimestre  --}}
             @if ($tipoReporte == "porTrimestre")
-            <p>Trimestre : 
+            <p>Trimestre :
               @if ($trimestreEvaluar == "TRIMESTRE1")
-                1            
-              @endif 
+                1
+              @endif
               @if ($trimestreEvaluar == "TRIMESTRE2")
-                2            
-              @endif 
+                2
+              @endif
               @if ($trimestreEvaluar == "TRIMESTRE3")
-                3            
-              @endif 
-             
-              Incluye insc, 
+                3
+              @endif
+
+              Incluye insc,
               @if ($conceptos == "R")
                 regular ({{$conceptos}})
               @endif
@@ -631,14 +632,14 @@
             </p>
             @endif
 
-            
+
           </div>
         </div>
 
 
 
         <br>
-        
+
 
         @php
             $inasistencia = 0;
@@ -660,7 +661,7 @@
                         @if ($i == 2)
                         ASIGNATURAS
                         @endif
-                       
+
                     </th>
                 @endfor
                 <th align="center" style="font-weight: 400; border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">Totales</th>
@@ -672,33 +673,33 @@
                 <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">Num</th>
                 <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">Cve Pago</th>
                 <th  style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">Nombre del alumno</th>
-                
-                {{--  recorremos array para mostrar materias   --}}           
+
+                {{--  recorremos array para mostrar materias   --}}
 
                 @foreach ($matNombreColumna as $itemmatNombreColumna => $key)
                   <th align="center" style="font-weight: 400; width:40px; border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">{{$itemmatNombreColumna}}</th>
                 @endforeach
                 <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">Período</th>
-                <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>        
+                <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>
               </tr>
-              
-              
+
+
               @php
               $inasistenciaTotalPoralumno = 0;
               $inasistenciaTotal = 0;
               $totalFaltasXmateria = 0;
               $totalVueltas = -1;
               @endphp
-                @foreach ($calificacionesInscritos as $key => $inscrito)                 
-    
-                  <tr>                   
-                    
+                @foreach ($calificacionesInscritos as $key => $inscrito)
+
+                  <tr>
+
                     <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">{{$key+1}}</td>
                     <td align="center" style="width: 40px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">{{$inscrito->aluClave}}</td>
                     <td style="width: 219px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                        {{$inscrito->perApellido1}} {{$inscrito->perApellido2}} {{$inscrito->perNombre}}                        
+                        {{$inscrito->perApellido1}} {{$inscrito->perApellido2}} {{$inscrito->perNombre}}
                     </td>
-                    
+
                     @foreach ($matClave as $KmatClave => $key)
                       @foreach ($calificaciones as $item)
 
@@ -714,19 +715,19 @@
                                 $inasistenciaTotal = $inasistenciaTotal + $item->inscFaltasInjSep;
                               @endphp
                               @else
-                              
+
                               @endif
                             </td>
-                            @endif  
+                            @endif
                           @endif
 
                           @if ($mesEvaluar == "Octubre")
                             @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                             <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                               @if ($item->inscFaltasInjOct != null)
-                              {{$item->inscFaltasInjOct}}                             
+                              {{$item->inscFaltasInjOct}}
                               @else
-                              
+
                               @endif
                             </td>
                             @endif
@@ -736,22 +737,22 @@
                             @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                             <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                               @if ($item->inscFaltasInjNov != null)
-                              {{$item->inscFaltasInjNov}}                             
+                              {{$item->inscFaltasInjNov}}
                               @else
-                              
+
                               @endif
                             </td>
                             @endif
                           @endif
 
-                      
+
                           @if ($mesEvaluar == "Diciembre")
                             @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                             <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                               @if ($item->inscFaltasInjDic != null)
-                              {{$item->inscFaltasInjDic}}                             
+                              {{$item->inscFaltasInjDic}}
                               @else
-                              
+
                               @endif
                             </td>
                             @endif
@@ -761,9 +762,9 @@
                             @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                             <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                               @if ($item->inscFaltasInjEne != null)
-                              {{$item->inscFaltasInjEne}}                             
+                              {{$item->inscFaltasInjEne}}
                               @else
-                              
+
                               @endif
                             </td>
                             @endif
@@ -773,9 +774,9 @@
                             @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                             <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                               @if ($item->inscFaltasInjFeb != null)
-                              {{$item->inscFaltasInjFeb}}                             
+                              {{$item->inscFaltasInjFeb}}
                               @else
-                              
+
                               @endif
                             </td>
                             @endif
@@ -785,9 +786,9 @@
                             @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                             <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                               @if ($item->inscFaltasInjMar != null)
-                              {{$item->inscFaltasInjMar}}                             
+                              {{$item->inscFaltasInjMar}}
                               @else
-                              
+
                               @endif
                             </td>
                             @endif
@@ -797,9 +798,9 @@
                             @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                             <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                               @if ($item->inscFaltasInjAbr != null)
-                              {{$item->inscFaltasInjAbr}}                             
+                              {{$item->inscFaltasInjAbr}}
                               @else
-                              
+
                               @endif
                             </td>
                             @endif
@@ -809,9 +810,9 @@
                             @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                             <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                               @if ($item->inscFaltasInjMay != null)
-                              {{$item->inscFaltasInjMay}}                              
+                              {{$item->inscFaltasInjMay}}
                               @else
-                              
+
                               @endif
                             </td>
                             @endif
@@ -821,16 +822,16 @@
                             @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                             <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                               @if ($item->inscFaltasInjJun != null)
-                              {{$item->inscFaltasInjJun}}                             
+                              {{$item->inscFaltasInjJun}}
                               @else
-                              
+
                               @endif
                             </td>
                             @endif
                           @endif
-                        
-                        @endif    
-                      
+
+                        @endif
+
                         {{-- mostrar por bimestre  --}}
                         @if ($tipoReporte == "porBimestre")
 
@@ -838,7 +839,7 @@
                           @if ($bimestreEvaluar == "BIMESTRE1")
                             @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                             <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                              {{$item->inscFaltasInjSep + $item->inscFaltasInjOct}}                              
+                              {{$item->inscFaltasInjSep + $item->inscFaltasInjOct}}
                             </td>
                             @endif
                           @endif
@@ -847,7 +848,7 @@
                           @if ($bimestreEvaluar == "BIMESTRE2")
                             @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                             <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                              {{$item->inscFaltasInjNov + $item->inscFaltasInjDic}}                              
+                              {{$item->inscFaltasInjNov + $item->inscFaltasInjDic}}
 
                             </td>
                             @endif
@@ -857,7 +858,7 @@
                           @if ($bimestreEvaluar == "BIMESTRE3")
                             @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                             <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                              {{$item->inscFaltasInjEne + $item->inscFaltasInjFeb}}                              
+                              {{$item->inscFaltasInjEne + $item->inscFaltasInjFeb}}
 
                             </td>
                             @endif
@@ -867,7 +868,7 @@
                           @if ($bimestreEvaluar == "BIMESTRE4")
                             @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                             <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                              {{$item->inscFaltasInjMar + $item->inscFaltasInjAbr}}                              
+                              {{$item->inscFaltasInjMar + $item->inscFaltasInjAbr}}
 
                             </td>
                             @endif
@@ -877,11 +878,11 @@
                           @if ($bimestreEvaluar == "BIMESTRE5")
                             @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                             <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                              {{$item->inscFaltasInjMay + $item->inscFaltasInjJun}}                              
+                              {{$item->inscFaltasInjMay + $item->inscFaltasInjJun}}
 
                             </td>
                             @endif
-                          @endif                            
+                          @endif
                         @endif
 
                         {{-- mostrar por trimestre --}}
@@ -891,7 +892,7 @@
                           @if ($trimestreEvaluar == "TRIMESTRE1")
                             @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                             <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                              {{$item->inscFaltasInjSep + $item->inscFaltasInjOct + $item->inscFaltasInjNov}}                              
+                              {{$item->inscFaltasInjSep + $item->inscFaltasInjOct + $item->inscFaltasInjNov}}
 
                             </td>
                             @endif
@@ -901,7 +902,7 @@
                           @if ($trimestreEvaluar == "TRIMESTRE2")
                             @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                             <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                              {{$item->inscFaltasInjDic + $item->inscFaltasInjEne + $item->inscFaltasInjFeb + $item->inscFaltasInjMar}} 
+                              {{$item->inscFaltasInjDic + $item->inscFaltasInjEne + $item->inscFaltasInjFeb + $item->inscFaltasInjMar}}
                             </td>
                             @endif
                           @endif
@@ -914,16 +915,16 @@
                             </td>
                             @endif
                           @endif
-                          
+
                         @endif
-                        
-                      @endforeach                      
+
+                      @endforeach
                     @endforeach
-                   
-               
+
+
                     <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">{{$inasistenciaTotalPoralumno}}</td>
-                    <td align="center" style="border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 1px solid;"></td>                   
-                    
+                    <td align="center" style="border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 1px solid;"></td>
+
                   </tr>
                   @if ($loop->last)
                   <tr>
@@ -938,85 +939,85 @@
                                     @php
                                       $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjSep;
                                     @endphp
-                                  @endif                        
+                                  @endif
                                 @endif
-          
+
                                 @if ($mesEvaluar == "Octubre")
                                   @if ($KmatClave == $calificaciones[$x]->matClave)
                                     @php
                                       $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjOct;
                                     @endphp
-                                  @endif                        
+                                  @endif
                                 @endif
-          
+
                                 @if ($mesEvaluar == "Noviembre")
                                   @if ($KmatClave == $calificaciones[$x]->matClave)
                                     @php
                                       $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjNov;
                                     @endphp
-                                  @endif                        
+                                  @endif
                                 @endif
-          
+
                                 @if ($mesEvaluar == "Diciembre")
                                   @if ($KmatClave == $calificaciones[$x]->matClave)
                                     @php
                                       $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjDic;
                                     @endphp
-                                  @endif                        
+                                  @endif
                                 @endif
-          
+
                                 @if ($mesEvaluar == "Enero")
                                   @if ($KmatClave == $calificaciones[$x]->matClave)
                                     @php
                                       $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjEne;
                                     @endphp
-                                  @endif                        
+                                  @endif
                                 @endif
-          
-          
+
+
                                 @if ($mesEvaluar == "Febrero")
                                   @if ($KmatClave == $calificaciones[$x]->matClave)
                                     @php
                                       $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjFeb;
                                     @endphp
-                                  @endif                        
+                                  @endif
                                 @endif
-          
+
                                 @if ($mesEvaluar == "Marzo")
                                   @if ($KmatClave == $calificaciones[$x]->matClave)
                                     @php
                                       $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjMar;
                                     @endphp
-                                  @endif                        
+                                  @endif
                                 @endif
-          
+
                                 @if ($mesEvaluar == "Abril")
                                   @if ($KmatClave == $calificaciones[$x]->matClave)
                                     @php
                                       $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjAbr;
                                     @endphp
-                                  @endif                        
+                                  @endif
                                 @endif
-          
-          
+
+
                                 @if ($mesEvaluar == "Mayo")
                                   @if ($KmatClave == $calificaciones[$x]->matClave)
                                     @php
                                       $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjMay;
                                     @endphp
-                                  @endif                        
+                                  @endif
                                 @endif
-          
+
                                 @if ($mesEvaluar == "Junio")
                                   @if ($KmatClave == $calificaciones[$x]->matClave)
                                     @php
                                       $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjJun;
                                     @endphp
-                                  @endif                        
+                                  @endif
                                 @endif
-                                
-                          @endif        
-                          
+
+                          @endif
+
                           {{-- mostrar por bimestre  --}}
                           @if ($tipoReporte == "porBimestre")
                             @if ($bimestreEvaluar == "BIMESTRE1")
@@ -1026,7 +1027,7 @@
                                 @endphp
                               @endif
                             @endif
-          
+
                             @if ($bimestreEvaluar == "BIMESTRE2")
                               @if ($KmatClave == $calificaciones[$x]->matClave)
                                 @php
@@ -1034,7 +1035,7 @@
                                 @endphp
                               @endif
                             @endif
-          
+
                             @if ($bimestreEvaluar == "BIMESTRE3")
                               @if ($KmatClave == $calificaciones[$x]->matClave)
                                 @php
@@ -1042,7 +1043,7 @@
                                 @endphp
                               @endif
                             @endif
-          
+
                             @if ($bimestreEvaluar == "BIMESTRE4")
                               @if ($KmatClave == $calificaciones[$x]->matClave)
                                 @php
@@ -1050,7 +1051,7 @@
                                 @endphp
                               @endif
                             @endif
-          
+
                             @if ($bimestreEvaluar == "BIMESTRE5")
                               @if ($KmatClave == $calificaciones[$x]->matClave)
                                 @php
@@ -1059,39 +1060,39 @@
                               @endif
                             @endif
                           @endif
-          
+
                           {{-- mostrar por trimestre --}}
                           @if ($tipoReporte == "porTrimestre")
-          
+
                             {{-- trimestre 1 --}}
                             @if ($trimestreEvaluar == "TRIMESTRE1")
                               @if ($KmatClave == $calificaciones[$x]->matClave)
                               @php
                                   $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjSep + $calificaciones[$x]->inscFaltasInjOct + $calificaciones[$x]->inscFaltasInjNov;
-                              @endphp                    
+                              @endphp
                               @endif
                             @endif
-          
+
                             {{-- trimestre 2 --}}
                             @if ($trimestreEvaluar == "TRIMESTRE2")
                               @if ($KmatClave == $calificaciones[$x]->matClave)
                               @php
                                   $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjDic + $calificaciones[$x]->inscFaltasInjEne + $calificaciones[$x]->inscFaltasInjFeb + $calificaciones[$x]->inscFaltasInjMar;
-                              @endphp 
-                              
+                              @endphp
+
                               @endif
                             @endif
-          
+
                             {{-- trimestre 3 --}}
                             @if ($trimestreEvaluar == "TRIMESTRE3")
                               @if ($KmatClave == $calificaciones[$x]->matClave)
                               @php
                                   $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjAbr + $calificaciones[$x]->inscFaltasInjMay + $calificaciones[$x]->inscFaltasInjJun;
-                              @endphp                      
+                              @endphp
                               @endif
                             @endif
                           @endif
-                          
+
                         @endfor
                         <td align="center"
                           style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">{{$totalFaltasXmateria}}
@@ -1121,8 +1122,8 @@
 
                   @endphp
                 @endforeach
-                
-              
+
+
             </table>
           </div>
         </div>

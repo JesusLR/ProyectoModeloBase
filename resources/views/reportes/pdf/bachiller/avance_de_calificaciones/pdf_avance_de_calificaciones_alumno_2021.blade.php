@@ -498,6 +498,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -50px;
       right: 0px;
@@ -607,10 +608,10 @@
       <div class="columns medium-12">
 
         {{--  <img class="img-header" src="{{base_path('resources/assets/img/logo.jpg')}}" alt="">  --}}
-        <h1 style="margin-top:0px; margin-bottom: 0px; text-align: center;">Preparatoria "ESCUELA MODELO"</h1>       
+        <h1 style="margin-top:0px; margin-bottom: 0px; text-align: center;">Preparatoria "ESCUELA MODELO"</h1>
         <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">INCORPORADA A LA UNIVERSIDAD AUTONOMA DE YUCATAN</h4>
         <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">PERIODO ESCOLAR: {{$cicloEscolar}}</h4>
-        
+
       </div>
     </div>
   </header>
@@ -621,14 +622,14 @@
       <p><b>Alumno:</b> {{$alumno[0]->ape_paterno.' '.$alumno[0]->ape_materno.' '.$alumno[0]->nombres}}</p>
     </div>
     <div class="columns medium-2">
-      
+
     </div>
     <div class="columns medium-3">
       <p><b>Clav.Plan:</b> {{$alumno[0]->planClave}}</p>
       <p><b>Ubicación:</b> {{$alumno[0]->ubiClave}}</p>
     </div>
     <div class="columns medium-2">
-      
+
     </div>
     <div class="columns medium-3">
       <p><b>Fecha:</b> {{$fechaActual}}</p>
@@ -672,7 +673,7 @@
             @foreach ($valoresObtenidos as $item)
                 @if ($matClave == $item->matClave && $pos++ == 1)
                   @php
-                    $bachiller_inscritos_evidencias =  DB::select("SELECT 
+                    $bachiller_inscritos_evidencias =  DB::select("SELECT
                     bachiller_inscritos_evidencias.id,
                     bachiller_inscritos_evidencias.evidencia_id,
                     bachiller_inscritos_evidencias.bachiller_inscrito_id,
@@ -721,7 +722,7 @@
                         $sumaEvidenciaObteCorte2 = $sumaEvidenciaObteCorte2 + $inscrito_evidencia->puntosObtenidos;
 
                       }
-                      
+
                       if($inscrito_evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial3 && $inscrito_evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial3){
                         $sumaEvidenciaObteCorte3 = $sumaEvidenciaObteCorte3 + $inscrito_evidencia->puntosObtenidos;
 
@@ -733,7 +734,7 @@
                     }
 
 
-                    $bachiller_evidencias =  DB::select("SELECT 
+                    $bachiller_evidencias =  DB::select("SELECT
                     bachiller_evidencias.id,
                     bachiller_evidencias.periodo_id,
                     bachiller_evidencias.bachiller_materia_id,
@@ -763,7 +764,7 @@
 
                         $sumaEvidenciaMaxCorte2 = $sumaEvidenciaMaxCorte2 + $evidencia->puntosMaximos;
                       }
-                      
+
                       if($evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial3 && $evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial3){
 
                         $sumaEvidenciaMaxCorte3 = $sumaEvidenciaMaxCorte3 + $evidencia->puntosMaximos;
@@ -783,35 +784,35 @@
                     <td align="center">
                       {{$sumaEvidenciaMaxCorte1}}
                     </td>
-        
+
                     <td align="center">
                       {{$sumaEvidenciaObteCorte2}}
                     </td>
-        
+
                     <td align="center">
                       {{$sumaEvidenciaMaxCorte2}}
                     </td>
-        
+
                     <td align="center">
                       {{$sumaEvidenciaObteCorte3}}
                     </td>
-        
+
                     <td align="center">
                       {{$sumaEvidenciaMaxCorte3}}
                     </td>
-        
-                    <td align="center">     
-                      {{$sumaEvidenciaObteCorteBueno}}         
+
+                    <td align="center">
+                      {{$sumaEvidenciaObteCorteBueno}}
                     </td>
                     <td align="center">
                       {{$sumaEvidenciaMaxCorteBueno}}
                     </td>
                   </tr>
                 @endif
-            @endforeach      
+            @endforeach
             @php
               $pos = 1;
-            @endphp                    
+            @endphp
           @endforeach
           @php
           $sumaEvidenciaObteCorte1 = 0;
@@ -823,7 +824,7 @@
           $sumaEvidenciaObteCorte3 = 0;
           $sumaEvidenciaMaxCorte3 = 0;
           @endphp
-             
+
         </tbody>
       </table>
 
@@ -843,7 +844,7 @@
             <th align="center">Opor2</th>
             <th align="center">Opor3</th>
             <th align="center">Ult. Examen</th>
-          </tr>          
+          </tr>
         </thead>
         <tbody>
           @php
@@ -929,7 +930,7 @@
             <td align="center" style="border-top: 1px solid; border-right: 0px solid; border-bottom: 0px solid; border-left: 1px solid;"></td>
             <td align="center" style="border-top: 1px solid; border-right: 0px solid; border-bottom: 0px solid; border-left: 1px solid;"></td>
           </tr>
-          @endforelse          
+          @endforelse
         </tbody>
       </table>
     </div>

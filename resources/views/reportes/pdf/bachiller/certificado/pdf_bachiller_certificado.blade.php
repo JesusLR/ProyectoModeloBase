@@ -498,6 +498,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: 0px;
             right: 0px;

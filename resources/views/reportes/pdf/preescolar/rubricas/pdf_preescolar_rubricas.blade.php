@@ -494,6 +494,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: -70px;
             right: 0px;
@@ -633,7 +634,7 @@
                     @if ($trimestre == "3")
                     <th style="text-align:center;background-color: rgb(1,87,155);color:white">TRIMESTRE 3</th>
                     @endif
-                    
+
                     <th style="text-align:center;background-color: rgb(1,87,155);color:white">RUBRICA
                         ACTIVADA</th>
                 </tr>
@@ -662,7 +663,7 @@
                     @if ($trimestre == "3")
                     <td align="center">{{$rubrica->trimestre3}}</td>
                     @endif
-                    
+
                     <td align="center">{{$rubrica->aplica}}</td>
 
                 </tr>

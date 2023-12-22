@@ -498,6 +498,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -50px;
       right: 0px;
@@ -607,10 +608,10 @@
       <div class="columns medium-12">
 
         {{--  <img class="img-header" src="{{base_path('resources/assets/img/logo.jpg')}}" alt="">  --}}
-        <h1 style="margin-top:0px; margin-bottom: 0px; text-align: center;">Preparatoria "ESCUELA MODELO"</h1>       
+        <h1 style="margin-top:0px; margin-bottom: 0px; text-align: center;">Preparatoria "ESCUELA MODELO"</h1>
         <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">INCORPORADA A LA UNIVERSIDAD AUTONOMA DE YUCATAN</h4>
         <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">PERIODO ESCOLAR: {{$cicloEscolar}}</h4>
-        
+
       </div>
     </div>
   </header>
@@ -627,14 +628,14 @@
           <p><b>Alumno:</b> {{$valorAgrupado->ape_paterno.' '.$valorAgrupado->ape_materno.' '.$valorAgrupado->nombres}}</p>
         </div>
         <div class="columns medium-2">
-          
+
         </div>
         <div class="columns medium-3">
           <p><b>Clav.Plan:</b> {{$valorAgrupado->planClave}}</p>
           <p><b>Ubicación:</b> {{$valorAgrupado->ubiClave}}</p>
         </div>
         <div class="columns medium-2">
-          
+
         </div>
         <div class="columns medium-3">
           <p><b>Fecha:</b> {{$fechaActual}}</p>
@@ -673,7 +674,7 @@
               @foreach ($alumno as $item)
                 @if ($item->clave_pago == $valorAgrupado->clave_pago)
                   @php
-                    $evidencias_inscritos =  DB::select("SELECT 
+                    $evidencias_inscritos =  DB::select("SELECT
                     bachiller_inscritos_evidencias.id,
                     bachiller_inscritos_evidencias.evidencia_id,
                     bachiller_inscritos_evidencias.bachiller_inscrito_id,
@@ -697,7 +698,7 @@
                     ORDER BY bachiller_materias.matOrdenVisual ASC");
 
                     ##Obrtener los valores maximos por materia
-                    $evidencias =  DB::select("SELECT 
+                    $evidencias =  DB::select("SELECT
                     bachiller_evidencias.id,
                     bachiller_evidencias.periodo_id,
                     bachiller_evidencias.bachiller_materia_id,
@@ -717,34 +718,34 @@
 
                     $sumaEvidenciaObteProceso = 0;
                     $sumaEvidenciaMaxProceso = 0;
-        
+
                     $sumaEvidenciaObteProduccion = 0;
                     $sumaEvidenciaMaxProduccion = 0;
 
                     foreach($evidencias as $evMax){
                       if($evMax->eviTipo == "A"){
-                        $sumaEvidenciaMaxProceso = $sumaEvidenciaMaxProceso + $evMax->puntosMaximos;           
+                        $sumaEvidenciaMaxProceso = $sumaEvidenciaMaxProceso + $evMax->puntosMaximos;
                       }
-        
-                      if($evMax->eviTipo == "P"){        
-                        $sumaEvidenciaMaxProduccion = $sumaEvidenciaMaxProduccion + $evMax->puntosMaximos;       
-                      }        
+
+                      if($evMax->eviTipo == "P"){
+                        $sumaEvidenciaMaxProduccion = $sumaEvidenciaMaxProduccion + $evMax->puntosMaximos;
+                      }
                     }
 
                     foreach($evidencias_inscritos as $evidencia){
 
                       if($evidencia->eviTipo == "A"){
-                        $sumaEvidenciaObteProceso = $sumaEvidenciaObteProceso + $evidencia->puntosObtenidos;       
-        
-        
+                        $sumaEvidenciaObteProceso = $sumaEvidenciaObteProceso + $evidencia->puntosObtenidos;
+
+
                       }
-        
+
                       if($evidencia->eviTipo == "P"){
-                        $sumaEvidenciaObteProduccion = $sumaEvidenciaObteProduccion + $evidencia->puntosObtenidos;    
-        
-        
-                      }             
-        
+                        $sumaEvidenciaObteProduccion = $sumaEvidenciaObteProduccion + $evidencia->puntosObtenidos;
+
+
+                      }
+
                     }
 
                   @endphp
@@ -755,54 +756,54 @@
                     <td align="center">
                       @if ($sumaEvidenciaObteProceso != "")
                         {{$sumaEvidenciaObteProceso}}
-                      @else                  
+                      @else
                       @endif
                     </td>
                     <td align="center">
                       @if ($sumaEvidenciaMaxProceso != "")
                         {{$sumaEvidenciaMaxProceso}}
-                      @else                  
+                      @else
                       @endif
                     </td>
-        
+
                     <td align="center">
                       @if ($sumaEvidenciaObteProduccion != "")
                         {{$sumaEvidenciaObteProduccion}}
-                      @else                  
+                      @else
                       @endif
                     </td>
-        
+
                     <td align="center">
                       @if ($sumaEvidenciaMaxProduccion != "")
                         {{$sumaEvidenciaMaxProduccion}}
-                      @else                  
+                      @else
                       @endif
                     </td>
-        
+
                     <td align="center">
                       {{$sumaEvidenciaObteProceso+$sumaEvidenciaObteProduccion}}
                     </td>
-        
+
                     <td align="center">
                      {{$sumaEvidenciaMaxProceso+$sumaEvidenciaMaxProduccion}}
                     </td>
-        
-                    <td align="center">              
+
+                    <td align="center">
                     </td>
-                   
+
                   </tr>
 
                   @php
                     $sumaEvidenciaObteProceso = 0;
                     $sumaEvidenciaMaxProceso = 0;
-        
+
                     $sumaEvidenciaObteProduccion = 0;
                     $sumaEvidenciaMaxProduccion = 0;
-      
-                  @endphp  
-                @endif                
-              @endforeach             
-              
+
+                  @endphp
+                @endif
+              @endforeach
+
             </tbody>
           </table>
 
@@ -823,7 +824,7 @@
                 <th align="center">Opor2</th>
                 <th align="center">Opor3</th>
                 <th align="center">Ult. Examen</th>
-              </tr>          
+              </tr>
             </thead>
             <tbody>
               @php
@@ -909,7 +910,7 @@
                 <td align="center" style="border-top: 1px solid; border-right: 0px solid; border-bottom: 0px solid; border-left: 1px solid;"></td>
                 <td align="center" style="border-top: 1px solid; border-right: 0px solid; border-bottom: 0px solid; border-left: 1px solid;"></td>
               </tr>
-              @endforelse          
+              @endforelse
             </tbody>
           </table>
         </div>
@@ -930,9 +931,9 @@
     @endif
   @endforeach
 
-  
 
-  
+
+
 
 
 

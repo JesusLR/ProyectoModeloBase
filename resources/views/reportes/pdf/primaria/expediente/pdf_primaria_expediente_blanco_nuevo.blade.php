@@ -496,6 +496,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: -70px;
             right: 0px;
@@ -595,7 +596,7 @@
             page-break-after: always;
         }
 
-        
+
     </style>
 </head>
 
@@ -608,7 +609,7 @@
 
                 {{-- <img class="img-header2" src="{{base_path('resources/assets/img/logo.jpg')}}" alt=""> --}}
                 <div class="cuadrado img-header2">
-            
+
                 </div>
 
                 <h1 style="margin-top:0px; margin-bottom: 0px; text-align: center;">ESCUELA MODELO, S.C.P.</h1>
@@ -616,7 +617,7 @@
             </div>
         </div>
     </header>
-   
+
     <style>
         .cuadrado {
             width: 70px;
@@ -633,11 +634,11 @@
 
 
     <div class="row">
-        <div class="columns medium-4">              
+        <div class="columns medium-4">
         </div>
         <div class="columns medium-4">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <label><b>Clave: </b>____________</label>  <label><b>Curp: </b>______________________</label>  
+            <label><b>Clave: </b>____________</label>  <label><b>Curp: </b>______________________</label>
             <br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <label style="margin-top:0px; margin-bottom: 10px;"><strong>Alumno: </strong>__________________________________</label>
@@ -645,8 +646,8 @@
            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            <label style="margin-top:0px; margin-bottom: 10px;"><strong>Grado: </strong>_____ ____ DE ______________________</label>
         </div>
-        <div class="columns medium-4">            
-        </div>             
+        <div class="columns medium-4">
+        </div>
     </div>
 
     <br>
@@ -666,42 +667,42 @@
             <tr>
             <th><label><b>Nombre(s): </b></label></th>
             <th><label><b>Apellido paterno: </b></label></th>
-            <th><label><b>Apellido materno: </b></label></th>         
-            <th><label><b>Fecha de nacimiento:</b></label></th>  
-            <th><label><b>Edad: </b></label></th>        
-            <th><label><b>Grado al que se inscribe: </b></label></th> 
-            </tr>                      
-            
-            <tr>            
-                
+            <th><label><b>Apellido materno: </b></label></th>
+            <th><label><b>Fecha de nacimiento:</b></label></th>
+            <th><label><b>Edad: </b></label></th>
+            <th><label><b>Grado al que se inscribe: </b></label></th>
+            </tr>
+
+            <tr>
+
                 <td>
                     <label><b>______________________</b></label>
-                    
-                </td>
-                
-                <td>
-                    <label><b>______________________</b></label>
-                    
-                </td>
-                
-                <td>
-                    <label><b>______________________</b></label>
-                    
+
                 </td>
 
                 <td>
                     <label><b>______________________</b></label>
-              
+
                 </td>
 
                 <td>
                     <label><b>______________________</b></label>
-                    
+
                 </td>
 
                 <td>
                     <label><b>______________________</b></label>
-                    
+
+                </td>
+
+                <td>
+                    <label><b>______________________</b></label>
+
+                </td>
+
+                <td>
+                    <label><b>______________________</b></label>
+
                 </td>
             </tr>
         </table>
@@ -710,7 +711,7 @@
 
 
 
- 
+
     <h2 style="text-align: center">TUTORES DEL ALUMNO(A)</h2>
 
     <div class="row">
@@ -719,18 +720,18 @@
                 <tr>
                     <th><label><b>Nombre completo del tutor:</b></label></th>
                     <th><label><b>Calle:</b></label></th>
-                    <th><label><b>CP:</b></label></th>         
-                    <th><label><b>Población:</b></label></th>  
-                    <th><label><b>Colonia:</b></label></th>        
-                    <th><label><b>Estado:</b></label></th> 
-                </tr>                      
-                
-                <tr>            
-                    
+                    <th><label><b>CP:</b></label></th>
+                    <th><label><b>Población:</b></label></th>
+                    <th><label><b>Colonia:</b></label></th>
+                    <th><label><b>Estado:</b></label></th>
+                </tr>
+
+                <tr>
+
                     <td><label><b>______________________</b></label></td>
-                    
+
                     <td><label><b>______________________</b></label></td>
-                    
+
                     <td><label><b>______________________</b></label></td>
 
                     <td><label><b>______________________</b></label></td>
@@ -751,8 +752,8 @@
             <label><b>Si proviene de otra cuidad ¿Cuánto tiempo tiene de residir en Mérida:</b></label>
             <br>
             <label><b>____________________________________________________________</b></label>
-     
-           
+
+
         </div>
     </div>
 
@@ -769,42 +770,42 @@
             <tr>
             <th><label><b>Nombre(s): </b></label></th>
             <th><label><b>Apellido paterno:</b></label></th>
-            <th><label><b>Apellido materno:</b></label></th>         
-            <th><label><b>Celular:</b></label></th>  
-            <th><label><b>Edad:</b></label></th>        
-            <th><label><b>Ocupación:</b></label></th> 
-            </tr>                      
-            
-            <tr>            
-                
+            <th><label><b>Apellido materno:</b></label></th>
+            <th><label><b>Celular:</b></label></th>
+            <th><label><b>Edad:</b></label></th>
+            <th><label><b>Ocupación:</b></label></th>
+            </tr>
+
+            <tr>
+
                 <td>
                     <label><b>______________________</b></label>
-                       
-                </td>
-                
-                <td>
-                    <label><b>______________________</b></label>
-                      
-                </td>
-                
-                <td>
-                    <label><b>______________________</b></label>
-                      
+
                 </td>
 
                 <td>
                     <label><b>______________________</b></label>
-                     
+
                 </td>
 
                 <td>
                     <label><b>______________________</b></label>
-                        
+
                 </td>
 
                 <td>
                     <label><b>______________________</b></label>
-                      
+
+                </td>
+
+                <td>
+                    <label><b>______________________</b></label>
+
+                </td>
+
+                <td>
+                    <label><b>______________________</b></label>
+
                 </td>
             </tr>
         </table>
@@ -826,42 +827,42 @@
             <tr>
             <th><label><b>Nombre(s): </b></label></th>
             <th><label><b>Apellido paterno:</b></label></th>
-            <th><label><b>Apellido materno:</b></label></th>         
-            <th><label><b>Celular:</b></label></th>  
-            <th><label><b>Edad:</b></label></th>        
-            <th><label><b>Ocupación:</b></label></th> 
-            </tr>                      
-            
-            <tr>            
-                
+            <th><label><b>Apellido materno:</b></label></th>
+            <th><label><b>Celular:</b></label></th>
+            <th><label><b>Edad:</b></label></th>
+            <th><label><b>Ocupación:</b></label></th>
+            </tr>
+
+            <tr>
+
                 <td>
                     <label><b>______________________</b></label>
-                        
-                </td>
-                
-                <td>
-                    <label><b>______________________</b></label>
-                        
-                </td>
-                
-                <td>
-                    <label><b>______________________</b></label>
-                       
+
                 </td>
 
                 <td>
                     <label><b>______________________</b></label>
-                      
+
                 </td>
 
                 <td>
                     <label><b>______________________</b></label>
-                    
+
                 </td>
 
                 <td>
                     <label><b>______________________</b></label>
-                      
+
+                </td>
+
+                <td>
+                    <label><b>______________________</b></label>
+
+                </td>
+
+                <td>
+                    <label><b>______________________</b></label>
+
                 </td>
             </tr>
         </table>
@@ -881,21 +882,21 @@
             <label><b>Estado civil de los padres: </b></label>
             <br>
             <label><b>______________________</b></label>
-                      
+
         </div>
 
         <div class="columns medium-4">
             <label><b>Observaciones: </b></label>
             <br>
             <label><b>______________________</b></label>
-                    
+
         </div>
 
         <div class="columns medium-4">
             <label><b>Religión: </b></label>
             <br>
             <label><b>______________________</b></label>
-                     
+
         </div>
     </div>
 
@@ -913,26 +914,26 @@
             <label><b>Integrante 1:</b></label>
             <br>
             <label><b>_____________________________</b></label>
-                     
+
         </div>
 
         <div class="columns medium-3">
             <label><b>Relación integrante 1: </b></label>
             <br>
             <label><b>_____________________________</b></label>
-                       
+
         </div>
         <div class="columns medium-3">
             <label><b>Edad integrante 1: </b></label>
             <br>
             <label><b>_____________________________</b></label>
-                      
+
         </div>
         <div class="columns medium-3">
             <label><b>Ocupación integrante 1: </b></label>
             <br>
             <label><b>_____________________________</b></label>
-                     
+
         </div>
     </div>
     <br>
@@ -942,26 +943,26 @@
             <label><b>Integrante 2:</b></label>
             <br>
             <label><b>_____________________________</b></label>
-                       
+
         </div>
 
         <div class="columns medium-3">
             <label><b>Relación integrante 2: </b></label>
             <br>
             <label><b>_____________________________</b></label>
-                        
+
         </div>
         <div class="columns medium-3">
             <label><b>Edad integrante 2: </b></label>
             <br>
             <label><b>_____________________________</b></label>
-                      
+
         </div>
         <div class="columns medium-3">
             <label><b>Ocupación integrante 2: </b></label>
             <br>
             <label><b>_____________________________</b></label>
-                       
+
         </div>
     </div>
 
@@ -973,26 +974,26 @@
             <label><b>Integrante 3:</b></label>
             <br>
             <label><b>_____________________________</b></label>
-                      
+
         </div>
 
         <div class="columns medium-3">
             <label><b>Relación integrante 3: </b></label>
             <br>
             <label><b>_____________________________</b></label>
-                     
+
         </div>
         <div class="columns medium-3">
             <label><b>Edad integrante 3: </b></label>
             <br>
             <label><b>_____________________________</b></label>
-                      
+
         </div>
         <div class="columns medium-3">
             <label><b>Ocupación integrante 3: </b></label>
             <br>
             <label><b>_____________________________</b></label>
-                        
+
         </div>
     </div>
 
@@ -1004,51 +1005,51 @@
             <label><b>Integrante 4:</b></label>
             <br>
             <label><b>_____________________________</b></label>
-                       
+
         </div>
 
         <div class="columns medium-3">
             <label><b>Relación integrante 4: </b></label>
             <br>
             <label><b>_____________________________</b></label>
-                       
+
         </div>
         <div class="columns medium-3">
             <label><b>Edad integrante 4: </b></label>
             <br>
             <label><b>_____________________________</b></label>
-                      
+
         </div>
         <div class="columns medium-3">
             <label><b>Ocupación integrante 4: </b></label>
             <br>
             <label><b>_____________________________</b></label>
-                       
+
         </div>
     </div>
 
 
     <br>
-    
+
     <div class="row">
         <div class="columns medium-6">
             <label><b>¿Quién apoya a su hijo(a) en las tareas en casa?:</b></label>
 
             <br>
             <label><b>____________________________________________</b></label>
-                        
+
         </div>
         <div class="row">
             <div class="columns medium-6">
                 <label><b>Deporte(s) o actividad cultural que practica:</b></label>
                 <br>
                 <b>____________________________________________</b></label>
-                       
+
             </div>
         </div>
     </div>
 
-    
+
 
 
     <h2 style="text-align: center">DATOS ESCOLARES</h2>
@@ -1058,19 +1059,19 @@
             <label><b>Nombre la escuela donde cursó:</b></label>
             <br>
             <b>_____________________________________</b></label>
-                     
+
         </div>
         <div class="columns medium-4">
             <label><b>Años estudiados en la escuela anterior:</b></label>
             <br>
             <b>_____________________________________</b></label>
-                        
+
         </div>
         <div class="columns medium-4">
             <label><b>Motivos del cambio de escuela:</b></label>
             <br>
             <b>_____________________________________</b></label>
-                        
+
         </div>
     </div>
 
@@ -1080,13 +1081,13 @@
             <label><b>Kinder:</b></label>
             <br>
             <b>_____________________________________</b></label>
-                       
+
         </div>
         <div class="columns medium-8">
             <label><b>Observaciones:</b></label>
             <br>
             <b>_____________________________________</b></label>
-                        
+
         </div>
     </div>
 
@@ -1095,8 +1096,8 @@
             <label><b>Primaria:</b></label>
             <br>
             <b>_____________________________________</b></label>
-                       
-        </div>        
+
+        </div>
     </div>
 
     <br>
@@ -1107,24 +1108,24 @@
             <tr>
             <th><label><b>Promedio en 1°:</b></label></th>
             <th><label><b>Promedio en 2°:</b></label></th>
-            <th><label><b>Promedio en 3°:</b></label></th>         
-            <th><label><b>Promedio en 4°:</b></label></th>  
-            <th><label><b>Promedio en 5°:</b></label></th>        
-            <th><label><b>Promedio en 6°:</b></label></th> 
-            </tr>                      
-            
-            <tr>            
-                
+            <th><label><b>Promedio en 3°:</b></label></th>
+            <th><label><b>Promedio en 4°:</b></label></th>
+            <th><label><b>Promedio en 5°:</b></label></th>
+            <th><label><b>Promedio en 6°:</b></label></th>
+            </tr>
+
+            <tr>
+
                 <td>
                     <label>
                     <b>________________</b></label>
                   </td>
-                
+
                 <td>
                     <label>
                     <b>________________</b></label>
                 </td>
-                
+
                 <td>
                     <label>
                     <b>________________</b></label>
@@ -1153,33 +1154,33 @@
     <div class="row">
         <div class="columns medium-4">
             <label><b>Repetición de algún grado:</b></label>
-            <br>    
+            <br>
             <label><b>_________________________</b></label>
-                   
-        </div>      
+
+        </div>
         <div class="columns medium-4">
             <label><b>Promedio:</b></label>
             <br>
             <label><b>_________</b></label>
-                    
-        </div>        
+
+        </div>
     </div>
 
-    
+
     <br>
     <div class="row">
         <div class="columns medium-5">
-            <label><b>¿Ha recibido su hijo(a) apoyo pedagógico en algún grado escolar?:</b></label>   
-            <br> 
+            <label><b>¿Ha recibido su hijo(a) apoyo pedagógico en algún grado escolar?:</b></label>
+            <br>
             <label><b>________________</b></label>
-                   
-        </div>      
+
+        </div>
         <div class="columns medium-8">
             <label><b>Observaciones:</b></label>
             <br>
             <label><b>___________________________________________________________________________________</b></label>
-                   
-        </div>        
+
+        </div>
     </div>
 
 
@@ -1196,14 +1197,14 @@
             <label><b>Médico:</b></label>
             <br>
             <label><b>________________</b></label>
-                   
-        </div>      
+
+        </div>
         <div class="columns medium-8">
             <label><b>Observaciones:</b></label>
-            <br> 
+            <br>
             <label><b>___________________________________________________________________________________</b></label>
-                    
-        </div>        
+
+        </div>
     </div>
 
     {{-- Neurológico  --}}
@@ -1212,30 +1213,30 @@
             <label><b>Neurológico:</b></label>
             <br>
             <label><b>________________</b></label>
-                    
-        </div>      
+
+        </div>
         <div class="columns medium-8">
             <label><b>Observaciones:</b></label>
-            <br> 
+            <br>
             <label><b>___________________________________________________________________________________</b></label>
-                   
-        </div>        
+
+        </div>
     </div>
-    
+
     {{-- Psicologico  --}}
     <div class="row">
         <div class="columns medium-4">
             <label><b>Psicologico:</b></label>
             <br>
             <label><b>________________</b></label>
-                  
-        </div>      
+
+        </div>
         <div class="columns medium-8">
             <label><b>Observaciones:</b></label>
-            <br> 
+            <br>
             <label><b>___________________________________________________________________________________</b></label>
-                    
-        </div>        
+
+        </div>
     </div>
 
 
@@ -1245,7 +1246,7 @@
             <label><b>Motivo por el que se solicita la inscripción en la Escuela Modelo:</b></label>
             <br>
             <label><b>_________________________________________________________________________________________________________________________________________</b></label>
-                    
+
         </div>
     </div>
 
@@ -1261,20 +1262,20 @@
             <label><b>Familiar 1:</b></label>
             <br>
             <label><b>_______________________________________________</b></label>
-                   
-        </div>      
+
+        </div>
         <div class="columns medium-4">
             <label><b>Familiar 2:</b></label>
-            <br> 
+            <br>
             <label><b>_______________________________________________</b></label>
-                   
-        </div>     
+
+        </div>
         <div class="columns medium-4">
             <label><b>Familiar 3:</b></label>
-            <br> 
+            <br>
             <label><b>_______________________________________________</b></label>
-                    
-        </div>    
+
+        </div>
     </div>
 
 
@@ -1289,28 +1290,28 @@
             <label><b>Referencia 1:</b></label>
             <br>
             <label><b>_______________________________________________</b></label>
-                   
-        </div>      
+
+        </div>
         <div class="columns medium-4">
             <label><b>Celular referencia 1:</b></label>
             <br>
             <label><b>_________________</b></label>
-                    
-        </div>         
+
+        </div>
     </div>
     <div class="row">
         <div class="columns medium-4">
             <label><b>Referencia 2:</b></label>
             <br>
             <label><b>_______________________________________________</b></label>
-                    
-        </div>      
+
+        </div>
         <div class="columns medium-4">
             <label><b>Celular referencia 2:</b></label>
             <br>
             <label><b>_________________</b></label>
-                    
-        </div>         
+
+        </div>
     </div>
     <br>
 
@@ -1319,8 +1320,8 @@
             <label><b>Observaciones generales:</b></label>
             <br>
             <label><b>______________________________________________________________________________________________________________________________________________________</b></label>
-                    
-        </div>              
+
+        </div>
     </div>
 
     <br>
@@ -1329,19 +1330,19 @@
             <label><b>Entrevisto:</b></label>
             <br>
             <label><b>______________________________________________</b></label>
-                   
-        </div>         
+
+        </div>
         <div class="columns medium-4">
             <label><b>Ubicación:</b></label>
             <br>
             <label><b>______________________________________________</b></label>
-                    
-        </div>       
+
+        </div>
     </div>
- 
+
         <footer id="footer">
             <div class="page-number">
-                
+
             </div>
         </footer>
 

@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -504,7 +505,7 @@
 
 			{{--  @php  --}}
         {{--  $inscritos = $grupo['inscritos'];  --}}
-        
+
         // dd($grupos, $grupo, $inscritos);
 			{{--  @endphp
       @if (!is_null($inscritos))  --}}
@@ -525,7 +526,7 @@
 
             {{-- Muestra si es por mes  --}}
             @if ($tipoReporte == "porMes")
-            <p>Mes : {{$mesEvaluar}} Incluye insc, 
+            <p>Mes : {{$mesEvaluar}} Incluye insc,
               @if ($conceptos == "R")
                 regular ({{$conceptos}})
               @endif
@@ -552,23 +553,23 @@
 
             {{-- Muestra si es por bimestre --}}
             @if ($tipoReporte == "porBimestre")
-            <p>Bimestre : 
+            <p>Bimestre :
               @if ($bimestreEvaluar == "BIMESTRE1")
-                1            
-              @endif 
+                1
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE2")
-                2            
-              @endif 
+                2
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE3")
-                3            
-              @endif 
+                3
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE4")
-                4            
-              @endif 
+                4
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE5")
-                5            
-              @endif 
-              Incluye insc, 
+                5
+              @endif
+              Incluye insc,
               @if ($conceptos == "R")
                 regular ({{$conceptos}})
               @endif
@@ -595,18 +596,18 @@
 
             {{-- Muestra si es por trimestre  --}}
             @if ($tipoReporte == "porTrimestre")
-            <p>Trimestre : 
+            <p>Trimestre :
               @if ($trimestreEvaluar == "TRIMESTRE1")
-                1            
-              @endif 
+                1
+              @endif
               @if ($trimestreEvaluar == "TRIMESTRE2")
-                2            
-              @endif 
+                2
+              @endif
               @if ($trimestreEvaluar == "TRIMESTRE3")
-                3            
-              @endif 
-             
-              Incluye insc, 
+                3
+              @endif
+
+              Incluye insc,
               @if ($conceptos == "R")
                 regular ({{$conceptos}})
               @endif
@@ -631,7 +632,7 @@
             </p>
             @endif
 
-            
+
           </div>
         </div>
 
@@ -649,31 +650,31 @@
                 <th align="center" style="font-weight: 400;">Num</th>
                 <th align="center" style="font-weight: 400;">Cve Pago</th>
                 <th  style="font-weight: 400;">Nombre del alumno</th>
-                
+
                 {{--  recorremos array para mostrar materias   --}}
                 @foreach ($materia_alumos as $mat)
                 <th align="center" style="font-weight: 400;">{{$mat->matClave}}</th>
                 @endforeach
-                
 
-                <th align="center" style="font-weight: 400;">Falt</th>      
+
+                <th align="center" style="font-weight: 400;">Falt</th>
 
                 {{-- adicionales para acompletar la linea  --}}
-                <th align="center" style="font-weight: 400;"></th> 
-                <th align="center" style="font-weight: 400;"></th>          
+                <th align="center" style="font-weight: 400;"></th>
+                <th align="center" style="font-weight: 400;"></th>
               </tr>
-              
-              
-                @foreach ($calificacionesInscritos as $key => $inscrito)                 
-    
-                  <tr>                    
+
+
+                @foreach ($calificacionesInscritos as $key => $inscrito)
+
+                  <tr>
                     <td align="center" style="height:17px;">{{$key+1}}</td>
                     <td align="center" style="width: 40px;">{{$inscrito->aluClave}}</td>
                     <td style="width: 300px;">
-                        {{$inscrito->perApellido1}} {{$inscrito->perApellido2}} {{$inscrito->perNombre}}                        
+                        {{$inscrito->perApellido1}} {{$inscrito->perApellido2}} {{$inscrito->perNombre}}
                     </td>
 
-                    
+
                     @foreach ($materia_alumos as $matAlumnos)
                       @foreach ($calificaciones as $item)
                         @if ($tipoReporte == "porMes")
@@ -687,7 +688,7 @@
                                 __
                                 @endif
                               </td>
-                            @endif  
+                            @endif
                           @endif
 
                           @if ($mesEvaluar == "Octubre")
@@ -714,7 +715,7 @@
                             @endif
                           @endif
 
-                        
+
 
                           @if ($mesEvaluar == "Diciembre")
                             @if ($matAlumnos->matClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
@@ -799,9 +800,9 @@
                               </td>
                             @endif
                           @endif
-                            
-                        @endif    
-                        
+
+                        @endif
+
                         {{-- mostrar por bimestre  --}}
                         @if ($tipoReporte == "porBimestre")
 
@@ -869,7 +870,7 @@
                               </td>
                             @endif
                           @endif
-                            
+
                         @endif
 
                         {{-- mostrar por trimestre --}}
@@ -913,9 +914,9 @@
                               </td>
                             @endif
                           @endif
-                            
+
                         @endif
-                      @endforeach                      
+                      @endforeach
                     @endforeach
 
 
@@ -1023,7 +1024,7 @@
                   @endforeach
                 @endif
           @endif
-          
+
 
           {{-- mostrar por trimestre --}}
           @if ($tipoReporte == "porTrimestre")
@@ -1046,8 +1047,8 @@
               @endforeach
             @endif
           @endif
-                    
-                    
+
+
                   </tr>
                 @endforeach
             </table>

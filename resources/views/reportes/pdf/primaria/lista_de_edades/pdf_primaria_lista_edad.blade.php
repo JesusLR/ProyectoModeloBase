@@ -494,6 +494,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -10px;
       right: 0px;
@@ -657,7 +658,7 @@
     <div class="page-number"></div>
   </footer>
 
-  <div class="row">                        
+  <div class="row">
     <div class="columns medium-12">
       <table class="table table-bordered">
         <thead>
@@ -680,10 +681,10 @@
             <td align="center">{{$item->edadActual}}</td>
             <td align="center">{{$item->estado_curso}}</td>
           </tr>
-          @endforeach                    
+          @endforeach
         </tbody>
       </table>
-    </div>  
+    </div>
   </div>
 
 

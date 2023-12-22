@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 20px;
         right: 0px;
@@ -500,7 +501,7 @@
           </div>
         </div>
       </header>
-    
+
       <footer id="footer">
         <div class="page-number"></div>
       </footer>
@@ -509,7 +510,7 @@
       $totalAlumno = 0;
     @endphp
     @foreach ($datos as $programa)
-      
+
       @foreach($programa as $plan)
         @php
           $grados = $plan->sortKeys();
@@ -590,11 +591,11 @@
                         AND estudioPreescolar='".$estudioPre."'");
                       }
 
-                      
+
 
                     @endphp
 
-                   
+
                     @if (!empty($expediente[0]))
                       @php
                           $totalAlumno++;
@@ -617,14 +618,14 @@
                         @else
                         {{$expediente[0]->estudioPreescolar}}
                         @endif
-                        
+
                       </td>
                       <td align="center" style="width: 40px;">{{$expediente[0]->preescolar1}}</td>
                       <td align="center" style="width: 40px;">{{$expediente[0]->preescolar2}}</td>
-                      <td align="center" style="width: 40px;">{{$expediente[0]->preescolar3}}</td>                     
+                      <td align="center" style="width: 40px;">{{$expediente[0]->preescolar3}}</td>
                     </tr>
                     @endif
-                    
+
                   @endforeach <!-- foreach alumno -->
                   @php
                       $totalAlumno = 0;
@@ -645,6 +646,6 @@
       @endforeach <!-- foreach plan -->
     @endforeach <!-- foreach programa -->
 
-    
+
   </body>
 </html>

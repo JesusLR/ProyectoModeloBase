@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -70px;
         right: 0px;
@@ -689,7 +690,7 @@
       </div>
   </div>
 
-  
+
 
 
   </body>

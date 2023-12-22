@@ -368,7 +368,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -392,15 +392,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -492,8 +493,8 @@
     </style>
 
       <style>
-        .rectangulo {     
-          border: 1px solid #555;          
+        .rectangulo {
+          border: 1px solid #555;
           -moz-border-radius: 50%;
           -webkit-border-radius: 50%;
           border-radius: 70%;
@@ -512,31 +513,31 @@
             background: #000;
        }
 
-       
+
        </style>
 </head>
 
 
 
 <body>
- 
+
   <footer id="footer">
     <div class="page-number"></div>
   </footer>
 
   <table class="table table-bordered">
     <colgroup span="3"></colgroup>
-    <thead>   
-      
-        <tr>    
+    <thead>
+
+        <tr>
            <td align="center" style="width: 50px; height:170px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;" rowspan="3" scope="rowgroup">
               <img class="img-header" src="{{base_path('resources/assets/img/logo.jpg')}}" alt="">
            </td>
- 
+
             <td align="center" colspan="3" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
               <p>Primaria Escuela Modelo</p>
               {{--  <br>    --}}
-              <p>CCT31PPR0097X</p> 
+              <p>CCT31PPR0097X</p>
               {{--  <br>  --}}
               <p>Ciclo escolar {{$ciclo_escolar}}</p>
               <p>PLANEACIÓN DE ACTIVIDADES DE LA ASIGNATURA: {{$primaria_grupos_planeaciones->matNombre}}</p>
@@ -548,10 +549,10 @@
               <p>{{$primaria_grupos_planeaciones->trimestre}}</p>
             </td>
         </tr>
-          <tr>     
+          <tr>
             <td colspan="5" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">{{$docente}}</td>
         </tr>
-        <tr>     
+        <tr>
           <th colspan="3" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">Semana del {{\Carbon\Carbon::parse($primaria_grupos_planeaciones->semana_inicio)->format('d-m-Y')}} al {{\Carbon\Carbon::parse($primaria_grupos_planeaciones->semana_fin)->format('d-m-Y')}}</th>
           <td colspan="2" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">Grado: {{$primaria_grupos_planeaciones->gpoGrado}}°   Grupos: {{$primaria_grupos_planeaciones->gpoClave}}</td>
         </tr>
@@ -564,7 +565,7 @@
             <br>
             Valor del mes: {{$primaria_grupos_planeaciones->valor_mes}}
             <br>
-            Norma de urbanidad: {{$primaria_grupos_planeaciones->norma_urbanidad}}           
+            Norma de urbanidad: {{$primaria_grupos_planeaciones->norma_urbanidad}}
           </td>
         </tr>
         <tr>
@@ -577,7 +578,7 @@
             BLOQUE {{$primaria_grupos_planeaciones->bloque}}
           </td>
           <td colspan="5" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
-              <b>Objetivo particular: </b>  {{$primaria_grupos_planeaciones->objetivo_particular}}    
+              <b>Objetivo particular: </b>  {{$primaria_grupos_planeaciones->objetivo_particular}}
           </td>
         </tr>
 
@@ -634,16 +635,16 @@
         <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
           {{$planeaciones_temas->evaluacion}}
         </td>
-      </tr> 
-      @endforeach   
+      </tr>
+      @endforeach
       <tr>
         <td colspan="6" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
-          <b>Notas/Observaciones: </b>  {{$primaria_grupos_planeaciones->notas_observaciones}}    
+          <b>Notas/Observaciones: </b>  {{$primaria_grupos_planeaciones->notas_observaciones}}
         </td>
-      </tr>                                       
+      </tr>
     </tbody>
 </table>
-    
+
 
     {{-- <footer id="footer">
         <div class="page-number"></div>

@@ -365,7 +365,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -389,15 +389,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -478,7 +479,7 @@
       }
     </style>
 	</head>
-  
+
   <header>
     @php
       use App\Http\Helpers\Utils;
@@ -497,14 +498,14 @@
           break;
       }
     @endphp
-    
+
   </header>
   <body>
     @php
       $el_la = ($persona->perSexo == 'M') ? 'El' : 'La';
       $alumnx = ($persona->perSexo == 'M') ? 'alumno' : 'alumna';
     @endphp
-    
+
       <div class="row">
         <p align="center">No. {{$minutario->id}}</p>
       </div>
@@ -523,7 +524,7 @@
         <br>
         <p>
           {{$el_la}} Joven {{$nombreCompleto}} es {{$alumnx}} de {{$semestre}} semestre de {{$progNombre}}
-          en el ciclo escolar de {{Utils::fecha_string($periodo->perFechaInicial)}} al 
+          en el ciclo escolar de {{Utils::fecha_string($periodo->perFechaInicial)}} al
           {{Utils::fecha_string($periodo->perFechaFinal)}}
           @if($totalPeriodos == 1)
               y ha obtenido en el último semestre las siguientes calificaciones.
@@ -534,7 +535,7 @@
         </p>
 
         @if($totalPeriodos > 0)
-          @php 
+          @php
             $sumaTotal = 0;
             $promTotal = 0;
             $numeroPromedios = 0;
@@ -624,9 +625,9 @@
         <br>
         <p>
           Y para los fines que le sean convenientes, se expide la presente constancia
-          en la ciudad de {{$municipio->munNombre}}, {{$municipio->estado->edoNombre}}, 
-          a los {{$fechaActual->day}} dias del mes de 
-          {{ucwords(Utils::num_meses_string($fechaActual->month))}} de 
+          en la ciudad de {{$municipio->munNombre}}, {{$municipio->estado->edoNombre}},
+          a los {{$fechaActual->day}} dias del mes de
+          {{ucwords(Utils::num_meses_string($fechaActual->month))}} de
           {{$fechaActual->year}}.
         </p>
         <br>
@@ -642,5 +643,5 @@
   </body>
   <footer>
   </footer>
-    
+
 </html>

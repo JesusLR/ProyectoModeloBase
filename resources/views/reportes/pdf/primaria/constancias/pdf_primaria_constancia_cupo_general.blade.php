@@ -345,9 +345,9 @@
     [hidden] {
       display: none;
     }
-    
 
-    
+
+
 
     body {
       /*font-family: 'Calibri';*/
@@ -355,7 +355,7 @@
       font-size: 14px;
       margin-top: 4cm;
       margin-bottom: 3cm;
-      margin-left: 3.5cm;      
+      margin-left: 3.5cm;
       margin-right: 3.5cm;
     }
 
@@ -499,6 +499,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -10px;
       right: 0px;
@@ -627,23 +628,23 @@ use App\Http\Helpers\TruncarDecimales;
         <br>
         <p class="tright"><b>ASUNTO</b>: CONSTANCIA DE CUPO</p>
         @if ($incluyeFoto == "SI")
-          @if ($item->curPrimariaFoto != "")  
+          @if ($item->curPrimariaFoto != "")
             @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus .'/'. $item->curPrimariaFoto)))
-            
+
               <p><img class="fotoAlumno" style="float: left; margin-top: 68px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus. '/' . $item->curPrimariaFoto) }}"></p>
             @endif
           @endif
         @endif
         <br>
         <br>
-       
+
         {{--  <br>  --}}
 
         <p>A quien corresponda:</p>
         <br>
 
         <p style="font-size: 15px; text-align: justify;">
-          La que suscribe, 
+          La que suscribe,
           @if ($ubicacion == "CME")
           MAOE. María Trinidad Díaz Cervera,
           @endif
@@ -659,7 +660,7 @@ use App\Http\Helpers\TruncarDecimales;
         <p style="font-size: 15px; text-align: justify;">
 
           obtuvo las siguientes calificaciones en el {{strtoupper($grado)}}, GRUPO "{{$item->cgtGrupo}}" del curso escolar {{$periodo_inicio}}-{{$periodo_fin}}:
-          
+
           {{--  obtuvo el promedio en las asignaturas academicas en el {{$grado}},
           grupo "{{$item->cgtGrupo}}" en el
           curso escolar {{$periodo_inicio}}-{{$periodo_fin}} sin considerar dentro de este promedio Educ. Fisica y Educ. Artística:  --}}
@@ -707,8 +708,8 @@ use App\Http\Helpers\TruncarDecimales;
                             @if ($itemInscrito->inscTrimestre3 != "")
                               {{$itemInscrito->inscTrimestre3SEP}}
                             @else
-                                
-                            @endif                          
+
+                            @endif
                           </td>
                           <td style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;" align="center">
 
@@ -730,7 +731,7 @@ use App\Http\Helpers\TruncarDecimales;
                           $promedioGeneral = $sumaDePromedios / $vuelta;
                       @endphp
                     @endif
-                    
+
                     @endforeach
                     <tr>
                       <td><b>PROMEDIO FINAL</b></td>
@@ -746,9 +747,9 @@ use App\Http\Helpers\TruncarDecimales;
                           $vuelta = 0;
                         @endphp
                         @else
-                            
+
                         @endif
-                         
+
                        </td>
                      </tr>
                 </tbody>
@@ -767,7 +768,7 @@ use App\Http\Helpers\TruncarDecimales;
 
         <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
             A pedimento del interesado y para los fines legales que correspondan se
-            expide la presente constancia con la fecha de hoy en la ciudad de 
+            expide la presente constancia con la fecha de hoy en la ciudad de
             @if ($ubicacion == "CME")
             Mérida, Yucatán, México.
             @endif

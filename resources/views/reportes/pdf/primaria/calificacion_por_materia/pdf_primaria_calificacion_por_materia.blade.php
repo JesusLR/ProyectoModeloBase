@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -20px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -477,7 +478,7 @@
     <header>
       <div class="row">
         <div class="columns medium-6">
-          
+
           <p style="margin-top:0px; margin-bottom: 10px;">ESCUELA PRIM. PART. INC. MODELO</p>
           <p style="margin-top:0px; margin-bottom: 10px;">LISTA DE ALUMNOS POR MATERIA</p>
           <p>Ubicación: {{$inscritos[0]->ubiClave}} {{$inscritos[0]->ubiNombre}}</p>
@@ -485,7 +486,7 @@
           <p>Nivel: {{$inscritos[0]->progClave}} ({{$inscritos[0]->planClave}}) {{$inscritos[0]->progNombre}} {{$inscritos[0]->gpoGrado}}° Grupo: {{$inscritos[0]->gpoClave}} </p>
           <p>Docente: {{$inscritos[0]->empNombre}} {{$inscritos[0]->empApellido1}} {{$inscritos[0]->empApellido2}} ({{$inscritos[0]->empleados_id}})</p>
           <p>Materia: {{$inscritos[0]->matClave}} {{$inscritos[0]->matNombre}}</p>
-          
+
         </div>
         <div class="columns medium-6">
           <div style="text-align: right;">
@@ -530,17 +531,17 @@
 
                @if ($mesEvaluar == "Junio")
                     <p style="margin-top: 45px;">Mes: Junio</p>
-               @endif            
+               @endif
             @endif
 
             @if ($tipoReporte == "porBimestre")
                 @if ($bimestreEvaluar == "BIMESTRE1")
                     <p style="margin-top: 45px;">Bimestre: 1</p>
-                @endif 
+                @endif
 
                 @if ($bimestreEvaluar == "BIMESTRE2")
                 <p style="margin-top: 45px;">Bimestre: 2</p>
-                @endif 
+                @endif
 
                 @if ($bimestreEvaluar == "BIMESTRE3")
                 <p style="margin-top: 45px;">Bimestre: 3</p>
@@ -568,19 +569,19 @@
                     <p style="margin-top: 45px;">Trimestre: 3</p>
                 @endif
             @endif
-            
+
           </div>
         </div>
       </div>
       {{--  <div class="row" style="margin-bottom: 2px;">
         <div class="columns medium-12">
           <p>
-           Periodo: 
+           Periodo:
           </p>
         </div>  --}}
       </div>
     </header>
-    
+
     <br><br>
 
     <br>
@@ -613,7 +614,7 @@
                 $cantidadAlumnos++;
             @endphp
             <tr>
-              
+
               <td align="center" >{{$key+1}}</td>
               <td align="center">{{$itemInscritos->clavePago}}</td>
               <td>{{$itemInscritos->perApellido1}} {{$itemInscritos->perApellido2}} {{$itemInscritos->perNombre}}</td>
@@ -688,7 +689,7 @@
                     @php
                         $sumaCalificaciones = $sumaCalificaciones + $itemInscritos->junio;
                     @endphp
-                  @endif            
+                  @endif
                 @endif
 
 
@@ -698,14 +699,14 @@
                     @php
                         $sumaCalificaciones = $sumaCalificaciones + $itemInscritos->bimestre1;
                     @endphp
-                  @endif 
+                  @endif
 
                   @if ($bimestreEvaluar == "BIMESTRE2")
                   {{$itemInscritos->bimestre2}}
                   @php
                         $sumaCalificaciones = $sumaCalificaciones + $itemInscritos->bimestre2;
                     @endphp
-                  @endif 
+                  @endif
 
                   @if ($bimestreEvaluar == "BIMESTRE3")
                   {{$itemInscritos->bimestre3}}
@@ -738,7 +739,7 @@
                   @endif
 
                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                    {{$itemInscritos->trimestre2}}  
+                    {{$itemInscritos->trimestre2}}
                     @php
                         $sumaCalificaciones = $sumaCalificaciones + $itemInscritos->trimestre2;
                     @endphp
@@ -757,19 +758,19 @@
                 @if ($itemInscritos->curEstado != "R")
                 {{$itemInscritos->curEstado}}
                 @else
-                
+
                 @endif
-                
-              </td>             
-                          
+
+              </td>
+
             </tr>
-           
-            @endforeach  
+
+            @endforeach
           </tbody>
         </table>
       </div>
 
-      
+
     </div>
 
 

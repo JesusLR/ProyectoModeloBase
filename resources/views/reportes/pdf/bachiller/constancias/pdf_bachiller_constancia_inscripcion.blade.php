@@ -369,7 +369,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -393,15 +393,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -485,7 +486,7 @@
       }
     </style>
 	</head>
-  
+
 <header>
 
 </header>
@@ -507,7 +508,7 @@
             <br>
             <br>
 
-         
+
             @if ($curso_alumno->ubiClave == "CME")
             <p style="font-size: 16px; text-align: justify; text-indent: 3.5em;">
               La que suscribe, Psicóloga Silvia Violeta Pool Dorantes, Directora de la Escuela Secundaria "Modelo", clave C.T. 31PES0012T, de esta ciudad hace constar:
@@ -520,13 +521,13 @@
                   Secundaria “Modelo Valladolid”, clave C.T 31PES0143L, de esta ciudad hace constar:
                 </p>
             @endif
-            
+
             <br>
             <br>
             <br>
 
             <p style="font-size: 16px; text-align: justify; text-indent: 3.5em;">
-              {{$parametro_genero_alumno}} <b>{{$alumno}} con número de matrícula {{$curso_alumno->aluClave}}</b> 
+              {{$parametro_genero_alumno}} <b>{{$alumno}} con número de matrícula {{$curso_alumno->aluClave}}</b>
               está considerada como alumna regular de este plantel, inscrita al {{$parametroGradoLetras}} de secundaria del ciclo escolar {{$cicloEscolar}}.
             </p>
             <br>
@@ -535,16 +536,16 @@
 
             <p style="font-size: 16px; text-align: justify; text-indent: 3.5em">
               @if ($curso_alumno->ubiClave == "CME")
-              Y a pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día de hoy, 
+              Y a pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día de hoy,
               en la ciudad de Mérida Yucatán, México.
               @endif
 
               @if ($curso_alumno->ubiClave == "CVA")
-              Y a pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día de hoy, 
+              Y a pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día de hoy,
               en la ciudad de Valladolid Yucatán, México.
               @endif
             </p>
-            
+
 
         </div>
     </div>
@@ -572,7 +573,7 @@
             <p class="tcenter"><b>Psicóloga Silvia Violeta Pool Dorantes</b></p>
             <p class="tcenter"><b>DIRECTORA</b></p>
             @endif
-            
+
             @if ($curso_alumno->ubiClave == "CVA")
             <p class="tcenter"><b>________________________________________________</b></p>
             <p class="tcenter"><b>Mtra. Lol-Há Canché Gómez</b></p>
@@ -581,7 +582,7 @@
 
         </div>
     </div>
-    
+
 </body>
 
 </html>

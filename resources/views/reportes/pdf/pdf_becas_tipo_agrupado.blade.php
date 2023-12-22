@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -20px;
         right: 0px;
@@ -646,17 +647,17 @@
               @endif
 
 
-            
 
-              @php  
-                      
+
+              @php
+
                 $ordenado = $item->sortBy('curTipoBeca');
                 $tipoBeca = $ordenado->groupBy('curTipoBeca');
                 $contador = 0;
                 $contador2 = 1;
                 $mensualidadBase = 0;
 
-                
+
                 $acumuladoMes = 0;
                 $acumuladoAnio = 0;
                 $acumuladoEquivalente = 0;
@@ -664,17 +665,17 @@
 
               @foreach ($tipoBeca as $curTipoBeca => $valoresBeca)
 
-              
+
                 <tr>
                   <td></td>
-                  <td align="left" colspan="2" style="width: 240px;"><b>Beca {{ $curTipoBeca }}</b></td>                          
-                
+                  <td align="left" colspan="2" style="width: 240px;"><b>Beca {{ $curTipoBeca }}</b></td>
 
-                  @foreach ($valoresBeca as $llave => $beca)    
-                                
-                    @if ($curTipoBeca == $beca['curTipoBeca'])  
 
-                      
+                  @foreach ($valoresBeca as $llave => $beca)
+
+                    @if ($curTipoBeca == $beca['curTipoBeca'])
+
+
                     @php
                     $escClave = $beca['escClave'];
                     $escNombre = $beca['escNombre'];
@@ -708,16 +709,16 @@
                     $contador++;
 
                 @endphp
-                      
-                    @endif                     
-                  @endforeach  
-                  
+
+                    @endif
+                  @endforeach
+
                   <td align="center">${{number_format($mensualidadBase, 2, '.', ',')}}</td>
                   <td align="right">{{$cuenta}}</td>
                   <td align="right">{{number_format($acumuladoEquivalente, 2, '.', ',')}}</td>
                   <td align="right">${{number_format($acumuladoMes, 2, '.', ',')}}</td>
                   <td align="right">${{number_format($acumuladoAnio, 2, '.', ',')}}</td>
-                </tr> 
+                </tr>
               @endforeach
               {{--  <tr>
                       <td></td>
@@ -728,7 +729,7 @@
                       <td align="center">${{number_format($acumuladoMes, 2, '.', ',')}}</td>
                       <td align="center">${{number_format($acumuladoAnio, 2, '.', ',')}}</td>
               </tr>  --}}
-              
+
               {{$nivelAlumnos = $nivelAlumnos + $cuenta}}
               {{$nivelacumuladoMes = $nivelacumuladoMes + $acumuladoMes}}
               {{$nivelacumuladoAnio = $nivelacumuladoAnio + $acumuladoAnio}}

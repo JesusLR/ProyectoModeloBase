@@ -494,6 +494,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: -10px;
             right: 0px;
@@ -593,7 +594,7 @@
         .page-number:before {
             content: "Pág " counter(page);
           }
-    
+
           .page-break {
               page-break-after: always;
           }
@@ -649,7 +650,7 @@
             <br>
             <label>___________________________________</label>
         </div>
-    </div> 
+    </div>
 
     <br>
     <div class="row">
@@ -658,7 +659,7 @@
             <br>
             <label>________________________________________________________________________</label>
         </div>
-    </div> 
+    </div>
 
     {{-- DATOS DEL PADRE  --}}
     <br>
@@ -686,7 +687,7 @@
             <br>
             <label>___________________________________</label>
         </div>
-    </div> 
+    </div>
 
     <br>
     <div class="row">
@@ -694,8 +695,8 @@
             <label><b>Correo electrónico: </b></label>
             <br>
             <label>___________________________________</label>
-        </div>       
-    </div> 
+        </div>
+    </div>
 
 
     {{-- DATOS DE LA MADRE  --}}
@@ -724,7 +725,7 @@
             <br>
             <label>___________________________________</label>
         </div>
-    </div> 
+    </div>
 
     <br>
     <div class="row">
@@ -732,9 +733,9 @@
             <label><b>Correo electrónico: </b></label>
             <br>
             <label>___________________________________</label>
-        </div>       
-    </div> 
-                   
+        </div>
+    </div>
+
 
 
     <br>
@@ -749,8 +750,8 @@
             <label><b>Religión:</b></label>
             <br>
             <label>___________________________________</label>
-        </div>        
-    </div> 
+        </div>
+    </div>
 
     <br>
     <div class="row">
@@ -758,7 +759,7 @@
             <label><b>Observaciones:</b></label>
             <br>
             <label>___________________________________</label>
-        </div>  
+        </div>
     </div>
 
     <br>
@@ -767,9 +768,9 @@
             <label>Condición familiar: <b>*Comunicar por escrito la condición familiar especial, irregular o extraordinaria por la cual el niño, si así lo fuere, esté pasando.</b></label>
             <br><br>
             <label>___________________________________________________________________________________________________________________________________________________</label>
-        </div>  
+        </div>
     </div>
-            
+
 
 
     <br>
@@ -778,28 +779,28 @@
             <label><b>Padre o tutor responsable financiero:</b></label>
             <br>
             <label>___________________________________</label>
-        </div>  
+        </div>
 
         <div class="columns medium-3">
             <label><b>Celular:</b></label>
             <br>
             <label>___________________________________</label>
-        </div> 
+        </div>
     </div>
-    
+
     <br>
     <div class="row">
         <div class="columns medium-3">
             <label><b>En caso de algún accidente se deberá llamar a:</b></label>
             <br>
             <label>___________________________________</label>
-        </div>  
+        </div>
 
         <div class="columns medium-3">
             <label><b>Celular:</b></label>
             <br>
             <label>___________________________________</label>
-        </div> 
+        </div>
     </div>
 
     {{--  <br>
@@ -809,13 +810,13 @@
             <label><b>Integrante 1</b></label>
             <br>
             <label>{{$alumnoEntrevista->integrante1}}</label>
-        </div>  
+        </div>
 
         <div class="columns medium-3">
             <label><b>Relación:</b></label>
             <br>
             <label>{{$alumnoEntrevista->relacionIntegrante1}}</label>
-        </div> 
+        </div>
 
         <div class="columns medium-3">
             <label><b>Edad:</b></label>
@@ -836,13 +837,13 @@
             <label><b>Integrante 1</b></label>
             <br>
             <label>{{$alumnoEntrevista->integrante2}}</label>
-        </div>  
+        </div>
 
         <div class="columns medium-3">
             <label><b>Relación:</b></label>
             <br>
             <label>{{$alumnoEntrevista->relacionIntegrante2}}</label>
-        </div> 
+        </div>
 
         <div class="columns medium-3">
             <label><b>Edad:</b></label>
@@ -863,13 +864,13 @@
             <label><b>¿Con quién vive el alummo?</b></label>
             <br>
             <label>___________________________________</label>
-        </div> 
+        </div>
 
         <div class="columns medium-3">
             <label><b>Dirección donde vive el alumno</b></label>
             <br>
             <label>___________________________________</label>
-        </div> 
+        </div>
     </div>
 
     <br>
@@ -878,7 +879,7 @@
             <label>Situación legal: <b>*Entregar copia simple que avale el proceso en todos los casos de Guarda y Custodia que ya haya tenido una sentencia definitiva o se encuentren en un proceso legal. </b></label>
             <br>
             <label>___________________________________________________________________________________________________________________________________________________</label>
-        </div> 
+        </div>
     </div>
 
 
@@ -888,7 +889,7 @@
             <label><b>¿Cómo describen los padres al niño/a?</b></label>
             <br>
             <label>{{$alumnoEntrevista->descripcionNinio}}</label>
-        </div> 
+        </div>
     </div>  --}}
 
 
@@ -898,7 +899,7 @@
             <label><b>¿Quién apoya al niño(a) en las tareas para realizar en casa?:</b></label>
             <br>
             <label>{{$alumnoEntrevista->apoyoTarea}}</label>
-        </div> 
+        </div>
     </div>
 
     <h3>II.	INFORMACIÓN ESCOLAR DEL ALUMNO</h3>  --}}
@@ -910,12 +911,12 @@
             <label><b>Nombre de la escuela anterior:</b></label>
             <br>
             <label>{{$alumnoEntrevista->escuelaAnterior}}</label>
-        </div> 
+        </div>
         <div class="columns medium-3">
             <label><b>Años estudiados en la escuela anterior:</b></label>
             <br>
             <label>{{$alumnoEntrevista->aniosEstudiados}}</label>
-        </div> 
+        </div>
     </div>  --}}
 
     {{--  <br>
@@ -924,7 +925,7 @@
             <label><b>Motivos del cambio de escuela:</b></label>
             <br>
             <label>{{$alumnoEntrevista->motivosCambioEscuela}}</label>
-        </div>         
+        </div>
     </div>  --}}
 
 
@@ -934,38 +935,38 @@
             <label><b>Kínder:</b></label>
             <br>
             <label>{{$alumnoEntrevista->kinder}}</label>
-        </div>         
+        </div>
     </div>  --}}
-{{--  
+{{--
     <br>
     <div class="row">
         <div class="columns medium-12">
             <label><b>Observaciones:</b></label>
             <br>
             <label>{{$alumnoEntrevista->observacionEscolar}}</label>
-        </div>         
+        </div>
     </div>  --}}
 
 
     {{--  <br>
     <div class="row">
         <div class="columns medium-3">
-            <label><b>Primaria:</b></label>            
-        </div>   
-        
+            <label><b>Primaria:</b></label>
+        </div>
+
         <div class="columns medium-3">
-            <label><b>Promedio en 1º:</b> {{$alumnoEntrevista->promedio1}}</label>           
+            <label><b>Promedio en 1º:</b> {{$alumnoEntrevista->promedio1}}</label>
             <br>
-            <label><b>Promedio en 2º:</b> {{$alumnoEntrevista->promedio2}}</label>  
+            <label><b>Promedio en 2º:</b> {{$alumnoEntrevista->promedio2}}</label>
             <br>
-            <label><b>Promedio en 3º:</b> {{$alumnoEntrevista->promedio3}}</label>           
+            <label><b>Promedio en 3º:</b> {{$alumnoEntrevista->promedio3}}</label>
             <br>
-            <label><b>Promedio en 4º:</b> {{$alumnoEntrevista->promedio4}}</label> 
+            <label><b>Promedio en 4º:</b> {{$alumnoEntrevista->promedio4}}</label>
             <br>
-            <label><b>Promedio en 5º:</b> {{$alumnoEntrevista->promedio5}}</label> 
+            <label><b>Promedio en 5º:</b> {{$alumnoEntrevista->promedio5}}</label>
             <br>
-            <label><b>Promedio en 6º:</b> {{$alumnoEntrevista->promedio6}}</label> 
- 
+            <label><b>Promedio en 6º:</b> {{$alumnoEntrevista->promedio6}}</label>
+
         </div>
     </div>  --}}
 
@@ -976,13 +977,13 @@
             <label><b>Recursamiento de algún grado:</b></label>
             <br>
             <label>{{$alumnoEntrevista->recursamientoGrado}}</label>
-        </div>     
-        
+        </div>
+
         <div class="columns medium-9">
             <label><b>Deporte (s) o actividad cultural que practica:</b></label>
             <br>
             <label>{{$alumnoEntrevista->deportes}}</label>
-        </div> 
+        </div>
     </div>  --}}
 
     {{--  <br>
@@ -991,13 +992,13 @@
             <label><b>¿Ha recibido su hijo(a) apoyo pedagógico en algún grado escolar?:</b></label>
             <br>
             <label>{{$alumnoEntrevista->apoyoPedagogico}}</label>
-        </div>     
-        
+        </div>
+
         <div class="columns medium-6">
             <label><b>Observaciones:</b></label>
             <br>
             <label>{{$alumnoEntrevista->obsPedagogico}}</label>
-        </div> 
+        </div>
     </div>  --}}
 
     {{--  <br>
@@ -1006,13 +1007,13 @@
             <label><b>¿Ha recibido su hijo(a) terapia de lenguaje en algún grado escolar?:</b></label>
             <br>
             <label>{{$alumnoEntrevista->terapiaLenguaje}}</label>
-        </div>     
-        
+        </div>
+
         <div class="columns medium-6">
             <label><b>Observaciones:</b></label>
             <br>
             <label>{{$alumnoEntrevista->obsTerapiaLenguaje}}</label>
-        </div> 
+        </div>
     </div>  --}}
 
 
@@ -1024,13 +1025,13 @@
             <label><b>¿Ha recibido su hijo(a)  tratamiento?:</b></label>
             <br>
             <label>___________________________________</label>
-        </div>     
-        
+        </div>
+
         <div class="columns medium-6">
             <label><b>Observaciones:</b></label>
             <br>
             <label>________________________________________________________________________</label>
-        </div> 
+        </div>
     </div>
 
 
@@ -1043,110 +1044,110 @@
             <label><b>a) Hemofilia
                 <br>
              </b>___________________________________</label>
-        </div> 
+        </div>
         <div class="columns medium-8">
             <label><b>Observación
                 <br>
              </b>_________________________________________________________________________________________________</label>
-        </div>       
+        </div>
     </div>
 
     <br>
-    <div class="row">                        
+    <div class="row">
         <div class="columns medium-4">
             <label><b>b) Epilepsia
                 <br>
-             </b>___________________________________</label>                   
-        </div>  
+             </b>___________________________________</label>
+        </div>
         <div class="columns medium-8">
             <label><b>Observación
                 <br>
-             </b>_________________________________________________________________________________________________</label>                   
-        </div> 
+             </b>_________________________________________________________________________________________________</label>
+        </div>
     </div>
 
     <br>
-    <div class="row">                        
+    <div class="row">
         <div class="columns medium-4">
             <label><b>c) Kawasaqui
                 <br>
              </b>___________________________________</label>
-        </div>  
+        </div>
         <div class="columns medium-8">
             <label><b>Observación
                 <br>
-             </b>_________________________________________________________________________________________________</label>                   
-        </div> 
+             </b>_________________________________________________________________________________________________</label>
+        </div>
     </div>
 
     <br>
-    <div class="row">                        
+    <div class="row">
         <div class="columns medium-4">
             <label><b>d) Asma
                 <br>
              </b>___________________________________</label>
-        </div>  
+        </div>
         <div class="columns medium-8">
             <label><b>Observación
                 <br>
-             </b>_________________________________________________________________________________________________</label>                   
-        </div> 
+             </b>_________________________________________________________________________________________________</label>
+        </div>
     </div>
 
     <br>
-    <div class="row">                        
+    <div class="row">
         <div class="columns medium-4">
             <label><b>e) Diabetes
                 <br>
              </b>___________________________________</label>
-        </div>  
+        </div>
         <div class="columns medium-8">
             <label><b>Observación
                 <br>
-             </b>_________________________________________________________________________________________________</label>                   
-        </div> 
+             </b>_________________________________________________________________________________________________</label>
+        </div>
     </div>
 
     <br>
-    <div class="row">                        
+    <div class="row">
         <div class="columns medium-4">
             <label><b>f) Cardiaco
                 <br>
              </b>___________________________________</label>
-        </div>  
+        </div>
         <div class="columns medium-8">
             <label><b>Observación
                 <br>
-             </b>_________________________________________________________________________________________________</label>                   
-        </div> 
+             </b>_________________________________________________________________________________________________</label>
+        </div>
     </div>
 
     <br>
-    <div class="row">                        
+    <div class="row">
         <div class="columns medium-4">
             <label><b>g) Dermatológico
                  <br>
                 </b>___________________________________</label>
-        </div>  
-        <div class="columns medium-8">
-            <label><b>Observación 
-                <br>
-                </b>_________________________________________________________________________________________________</label>                   
-        </div> 
-    </div>
-
-    <br>
-    <div class="row">                        
-        <div class="columns medium-4">
-            <label><b>h) Alergias 
-                <br>
-                </b>___________________________________</label>
-        </div>  
+        </div>
         <div class="columns medium-8">
             <label><b>Observación
                 <br>
-             </b>_________________________________________________________________________________________________</label>                   
-        </div> 
+                </b>_________________________________________________________________________________________________</label>
+        </div>
+    </div>
+
+    <br>
+    <div class="row">
+        <div class="columns medium-4">
+            <label><b>h) Alergias
+                <br>
+                </b>___________________________________</label>
+        </div>
+        <div class="columns medium-8">
+            <label><b>Observación
+                <br>
+             </b>_________________________________________________________________________________________________</label>
+        </div>
     </div>
 
     <br>
@@ -1155,7 +1156,7 @@
             <label><b>Otro</b></label>
             <br>
             <label>_________________________________________________________________________________________________</label>
-        </div>              
+        </div>
     </div>
 
     <br>
@@ -1164,13 +1165,13 @@
             <label><b>¿Toma algún medicamento?:</b></label>
             <br>
             <label>___________________________________</label>
-        </div>     
-        
+        </div>
+
         <div class="columns medium-6">
             <label><b>¿Requiere algún cuidado específico?:</b></label>
             <br>
             <label>______________________________________________________________________</label>
-        </div> 
+        </div>
     </div>
 
     <br>
@@ -1181,13 +1182,13 @@
             <label><b>Neurológico:</b></label>
             <br>
             <label>___________________________________</label>
-        </div>     
-        
+        </div>
+
         <div class="columns medium-9">
             <label><b>Observaciones:</b></label>
             <br>
             <label>___________________________________</label>
-        </div> 
+        </div>
     </div>
 
     <br>
@@ -1196,13 +1197,13 @@
             <label><b>Psicológico:</b></label>
             <br>
             <label>___________________________________</label>
-        </div>     
-        
+        </div>
+
         <div class="columns medium-9">
             <label><b>Observaciones:</b></label>
             <br>
             <label>___________________________________</label>
-        </div> 
+        </div>
     </div>
 
     <br>
@@ -1211,16 +1212,16 @@
             <label><b>Médico tratante:</b></label>
             <br>
             <label>___________________________________</label>
-        </div>     
-        
+        </div>
+
         <div class="columns medium-9">
             <label><b>En caso de no encontrar al tutor la escuela llevara al alumno(a):</b></label>
             <br>
             <label>___________________________________</label>
-        </div> 
+        </div>
     </div>
     {{--  <br>
-   
+
     <div class="row">
         <p><b>*Entregar una copia simple del último diagnóstico y/o tratamiento de todo aquel niño que presente algún tipo de enfermedad, padecimiento o condición de salud. </b></p>
     </div>  --}}
@@ -1231,32 +1232,32 @@
             <label><b>Motivo por el que se solicita la inscripción en la Escuela Modelo:</b></label>
             <br>
             <label>{{$alumnoEntrevista->motivoInscripcionEscuela}}</label>
-        </div> 
+        </div>
     </div>  --}}
 
     {{--  <h3>IV.	REFERENCIAS</h3>  --}}
 
-{{--  
+{{--
     <div class="row">
         <p><b>¿Nombre de familiares o conocidos que estudien o trabajen en la Escuela Modelo? </b></p><br>
         <div class="columns medium-4">
             <label><b>familiar o conocido 1</b></label>
             <br>
             <label>{{$alumnoEntrevista->conocidoEscuela1}}</label>
-        </div> 
+        </div>
 
         <div class="columns medium-4">
             <label><b>familiar o conocido 2</b></label>
             <br>
             <label>{{$alumnoEntrevista->conocidoEscuela2}}</label>
-        </div> 
+        </div>
 
 
         <div class="columns medium-4">
             <label><b>familiar o conocido 3</b></label>
             <br>
             <label>{{$alumnoEntrevista->conocidoEscuela3}}</label>
-        </div> 
+        </div>
     </div>  --}}
 
 
@@ -1267,13 +1268,13 @@
             <label><b>Referencia 1</b></label>
             <br>
             <label>{{$alumnoEntrevista->referencia1}}</label>
-        </div> 
+        </div>
 
         <div class="columns medium-4">
             <label><b>Celular referencia 1</b></label>
             <br>
             <label>{{$alumnoEntrevista->celularReferencia1}}</label>
-        </div> 
+        </div>
     </div>  --}}
 
     {{--  <br>  --}}
@@ -1282,13 +1283,13 @@
             <label><b>Referencia 2</b></label>
             <br>
             <label>{{$alumnoEntrevista->referencia2}}</label>
-        </div> 
+        </div>
 
         <div class="columns medium-4">
             <label><b>Celular referencia 2</b></label>
             <br>
             <label>{{$alumnoEntrevista->celularReferencia2}}</label>
-        </div> 
+        </div>
     </div>  --}}
 
     {{--  <br>
@@ -1297,20 +1298,20 @@
             <label><b>Referencia 3</b></label>
             <br>
             <label>{{$alumnoEntrevista->referencia3}}</label>
-        </div> 
+        </div>
 
         <div class="columns medium-4">
             <label><b>Celular referencia 3</b></label>
             <br>
             <label>{{$alumnoEntrevista->celularReferencia3}}</label>
-        </div> 
+        </div>
     </div>  --}}
 
     {{--  <h3>V.  OBSERVACIONES GENERALES</h3>
     <div class="row">
         <div class="columns medium-12">
             <label>{{$alumnoEntrevista->obsGenerales}}</label>
-        </div> 
+        </div>
     </div>  --}}
 
     <br>
@@ -1319,7 +1320,7 @@
             <label><b>ENTREVISTADOR</b></label>
             <br>
             <label>_________________________________________________________________________________________________________</label>
-        </div> 
+        </div>
     </div>
 
 
@@ -1330,10 +1331,10 @@
     </div>
     <div class="row">
         <div class="columns medium-4">
-            <label>___________________________________</label>            
-        </div> 
+            <label>___________________________________</label>
+        </div>
         <div class="columns medium-4">
-            <label>___________________________________</label>            
+            <label>___________________________________</label>
         </div>
     </div>
 

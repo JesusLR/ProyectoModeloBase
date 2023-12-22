@@ -366,7 +366,7 @@
         border: 1px solid "black";
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -390,15 +390,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -452,7 +453,7 @@
       }
     </style>
 	</head>
-  
+
   <header>
   </header>
   <body>
@@ -530,5 +531,5 @@
     </div>
 
   </body>
-    
+
 </html>

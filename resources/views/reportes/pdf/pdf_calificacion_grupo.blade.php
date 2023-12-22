@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -70px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -489,22 +490,22 @@
       <div class="row" style="margin-bottom: 2px">
         <div class="columns medium-12">
           <p>Período: {{$periodo}}</p>
-          <p>Niv/Carr: {{$programaNombre->progClave}}  {{$programaNombre->progNombre}}</p>     
+          <p>Niv/Carr: {{$programaNombre->progClave}}  {{$programaNombre->progNombre}}</p>
           <p>Ubicación: {{$ubicacionNombre->ubiClave}}  {{$ubicacionNombre->ubiNombre}}</p>
           <p>{{$evaluacion}} Inscritos, preinscritos y condicionados</p>
         </div>
       </div>
-      
+
     </header>
   <body>
     {{$calificacionG}}
     @foreach ($calificacionG as $calificacion)
     @php
-    $calFirst = $calificacion->first();  
+    $calFirst = $calificacion->first();
     $gpoSemestre = $calFirst["gpoSemestre"];
     $gpoClave = $calFirst["gpoClave"];
     @endphp
-    
+
     <div class="row">
       <div class="columns medium-12">
         <div class="columns medium-6"></div>
@@ -522,14 +523,14 @@
               {{$materia["matClave"]}}
             <br>
               Cal  @if($faltas == 'si') Fal @endif
-            </th>    
+            </th>
             @endforeach
             <th align="center">Promedio</th>
             @if ($faltas == 'si')
             <th align="center">Tot Fal</th>
             @endif
-            
-           
+
+
           </tr>
           @php
           $contador = 1;
@@ -562,5 +563,5 @@
       <div class="page-number"></div>
     </footer>
 
-  
+
 </html>

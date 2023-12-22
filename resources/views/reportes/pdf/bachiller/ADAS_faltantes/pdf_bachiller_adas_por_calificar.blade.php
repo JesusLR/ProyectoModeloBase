@@ -19,7 +19,7 @@
         -webkit-text-size-adjust: 100%;
         /* 2 */
       }
-  
+
       /* Sections
           ========================================================================== */
       /**
@@ -28,14 +28,14 @@
       body {
         margin: 0;
       }
-  
+
       /**
         * Render the `main` element consistently in IE.
         */
       main {
         display: block;
       }
-  
+
       /**
         * Correct the font size and margin on `h1` elements within `section` and
         * `article` contexts in Chrome, Firefox, and Safari.
@@ -44,7 +44,7 @@
         font-size: 2em;
         margin: 0.67em 0;
       }
-  
+
       /* Grouping content
           ========================================================================== */
       /**
@@ -59,7 +59,7 @@
         overflow: visible;
         /* 2 */
       }
-  
+
       /**
         * 1. Correct the inheritance and scaling of font size in all browsers.
         * 2. Correct the odd `em` font sizing in all browsers.
@@ -70,7 +70,7 @@
         font-size: 1em;
         /* 2 */
       }
-  
+
       /* Text-level semantics
           ========================================================================== */
       /**
@@ -79,7 +79,7 @@
       a {
         background-color: transparent;
       }
-  
+
       /**
         * 1. Remove the bottom border in Chrome 57-
         * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
@@ -92,7 +92,7 @@
         text-decoration: underline dotted;
         /* 2 */
       }
-  
+
       /**
         * Add the correct font weight in Chrome, Edge, and Safari.
         */
@@ -100,7 +100,7 @@
       strong {
         font-weight: bolder;
       }
-  
+
       /**
         * 1. Correct the inheritance and scaling of font size in all browsers.
         * 2. Correct the odd `em` font sizing in all browsers.
@@ -113,14 +113,14 @@
         font-size: 1em;
         /* 2 */
       }
-  
+
       /**
         * Add the correct font size in all browsers.
         */
       small {
         font-size: 80%;
       }
-  
+
       /**
         * Prevent `sub` and `sup` elements from affecting the line height in
         * all browsers.
@@ -132,15 +132,15 @@
         position: relative;
         vertical-align: baseline;
       }
-  
+
       sub {
         bottom: -0.25em;
       }
-  
+
       sup {
         top: -0.5em;
       }
-  
+
       /* Embedded content
           ========================================================================== */
       /**
@@ -149,7 +149,7 @@
       img {
         border-style: none;
       }
-  
+
       /* Forms
           ========================================================================== */
       /**
@@ -170,7 +170,7 @@
         margin: 0;
         /* 2 */
       }
-  
+
       /**
         * Show the overflow in IE.
         * 1. Show the overflow in Edge.
@@ -180,7 +180,7 @@
         /* 1 */
         overflow: visible;
       }
-  
+
       /**
         * Remove the inheritance of text transform in Edge, Firefox, and IE.
         * 1. Remove the inheritance of text transform in Firefox.
@@ -190,7 +190,7 @@
         /* 1 */
         text-transform: none;
       }
-  
+
       /**
         * Correct the inability to style clickable types in iOS and Safari.
         */
@@ -200,7 +200,7 @@
       [type="submit"] {
         -webkit-appearance: button;
       }
-  
+
       /**
         * Remove the inner border and padding in Firefox.
         */
@@ -211,7 +211,7 @@
         border-style: none;
         padding: 0;
       }
-  
+
       /**
         * Restore the focus styles unset by the previous rule.
         */
@@ -221,14 +221,14 @@
       [type="submit"]:-moz-focusring {
         outline: 1px dotted ButtonText;
       }
-  
+
       /**
         * Correct the padding in Firefox.
         */
       fieldset {
         padding: 0.35em 0.75em 0.625em;
       }
-  
+
       /**
         * 1. Correct the text wrapping in Edge and IE.
         * 2. Correct the color inheritance from `fieldset` elements in IE.
@@ -249,21 +249,21 @@
         white-space: normal;
         /* 1 */
       }
-  
+
       /**
         * Add the correct vertical alignment in Chrome, Firefox, and Opera.
         */
       progress {
         vertical-align: baseline;
       }
-  
+
       /**
         * Remove the default vertical scrollbar in IE 10+.
         */
       textarea {
         overflow: auto;
       }
-  
+
       /**
         * 1. Add the correct box sizing in IE 10.
         * 2. Remove the padding in IE 10.
@@ -275,7 +275,7 @@
         padding: 0;
         /* 2 */
       }
-  
+
       /**
         * Correct the cursor style of increment and decrement buttons in Chrome.
         */
@@ -283,7 +283,7 @@
       [type="number"]::-webkit-outer-spin-button {
         height: auto;
       }
-  
+
       /**
         * 1. Correct the odd appearance in Chrome and Safari.
         * 2. Correct the outline style in Safari.
@@ -294,14 +294,14 @@
         outline-offset: -2px;
         /* 2 */
       }
-  
+
       /**
         * Remove the inner padding in Chrome and Safari on macOS.
         */
       [type="search"]::-webkit-search-decoration {
         -webkit-appearance: none;
       }
-  
+
       /**
         * 1. Correct the inability to style clickable types in iOS and Safari.
         * 2. Change font properties to `inherit` in Safari.
@@ -312,7 +312,7 @@
         font: inherit;
         /* 2 */
       }
-  
+
       /* Interactive
           ========================================================================== */
       /*
@@ -321,14 +321,14 @@
       details {
         display: block;
       }
-  
+
       /*
         * Add the correct display in all browsers.
         */
       summary {
         display: list-item;
       }
-  
+
       /* Misc
           ========================================================================== */
       /**
@@ -337,25 +337,25 @@
       template {
         display: none;
       }
-  
+
       /**
         * Add the correct display in IE 10.
         */
       [hidden] {
         display: none;
       }
-  
-      
+
+
       body {
         font-family: 'times sans-serif';
-        
+
         font-size: 12px;
         margin-top: 100px;
         /* ALTURA HEADER */
         margin-left: 5px;
         margin-right: 5px;
       }
-  
+
       .row {
         width: 100%;
         display: block;
@@ -363,111 +363,111 @@
         margin-left: -30px;
         margin-right: -30px;
       }
-  
+
       .row::after {
         content: "";
         clear: both;
         display: table;
       }
-  
+
       .column,
       .columns {
         width: 100%;
         float: left;
         box-sizing: border-box !important;
       }
-  
+
       .medium-1 {
         width: 8.33333333333%;
       }
-  
+
       .medium-1-2 {
         width: 16.999%;
       }
-  
+
       .medium-4 {
         width: 16.6666666667%;
       }
-  
+
       .medium-2 {
         width: 21%;
       }
       .medium-3 {
         width: 25%;
       }
-  
+
       .medium-4 {
         width: 33.3333333333%;
       }
-  
+
       .medium-5 {
         width: 41.6666666667%;
       }
-  
+
       .medium-6 {
         width: 50%;
       }
-  
+
       .medium-7 {
         width: 58.3333333333%;
       }
-  
+
       .medium-8 {
         width: 66.6666666667%;
       }
-  
+
       .medium-9 {
         width: 75%;
       }
-  
+
       .medium-10 {
         width: 83.3333333333%;
       }
-  
+
       .medium-11 {
         width: 91.6666666667%;
       }
-  
+
       .medium-12 {
         width: 100%;
       }
-  
+
       .clearfix::after {
         content: "";
         clear: both;
         display: table;
       }
-  
+
       span {
         font-weight: bold;
       }
-  
+
       p {
         margin: 0;
       }
-  
+
       .left {
         float: left;
       }
-  
+
       .float-right {
         float: right;
       }
-  
+
       .logo {
         width: 100%;
       }
-  
+
       .box-solicitud {
         border: 1px solid #000;
         padding: 5px;
         border-radius: 2px;
       }
-  
+
       .estilos-tabla {
         width: 100%;
       }
-  
+
       .estilos-tabla tr th {
         font-size: 12px;
         background-color: #000;
@@ -478,7 +478,7 @@
         box-sizing: border-box;
         text-align: center;
       }
-  
+
       .estilos-tabla tr td {
         font-size: 12px;
         padding-left: 2px;
@@ -486,11 +486,11 @@
         box-sizing: border-box;
         color: #000;
       }
-  
+
       .page_break {
         page-break-before: always;
       }
-  
+
       /** Define the footer rules **/
       footer {
         position: fixed;
@@ -501,18 +501,19 @@
         color: #000;
         text-align: center;
       }
-  
+
       header {
+        left: 0px;
         position: fixed;
         top: -50px;
         right: 0px;
         height: 3px;
         /** Extra personal styles **/
-  
+
         margin-left: 5px;
         margin-right: 5px;
       }
-  
+
       #watermark {
         position: fixed;
         top: 15%;
@@ -521,72 +522,72 @@
         height: 700px;
         opacity: .3;
       }
-  
+
       .img-header {
         height: 80px;
         float: left;
       }
-  
+
       .img-foto {
         height: 80px;
         float: right;
         margin-top: -100px;
-  
+
         padding: 2px;
         background-color: #f5f5f5;
         border: 1px solid #999999;
-  
-  
+
+
       }
-  
+
       .inicio-pagina {
         margin-top: 0;
         display: block;
       }
-  
+
       @page {
         margin-top: 80px;
         margin-bottom: 40px;
       }
-  
+
       .listas-info {
         margin-top: 0px;
         margin-bottom: 0px;
       }
-  
+
       .listas-info li {
         display: inline;
         list-style-type: none;
         margin-left: 40px;
-  
+
       }
-  
+
       .listas-info li:first-child {
         margin-left: 0px;
       }
-  
+
       .listas-asistencia {
         margin-top: 0px;
         margin-bottom: 0px;
         margin-left: 0px !important;
         padding-left: 0 !important;
       }
-  
+
       .listas-asistencia li {
         display: inline;
         list-style-type: none;
       }
-  
+
       .table {
         width: 100%;
       }
-  
+
       .table {
         border-collapse: collapse;
       }
-  
-  
-  
+
+
+
       .table td,
       .table th {
         padding-top: 0px;
@@ -594,29 +595,29 @@
         padding-right: 5px;
         //border: 1px solid #000;
       }
-  
+
       .page-number:before {
         content: "Pág " counter(page);
       }
-  
+
       .page-break {
         page-break-after: always;
       }
-     
-  
+
+
       .punteado{
-        border-top: 1px dotted; 
-        border-right: 1px dotted; 
-        border-bottom: 1px dotted; 
+        border-top: 1px dotted;
+        border-right: 1px dotted;
+        border-bottom: 1px dotted;
         border-left: 1px;
          //border-color: 660033;
         //background-color: cc3366;
       }
-  
+
       .punteado2{
-        border-top: 1px dotted; 
-        border-right: 0px dotted; 
-        border-bottom: 1px dotted; 
+        border-top: 1px dotted;
+        border-right: 0px dotted;
+        border-bottom: 1px dotted;
         border-left: 0px;
          //border-color: 660033;
         //background-color: cc3366;
@@ -630,7 +631,7 @@
         use App\Http\Helpers\Utils;
         use App\Http\Models\Bachiller\Bachiller_grupos;
 
-        
+
     @endphp
 
     @php
@@ -645,7 +646,7 @@
       'programas.progNombre',
       'programas.progClave'
       )
-    ->join('bachiller_materias', 'bachiller_grupos.bachiller_materia_id', '=', 'bachiller_materias.id')            
+    ->join('bachiller_materias', 'bachiller_grupos.bachiller_materia_id', '=', 'bachiller_materias.id')
     ->join('periodos', 'bachiller_grupos.periodo_id', '=', 'periodos.id')
     ->leftJoin('bachiller_empleados', 'bachiller_grupos.empleado_id_docente', '=', 'bachiller_empleados.id')
     ->join('departamentos', 'periodos.departamento_id', '=', 'departamentos.id')
@@ -664,7 +665,7 @@
     ->first();
     @endphp
 
-   
+
     <header>
       <div class="row">
         <div class="columns medium-6">
@@ -679,7 +680,7 @@
         </div>
       </div>
 
-      
+
       <div class="row" style="margin-bottom: 2px">
         <div class="columns medium-12">
             <p>Ubicación : {{$datos_cabecera->ubiClave.'-'.$datos_cabecera->ubiNombre}}</p>
@@ -699,13 +700,13 @@
         </div>
       </div>
 
-    </header>   
+    </header>
 
     <footer id="footer">
       <div class="page-number"></div>
     </footer>
 
-   
+
 
     @foreach ($bachiller_inscritos_evidencias as $item)
 
@@ -722,7 +723,7 @@
       'bachiller_materias.matClave',
       'bachiller_materias.matNombre'
       )
-    ->join('bachiller_materias', 'bachiller_grupos.bachiller_materia_id', '=', 'bachiller_materias.id')            
+    ->join('bachiller_materias', 'bachiller_grupos.bachiller_materia_id', '=', 'bachiller_materias.id')
     ->join('periodos', 'bachiller_grupos.periodo_id', '=', 'periodos.id')
     ->leftJoin('bachiller_empleados', 'bachiller_grupos.empleado_id_docente', '=', 'bachiller_empleados.id')
     ->join('departamentos', 'periodos.departamento_id', '=', 'departamentos.id')
@@ -769,11 +770,11 @@
               @endphp
 
               @foreach ($Evidencia_faltante as $faltante)
-                @if ($vistaReporte == "total_faltantes") 
+                @if ($vistaReporte == "total_faltantes")
                   <tr>
                     <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-right: 1px solid; border-left: 1px solid;">{{$faltante->eviNumero}}</td>
                     <td style="border-top: 1px solid; border-bottom: 1px solid; border-right: 1px solid; border-left: 1px solid;">{{$faltante->eviDescripcion}}</td>
-                    <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-right: 1px solid; border-left: 1px solid;">{{Utils::fecha_string($faltante->eviFechaEntrega, $faltante->eviFechaEntrega)}}</td>                
+                    <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-right: 1px solid; border-left: 1px solid;">{{Utils::fecha_string($faltante->eviFechaEntrega, $faltante->eviFechaEntrega)}}</td>
                     <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-right: 1px solid; border-left: 1px solid;">{{$faltante->total_faltantes_calificar}}</td>
                   </tr>
                 @else
@@ -787,13 +788,13 @@
                       <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-right: 1px solid; border-left: 1px solid;">{{$alumno->eviNumero}}</td>
                       <td style="border-top: 1px solid; border-bottom: 1px solid; border-right: 1px solid; border-left: 1px solid;">{{$alumno->eviDescripcion}}</td>
                       <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-right: 1px solid; border-left: 1px solid;">{{Utils::fecha_string($alumno->eviFechaEntrega, $alumno->eviFechaEntrega)}}</td>
-                      <td style="border-top: 1px solid; border-bottom: 1px solid; border-right: 1px solid; border-left: 1px solid;">{{$alumno->perApellido1.' '.$alumno->perApellido2.' '.$alumno->perNombre}}</td>                      
+                      <td style="border-top: 1px solid; border-bottom: 1px solid; border-right: 1px solid; border-left: 1px solid;">{{$alumno->perApellido1.' '.$alumno->perApellido2.' '.$alumno->perNombre}}</td>
                     </tr>
-                  @endforeach                
+                  @endforeach
                 @endif
               @endforeach
-              
-              
+
+
             </tbody>
           </table>
       </div>
@@ -807,15 +808,15 @@
       {{--  <div class="page_break"></div>  --}}
     @endif
     @endforeach
-    
 
-    
+
+
     @php
       $suma = 0;
     @endphp
 
-    
 
-    
+
+
   </body>
 </html>

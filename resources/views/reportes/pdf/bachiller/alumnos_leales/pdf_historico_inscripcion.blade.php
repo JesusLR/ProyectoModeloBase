@@ -407,6 +407,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 20px;
         right: 0px;
@@ -499,14 +500,14 @@
             <h5 style="margin-top:0px; margin-bottom: 10px;">HISTORICOS DE INSCRIPCIONES DE ALUMNOS DE NIVEL PREPARATORIA</h5>
           </div>
 
-         
+
 
           <div class="columns medium-6">
             <div style="text-align: right;">
               <p>{{ $fechaActual->format('d/m/Y') }}</p>
               <p>{{ $fechaActual->format('H:i:s') }}</p>
               <p>Historial_de_cursos.pdf</p>
-              <p>Los alumnos marcados con un * tiene mas de una clave de pago																									
+              <p>Los alumnos marcados con un * tiene mas de una clave de pago
               </p>
             </div>
           </div>
@@ -521,7 +522,7 @@
           </div>
         </div>
       </header>
-    
+
       <footer id="footer">
         <div class="page-number"></div>
       </footer>
@@ -631,14 +632,14 @@
 
               </tr>
              @empty
-                 
+
              @endforelse
             </tbody>
           </table>
         </div>
       </div>
-    
 
-    
+
+
   </body>
 </html>

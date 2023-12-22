@@ -494,6 +494,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: -10px;
             right: 0px;
@@ -593,7 +594,7 @@
         .page-number:before {
             content: "Pág " counter(page);
           }
-    
+
           .page-break {
               page-break-after: always;
           }
@@ -668,21 +669,21 @@
                         |__|
                     </th>
                     @endfor
-                    
+
                     <th style="font-weight: 400;">
                         |Calif|
                     </th>
                     <th style="font-weight: 400;">
                        |Falt|
                     </th>
-                  
-      
+
+
                   </tr>
                 </thead>
                 <tbody>
                   @foreach ($inscritos as $key => $itemInscritos)
                   <tr>
-                    
+
                     <td align="center" style="padding-top: 5px;">{{$key+1}}</td>
                     <td style="padding-top: 5px;">{{$itemInscritos->clavePago}}</td>
                     <td style="padding-top: 5px;">{{$itemInscritos->ape_paterno}} {{$itemInscritos->ape_materno}} {{$itemInscritos->nombres}}</td>
@@ -701,10 +702,10 @@
                     <td style="padding-top: 5px;">
                         |___|
                     </td>
-                    
-                                                
+
+
                   </tr>
-                  @endforeach  
+                  @endforeach
                 </tbody>
               </table>
             </div>

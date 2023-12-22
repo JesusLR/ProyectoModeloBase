@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -480,16 +481,16 @@
       }
     </style>
 	</head>
-  
+
   <header>
     @php
       $dato1 = $noRegistrados->first();
       $dato1 = $dato1['periodo'];
       $ubiClave = $dato1->departamento->ubicacion->ubiClave;
       $ubiNombre = $dato1->departamento->ubicacion->ubiNombre;
-      
+
     @endphp
-    
+
     <div class="row">
         <div class="columns medium-6">
           <p>UNIVERSIDAD MODELO</p>
@@ -507,10 +508,10 @@
     <br>
     <div class="row">
       <p>
-        Estos Alumnos tuvieron incongruencias en sus datos históricos, con más de 
+        Estos Alumnos tuvieron incongruencias en sus datos históricos, con más de
         3 intentos de aprobar extraordinarios.
-        Por lo tanto no se pudo crear un nuevo registro de histórico para 
-        ellos. 
+        Por lo tanto no se pudo crear un nuevo registro de histórico para
+        ellos.
         <br>
         En esta tabla se muestran los datos de los alumnos, pertinentes para
         verificar manualmente su historial académico.
@@ -518,7 +519,7 @@
     </div>
   </header>
   <body>
-    
+
       <table>
         <thead>
           <tr>
@@ -560,5 +561,5 @@
       <span class="page-number"></span>
     </div>
   </footer>
-    
+
 </html>

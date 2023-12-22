@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -30px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -478,7 +479,7 @@
       use App\Http\Models\HorarioAdmivo;
       use App\Http\Models\Horario;
     @endphp
-   
+
     <header>
       <div class="row">
         <div class="columns medium-6">
@@ -513,13 +514,13 @@
           <p>Ubicación : {{ $ubic }} </p>
         </div>
       </div>
-    
+
     </header>
 
     <footer id="footer">
       <div class="page-number"></div>
     </footer>
-    
+
     @php
       $contador = 1;
     @endphp
@@ -531,8 +532,8 @@
           ->join('personas', 'empleados.persona_id', '=', 'personas.id')
           ->join('escuelas', 'empleados.escuela_id', '=', 'escuelas.id')
           ->where('empleados.id', $item->empleado_id)
-          ->first();    
-          
+          ->first();
+
           $horarios = HorarioAdmivo::select(
             'horariosadmivos.id',
             'horariosadmivos.hadmDia',
@@ -564,7 +565,7 @@
             'horarios.ghInicio as hora_inicio',
             'horarios.gMinInicio as minuto_inicio',
             'horarios.ghFinal as hora_fin',
-            'horarios.gMinFinal as minuto_final',            
+            'horarios.gMinFinal as minuto_final',
             'grupos.empleado_id',
             'materias.matClave',
             'materias.matNombre',
@@ -606,13 +607,13 @@
         <br>
         <table class="table">
 
-         
-                
+
+
           {{--  <caption><b>{{ $empleado->perApellido1.' '.$empleado->perApellido2.' '.$empleado->perNombre }}</b></caption>  --}}
-        
+
           <col style="width:10%;" />
           <col style="width:30%;" />
-        
+
           <thead>
             <tr>
               <th align="center" scope="col" style="width: 100px; border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">Lun</th>
@@ -623,8 +624,8 @@
               <th align="center" scope="col" style="width: 100px; border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">Sab</th>
             </tr>
           </thead>
-        
-         
+
+
           <tbody>
             <tr>
 
@@ -655,12 +656,12 @@
 
                     {{ $hadmHoraInicioL.':'.$horario->gMinInicio }} a {{ $hadmFinalL.':'.$horario->gMinFinal }}
                     <br>
-                  @endif  
-                @endforeach     
+                  @endif
+                @endforeach
               </td>
 
               {{--  martes   --}}
-              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;"> 
+              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                 @foreach ($horarios as $horario)
                   @if ($horario->hadmDia == 2)
                     @if ($horario->hadmHoraInicio < 10)
@@ -685,12 +686,12 @@
                     @endif
                     {{ $hadmHoraInicioM.':'.$horario->gMinInicio }} a {{ $hadmFinalM.':'.$horario->gMinFinal }}
                     <br>
-                  @endif  
-                @endforeach                      
+                  @endif
+                @endforeach
               </td>
 
               {{--  miercoles   --}}
-              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;"> 
+              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                 @foreach ($horarios as $horario)
                   @if ($horario->hadmDia == 3)
 
@@ -716,12 +717,12 @@
                       @endif
                     {{ $hadmHoraInicioMi.':'.$horario->gMinInicio }} a {{ $hadmFinalMi.':'.$horario->gMinFinal }}
                     <br>
-                  @endif  
-                @endforeach                      
+                  @endif
+                @endforeach
               </td>
 
               {{--  jueves   --}}
-              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;"> 
+              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                 @foreach ($horarios as $horario)
                   @if ($horario->hadmDia == 4)
                       @if ($horario->hadmHoraInicio < 10)
@@ -746,12 +747,12 @@
                       @endif
                     {{ $hadmHoraInicioJ.':'.$horario->gMinInicio }} a {{ $hadmFinalJ.':'.$horario->gMinFinal }}
                     <br>
-                  @endif  
-                @endforeach                      
+                  @endif
+                @endforeach
               </td>
-              
+
               {{--  viernes   --}}
-              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;"> 
+              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                 @foreach ($horarios as $horario)
                   @if ($horario->hadmDia == 5)
                   @if ($horario->hadmHoraInicio < 10)
@@ -776,12 +777,12 @@
                       @endif
                     {{ $hadmHoraInicioV.':'.$horario->gMinInicio }} a {{ $hadmFinalV.':'.$horario->gMinFinal }}
                     <br>
-                  @endif  
-                @endforeach                      
+                  @endif
+                @endforeach
               </td>
 
               {{--  sabado   --}}
-              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;"> 
+              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                 @foreach ($horarios as $horario)
                   @if ($horario->hadmDia == 6)
                     @if ($horario->hadmHoraInicio < 10)
@@ -806,8 +807,8 @@
                       @endif
                     {{ $hadmHoraInicioS.':'.$horario->gMinInicio }} a {{ $hadmFinalS.':'.$horario->gMinFinal }}
                     <br>
-                  @endif  
-                @endforeach                      
+                  @endif
+                @endforeach
               </td>
             </tr>
           </tbody>
@@ -821,12 +822,12 @@
           <br>
           <table class="table">
 
-         
-                
-          
+
+
+
             <col style="width:10%;" />
             <col style="width:30%;" />
-          
+
             <thead>
               <tr>
                 <th align="center" style="width: 100px; border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">Materia</th>
@@ -838,17 +839,17 @@
                 <th align="center" scope="col" style="width: 100px; border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">Sab</th>
               </tr>
             </thead>
-          
-           
+
+
             <tbody>
               @foreach ($agrupamosgrupos as $grupo_id => $los_valores)
                 @foreach ($los_valores as $gro)
                   @if ($grupo_id == $gro->grupo_id && $contador++ == 1)
                     <tr>
-      
-                    
+
+
                       <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">{{ $gro->gpoSemestre.''.$gro->gpoClave.'-'.$gro->matNombre }}</td>
-                    
+
 
                       @php
                         $horario_grupos2 = Horario::select(
@@ -857,7 +858,7 @@
                         'horarios.ghInicio as hora_inicio',
                         'horarios.gMinInicio as minuto_inicio',
                         'horarios.ghFinal as hora_fin',
-                        'horarios.gMinFinal as minuto_final',            
+                        'horarios.gMinFinal as minuto_final',
                         'grupos.empleado_id',
                         'materias.matClave',
                         'materias.matNombre',
@@ -895,7 +896,7 @@
 
                       <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                         @foreach ($horario_grupos2 as $el_horario)
-                          @if ($el_horario->dia == 1)  
+                          @if ($el_horario->dia == 1)
                             @if ($el_horario->hora_inicio < 10)
                               @php
                                 $hora_inicioL = '0'.$el_horario->hora_inicio;
@@ -917,15 +918,15 @@
                             @endif
 
                             {{ $hora_inicioL.':'.$el_horario->minuto_inicio }} a {{ $hora_finL.':'.$el_horario->minuto_final }}
-                          
 
-                          @endif                            
+
+                          @endif
                         @endforeach
                       </td>
 
                       <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                         @foreach ($horario_grupos2 as $el_horario)
-                          @if ($el_horario->dia == 2)  
+                          @if ($el_horario->dia == 2)
                             @if ($el_horario->hora_inicio < 10)
                               @php
                                 $hora_inicioM = '0'.$el_horario->hora_inicio;
@@ -947,15 +948,15 @@
                             @endif
 
                             {{ $hora_inicioM.':'.$el_horario->minuto_inicio }} a {{ $hora_finM.':'.$el_horario->minuto_final }}
-                          
 
-                          @endif                            
+
+                          @endif
                         @endforeach
                       </td>
 
                       <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                         @foreach ($horario_grupos2 as $el_horario)
-                          @if ($el_horario->dia == 3)  
+                          @if ($el_horario->dia == 3)
                             @if ($el_horario->hora_inicio < 10)
                               @php
                                 $hora_inicioMi = '0'.$el_horario->hora_inicio;
@@ -977,15 +978,15 @@
                             @endif
 
                             {{ $hora_inicioMi.':'.$el_horario->minuto_inicio }} a {{ $hora_finMi.':'.$el_horario->minuto_final }}
-                          
 
-                          @endif                            
+
+                          @endif
                         @endforeach
                       </td>
 
                       <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                         @foreach ($horario_grupos2 as $el_horario)
-                          @if ($el_horario->dia == 4)  
+                          @if ($el_horario->dia == 4)
                             @if ($el_horario->hora_inicio < 10)
                               @php
                                 $hora_inicioJ = '0'.$el_horario->hora_inicio;
@@ -1007,15 +1008,15 @@
                             @endif
 
                             {{ $hora_inicioJ.':'.$el_horario->minuto_inicio }} a {{ $hora_finJ.':'.$el_horario->minuto_final }}
-                          
 
-                          @endif                            
+
+                          @endif
                         @endforeach
                       </td>
 
                       <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                         @foreach ($horario_grupos2 as $el_horario)
-                          @if ($el_horario->dia == 5)  
+                          @if ($el_horario->dia == 5)
                             @if ($el_horario->hora_inicio < 10)
                               @php
                                 $hora_inicioV = '0'.$el_horario->hora_inicio;
@@ -1037,16 +1038,16 @@
                             @endif
 
                             {{ $hora_inicioV.':'.$el_horario->minuto_inicio }} a {{ $hora_finV.':'.$el_horario->minuto_final }}
-                          
 
-                          @endif                            
+
+                          @endif
                         @endforeach
                       </td>
 
                       {{--  sabado   --}}
                       <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                         @foreach ($horario_grupos2 as $el_horario)
-                          @if ($el_horario->dia == 6)  
+                          @if ($el_horario->dia == 6)
                             @if ($el_horario->hora_inicio < 10)
                               @php
                                 $hora_inicioS = '0'.$el_horario->hora_inicio;
@@ -1068,23 +1069,23 @@
                             @endif
 
                             {{ $hora_inicioS.':'.$el_horario->minuto_inicio }} a {{ $hora_finS.':'.$el_horario->minuto_final }}
-                          
 
-                          @endif                            
+
+                          @endif
                         @endforeach
                       </td>
                     </tr>
-                  @endif                  
-                @endforeach 
+                  @endif
+                @endforeach
                 @php
                     $contador = 1;
-                  @endphp               
-              @endforeach                            
+                  @endphp
+              @endforeach
             </tbody>
           </table>
         @endif
         @endif
-        
+
         <br>
         <br>
         <br>
@@ -1097,7 +1098,7 @@
       </footer>
     @endif  --}}
 
- 
-      
+
+
   </body>
 </html>

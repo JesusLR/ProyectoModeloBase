@@ -494,6 +494,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: 0px;
             right: 0px;
@@ -593,7 +594,7 @@
         .page-number:before {
             content: "Pág " counter(page);
           }
-    
+
           .page-break {
               page-break-after: always;
           }
@@ -624,13 +625,13 @@
 
                     <p style="text-align: right; margin-top: -40px">Fecha: {{$fechaActual}} Hora: {{$horaActual}}</p>
 
-          
+
                 <p>Incluye alumnos inscritos, PRE-inscritos y CON-dicionados.</p>
             </div>
 
         </div>
 
-    </header>  
+    </header>
     <footer id="footer">
         <div class="page-number"></div>
     </footer>
@@ -649,18 +650,18 @@
                     <th style="font-weight: 400;width: 20px; padding-top: 7px;">Núm</th>
                     <th  style="font-weight: 400; padding-top: 7px;">Clave Pago</th>
                     <th  style="font-weight: 400;width: 210px; padding-top: 7px;">Nombre del Alumno</th>
-                 
-      
+
+
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($alumno_agrupado as $clavePago => $valuesAlumno)                    
+                  @foreach ($alumno_agrupado as $clavePago => $valuesAlumno)
                   <tr>
-                    
+
                     <td align="center" style="padding-top: 5px; width: 20px; ">{{$total++}}</td>
                     <td style="padding-top: 5px;  width: 20px;" >{{$clavePago}}</td>
 
-                    @php                       
+                    @php
 
                         $alumno = DB::select("SELECT alumnos.id, personas.perApellido1, personas.perApellido2, personas.perNombre FROM alumnos AS alumnos
                         INNER JOIN personas AS personas ON personas.id = alumnos.persona_id
@@ -676,16 +677,16 @@
 
                     {{-- <td style="padding-top: 5px;">{{$itemInscritos->ape_paterno}} {{$itemInscritos->ape_materno}} {{$itemInscritos->nombres}}</td> --}}
 
-                                                
+
                   </tr>
-                  @endforeach  
+                  @endforeach
                 </tbody>
               </table>
             </div>
           </div>
 
 
-        
+
         {{--  <div class="page_break"></div>  --}}
 
 

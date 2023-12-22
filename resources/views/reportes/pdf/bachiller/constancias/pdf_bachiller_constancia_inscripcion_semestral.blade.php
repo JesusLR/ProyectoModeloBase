@@ -503,6 +503,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: 10px;
       right: 0px;
@@ -623,7 +624,7 @@
     <img class="img-header-cabecera" style="margin-top: -40px;"
     src="{{base_path('resources/assets/img/bachiller_valladolid/cabeceraContanciaValladolid.jpeg')}}" alt="">
   @endif
- 
+
 
 </header>
 
@@ -738,7 +739,7 @@
     <div class="columns medium-44">
       @if ($curso_alumno->ubiClave == "CVA")
       <img style="height: 160px;" src="{{base_path('resources/assets/img/bachiller_valladolid/valla_sello.png')}}" alt="">
-      @endif        
+      @endif
     </div>
   </div>
 

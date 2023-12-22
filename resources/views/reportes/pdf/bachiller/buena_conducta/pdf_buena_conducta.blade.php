@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -70px;
         right: 0px;
@@ -513,7 +514,7 @@
           {{$curso->cgt->plan->programa->escuela->departamento->ubicacion->municipio->estado->edoNombre}}, al día
           {{--\Carbon\Carbon::parse($fechaActual)->format('d/m/Y')--}}
           @php
-                
+
                 $fechaletras = Utils::fecha_string($fechaActual);
           @endphp
           {{$fechaletras}}.
@@ -526,7 +527,7 @@
         <br>
         {{$departamento->depPuestoDoc}}</p>
 
-      </div>      
+      </div>
       @endif
 
 
@@ -537,7 +538,7 @@
 
       </div>
       @endif
-     
+
     </div>
   </body>
 </html>

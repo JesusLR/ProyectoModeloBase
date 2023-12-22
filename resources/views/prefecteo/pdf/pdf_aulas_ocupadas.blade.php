@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -480,7 +481,7 @@
       }
     </style>
 	</head>
-  
+
   <header>
     @php
       $data1 = $data->first()->first();
@@ -516,7 +517,7 @@
     </div>
     <div class="row">
         <div class="columns medium-12">
-         <table class="table"> 
+         <table class="table">
             <thead>
             <tr>
               <th align="center" style="font-weight: 400;width:15px;">Num</th>
@@ -558,5 +559,5 @@
         <span class="page-number"></span>
       </div>
     </footer>
-    
+
 </html>

@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -490,7 +491,7 @@
               <p>{{$horaActual}}</p>
             </div>
         </div>
-      </div> 
+      </div>
     </header>
 
     @php
@@ -510,7 +511,7 @@
       <div class="row">
         <div class="columns medium-12">
           <table class="table">
-          
+
             <tr>
               <th align="center">Esc</th>
               <th align="center">Car</th>
@@ -555,7 +556,7 @@
                     <th align="center">{{number_format($totalNumRepTot)}}</th>
                     <th align="center">{{number_format($totalNumRepTot/$totalNumMatTot*100,1)}}</th>
                   </tr>
-           
+
           </table>
         </div>
       </div>

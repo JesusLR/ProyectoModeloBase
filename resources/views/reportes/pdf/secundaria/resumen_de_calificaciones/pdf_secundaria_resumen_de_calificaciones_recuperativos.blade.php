@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 8px;
         right: 0px;
@@ -514,7 +515,7 @@
 
 			{{--  @php  --}}
         {{--  $inscritos = $grupo['inscritos'];  --}}
-        
+
         // dd($grupos, $grupo, $inscritos);
 			{{--  @endphp
       @if (!is_null($inscritos))  --}}
@@ -534,7 +535,7 @@
 
             {{-- Muestra si es por mes  --}}
             @if ($tipoReporte == "porMes")
-            <p>Mes : {{$mesEvaluar}} Incluye insc, 
+            <p>Mes : {{$mesEvaluar}} Incluye insc,
               @if ($conceptos == "R")
                 regular ({{$conceptos}})
               @endif
@@ -561,23 +562,23 @@
 
             {{-- Muestra si es por bimestre --}}
             @if ($tipoReporte == "porBimestre")
-            <p>Bimestre : 
+            <p>Bimestre :
               @if ($bimestreEvaluar == "BIMESTRE1")
-                1            
-              @endif 
+                1
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE2")
-                2            
-              @endif 
+                2
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE3")
-                3            
-              @endif 
+                3
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE4")
-                4            
-              @endif 
+                4
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE5")
-                5            
-              @endif 
-              Incluye insc, 
+                5
+              @endif
+              Incluye insc,
               @if ($conceptos == "R")
                 regular ({{$conceptos}})
               @endif
@@ -604,18 +605,18 @@
 
             {{-- Muestra si es por trimestre  --}}
             @if ($tipoReporte == "porTrimestre")
-            <p>Trimestre : 
+            <p>Trimestre :
               @if ($trimestreEvaluar == "TRIMESTRE1")
-                1            
-              @endif 
+                1
+              @endif
               @if ($trimestreEvaluar == "TRIMESTRE2")
-                2            
-              @endif 
+                2
+              @endif
               @if ($trimestreEvaluar == "TRIMESTRE3")
-                3            
-              @endif 
-             
-              Incluye insc, 
+                3
+              @endif
+
+              Incluye insc,
               @if ($conceptos == "R")
                 regular ({{$conceptos}})
               @endif
@@ -644,31 +645,31 @@
               @if ($modoCalificacion == "BASEPORCENTAJE")
                 @if ($mesEvaluar == "Septiembre")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeSeptiembre}}</p>
-                @endif     
-                
+                @endif
+
                 @if ($mesEvaluar == "Octubre")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeOctubre}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Noviembre")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeNoviembre}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Diciembre")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeDiciembre}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Enero")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeEnero}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Febrero")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeFebrero}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Marzo")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeMarzo}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Abril")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeAbril}}</p>
@@ -683,7 +684,7 @@
                 @endif
               @endif
             @endif
-            
+
             @if ($tipoReporte == "califRecuperativos")
               @if ($tipoRecuperativo == "recuperativosTrimestre1")
                   Recuperativo trimestre 1
@@ -698,11 +699,11 @@
                   Recuperativo trimestres
               @endif
             @endif
-            
+
           </div>
         </div>
         <br>
-        
+
         <div class="row">
           <div class="columns medium-12">
             <table class="table">
@@ -721,13 +722,13 @@
                             @endif
 
                             @if ($i == 4)
-                            
+
                             @endif
-                           
+
                         </th>
                     @endfor
 
-                  
+
                     <th style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>
 
 
@@ -736,13 +737,13 @@
                 <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">Num</th>
                 <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">Cve Pago</th>
                 <th  style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">Nombre del alumno</th>
-                
+
                 {{--  recorremos array para mostrar materias   --}}
                 @foreach ($materia_alumos as $mat)
                 <th align="center" style="font-weight: 400; width:40px; border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">{{$mat->matClave}}</th>
-                @endforeach               
+                @endforeach
 
-                <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th> 
+                <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>
 
               </tr>
 
@@ -758,97 +759,97 @@
 
 
               @endphp
-              
-                @foreach ($calificacionesInscritos as $key => $inscrito)                
+
+                @foreach ($calificacionesInscritos as $key => $inscrito)
 
                   {{--  calificaciones de los recuperativos   --}}
-                  @if ($tipoReporte == "califRecuperativos")                     
-                    <tr>                    
+                  @if ($tipoReporte == "califRecuperativos")
+                    <tr>
                       <td align="center" style="width: 10px; border-top: 1px solid; border-right: 1px; border-bottom: 1px solid; border-left: 1px solid;">{{$key+1}}</td>
                       <td align="center" style="width: 40px; border-top: 1px solid; border-right: 1px; border-bottom: 1px solid; border-left: 1px solid;">{{$inscrito->aluClave}}</td>
                       <td style="width: 219px; border-top: 1px solid; border-right: 1px; border-bottom: 1px solid; border-left: 1px solid;">
-                          {{$inscrito->perApellido1}} {{$inscrito->perApellido2}} {{$inscrito->perNombre}}                        
+                          {{$inscrito->perApellido1}} {{$inscrito->perApellido2}} {{$inscrito->perNombre}}
                       </td>
-                      
-                      @foreach ($materia_alumos as $matAlumnos)
-                        @foreach ($calificaciones as $item)                      
 
-                          @if ($modoCalificacion == "BASEDIEZ")                             
-                           
+                      @foreach ($materia_alumos as $matAlumnos)
+                        @foreach ($calificaciones as $item)
+
+                          @if ($modoCalificacion == "BASEDIEZ")
+
 
                             {{--  mostrar calificaciones recuperativos   --}}
                             @if ($tipoReporte == "califRecuperativos")
 
-                              {{-- recuperativo trimestre 1 --}}                            
+                              {{-- recuperativo trimestre 1 --}}
                               @if ($tipoRecuperativo == "recuperativosTrimestre1")
-                                @if ($matAlumnos->matClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)   
-                                
+                                @if ($matAlumnos->matClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
+
                                     @if ($item->inscRecuperativoTrimestre1 != null)
                                       @if ($item->inscRecuperativoTrimestre1 < 6)
                                       <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px solid; border-left: 1px solid; background-color: #F3F648;">
                                         {{$item->inscRecuperativoTrimestre1}}
-                                      </td>   
+                                      </td>
                                       @else
                                       <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px solid; border-left: 1px solid;">
                                         {{$item->inscRecuperativoTrimestre1}}
-                                      </td>   
-                                      @endif                                                             
+                                      </td>
+                                      @endif
                                     @else
                                       <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px solid; border-left: 1px solid;">
-                                      </td> 
+                                      </td>
                                     @endif
-                                  
+
                                 @endif
-                              @endif          
-                              
-                               {{-- recuperativo trimestre 2 --}}                            
+                              @endif
+
+                               {{-- recuperativo trimestre 2 --}}
                               @if ($tipoRecuperativo == "recuperativosTrimestre2")
-                                @if ($matAlumnos->matClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)   
-                                
+                                @if ($matAlumnos->matClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
+
                                     @if ($item->inscRecuperativoTrimestre2 != null)
                                       @if ($item->inscRecuperativoTrimestre2 < 6)
                                       <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px solid; border-left: 1px solid; background-color: #F3F648;">
                                         {{$item->inscRecuperativoTrimestre2}}
-                                      </td>   
+                                      </td>
                                       @else
                                       <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px solid; border-left: 1px solid;">
                                         {{$item->inscRecuperativoTrimestre2}}
-                                      </td>   
-                                      @endif                                                             
+                                      </td>
+                                      @endif
                                     @else
                                       <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px solid; border-left: 1px solid;">
-                                      </td> 
+                                      </td>
                                     @endif
-                                  
+
                                 @endif
-                              @endif   
-                                
-                               {{-- recuperativo trimestre 2 --}}                            
+                              @endif
+
+                               {{-- recuperativo trimestre 2 --}}
                               @if ($tipoRecuperativo == "recuperativosTrimestre3")
-                                @if ($matAlumnos->matClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)   
-                                
+                                @if ($matAlumnos->matClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
+
                                     @if ($item->inscRecuperativoTrimestre3 != null)
                                       @if ($item->inscRecuperativoTrimestre3 < 6)
                                       <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px solid; border-left: 1px solid; background-color: #F3F648;">
                                         {{$item->inscRecuperativoTrimestre3}}
-                                      </td>   
+                                      </td>
                                       @else
                                       <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px solid; border-left: 1px solid;">
                                         {{$item->inscRecuperativoTrimestre3}}
-                                      </td>   
-                                      @endif                                                             
+                                      </td>
+                                      @endif
                                     @else
                                       <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px solid; border-left: 1px solid;">
-                                      </td> 
+                                      </td>
                                     @endif
-                                  
+
                                 @endif
-                              @endif   
+                              @endif
                             @endif
                           @endif
 
-                          @if ($modoCalificacion == "BASEPORCENTAJE")                       
-                          
+                          @if ($modoCalificacion == "BASEPORCENTAJE")
+
 
                             {{-- mostrar por trimestre --}}
                             @if ($tipoReporte == "califRecuperativos")
@@ -856,7 +857,7 @@
                               {{-- trimestre 1 --}}
                               @if ($tipoRecuperativo == "recuperativosTrimestre1")
                                 @if ($matAlumnos->matClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
-                                  
+
                                     @if ($item->inscRecuperativoTrimestre1 != null)
                                       @if ($item->inscRecuperativoTrimestre1 < 6)
                                         <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid; background-color:#F3F648">
@@ -877,7 +878,7 @@
                              {{-- trimestre 2 --}}
                               @if ($tipoRecuperativo == "recuperativosTrimestre2")
                                 @if ($matAlumnos->matClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
-                                  
+
                                     @if ($item->inscRecuperativoTrimestre2 != null)
                                       @if ($item->inscRecuperativoTrimestre2 < 6)
                                         <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid; background-color:#F3F648">
@@ -898,7 +899,7 @@
                                {{-- trimestre 3 --}}
                                @if ($tipoRecuperativo == "recuperativosTrimestre3")
                                @if ($matAlumnos->matClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
-                                 
+
                                    @if ($item->inscRecuperativoTrimestre3 != null)
                                      @if ($item->inscRecuperativoTrimestre3 < 6)
                                        <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid; background-color:#F3F648">
@@ -915,23 +916,23 @@
                                    @endif
                                @endif
                              @endif
-                                
+
                             @endif
                           @endif
 
 
-                          
-                        @endforeach                      
+
+                        @endforeach
                       @endforeach
-                    
-                    
-                    
-                      <td align="center" style="border-top: 0px solid; border-right: 0px; border-bottom: 1px; border-left: 1px solid;"></td>                    
+
+
+
+                      <td align="center" style="border-top: 0px solid; border-right: 0px; border-bottom: 1px; border-left: 1px solid;"></td>
                     </tr>
 
-                
 
-                    
+
+
 
                     @php
                       $promedioPeriodo = 0.0;
@@ -940,12 +941,12 @@
                       $aproXMateria = 0;
                       $VUELTA = 0;
                       $promedioSep = 0.0;
-                      $vuelta1 = 0; 
-                    @endphp         
-                  @endif         
+                      $vuelta1 = 0;
+                    @endphp
+                  @endif
                 @endforeach
-                
- 
+
+
             </table>
 
           </div>
@@ -958,6 +959,6 @@
             <b>“Importante: La ausencia de calificacion en una asignatura, se considera como APROBADA o que no se le ha puesto califiación en caso de haber presentado”</b>
           </p>
         </div>
-           
+
   </body>
 </html>

@@ -369,7 +369,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -393,15 +393,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -491,9 +492,9 @@
       }
     </style>
 	</head>
-  
+
   <header>
-   
+
   </header>
     <body>
       {{-- Controlador: ConstanciaDocenteController --}}
@@ -503,7 +504,7 @@
           <br>
           <p class="tright"><b>SUBJECT</b>: PROOF OF STUDIES</p>
           @if ($foto == "con_foto")
-            @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus .'/'. $curPrimariaFoto)))              
+            @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus .'/'. $curPrimariaFoto)))
               <p><img class="fotoAlumno" style="float: left; margin-top: 165px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus. '/' . $curPrimariaFoto) }}"></p>
             @endif
           @endif
@@ -516,16 +517,16 @@
           <p>{{ strtoupper("To whom it may concern:") }}</p>
           <br>
           <br>
-         
+
           <br>
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-            The undersigned, 
+            The undersigned,
             @if ($parametro_ubicacion == "CME")
             MAOE. María Trinidad Díaz Cervera
             @endif
             @if ($parametro_ubicacion == "CVA")
               Mtra. Arely Martinez Díaz
-            @endif  
+            @endif
             director of the “Modelo” Incorporated Elementary School with work code {{ $depClaveOficial }}, established in this city STATES:
           </p>
           <br>
@@ -533,7 +534,7 @@
           <br>
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
 
-            That the student <b>{{$alumno}} with registration number {{ $clave }}</b>, whose photograph appears in the margin, 
+            That the student <b>{{$alumno}} with registration number {{ $clave }}</b>, whose photograph appears in the margin,
             is a regular student of this school, enrolled in the {{ $grado }} GROUP "{{ $grupo }}", of the {{ $periodo }} school year
           </p>
 
@@ -542,18 +543,18 @@
           <br>
 
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-            And at the request of the interested party and for the purposes that are required, this certificate is issued today, in the city of 
+            And at the request of the interested party and for the purposes that are required, this certificate is issued today, in the city of
             @if ($parametro_ubicacion == "CME")
             Mérida,
             @endif
             @if ($parametro_ubicacion == "CVA")
             Valladolid,
-            @endif 
+            @endif
             Yucatán, México.
           </p>
         </div>
       </div>
-      
+
       <br><br><br><br><br>
 
       <div class="row">
@@ -567,9 +568,9 @@
           @if ($parametro_ubicacion == "CVA")
           <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ.</b></p>
           @endif
-          
+
           <p class="tcenter"><b>PRINCIPAL</b></p>
-        
+
         </div>
       </div>
       {{--  @if(!$loop->last)

@@ -369,7 +369,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -393,15 +393,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -488,7 +489,7 @@
       }
     </style>
 	</head>
-  
+
 <header>
 
 </header>
@@ -512,7 +513,7 @@
 
             <p style="font-size: 16px;">A quien corresponda:</p>
             <br>
-         
+
             @if ($parametro_ubicacion == "CME")
             <p style="font-size: 16px; text-align: justify;">
               La que suscribe, Psicóloga Silvia Violeta Pool Dorantes, Directora de la
@@ -528,21 +529,21 @@
                   constar que el alumno:
                 </p>
             @endif
-            
+
             <br>
             <p style="text-align: center; font-size: 16px;"><b>{{$alumno}}</b></p>
             <br>
             <p style="font-size: 16px; text-align: justify;">Obtuvo las siguientes calificaciones en el {{$grado}},
-                grupo 
+                grupo
                 @if ($parametro_ubicacion == "CVA")
                   @if ($grupo == "V")
                   "A"
-                  @endif     
+                  @endif
                   @if ($grupo == "W")
                   "B"
-                  @endif    
+                  @endif
                 @else
-                {{$grupo}}       
+                {{$grupo}}
                 @endif
                  en el
                 curso escolar {{$periodo_inicio}}-{{$periodo_fin}}:
@@ -573,7 +574,7 @@
                             {{number_format((float)$itemInscrito->trimestre1, 0, '.', '')}}
                           @else
                             {{$itemInscrito->trimestre1}}
-                          @endif                          
+                          @endif
                         </td>
                         <td style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;" align="center">
                           @if ($itemInscrito->trimestre2 == "10.0")
@@ -610,7 +611,7 @@
                      <td align="center"><b></b></td>
                      <td align="center"><b></b></td>
                      <td align="center"><b></b></td>
-                     <td align="center">                       
+                     <td align="center">
                        <b>{{number_format((float)$promedioGeneral, 1, '.', '')}}</b>
                       </td>
 
@@ -623,9 +624,9 @@
 
     <br>
     <div class="row">
-       
+
         <p style="font-size: 16px; text-align: justify;">
-          {{--  y está inscrito en el {{$gradoSiguiente}}. grado de secundaria en esta institución durante el próximo año 
+          {{--  y está inscrito en el {{$gradoSiguiente}}. grado de secundaria en esta institución durante el próximo año
           lectivo ({{$periodo_fin}}-{{$periodo_siguiente}}) y cuenta con el cupo correspondiente el cual está a su disposición.  --}}
           Inscrito al siguiente curso escolar {{$periodo_fin}}-{{$periodo_siguiente}} en nuestra institución haciendo de su conocimiento que se cuenta con el cupo correspondiente.
 
@@ -656,7 +657,7 @@
             <p class="tcenter"><b>Psic. Silvia Violeta Pool Dorantes</b></p>
             {{-- <p class="tcenter"><b>DIRECTORA</b></p> --}}
             @endif
-            
+
             @if ($parametro_ubicacion == "CVA")
             <div style="text-align: center">
               <img class="img-header"  src="{{base_path('resources/assets/img/firmas_logos_secundaria/secundaria_cva_firma_lolha.png')}}" alt="">

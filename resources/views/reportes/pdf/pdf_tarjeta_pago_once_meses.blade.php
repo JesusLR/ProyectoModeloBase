@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -474,7 +475,7 @@
   <body>
     <header>
     </header>
-   
+
     <div class="row">
       <div class="columns medium-4">
         <div style="height: 145px; width: 75%; position: relative; border: 1px solid #000; padding: 10px;  margin: 0 auto;">
@@ -597,7 +598,7 @@
       <p style="text-align: center; font-weight: 700;">* * *  NO REALIZAR COBRO SI NO ESTÁ PAGADO EL MES ANTERIOR * * *</p>
     </div>
 
-    
+
     <div class="row">
       <div class="columns medium-4">
         <div style="height: 145px; width: 75%; position: relative; border: 1px solid #000; padding: 10px;  margin: 0 auto;">
@@ -629,7 +630,7 @@
                   <p style="font-size: 14px;">Vence  {{$diciembre->fechaNormalPagoCorto}} ${{$diciembre->cuotaNormal}}</p>
                   <p style="margin-bottom: 10px; font-size: 14px;">Refer. <span style="font-weight:700;">{{$diciembre->referenciaNormal}}</span></p>
                 @endif
-                
+
                 <p style="font-size: 14px;">Vence  {{$diciembre->fechaAtrasoPagoCorto}} ${{$diciembre->cuotaAtraso}}</p>
                 <p style="font-size: 14px;">Refer. <span style="font-weight:700;">{{$diciembre->referenciaAtraso}}</span></p>
               @endif
@@ -668,7 +669,7 @@
                   <p style="font-size: 14px;">Vence  {{$enero->fechaNormalPagoCorto}} ${{$enero->cuotaNormal}}</p>
                   <p style="margin-bottom: 10px; font-size: 14px;">Refer. <span style="font-weight:700;">{{$enero->referenciaNormal}}</span></p>
                 @endif
-                
+
                 <p style="font-size: 14px;">Vence  {{$enero->fechaAtrasoPagoCorto}} ${{$enero->cuotaAtraso}}</p>
                 <p style="font-size: 14px;">Refer. <span style="font-weight:700;">{{$enero->referenciaAtraso}}</span></p>
               @endif
@@ -713,7 +714,7 @@
                     <p style="font-size: 14px;">Vence  {{$febrero->fechaNormalPagoCorto}} ${{$febrero->cuotaNormal}}</p>
                     <p style="margin-bottom: 10px; font-size: 14px;">Refer. <span style="font-weight:700;">{{$febrero->referenciaNormal}}</span></p>
                   @endif
-                  
+
                   <p style="font-size: 14px;">Vence  {{$febrero->fechaAtrasoPagoCorto}} ${{$febrero->cuotaAtraso}}</p>
                   <p style="font-size: 14px;">Refer. <span style="font-weight:700;">{{$febrero->referenciaAtraso}}</span></p>
                 @endif
@@ -730,8 +731,8 @@
     </div>
 
 
-    
-    
+
+
     <div class="row">
       <div class="columns medium-4">
         <div style="height: 145px; width: 75%; position: relative; border: 1px solid #000; padding: 10px;  margin: 0 auto;">
@@ -743,7 +744,7 @@
           @endif
 
           @if (!$marzo->esMensualidadPagada)
-          
+
             @if ($curso->curTipoBeca && $curso->curPorcentajeBeca == 100)
               <p style="text-align:center;font-weight: 700; margin-bottom: 10px;">NO APLICA</p>
             @else
@@ -860,7 +861,7 @@
                     <p style="font-size: 14px;">Vence  {{$mayo->fechaNormalPagoCorto}} ${{$mayo->cuotaNormal}}</p>
                     <p style="margin-bottom: 10px; font-size: 14px;">Refer. <span style="font-weight:700;">{{$mayo->referenciaNormal}}</span></p>
                   @endif
-                  
+
                   <p style="font-size: 14px;">Vence  {{$mayo->fechaAtrasoPagoCorto}} ${{$mayo->cuotaAtraso}}</p>
                   <p style="font-size: 14px;">Refer. <span style="font-weight:700;">{{$mayo->referenciaAtraso}}</span></p>
                 @endif
@@ -878,7 +879,7 @@
     </div>
 
 
-        
+
     <div class="row">
       <div class="columns medium-4">
         <div style="height: 145px; width: 75%; position: relative; border: 1px solid #000; padding: 10px;  margin: 0 auto;">

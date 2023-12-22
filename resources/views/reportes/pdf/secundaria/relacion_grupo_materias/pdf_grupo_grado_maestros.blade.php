@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -518,7 +519,7 @@
         <div class="columns medium-12">
           @if($grupo)
             <p>Ubicac. : {{$grupo["secundaria_grupo"]["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiClave"] ?
-                $grupo["secundaria_grupo"]["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiClave"]: "" }} 
+                $grupo["secundaria_grupo"]["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiClave"]: "" }}
               {{$grupo["secundaria_grupo"]["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiNombre"] ?
                 $grupo["secundaria_grupo"]["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiNombre"]: ""}}
             </p>
@@ -526,7 +527,7 @@
         </div>
       </div>
     </header>
-   
+
     @foreach ($grupos as $grupo)
       @php
         $grupo = $grupo->sortBy('camposSort');
@@ -566,7 +567,7 @@
                 <td style="width: 20px;"><label style="opacity: .01;">0</label></td>
                 @endif
 
-                
+
                 <td style="width: 30px;">
                   {{\Carbon\Carbon::parse($materia["secundaria_grupo"]["gpoFechaExamenOrdinario"])->day
                   .'/'. \Carbon\Carbon::parse($materia["secundaria_grupo"]["gpoFechaExamenOrdinario"])->formatLocalized('%b')
@@ -578,7 +579,7 @@
                 @else
                 <td style="width: 50px;"><label style="opacity: .01;">0</label></td>
                 @endif
-                
+
                 <td style="width: 40px;">{{$materia["secundaria_grupo"]["secundaria_empleado"]["id"]}}</td>
                 <td>
                   {{$materia["secundaria_grupo"]["secundaria_empleado"]["empApellido1"]}}

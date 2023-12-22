@@ -367,11 +367,11 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
-  
+
       .estilos-tabla tr th {
         font-size: 12px;
         background-color: #000;
@@ -382,7 +382,7 @@
         box-sizing: border-box;
         text-align: center;
       }
-  
+
       .estilos-tabla tr td {
         font-size: 12px;
         padding-left: 2px;
@@ -390,19 +390,20 @@
         box-sizing: border-box;
         color: #000;
       }
-  
+
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -40px;
         right: 0px;
@@ -412,7 +413,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -485,7 +486,7 @@
         $puntosProduc = 0;
         $suma = 0;
     @endphp
-   
+
     <header>
       <div class="row">
         <div class="columns medium-6">
@@ -511,16 +512,16 @@
           <p>
               Período: {{ \Carbon\Carbon::parse($inicioPeriodo)->day.'/'.\Carbon\Carbon::parse($inicioPeriodo)->formatLocalized('%b').'/'.\Carbon\Carbon::parse($inicioPeriodo)->year }}
               -
-              {{ \Carbon\Carbon::parse($finalPeriodo)->day.'/'.\Carbon\Carbon::parse($finalPeriodo)->formatLocalized('%b').'/'.\Carbon\Carbon::parse($finalPeriodo)->year }}           
+              {{ \Carbon\Carbon::parse($finalPeriodo)->day.'/'.\Carbon\Carbon::parse($finalPeriodo)->formatLocalized('%b').'/'.\Carbon\Carbon::parse($finalPeriodo)->year }}
           </p>
         </div>
-      </div>      
+      </div>
 
       <div class="row" style="margin-bottom: 2px">
         <div class="columns medium-4">
             <p>Nivel : {{$departamento}} ({{$plan}}) {{$programa}}</p>
             {{--  <p>Puntuac.: Proc: {{$puntosProc}} Prod: {{$puntosProduc}} Total: {{$puntosProc+$puntosProduc}}</p>  --}}
-  
+
         </div>
         <div class="columns medium-4"></div>
         <div class="columns medium-4" style="text-align: right">
@@ -528,22 +529,22 @@
         </div>
       </div>
 
-      
 
-    </header>   
-    
+
+    </header>
+
     <footer id="footer">
       <div class="page-number"></div>
     </footer>
-    @foreach ($materiasTotales as $matClave => $valores)    
+    @foreach ($materiasTotales as $matClave => $valores)
       @foreach ($valores as $llave => $values)
-       
+
         @if ($matClave == $values->matClave && $pos++ == 1)
 
           {{--  ##Consultamos nuevamente para obtener los puntos   --}}
           @php
-              $puntosTotales = DB::select("SELECT * FROM bachiller_evidencias WHERE periodo_id=$values->periodo_id 
-              AND bachiller_materia_id=$values->bachiller_materia_id 
+              $puntosTotales = DB::select("SELECT * FROM bachiller_evidencias WHERE periodo_id=$values->periodo_id
+              AND bachiller_materia_id=$values->bachiller_materia_id
               AND deleted_at IS NULL
               ORDER BY eviNumero ASC");
 
@@ -551,7 +552,7 @@
                 if ($puntos->eviTipo == "A"){
                   $puntosProc = $puntosProc + $puntos->eviPuntos;
                 }
-                
+
                 if ($puntos->eviTipo == "P"){
                   $puntosProduc = $puntosProduc + $puntos->eviPuntos;
                 }
@@ -561,10 +562,10 @@
             <div class="columns medium-4">
                 <p>Materia : {{$values->matClave}} - {{$values->matNombre}}</p>
                 <p>Puntuac.: Proc: {{$puntosProc}} Prod: {{$puntosProduc}} Total: {{$puntosProc+$puntosProduc}}</p>
-      
+
             </div>
           </div>
-          
+
           <br>
 
           <div class="row">
@@ -579,63 +580,63 @@
                         <th style="width: 50px;" align="center">Ptos</th>
                         <th style="width: 50px;" align="center">Acum.</th>
                         <th style="width: 50px;"align="center">Falt?</th>
-                      </tr>                  
+                      </tr>
                     </thead>
                     <tbody>
-                      @foreach ($puntosTotales as $key => $values)                          
+                      @foreach ($puntosTotales as $key => $values)
                         <tr>
                           <td align="center" style="height: 20px;">
                             {{$values->eviNumero}}
                           </td>
-                        
+
                           <td>
                             @if ($values->eviTipo == "A")
                               Proceso
                             @else
-                               Producto 
-                            @endif                        
+                               Producto
+                            @endif
                           </td>
-                        
+
                           <td>
                             {{$values->eviDescripcion}}
                           </td>
-                        
+
                           <td align="center">
-                            {{Utils::fecha_string($values->eviFechaEntrega, 'mesCorto')}} 
+                            {{Utils::fecha_string($values->eviFechaEntrega, 'mesCorto')}}
                           </td>
-                        
+
                           <td align="center">
                             {{$values->eviPuntos}}
                           </td>
-                        
+
                           @php
                               $suma = $suma + $values->eviPuntos;
                           @endphp
                           <td align="center">
                             {{$suma}}
                           </td>
-    
+
                           <td align="center">
                             @if ($values->eviFaltas == "S")
                                 SI
                             @else
-                                
+
                             @endif
                           </td>
-    
-                        </tr>                        
-                      @endforeach                    
+
+                        </tr>
+                      @endforeach
                     </tbody>
                 </table>
             </div>
           </div>
-        @endif        
+        @endif
       @endforeach
 
       @if (!$loop->last)
       <div class="page_break"></div>
       @endif
-      
+
       @php
         $pos = 0;
         $puntosProc = 0;
@@ -644,7 +645,7 @@
       @endphp
     @endforeach
 
-    
-   
+
+
   </body>
 </html>

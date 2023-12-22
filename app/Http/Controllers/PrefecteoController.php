@@ -122,7 +122,7 @@ class PrefecteoController extends Controller
             alert()->error('Ha ocurrido un problema.', $e->getMessage())->showConfirmButton();
             return back()->withInput();
         }
-        alert()->success('Actualizado', 'El prefecteo se ha actualizado correctamente.')->shoowConfirmButton();
+        alert()->success('Actualizado', 'El prefecteo se ha actualizado correctamente.')->showConfirmButton();
         return redirect()->back();
     }
 
@@ -157,7 +157,7 @@ class PrefecteoController extends Controller
             return $prefecteo->prefHoraInicio.':00';
         })
         ->addColumn('action', static function(Prefecteo $prefecteo) {
-            
+
             $url = 'prefecteo';
 
             return '<div class="row">'

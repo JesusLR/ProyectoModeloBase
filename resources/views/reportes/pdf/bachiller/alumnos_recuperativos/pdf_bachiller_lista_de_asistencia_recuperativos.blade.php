@@ -494,6 +494,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: 20px;
       right: 0px;
@@ -612,7 +613,7 @@
           <p>Hora: {{$fechaActual->format('H:i:s')}}</p>
         </div>
       </div>
-    </div>   
+    </div>
 
   </header>
 
@@ -634,37 +635,37 @@
                 Período: {{$item->perNumero}}-{{$item->perAnio}}
             </div>
           </div>
-      
+
           <div class="row" style="margin-bottom: 2px">
             <div class="columns medium-4">
               <p>Nivel: {{$item->depClave}} ({{$item->planClave}}) {{$item->progNombre}}</p>
             </div>
-          </div>   
+          </div>
           <div class="row" style="margin-bottom: 2px">
             <div class="columns medium-4">
               <p>Semestre : {{$item->matSemestre}}</p>
             </div>
           </div>
-        
+
           <div class="row" style="margin-bottom: 2px">
             <div class="columns medium-4">
               <p>Materia-recuperativo : {{$item->matClave}}-{{$item->matNombre}}</p>
             </div>
           </div>
-        
+
           <div class="row" style="margin-bottom: 2px">
             <div class="columns medium-4">
               <p>Docente : {{$item->empApellido1}} {{$item->empApellido2}} {{$item->empNombre}}</p>
             </div>
-          </div>   
+          </div>
 
           <div class="row" style="margin-bottom: 2px">
             <div class="columns medium-4">
               <p>Folio : {{$item->extraordinario_id }}</p>
             </div>
           </div>
-          
-          
+
+
           <div class="row">
             <div class="columns medium-12">
               <table class="table">
@@ -675,24 +676,24 @@
                     <th align="center" style="font-weight: 400;width: 265px; padding-top: 7px;"><b>Nombre del Alumno</b></th>
                     @for ($i = 0; $i < 19; $i++)
                       <th style="padding-top: -5px;">
-                        <ul class="listas-asistencia">  
+                        <ul class="listas-asistencia">
                           <li><div><span></span></div></li>
                         </ul>
                       </th>
                       @endfor
-        
+
                       <th style="padding-top: -5px; font-weight: 400;">
-                        <ul class="listas-asistencia">  
+                        <ul class="listas-asistencia">
                           <li><div style="width: 17px"><span style="font-weight: 400;"><b>Calif</b></span></div></li>
                         </ul>
                       </th>
-        
+
                       <th style="padding-top: -5px; font-weight: 400;">
-                        <ul class="listas-asistencia">  
+                        <ul class="listas-asistencia">
                           <li><div style="width: 17px"><span style="font-weight: 400;"><b>Falt</b></span></div></li>
                         </ul>
                       </th>
-                      
+
                   </tr>
                 </thead>
                 <tbody>
@@ -702,25 +703,25 @@
                         <td align="center" style="padding-top: 5px;">{{$key+1}}</td>
                         <td style="padding-top: 5px;">{{$itemInscritos->aluClave}}</td>
                         <td style="padding-top: 5px;">{{$itemInscritos->perApellido1}} {{$itemInscritos->perApellido2}} {{$itemInscritos->perNombre}}</td>
-                        @for ($i = 0; $i < 19; $i++) 
+                        @for ($i = 0; $i < 19; $i++)
                         <td style="padding-top: 5px;">
-                          <ul class="listas-asistencia">  
+                          <ul class="listas-asistencia">
                             <li><div><span></span></div></li>
                           </ul>
                         </td>
                         @endfor
-                          
+
                           <td style="padding-top: 5px;">
-                            <ul class="listas-asistencia">  
+                            <ul class="listas-asistencia">
                               <li><div style="width: 17px"><span></span></div></li>
                             </ul>
                           </td>
                           <td style="padding-top: 5px;">
-                            <ul class="listas-asistencia">  
+                            <ul class="listas-asistencia">
                               <li><div style="width: 17px"><span></span></div></li>
                             </ul>
-                          </td>         
-            
+                          </td>
+
                       </tr>
                     @endif
                   @endforeach

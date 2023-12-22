@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -70px;
         right: 0px;
@@ -478,7 +479,7 @@
       .img-foto{
         border: 2px solid #0e2e42;
         position: absolute;
-        background: orange;        
+        background: orange;
         height: 100px;
         right: 76px;
         top: -117px;
@@ -499,7 +500,7 @@
               <h3 style="margin-top:0px; margin-bottom: 0px; text-align: center;">ESCUELA MODELO</h3>
               <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">{{$cicloEscolar}}</h4>
               <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">REPORTE DE LOS AVANCES DE APROVECHAMIENTO DEL ALUMNO(A)</h4>
-              
+
           </div>
       </div>
   </header>
@@ -516,11 +517,11 @@
   <img class="img-foto" style="" src="{{base_path('storage/app/public/preescolar/cursos/fotos/' . $itemCurso->perAnioPago . '/' . $campus .'/'. $itemCurso->curPreescolarFoto) }}" alt="">
 
   @else
-    <img class="img-foto"  src="" alt="">    
+    <img class="img-foto"  src="" alt="">
   @endif
 
   @else
-  <img class="img-foto"  src="" alt="">    
+  <img class="img-foto"  src="" alt="">
   @endif
   <div class="row" >
       <h4 style="margin-top:0px; margin-bottom: 5px; text-align: left;">{{$kinderGradoTrimestre}}</h4>
@@ -776,7 +777,7 @@
     $tipo = "";
     @endphp
 @endforeach
-  
+
 
 
   </body>

@@ -495,6 +495,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: -70px;
             right: 0px;
@@ -614,8 +615,8 @@
 
     <style>
         .cuadrado {
-            width: 70px; 
-            height: 90px; 
+            width: 70px;
+            height: 90px;
             border: solid;
             border-style: dotted;
             border-width: 1px;
@@ -662,8 +663,8 @@
                 <p style="margin-top:0px; margin-bottom: 10px;"><strong>Nombre(s): </strong>______________</p>
             </div>
             <div class="l6">
-                <p style="margin-top:0px; margin-bottom: 10px;"><strong>Sexo (Masculino/Femenino): </strong>______________</p>                                
-            </div> 
+                <p style="margin-top:0px; margin-bottom: 10px;"><strong>Sexo (Masculino/Femenino): </strong>______________</p>
+            </div>
             <div class="l6">
                 <p style="margin-top:0px; margin-bottom: 10px;"><strong>Fecha Ingreso a la Modelo: </strong>______________</p>
             </div>
@@ -688,8 +689,8 @@
             <div class="l6">
                 <p><strong>Correo del Alumno: </strong>____________________</p>
             </div>
-            
-            
+
+
         </div>
     </div>
 
@@ -718,12 +719,12 @@
                             <th></th>
                             <th align="center"><label>Calle/Núm:</label></th>
                             <th align="center"><label>Colonia</label></th>
-                            <th align="center"><label>Cód.Post.</label></th>         
-                            <th align="center"><label>Población</label></th>  
-                            <th align="center"><label>Estado</label></th>        
-                            <th align="center"><label>Teléfono</label></th> 
-                            </tr>                      
-                            
+                            <th align="center"><label>Cód.Post.</label></th>
+                            <th align="center"><label>Población</label></th>
+                            <th align="center"><label>Estado</label></th>
+                            <th align="center"><label>Teléfono</label></th>
+                            </tr>
+
                             <tr>
                                 <td>
                                     <br>
@@ -731,97 +732,97 @@
                                     <br>
                                     <p>Padre</p>
                                     <br>
-                                    <p>Madre</p>                    
+                                    <p>Madre</p>
                                 </td>
 
-                                
-                                <td align="center">    
+
+                                <td align="center">
 
                                     <br>
                                     {{--  alumno   --}}
-                                    <p>___________________________</p>                                           
-                                     
+                                    <p>___________________________</p>
+
                                     {{--  padre   --}}
                                     <br>
-                                    <p>___________________________</p>                                               
+                                    <p>___________________________</p>
                                     {{--  madre   --}}
                                     <br>
-                                    <p>___________________________</p>                  
-                  
+                                    <p>___________________________</p>
+
                                 </td>
 
-                                
-                                <td align="center">     
-                                        
+
+                                <td align="center">
+
                                     <br>
                                     {{--  alumno   --}}
-                                    <p>___________________</p>                                           
-                                     
+                                    <p>___________________</p>
+
                                     {{--  padre   --}}
                                     <br>
-                                    <p>___________________</p>                                               
+                                    <p>___________________</p>
                                     {{--  madre   --}}
                                     <br>
-                                    <p>___________________</p> 
-                                    
+                                    <p>___________________</p>
+
                                 </td>
-                                
+
                                 {{--  columna CP   --}}
-                                <td align="center">     
-                                        
+                                <td align="center">
+
                                     <br>
                                     {{--  alumno   --}}
-                                    <p>____________</p>                                           
-                                     
+                                    <p>____________</p>
+
                                     {{--  padre   --}}
                                     <br>
-                                    <p>____________</p>                                               
+                                    <p>____________</p>
                                     {{--  madre   --}}
                                     <br>
-                                    <p>____________</p> 
-                                    
+                                    <p>____________</p>
+
                                 </td>
 
                                 {{--  columna población   --}}
-                                <td align="center">     
-                                        
+                                <td align="center">
+
                                     <br>
                                     {{--  alumno   --}}
-                                    <p>_______________</p>                                           
-                                     
+                                    <p>_______________</p>
+
                                     {{--  padre   --}}
                                     <br>
-                                    <p>_______________</p>                                               
+                                    <p>_______________</p>
                                     {{--  madre   --}}
                                     <br>
-                                    <p>_______________</p> 
+                                    <p>_______________</p>
                                 </td>
 
                                 {{--  estado   --}}
-                                <td align="center">     
+                                <td align="center">
                                     <br>
                                     {{--  alumno   --}}
-                                    <p>_____________</p>                                           
-                                     
+                                    <p>_____________</p>
+
                                     {{--  padre   --}}
                                     <br>
-                                    <p>_____________</p>                                               
+                                    <p>_____________</p>
                                     {{--  madre   --}}
                                     <br>
-                                    <p>_____________</p>                              
+                                    <p>_____________</p>
                                 </td>
 
-                                <td align="center">  
+                                <td align="center">
                                     <br>
                                     {{--  alumno   --}}
-                                    <p>_____________</p>                                           
-                                     
+                                    <p>_____________</p>
+
                                     {{--  padre   --}}
                                     <br>
-                                    <p>_____________</p>                                               
+                                    <p>_____________</p>
                                     {{--  madre   --}}
                                     <br>
-                                    <p>_____________</p> 
+                                    <p>_____________</p>
                                 </td>
                             </tr>
                         </table>
@@ -845,7 +846,7 @@
             float: right;
             width: 76%;
         }
-       
+
     </style>
 
     <footer>

@@ -368,7 +368,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -392,15 +392,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -484,7 +485,7 @@
       }
     </style>
 	</head>
-  
+
   <header>
     @php
       $municipio = $ubicacion->municipio;
@@ -502,7 +503,7 @@
           <br><br>
           <p>
             A través de este medio hago constar que {{$empleado['el_la']}} {{$empleado['profesionista']}} {{$empleado['nombreCompleto']}}
-            con número de empleado {{$empleado['empleado_id']}} colabora como docente en la Universidad Modelo {{$periodo_id ? 'durante' : 'desde'}} el año 
+            con número de empleado {{$empleado['empleado_id']}} colabora como docente en la Universidad Modelo {{$periodo_id ? 'durante' : 'desde'}} el año
             {{$empleado['anio_inicio']}}.
           </p>
           <br>

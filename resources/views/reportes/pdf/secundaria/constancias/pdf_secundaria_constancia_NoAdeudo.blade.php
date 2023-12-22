@@ -369,7 +369,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -393,15 +393,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -485,9 +486,9 @@
       }
     </style>
 	</head>
-  
+
   <header>
-   
+
   </header>
     <body>
       {{-- Controlador: ConstanciaDocenteController --}}
@@ -505,7 +506,7 @@
           <p>A QUIEN CORRESPONDA:</p>
           <br>
           <br>
-         
+
           <br>
           @if ($ubicacion == "CME")
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
@@ -520,13 +521,13 @@
             Escuela Secundaria "Modelo Valladolid", clave C.T. 31PES0143L, de esta ciudad hace constar:
           </p>
           @endif
-          
+
           <br>
           <br>
           <br>
 
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-            {{$genero}} <strong>{{$alumno}}</strong> {{$parametro_consideracion}} regular de este plantel, en el {{$grado}} GRUPO “{{$grupo}}”, 
+            {{$genero}} <strong>{{$alumno}}</strong> {{$parametro_consideracion}} regular de este plantel, en el {{$grado}} GRUPO “{{$grupo}}”,
             en el curso escolar {{$periodo}} y durante el tiempo que estudió en este plantel ha  estado  al corriente en sus pagos por lo que <b>NO ADEUDA</b>.
           </p>
 
@@ -535,7 +536,7 @@
           <br>
 
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-            Y a pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día de hoy, en la ciudad de 
+            Y a pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día de hoy, en la ciudad de
             @if ($ubicacion == "CME")
             Mérida Yucatán, México.
             @endif
@@ -545,7 +546,7 @@
           </p>
         </div>
       </div>
-      
+
       <br><br><br><br><br><br><br><br><br>      <br><br>
 
       <div class="row">
@@ -556,15 +557,15 @@
           <p class="tcenter"><b>______________________________________________________</b></p>
           @if ($ubicacion == "CME")
             <p class="tcenter"><b>Psicóloga Silvia Violeta Pool Dorantes</b></p>
-            <p class="tcenter"><b>DIRECTORA</b></p>          
+            <p class="tcenter"><b>DIRECTORA</b></p>
           @endif
 
           @if ($ubicacion == "CVA")
             <p class="tcenter"><b>Mtra. Lol-Há Canché Gómez</b></p>
             <p class="tcenter"><b>DIRECTORA</b></p>
           @endif
-          
-        
+
+
         </div>
       </div>
       {{--  @if(!$loop->last)

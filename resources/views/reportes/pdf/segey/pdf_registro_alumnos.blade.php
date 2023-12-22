@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -506,7 +507,7 @@
       {{-- <div class="page-number"></div> --}}
     </footer>
 
-    
+
     @foreach ($cursos as $curso)
       <div style="position: relative; height: 20px;"></div>
 
@@ -527,7 +528,7 @@
           </div>
         </div>
       </div>
-     
+
 
       <div class="row">
         <div class="columns medium-12">
@@ -541,7 +542,7 @@
               <th align="center" style="font-weight: 400; width: 15px;">T.I.</th>
               <th align="center" style="font-weight: 400; width: 15px;">T.R.</th>
             </tr>
-      
+
             @foreach ($curso as $alumno)
               <tr>
                 <td style="width: 15px; text-align: right;">{{$loop->iteration}}</td>
@@ -551,7 +552,7 @@
                   <div style="position:relative; width: 100%; display: block;">
                     {{$alumno->alumno->persona->perApellido1}}
                     {{$alumno->alumno->persona->perApellido2 }}
-                    {{$alumno->alumno->persona->perNombre}} 
+                    {{$alumno->alumno->persona->perNombre}}
                   </div>
                 </td>
                 <td align="center" style="width: 10px;">{{$alumno->alumno->persona->perSexo}}</td>

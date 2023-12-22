@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -511,7 +512,7 @@
         <div class="columns medium-12">
           @if($grupo)
             <p>Ubicac.: {{$grupo["cgt"]["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiClave"] ?
-                $grupo["cgt"]["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiClave"]: "" }} 
+                $grupo["cgt"]["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiClave"]: "" }}
               {{$grupo["cgt"]["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiNombre"] ?
                 $grupo["cgt"]["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiNombre"]: ""}}
             </p>
@@ -538,11 +539,11 @@
 
 
     </header>
-   
+
     @php
       //$grupo = $grupo->sortBy('sortGrupoClaveMat');
     @endphp
-   
+
     <div class="row">
       <div class="columns medium-12">
         <table class="table">
@@ -555,7 +556,7 @@
             @endforeach
           </tr>
             @foreach ($grupos as $grupo)
-              @php 
+              @php
                 //dd($grupo);
               @endphp
             <tr>
@@ -568,10 +569,10 @@
               </td>
 
 
-        
+
 
               @foreach ($materias as $materia)
-                @php 
+                @php
                   $res = $grupo["materias"]->where('matClave', $materia->matClave)->first();
                   $res = ($res ? $res->gpoClave: "");
                 @endphp
@@ -579,7 +580,7 @@
                 <td align="center">
                   {{$res}}
                 </td>
-                
+
 
               @endforeach
             </tr>

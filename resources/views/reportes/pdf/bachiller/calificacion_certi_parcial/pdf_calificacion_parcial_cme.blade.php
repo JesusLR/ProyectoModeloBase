@@ -402,6 +402,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -70px;
         right: 0px;
@@ -472,7 +473,7 @@
         content: "Pág " counter(page);
       }
 
-    
+
     </style>
 	</head>
   <body>
@@ -504,19 +505,19 @@
           La que suscribe, Lic. en Psic. María Inés Sauri Quintal, Secretaria Administrativa
           de la Preparatoria "ESCUELA MODELO" incorporada a la Universidad
           Autónoma de Yucatán, hago constar que {{$alumno['pronombre']}} joven <b>{{$alumno['nombreCompleto']}}</b> {{$es_fue}}
-          {{$alumno['alumnx']}} del 
+          {{$alumno['alumnx']}} del
           @if ($leyenda == "SEMESTRE")
           {{$alumno['gradoLetras']}} semestre
           @else
             {{$curso_perteneciente}}
           @endif
-           
+
           de BACHILLERATO en el ciclo escolar {{$ciclo_escolar}} y ha obtenido las siguientes
           calificaciones{{$mensaje}}
         </p>
-        <br>        
         <br>
-        
+        <br>
+
       </div>
     </div>
     <div class="row">
@@ -547,19 +548,19 @@
               $esAprobada = $materia['histCalificacion'] >= $calificacion_minima;
               $font_weight = (($esNumerica && $esAprobada) || !$esNumerica) ? 'normal' : 'bold';
             @endphp
-            <div style="padding:0 0 0 30px;">  
+            <div style="padding:0 0 0 30px;">
               <span @if ($materia['es_revalidacion'] == "RV") style="position: absolute; left:615px; font-weight:normal;" @else style="position: absolute; left:615px; font-weight:{{$font_weight}};"  @endif>
                 @if ($materia['es_revalidacion'] == "RV")
                     Rev
                 @else
                 {{$materia['histCalificacion']}}
-                @endif              
+                @endif
               </span>
               {{$materia['matNombre']}}
             </div>
             @php
               if(!in_array($materia['histCalificacion'], ['Apr', 'No Apr', 'S/D', 'Npa'])) {
-                
+
                 $contarMaterias++;
                 $contarMateriasTotales++;
 
@@ -600,7 +601,7 @@
           <p align="justify">Y para los fines que le sean convenientes, se expide la presente constancia
             en la ciudad de {{$municipio->munNombre}} {{$estado->edoNombre}}, a los {{$fechaDeHoy}}.
           </p>
-        
+
           <br>
           <p align="center">ATENTAMENTE</p>
           <br><br>

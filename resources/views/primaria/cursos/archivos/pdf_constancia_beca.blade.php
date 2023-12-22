@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -477,7 +478,7 @@
     <header>
 
     </header>
-   
+
       <div class="row" style="margin-bottom: 50px; margin-right: 50px;">
         <div class="columns medium-12">
           <div style="text-align: right;">
@@ -491,7 +492,7 @@
             @if ($curso->periodo->departamento->ubicacion->ubiClave == "CCH")
               Chetumal, Quintana Roo,
             @endif
-            
+
             {{\Carbon\Carbon::parse($fechaActual)->day}} de {{ucfirst(App\Http\Helpers\Utils::num_meses_string(\Carbon\Carbon::parse($fechaActual)->month))}}
             de {{\Carbon\Carbon::parse($fechaActual)->year}}.
             </p>

@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -70px;
         right: 0px;
@@ -477,7 +478,7 @@
 
     <div class="row">
       <div class="columns medium-12">
-    
+
       <br>
       <p style="font-size: 15px;text-align: center; margin-bottom: 10;">No: {{$minutario->id}}</p>
       <p>A QUIÉN CORRESPONDA:</p>
@@ -500,7 +501,7 @@
           </tr>
         </thead>
       @foreach ($calificaciones as $calificacion)
-      
+
         <tbody>
           <tr>
             <td><p>{{$calificacion['matNombre']}}</p></td>
@@ -509,7 +510,7 @@
             <td align="center"><p>{{$calificacion['parcial3']}}</p></td>
           </tr>
         </tbody>
-      
+
       @endforeach
     </table>
           <br>

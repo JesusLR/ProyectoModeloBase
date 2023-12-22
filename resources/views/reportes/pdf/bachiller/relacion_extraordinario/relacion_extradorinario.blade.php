@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 20px;
         right: 0px;
@@ -512,16 +513,16 @@
         <div class="row">
           <div class="columns medium-6">
             <p>Período: {{$perFechaInicial}}-{{$perFechaFinal}}</p>
-          </div>          
+          </div>
         </div>
 
         <div class="row">
           <div class="columns medium-6">
             <p>@if($cualesIncluir == "D") Solo deudores a extraordinarios @endif @if($curEstado == "NO") (No incluye bajas) @endif @if($numeroExtraordinarios == "T") (Todos los extraordinarios) @endif</p>
-          </div>          
+          </div>
         </div>
       </header>
-    
+
       <footer id="footer">
         <div class="page-number"></div>
       </footer>
@@ -684,12 +685,12 @@
                     @endforeach
                 @php
                 $pos1 = 1;
-                @endphp            
+                @endphp
               @endforeach
             </tbody>
           </table>
         </div>
       </div>
-       
+
   </body>
 </html>

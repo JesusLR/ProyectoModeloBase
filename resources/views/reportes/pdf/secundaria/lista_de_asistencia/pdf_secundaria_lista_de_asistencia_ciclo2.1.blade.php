@@ -494,6 +494,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: 11px;
             right: 0px;
@@ -593,7 +594,7 @@
         .page-number:before {
             content: "Pág " counter(page);
           }
-    
+
           .page-break {
               page-break-after: always;
           }
@@ -665,15 +666,15 @@
                         |__|
                     </th>
                     @endfor
-                    
+
                     <th style="font-weight: 400;">
                         |Calif|
                     </th>
                     <th style="font-weight: 400;">
                         |Falt|
                     </th>
-                  
-      
+
+
                   </tr>
                 </thead>
                 <tbody>
@@ -695,10 +696,10 @@
                             </td>
                             <td style="padding-top: 5px;">
                                |___|
-                            </td>     
+                            </td>
                         </tr>
-                        @endif                  
-                    @endforeach                   
+                        @endif
+                    @endforeach
                 </tbody>
               </table>
             </div>

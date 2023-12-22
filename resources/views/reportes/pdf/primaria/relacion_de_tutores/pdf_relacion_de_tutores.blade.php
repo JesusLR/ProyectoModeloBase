@@ -494,6 +494,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: -10px;
             right: 0px;
@@ -593,7 +594,7 @@
         .page-number:before {
             content: "Pág " counter(page);
           }
-    
+
           .page-break {
               page-break-after: always;
           }
@@ -606,9 +607,9 @@
             <div class="columns medium-12">
 
                 <h4 style="margin-top:0px; margin-bottom: 10px;">PRIMARIA "MODELO"</h4>
-             
+
                 <h4 style="margin-top:0px; margin-bottom: 10px;">RELACION TELEFONOS DE PADRES DE ALUMNOS INSCRITOS, PRE-INSCRITOS Y CONDICIONADOS</h4>
-                
+
 
                 <p>Periodo: {{ \Carbon\Carbon::parse($fecha_inicio)->format('d/m/Y')}} - {{ \Carbon\Carbon::parse($fecha_fin)->format('d/m/Y')}} ({{$perAnioPago}})</p>
                 <p>Nivel: {{$depClave}} ({{$planClave}}) {{$depNombre}}</p>
@@ -656,8 +657,8 @@
                         @if ($tipoVista == "sinFirma")
                         <th align="center" style="font-weight: 400; width: 150px; padding-top: 15px;">Teléfono</th>
                         @endif
-                            
-                        <th style="width: 8px;"><label style="opacity: .01;">0</label></th>  
+
+                        <th style="width: 8px;"><label style="opacity: .01;">0</label></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -678,7 +679,7 @@
                                 @if ($tipoVista == "sinFirma")
                                 <td align="center" style="width: 150px; padding-top: 7px;">{{$tutor->tutTelefono}}</td>
                                 @endif
-                                
+
                             </tr>
                         @endforeach
                     </tbody>

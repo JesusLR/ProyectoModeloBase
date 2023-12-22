@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -35px;
         right: 0px;
@@ -466,7 +467,7 @@
         border-collapse: collapse;
       }
 
-      
+
 
       .table td, .table  th {
         padding-top: 0px;
@@ -522,9 +523,9 @@
   $acd = 0;
   $Keynasistencias = 0;
 
-  
+
   //hay que declarar mas variables, una por columna diferente y categoria
-  //iniciarlas en 0.0 
+  //iniciarlas en 0.0
   $promSEPFA = 0.0;
   $promOCTFA = 0.0;
   $promNOVFA = 0.0;
@@ -542,7 +543,7 @@
   $promedioGen3SEPFA = 0.0;
   $promedioFinalFA = 0.0;
   $promedioFinalSEPFA = 0.0;
-  
+
   $promSEPDESA = 0.0;
   $promOCTDESA = 0.0;
   $promNOVDESA = 0.0;
@@ -680,7 +681,7 @@
 
         {{--  llave del 1 hasta donde llege y se sepite el ciclo  --}}
         @php
-            $key++;            
+            $key++;
         @endphp
             @if ($key == 1)
 
@@ -712,17 +713,17 @@
                   <img class="img-foto" style="margin-top: -175px;text-aling:rigth" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $inscrito->perAnioPago . '/' . $campus .'/'. $inscrito->curPrimariaFoto) }}" alt="">
 
                 @else
-                  <img class="img-foto"  src="" alt="">    
+                  <img class="img-foto"  src="" alt="">
                 @endif
 
               @else
-              <img class="img-foto"  src="" alt="">    
+              <img class="img-foto"  src="" alt="">
               @endif
               </div>
-              
+
             </div>
 
-               
+
             <br>
         <div class="row">
           <div class="columns medium-12">
@@ -781,28 +782,28 @@
                         <tr>
                           @php
                           $keyMatFA++;
-                          $promSEPFA = $promSEPFA + $item->inscCalificacionSep; 
+                          $promSEPFA = $promSEPFA + $item->inscCalificacionSep;
                           $promOCTFA = $promOCTFA + $item->inscCalificacionOct;
                           $promNOVFA = $promNOVFA + $item->inscCalificacionNov;
                           $promedioGen1FA = $promedioGen1FA + $item->inscTrimestre1;
                           $promedioGen1SEPFA = $promedioGen1SEPFA + $item->inscTrimestre1SEP;
-                          $promDicEneFA = $promDicEneFA + $item->inscCalificacionDicEnero; 
+                          $promDicEneFA = $promDicEneFA + $item->inscCalificacionDicEnero;
                           $promFEBFA = $promFEBFA + $item->inscCalificacionFeb;
                           $promMARFA = $promMARFA + $item->inscCalificacionMar;
                           $promedioGen2FA = $promedioGen2FA + $item->inscTrimestre2;
                           $promedioGen2SEPFA = $promedioGen2SEPFA + $item->inscTrimestre2SEP;
 
-                          $promABRFA = $promABRFA + $item->inscCalificacionAbr; 
-                          $promMAYFA = $promMAYFA + $item->inscCalificacionMay; 
-                          $promJUNFA = $promJUNFA + $item->inscCalificacionJun; 
-                          $promedioGen3FA = $promedioGen3FA + $item->inscTrimestre3; 
-                          $promedioGen3SEPFA = $promedioGen3SEPFA + $item->inscTrimestre3SEP; 
-                          $promedioFinalFA = $promedioFinalFA + $item->inscPromedioTrimCALCULADO; 
-                          $promedioFinalSEPFA = $promedioFinalSEPFA + $item->inscPromedioTrimCALCULADOSEP; 
-                         
+                          $promABRFA = $promABRFA + $item->inscCalificacionAbr;
+                          $promMAYFA = $promMAYFA + $item->inscCalificacionMay;
+                          $promJUNFA = $promJUNFA + $item->inscCalificacionJun;
+                          $promedioGen3FA = $promedioGen3FA + $item->inscTrimestre3;
+                          $promedioGen3SEPFA = $promedioGen3SEPFA + $item->inscTrimestre3SEP;
+                          $promedioFinalFA = $promedioFinalFA + $item->inscPromedioTrimCALCULADO;
+                          $promedioFinalSEPFA = $promedioFinalSEPFA + $item->inscPromedioTrimCALCULADOSEP;
+
                           $matEspecialidad = $item->matEspecialidad;
 
-                          #sumar los promedios para usarlo en la tabla de PROMEDIO GENERAL 
+                          #sumar los promedios para usarlo en la tabla de PROMEDIO GENERAL
                           $sumaPromediosFASep = $sumaPromediosFASep + $item->inscCalificacionSep;
                           $sumaPromediosFAOct = $sumaPromediosFAOct + $item->inscCalificacionOct;
                           $sumaPromediosFANov = $sumaPromediosFANov + $item->inscCalificacionNov;
@@ -812,11 +813,11 @@
                           $sumaPromediosFAAbr = $sumaPromediosFAAbr + $item->inscCalificacionAbr;
                           $sumaPromediosFAMay = $sumaPromediosFAMay + $item->inscCalificacionMay;
                           $sumaPromediosFAJun = $sumaPromediosFAJun + $item->inscCalificacionJun;
-                          
+
                           $sumaPromedio1FA  = $sumaPromedio1FA  + $item->inscTrimestre1;
                           $sumaPromedio2FA  = $sumaPromedio2FA  + $item->inscTrimestre2;
                           $sumaPromedio3FA  = $sumaPromedio3FA  + $item->inscTrimestre3;
-                          $sumaPromedioFinalFA = $sumaPromedioFinalFA + $item->inscPromedioTrimCALCULADO; 
+                          $sumaPromedioFinalFA = $sumaPromedioFinalFA + $item->inscPromedioTrimCALCULADO;
 
                           @endphp
                           <td style="width: 200px;">{{$item->matNombreOficial}}</td>
@@ -833,10 +834,10 @@
 
                               @else
                               {{$item->inscCalificacionSep}}
-                              @endif  
+                              @endif
                             @else
-                                
-                            @endif                           
+
+                            @endif
                           </td>
 
                           <td align="center">
@@ -852,10 +853,10 @@
                                 @else
                                 {{--  {{number_format((float)$item->inscCalificacionOct, 1, '.', '')}}  --}}
                                 {{$item->inscCalificacionOct}}
-                                @endif  
+                                @endif
                             @else
-                                
-                            @endif                           
+
+                            @endif
                           </td>
 
                           <td align="center">
@@ -871,9 +872,9 @@
                                 @else
                                 {{--  {{number_format((float)$item->inscCalificacionNov, 1, '.', '')}}  --}}
                                 {{$item->inscCalificacionNov}}
-                                @endif  
+                                @endif
                             @else
-                                
+
                             @endif
                           </td>
 
@@ -882,14 +883,14 @@
                             @if ($item->inscTrimestre1 != "")
                                 {{$item->inscTrimestre1}}
                             @else
-                                
+
                             @endif
                           </td>
                           <td align="center">
                             @if ($item->inscTrimestre1SEP != "")
                                 {{$item->inscTrimestre1SEP}}
                             @else
-                                
+
                             @endif
                           </td>
 
@@ -964,9 +965,9 @@
                                       $niv = "4";
                               }
                           }
-                        
+
                           @endphp
-    
+
                           {{-- <td align="center">{{$niv}}</td> --}}
 
                           <td align="center">
@@ -982,9 +983,9 @@
                                 @else
                                 {{--  {{number_format((float)$item->inscCalificacionDicEnero, 1, '.', '')}}  --}}
                                 {{$item->inscCalificacionDicEnero}}
-                                @endif 
+                                @endif
                             @else
-                                
+
                             @endif
                           </td>
 
@@ -1001,9 +1002,9 @@
                                 @else
                                 {{--  {{number_format((float)$item->inscCalificacionFeb, 1, '.', '')}}  --}}
                                 {{$item->inscCalificacionFeb}}
-                                @endif 
+                                @endif
                             @else
-                                
+
                             @endif
                           </td>
 
@@ -1020,9 +1021,9 @@
                                 @else
                                 {{--  {{number_format((float)$item->inscCalificacionMar, 1, '.', '')}}  --}}
                                 {{$item->inscCalificacionMar}}
-                                @endif 
+                                @endif
                             @else
-                                
+
                             @endif
                           </td>
 
@@ -1031,14 +1032,14 @@
                             @if ($item->inscTrimestre2 != "")
                                   {{$item->inscTrimestre2}}
                             @else
-                                  
+
                             @endif
                           </td>
                           <td align="center">
                             @if ($item->inscTrimestre2SEP != "")
                                 {{$item->inscTrimestre2SEP}}
                             @else
-                                
+
                             @endif
                           </td>
 
@@ -1112,7 +1113,7 @@
                                   case 10:
                                       $nivPerido2 = "4";
                               }
-                          }                        
+                          }
                           @endphp
                           {{-- <td align="center">{{$nivPerido2}}</td> --}}
                           <td align="center">
@@ -1128,10 +1129,10 @@
                                 @else
                                 {{--  {{number_format((float)$item->inscCalificacionAbr, 1, '.', '')}}  --}}
                                 {{$item->inscCalificacionAbr}}
-                                @endif 
+                                @endif
                             @else
-                                
-                            @endif                                                     
+
+                            @endif
                           </td>
                           <td align="center">
                             @if ($item->inscCalificacionMay != "")
@@ -1146,9 +1147,9 @@
                                 @else
                                 {{--  {{number_format((float)$item->inscCalificacionMay, 1, '.', '')}}  --}}
                                 {{$item->inscCalificacionMay}}
-                                @endif 
+                                @endif
                             @else
-                                
+
                             @endif
                           </td>
                           <td align="center">
@@ -1166,7 +1167,7 @@
                                 {{$item->inscCalificacionJun}}
                                 @endif
                             @else
-                                
+
                             @endif
                           </td>
 
@@ -1175,14 +1176,14 @@
                             @if ($item->inscTrimestre3 != "")
                                 {{$item->inscTrimestre3}}
                             @else
-                                
-                            @endif                         
+
+                            @endif
                           </td>
                           <td align="center">
                             @if ($item->inscTrimestre3SEP != "")
                                 {{$item->inscTrimestre3SEP}}
                             @else
-                                
+
                             @endif
                           </td>
                           {{--  sacar el nivel perido 2  --}}
@@ -1255,10 +1256,10 @@
                                   case 10:
                                       $nivPerido3 = "4";
                               }
-                          }                        
+                          }
                           @endphp
 
-                                                    
+
                           {{-- <td align="center">{{$nivPerido3}}</td> --}}
 
                           {{--  promedio final   --}}
@@ -1268,10 +1269,10 @@
                               @if ($item->inscPromedioTrimCALCULADO != "")
                                 {{$item->inscPromedioTrimCALCULADO}}
                               @else
-                                  
-                              @endif     
+
+                              @endif
                             @endif
-                                                   
+
                           </td>
 
                           {{--  promedio final sep   --}}
@@ -1280,7 +1281,7 @@
                               @if ($item->inscPromedioTrimCALCULADOSEP != "")
                                   {{$item->inscPromedioTrimCALCULADOSEP}}
                               @else
-                                  
+
                               @endif
                             @endif
                           </td>
@@ -1354,22 +1355,22 @@
                                   case 10:
                                       $nivSEp = "4";
                               }
-                          }                        
+                          }
                           @endphp
 
-                                                                              
+
                           {{-- <td align="center">{{$nivSEp}}</td> --}}
                         </tr>
-                        @endif                           
-                      @endif                          
+                        @endif
+                      @endif
                     @endforeach
-                    
+
                     @php
 
                             $promSEPFA = $promSEPFA/$keyMatFA;
                             $promOCTFA = $promOCTFA/$keyMatFA;
                             $promNOVFA = $promNOVFA/$keyMatFA;
-                            $promedioGen1FA  = $promedioGen1FA/$keyMatFA;                              
+                            $promedioGen1FA  = $promedioGen1FA/$keyMatFA;
                             $promedioGen1SEPFA = round($promedioGen1SEPFA/$keyMatFA, 1);
                             $promDicEneFA = $promDicEneFA/$keyMatFA;
                             $promFEBFA = $promFEBFA/$keyMatFA;
@@ -1385,7 +1386,7 @@
                             $promedioFinalSEPFA = $promedioFinalSEPFA/$keyMatFA;
                     @endphp
                     <tr>
-                      <td><b>PROM. FORMACIÓN ACADÉMICA</b></td> 
+                      <td><b>PROM. FORMACIÓN ACADÉMICA</b></td>
                       {{--  promedio septiembree  --}}
                       <td align="center">
                         @if ($promSEPFA != "")
@@ -1395,15 +1396,15 @@
                                 $promSEPFA == 8.0 ||
                                 $promSEPFA == 9.0 || $promSEPFA == 10.0)
 
-                                <b>{{number_format((float)TruncarDecimales::truncateFloat($promSEPFA, 1), 0, '.', '')}}</b>   
+                                <b>{{number_format((float)TruncarDecimales::truncateFloat($promSEPFA, 1), 0, '.', '')}}</b>
 
                                 @else
                                 <b>{{TruncarDecimales::truncateFloat($promSEPFA, 1)}}</b>
                                 @endif
 
-                                
+
                         @else
-                            
+
                         @endif
                       </td>
 
@@ -1416,13 +1417,13 @@
                                 $promOCTFA == 8.0 ||
                                 $promOCTFA == 9.0 || $promOCTFA == 10.0)
 
-                                <b>{{number_format((float)TruncarDecimales::truncateFloat($promOCTFA, 1), 0, '.', '')}}</b> 
+                                <b>{{number_format((float)TruncarDecimales::truncateFloat($promOCTFA, 1), 0, '.', '')}}</b>
 
                                 @else
                                 <b>{{TruncarDecimales::truncateFloat($promOCTFA, 1)}}</b>
                                 @endif
                         @else
-                            
+
                         @endif
                       </td>
 
@@ -1435,13 +1436,13 @@
                                 $promNOVFA == 8.0 ||
                                 $promNOVFA == 9.0 || $promNOVFA == 10.0)
 
-                                <b>{{number_format((float)TruncarDecimales::truncateFloat($promNOVFA, 1), 0, '.', '')}}</b> 
+                                <b>{{number_format((float)TruncarDecimales::truncateFloat($promNOVFA, 1), 0, '.', '')}}</b>
 
                                 @else
                                 <b>{{TruncarDecimales::truncateFloat($promNOVFA, 1)}}</b>
                                 @endif
                         @else
-                            
+
                         @endif
                       </td>
 
@@ -1452,7 +1453,7 @@
                         <b>{{TruncarDecimales::truncateFloat($promedioGen1FA, 1)}}</b>
                         {{--  hola aqui  --}}
                         @else
-                            
+
                         @endif
                       </td>
                       {{--  promedio general SEP primer periodo   --}}
@@ -1461,9 +1462,9 @@
                         {{--  <b>{{$promedioGen1SEPFA}}</b>  --}}
                         <b>{{round($promedioGen1SEPFA)}}</b>
                         @else
-                            
+
                         @endif
-                        
+
                       </td>
 
                       {{--  sacar el nivel   --}}
@@ -1537,10 +1538,10 @@
                                   $nivSEPPe1 = "4";
                           }
                       }
-                    
+
                       @endphp
 
-                                                
+
 
                       {{-- <td align="center"><b>{{$nivSEPPe1}}</b></td> --}}
 
@@ -1560,7 +1561,7 @@
                                 <b>{{TruncarDecimales::truncateFloat($promDicEneFA, 1)}}</b>
                                 @endif
                         @else
-                            
+
                         @endif
                       </td>
 
@@ -1579,7 +1580,7 @@
                                 <b>{{TruncarDecimales::truncateFloat($promFEBFA, 1)}}</b>
                                 @endif
                         @else
-                            
+
                         @endif
                       </td>
 
@@ -1599,7 +1600,7 @@
                                 <b>{{TruncarDecimales::truncateFloat($promMARFA, 1)}}</b>
                                 @endif
                         @else
-                            
+
                         @endif
                       </td>
 
@@ -1609,7 +1610,7 @@
                         {{--  <b>{{number_format((float)$promedioGen2FA, 1, '.', '')}}</b>  --}}
                         <b>{{TruncarDecimales::truncateFloat($promedioGen2FA, 1)}}</b>
                         @else
-                            
+
                         @endif
                       </td>
                       {{--  promedio general SEP segundo periodo   --}}
@@ -1618,9 +1619,9 @@
                         {{--  <b>{{$promedioGen2SEPFA}}</b>  --}}
                         <b>{{round($promedioGen2SEPFA)}}</b>
                         @else
-                            
-                        @endif 
-                        
+
+                        @endif
+
                       </b></td>
                        {{--  sacar el nivel   --}}
                        @php
@@ -1693,10 +1694,10 @@
                                    $nivSEPPe2 = "4";
                            }
                        }
-                     
+
                        @endphp
 
-                                                                  
+
 
                       {{-- <td align="center"><b>{{$nivSEPPe2}}</b></td> --}}
 
@@ -1717,8 +1718,8 @@
                                 @endif
 
                         @else
-                            
-                        @endif                       
+
+                        @endif
                       </td>
 
                       {{--  promedio mayo  --}}
@@ -1737,8 +1738,8 @@
                                 <b>{{TruncarDecimales::truncateFloat($promMAYFA, 1)}}</b>
                                 @endif
                         @else
-                            
-                        @endif                       
+
+                        @endif
                       </td>
 
                       {{--  promedio junio  --}}
@@ -1757,8 +1758,8 @@
                           <b>{{TruncarDecimales::truncateFloat($promJUNFA, 1)}}</b>
                           @endif
                         @else
-                            
-                        @endif                        
+
+                        @endif
                       </td>
 
                       {{--  promedio general tercer periodo   --}}
@@ -1767,7 +1768,7 @@
                         {{--  <b>{{number_format((float)$promedioGen3FA, 1, '.', '')}}</b>  --}}
                         <b>{{TruncarDecimales::truncateFloat($promedioGen3FA, 1)}}</b>
                         @else
-                            
+
                         @endif
                       </td>
                       {{--  promedio general SEP tercer periodo   --}}
@@ -1776,8 +1777,8 @@
                         {{--  <b>{{$promedioGen3SEPFA}}</b>  --}}
                         <b>{{round($promedioGen3SEPFA)}}</b>
                         @else
-                            
-                        @endif                        
+
+                        @endif
                       </td>
                        {{--  sacar el nivel   --}}
                        @php
@@ -1850,10 +1851,10 @@
                                    $nivSEPPerido3 = "4";
                            }
                        }
-                     
+
                        @endphp
 
-                                                                                          
+
 
                       {{-- <td align="center"><b>{{$nivSEPPerido3}}</b></td> --}}
 
@@ -1865,7 +1866,7 @@
                           <b>{{TruncarDecimales::truncateFloat($promedioFinalFA, 1)}}</b>
                           @endif
                         @else
-                            
+
                         @endif
                       </td>
                       <td align="center">
@@ -1873,9 +1874,9 @@
                         {{--  <b>{{number_format((float)$promedioFinalSEPFA, 1, '.', '')}}</b>  --}}
                           @if ($promedioGen1FA != "" && $promedioGen2FA != "" && $promedioGen3FA != "")
                           <b>{{round($promedioFinalSEPFA)}}</b>
-                          @endif                        
+                          @endif
                         @else
-                            
+
                         @endif
                       </td>
                       {{--  sacar el nivel   --}}
@@ -1949,12 +1950,12 @@
                                   $nivSEPFinal = "4";
                           }
                       }
-                    
+
                       @endphp
 
-                                                                     
+
                       {{-- <td align="center"><b>{{$nivSEPFinal}}</b></td> --}}
-                    </tr>        
+                    </tr>
               </tbody>
               </table>
 
@@ -1963,7 +1964,7 @@
               <br>
               <table class="table table-bordered">
                 <thead>
-                  
+
                 </thead>
                 <tbody>
                   @foreach($calificaciones as $key => $item)
@@ -1972,26 +1973,26 @@
                       <tr>
                         @php
                           $keyMatDESA++;
-                          $promSEPDESA = $promSEPDESA + $item->inscCalificacionSep; 
+                          $promSEPDESA = $promSEPDESA + $item->inscCalificacionSep;
                           $promOCTDESA = $promOCTDESA + $item->inscCalificacionOct;
                           $promNOVDESA = $promNOVDESA + $item->inscCalificacionNov;
                           $PromedioGen1DESA = $PromedioGen1DESA + $item->inscTrimestre1;
                           $PromedioGen1SEPDESA = $PromedioGen1SEPDESA + $item->inscTrimestre1SEP;
-                          $promDICENEDESA = $promDICENEDESA + $item->inscCalificacionDicEnero; 
+                          $promDICENEDESA = $promDICENEDESA + $item->inscCalificacionDicEnero;
                           $promFEBDESA = $promFEBDESA + $item->inscCalificacionFeb;
                           $promMARDESA = $promMARDESA + $item->inscCalificacionMar;
                           $PromedioGen2DESA = $PromedioGen2DESA + $item->inscTrimestre2;
                           $PromedioGen2SEPDESA = $PromedioGen2SEPDESA + $item->inscTrimestre2SEP;
-                          $promABRDESA = $promABRDESA + $item->inscCalificacionAbr; 
-                          $promMAYDESA = $promMAYDESA + $item->inscCalificacionMay; 
-                          $promJUNDESA = $promJUNDESA + $item->inscCalificacionJun; 
-                          $PromedioGen3DESA = $PromedioGen3DESA + $item->inscTrimestre3; 
-                          $PromedioGen3SEPDESA = $PromedioGen3SEPDESA + $item->inscTrimestre3SEP; 
-                          $promedioFinalDESA = $promedioFinalDESA + $item->inscPromedioTrimCALCULADO; 
-                          $promedioFinalSEPDESA = $promedioFinalSEPDESA + $item->inscPromedioTrimCALCULADOSEP; 
+                          $promABRDESA = $promABRDESA + $item->inscCalificacionAbr;
+                          $promMAYDESA = $promMAYDESA + $item->inscCalificacionMay;
+                          $promJUNDESA = $promJUNDESA + $item->inscCalificacionJun;
+                          $PromedioGen3DESA = $PromedioGen3DESA + $item->inscTrimestre3;
+                          $PromedioGen3SEPDESA = $PromedioGen3SEPDESA + $item->inscTrimestre3SEP;
+                          $promedioFinalDESA = $promedioFinalDESA + $item->inscPromedioTrimCALCULADO;
+                          $promedioFinalSEPDESA = $promedioFinalSEPDESA + $item->inscPromedioTrimCALCULADOSEP;
 
                           $matEspecialidad = $item->matEspecialidad;
-                          
+
                           #VARIBALES PARA USAR EN LA SUMA DE PROMEDIO GENERAL
                           $sumaPromediosDESASep = $sumaPromediosDESASep + $item->inscCalificacionSep;
                           $sumaPromediosDESAOct = $sumaPromediosDESAOct + $item->inscCalificacionOct;
@@ -2008,9 +2009,9 @@
                           $sumaPromedio3DESA  = $sumaPromedio3DESA  + $item->inscTrimestre3;
                           $sumaPromedioFinalDESA = $sumaPromedioFinalDESA + $item->inscPromedioTrimCALCULADO;
                         @endphp
-                       
-                        <td style="width: 160px;">{{$item->matNombreOficial}}</td>                 
-                        
+
+                        <td style="width: 160px;">{{$item->matNombreOficial}}</td>
+
 
                         @if ($item->inscCalificacionSep != "")
                           <td align="center" style="width: 25px;">
@@ -2025,12 +2026,12 @@
                             @else
                             {{--  {{number_format((float)$item->inscCalificacionSep, 1, '.', '')}}  --}}
                             {{$item->inscCalificacionSep}}
-                            @endif  
-                          </td>                        
+                            @endif
+                          </td>
                         @else
                           <td align="center" style="width: 25px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                  
+
 
                         @if ($item->inscCalificacionOct != "")
                           <td align="center" style="width: 27px;">
@@ -2045,13 +2046,13 @@
                               @else
                               {{--  {{number_format((float)$item->inscCalificacionOct, 1, '.', '')}}  --}}
                               {{$item->inscCalificacionOct}}
-                              @endif  
+                              @endif
                           </td>
                         @else
                           <td align="center" style="width: 27px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
-                  
+
+
                         @if ($item->inscCalificacionNov != "")
                           <td align="center" style="width: 28px;">
                             @if ($item->inscCalificacionNov == 1.0 || $item->inscCalificacionNov == 2.0 || $item->inscCalificacionNov == 3.0
@@ -2065,13 +2066,13 @@
                             @else
                             {{--  {{number_format((float)$item->inscCalificacionNov, 1, '.', '')}}  --}}
                             {{$item->inscCalificacionNov}}
-                            @endif  
+                            @endif
                           </td>
                         @else
                           <td align="center" style="width: 28px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
-                  
+
+
                         {{--  promedio trimestree 1  --}}
                         @if ($item->inscTrimestre1 != "")
                         <td align="center" style="width: 33px;">
@@ -2087,7 +2088,7 @@
                           {{--  <b>{{number_format((float)$item->inscTrimestre1, 1, '.', '')}}</b>  --}}
                           <b>{{$item->inscTrimestre1}}</b>
                           @endif
-                        </td>                         
+                        </td>
                         @else
                         <td align="center" style="width: 33px;"><label style="opacity: .01;">0</label></td>
                         @endif
@@ -2183,17 +2184,17 @@
                                     $nivSEPPe1 = "4";
                             }
                         }
-                      
+
                         @endphp
 
-                                                                        
+
 
                         {{-- @if ($nivSEPPe1 != "")
                           <td align="center" style="width: 36px;">{{$nivSEPPe1}}</td>
                         @else
                           <td align="center" style="width: 36px;"><label style="opacity: .01;">0</label></td>
                         @endif --}}
-                  
+
                         @if ($item->inscCalificacionDicEnero != "")
                         <td align="center" style="width: 27px;">
                           @if ($item->inscCalificacionDicEnero == 1.0 || $item->inscCalificacionDicEnero == 2.0 ||
@@ -2201,9 +2202,9 @@
                           $item->inscCalificacionDicEnero == 5.0 || $item->inscCalificacionDicEnero == 6.0 ||
                           $item->inscCalificacionDicEnero == 7.0 || $item->inscCalificacionDicEnero == 8.0 ||
                           $item->inscCalificacionDicEnero == 9.0 || $item->inscCalificacionDicEnero == 10.0)
-                  
+
                           {{number_format((float)$item->inscCalificacionDicEnero, 0, '.', '')}}
-                  
+
                           @else
                           {{--  {{number_format((float)$item->inscCalificacionDicEnero, 1, '.', '')}}  --}}
                           {{$item->inscCalificacionDicEnero}}
@@ -2212,8 +2213,8 @@
                         @else
                         <td align="center" style="width: 27px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
-                  
+
+
                         @if ($item->inscCalificacionFeb != "")
                         <td align="center" style="width: 26px;">
                           @if ($item->inscCalificacionFeb == 1.0 || $item->inscCalificacionFeb == 2.0 ||
@@ -2221,9 +2222,9 @@
                           $item->inscCalificacionFeb == 5.0 || $item->inscCalificacionFeb == 6.0 ||
                           $item->inscCalificacionFeb == 7.0 || $item->inscCalificacionFeb == 8.0 ||
                           $item->inscCalificacionFeb == 9.0 || $item->inscCalificacionFeb == 10.0)
-                  
+
                           {{number_format((float)$item->inscCalificacionFeb, 0, '.', '')}}
-                  
+
                           @else
                           {{--  {{number_format((float)$item->inscCalificacionFeb, 1, '.', '')}}  --}}
                           {{$item->inscCalificacionFeb}}
@@ -2232,8 +2233,8 @@
                         @else
                         <td align="center" style="width: 26px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
-                  
+
+
                         @if ($item->inscCalificacionMar != "")
                         <td align="center" style="width: 30px;">
                           @if ($item->inscCalificacionMar == 1.0 || $item->inscCalificacionMar == 2.0 ||
@@ -2241,9 +2242,9 @@
                           $item->inscCalificacionMar == 5.0 || $item->inscCalificacionMar == 6.0 ||
                           $item->inscCalificacionMar == 7.0 || $item->inscCalificacionMar == 8.0 ||
                           $item->inscCalificacionMar == 9.0 || $item->inscCalificacionMar == 10.0)
-                  
+
                           {{number_format((float)$item->inscCalificacionMar, 0, '.', '')}}
-                  
+
                           @else
                           {{--  {{number_format((float)$item->inscCalificacionMar, 1, '.', '')}}  --}}
                           {{$item->inscCalificacionMar}}
@@ -2252,8 +2253,8 @@
                         @else
                         <td align="center" style="width: 30px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
-                  
+
+
                         {{--  promedio trimestre 2   --}}
                         @if ($item->inscTrimestre2 != "")
                         <td align="center" style="width: 33px;">
@@ -2341,7 +2342,7 @@
                                     $nivSEPPe2 = "4";
                             }
                         }
-                      
+
                         @endphp
                         {{-- @if ($nivSEPPe2 != "")
                         <td align="center" style="width: 35px;">{{$nivSEPPe2}}</td>
@@ -2356,9 +2357,9 @@
                           $item->inscCalificacionAbr == 5.0 || $item->inscCalificacionAbr == 6.0 ||
                           $item->inscCalificacionAbr == 7.0 || $item->inscCalificacionAbr == 8.0 ||
                           $item->inscCalificacionAbr == 9.0 || $item->inscCalificacionAbr == 10.0)
-                  
+
                           {{number_format((float)$item->inscCalificacionAbr, 0, '.', '')}}
-                  
+
                           @else
                           {{--  {{number_format((float)$item->inscCalificacionAbr, 1, '.', '')}}  --}}
                           {{$item->inscCalificacionAbr}}
@@ -2375,9 +2376,9 @@
                           $item->inscCalificacionMay == 5.0 || $item->inscCalificacionMay == 6.0 ||
                           $item->inscCalificacionMay == 7.0 || $item->inscCalificacionMay == 8.0 ||
                           $item->inscCalificacionMay == 9.0 || $item->inscCalificacionMay == 10.0)
-                  
+
                           {{number_format((float)$item->inscCalificacionMay, 0, '.', '')}}
-                  
+
                           @else
                           {{--  {{number_format((float)$item->inscCalificacionMay, 1, '.', '')}}  --}}
                           {{$item->inscCalificacionMay}}
@@ -2386,7 +2387,7 @@
                         @else
                         <td align="center" style="width: 28px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
+
 
                         @if ($item->inscCalificacionJun != "")
                         <td align="center" style="width: 26px;">
@@ -2395,9 +2396,9 @@
                           $item->inscCalificacionJun == 5.0 || $item->inscCalificacionJun == 6.0 ||
                           $item->inscCalificacionJun == 7.0 || $item->inscCalificacionJun == 8.0 ||
                           $item->inscCalificacionJun == 9.0 || $item->inscCalificacionJun == 10.0)
-                  
+
                           {{number_format((float)$item->inscCalificacionJun, 0, '.', '')}}
-                  
+
                           @else
                           {{--  {{number_format((float)$item->inscCalificacionJun, 1, '.', '')}}  --}}
                           {{$item->inscCalificacionJun}}
@@ -2406,8 +2407,8 @@
                         @else
                         <td align="center" style="width: 26px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
-                  
+
+
                         {{--  promedio trimestre 3   --}}
                         @if ($item->inscTrimestre3 != "")
                         <td align="center" style="width: 33px;">
@@ -2417,7 +2418,7 @@
                         @else
                         <td align="center" style="width: 33px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
+
                         @if ($item->inscTrimestre3SEP != "")
                         <td align="center" style="width: 34px;">{{$item->inscTrimestre3SEP}}</td>
                         @else
@@ -2494,18 +2495,18 @@
                                     $nivSEPPe3 = "4";
                             }
                         }
-                      
-                        @endphp
-                        
 
-                                                
+                        @endphp
+
+
+
 
                         {{-- @if ($nivSEPPe3 != "")
                           <td align="center" style="width: 38px;">{{$nivSEPPe3}}</td>
                         @else
                           <td align="center" style="width: 38px;"><label style="opacity: .01;">0</label></td>
                         @endif --}}
-                  
+
                         {{--  promedio final   --}}
                         @if ($item->inscPromedioTrimCALCULADO != "")
                         <td align="center" style="width: 35px;">
@@ -2515,19 +2516,19 @@
                             $item->inscPromedioTrimCALCULADO == 5.0 || $item->inscPromedioTrimCALCULADO == 6.0 ||
                             $item->inscPromedioTrimCALCULADO == 7.0 || $item->inscPromedioTrimCALCULADO == 8.0 ||
                             $item->inscPromedioTrimCALCULADO == 9.0 || $item->inscPromedioTrimCALCULADO == 10.0)
-                    
+
                             {{number_format((float)$item->inscPromedioTrimCALCULADO, 0, '.', '')}}
-                    
+
                             @else
                             {{number_format((float)$item->inscPromedioTrimCALCULADO, 1, '.', '')}}
-                            @endif       
-                          @endif                                  
+                            @endif
+                          @endif
                         </td>
                         @else
-                          <td align="center" style="width: 35px;"><label style="opacity: .01;">0</label></td>                            
+                          <td align="center" style="width: 35px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
-                  
+
+
                         {{--  promedio final sep   --}}
                         @if ($item->inscPromedioTrimCALCULADOSEP != "")
                         <td align="center" style="width: 35px;">
@@ -2537,13 +2538,13 @@
                             $item->inscPromedioTrimCALCULADOSEP == 5.0 || $item->inscPromedioTrimCALCULADOSEP == 6.0 ||
                             $item->inscPromedioTrimCALCULADOSEP == 7.0 || $item->inscPromedioTrimCALCULADOSEP == 8.0 ||
                             $item->inscPromedioTrimCALCULADOSEP == 9.0 || $item->inscPromedioTrimCALCULADOSEP == 10.0)
-                    
+
                             {{number_format((float)$item->inscPromedioTrimCALCULADOSEP, 0, '.', '')}}
-                    
+
                             @else
                             {{number_format((float)$item->inscPromedioTrimCALCULADOSEP, 1, '.', '')}}
-                            @endif  
-                          @endif  
+                            @endif
+                          @endif
                         </td>
                         @else
                         <td align="center" style="width: 35px;"><label style="opacity: .01;">0</label></td>
@@ -2620,9 +2621,9 @@
                                     $nivSEPFinall = "4";
                             }
                         }
-                      
-                        @endphp              
-                                                
+
+                        @endphp
+
 
                         {{-- @if ($nivSEPFinall != "")
                           <td align="center" style="width: 35px;">{{$nivSEPFinall}}</td>
@@ -2635,94 +2636,94 @@
                   @endforeach
 
                   @php
-                    
-                          $promSEPDESA = $promSEPDESA/$keyMatDESA; 
+
+                          $promSEPDESA = $promSEPDESA/$keyMatDESA;
                           $promOCTDESA = $promOCTDESA/$keyMatDESA;
                           $promNOVDESA = $promNOVDESA/$keyMatDESA;
                           $PromedioGen1DESA = $PromedioGen1DESA/$keyMatDESA;
                           $PromedioGen1SEPDESA = round($PromedioGen1SEPDESA/$keyMatDESA, 1);
-                          $promDICENEDESA = $promDICENEDESA/$keyMatDESA; 
+                          $promDICENEDESA = $promDICENEDESA/$keyMatDESA;
                           $promFEBDESA = $promFEBDESA/$keyMatDESA;
                           $promMARDESA = $promMARDESA/$keyMatDESA;
                           $PromedioGen2DESA = $PromedioGen2DESA/$keyMatDESA;
                           $PromedioGen2SEPDESA = round($PromedioGen2SEPDESA/$keyMatDESA, 1);
                           $promABRDESA = $promABRDESA/$keyMatDESA;
-                          $promMAYDESA = $promMAYDESA/$keyMatDESA; 
-                          $promJUNDESA = $promJUNDESA/$keyMatDESA; 
-                          $PromedioGen3DESA = $PromedioGen3DESA/$keyMatDESA; 
-                          $PromedioGen3SEPDESA = round($PromedioGen3SEPDESA/$keyMatDESA, 1); 
-                          $promedioFinalDESA = $promedioFinalDESA/$keyMatDESA;  
-                          $promedioFinalSEPDESA = $promedioFinalSEPDESA/$keyMatDESA; 
+                          $promMAYDESA = $promMAYDESA/$keyMatDESA;
+                          $promJUNDESA = $promJUNDESA/$keyMatDESA;
+                          $PromedioGen3DESA = $PromedioGen3DESA/$keyMatDESA;
+                          $PromedioGen3SEPDESA = round($PromedioGen3SEPDESA/$keyMatDESA, 1);
+                          $promedioFinalDESA = $promedioFinalDESA/$keyMatDESA;
+                          $promedioFinalSEPDESA = $promedioFinalSEPDESA/$keyMatDESA;
                   @endphp
 
                   <tr>
-                    <td><b>PROM. DESARR.PERSON. Y SOCI.</b></td> 
+                    <td><b>PROM. DESARR.PERSON. Y SOCI.</b></td>
                     {{--  promedio septiembree  --}}
                     <td align="center">
                       @if ($promSEPDESA != "")
-                        @if ($promSEPDESA == 1.0 || $promSEPDESA == 2.0 || $promSEPDESA == 3.0 || $promSEPDESA == 4.0 || 
-                        $promSEPDESA == 5.0 || $promSEPDESA == 6.0 || $promSEPDESA == 7.0 || $promSEPDESA == 8.0 || 
-                        $promSEPDESA == 9.0 || $promSEPDESA == 10.0) 
+                        @if ($promSEPDESA == 1.0 || $promSEPDESA == 2.0 || $promSEPDESA == 3.0 || $promSEPDESA == 4.0 ||
+                        $promSEPDESA == 5.0 || $promSEPDESA == 6.0 || $promSEPDESA == 7.0 || $promSEPDESA == 8.0 ||
+                        $promSEPDESA == 9.0 || $promSEPDESA == 10.0)
 
-                        <b>{{number_format((float)TruncarDecimales::truncateFloat($promSEPDESA, 1), 0, '.', '')}}</b>                      
+                        <b>{{number_format((float)TruncarDecimales::truncateFloat($promSEPDESA, 1), 0, '.', '')}}</b>
 
                         @else
                         <b>{{TruncarDecimales::truncateFloat($promSEPDESA, 1)}}</b>
                         @endif
                       @else
-                          
-                      @endif                      
+
+                      @endif
                     </td>
 
                     {{--  promedio octubre   --}}
-                    <td align="center">                  
+                    <td align="center">
 
                       @if ($promOCTDESA != "")
-                        @if ($promOCTDESA == 1.0 || $promOCTDESA == 2.0 || $promOCTDESA == 3.0 || $promOCTDESA == 4.0 || 
-                        $promOCTDESA == 5.0 || $promOCTDESA == 6.0 || $promOCTDESA == 7.0 || $promOCTDESA == 8.0 || 
-                        $promOCTDESA == 9.0 || $promOCTDESA == 10.0) 
+                        @if ($promOCTDESA == 1.0 || $promOCTDESA == 2.0 || $promOCTDESA == 3.0 || $promOCTDESA == 4.0 ||
+                        $promOCTDESA == 5.0 || $promOCTDESA == 6.0 || $promOCTDESA == 7.0 || $promOCTDESA == 8.0 ||
+                        $promOCTDESA == 9.0 || $promOCTDESA == 10.0)
 
-                        <b>{{number_format((float)TruncarDecimales::truncateFloat($promOCTDESA, 1), 0, '.', '')}}</b>                      
+                        <b>{{number_format((float)TruncarDecimales::truncateFloat($promOCTDESA, 1), 0, '.', '')}}</b>
 
                         @else
                         <b>{{TruncarDecimales::truncateFloat($promOCTDESA, 1)}}</b>
                         @endif
                       @else
-                          
+
                       @endif
                     </td>
 
                     {{--  promedio noviembre   --}}
                     <td align="center">
                       @if ($promNOVDESA != "")
-                        @if ($promNOVDESA == 1.0 || $promNOVDESA == 2.0 || $promNOVDESA == 3.0 || $promNOVDESA == 4.0 || 
-                        $promNOVDESA == 5.0 || $promNOVDESA == 6.0 || $promNOVDESA == 7.0 || $promNOVDESA == 8.0 || 
-                        $promNOVDESA == 9.0 || $promNOVDESA == 10.0) 
+                        @if ($promNOVDESA == 1.0 || $promNOVDESA == 2.0 || $promNOVDESA == 3.0 || $promNOVDESA == 4.0 ||
+                        $promNOVDESA == 5.0 || $promNOVDESA == 6.0 || $promNOVDESA == 7.0 || $promNOVDESA == 8.0 ||
+                        $promNOVDESA == 9.0 || $promNOVDESA == 10.0)
 
-                        <b>{{number_format((float)TruncarDecimales::truncateFloat($promNOVDESA, 1), 0, '.', '')}}</b>                      
+                        <b>{{number_format((float)TruncarDecimales::truncateFloat($promNOVDESA, 1), 0, '.', '')}}</b>
 
                         @else
                         <b>{{TruncarDecimales::truncateFloat($promNOVDESA, 1)}}</b>
                         @endif
                       @else
-                          
+
                       @endif
                     </td>
 
                     {{--  promedio general primer periodo   --}}
-                    <td align="center">                  
+                    <td align="center">
                       @if ($PromedioGen1DESA != "")
-                        @if ($PromedioGen1DESA == 1.0 || $PromedioGen1DESA == 2.0 || $PromedioGen1DESA == 3.0 || $PromedioGen1DESA == 4.0 || 
-                        $PromedioGen1DESA == 5.0 || $PromedioGen1DESA == 6.0 || $PromedioGen1DESA == 7.0 || $PromedioGen1DESA == 8.0 || 
-                        $PromedioGen1DESA == 9.0 || $PromedioGen1DESA == 10.0) 
+                        @if ($PromedioGen1DESA == 1.0 || $PromedioGen1DESA == 2.0 || $PromedioGen1DESA == 3.0 || $PromedioGen1DESA == 4.0 ||
+                        $PromedioGen1DESA == 5.0 || $PromedioGen1DESA == 6.0 || $PromedioGen1DESA == 7.0 || $PromedioGen1DESA == 8.0 ||
+                        $PromedioGen1DESA == 9.0 || $PromedioGen1DESA == 10.0)
 
-                        <b>{{number_format((float)TruncarDecimales::truncateFloat($PromedioGen1DESA, 1), 0, '.', '')}}</b>                      
+                        <b>{{number_format((float)TruncarDecimales::truncateFloat($PromedioGen1DESA, 1), 0, '.', '')}}</b>
 
                         @else
                         <b>{{TruncarDecimales::truncateFloat($PromedioGen1DESA, 1)}}</b>
                         @endif
                       @else
-                          
+
                       @endif
                     </td>
                     {{--  promedio general SEP primer periodo   --}}
@@ -2731,9 +2732,9 @@
                       {{--  <b>{{$PromedioGen1SEPDESA}}</b>  --}}
                       <b>{{round($PromedioGen1SEPDESA)}}</b>
                       @else
-                          
+
                       @endif
-                      
+
                     </td>
 
                     {{--  sacar el nivel   --}}
@@ -2807,7 +2808,7 @@
                                 $nivSEPGenPe1 = "4";
                         }
                     }
-                  
+
                     @endphp
 
                     {{-- @if ($nivSEPGenPe1 != "")
@@ -2818,72 +2819,72 @@
 
                     {{--  segundo periodo  --}}
                     {{--  promedio dic enero  --}}
-                    <td align="center">                     
+                    <td align="center">
 
                       @if ($promDICENEDESA != "")
-                        @if ($promDICENEDESA == 1.0 || $promDICENEDESA == 2.0 || $promDICENEDESA == 3.0 || $promDICENEDESA == 4.0 || 
-                        $promDICENEDESA == 5.0 || $promDICENEDESA == 6.0 || $promDICENEDESA == 7.0 || $promDICENEDESA == 8.0 || 
-                        $promDICENEDESA == 9.0 || $promDICENEDESA == 10.0) 
+                        @if ($promDICENEDESA == 1.0 || $promDICENEDESA == 2.0 || $promDICENEDESA == 3.0 || $promDICENEDESA == 4.0 ||
+                        $promDICENEDESA == 5.0 || $promDICENEDESA == 6.0 || $promDICENEDESA == 7.0 || $promDICENEDESA == 8.0 ||
+                        $promDICENEDESA == 9.0 || $promDICENEDESA == 10.0)
 
-                        <b>{{number_format((float)TruncarDecimales::truncateFloat($promDICENEDESA, 1), 0, '.', '')}}</b>                      
+                        <b>{{number_format((float)TruncarDecimales::truncateFloat($promDICENEDESA, 1), 0, '.', '')}}</b>
 
                         @else
                         <b>{{TruncarDecimales::truncateFloat($promDICENEDESA, 1)}}</b>
                         @endif
                       @else
-                          
+
                       @endif
                     </td>
 
                     {{--  promedio febrero  --}}
                     <td align="center">
                       @if ($promFEBDESA != "")
-                        @if ($promFEBDESA == 1.0 || $promFEBDESA == 2.0 || $promFEBDESA == 3.0 || $promFEBDESA == 4.0 || 
-                        $promFEBDESA == 5.0 || $promFEBDESA == 6.0 || $promFEBDESA == 7.0 || $promFEBDESA == 8.0 || 
-                        $promFEBDESA == 9.0 || $promFEBDESA == 10.0) 
+                        @if ($promFEBDESA == 1.0 || $promFEBDESA == 2.0 || $promFEBDESA == 3.0 || $promFEBDESA == 4.0 ||
+                        $promFEBDESA == 5.0 || $promFEBDESA == 6.0 || $promFEBDESA == 7.0 || $promFEBDESA == 8.0 ||
+                        $promFEBDESA == 9.0 || $promFEBDESA == 10.0)
 
-                        <b>{{number_format((float)TruncarDecimales::truncateFloat($promFEBDESA, 1), 0, '.', '')}}</b>                      
+                        <b>{{number_format((float)TruncarDecimales::truncateFloat($promFEBDESA, 1), 0, '.', '')}}</b>
 
                         @else
                         <b>{{TruncarDecimales::truncateFloat($promFEBDESA, 1)}}</b>
                         @endif
                       @else
-                          
-                      @endif                      
+
+                      @endif
                     </td>
 
                     {{--  promedio marzo  --}}
-                    <td align="center">                      
+                    <td align="center">
                       @if ($promMARDESA != "")
-                        @if ($promMARDESA == 1.0 || $promMARDESA == 2.0 || $promMARDESA == 3.0 || $promMARDESA == 4.0 || 
-                        $promMARDESA == 5.0 || $promMARDESA == 6.0 || $promMARDESA == 7.0 || $promMARDESA == 8.0 || 
-                        $promMARDESA == 9.0 || $promMARDESA == 10.0) 
+                        @if ($promMARDESA == 1.0 || $promMARDESA == 2.0 || $promMARDESA == 3.0 || $promMARDESA == 4.0 ||
+                        $promMARDESA == 5.0 || $promMARDESA == 6.0 || $promMARDESA == 7.0 || $promMARDESA == 8.0 ||
+                        $promMARDESA == 9.0 || $promMARDESA == 10.0)
 
-                        <b>{{number_format((float)TruncarDecimales::truncateFloat($promMARDESA, 1), 0, '.', '')}}</b>                      
+                        <b>{{number_format((float)TruncarDecimales::truncateFloat($promMARDESA, 1), 0, '.', '')}}</b>
 
                         @else
                         <b>{{TruncarDecimales::truncateFloat($promMARDESA, 1)}}</b>
                         @endif
                       @else
-                          
-                      @endif  
+
+                      @endif
                     </td>
 
                     {{--  promedio general segundo periodo   --}}
                     <td align="center">
                       @if ($PromedioGen2DESA != "")
-                        @if ($PromedioGen2DESA == 1.0 || $PromedioGen2DESA == 2.0 || $PromedioGen2DESA == 3.0 || $PromedioGen2DESA == 4.0 || 
-                        $PromedioGen2DESA == 5.0 || $PromedioGen2DESA == 6.0 || $PromedioGen2DESA == 7.0 || $PromedioGen2DESA == 8.0 || 
-                        $PromedioGen2DESA == 9.0 || $PromedioGen2DESA == 10.0) 
+                        @if ($PromedioGen2DESA == 1.0 || $PromedioGen2DESA == 2.0 || $PromedioGen2DESA == 3.0 || $PromedioGen2DESA == 4.0 ||
+                        $PromedioGen2DESA == 5.0 || $PromedioGen2DESA == 6.0 || $PromedioGen2DESA == 7.0 || $PromedioGen2DESA == 8.0 ||
+                        $PromedioGen2DESA == 9.0 || $PromedioGen2DESA == 10.0)
 
-                        <b>{{number_format((float)TruncarDecimales::truncateFloat($PromedioGen2DESA, 1), 0, '.', '')}}</b>                      
+                        <b>{{number_format((float)TruncarDecimales::truncateFloat($PromedioGen2DESA, 1), 0, '.', '')}}</b>
 
                         @else
                         <b>{{TruncarDecimales::truncateFloat($PromedioGen2DESA, 1)}}</b>
                         @endif
                       @else
-                          
-                      @endif  
+
+                      @endif
                     </td>
                     {{--  promedio general SEP segundo periodo   --}}
                     <td align="center">
@@ -2891,9 +2892,9 @@
                       {{--  <b>{{$PromedioGen2SEPDESA}}</b>  --}}
                       <b>{{round($PromedioGen2SEPDESA)}}</b>
                       @else
-                          
+
                       @endif
-                      
+
                     </td>
                     {{--  sacar el nivel   --}}
                     @php
@@ -2966,10 +2967,10 @@
                                 $nivSEPGenPe2 = "4";
                         }
                     }
-                  
+
                     @endphp
 
-                                        
+
 
                     {{-- @if ($nivSEPGenPe2 != "")
                       <td align="center"><b>{{$nivSEPGenPe2}}</b></td>
@@ -2980,75 +2981,75 @@
                     {{--  tercer periodo   --}}
                     {{--  promedio abril  --}}
                     <td align="center">
-                                            
-                      @if ($promABRDESA != "")
-                        @if ($promABRDESA == 1.0 || $promABRDESA == 2.0 || $promABRDESA == 3.0 || $promABRDESA == 4.0 || 
-                        $promABRDESA == 5.0 || $promABRDESA == 6.0 || $promABRDESA == 7.0 || $promABRDESA == 8.0 || 
-                        $promABRDESA == 9.0 || $promABRDESA == 10.0) 
 
-                        <b>{{number_format((float)TruncarDecimales::truncateFloat($promABRDESA, 1), 0, '.', '')}}</b>                      
+                      @if ($promABRDESA != "")
+                        @if ($promABRDESA == 1.0 || $promABRDESA == 2.0 || $promABRDESA == 3.0 || $promABRDESA == 4.0 ||
+                        $promABRDESA == 5.0 || $promABRDESA == 6.0 || $promABRDESA == 7.0 || $promABRDESA == 8.0 ||
+                        $promABRDESA == 9.0 || $promABRDESA == 10.0)
+
+                        <b>{{number_format((float)TruncarDecimales::truncateFloat($promABRDESA, 1), 0, '.', '')}}</b>
 
                         @else
                         <b>{{TruncarDecimales::truncateFloat($promABRDESA, 1)}}</b>
                         @endif
                       @else
-                          
-                      @endif  
+
+                      @endif
                     </td>
 
                     {{--  promedio mayo  --}}
                     <td align="center">
-                      
-                      @if ($promMAYDESA != "")
-                        @if ($promMAYDESA == 1.0 || $promMAYDESA == 2.0 || $promMAYDESA == 3.0 || $promMAYDESA == 4.0 || 
-                        $promMAYDESA == 5.0 || $promMAYDESA == 6.0 || $promMAYDESA == 7.0 || $promMAYDESA == 8.0 || 
-                        $promMAYDESA == 9.0 || $promMAYDESA == 10.0) 
 
-                        <b>{{number_format((float)TruncarDecimales::truncateFloat($promMAYDESA, 1), 0, '.', '')}}</b>                      
+                      @if ($promMAYDESA != "")
+                        @if ($promMAYDESA == 1.0 || $promMAYDESA == 2.0 || $promMAYDESA == 3.0 || $promMAYDESA == 4.0 ||
+                        $promMAYDESA == 5.0 || $promMAYDESA == 6.0 || $promMAYDESA == 7.0 || $promMAYDESA == 8.0 ||
+                        $promMAYDESA == 9.0 || $promMAYDESA == 10.0)
+
+                        <b>{{number_format((float)TruncarDecimales::truncateFloat($promMAYDESA, 1), 0, '.', '')}}</b>
 
                         @else
                         <b>{{TruncarDecimales::truncateFloat($promMAYDESA, 1)}}</b>
                         @endif
                       @else
-                          
-                      @endif  
-                      
+
+                      @endif
+
                     </td>
 
                     {{--  promedio junio  --}}
-                    <td align="center">                       
-                      
-                      @if ($promJUNDESA != "")
-                        @if ($promJUNDESA == 1.0 || $promJUNDESA == 2.0 || $promJUNDESA == 3.0 || $promJUNDESA == 4.0 || 
-                        $promJUNDESA == 5.0 || $promJUNDESA == 6.0 || $promJUNDESA == 7.0 || $promJUNDESA == 8.0 || 
-                        $promJUNDESA == 9.0 || $promJUNDESA == 10.0) 
+                    <td align="center">
 
-                        <b>{{number_format((float)TruncarDecimales::truncateFloat($promJUNDESA, 1), 0, '.', '')}}</b>                      
+                      @if ($promJUNDESA != "")
+                        @if ($promJUNDESA == 1.0 || $promJUNDESA == 2.0 || $promJUNDESA == 3.0 || $promJUNDESA == 4.0 ||
+                        $promJUNDESA == 5.0 || $promJUNDESA == 6.0 || $promJUNDESA == 7.0 || $promJUNDESA == 8.0 ||
+                        $promJUNDESA == 9.0 || $promJUNDESA == 10.0)
+
+                        <b>{{number_format((float)TruncarDecimales::truncateFloat($promJUNDESA, 1), 0, '.', '')}}</b>
 
                         @else
                         <b>{{TruncarDecimales::truncateFloat($promJUNDESA, 1)}}</b>
                         @endif
                       @else
-                          
-                      @endif  
+
+                      @endif
                     </td>
 
                     {{--  promedio general tercer periodo   --}}
-                    <td align="center">                       
-                      
-                      @if ($PromedioGen3DESA != "")
-                        @if ($PromedioGen3DESA == 1.0 || $PromedioGen3DESA == 2.0 || $PromedioGen3DESA == 3.0 || $PromedioGen3DESA == 4.0 || 
-                        $PromedioGen3DESA == 5.0 || $PromedioGen3DESA == 6.0 || $PromedioGen3DESA == 7.0 || $PromedioGen3DESA == 8.0 || 
-                        $PromedioGen3DESA == 9.0 || $PromedioGen3DESA == 10.0) 
+                    <td align="center">
 
-                        <b>{{number_format((float)TruncarDecimales::truncateFloat($PromedioGen3DESA, 1), 0, '.', '')}}</b>                      
+                      @if ($PromedioGen3DESA != "")
+                        @if ($PromedioGen3DESA == 1.0 || $PromedioGen3DESA == 2.0 || $PromedioGen3DESA == 3.0 || $PromedioGen3DESA == 4.0 ||
+                        $PromedioGen3DESA == 5.0 || $PromedioGen3DESA == 6.0 || $PromedioGen3DESA == 7.0 || $PromedioGen3DESA == 8.0 ||
+                        $PromedioGen3DESA == 9.0 || $PromedioGen3DESA == 10.0)
+
+                        <b>{{number_format((float)TruncarDecimales::truncateFloat($PromedioGen3DESA, 1), 0, '.', '')}}</b>
 
                         @else
                         <b>{{TruncarDecimales::truncateFloat($PromedioGen3DESA, 1)}}</b>
                         @endif
                       @else
-                          
-                      @endif 
+
+                      @endif
                     </td>
                     {{--  promedio general SEP tercer periodo   --}}
                     <td align="center">
@@ -3057,7 +3058,7 @@
                       @else
                         {{--  <b>{{$PromedioGen3SEPDESA}}</b>  --}}
                         {{round($PromedioGen3SEPDESA)}}
-                      @endif                      
+                      @endif
                     </td>
 
                     {{--  sacar el nivel   --}}
@@ -3131,11 +3132,11 @@
                                 $nivSEPGenPe3 = "4";
                         }
                     }
-                  
+
                     @endphp
 
-                    
-                                        
+
+
 
                     {{-- @if ($nivSEPGenPe3 != "")
                       <td align="center"><b>{{$nivSEPGenPe3}}</b></td>
@@ -3144,13 +3145,13 @@
                     @endif --}}
 
                     {{--  promedio final de la sep   --}}
-                    <td align="center">                    
+                    <td align="center">
 
                       @if ($promedioFinalDESA != "")
                         @if($PromedioGen1DESA != "" && $promedioGen1FA != "" && $PromedioGen3DESA != "")
-                          @if ($promedioFinalDESA == 1.0 || $promedioFinalDESA == 2.0 || $promedioFinalDESA == 3.0 || $promedioFinalDESA == 4.0 || 
-                          $promedioFinalDESA == 5.0 || $promedioFinalDESA == 6.0 || $promedioFinalDESA == 7.0 || $promedioFinalDESA == 8.0 || 
-                          $promedioFinalDESA == 9.0 || $promedioFinalDESA == 10.0) 
+                          @if ($promedioFinalDESA == 1.0 || $promedioFinalDESA == 2.0 || $promedioFinalDESA == 3.0 || $promedioFinalDESA == 4.0 ||
+                          $promedioFinalDESA == 5.0 || $promedioFinalDESA == 6.0 || $promedioFinalDESA == 7.0 || $promedioFinalDESA == 8.0 ||
+                          $promedioFinalDESA == 9.0 || $promedioFinalDESA == 10.0)
 
                           <b>{{number_format((float)$promedioFinalDESA, 0, '.', '')}}</b>
 
@@ -3159,15 +3160,15 @@
                           @endif
                         @endif
                       @else
-                          
-                      @endif 
+
+                      @endif
                     </td>
                     <td align="center">
                       @if ($promedioFinalSEPDESA != "")
                         @if($PromedioGen1DESA != "" && $promedioGen1FA != "" && $PromedioGen3DESA != "")
-                          @if ($promedioFinalSEPDESA == 1.0 || $promedioFinalSEPDESA == 2.0 || $promedioFinalSEPDESA == 3.0 || $promedioFinalSEPDESA == 4.0 || 
-                          $promedioFinalSEPDESA == 5.0 || $promedioFinalSEPDESA == 6.0 || $promedioFinalSEPDESA == 7.0 || $promedioFinalSEPDESA == 8.0 || 
-                          $promedioFinalSEPDESA == 9.0 || $promedioFinalSEPDESA == 10.0) 
+                          @if ($promedioFinalSEPDESA == 1.0 || $promedioFinalSEPDESA == 2.0 || $promedioFinalSEPDESA == 3.0 || $promedioFinalSEPDESA == 4.0 ||
+                          $promedioFinalSEPDESA == 5.0 || $promedioFinalSEPDESA == 6.0 || $promedioFinalSEPDESA == 7.0 || $promedioFinalSEPDESA == 8.0 ||
+                          $promedioFinalSEPDESA == 9.0 || $promedioFinalSEPDESA == 10.0)
 
                           <b>{{number_format((float)$promedioFinalSEPDESA, 0, '.', '')}}</b>
 
@@ -3176,8 +3177,8 @@
                           @endif
                         @endif
                       @else
-                          
-                      @endif 
+
+                      @endif
                     </td>
 
                     {{--  sacar el nivel   --}}
@@ -3251,29 +3252,29 @@
                                 $nivSEPGenFinal = "4";
                         }
                     }
-                  
+
                     @endphp
 
-                                                            
+
 
                     {{-- @if ($nivSEPGenFinal != "")
                       <td align="center"><b>{{$nivSEPGenFinal}}</b></td>
                     @else
                       <td align="center"><label style="opacity: .01;">0</label></td>
                     @endif --}}
-                  </tr> 
-              
+                  </tr>
+
                 </tbody>
               </table>
 
               {{--  PROYECTO ARTÍSTICO  --}}
-         
+
 
               {{--  OPTATIVAS  --}}
               <br>
               <table class="table table-bordered">
                 <thead>
-                
+
                 </thead>
                 <tbody>
                   @foreach($calificaciones as $key => $item)
@@ -3281,7 +3282,7 @@
                       @if ($item->matNombreEspecialidad == "OPTATIVAS")
                       <tr>
                         @php
-                            $keyMatOPTA++; 
+                            $keyMatOPTA++;
 
                             $sumaComputacionConductaSep = $sumaComputacionConductaSep + $item->inscCalificacionSep;
                             $sumaComputacionConductaOct = $sumaComputacionConductaOct + $item->inscCalificacionOct;
@@ -3299,12 +3300,12 @@
                             $sumaPromedioFinalOPTA = $sumaPromedioFinalOPTA + $item->inscPromedioTrimCALCULADO;
                         @endphp
                         <td style="width: 200px;">{{$item->matNombreOficial}}</td>
-                  
+
                         @if ($item->inscCalificacionSep != "")
                         <td align="center" style="width: 34px;">
-                              @if ($item->inscCalificacionSep == 1.0 || $item->inscCalificacionSep == 2.0 || $item->inscCalificacionSep == 3.0 || $item->inscCalificacionSep == 4.0 || 
-                              $item->inscCalificacionSep == 5.0 || $item->inscCalificacionSep == 6.0 || $item->inscCalificacionSep == 7.0 || $item->inscCalificacionSep == 8.0 || 
-                              $item->inscCalificacionSep == 9.0 || $item->inscCalificacionSep == 10.0) 
+                              @if ($item->inscCalificacionSep == 1.0 || $item->inscCalificacionSep == 2.0 || $item->inscCalificacionSep == 3.0 || $item->inscCalificacionSep == 4.0 ||
+                              $item->inscCalificacionSep == 5.0 || $item->inscCalificacionSep == 6.0 || $item->inscCalificacionSep == 7.0 || $item->inscCalificacionSep == 8.0 ||
+                              $item->inscCalificacionSep == 9.0 || $item->inscCalificacionSep == 10.0)
 
                               <b>{{number_format((float)$item->inscCalificacionSep, 0, '.', '')}}</b>
 
@@ -3315,13 +3316,13 @@
                         @else
                         <td align="center" style="width: 34px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
+
                         @if ($item->inscCalificacionOct != "")
                         <td align="center" style="width: 34px;">
-                         
-                          @if ($item->inscCalificacionOct == 1.0 || $item->inscCalificacionOct == 2.0 || $item->inscCalificacionOct == 3.0 || $item->inscCalificacionOct == 4.0 || 
-                            $item->inscCalificacionOct == 5.0 || $item->inscCalificacionOct == 6.0 || $item->inscCalificacionOct == 7.0 || $item->inscCalificacionOct == 8.0 || 
-                            $item->inscCalificacionOct == 9.0 || $item->inscCalificacionOct == 10.0) 
+
+                          @if ($item->inscCalificacionOct == 1.0 || $item->inscCalificacionOct == 2.0 || $item->inscCalificacionOct == 3.0 || $item->inscCalificacionOct == 4.0 ||
+                            $item->inscCalificacionOct == 5.0 || $item->inscCalificacionOct == 6.0 || $item->inscCalificacionOct == 7.0 || $item->inscCalificacionOct == 8.0 ||
+                            $item->inscCalificacionOct == 9.0 || $item->inscCalificacionOct == 10.0)
 
                             <b>{{number_format((float)$item->inscCalificacionOct, 0, '.', '')}}</b>
 
@@ -3332,12 +3333,12 @@
                         @else
                         <td align="center" style="width: 34px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                  
+
                         @if ($item->inscCalificacionNov != "")
                         <td align="center" style="width: 37px;">
-                         @if ($item->inscCalificacionNov == 1.0 || $item->inscCalificacionNov == 2.0 || $item->inscCalificacionNov == 3.0 || $item->inscCalificacionNov == 4.0 || 
-                            $item->inscCalificacionNov == 5.0 || $item->inscCalificacionNov == 6.0 || $item->inscCalificacionNov == 7.0 || $item->inscCalificacionNov == 8.0 || 
-                            $item->inscCalificacionNov == 9.0 || $item->inscCalificacionNov == 10.0) 
+                         @if ($item->inscCalificacionNov == 1.0 || $item->inscCalificacionNov == 2.0 || $item->inscCalificacionNov == 3.0 || $item->inscCalificacionNov == 4.0 ||
+                            $item->inscCalificacionNov == 5.0 || $item->inscCalificacionNov == 6.0 || $item->inscCalificacionNov == 7.0 || $item->inscCalificacionNov == 8.0 ||
+                            $item->inscCalificacionNov == 9.0 || $item->inscCalificacionNov == 10.0)
 
                             <b>{{number_format((float)$item->inscCalificacionNov, 0, '.', '')}}</b>
 
@@ -3348,9 +3349,9 @@
                         @else
                         <td align="center" style="width: 37px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                  
-                        
-                  
+
+
+
                         {{--  promedio trimestree 1  --}}
                         @if ($item->inscTrimestre1 != "")
                         <td align="center" style="width: 43px;">
@@ -3359,9 +3360,9 @@
                           $item->inscTrimestre1 == 5.0 || $item->inscTrimestre1 == 6.0 ||
                           $item->inscTrimestre1 == 7.0 || $item->inscTrimestre1 == 8.0 ||
                           $item->inscTrimestre1 == 9.0 || $item->inscTrimestre1 == 10.0)
-                  
+
                           <b>{{number_format((float)$item->inscTrimestre1, 0, '.', '')}}</b>
-                  
+
                           @else
                           <b>{{number_format((float)$item->inscTrimestre1, 1, '.', '')}}</b>
                           @endif
@@ -3369,15 +3370,15 @@
                         @else
                         <td align="center" style="width: 43px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
+
                         {{-- <td style="width: 38px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td> --}}
                         <td style="width: 46px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
-                  
+
                         @if ($item->inscCalificacionDicEnero != "")
                         <td align="center" style="width: 35px;">
-                          @if ($item->inscCalificacionDicEnero == 1.0 || $item->inscCalificacionDicEnero == 2.0 || $item->inscCalificacionDicEnero == 3.0 || $item->inscCalificacionDicEnero == 4.0 || 
-                            $item->inscCalificacionDicEnero == 5.0 || $item->inscCalificacionDicEnero == 6.0 || $item->inscCalificacionDicEnero == 7.0 || $item->inscCalificacionDicEnero == 8.0 || 
-                            $item->inscCalificacionDicEnero == 9.0 || $item->inscCalificacionDicEnero == 10.0) 
+                          @if ($item->inscCalificacionDicEnero == 1.0 || $item->inscCalificacionDicEnero == 2.0 || $item->inscCalificacionDicEnero == 3.0 || $item->inscCalificacionDicEnero == 4.0 ||
+                            $item->inscCalificacionDicEnero == 5.0 || $item->inscCalificacionDicEnero == 6.0 || $item->inscCalificacionDicEnero == 7.0 || $item->inscCalificacionDicEnero == 8.0 ||
+                            $item->inscCalificacionDicEnero == 9.0 || $item->inscCalificacionDicEnero == 10.0)
 
                             <b>{{number_format((float)$item->inscCalificacionDicEnero, 0, '.', '')}}</b>
 
@@ -3388,15 +3389,15 @@
                         @else
                         <td align="center" style="width: 35px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
-                  
+
+
                         @if ($item->inscCalificacionFeb != "")
                         <td align="center" style="width: 34px;">
-                         
 
-                          @if ($item->inscCalificacionFeb == 1.0 || $item->inscCalificacionFeb == 2.0 || $item->inscCalificacionFeb == 3.0 || $item->inscCalificacionFeb == 4.0 || 
-                            $item->inscCalificacionFeb == 5.0 || $item->inscCalificacionFeb == 6.0 || $item->inscCalificacionFeb == 7.0 || $item->inscCalificacionFeb == 8.0 || 
-                            $item->inscCalificacionFeb == 9.0 || $item->inscCalificacionFeb == 10.0) 
+
+                          @if ($item->inscCalificacionFeb == 1.0 || $item->inscCalificacionFeb == 2.0 || $item->inscCalificacionFeb == 3.0 || $item->inscCalificacionFeb == 4.0 ||
+                            $item->inscCalificacionFeb == 5.0 || $item->inscCalificacionFeb == 6.0 || $item->inscCalificacionFeb == 7.0 || $item->inscCalificacionFeb == 8.0 ||
+                            $item->inscCalificacionFeb == 9.0 || $item->inscCalificacionFeb == 10.0)
 
                             <b>{{number_format((float)$item->inscCalificacionFeb, 0, '.', '')}}</b>
 
@@ -3407,12 +3408,12 @@
                         @else
                         <td align="center" style="width: 34px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
+
                         @if ($item->inscCalificacionMar != "")
                         <td align="center" style="width: 39px;">
-                          @if ($item->inscCalificacionMar == 1.0 || $item->inscCalificacionMar == 2.0 || $item->inscCalificacionMar == 3.0 || $item->inscCalificacionMar == 4.0 || 
-                            $item->inscCalificacionMar == 5.0 || $item->inscCalificacionMar == 6.0 || $item->inscCalificacionMar == 7.0 || $item->inscCalificacionMar == 8.0 || 
-                            $item->inscCalificacionMar == 9.0 || $item->inscCalificacionMar == 10.0) 
+                          @if ($item->inscCalificacionMar == 1.0 || $item->inscCalificacionMar == 2.0 || $item->inscCalificacionMar == 3.0 || $item->inscCalificacionMar == 4.0 ||
+                            $item->inscCalificacionMar == 5.0 || $item->inscCalificacionMar == 6.0 || $item->inscCalificacionMar == 7.0 || $item->inscCalificacionMar == 8.0 ||
+                            $item->inscCalificacionMar == 9.0 || $item->inscCalificacionMar == 10.0)
 
                             <b>{{number_format((float)$item->inscCalificacionMar, 0, '.', '')}}</b>
 
@@ -3423,79 +3424,79 @@
                         @else
                         <td align="center" style="width: 39px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                  
+
                         {{--  promedio trimestre 2   --}}
-                        @if ($item->inscTrimestre2 != "")                            
+                        @if ($item->inscTrimestre2 != "")
                         <td align="center" style="width: 43px;"><b>{{number_format((float)$item->inscTrimestre2, 1, '.', '')}}</b></td>
                         @else
                         <td align="center" style="width: 43px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                  
-                        
+
+
                         {{-- <td style="width: 35px; border-top: 0px s}olid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td> --}}
                         <td style="width: 46px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
 
 
                         @if ($item->inscCalificacionAbr != "")
                         <td align="center" style="width: 35px;">
-                        
-                          @if ($item->inscCalificacionAbr == 1.0 || $item->inscCalificacionAbr == 2.0 || $item->inscCalificacionAbr == 3.0 || $item->inscCalificacionAbr == 4.0 || 
-                            $item->inscCalificacionAbr == 5.0 || $item->inscCalificacionAbr == 6.0 || $item->inscCalificacionAbr == 7.0 || $item->inscCalificacionAbr == 8.0 || 
-                            $item->inscCalificacionAbr == 9.0 || $item->inscCalificacionAbr == 10.0) 
+
+                          @if ($item->inscCalificacionAbr == 1.0 || $item->inscCalificacionAbr == 2.0 || $item->inscCalificacionAbr == 3.0 || $item->inscCalificacionAbr == 4.0 ||
+                            $item->inscCalificacionAbr == 5.0 || $item->inscCalificacionAbr == 6.0 || $item->inscCalificacionAbr == 7.0 || $item->inscCalificacionAbr == 8.0 ||
+                            $item->inscCalificacionAbr == 9.0 || $item->inscCalificacionAbr == 10.0)
 
                             <b>{{number_format((float)$item->inscCalificacionAbr, 0, '.', '')}}</b>
 
                           @else
                             <b>{{number_format((float)$item->inscCalificacionAbr, 1, '.', '')}}</b>
                           @endif
-                        
+
                         </td>
                         @else
                         <td align="center" style="width: 35px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
+
                         @if ($item->inscCalificacionMay != "")
                         <td align="center" style="width: 36px;">
-                               
-                          @if ($item->inscCalificacionMay == 1.0 || $item->inscCalificacionMay == 2.0 || $item->inscCalificacionMay == 3.0 || $item->inscCalificacionMay == 4.0 || 
-                            $item->inscCalificacionMay == 5.0 || $item->inscCalificacionMay == 6.0 || $item->inscCalificacionMay == 7.0 || $item->inscCalificacionMay == 8.0 || 
-                            $item->inscCalificacionMay == 9.0 || $item->inscCalificacionMay == 10.0) 
+
+                          @if ($item->inscCalificacionMay == 1.0 || $item->inscCalificacionMay == 2.0 || $item->inscCalificacionMay == 3.0 || $item->inscCalificacionMay == 4.0 ||
+                            $item->inscCalificacionMay == 5.0 || $item->inscCalificacionMay == 6.0 || $item->inscCalificacionMay == 7.0 || $item->inscCalificacionMay == 8.0 ||
+                            $item->inscCalificacionMay == 9.0 || $item->inscCalificacionMay == 10.0)
 
                             <b>{{number_format((float)$item->inscCalificacionMay, 0, '.', '')}}</b>
 
                           @else
                             <b>{{number_format((float)$item->inscCalificacionMay, 1, '.', '')}}</b>
-                          @endif                 
+                          @endif
                         </td>
                         @else
                         <td align="center" style="width: 36px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
+
                         @if ($item->inscCalificacionJun != "")
                         <td align="center" style="width: 34px;">
-                         
-                          @if ($item->inscCalificacionJun == 1.0 || $item->inscCalificacionJun == 2.0 || $item->inscCalificacionJun == 3.0 || $item->inscCalificacionJun == 4.0 || 
-                            $item->inscCalificacionJun == 5.0 || $item->inscCalificacionJun == 6.0 || $item->inscCalificacionJun == 7.0 || $item->inscCalificacionJun == 8.0 || 
-                            $item->inscCalificacionJun == 9.0 || $item->inscCalificacionJun == 10.0) 
+
+                          @if ($item->inscCalificacionJun == 1.0 || $item->inscCalificacionJun == 2.0 || $item->inscCalificacionJun == 3.0 || $item->inscCalificacionJun == 4.0 ||
+                            $item->inscCalificacionJun == 5.0 || $item->inscCalificacionJun == 6.0 || $item->inscCalificacionJun == 7.0 || $item->inscCalificacionJun == 8.0 ||
+                            $item->inscCalificacionJun == 9.0 || $item->inscCalificacionJun == 10.0)
 
                             <b>{{number_format((float)$item->inscCalificacionJun, 0, '.', '')}}</b>
 
                           @else
                             <b>{{number_format((float)$item->inscCalificacionJun, 1, '.', '')}}</b>
-                          @endif  
+                          @endif
                         </td>
                         @else
                         <td align="center" style="width: 34px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
-                  
+
+
                         {{--  promedio trimestre 3   --}}
                         @if ($item->inscTrimestre3 != "")
-                        <td align="center" style="width: 43px;">                        
+                        <td align="center" style="width: 43px;">
 
-                          @if ($item->inscTrimestre3 == 1.0 || $item->inscTrimestre3 == 2.0 || $item->inscTrimestre3 == 3.0 || $item->inscTrimestre3 == 4.0 || 
-                            $item->inscTrimestre3 == 5.0 || $item->inscTrimestre3 == 6.0 || $item->inscTrimestre3 == 7.0 || $item->inscTrimestre3 == 8.0 || 
-                            $item->inscTrimestre3 == 9.0 || $item->inscTrimestre3 == 10.0) 
+                          @if ($item->inscTrimestre3 == 1.0 || $item->inscTrimestre3 == 2.0 || $item->inscTrimestre3 == 3.0 || $item->inscTrimestre3 == 4.0 ||
+                            $item->inscTrimestre3 == 5.0 || $item->inscTrimestre3 == 6.0 || $item->inscTrimestre3 == 7.0 || $item->inscTrimestre3 == 8.0 ||
+                            $item->inscTrimestre3 == 9.0 || $item->inscTrimestre3 == 10.0)
 
                             <b>{{number_format((float)$item->inscTrimestre3, 0, '.', '')}}</b>
 
@@ -3506,17 +3507,17 @@
                         @else
                         <td style="width: 43px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
+
                         {{-- <td style="width: 33px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td> --}}
                         <td style="width: 45px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
-                  
+
                         {{--  promedio final   --}}
                         @if ($item->inscPromedioTrimCALCULADO != "")
-                        <td align="center" style="width: 44px;">                         
+                        <td align="center" style="width: 44px;">
                           @if($item->inscTrimestre1 != "" && $item->inscTrimestre2 != "" && $item->inscTrimestre3 != "")
-                            @if ($item->inscPromedioTrimCALCULADO == 1.0 || $item->inscPromedioTrimCALCULADO == 2.0 || $item->inscPromedioTrimCALCULADO == 3.0 || $item->inscPromedioTrimCALCULADO == 4.0 || 
-                              $item->inscPromedioTrimCALCULADO == 5.0 || $item->inscPromedioTrimCALCULADO == 6.0 || $item->inscPromedioTrimCALCULADO == 7.0 || $item->inscPromedioTrimCALCULADO == 8.0 || 
-                              $item->inscPromedioTrimCALCULADO == 9.0 || $item->inscPromedioTrimCALCULADO == 10.0) 
+                            @if ($item->inscPromedioTrimCALCULADO == 1.0 || $item->inscPromedioTrimCALCULADO == 2.0 || $item->inscPromedioTrimCALCULADO == 3.0 || $item->inscPromedioTrimCALCULADO == 4.0 ||
+                              $item->inscPromedioTrimCALCULADO == 5.0 || $item->inscPromedioTrimCALCULADO == 6.0 || $item->inscPromedioTrimCALCULADO == 7.0 || $item->inscPromedioTrimCALCULADO == 8.0 ||
+                              $item->inscPromedioTrimCALCULADO == 9.0 || $item->inscPromedioTrimCALCULADO == 10.0)
 
                               <b>{{number_format((float)$item->inscPromedioTrimCALCULADO, 0, '.', '')}}</b>
 
@@ -3528,8 +3529,8 @@
                         @else
                         <td align="center" style="width: 44px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
-                  
+
+
                         {{--  promedio final sep   --}}
                         <td style="border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;">{{""}}</td>
                         {{-- <td style="border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;">{{""}}</td> --}}
@@ -3537,7 +3538,7 @@
                       @endif
                     @endif
                   @endforeach
-              
+
 
 
                 </tbody>
@@ -3548,7 +3549,7 @@
               <br>
               <table class="table table-bordered">
                 <thead>
-                
+
                 </thead>
                 <tbody>
                   @php
@@ -3573,17 +3574,17 @@
                     @if ($item->clave_pago == $clave_pago)
                      @php
                          $keyPromedioGeneral++;
-                         
+
                      @endphp
                      @if ($keyPromedioGeneral == 1)
-                      <tr>                      
+                      <tr>
                         <td style="width: 165px;"><b>PROMEDIO GENERAL</b></td>
 
                         @if ($promSEPGENERAL != "")
-                        <td align="center" style="width: 27px;">                 
-                          @if ($promSEPGENERAL == 1.0 || $promSEPGENERAL == 2.0 || $promSEPGENERAL == 3.0 || $promSEPGENERAL == 4.0 || 
-                            $promSEPGENERAL == 5.0 || $promSEPGENERAL == 6.0 || $promSEPGENERAL == 7.0 || $promSEPGENERAL == 8.0 || 
-                            $promSEPGENERAL == 9.0 || $promSEPGENERAL == 10.0) 
+                        <td align="center" style="width: 27px;">
+                          @if ($promSEPGENERAL == 1.0 || $promSEPGENERAL == 2.0 || $promSEPGENERAL == 3.0 || $promSEPGENERAL == 4.0 ||
+                            $promSEPGENERAL == 5.0 || $promSEPGENERAL == 6.0 || $promSEPGENERAL == 7.0 || $promSEPGENERAL == 8.0 ||
+                            $promSEPGENERAL == 9.0 || $promSEPGENERAL == 10.0)
 
                             <b>{{number_format((float)TruncarDecimales::truncateFloat($promSEPGENERAL, 1), 0, '.', '')}}</b>
 
@@ -3594,48 +3595,48 @@
                         @else
                         <td align="center" style="width: 27px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
-                        @if ($promOCTGENERAL != "")
-                        <td align="center" style="width: 27px;">                        
 
-                          @if ($promOCTGENERAL == 1.0 || $promOCTGENERAL == 2.0 || $promOCTGENERAL == 3.0 || $promOCTGENERAL == 4.0 || 
-                            $promOCTGENERAL == 5.0 || $promOCTGENERAL == 6.0 || $promOCTGENERAL == 7.0 || $promOCTGENERAL == 8.0 || 
-                            $promOCTGENERAL == 9.0 || $promOCTGENERAL == 10.0) 
+                        @if ($promOCTGENERAL != "")
+                        <td align="center" style="width: 27px;">
+
+                          @if ($promOCTGENERAL == 1.0 || $promOCTGENERAL == 2.0 || $promOCTGENERAL == 3.0 || $promOCTGENERAL == 4.0 ||
+                            $promOCTGENERAL == 5.0 || $promOCTGENERAL == 6.0 || $promOCTGENERAL == 7.0 || $promOCTGENERAL == 8.0 ||
+                            $promOCTGENERAL == 9.0 || $promOCTGENERAL == 10.0)
 
                             <b>{{number_format((float)TruncarDecimales::truncateFloat($promOCTGENERAL, 1), 0, '.', '')}}</b>
 
                             @else
                             <b>{{TruncarDecimales::truncateFloat($promOCTGENERAL, 1)}}</b>
                           @endif
-                        </td> 
+                        </td>
                         @else
                         <td align="center" style="width: 27px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                              
+
                         @if ($promNOVGENERAL != "")
                         <td align="center" style="width: 30px;">
-                          
-                          @if ($promNOVGENERAL == 1.0 || $promNOVGENERAL == 2.0 || $promNOVGENERAL == 3.0 || $promNOVGENERAL == 4.0 || 
-                            $promNOVGENERAL == 5.0 || $promNOVGENERAL == 6.0 || $promNOVGENERAL == 7.0 || $promNOVGENERAL == 8.0 || 
-                            $promNOVGENERAL == 9.0 || $promNOVGENERAL == 10.0) 
+
+                          @if ($promNOVGENERAL == 1.0 || $promNOVGENERAL == 2.0 || $promNOVGENERAL == 3.0 || $promNOVGENERAL == 4.0 ||
+                            $promNOVGENERAL == 5.0 || $promNOVGENERAL == 6.0 || $promNOVGENERAL == 7.0 || $promNOVGENERAL == 8.0 ||
+                            $promNOVGENERAL == 9.0 || $promNOVGENERAL == 10.0)
 
                             <b>{{number_format((float)TruncarDecimales::truncateFloat($promNOVGENERAL, 1), 0, '.', '')}}</b>
 
                             @else
                             <b>{{TruncarDecimales::truncateFloat($promNOVGENERAL, 1)}}</b>
                           @endif
-                        </td> 
+                        </td>
                         @else
                         <td align="center" style="width: 30px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                                        
+
                          {{--  promedio trimestree 1  --}}
                          @if ($promGENGENERAL1 != "")
                          <td align="center" style="width: 34px;">
-                         
-                          @if ($promGENGENERAL1 == 1.0 || $promGENGENERAL1 == 2.0 || $promGENGENERAL1 == 3.0 || $promGENGENERAL1 == 4.0 || 
-                            $promGENGENERAL1 == 5.0 || $promGENGENERAL1 == 6.0 || $promGENGENERAL1 == 7.0 || $promGENGENERAL1 == 8.0 || 
-                            $promGENGENERAL1 == 9.0 || $promGENGENERAL1 == 10.0) 
+
+                          @if ($promGENGENERAL1 == 1.0 || $promGENGENERAL1 == 2.0 || $promGENGENERAL1 == 3.0 || $promGENGENERAL1 == 4.0 ||
+                            $promGENGENERAL1 == 5.0 || $promGENGENERAL1 == 6.0 || $promGENGENERAL1 == 7.0 || $promGENGENERAL1 == 8.0 ||
+                            $promGENGENERAL1 == 9.0 || $promGENGENERAL1 == 10.0)
 
                             <b>{{number_format((float)TruncarDecimales::truncateFloat($promGENGENERAL1, 1), 0, '.', '')}}</b>
 
@@ -3646,149 +3647,149 @@
                          @else
                          <td align="center" style="width: 34px;"><label style="opacity: .01;">0</label></td>
                          @endif
-                               
+
                         <td align="center" style="width: 37px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
                         {{-- <td align="center" style="width: 35px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td> --}}
-                        
+
                         @if ($promDICENEGENERAL != "")
                         <td align="center" style="width: 29px">
-                          @if ($promDICENEGENERAL == 1.0 || $promDICENEGENERAL == 2.0 || $promDICENEGENERAL == 3.0 || $promDICENEGENERAL == 4.0 || 
-                            $promDICENEGENERAL == 5.0 || $promDICENEGENERAL == 6.0 || $promDICENEGENERAL == 7.0 || $promDICENEGENERAL == 8.0 || 
-                            $promDICENEGENERAL == 9.0 || $promDICENEGENERAL == 10.0) 
+                          @if ($promDICENEGENERAL == 1.0 || $promDICENEGENERAL == 2.0 || $promDICENEGENERAL == 3.0 || $promDICENEGENERAL == 4.0 ||
+                            $promDICENEGENERAL == 5.0 || $promDICENEGENERAL == 6.0 || $promDICENEGENERAL == 7.0 || $promDICENEGENERAL == 8.0 ||
+                            $promDICENEGENERAL == 9.0 || $promDICENEGENERAL == 10.0)
 
                             <b>{{number_format((float)TruncarDecimales::truncateFloat($promDICENEGENERAL, 1), 0, '.', '')}}</b>
 
                             @else
                             <b>{{TruncarDecimales::truncateFloat($promDICENEGENERAL, 1)}}</b>
                           @endif
-                        </td>  
+                        </td>
                         @else
                         <td align="center" style="width: 29px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                           
+
                         @if ($promFEBGENERAL != "")
                         <td align="center" style="width: 27px">
-                        
-                          @if ($promFEBGENERAL == 1.0 || $promFEBGENERAL == 2.0 || $promFEBGENERAL == 3.0 || $promFEBGENERAL == 4.0 || 
-                            $promFEBGENERAL == 5.0 || $promFEBGENERAL == 6.0 || $promFEBGENERAL == 7.0 || $promFEBGENERAL == 8.0 || 
-                            $promFEBGENERAL == 9.0 || $promFEBGENERAL == 10.0) 
+
+                          @if ($promFEBGENERAL == 1.0 || $promFEBGENERAL == 2.0 || $promFEBGENERAL == 3.0 || $promFEBGENERAL == 4.0 ||
+                            $promFEBGENERAL == 5.0 || $promFEBGENERAL == 6.0 || $promFEBGENERAL == 7.0 || $promFEBGENERAL == 8.0 ||
+                            $promFEBGENERAL == 9.0 || $promFEBGENERAL == 10.0)
 
                             <b>{{number_format((float)TruncarDecimales::truncateFloat($promFEBGENERAL, 1), 0, '.', '')}}</b>
 
                             @else
                             <b>{{TruncarDecimales::truncateFloat($promFEBGENERAL, 1)}}</b>
                           @endif
-                        </td> 
+                        </td>
                         @else
                         <td align="center" style="width: 27px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                         
+
                         @if ($promMARGENERAL != "")
                         <td align="center" style="width: 31px">
-                       
-                          @if ($promMARGENERAL == 1.0 || $promMARGENERAL == 2.0 || $promMARGENERAL == 3.0 || $promMARGENERAL == 4.0 || 
-                            $promMARGENERAL == 5.0 || $promMARGENERAL == 6.0 || $promMARGENERAL == 7.0 || $promMARGENERAL == 8.0 || 
-                            $promMARGENERAL == 9.0 || $promMARGENERAL == 10.0) 
+
+                          @if ($promMARGENERAL == 1.0 || $promMARGENERAL == 2.0 || $promMARGENERAL == 3.0 || $promMARGENERAL == 4.0 ||
+                            $promMARGENERAL == 5.0 || $promMARGENERAL == 6.0 || $promMARGENERAL == 7.0 || $promMARGENERAL == 8.0 ||
+                            $promMARGENERAL == 9.0 || $promMARGENERAL == 10.0)
 
                             <b>{{number_format((float)TruncarDecimales::truncateFloat($promMARGENERAL, 1), 0, '.', '')}}</b>
 
                           @else
                             <b>{{TruncarDecimales::truncateFloat($promMARGENERAL, 1)}}</b>
                           @endif
-                        </td> 
+                        </td>
                         @else
                         <td align="center" style="width: 31px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
+
                         {{--  promedio trimestre 2   --}}
                         @if ($promGENGENERAL2 != "")
-                        <td align="center" style="width: 35px">                          
+                        <td align="center" style="width: 35px">
 
-                          @if ($promGENGENERAL2 == 1.0 || $promGENGENERAL2 == 2.0 || $promGENGENERAL2 == 3.0 || $promGENGENERAL2 == 4.0 || 
-                            $promGENGENERAL2 == 5.0 || $promGENGENERAL2 == 6.0 || $promGENGENERAL2 == 7.0 || $promGENGENERAL2 == 8.0 || 
-                            $promGENGENERAL2 == 9.0 || $promGENGENERAL2 == 10.0) 
+                          @if ($promGENGENERAL2 == 1.0 || $promGENGENERAL2 == 2.0 || $promGENGENERAL2 == 3.0 || $promGENGENERAL2 == 4.0 ||
+                            $promGENGENERAL2 == 5.0 || $promGENGENERAL2 == 6.0 || $promGENGENERAL2 == 7.0 || $promGENGENERAL2 == 8.0 ||
+                            $promGENGENERAL2 == 9.0 || $promGENGENERAL2 == 10.0)
 
                             <b>{{number_format((float)TruncarDecimales::truncateFloat($promGENGENERAL2, 1), 0, '.', '')}}</b>
 
                           @else
                             <b>{{TruncarDecimales::truncateFloat($promGENGENERAL2, 1)}}</b>
                           @endif
-                        </td> 
+                        </td>
                         @else
-                        <td align="center" style="width: 35px;"><label style="opacity: .01;">0</label></td> 
+                        <td align="center" style="width: 35px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
+
                         <td style="width: 36px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
                         {{-- <td style="width: 35px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td> --}}
-                        
+
                         @if ($promABRGENERAL != "")
                         <td align="center" style="width: 28px;">
-                          @if ($promABRGENERAL == 1.0 || $promABRGENERAL == 2.0 || $promABRGENERAL == 3.0 || $promABRGENERAL == 4.0 || 
-                            $promABRGENERAL == 5.0 || $promABRGENERAL == 6.0 || $promABRGENERAL == 7.0 || $promABRGENERAL == 8.0 || 
-                            $promABRGENERAL == 9.0 || $promABRGENERAL == 10.0) 
+                          @if ($promABRGENERAL == 1.0 || $promABRGENERAL == 2.0 || $promABRGENERAL == 3.0 || $promABRGENERAL == 4.0 ||
+                            $promABRGENERAL == 5.0 || $promABRGENERAL == 6.0 || $promABRGENERAL == 7.0 || $promABRGENERAL == 8.0 ||
+                            $promABRGENERAL == 9.0 || $promABRGENERAL == 10.0)
 
                             <b>{{number_format((float)TruncarDecimales::truncateFloat($promABRGENERAL, 1), 0, '.', '')}}</b>
 
                           @else
                             <b>{{TruncarDecimales::truncateFloat($promABRGENERAL, 1)}}</b>
                           @endif
-                        </td> 
+                        </td>
                         @else
                         <td align="center" style="width: 28px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
+
                         @if ($promMAYGENERAL != "")
                         <td align="center" style="width: 29px;">
-                          
-                          @if ($promMAYGENERAL == 1.0 || $promMAYGENERAL == 2.0 || $promMAYGENERAL == 3.0 || $promMAYGENERAL == 4.0 || 
-                            $promMAYGENERAL == 5.0 || $promMAYGENERAL == 6.0 || $promMAYGENERAL == 7.0 || $promMAYGENERAL == 8.0 || 
-                            $promMAYGENERAL == 9.0 || $promMAYGENERAL == 10.0) 
+
+                          @if ($promMAYGENERAL == 1.0 || $promMAYGENERAL == 2.0 || $promMAYGENERAL == 3.0 || $promMAYGENERAL == 4.0 ||
+                            $promMAYGENERAL == 5.0 || $promMAYGENERAL == 6.0 || $promMAYGENERAL == 7.0 || $promMAYGENERAL == 8.0 ||
+                            $promMAYGENERAL == 9.0 || $promMAYGENERAL == 10.0)
 
                             <b>{{number_format((float)TruncarDecimales::truncateFloat($promMAYGENERAL, 1), 0, '.', '')}}</b>
 
                           @else
                             <b>{{TruncarDecimales::truncateFloat($promMAYGENERAL, 1)}}</b>
                           @endif
-                        </td> 
+                        </td>
                         @else
                         <td align="center" style="width: 29px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
+
                         @if ($promJUNGENERAL != "")
                         <td align="center" style="width: 27px;">
-                       
-                          @if ($promJUNGENERAL == 1.0 || $promJUNGENERAL == 2.0 || $promJUNGENERAL == 3.0 || $promJUNGENERAL == 4.0 || 
-                            $promJUNGENERAL == 5.0 || $promJUNGENERAL == 6.0 || $promJUNGENERAL == 7.0 || $promJUNGENERAL == 8.0 || 
-                            $promJUNGENERAL == 9.0 || $promJUNGENERAL == 10.0) 
+
+                          @if ($promJUNGENERAL == 1.0 || $promJUNGENERAL == 2.0 || $promJUNGENERAL == 3.0 || $promJUNGENERAL == 4.0 ||
+                            $promJUNGENERAL == 5.0 || $promJUNGENERAL == 6.0 || $promJUNGENERAL == 7.0 || $promJUNGENERAL == 8.0 ||
+                            $promJUNGENERAL == 9.0 || $promJUNGENERAL == 10.0)
 
                             <b>{{number_format((float)TruncarDecimales::truncateFloat($promJUNGENERAL, 1), 0, '.', '')}}</b>
 
                           @else
                             <b>{{TruncarDecimales::truncateFloat($promJUNGENERAL, 1)}}</b>
                           @endif
-                        </td> 
+                        </td>
                         @else
-                        <td align="center" style="width: 27px;"><label style="opacity: .01;">0</label></td> 
+                        <td align="center" style="width: 27px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                         
+
                         {{--  promedio trimestre 3   --}}
                         @if ($promGENGENERAL3 != "")
                         <td align="center" style="width: 35px;">
-                          
-                          @if ($promGENGENERAL3 == 1.0 || $promGENGENERAL3 == 2.0 || $promGENGENERAL3 == 3.0 || $promGENGENERAL3 == 4.0 || 
-                            $promGENGENERAL3 == 5.0 || $promGENGENERAL3 == 6.0 || $promGENGENERAL3 == 7.0 || $promGENGENERAL3 == 8.0 || 
-                            $promGENGENERAL3 == 9.0 || $promGENGENERAL3 == 10.0) 
+
+                          @if ($promGENGENERAL3 == 1.0 || $promGENGENERAL3 == 2.0 || $promGENGENERAL3 == 3.0 || $promGENGENERAL3 == 4.0 ||
+                            $promGENGENERAL3 == 5.0 || $promGENGENERAL3 == 6.0 || $promGENGENERAL3 == 7.0 || $promGENGENERAL3 == 8.0 ||
+                            $promGENGENERAL3 == 9.0 || $promGENGENERAL3 == 10.0)
 
                             <b>{{number_format((float)TruncarDecimales::truncateFloat($promGENGENERAL3, 1), 0, '.', '')}}</b>
 
                           @else
                             <b>{{TruncarDecimales::truncateFloat($promGENGENERAL3, 1)}}</b>
                           @endif
-                        </td> 
+                        </td>
                         @else
-                        <td align="center" style="width: 35px;"><label style="opacity: .01;">0</label></td> 
+                        <td align="center" style="width: 35px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                        
+
                         <td align="center" style="width: 36px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
                         {{-- <td align="center" style="width: 37px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td> --}}
 
@@ -3796,9 +3797,9 @@
                         @if ($promFINALGENERAL != "")
                         <td align="center" style="width: 36px;">
                           @if($promGENGENERAL1 != "" && $promGENGENERAL2 != "" && $promGENGENERAL3 != "")
-                            {{--  @if ($promFINALGENERAL == 1.0 || $promFINALGENERAL == 2.0 || $promFINALGENERAL == 3.0 || $promFINALGENERAL == 4.0 || 
-                              $promFINALGENERAL == 5.0 || $promFINALGENERAL == 6.0 || $promFINALGENERAL == 7.0 || $promFINALGENERAL == 8.0 || 
-                              $promFINALGENERAL == 9.0 || $promFINALGENERAL == 10.0) 
+                            {{--  @if ($promFINALGENERAL == 1.0 || $promFINALGENERAL == 2.0 || $promFINALGENERAL == 3.0 || $promFINALGENERAL == 4.0 ||
+                              $promFINALGENERAL == 5.0 || $promFINALGENERAL == 6.0 || $promFINALGENERAL == 7.0 || $promFINALGENERAL == 8.0 ||
+                              $promFINALGENERAL == 9.0 || $promFINALGENERAL == 10.0)
 
                               <b>{{TruncarDecimales::truncateFloat($promFINALGENERAL, 0)}}</b>
 
@@ -3812,21 +3813,21 @@
                         @else
                         <td align="center" style="width: 36px;"><label style="opacity: .01;">0</label></td>
                         @endif
-                         
+
                         {{--  promedio final sep   --}}
                         <td style="width: 36px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
                         {{-- <td style="width: 36px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td> --}}
-                      </tr>                    
+                      </tr>
                      @endif
                     @endif
                   @endforeach
-              
+
                 </tbody>
               </table>
 
               {{--  ARTE, CULTURA, DEPORTE  --}}
               <br>
-             
+
 
               {{--  INASISTENCIAS  --}}
               @foreach($calificaciones as $key => $inasistencia)
@@ -3843,16 +3844,16 @@
                     #$faltasAbr = $faltasAbr + $inasistencia->falTotalAbr;
                     #$faltasMay = $faltasMay + $inasistencia->falTotalMay;
                     #$faltasJun = $faltasJun + $inasistencia->falTotalJun;
-                    
+
                     #$totalFaltas = $faltasSep + $faltasOct + $faltasNov + $faltasEne + $faltasFeb + $faltasMar + $faltasAbr + $faltasMay + $faltasJun;
 
                     $faltaAlumno = DB::select("SELECT * FROM primaria_faltas WHERE curso_id = $inasistencia->cursos_id");
 
-                @endphp               
-                
+                @endphp
+
                 @endif
               @endforeach
-        
+
               @forelse ($faltaAlumno as $item)
                 @php
                 $faltasSep = $item->falTotalSep;
@@ -3906,66 +3907,66 @@
               {{-- <br> --}}
               <table class="table table-bordered">
                 <thead>
-                
+
                 </thead>
                 <tbody>
-                  <tr>                      
+                  <tr>
                     <td style="width: 200px;">INASISTENCIAS</td>
-                    @if ($faltasSep == "" || $faltasSep == 0)              
-                      <td align="center" style="width: 34px;"><label style="opacity: .01;">0</label></td>                     
+                    @if ($faltasSep == "" || $faltasSep == 0)
+                      <td align="center" style="width: 34px;"><label style="opacity: .01;">0</label></td>
                     @else
                       <td align="center" style="width: 34px;">{{$faltasSep}}</td>
                     @endif
 
-                    @if ($faltasOct == "" || $faltasOct == 0)                            
+                    @if ($faltasOct == "" || $faltasOct == 0)
                       <td align="center" style="width: 34px;"><label style="opacity: .01;">0</label></td>
                     @else
-                      <td align="center" style="width: 34px;">{{$faltasOct}}</td> 
+                      <td align="center" style="width: 34px;">{{$faltasOct}}</td>
                     @endif
 
-                    @if ($faltasNov == "" || $faltasNov == 0)                             
+                    @if ($faltasNov == "" || $faltasNov == 0)
                       <td align="center" style="width: 37px;"><label style="opacity: .01;">0</label></td>
                     @else
-                      <td align="center" style="width: 37px;">{{$faltasNov}}</td> 
+                      <td align="center" style="width: 37px;">{{$faltasNov}}</td>
                     @endif
                     <td align="center" style="width: 45px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
                     <td align="center" style="width: 46px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
                     {{-- <td align="center" style="width: 37px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td> --}}
 
-                    @if ($faltasEne == "" || $faltasEne == 0)                            
+                    @if ($faltasEne == "" || $faltasEne == 0)
                       <td align="center" style="width: 34px;"><label style="opacity: .01;">0</label></td>
                     @else
-                      <td align="center" style="width: 34px;">{{$faltasEne}}</td> 
+                      <td align="center" style="width: 34px;">{{$faltasEne}}</td>
                     @endif
 
-                    @if ($faltasFeb == "" || $faltasFeb == 0)                          
+                    @if ($faltasFeb == "" || $faltasFeb == 0)
                       <td align="center" style="width: 36px;"><label style="opacity: .01;">0</label></td>
                     @else
                       <td align="center" style="width: 36px;">{{$faltasFeb}}</td>
                     @endif
 
-                    @if ($faltasMar == "" || $faltasMar == 0)                            
+                    @if ($faltasMar == "" || $faltasMar == 0)
                       <td align="center" style="width: 39px;"><label style="opacity: .01;">0</label></td>
                     @else
-                      <td align="center" style="width: 39px;">{{$faltasMar}}</td> 
+                      <td align="center" style="width: 39px;">{{$faltasMar}}</td>
                     @endif
                     <td align="center" style="width: 44px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
                     <td align="center" style="width: 44px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
                     {{-- <td align="center" style="width: 36px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td> --}}
 
-                    @if ($faltasAbr == "" || $faltasAbr == 0)                            
+                    @if ($faltasAbr == "" || $faltasAbr == 0)
                       <td align="center" style="width: 35px;"><label style="opacity: .01;">0</label></td>
                     @else
                       <td align="center" style="width: 35px;">{{$faltasAbr}}</td>
                     @endif
 
-                    @if ($faltasMay == "" || $faltasMay == 0)                            
+                    @if ($faltasMay == "" || $faltasMay == 0)
                       <td align="center" style="width: 36px;"><label style="opacity: .01;">0</label></td>
                     @else
                       <td align="center" style="width: 36px;">{{$faltasMay}}</td>
                     @endif
 
-                    @if ($faltasJun == "" || $faltasJun == 0)                            
+                    @if ($faltasJun == "" || $faltasJun == 0)
                       <td align="center" style="width: 34px;"><label style="opacity: .01;">0</label></td>
                     @else
                       <td align="center" style="width: 34px;">{{$faltasJun}}</td>
@@ -3973,17 +3974,17 @@
                     <td align="center" style="width: 45px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
                     <td align="center" style="width: 44px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
                     {{-- <td align="center" style="width: 37px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td> --}}
-                   
+
                     <td align="center" style="width: 43px;">
                       @if ($totalFaltas == "" || $totalFaltas == 0)
-                      
+
                       @else
                       {{$totalFaltas}}
-                      @endif                      
+                      @endif
                     </td> //total faltas
                     <td align="center" style="border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;">{{""}}</td>
                     {{-- <td align="center" style="border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;">{{""}}</td> --}}
-                  </tr>               
+                  </tr>
                 </tbody>
               </table>
 
@@ -3992,66 +3993,66 @@
               {{--  retardos   --}}
               <table class="table table-bordered">
                 <thead>
-                
+
                 </thead>
                 <tbody>
-                  <tr>                      
+                  <tr>
                     <td style="width: 200px;">RETARDOS</td>
-                    @if ($retardosSep == "" || $retardosSep == 0)              
-                      <td align="center" style="width: 34px;"><label style="opacity: .01;">0</label></td>                     
+                    @if ($retardosSep == "" || $retardosSep == 0)
+                      <td align="center" style="width: 34px;"><label style="opacity: .01;">0</label></td>
                     @else
                       <td align="center" style="width: 34px;">{{$retardosSep}}</td>
                     @endif
 
-                    @if ($retardosOct == "" || $retardosOct == 0)                            
+                    @if ($retardosOct == "" || $retardosOct == 0)
                       <td align="center" style="width: 34px;"><label style="opacity: .01;">0</label></td>
                     @else
-                      <td align="center" style="width: 34px;">{{$retardosOct}}</td> 
+                      <td align="center" style="width: 34px;">{{$retardosOct}}</td>
                     @endif
 
-                    @if ($retardosNov == "" || $retardosNov == 0)                             
+                    @if ($retardosNov == "" || $retardosNov == 0)
                       <td align="center" style="width: 37px;"><label style="opacity: .01;">0</label></td>
                     @else
-                      <td align="center" style="width: 37px;">{{$retardosNov}}</td> 
+                      <td align="center" style="width: 37px;">{{$retardosNov}}</td>
                     @endif
                     <td align="center" style="width: 45px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
                     <td align="center" style="width: 46px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
                     {{-- <td align="center" style="width: 37px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td> --}}
 
-                    @if ($retardosEne == "" || $retardosEne == 0)                            
+                    @if ($retardosEne == "" || $retardosEne == 0)
                       <td align="center" style="width: 34px;"><label style="opacity: .01;">0</label></td>
                     @else
-                      <td align="center" style="width: 34px;">{{$retardosEne}}</td> 
+                      <td align="center" style="width: 34px;">{{$retardosEne}}</td>
                     @endif
 
-                    @if ($retardosFeb == "" || $retardosFeb == 0)                          
+                    @if ($retardosFeb == "" || $retardosFeb == 0)
                       <td align="center" style="width: 36px;"><label style="opacity: .01;">0</label></td>
                     @else
                       <td align="center" style="width: 36px;">{{$retardosFeb}}</td>
                     @endif
 
-                    @if ($retardosMar == "" || $retardosMar == 0)                            
+                    @if ($retardosMar == "" || $retardosMar == 0)
                       <td align="center" style="width: 39px;"><label style="opacity: .01;">0</label></td>
                     @else
-                      <td align="center" style="width: 39px;">{{$retardosMar}}</td> 
+                      <td align="center" style="width: 39px;">{{$retardosMar}}</td>
                     @endif
                     <td align="center" style="width: 44px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
                     <td align="center" style="width: 44px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
                     {{-- <td align="center" style="width: 36px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td> --}}
 
-                    @if ($retardosAbr == "" || $retardosAbr == 0)                            
+                    @if ($retardosAbr == "" || $retardosAbr == 0)
                       <td align="center" style="width: 35px;"><label style="opacity: .01;">0</label></td>
                     @else
                       <td align="center" style="width: 35px;">{{$retardosAbr}}</td>
                     @endif
 
-                    @if ($retardosMay == "" || $retardosMay == 0)                            
+                    @if ($retardosMay == "" || $retardosMay == 0)
                       <td align="center" style="width: 36px;"><label style="opacity: .01;">0</label></td>
                     @else
                       <td align="center" style="width: 36px;">{{$retardosMay}}</td>
                     @endif
 
-                    @if ($retardosJun == "" || $retardosJun == 0)                            
+                    @if ($retardosJun == "" || $retardosJun == 0)
                       <td align="center" style="width: 34px;"><label style="opacity: .01;">0</label></td>
                     @else
                       <td align="center" style="width: 34px;">{{$retardosJun}}</td>
@@ -4059,20 +4060,20 @@
                     <td align="center" style="width: 45px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
                     <td align="center" style="width: 44px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
                     {{-- <td align="center" style="width: 37px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td> --}}
-                   
+
                     <td align="center" style="width: 43px;">
                       @if ($totalRetardos == "" || $totalRetardos == 0)
-                      
+
                       @else
                       {{$totalRetardos}}
-                      @endif                      
+                      @endif
                     </td> //total retardos
                     <td align="center" style="border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;">{{""}}</td>
                     {{-- <td align="center" style="border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;">{{""}}</td> --}}
-                  </tr>               
+                  </tr>
                 </tbody>
               </table>
-             
+
           </div>
         </div>
 
@@ -4104,9 +4105,9 @@
         $keyPromedioGeneral = 0;
         $acd = 0;
         $Keynasistencias = 0;
-  
+
         //hay que declarar mas variables, una por columna diferente y categoria
-        //iniciarlas en 0.0 
+        //iniciarlas en 0.0
 
         $promSEPFA = 0.0;
         $promOCTFA = 0.0;
@@ -4226,8 +4227,8 @@
         $sumaPromediosDESAAbr = 0.0;
         $sumaPromediosDESAMay = 0.0;
         $sumaPromediosDESAJun = 0.0;
-      
-      
+
+
         $sumaPromediosOPTASep = 0.0;
         $sumaPromediosOPTAOct = 0.0;
         $sumaPromediosOPTANov = 0.0;
@@ -4243,12 +4244,12 @@
         $sumaPromedio2FA = 0.0;
         $sumaPromedio3FA = 0.0;
         $sumaPromedioFinalFA = 0.0;
-      
+
         $sumaPromedio1DESA = 0.0;
         $sumaPromedio2DESA = 0.0;
         $sumaPromedio3DESA = 0.0;
         $sumaPromedioFinalDESA = 0.0;
-      
+
         $sumaPromedio1OPTA = 0.0;
         $sumaPromedio2OPTA = 0.0;
         $sumaPromedio3OPTA = 0.0;

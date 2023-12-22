@@ -369,7 +369,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -393,15 +393,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -491,9 +492,9 @@
 
 
 	</head>
-  
+
   <header>
-   
+
   </header>
     <body>
       {{-- Controlador: ConstanciaDocenteController --}}
@@ -507,8 +508,8 @@
         <div class="columns medium-7">
           <p class="tright">{{$fechaHoy}}</p>
           <br>
-          <p class="tright">ASUNTO: CONSTANCIA DE ESCOLARIDAD</p>     
-        </div>        
+          <p class="tright">ASUNTO: CONSTANCIA DE ESCOLARIDAD</p>
+        </div>
       </div>
 
       <br>
@@ -518,41 +519,41 @@
       <br>
       <br>
       <div class="row">
-        <div class="columns medium-12">          
+        <div class="columns medium-12">
 
           <p><b>A QUIEN CORRESPONDA:</b></p>
           <br>
           <br>
           <br>
           <br>
-         
+
           @if ($parametro_ubicacion_clave == "CME")
             <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-              La que suscribe, Psic. SILVIA VIOLETA POOL DORANTES, Directora de la Escuela Secundaria Particular Incorporada a la Modelo de esta ciudad, 
+              La que suscribe, Psic. SILVIA VIOLETA POOL DORANTES, Directora de la Escuela Secundaria Particular Incorporada a la Modelo de esta ciudad,
               con clave 31PES0012T, hace constar que {{$alumno}} {{$parametro_consideracion}} regular de esta institución en el que cursa el {{$grado}} de secundaria en el ciclo escolar {{$periodo}}.
 
-             
+
             </p>
           @endif
 
           @if ($parametro_ubicacion_clave == "CVA")
             <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-              La que suscribe, Mtra. Lol –Há Canché Gómez, Directora de la Escuela Secundaria Particular Incorporada a la Modelo de esta ciudad , 
+              La que suscribe, Mtra. Lol –Há Canché Gómez, Directora de la Escuela Secundaria Particular Incorporada a la Modelo de esta ciudad ,
               con clave 31PES0012T, hace constar que {{$alumno}} {{$parametro_consideracion}} regular de esta institución en el que cursa el {{$grado}} de secundaria en el ciclo escolar {{$periodo}}.
             </p>
           @endif
-          
-     
+
+
           <br>
           <br>
           <br>
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-            A pedimento de la parte interesada y para los fines que convengan se expide la presente constancia.          
-            
+            A pedimento de la parte interesada y para los fines que convengan se expide la presente constancia.
+
           </p>
         </div>
       </div>
-      
+
       <br><br><br><br><br><br><br><br><br><br>
 
       <div class="row">
@@ -570,7 +571,7 @@
             <p class="tcenter"><b>Psic. Silvia Violeta Pool Dorantes</b></p>
             <p class="tcenter"><b>DIRECTORA</b></p>
             @endif
-            
+
             @if ($parametro_ubicacion_clave == "CVA")
             <div style="text-align: center">
               <img class="img-header"  src="{{base_path('resources/assets/img/firmas_logos_secundaria/secundaria_cva_firma_lolha.png')}}" alt="">

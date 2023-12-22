@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 20px;
         right: 0px;
@@ -507,7 +508,7 @@
     @foreach ($grupos as $grupo)
 			@php
         $inscritos = $grupo['inscritos'];
-        
+
         // dd($grupos, $grupo, $inscritos);
 			@endphp
       @if (!is_null($inscritos))
@@ -596,7 +597,7 @@
                       </ul>
                     </td>
                   </tr>
-                @endforeach 
+                @endforeach
                 {{--  <!-- foreach inscrito -->  --}}
                 @if (!$loop->last)
                 <div class="page_break"></div>
@@ -604,10 +605,10 @@
             </table>
           </div>
         </div>
-            
+
       @endif
-     
-    @endforeach 
+
+    @endforeach
     {{--  <!-- foreach grupo -->  --}}
 
     {{--  <footer id="footer">

@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -50px;
         right: 0px;
@@ -660,14 +661,14 @@
         <br>
         <br>
         @if ($desdeCurso == "")
-        @else    
-        <p>{{$firmante->firPuesto}}</p>        
+        @else
+        <p>{{$firmante->firPuesto}}</p>
         @endif
-        
+
         <br>
         <br>
         @if ($desdeCurso == "")
-        @else    
+        @else
         <p class="borde-superior-solid">{{$firmante->firNombre}}</p>
         @endif
         <br>

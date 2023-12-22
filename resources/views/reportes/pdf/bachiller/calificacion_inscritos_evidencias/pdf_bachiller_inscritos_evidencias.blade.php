@@ -494,6 +494,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: 7px;
             right: 0px;
@@ -604,9 +605,9 @@
 <body>
 
     @php
-        
+
         use App\Http\Helpers\Utils;
-        
+
         $periodoI = \Carbon\Carbon::parse($alumnos[0]->perFechaInicial)->format('d') . '/' . Utils::num_meses_corto_string(\Carbon\Carbon::parse($alumnos[0]->perFechaInicial)->format('m')) . '/' . \Carbon\Carbon::parse($alumnos[0]->perFechaInicial)->format('Y');
         $periodoF = \Carbon\Carbon::parse($alumnos[0]->perFechaFinal)->format('d') . '/' . Utils::num_meses_corto_string(\Carbon\Carbon::parse($alumnos[0]->perFechaFinal)->format('m')) . '/' . \Carbon\Carbon::parse($alumnos[0]->perFechaFinal)->format('Y');
         $periodoVigente = $periodoI . ' al ' . $periodoF . ' (' . $alumnos[0]->perNumero . '-' . $alumnos[0]->perAnio . ')';
@@ -668,7 +669,7 @@
         $periodo3 = 0;
         $sumaEvidencias = 0;
         $sumaEvidenciasReales = 0;
-        
+
         $periodoAsignado1 = 0;
         $periodoAsignado2 = 0;
         $periodoAsignado3 = 0;

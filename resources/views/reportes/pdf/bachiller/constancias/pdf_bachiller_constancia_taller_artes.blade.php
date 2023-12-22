@@ -369,7 +369,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -393,15 +393,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -488,7 +489,7 @@
       }
     </style>
 	</head>
-  
+
 <header>
 
 </header>
@@ -513,42 +514,42 @@
             <br>
 
             {{-- {{\Carbon\Carbon::parse($fechaActual)->subDays(5)->diffForHumans()}} --}}
-       
-         
-            @if ($parametro_ubicacion == "CME")
-            <p style="font-size: 16px; text-align: justify;">                   
 
-               La que suscribe, Psic. Silvia Violeta Pool Dorantes, Directora de la Escuela Secundaria Particular Incorporada Modelo, 
-               clave C.T. 31PES0012T, hace constar {{$parametro_genero_alumno}} {{$alumno}} cursó                
+
+            @if ($parametro_ubicacion == "CME")
+            <p style="font-size: 16px; text-align: justify;">
+
+               La que suscribe, Psic. Silvia Violeta Pool Dorantes, Directora de la Escuela Secundaria Particular Incorporada Modelo,
+               clave C.T. 31PES0012T, hace constar {{$parametro_genero_alumno}} {{$alumno}} cursó
                @foreach ($materiasComplementarias as $index => $item)
-               <label style="text-decoration: underline;">{{$item->gpoMatComplementaria}}</label>  como asignatura de <b>{{$item->matNombre}}</b>@if ($index != count($materiasComplementarias) - 1),@else.@endif                
+               <label style="text-decoration: underline;">{{$item->gpoMatComplementaria}}</label>  como asignatura de <b>{{$item->matNombre}}</b>@if ($index != count($materiasComplementarias) - 1),@else.@endif
                @endforeach
-                   
-                    
-                
+
+
+
 
             </p>
             @endif
 
             @if ($parametro_ubicacion == "CVA")
                 <p style="font-size: 16px; text-align: justify;">
-                  La que suscribe, Mtra. Lol –Há Canché Gómez, Directora académica de la Escuela Secundaria Particular Incorporada Modelo, 
+                  La que suscribe, Mtra. Lol –Há Canché Gómez, Directora académica de la Escuela Secundaria Particular Incorporada Modelo,
                   clave C.T. 31PES0143L, hace constar {{$parametro_genero_alumno}} {{$alumno}} cursó
                   @foreach ($materiasComplementarias as $index => $item)
-                  {{$item->gpoMatComplementaria}} como asignatura de {{$item->matNombre}}@if ($index != count($materiasComplementarias) - 1),@else.@endif                
-                  @endforeach 
+                  {{$item->gpoMatComplementaria}} como asignatura de {{$item->matNombre}}@if ($index != count($materiasComplementarias) - 1),@else.@endif
+                  @endforeach
                 </p>
             @endif
             <br>
 
             <p style="font-size: 16px; text-align: justify;">
-              A pedimento del interesado y para los fines legales que convengan se expide la presente constancia con la fecha de hoy.            
+              A pedimento del interesado y para los fines legales que convengan se expide la presente constancia con la fecha de hoy.
             </p>
 
         </div>
     </div>
 
-    
+
 
     <br><br><br><br><br><br><br>
 
@@ -567,7 +568,7 @@
             <p class="tcenter"><b>Psic. Silvia Violeta Pool Dorantes</b></p>
             <p class="tcenter"><b>DIRECTORA</b></p>
             @endif
-            
+
             @if ($parametro_ubicacion == "CVA")
             <div style="text-align: center">
               <img class="img-header"  src="{{base_path('resources/assets/img/firmas_logos_secundaria/secundaria_cva_firma_lolha.png')}}" alt="">

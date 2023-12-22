@@ -369,7 +369,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -393,15 +393,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -491,9 +492,9 @@
       }
     </style>
 	</head>
-  
+
   <header>
-   
+
   </header>
     <body>
       {{-- Controlador: ConstanciaDocenteController --}}
@@ -503,7 +504,7 @@
           <br>
           <p class="tright"><b>ASUNTO</b>: CONSTANCIA DE ESTUDIOS</p>
           @if ($foto == "con_foto")
-            @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus .'/'. $curPrimariaFoto)))              
+            @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus .'/'. $curPrimariaFoto)))
               <p><img class="fotoAlumno" style="float: left; margin-top: 165px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus. '/' . $curPrimariaFoto) }}"></p>
             @endif
           @endif
@@ -516,16 +517,16 @@
           <p>A quien corresponda:</p>
           <br>
           <br>
-          
+
           <br>
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-            La que suscribe, 
+            La que suscribe,
             @if ($parametro_ubicacion == "CME")
             MAOE. María Trinidad Díaz Cervera,
             @endif
             @if ($parametro_ubicacion == "CVA")
               Mtra. Arely Martinez Díaz,
-            @endif  
+            @endif
             directora de la Escuela Primaria Modelo con clave {{ $depClaveOficial }} establecida en esta ciudad, HACE CONSTAR:
           </p>
           <br>
@@ -548,12 +549,12 @@
             @endif
             @if ($parametro_ubicacion == "CVA")
             Valladolid,
-            @endif 
+            @endif
             Yucatán, México.
           </p>
         </div>
       </div>
-      
+
       <br><br><br><br><br>
 
       <div class="row">
@@ -567,9 +568,9 @@
           @if ($parametro_ubicacion == "CVA")
           <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ</b></p>
           @endif
-          
+
           <p class="tcenter"><b>DIRECTORA</b></p>
-        
+
         </div>
       </div>
       {{--  @if(!$loop->last)

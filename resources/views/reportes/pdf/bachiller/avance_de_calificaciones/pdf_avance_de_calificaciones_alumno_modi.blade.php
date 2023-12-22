@@ -499,6 +499,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: -50px;
             right: 0px;
@@ -630,13 +631,13 @@
             </p>
         </div>
         @php
-            
+
             if ($ubiClave == 'CME') {
                 $ejecutar_sp = DB::select('call procBachillerEvidenciasAcumuladoAdmin(' . $bachiller_inscritos[0]->periodo_id . ', ' . $bachiller_inscritos[0]->aluClave . ')');
             } else {
                 $ejecutar_sp = DB::select('call procBachillerEvidenciasAcumuladoAdminCVA(' . $bachiller_inscritos[0]->periodo_id . ', ' . $bachiller_inscritos[0]->aluClave . ')');
             }
-            
+
         @endphp
         {{--  <div class="columns medium-2">
 

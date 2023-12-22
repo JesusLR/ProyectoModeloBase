@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 10px;
         right: 0px;
@@ -504,7 +505,7 @@
 
 			{{--  @php  --}}
         {{--  $inscritos = $grupo['inscritos'];  --}}
-        
+
         // dd($grupos, $grupo, $inscritos);
 			{{--  @endphp
       @if (!is_null($inscritos))  --}}
@@ -525,7 +526,7 @@
 
             {{-- Muestra si es por mes  --}}
             @if ($tipoReporte == "porMes")
-            <p>Mes : {{$mesEvaluar}} Incluye insc, 
+            <p>Mes : {{$mesEvaluar}} Incluye insc,
               @if ($conceptos == "R")
                 regular ({{$conceptos}})
               @endif
@@ -552,23 +553,23 @@
 
             {{-- Muestra si es por bimestre --}}
             @if ($tipoReporte == "porBimestre")
-            <p>Bimestre : 
+            <p>Bimestre :
               @if ($bimestreEvaluar == "BIMESTRE1")
-                1            
-              @endif 
+                1
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE2")
-                2            
-              @endif 
+                2
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE3")
-                3            
-              @endif 
+                3
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE4")
-                4            
-              @endif 
+                4
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE5")
-                5            
-              @endif 
-              Incluye insc, 
+                5
+              @endif
+              Incluye insc,
               @if ($conceptos == "R")
                 regular ({{$conceptos}})
               @endif
@@ -595,18 +596,18 @@
 
             {{-- Muestra si es por trimestre  --}}
             @if ($tipoReporte == "porTrimestre")
-            <p>Trimestre : 
+            <p>Trimestre :
               @if ($trimestreEvaluar == "TRIMESTRE1")
-                1            
-              @endif 
+                1
+              @endif
               @if ($trimestreEvaluar == "TRIMESTRE2")
-                2            
-              @endif 
+                2
+              @endif
               @if ($trimestreEvaluar == "TRIMESTRE3")
-                3            
-              @endif 
-             
-              Incluye insc, 
+                3
+              @endif
+
+              Incluye insc,
               @if ($conceptos == "R")
                 regular ({{$conceptos}})
               @endif
@@ -635,31 +636,31 @@
               @if ($modoCalificacion == "BASEPORCENTAJE")
                 @if ($mesEvaluar == "Septiembre")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeSeptiembre}}</p>
-                @endif     
-                
+                @endif
+
                 @if ($mesEvaluar == "Octubre")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeOctubre}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Noviembre")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeNoviembre}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Diciembre")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeDiciembre}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Enero")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeEnero}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Febrero")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeFebrero}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Marzo")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeMarzo}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Abril")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeAbril}}</p>
@@ -674,14 +675,14 @@
                 @endif
               @endif
             @endif
-            
+
           </div>
         </div>
 
 
 
         <br>
-        
+
         @php
             $poscion = 0;
         @endphp
@@ -703,7 +704,7 @@
                         @if ($i == 2)
                         ASIGNATURAS
                         @endif
-                       
+
                     </th>
                 @endfor  --}}
                 @if ($parametro_ubicacion_clave === "CME")
@@ -712,12 +713,12 @@
                       $poscion++;
                     @endphp
                     @foreach ($valores as $llave => $itemV)
-                          
+
                       @if ($itemV->matNombreColumna && $llave == 1)
                           <th align="center" style="font-weight: 400; @if ($llave == 0){{$stilo}} @endif @if ($llave != 0){{$stilo2}} @endif">
                             @if ($poscion == 2)
                               ASIGNATURAS
-                            @endif                           
+                            @endif
                           </th>
                       @endif
                     @endforeach
@@ -728,18 +729,18 @@
                       $poscion++;
                     @endphp
                     @foreach ($valores as $llave => $itemV)
-                          
+
                       @if ($itemV->matNombreColumna && $llave == 1)
                           <th align="center" style="font-weight: 400; @if ($llave == 0){{$stilo}} @endif @if ($llave != 0){{$stilo2}} @endif">
                             @if ($poscion == 2)
                               ASIGNATURAS
-                            @endif                           
+                            @endif
                           </th>
                       @endif
                     @endforeach
                   @endforeach
                 @endif
-                
+
                 {{-- agregamos columna de promedio EDU FIS si es de merida  --}}
                 {{--  @if ($parametro_ubicacion_clave === "CME")
                 <th align="center" style="font-weight: 400; border-top: 1px solid; border-right: 1px solid; border-bottom: 0px; border-left: 0px solid;"></th>
@@ -750,9 +751,9 @@
                 <th style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>
                 <th style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>
                 @endif
-                <th style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>                
+                <th style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>
 
-                
+
 
 
             </tr>
@@ -760,8 +761,8 @@
                 <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid; width:7px;">Num</th>
                 <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">Cve Pago</th>
                 <th  style="font-weight: 400; border-top: 0px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">Nombre del alumno</th>
-                
-                {{--  recorremos array para mostrar materias   --}}           
+
+                {{--  recorremos array para mostrar materias   --}}
 
                 @if ($parametro_ubicacion_clave === "CME")
                   @foreach ($matNombreColumna as $itemmatNombreColumna => $key)
@@ -780,11 +781,11 @@
                 @if ($modoCalificacion != "BASEPORCENTAJE")
                 <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">Período</th>
                 <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">%Rep</th>
-                <th align="center" style="font-weight: 400; border-top: 1px solid; border-right: 1px; border-bottom: 1px solid; border-left: 1px solid;">%Apro</th> 
+                <th align="center" style="font-weight: 400; border-top: 1px solid; border-right: 1px; border-bottom: 1px solid; border-left: 1px solid;">%Apro</th>
                 @endif
-                <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th> 
+                <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>
 
-                       
+
               </tr>
               @php
               $sumaDePromedios = 0;
@@ -811,32 +812,32 @@
 
               $promEducacionFisicaNov = 0.0;
               $promediodelMesNov = 0.0;
-              
-              
 
-             
+
+
+
 
               @endphp
-              
-                @foreach ($calificacionesInscritos as $key => $inscrito)                 
-    
-                  <tr>                   
-                    
+
+                @foreach ($calificacionesInscritos as $key => $inscrito)
+
+                  <tr>
+
                     <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">{{$key+1}}</td>
                     <td align="center" style="width: 50px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">{{$inscrito->aluClave}}</td>
                     <td style="width: 250px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                        {{$inscrito->perApellido1}} {{$inscrito->perApellido2}} {{$inscrito->perNombre}}                        
+                        {{$inscrito->perApellido1}} {{$inscrito->perApellido2}} {{$inscrito->perNombre}}
                     </td>
-                    
+
                     @foreach ($matClave as $KmatClave => $key)
                       @foreach ($calificaciones as $item)
 
                         @if ($modoCalificacion == "BASEDIEZ")
-                          @if ($tipoReporte == "porMes")                            
-                        
-                            @if ($mesEvaluar == "Septiembre")                       
+                          @if ($tipoReporte == "porMes")
+
+                            @if ($mesEvaluar == "Septiembre")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
-                              
+
                               {{--Promedio edu fis--}}
                               @if ($item->matNombre == "EDUCACION FISICA" || $item->matNombre == "EDUCACION FISICA VESP")
                                 @php
@@ -845,7 +846,7 @@
                                 @endphp
                               @endif
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionSep;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionSep;
                               @endphp
                               {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                               @if ($item->inscCalificacionSep < 6)
@@ -858,28 +859,28 @@
                                       $aproXMateria++;
                                   @endphp
                               @endif
-                                @if ($item->inscCalificacionSep != null)                                
+                                @if ($item->inscCalificacionSep != null)
                                   @if ($item->inscCalificacionSep < 6)
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid; background-color:#F3F648">
-                                    {{$item->inscCalificacionSep}}                  
-                                  </td> 
+                                    {{$item->inscCalificacionSep}}
+                                  </td>
                                   @else
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                                    {{$item->inscCalificacionSep}}                  
+                                    {{$item->inscCalificacionSep}}
                                   </td>
-                                  @endif                            
+                                  @endif
                                 @else
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                                   </td>
-                                @endif 
+                                @endif
 
-                              @endif  
-                            @endif                       
+                              @endif
+                            @endif
 
                             @if ($mesEvaluar == "Octubre")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionOct;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionOct;
                               @endphp
 
                               {{--Promedio edu fis--}}
@@ -889,7 +890,7 @@
                                   $promedioEducacionFis = $promedioEducacionFis +  $item->inscCalificacionOct;
                                 @endphp
                               @endif
-                              
+
                               {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                               @if ($item->inscCalificacionOct < 6)
                                   @php
@@ -901,16 +902,16 @@
                                       $aproXMateria++;
                                   @endphp
                               @endif
-                                @if ($item->inscCalificacionOct != null)                                
+                                @if ($item->inscCalificacionOct != null)
                                   @if ($item->inscCalificacionOct < 6)
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid; background-color:#F3F648">
-                                    {{$item->inscCalificacionOct}}                  
-                                  </td> 
+                                    {{$item->inscCalificacionOct}}
+                                  </td>
                                   @else
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                                    {{$item->inscCalificacionOct}}                  
+                                    {{$item->inscCalificacionOct}}
                                   </td>
-                                  @endif                            
+                                  @endif
                                 @else
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                                   </td>
@@ -921,7 +922,7 @@
                             @if ($mesEvaluar == "Noviembre")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionNov;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionNov;
                               @endphp
 
                               {{--Promedio edu fis--}}
@@ -942,16 +943,16 @@
                                       $aproXMateria++;
                                   @endphp
                               @endif
-                                @if ($item->inscCalificacionNov != null)                                
+                                @if ($item->inscCalificacionNov != null)
                                   @if ($item->inscCalificacionNov < 6)
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid; background-color:#F3F648">
-                                    {{$item->inscCalificacionNov}}                  
-                                  </td> 
+                                    {{$item->inscCalificacionNov}}
+                                  </td>
                                   @else
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                                    {{$item->inscCalificacionNov}}                  
+                                    {{$item->inscCalificacionNov}}
                                   </td>
-                                  @endif                            
+                                  @endif
                                 @else
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                                   </td>
@@ -963,7 +964,7 @@
                             @if ($mesEvaluar == "Diciembre")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionDic;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionDic;
                               @endphp
 
                               {{--Promedio edu fis--}}
@@ -989,7 +990,7 @@
                                   @if ($item->inscCalificacionDic != null)
                                   {{$item->inscCalificacionDic}}
                                   @else
-                                  
+
                                   @endif
                                 </td>
                               @endif
@@ -998,7 +999,7 @@
                             @if ($mesEvaluar == "Enero")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionEne;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionEne;
                               @endphp
 
                               {{--Promedio edu fis--}}
@@ -1019,16 +1020,16 @@
                                       $aproXMateria++;
                                   @endphp
                               @endif
-                                @if ($item->inscCalificacionEne != null)                                
+                                @if ($item->inscCalificacionEne != null)
                                   @if ($item->inscCalificacionEne < 6)
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid; background-color:#F3F648">
-                                    {{$item->inscCalificacionEne}}                  
-                                  </td> 
+                                    {{$item->inscCalificacionEne}}
+                                  </td>
                                   @else
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                                    {{$item->inscCalificacionEne}}                  
+                                    {{$item->inscCalificacionEne}}
                                   </td>
-                                  @endif                            
+                                  @endif
                                 @else
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                                   </td>
@@ -1040,7 +1041,7 @@
                             @if ($mesEvaluar == "Febrero")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionFeb;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionFeb;
                               @endphp
 
                               {{--Promedio edu fis--}}
@@ -1061,16 +1062,16 @@
                                       $aproXMateria++;
                                   @endphp
                               @endif
-                                @if ($item->inscCalificacionFeb != null)                                
+                                @if ($item->inscCalificacionFeb != null)
                                   @if ($item->inscCalificacionFeb < 6)
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid; background-color:#F3F648">
-                                    {{$item->inscCalificacionFeb}}                  
-                                  </td> 
+                                    {{$item->inscCalificacionFeb}}
+                                  </td>
                                   @else
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                                    {{$item->inscCalificacionFeb}}                  
+                                    {{$item->inscCalificacionFeb}}
                                   </td>
-                                  @endif                            
+                                  @endif
                                 @else
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                                   </td>
@@ -1081,7 +1082,7 @@
                             @if ($mesEvaluar == "Marzo")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionMar;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionMar;
                               @endphp
 
                               {{--Promedio edu fis--}}
@@ -1102,16 +1103,16 @@
                                       $aproXMateria++;
                                   @endphp
                               @endif
-                                @if ($item->inscCalificacionMar != null)                                
+                                @if ($item->inscCalificacionMar != null)
                                   @if ($item->inscCalificacionMar < 6)
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid; background-color:#F3F648">
-                                    {{$item->inscCalificacionMar}}                  
-                                  </td> 
+                                    {{$item->inscCalificacionMar}}
+                                  </td>
                                   @else
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                                    {{$item->inscCalificacionMar}}                  
+                                    {{$item->inscCalificacionMar}}
                                   </td>
-                                  @endif                            
+                                  @endif
                                 @else
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                                   </td>
@@ -1122,7 +1123,7 @@
                             @if ($mesEvaluar == "Abril")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionAbr;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionAbr;
                               @endphp
 
                               {{--Promedio edu fis--}}
@@ -1143,16 +1144,16 @@
                                       $aproXMateria++;
                                   @endphp
                               @endif
-                                @if ($item->inscCalificacionAbr != null)                                
+                                @if ($item->inscCalificacionAbr != null)
                                   @if ($item->inscCalificacionAbr < 6)
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid; background-color:#F3F648">
-                                    {{$item->inscCalificacionAbr}}                  
-                                  </td> 
+                                    {{$item->inscCalificacionAbr}}
+                                  </td>
                                   @else
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                                    {{$item->inscCalificacionAbr}}                  
+                                    {{$item->inscCalificacionAbr}}
                                   </td>
-                                  @endif                            
+                                  @endif
                                 @else
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                                   </td>
@@ -1163,7 +1164,7 @@
                             @if ($mesEvaluar == "Mayo")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionMay;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionMay;
                               @endphp
 
                               {{--Promedio edu fis--}}
@@ -1184,16 +1185,16 @@
                                       $aproXMateria++;
                                   @endphp
                               @endif
-                                @if ($item->inscCalificacionMay != null)                                
+                                @if ($item->inscCalificacionMay != null)
                                   @if ($item->inscCalificacionMay < 6)
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid; background-color:#F3F648">
-                                    {{$item->inscCalificacionMay}}                  
-                                  </td> 
+                                    {{$item->inscCalificacionMay}}
+                                  </td>
                                   @else
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                                    {{$item->inscCalificacionMay}}                  
+                                    {{$item->inscCalificacionMay}}
                                   </td>
-                                  @endif                            
+                                  @endif
                                 @else
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                                   </td>
@@ -1204,7 +1205,7 @@
                             @if ($mesEvaluar == "Junio")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionJun;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionJun;
                               @endphp
 
                               {{--Promedio edu fis--}}
@@ -1225,25 +1226,25 @@
                                       $aproXMateria++;
                                   @endphp
                               @endif
-                                @if ($item->inscCalificacionJun != null)                                
+                                @if ($item->inscCalificacionJun != null)
                                   @if ($item->inscCalificacionJun < 6)
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid; background-color:#F3F648">
-                                    {{$item->inscCalificacionJun}}                  
-                                  </td> 
+                                    {{$item->inscCalificacionJun}}
+                                  </td>
                                   @else
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                                    {{$item->inscCalificacionJun}}                  
+                                    {{$item->inscCalificacionJun}}
                                   </td>
-                                  @endif                            
+                                  @endif
                                 @else
                                   <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                                   </td>
                                 @endif
                               @endif
                             @endif
-                          
-                          @endif    
-                        
+
+                          @endif
+
                           {{-- mostrar por bimestre  --}}
                           @if ($tipoReporte == "porBimestre")
 
@@ -1252,7 +1253,7 @@
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
 
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre1;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre1;
                               @endphp
 
                               {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1278,7 +1279,7 @@
                                 @if ($item->inscPromedioBimestre1 != null)
                                 {{$item->inscPromedioBimestre1}}
                                 @else
-                                
+
                                 @endif
                               </td>
                               @endif
@@ -1289,7 +1290,7 @@
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
 
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre2;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre2;
                               @endphp
 
                               {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1314,7 +1315,7 @@
                                 @if ($item->inscPromedioBimestre2 != null)
                                 {{$item->inscPromedioBimestre2}}
                                 @else
-                                
+
                                 @endif
                               </td>
                               @endif
@@ -1325,7 +1326,7 @@
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
 
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre3;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre3;
                               @endphp
 
                               {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1350,7 +1351,7 @@
                                 @if ($item->inscPromedioBimestre3 != null)
                                 {{$item->inscPromedioBimestre3}}
                                 @else
-                                
+
                                 @endif
                               </td>
                               @endif
@@ -1361,7 +1362,7 @@
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
 
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre4;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre4;
                               @endphp
 
                               {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1386,7 +1387,7 @@
                                 @if ($item->inscPromedioBimestre4 != null)
                                 {{$item->inscPromedioBimestre4}}
                                 @else
-                                
+
                                 @endif
                               </td>
                               @endif
@@ -1397,7 +1398,7 @@
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
 
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre5;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre5;
                               @endphp
 
                               {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1422,11 +1423,11 @@
                                 @if ($item->inscPromedioBimestre5 != null)
                                 {{$item->inscPromedioBimestre5}}
                                 @else
-                                
+
                                 @endif
                               </td>
                               @endif
-                            @endif                            
+                            @endif
                           @endif
 
                           {{--  mostrar calificaciones finales  --}}
@@ -1439,7 +1440,7 @@
                                 @if ($item->inscPromedioPorMeses != null)
                                 {{$item->inscPromedioPorMeses}}
                                 @else
-                                
+
                                 @endif
                               </td>
                               @endif
@@ -1452,7 +1453,7 @@
                                 @if ($item->inscPromedioPorBimestre != null)
                                 {{$item->inscPromedioPorBimestre}}
                                 @else
-                                
+
                                 @endif
                               </td>
                               @endif
@@ -1465,7 +1466,7 @@
                                 @if ($item->inscPromedioTrim != null)
                                 {{$item->inscPromedioTrim}}
                                 @else
-                                
+
                                 @endif
                               </td>
                               @endif
@@ -1477,10 +1478,10 @@
 
                         @if ($modoCalificacion == "BASEPORCENTAJE")
                           @if ($tipoReporte == "porMes")
-                           
-                            @if ($mesEvaluar == "Septiembre")                       
+
+                            @if ($mesEvaluar == "Septiembre")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
-                              
+
                               {{--Promedio edu fis--}}
                               @if ($item->matNombre == "EDUCACION FISICA" || $item->matNombre == "EDUCACION FISICA VESP")
                                 @php
@@ -1489,7 +1490,7 @@
                                 @endphp
                               @endif
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeSep;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeSep;
                               @endphp
                               {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                               @if ($item->inscCalificacionPorcentajeSep < 6)
@@ -1504,18 +1505,18 @@
                               @endif
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
                                 @if ($item->inscCalificacionPorcentajeSep != null)
-                                {{$item->inscCalificacionPorcentajeSep}}                               
+                                {{$item->inscCalificacionPorcentajeSep}}
                                 @else
-                                
-                                @endif                               
-                              </td>                             
-                              @endif  
-                            @endif 
+
+                                @endif
+                              </td>
+                              @endif
+                            @endif
 
                             @if ($mesEvaluar == "Octubre")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeOct;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeOct;
                               @endphp
 
                               {{--Promedio edu fis--}}
@@ -1525,7 +1526,7 @@
                                   $promedioEducacionFis = $promedioEducacionFis +  $item->inscCalificacionPorcentajeOct;
                                 @endphp
                               @endif
-                              
+
                               {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                               @if ($item->inscCalificacionPorcentajeOct < 6)
                                   @php
@@ -1541,7 +1542,7 @@
                                   @if ($item->inscCalificacionPorcentajeOct != null)
                                   {{$item->inscCalificacionPorcentajeOct}}
                                   @else
-                                  
+
                                   @endif
                                 </td>
                               @endif
@@ -1550,7 +1551,7 @@
                             @if ($mesEvaluar == "Noviembre")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeNov;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeNov;
                               @endphp
 
                               {{--Promedio edu fis--}}
@@ -1575,7 +1576,7 @@
                                   @if ($item->inscCalificacionPorcentajeNov != null)
                                   {{$item->inscCalificacionPorcentajeNov}}
                                   @else
-                                  
+
                                   @endif
                                 </td>
                               @endif
@@ -1584,7 +1585,7 @@
                             @if ($mesEvaluar == "Diciembre")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeDic;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeDic;
                               @endphp
 
                               {{--Promedio edu fis--}}
@@ -1610,7 +1611,7 @@
                                   @if ($item->inscCalificacionPorcentajeDic != null)
                                   {{$item->inscCalificacionPorcentajeDic}}
                                   @else
-                                  
+
                                   @endif
                                 </td>
                               @endif
@@ -1619,7 +1620,7 @@
                             @if ($mesEvaluar == "Enero")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeEne;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeEne;
                               @endphp
 
                               {{--Promedio edu fis--}}
@@ -1644,7 +1645,7 @@
                                   @if ($item->inscCalificacionPorcentajeEne != null)
                                   {{$item->inscCalificacionPorcentajeEne}}
                                   @else
-                                  
+
                                   @endif
                                 </td>
                               @endif
@@ -1653,7 +1654,7 @@
                             @if ($mesEvaluar == "Febrero")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeFeb;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeFeb;
                               @endphp
 
                               {{--Promedio edu fis--}}
@@ -1678,7 +1679,7 @@
                                   @if ($item->inscCalificacionPorcentajeFeb != null)
                                   {{$item->inscCalificacionPorcentajeFeb}}
                                   @else
-                                  
+
                                   @endif
                                 </td>
                               @endif
@@ -1687,7 +1688,7 @@
                             @if ($mesEvaluar == "Marzo")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeMar;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeMar;
                               @endphp
 
                               {{--Promedio edu fis--}}
@@ -1712,7 +1713,7 @@
                                   @if ($item->inscCalificacionPorcentajeMar != null)
                                   {{$item->inscCalificacionPorcentajeMar}}
                                   @else
-                                  
+
                                   @endif
                                 </td>
                               @endif
@@ -1721,7 +1722,7 @@
                             @if ($mesEvaluar == "Abril")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeAbr;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeAbr;
                               @endphp
 
                               {{--Promedio edu fis--}}
@@ -1746,7 +1747,7 @@
                                   @if ($item->inscCalificacionPorcentajeAbr != null)
                                   {{$item->inscCalificacionPorcentajeAbr}}
                                   @else
-                                  
+
                                   @endif
                                 </td>
                               @endif
@@ -1755,7 +1756,7 @@
                             @if ($mesEvaluar == "Mayo")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeMay;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeMay;
                               @endphp
 
                               {{--Promedio edu fis--}}
@@ -1780,7 +1781,7 @@
                                   @if ($item->inscCalificacionPorcentajeMay != null)
                                   {{$item->inscCalificacionPorcentajeMay}}
                                   @else
-                                  
+
                                   @endif
                                 </td>
                               @endif
@@ -1789,7 +1790,7 @@
                             @if ($mesEvaluar == "Junio")
                               @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                               @php
-                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeJun;                                           
+                              $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionPorcentajeJun;
                               @endphp
 
                               {{--Promedio edu fis--}}
@@ -1814,16 +1815,16 @@
                                   @if ($item->inscCalificacionPorcentajeJun != null)
                                   {{$item->inscCalificacionPorcentajeJun}}
                                   @else
-                                  
+
                                   @endif
                                 </td>
                               @endif
                             @endif
 
-                      
-                          
-                          @endif    
-                        
+
+
+                          @endif
+
                           {{-- mostrar por bimestre  --}}
                           @if ($tipoReporte == "porBimestre")
 
@@ -1832,7 +1833,7 @@
                                 @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
 
                                 @php
-                                $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre1;                                           
+                                $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre1;
                                 @endphp
 
                                 {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1858,7 +1859,7 @@
                                   @if ($item->inscPromedioBimestre1 != null)
                                   {{$item->inscPromedioBimestre1}}
                                   @else
-                                  
+
                                   @endif
                                 </td>
                                 @endif
@@ -1869,7 +1870,7 @@
                                 @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
 
                                 @php
-                                $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre2;                                           
+                                $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre2;
                                 @endphp
 
                                 {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1894,7 +1895,7 @@
                                   @if ($item->inscPromedioBimestre2 != null)
                                   {{$item->inscPromedioBimestre2}}
                                   @else
-                                  
+
                                   @endif
                                 </td>
                                 @endif
@@ -1905,7 +1906,7 @@
                                 @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
 
                                 @php
-                                $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre3;                                           
+                                $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre3;
                                 @endphp
 
                                 {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1930,7 +1931,7 @@
                                   @if ($item->inscPromedioBimestre3 != null)
                                   {{$item->inscPromedioBimestre3}}
                                   @else
-                                  
+
                                   @endif
                                 </td>
                                 @endif
@@ -1941,7 +1942,7 @@
                                 @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
 
                                 @php
-                                $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre4;                                           
+                                $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre4;
                                 @endphp
 
                                 {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1966,7 +1967,7 @@
                                   @if ($item->inscPromedioBimestre4 != null)
                                   {{$item->inscPromedioBimestre4}}
                                   @else
-                                  
+
                                   @endif
                                 </td>
                                 @endif
@@ -1977,7 +1978,7 @@
                                 @if ($KmatClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
 
                                 @php
-                                $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre5;                                           
+                                $promedioPeriodo = $promedioPeriodo + $item->inscPromedioBimestre5;
                                 @endphp
 
                                 {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -2002,14 +2003,14 @@
                                   @if ($item->inscPromedioBimestre5 != null)
                                   {{$item->inscPromedioBimestre5}}
                                   @else
-                                  
+
                                   @endif
                                 </td>
                                 @endif
-                              @endif     
+                              @endif
 
 
-                                                      
+
                           @endif
 
                           {{--  mostrar calificaciones finales  --}}
@@ -2022,7 +2023,7 @@
                                 @if ($item->inscPromedioPorMeses != null)
                                 {{$item->inscPromedioPorMeses}}
                                 @else
-                                
+
                                 @endif
                               </td>
                               @endif
@@ -2035,7 +2036,7 @@
                                 @if ($item->inscPromedioPorBimestre != null)
                                 {{$item->inscPromedioPorBimestre}}
                                 @else
-                                
+
                                 @endif
                               </td>
                               @endif
@@ -2048,7 +2049,7 @@
                                 @if ($item->inscPromedioTrim != null)
                                 {{$item->inscPromedioTrim}}
                                 @else
-                                
+
                                 @endif
                               </td>
                               @endif
@@ -2057,21 +2058,21 @@
                           @endif
 
                         @endif
-                        
-                      @endforeach                      
+
+                      @endforeach
                     @endforeach
                     {{-- Columna para promedio general de educacion fisica si es de merida  --}}
-                    {{--  @if ($parametro_ubicacion_clave === "CME")                     
+                    {{--  @if ($parametro_ubicacion_clave === "CME")
                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">{{number_format((float)$promedioEducacionFis, 0, '.', '')}}</td>
                     @endif  --}}
 
 
-                    
+
 
                     @php
                         $promedioPer = $promedioPeriodo/$totalMaterias;
                     @endphp
-               
+
                     @if ($modoCalificacion != "BASEPORCENTAJE")
                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">{{number_format((float)$promedioPer, 1, '.', '')}}</td>
                     @else
@@ -2116,13 +2117,13 @@
                             <b>{{number_format((float)$repFilaMateriasApr, 1, '.', '')}}</b>
                           @endif
                       </td>
-                      <td align="center" style="border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 1px solid;"></td>  
+                      <td align="center" style="border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 1px solid;"></td>
                     @endif
-                    
+
                   </tr>
 
                   {{--  //Se pinta despues del ultimo elemento   --}}
-                  
+
                   @if($loop->last)
                     @if ($modoCalificacion != "BASEPORCENTAJE")
                       <tr>
@@ -2137,8 +2138,8 @@
                                       @if ($itemMatClave == $calificaciones[$x]->matClave)
                                         @php
                                           $sumaDePromedios = $sumaDePromedios +  $calificaciones[$x]->inscCalificacionSep;
-                                        @endphp                                   
-                                      @endif                        
+                                        @endphp
+                                      @endif
                                     @endif
 
                                     @if ($mesEvaluar == "Octubre")
@@ -2146,7 +2147,7 @@
                                         @php
                                           $sumaDePromedios = $sumaDePromedios +  $calificaciones[$x]->inscCalificacionOct;
                                         @endphp
-                                      @endif                        
+                                      @endif
                                     @endif
 
                                     @if ($mesEvaluar == "Noviembre")
@@ -2154,7 +2155,7 @@
                                         @php
                                           $sumaDePromedios = $sumaDePromedios +  $calificaciones[$x]->inscCalificacionNov;
                                         @endphp
-                                      @endif                        
+                                      @endif
                                     @endif
 
                                     @if ($mesEvaluar == "Diciembre")
@@ -2162,7 +2163,7 @@
                                         @php
                                           $sumaDePromedios = $sumaDePromedios +  $calificaciones[$x]->inscCalificacionDic;
                                         @endphp
-                                      @endif                        
+                                      @endif
                                     @endif
 
                                     @if ($mesEvaluar == "Enero")
@@ -2170,7 +2171,7 @@
                                         @php
                                           $sumaDePromedios = $sumaDePromedios +  $calificaciones[$x]->inscCalificacionEne;
                                         @endphp
-                                      @endif                        
+                                      @endif
                                     @endif
 
 
@@ -2179,7 +2180,7 @@
                                         @php
                                           $sumaDePromedios = $sumaDePromedios +  $calificaciones[$x]->inscCalificacionFeb;
                                         @endphp
-                                      @endif                        
+                                      @endif
                                     @endif
 
                                     @if ($mesEvaluar == "Marzo")
@@ -2187,7 +2188,7 @@
                                         @php
                                           $sumaDePromedios = $sumaDePromedios +  $calificaciones[$x]->inscCalificacionMar;
                                         @endphp
-                                      @endif                        
+                                      @endif
                                     @endif
 
                                     @if ($mesEvaluar == "Abril")
@@ -2195,7 +2196,7 @@
                                         @php
                                           $sumaDePromedios = $sumaDePromedios +  $calificaciones[$x]->inscCalificacionAbr;
                                         @endphp
-                                      @endif                        
+                                      @endif
                                     @endif
 
 
@@ -2204,7 +2205,7 @@
                                         @php
                                           $sumaDePromedios = $sumaDePromedios +  $calificaciones[$x]->inscCalificacionMay;
                                         @endphp
-                                      @endif                        
+                                      @endif
                                     @endif
 
                                     @if ($mesEvaluar == "Junio")
@@ -2212,11 +2213,11 @@
                                         @php
                                           $sumaDePromedios = $sumaDePromedios +  $calificaciones[$x]->inscCalificacionJun;
                                         @endphp
-                                      @endif                        
+                                      @endif
                                     @endif
-                                    
-                              @endif        
-                              
+
+                              @endif
+
                               {{-- mostrar por bimestre  --}}
                               @if ($tipoReporte == "porBimestre")
                                 @if ($bimestreEvaluar == "BIMESTRE1")
@@ -2268,7 +2269,7 @@
                                   @if ($itemMatClave == $calificaciones[$x]->matClave)
                                   @php
                                       $sumaDePromedios = $sumaDePromedios +  $calificaciones[$x]->inscTrimestre1;
-                                  @endphp                    
+                                  @endphp
                                   @endif
                                 @endif
 
@@ -2277,8 +2278,8 @@
                                   @if ($itemMatClave == $calificaciones[$x]->matClave)
                                   @php
                                       $sumaDePromedios = $sumaDePromedios +  $calificaciones[$x]->inscTrimestre2;
-                                  @endphp 
-                                  
+                                  @endphp
+
                                   @endif
                                 @endif
 
@@ -2287,11 +2288,11 @@
                                   @if ($itemMatClave == $calificaciones[$x]->matClave)
                                   @php
                                       $sumaDePromedios = $sumaDePromedios +  $calificaciones[$x]->inscTrimestre3;
-                                  @endphp                      
+                                  @endphp
                                   @endif
                                 @endif
                               @endif
-                            
+
                             @endfor
                             <td align="center"
                               style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">{{number_format((float)$sumaDePromedios/$totalDeAlumnos, 1, '.', '')}}
@@ -2301,7 +2302,7 @@
                               @endphp
                           @endforeach
 
-                
+
                           @php
                               $ResultadoPromedio = $sumaPromedioDeAlumnos / $totalDeAlumnos;
                           @endphp
@@ -2319,7 +2320,7 @@
                           <td  style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></td>
                           <td  style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></td>
                       </tr>
-                    
+
                       <tr>
                         <td  style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></td>
                         <td  style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></td>
@@ -2329,13 +2330,13 @@
                           @for ($x = 0; $x < count($calificaciones); $x++)
                               @if ($tipoReporte == "porMes")
                                     @if ($mesEvaluar == "Septiembre")
-                                      @if ($itemMatClave == $calificaciones[$x]->matClave)                                      
+                                      @if ($itemMatClave == $calificaciones[$x]->matClave)
                                         @if ($calificaciones[$x]->inscCalificacionSep < 6)
                                             @php
                                                 $reprobados++;
                                             @endphp
                                         @endif
-                                      @endif                        
+                                      @endif
                                     @endif
 
                                     @if ($mesEvaluar == "Octubre")
@@ -2345,7 +2346,7 @@
                                               $reprobados++;
                                             @endphp
                                         @endif
-                                      @endif                        
+                                      @endif
                                     @endif
 
                                     @if ($mesEvaluar == "Noviembre")
@@ -2355,7 +2356,7 @@
                                             $reprobados++;
                                           @endphp
                                         @endif
-                                      @endif                        
+                                      @endif
                                     @endif
 
                                     @if ($mesEvaluar == "Diciembre")
@@ -2365,7 +2366,7 @@
                                             $reprobados++;
                                           @endphp
                                         @endif
-                                      @endif                        
+                                      @endif
                                     @endif
 
                                     @if ($mesEvaluar == "Enero")
@@ -2375,7 +2376,7 @@
                                             $reprobados++;
                                           @endphp
                                         @endif
-                                      @endif                        
+                                      @endif
                                     @endif
 
 
@@ -2386,7 +2387,7 @@
                                             $reprobados++;
                                           @endphp
                                         @endif
-                                      @endif                        
+                                      @endif
                                     @endif
 
                                     @if ($mesEvaluar == "Marzo")
@@ -2396,7 +2397,7 @@
                                             $reprobados++;
                                           @endphp
                                         @endif
-                                      @endif                        
+                                      @endif
                                     @endif
 
                                     @if ($mesEvaluar == "Abril")
@@ -2406,7 +2407,7 @@
                                             $reprobados++;
                                           @endphp
                                         @endif
-                                      @endif                        
+                                      @endif
                                     @endif
 
 
@@ -2417,7 +2418,7 @@
                                             $reprobados++;
                                           @endphp
                                         @endif
-                                      @endif                        
+                                      @endif
                                     @endif
 
                                     @if ($mesEvaluar == "Junio")
@@ -2427,11 +2428,11 @@
                                             $reprobados++;
                                           @endphp
                                         @endif
-                                      @endif                        
+                                      @endif
                                     @endif
-                                    
-                              @endif        
-                              
+
+                              @endif
+
                               {{-- mostrar por bimestre  --}}
                               @if ($tipoReporte == "porBimestre")
                                 @if ($bimestreEvaluar == "BIMESTRE1")
@@ -2495,7 +2496,7 @@
                                       @php
                                         $reprobados++;
                                       @endphp
-                                    @endif                  
+                                    @endif
                                   @endif
                                 @endif
 
@@ -2506,8 +2507,8 @@
                                       @php
                                         $reprobados++;
                                       @endphp
-                                    @endif  
-                                  
+                                    @endif
+
                                   @endif
                                 @endif
 
@@ -2518,11 +2519,11 @@
                                       @php
                                         $reprobados++;
                                       @endphp
-                                    @endif                      
+                                    @endif
                                   @endif
                                 @endif
                               @endif
-                              
+
                             @endfor
                             {{--  Operacion para sacar el porcentaje de reprobados   --}}
                             @php
@@ -2533,7 +2534,7 @@
                               @if (number_format((float)$porcentajeReprobados, 1, '.', '') == "100")
                                 <b>{{number_format((float)$porcentajeReprobados, 0, '.', '')}}</b>
                               @else
-                              
+
                               <b>{{number_format((float)$porcentajeReprobados, 1, '.', '')}}</b>
                               @endif
                               </td>
@@ -2541,11 +2542,11 @@
                               $reprobados = 0;
                               @endphp
                         @endforeach
-                      
-                      
+
+
                         @php
                             $genRepro = ($generalReprobados * 100)/$totalDeAlumnos;
-                      
+
                         @endphp
                         {{-- Columna para promedio general de educacion fisica si es de merida  --}}
                         {{--  @if ($parametro_ubicacion_clave === "CME")
@@ -2573,13 +2574,13 @@
                             @for ($x = 0; $x < count($calificaciones); $x++)
                                 @if ($tipoReporte == "porMes")
                                       @if ($mesEvaluar == "Septiembre")
-                                        @if ($itemMatClave == $calificaciones[$x]->matClave)                                      
+                                        @if ($itemMatClave == $calificaciones[$x]->matClave)
                                           @if ($calificaciones[$x]->inscCalificacionSep >= 6)
                                               @php
                                                   $aprobados++;
                                               @endphp
                                           @endif
-                                        @endif                        
+                                        @endif
                                       @endif
 
                                       @if ($mesEvaluar == "Octubre")
@@ -2589,7 +2590,7 @@
                                                 $aprobados++;
                                               @endphp
                                           @endif
-                                        @endif                        
+                                        @endif
                                       @endif
 
                                       @if ($mesEvaluar == "Noviembre")
@@ -2599,7 +2600,7 @@
                                               $aprobados++;
                                             @endphp
                                           @endif
-                                        @endif                        
+                                        @endif
                                       @endif
 
                                       @if ($mesEvaluar == "Diciembre")
@@ -2609,7 +2610,7 @@
                                               $aprobados++;
                                             @endphp
                                           @endif
-                                        @endif                        
+                                        @endif
                                       @endif
 
                                       @if ($mesEvaluar == "Enero")
@@ -2619,7 +2620,7 @@
                                               $aprobados++;
                                             @endphp
                                           @endif
-                                        @endif                        
+                                        @endif
                                       @endif
 
 
@@ -2630,7 +2631,7 @@
                                               $aprobados++;
                                             @endphp
                                           @endif
-                                        @endif                        
+                                        @endif
                                       @endif
 
                                       @if ($mesEvaluar == "Marzo")
@@ -2640,7 +2641,7 @@
                                               $aprobados++;
                                             @endphp
                                           @endif
-                                        @endif                        
+                                        @endif
                                       @endif
 
                                       @if ($mesEvaluar == "Abril")
@@ -2650,7 +2651,7 @@
                                               $aprobados++;
                                             @endphp
                                           @endif
-                                        @endif                        
+                                        @endif
                                       @endif
 
 
@@ -2661,7 +2662,7 @@
                                               $aprobados++;
                                             @endphp
                                           @endif
-                                        @endif                        
+                                        @endif
                                       @endif
 
                                       @if ($mesEvaluar == "Junio")
@@ -2671,15 +2672,15 @@
                                               $aprobados++;
                                             @endphp
                                           @endif
-                                        @endif                        
+                                        @endif
                                       @endif
-                                      
-                                @endif        
-                                
+
+                                @endif
+
                                 {{-- mostrar por bimestre  --}}
                                 @if ($tipoReporte == "porBimestre")
                                   @if ($bimestreEvaluar == "BIMESTRE1")
-                                    @if ($itemMatClave == $calificaciones[$x]->matClave) 
+                                    @if ($itemMatClave == $calificaciones[$x]->matClave)
                                       @if ($calificaciones[$x]->inscPromedioBimestre1 >= 6)
                                         @php
                                           $aprobados++;
@@ -2689,7 +2690,7 @@
                                   @endif
 
                                   @if ($bimestreEvaluar == "BIMESTRE2")
-                                    @if ($itemMatClave == $calificaciones[$x]->matClave) 
+                                    @if ($itemMatClave == $calificaciones[$x]->matClave)
                                       @if ($calificaciones[$x]->inscPromedioBimestre2 >= 6)
                                         @php
                                           $aprobados++;
@@ -2699,7 +2700,7 @@
                                   @endif
 
                                   @if ($bimestreEvaluar == "BIMESTRE3")
-                                    @if ($itemMatClave == $calificaciones[$x]->matClave) 
+                                    @if ($itemMatClave == $calificaciones[$x]->matClave)
                                       @if ($calificaciones[$x]->inscPromedioBimestre3 >= 6)
                                         @php
                                           $aprobados++;
@@ -2709,7 +2710,7 @@
                                   @endif
 
                                   @if ($bimestreEvaluar == "BIMESTRE4")
-                                    @if ($itemMatClave == $calificaciones[$x]->matClave) 
+                                    @if ($itemMatClave == $calificaciones[$x]->matClave)
                                       @if ($calificaciones[$x]->inscPromedioBimestre4 >= 6)
                                         @php
                                           $aprobados++;
@@ -2719,7 +2720,7 @@
                                   @endif
 
                                   @if ($bimestreEvaluar == "BIMESTRE5")
-                                    @if ($itemMatClave == $calificaciones[$x]->matClave) 
+                                    @if ($itemMatClave == $calificaciones[$x]->matClave)
                                       @if ($calificaciones[$x]->inscPromedioBimestre5 >= 6)
                                         @php
                                           $aprobados++;
@@ -2734,39 +2735,39 @@
 
                                   {{-- trimestre 1 --}}
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                  @if ($itemMatClave == $calificaciones[$x]->matClave) 
+                                  @if ($itemMatClave == $calificaciones[$x]->matClave)
                                       @if ($calificaciones[$x]->inscTrimestre1 >= 6)
                                         @php
                                           $aprobados++;
                                         @endphp
-                                      @endif                  
+                                      @endif
                                     @endif
                                   @endif
 
                                   {{-- trimestre 2 --}}
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($itemMatClave == $calificaciones[$x]->matClave) 
+                                    @if ($itemMatClave == $calificaciones[$x]->matClave)
                                       @if ($calificaciones[$x]->inscTrimestre2 >= 6)
                                         @php
                                           $aprobados++;
                                         @endphp
-                                      @endif  
-                                    
+                                      @endif
+
                                     @endif
                                   @endif
 
                                   {{-- trimestre 3 --}}
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($itemMatClave == $calificaciones[$x]->matClave) 
+                                    @if ($itemMatClave == $calificaciones[$x]->matClave)
                                       @if ($calificaciones[$x]->inscTrimestre3 >= 6)
                                         @php
                                           $aprobados++;
                                         @endphp
-                                      @endif                      
+                                      @endif
                                     @endif
                                   @endif
                                 @endif
-                                
+
                               @endfor
                               {{--  Operacion para sacar el porcentaje de aprobados   --}}
                               @php
@@ -2784,7 +2785,7 @@
                                 $aprobados = 0;
                                 @endphp
                           @endforeach
-                          
+
                           @php
                               $generalApro = ($generalAprobados * 100)/$totalDeAlumnos;
                           @endphp
@@ -2815,14 +2816,14 @@
                         @foreach ($matClave as $itemMatClave)
                             <td align="center" style="border-top: 1px solid; border-right: 0px; border-bottom: 0px; border-left: 1px solid;"></td>
                         @endforeach
-                  
+
                         @if ($modoCalificacion != "BASEPORCENTAJE")
                         <td  style="border-top: 1px solid; border-right: 0px; border-bottom: 10px; border-left: 1px solid;"></td>
                         <td  style="border-top: 1px solid; border-right: 0px; border-bottom: 1px; border-left: 1px solid;"></td>
                         <td  style="border-top: 1px solid; border-right: 0px; border-bottom: 1px; border-left: 1px solid;"></td>
                         @endif
                         <td  style="border-top: 0px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;"></td>
-                        
+
                     </tr>
                   @endif
 
@@ -2834,7 +2835,7 @@
                     $VUELTA = 0;
 
                     $promedioSep = 0.0;
-                    $vuelta1 = 0; 
+                    $vuelta1 = 0;
 
                     $vueltaFis = 0;
                     $promedioEducacionFis = 0.0;
@@ -2848,13 +2849,13 @@
                     $promEducacionFisicaNov = 0.0;
                     $promediodelMesNov = 0.0;
 
-                   
+
                   @endphp
 
-                 
+
                 @endforeach
-              
-              
+
+
             </table>
           </div>
         </div>

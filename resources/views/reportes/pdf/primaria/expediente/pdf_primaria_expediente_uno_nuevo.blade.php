@@ -495,6 +495,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: -70px;
             right: 0px;
@@ -605,7 +606,7 @@
                 <img class="img-header" src="{{base_path('resources/assets/img/logo.jpg')}}" alt="">
 
                 <div class="cuadrado img-header2">
-            
+
                 </div>
 
                 <h1 style="margin-top:0px; margin-bottom: 0px; text-align: center;">ESCUELA MODELO, S.C.P.</h1>
@@ -614,7 +615,7 @@
         </div>
     </header>
 
-{{-- 
+{{--
     <div style="text-align: right; margin-top: -100px;">
         <div class="cuadrado img-foto">
 
@@ -637,11 +638,11 @@
 
 
     <div class="row">
-        <div class="columns medium-4">              
+        <div class="columns medium-4">
         </div>
         <div class="columns medium-4">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <label><b>Clave: </b>{{$alumno[0]->clave_pago}}</label>  <label><b>Curp: </b>{{$alumno[0]->curp}}</label>  
+            <label><b>Clave: </b>{{$alumno[0]->clave_pago}}</label>  <label><b>Curp: </b>{{$alumno[0]->curp}}</label>
             <br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <label style="margin-top:0px; margin-bottom: 10px;"><strong>Alumno: </strong>{{$alumno[0]->ape_paterno}}
@@ -651,8 +652,8 @@
            <label style="margin-top:0px; margin-bottom: 10px;"><strong>Grado: </strong>{{$alumno[0]->grado}}°
             {{$alumno[0]->grupo}} DE {{$alumno[0]->programa}}</label>
         </div>
-        <div class="columns medium-4">            
-        </div>             
+        <div class="columns medium-4">
+        </div>
     </div>
 
     <br>
@@ -676,18 +677,18 @@
             <tr>
             <th><label><b>Nombre(s): </b></label></th>
             <th><label><b>Apellido paterno: </b></label></th>
-            <th><label><b>Apellido materno: </b></label></th>         
-            <th><label><b>Fecha de nacimiento:</b></label></th>  
-            <th><label><b>Edad: </b></label></th>        
-            <th><label><b>Grado al que se inscribe: </b></label></th> 
-            </tr>                      
-            
-            <tr>            
-                
+            <th><label><b>Apellido materno: </b></label></th>
+            <th><label><b>Fecha de nacimiento:</b></label></th>
+            <th><label><b>Edad: </b></label></th>
+            <th><label><b>Grado al que se inscribe: </b></label></th>
+            </tr>
+
+            <tr>
+
                 <td><label>{{$alumno[0]->nombres}}</label></td>
-                
+
                 <td><label>{{$alumno[0]->ape_paterno}}</label></td>
-                
+
                 <td><label>{{$alumno[0]->ape_materno}}</label></td>
 
                 <td><label>{{ \Carbon\Carbon::parse($historiaAlumno[0]->perFechaNac)->format('d/m/Y')}}</label></td>
@@ -702,7 +703,7 @@
 
 
 
- 
+
     {{-- valida el genero para titulo correspondiente  --}}
     @if ($historiaAlumno[0]->sexo == "Masculino")
     <h2 style="text-align: center">TUTORES DEL ALUMNO</h2>
@@ -717,17 +718,17 @@
                 <tr>
                     <th><label><b>Nombre completo del tutor {{$key+1}}:</b></label></th>
                     <th><label><b>Calle:</b></label></th>
-                    <th><label><b>CP:</b></label></th>         
-                    <th><label><b>Población:</b></label></th>  
-                    <th><label><b>Colonia:</b></label></th>        
-                    <th><label><b>Estado: </b></label></th> 
-                </tr>                      
-                
-                <tr> 
+                    <th><label><b>CP:</b></label></th>
+                    <th><label><b>Población:</b></label></th>
+                    <th><label><b>Colonia:</b></label></th>
+                    <th><label><b>Estado: </b></label></th>
+                </tr>
+
+                <tr>
                     <td><label>{{$tutor->tutNombre}}</label></td>
-                    
+
                     <td><label>{{$tutor->tutCalle}}</label></td>
-                    
+
                     <td><label>{{$tutor->tutCodigoPostal}}</label></td>
 
                     <td><label>{{$tutor->tutPoblacion}}</label></td>
@@ -746,18 +747,18 @@
                 <tr>
                     <th><label><b>Nombre completo del tutor:</b></label></th>
                     <th><label><b>Calle:</b></label></th>
-                    <th><label><b>CP:</b></label></th>         
-                    <th><label><b>Población:</b></label></th>  
-                    <th><label><b>Colonia:</b></label></th>        
-                    <th><label><b>Estado:</b></label></th> 
-                </tr>                      
-                
-                <tr>            
-                    
+                    <th><label><b>CP:</b></label></th>
+                    <th><label><b>Población:</b></label></th>
+                    <th><label><b>Colonia:</b></label></th>
+                    <th><label><b>Estado:</b></label></th>
+                </tr>
+
+                <tr>
+
                     <td><label></label></td>
-                    
+
                     <td><label></label></td>
-                    
+
                     <td><label></label></td>
 
                     <td><label></label></td>
@@ -796,18 +797,18 @@
             <tr>
             <th><label><b>Nombre(s): </b></label></th>
             <th><label><b>Apellido paterno:</b></label></th>
-            <th><label><b>Apellido materno:</b></label></th>         
-            <th><label><b>Celular:</b></label></th>  
-            <th><label><b>Edad:</b></label></th>        
-            <th><label><b>Ocupación:</b></label></th> 
-            </tr>                      
-            
-            <tr>            
-                
+            <th><label><b>Apellido materno:</b></label></th>
+            <th><label><b>Celular:</b></label></th>
+            <th><label><b>Edad:</b></label></th>
+            <th><label><b>Ocupación:</b></label></th>
+            </tr>
+
+            <tr>
+
                 <td><label>{{$historiaAlumno[0]->nombresPadre}}</label></td>
-                
+
                 <td><label>{{$historiaAlumno[0]->apellido1Padre}}</label></td>
-                
+
                 <td><label>{{$historiaAlumno[0]->apellido2Padre}}</label></td>
 
                 <td><label>{{$historiaAlumno[0]->celularPadre}}</label></td>
@@ -835,18 +836,18 @@
             <tr>
             <th><label><b>Nombre(s): </b></label></th>
             <th><label><b>Apellido paterno:</b></label></th>
-            <th><label><b>Apellido materno:</b></label></th>         
-            <th><label><b>Celular:</b></label></th>  
-            <th><label><b>Edad:</b></label></th>        
-            <th><label><b>Ocupación:</b></label></th> 
-            </tr>                      
-            
-            <tr>            
-                
+            <th><label><b>Apellido materno:</b></label></th>
+            <th><label><b>Celular:</b></label></th>
+            <th><label><b>Edad:</b></label></th>
+            <th><label><b>Ocupación:</b></label></th>
+            </tr>
+
+            <tr>
+
                 <td><label>{{$historiaAlumno[0]->nombresMadre}}</label></td>
-                
+
                 <td><label>{{$historiaAlumno[0]->apellido1Madre}}</label></td>
-                
+
                 <td><label>{{$historiaAlumno[0]->apellido2Madre}}</label></td>
 
                 <td><label>{{$historiaAlumno[0]->celularMadre}}</label></td>
@@ -1001,7 +1002,7 @@
 
 
     <br>
-    
+
     <div class="row">
         <div class="columns medium-6">
             {{-- valida el genero para titulo correspondiente  --}}
@@ -1022,7 +1023,7 @@
         </div>
     </div>
 
-    
+
 
 
     <h2 style="text-align: center">DATOS ESCOLARES</h2>
@@ -1064,7 +1065,7 @@
             <label><b>Primaria:</b></label>
             <br>
             <label style="text-align: center">{{$historiaAlumno[0]->primaria}}</label>
-        </div>        
+        </div>
     </div>
 
     <br>
@@ -1075,18 +1076,18 @@
             <tr>
             <th><label><b>Promedio en 1°:</b></label></th>
             <th><label><b>Promedio en 2°:</b></label></th>
-            <th><label><b>Promedio en 3°:</b></label></th>         
-            <th><label><b>Promedio en 4°:</b></label></th>  
-            <th><label><b>Promedio en 5°:</b></label></th>        
-            <th><label><b>Promedio en 6°:</b></label></th> 
-            </tr>                      
-            
-            <tr>            
-                
+            <th><label><b>Promedio en 3°:</b></label></th>
+            <th><label><b>Promedio en 4°:</b></label></th>
+            <th><label><b>Promedio en 5°:</b></label></th>
+            <th><label><b>Promedio en 6°:</b></label></th>
+            </tr>
+
+            <tr>
+
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>{{$historiaAlumno[0]->promedioGrado1}}</label></td>
-                
+
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>{{$historiaAlumno[0]->promedioGrado2}}</label></td>
-                
+
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>{{$historiaAlumno[0]->promedioGrado3}}</label></td>
 
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>{{$historiaAlumno[0]->promedioGrado4}}</label></td>
@@ -1103,17 +1104,17 @@
     <div class="row">
         <div class="columns medium-4">
             <label><b>Repetición de algún grado:</b></label>
-            <br>           
+            <br>
             <label style="text-align: center">{{$historiaAlumno[0]->gradoRepetido}}</label>
-        </div>      
+        </div>
         <div class="columns medium-4">
             <label><b>Promedio:</b></label>
             <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
             <label style="text-align: center">{{$historiaAlumno[0]->promedioRepetido}}</label>
-        </div>        
+        </div>
     </div>
 
-    
+
     <br>
     <div class="row">
         <div class="columns medium-5">
@@ -1122,15 +1123,15 @@
             <label><b>¿Ha recibido su hijo apoyo pedagógico en algún grado escolar?:</b></label>
             @else
             <label><b>¿Ha recibido su hija apoyo pedagógico en algún grado escolar?:</b></label>
-            @endif   
-            <br>     
+            @endif
+            <br>
             <label style="text-align: center">{{$historiaAlumno[0]->apoyoPedagogico}}</label>
-        </div>      
+        </div>
         <div class="columns medium-8">
             <label><b>Observaciones:</b></label>
             <br>
             <label style="text-align: center">{{$historiaAlumno[0]->observacionesApoyo}}</label>
-        </div>        
+        </div>
     </div>
 
 
@@ -1141,7 +1142,7 @@
             <h4>¿Ha recibido su hijo algún tratamiento?:</h4>
             @else
             <h4>¿Ha recibido su hija algún tratamiento?:</h4>
-            @endif 
+            @endif
         </div>
     </div>
 
@@ -1151,12 +1152,12 @@
             <label><b>Médico:</b></label>
             <br>
             <label style="text-align: center">{{$historiaAlumno[0]->medico}}</label>
-        </div>      
+        </div>
         <div class="columns medium-8">
             <label><b>Observaciones:</b></label>
-            <br> 
+            <br>
             <label style="text-align: center">{{$historiaAlumno[0]->observacionesMedico}}</label>
-        </div>        
+        </div>
     </div>
 
     {{-- Neurológico  --}}
@@ -1165,26 +1166,26 @@
             <label><b>Neurológico:</b></label>
             <br>
             <label style="text-align: center">{{$historiaAlumno[0]->neurologico}}</label>
-        </div>      
+        </div>
         <div class="columns medium-8">
             <label><b>Observaciones:</b></label>
-            <br> 
+            <br>
             <label style="text-align: center">{{$historiaAlumno[0]->observacionesNerologico}}</label>
-        </div>        
+        </div>
     </div>
-    
+
     {{-- Psicologico  --}}
     <div class="row">
         <div class="columns medium-4">
             <label><b>Psicologico:</b></label>
             <br>
             <label style="text-align: center">{{$historiaAlumno[0]->psicologico}}</label>
-        </div>      
+        </div>
         <div class="columns medium-8">
             <label><b>Observaciones:</b></label>
-            <br> 
+            <br>
             <label style="text-align: center">{{$historiaAlumno[0]->observacionesPsicologico}}</label>
-        </div>        
+        </div>
     </div>
 
 
@@ -1209,17 +1210,17 @@
             <label><b>Familiar 1:</b></label>
             <br>
             <label style="text-align: center">{{$historiaAlumno[0]->familiar1}}</label>
-        </div>      
+        </div>
         <div class="columns medium-4">
             <label><b>Familiar 2:</b></label>
-            <br> 
+            <br>
             <label style="text-align: center">{{$historiaAlumno[0]->familiar2}}</label>
-        </div>     
+        </div>
         <div class="columns medium-4">
             <label><b>Familiar 3:</b></label>
-            <br> 
+            <br>
             <label style="text-align: center">{{$historiaAlumno[0]->familiar3}}</label>
-        </div>    
+        </div>
     </div>
 
 
@@ -1234,24 +1235,24 @@
             <label><b>Referencia 1:</b></label>
             <br>
             <label style="text-align: center">{{$historiaAlumno[0]->referencia1}}</label>
-        </div>      
+        </div>
         <div class="columns medium-4">
             <label><b>Celular referencia 1:</b></label>
             <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <label style="text-align: center">{{$historiaAlumno[0]->celularReferencia1}}</label>
-        </div>         
+        </div>
     </div>
     <div class="row">
         <div class="columns medium-4">
             <label><b>Referencia 2:</b></label>
             <br>
             <label style="text-align: center">{{$historiaAlumno[0]->referencia2}}</label>
-        </div>      
+        </div>
         <div class="columns medium-4">
             <label><b>Celular referencia 2:</b></label>
             <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <label style="text-align: center">{{$historiaAlumno[0]->celularReferencia2}}</label>
-        </div>         
+        </div>
     </div>
     <br>
 
@@ -1260,7 +1261,7 @@
             <label><b>Observaciones generales:</b></label>
             <br>
             <label style="text-align: center">{{$historiaAlumno[0]->observacionesGenerales}}</label>
-        </div>              
+        </div>
     </div>
 
     <br>
@@ -1269,18 +1270,18 @@
             <label><b>Entrevisto:</b></label>
             <br>
             <label style="text-decoration: underline;">{{$historiaAlumno[0]->entrevisto}}</label>
-        </div>         
+        </div>
         <div class="columns medium-4">
             <label><b>Ubicación:</b></label>
             <br>
             <label style="text-align: center">{{$historiaAlumno[0]->ubicacion}}</label>
-        </div>       
+        </div>
     </div>
 
     <footer>
         <div>
             <span class="page-number"></span>
-            
+
         </div>
         <div class="page_break"></div>
     </footer>
@@ -1298,7 +1299,7 @@
                 <img class="img-header" src="{{base_path('resources/assets/img/logo.jpg')}}" alt="">
 
                 <div class="cuadrado img-header2">
-            
+
                 </div>
 
                 <h1 style="margin-top:0px; margin-bottom: 0px; text-align: center;">ESCUELA MODELO, S.C.P.</h1>
@@ -1324,11 +1325,11 @@
 
 
     <div class="row">
-        <div class="columns medium-4">              
+        <div class="columns medium-4">
         </div>
         <div class="columns medium-4">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <label><b>Clave: </b>{{$alumno[0]->clave_pago}}</label>  <label><b>Curp: </b>{{$alumno[0]->curp}}</label>  
+            <label><b>Clave: </b>{{$alumno[0]->clave_pago}}</label>  <label><b>Curp: </b>{{$alumno[0]->curp}}</label>
             <br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <label style="margin-top:0px; margin-bottom: 10px;"><strong>Alumno: </strong>{{$alumno[0]->ape_paterno}}
@@ -1338,8 +1339,8 @@
            <label style="margin-top:0px; margin-bottom: 10px;"><strong>Grado: </strong>{{$alumno[0]->grado}}°
             {{$alumno[0]->grupo}} DE {{$alumno[0]->programa}}</label>
         </div>
-        <div class="columns medium-4">            
-        </div>             
+        <div class="columns medium-4">
+        </div>
     </div>
 
     <br>
@@ -1363,26 +1364,26 @@
             <tr>
             <th><label><b>Nombre(s): </b></label></th>
             <th><label><b>Apellido paterno: </b></label></th>
-            <th><label><b>Apellido materno: </b></label></th>         
-            <th><label><b>Fecha de nacimiento:</b></label></th>  
-            <th><label><b>Edad: </b></label></th>        
-            <th><label><b>Grado al que se inscribe: </b></label></th> 
-            </tr>                      
-            
-            <tr>            
-                
+            <th><label><b>Apellido materno: </b></label></th>
+            <th><label><b>Fecha de nacimiento:</b></label></th>
+            <th><label><b>Edad: </b></label></th>
+            <th><label><b>Grado al que se inscribe: </b></label></th>
+            </tr>
+
+            <tr>
+
                 <td>
                     <label><b>______________________</b></label>
                     <br>
                     <label>{{$alumno[0]->nombres}}</label>
                 </td>
-                
+
                 <td>
                     <label><b>______________________</b></label>
                     <br>
                     <label>{{$alumno[0]->ape_paterno}}</label>
                 </td>
-                
+
                 <td>
                     <label><b>______________________</b></label>
                     <br>
@@ -1413,7 +1414,7 @@
 
 
 
- 
+
     {{-- valida el genero para titulo correspondiente  --}}
     @if ($historiaAlumno[0]->sexo == "Masculino")
     <h2 style="text-align: center">TUTORES DEL ALUMNO</h2>
@@ -1428,25 +1429,25 @@
                 <tr>
                     <th><label><b>Nombre completo del tutor {{$key+1}}:</b></label></th>
                     <th><label><b>Calle:</b></label></th>
-                    <th><label><b>CP:</b></label></th>         
-                    <th><label><b>Población:</b></label></th>  
-                    <th><label><b>Colonia:</b></label></th>        
-                    <th><label><b>Estado: </b></label></th> 
-                </tr>                      
-                
-                <tr> 
+                    <th><label><b>CP:</b></label></th>
+                    <th><label><b>Población:</b></label></th>
+                    <th><label><b>Colonia:</b></label></th>
+                    <th><label><b>Estado: </b></label></th>
+                </tr>
+
+                <tr>
                     <td>
                         <label><b>____________________________</b></label>
                         <br>
                         <label>{{$tutor->tutNombre}}</label>
                     </td>
-                    
+
                     <td>
                         <label><b>______________________</b></label>
                         <br>
                         <label>{{$tutor->tutCalle}}</label>
                     </td>
-                    
+
                     <td>
                         <label><b>______________</b></label>
                         <br>
@@ -1481,18 +1482,18 @@
                 <tr>
                     <th><label><b>Nombre completo del tutor:</b></label></th>
                     <th><label><b>Calle:</b></label></th>
-                    <th><label><b>CP:</b></label></th>         
-                    <th><label><b>Población:</b></label></th>  
-                    <th><label><b>Colonia:</b></label></th>        
-                    <th><label><b>Estado:</b></label></th> 
-                </tr>                      
-                
-                <tr>            
-                    
+                    <th><label><b>CP:</b></label></th>
+                    <th><label><b>Población:</b></label></th>
+                    <th><label><b>Colonia:</b></label></th>
+                    <th><label><b>Estado:</b></label></th>
+                </tr>
+
+                <tr>
+
                     <td><label><b>______________________</b></label></td>
-                    
+
                     <td><label><b>______________________</b></label></td>
-                    
+
                     <td><label><b>______________________</b></label></td>
 
                     <td><label><b>______________________</b></label></td>
@@ -1533,26 +1534,26 @@
             <tr>
             <th><label><b>Nombre(s): </b></label></th>
             <th><label><b>Apellido paterno:</b></label></th>
-            <th><label><b>Apellido materno:</b></label></th>         
-            <th><label><b>Celular:</b></label></th>  
-            <th><label><b>Edad:</b></label></th>        
-            <th><label><b>Ocupación:</b></label></th> 
-            </tr>                      
-            
-            <tr>            
-                
+            <th><label><b>Apellido materno:</b></label></th>
+            <th><label><b>Celular:</b></label></th>
+            <th><label><b>Edad:</b></label></th>
+            <th><label><b>Ocupación:</b></label></th>
+            </tr>
+
+            <tr>
+
                 <td>
                     <label><b>______________________</b></label>
                         <br>
                     <label>{{$historiaAlumno[0]->nombresPadre}}</label>
                 </td>
-                
+
                 <td>
                     <label><b>______________________</b></label>
                         <br>
                     <label>{{$historiaAlumno[0]->apellido1Padre}}</label>
                 </td>
-                
+
                 <td>
                     <label><b>______________________</b></label>
                         <br>
@@ -1596,26 +1597,26 @@
             <tr>
             <th><label><b>Nombre(s): </b></label></th>
             <th><label><b>Apellido paterno:</b></label></th>
-            <th><label><b>Apellido materno:</b></label></th>         
-            <th><label><b>Celular:</b></label></th>  
-            <th><label><b>Edad:</b></label></th>        
-            <th><label><b>Ocupación:</b></label></th> 
-            </tr>                      
-            
-            <tr>            
-                
+            <th><label><b>Apellido materno:</b></label></th>
+            <th><label><b>Celular:</b></label></th>
+            <th><label><b>Edad:</b></label></th>
+            <th><label><b>Ocupación:</b></label></th>
+            </tr>
+
+            <tr>
+
                 <td>
                     <label><b>______________________</b></label>
                         <br>
                     <label>{{$historiaAlumno[0]->nombresMadre}}</label>
                 </td>
-                
+
                 <td>
                     <label><b>______________________</b></label>
                         <br>
                     <label>{{$historiaAlumno[0]->apellido1Madre}}</label>
                 </td>
-                
+
                 <td>
                     <label><b>______________________</b></label>
                         <br>
@@ -1824,7 +1825,7 @@
 
 
     <br>
-    
+
     <div class="row">
         <div class="columns medium-6">
             {{-- valida el genero para titulo correspondiente  --}}
@@ -1849,7 +1850,7 @@
         </div>
     </div>
 
-    
+
 
 
     <h2 style="text-align: center">DATOS ESCOLARES</h2>
@@ -1903,7 +1904,7 @@
             <b>_____________________________________</b></label>
                         <br>
             <label style="text-align: center">{{$historiaAlumno[0]->primaria}}</label>
-        </div>        
+        </div>
     </div>
 
     <br>
@@ -1914,26 +1915,26 @@
             <tr>
             <th><label><b>Promedio en 1°:</b></label></th>
             <th><label><b>Promedio en 2°:</b></label></th>
-            <th><label><b>Promedio en 3°:</b></label></th>         
-            <th><label><b>Promedio en 4°:</b></label></th>  
-            <th><label><b>Promedio en 5°:</b></label></th>        
-            <th><label><b>Promedio en 6°:</b></label></th> 
-            </tr>                      
-            
-            <tr>            
-                
+            <th><label><b>Promedio en 3°:</b></label></th>
+            <th><label><b>Promedio en 4°:</b></label></th>
+            <th><label><b>Promedio en 5°:</b></label></th>
+            <th><label><b>Promedio en 6°:</b></label></th>
+            </tr>
+
+            <tr>
+
                 <td>
                     <label>
                     <b>________________</b></label>
                         <br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>{{$historiaAlumno[0]->promedioGrado1}}</label></td>
-                
+
                 <td>
                     <label>
                     <b>________________</b></label>
                         <br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>{{$historiaAlumno[0]->promedioGrado2}}</label></td>
-                
+
                 <td>
                     <label>
                     <b>________________</b></label>
@@ -1966,11 +1967,11 @@
     <div class="row">
         <div class="columns medium-4">
             <label><b>Repetición de algún grado:</b></label>
-            <br>    
+            <br>
             <label><b>_________________________</b></label>
-                    <br>       
+                    <br>
             <label style="text-align: center">{{$historiaAlumno[0]->gradoRepetido}}</label>
-        </div>      
+        </div>
         <div class="columns medium-4">
             <label><b>Promedio:</b></label>
             <br>
@@ -1978,10 +1979,10 @@
                     <br>
                      &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
             <label style="text-align: center">{{$historiaAlumno[0]->promedioRepetido}}</label>
-        </div>        
+        </div>
     </div>
 
-    
+
     <br>
     <div class="row">
         <div class="columns medium-5">
@@ -1990,19 +1991,19 @@
             <label><b>¿Ha recibido su hijo apoyo pedagógico en algún grado escolar?:</b></label>
             @else
             <label><b>¿Ha recibido su hija apoyo pedagógico en algún grado escolar?:</b></label>
-            @endif   
-            <br> 
+            @endif
+            <br>
             <label><b>________________</b></label>
-                    <br>    
+                    <br>
             <label style="text-align: center">{{$historiaAlumno[0]->apoyoPedagogico}}</label>
-        </div>      
+        </div>
         <div class="columns medium-8">
             <label><b>Observaciones:</b></label>
             <br>
             <label><b>___________________________________________________________________________________</b></label>
                     <br>
             <label style="text-align: center">{{$historiaAlumno[0]->observacionesApoyo}}</label>
-        </div>        
+        </div>
     </div>
 
 
@@ -2013,7 +2014,7 @@
             <h4>¿Ha recibido su hijo algún tratamiento?:</h4>
             @else
             <h4>¿Ha recibido su hija algún tratamiento?:</h4>
-            @endif 
+            @endif
         </div>
     </div>
 
@@ -2023,16 +2024,16 @@
             <label><b>Médico:</b></label>
             <br>
             <label><b>________________</b></label>
-                    <br>   
+                    <br>
             <label style="text-align: center">{{$historiaAlumno[0]->medico}}</label>
-        </div>      
+        </div>
         <div class="columns medium-8">
             <label><b>Observaciones:</b></label>
-            <br> 
+            <br>
             <label><b>___________________________________________________________________________________</b></label>
                     <br>
             <label style="text-align: center">{{$historiaAlumno[0]->observacionesMedico}}</label>
-        </div>        
+        </div>
     </div>
 
     {{-- Neurológico  --}}
@@ -2041,34 +2042,34 @@
             <label><b>Neurológico:</b></label>
             <br>
             <label><b>________________</b></label>
-                    <br>   
+                    <br>
             <label style="text-align: center">{{$historiaAlumno[0]->neurologico}}</label>
-        </div>      
+        </div>
         <div class="columns medium-8">
             <label><b>Observaciones:</b></label>
-            <br> 
+            <br>
             <label><b>___________________________________________________________________________________</b></label>
                     <br>
             <label style="text-align: center">{{$historiaAlumno[0]->observacionesNerologico}}</label>
-        </div>        
+        </div>
     </div>
-    
+
     {{-- Psicologico  --}}
     <div class="row">
         <div class="columns medium-4">
             <label><b>Psicologico:</b></label>
             <br>
             <label><b>________________</b></label>
-                    <br>   
+                    <br>
             <label style="text-align: center">{{$historiaAlumno[0]->psicologico}}</label>
-        </div>      
+        </div>
         <div class="columns medium-8">
             <label><b>Observaciones:</b></label>
-            <br> 
+            <br>
             <label><b>___________________________________________________________________________________</b></label>
                     <br>
             <label style="text-align: center">{{$historiaAlumno[0]->observacionesPsicologico}}</label>
-        </div>        
+        </div>
     </div>
 
 
@@ -2078,7 +2079,7 @@
             <label><b>Motivo por el que se solicita la inscripción en la Escuela Modelo:</b></label>
             <br>
             <label><b>_________________________________________________________________________________________________________________________________________</b></label>
-                    <br>   
+                    <br>
             <label>{{$historiaAlumno[0]->motivoInscripcion}}</label>
         </div>
     </div>
@@ -2095,23 +2096,23 @@
             <label><b>Familiar 1:</b></label>
             <br>
             <label><b>_______________________________________________</b></label>
-                    <br>   
+                    <br>
             <label style="text-align: center">{{$historiaAlumno[0]->familiar1}}</label>
-        </div>      
+        </div>
         <div class="columns medium-4">
             <label><b>Familiar 2:</b></label>
-            <br> 
+            <br>
             <label><b>_______________________________________________</b></label>
                     <br>
             <label style="text-align: center">{{$historiaAlumno[0]->familiar2}}</label>
-        </div>     
+        </div>
         <div class="columns medium-4">
             <label><b>Familiar 3:</b></label>
-            <br> 
+            <br>
             <label><b>_______________________________________________</b></label>
                     <br>
             <label style="text-align: center">{{$historiaAlumno[0]->familiar3}}</label>
-        </div>    
+        </div>
     </div>
 
 
@@ -2126,26 +2127,26 @@
             <label><b>Referencia 1:</b></label>
             <br>
             <label><b>_______________________________________________</b></label>
-                    <br>   
+                    <br>
             <label style="text-align: center">{{$historiaAlumno[0]->referencia1}}</label>
-        </div>      
+        </div>
         <div class="columns medium-4">
             <label><b>Celular referencia 1:</b></label>
             <br>
             <label><b>_________________</b></label>
-                    <br>  
+                    <br>
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <label style="text-align: center">{{$historiaAlumno[0]->celularReferencia1}}</label>
-        </div>         
+        </div>
     </div>
     <div class="row">
         <div class="columns medium-4">
             <label><b>Referencia 2:</b></label>
             <br>
             <label><b>_______________________________________________</b></label>
-                    <br>   
+                    <br>
             <label style="text-align: center">{{$historiaAlumno[0]->referencia2}}</label>
-        </div>      
+        </div>
         <div class="columns medium-4">
             <label><b>Celular referencia 2:</b></label>
             <br>
@@ -2153,7 +2154,7 @@
                     <br>
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <label style="text-align: center">{{$historiaAlumno[0]->celularReferencia2}}</label>
-        </div>         
+        </div>
     </div>
     <br>
 
@@ -2162,9 +2163,9 @@
             <label><b>Observaciones generales:</b></label>
             <br>
             <label><b>______________________________________________________________________________________________________________________________________________________</b></label>
-                    <br>   
+                    <br>
             <label style="text-align: center">{{$historiaAlumno[0]->observacionesGenerales}}</label>
-        </div>              
+        </div>
     </div>
 
     <br>
@@ -2173,16 +2174,16 @@
             <label><b>Entrevisto:</b></label>
             <br>
             <label><b>______________________________________________</b></label>
-                    <br>   
+                    <br>
             <label style="text-decoration: underline;">{{$historiaAlumno[0]->entrevisto}}</label>
-        </div>         
+        </div>
         <div class="columns medium-4">
             <label><b>Ubicación:</b></label>
             <br>
             <label><b>______________________________________________</b></label>
-                    <br>   
+                    <br>
             <label style="text-align: center">{{$historiaAlumno[0]->ubicacion}}</label>
-        </div>       
+        </div>
     </div>
 
     <footer>
