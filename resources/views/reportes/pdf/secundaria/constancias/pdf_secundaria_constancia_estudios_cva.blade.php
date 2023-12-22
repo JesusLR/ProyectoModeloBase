@@ -369,7 +369,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -393,15 +393,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -485,9 +486,9 @@
       }
     </style>
 	</head>
-  
+
   <header>
-   
+
   </header>
     <body>
       {{-- Controlador: ConstanciaDocenteController --}}
@@ -503,16 +504,16 @@
 
           <br>
           <p>A QUIEN CORRESPONDA:</p>
-          <br>          
+          <br>
           @if ($tiene_foto == "sin_foto")
-          <br>         
+          <br>
           <br>
           <br>
           <br>
           <br>
           @endif
-          
-          
+
+
           @if ($tiene_foto == "con_foto")
             @if ($curso_alumno->curSecundariaFoto != "")
               @if (file_exists(base_path('storage/app/public/secundaria/cursos/fotos/' . $curso_alumno->perAnioPago . '/' . $campus .'/'. $curso_alumno->curSecundariaFoto)))
@@ -527,18 +528,18 @@
               @endif
             @endif
           @endif
-          <p style="margin-left: 4em; font-size: 15px; text-align: justify;">            
+          <p style="margin-left: 4em; font-size: 15px; text-align: justify;">
             La que suscribe,  Mtra. Lol –Há Canché Gómez, Directora de la
             Escuela Secundaria "Modelo Valladolid", clave C.T. 31PES0143L de esta ciudad hace constar:
           </p>
-          
+
           <br>
           <br>
           <br>
           <br>
           <p style="text-indent: 4em; font-size: 15px; text-align: justify;">
-            {{$genero}} <b>{{$alumno}} con número de matrícula {{$clave}} </b>  {{$parametro_consideracion}} regular de este plantel, al {{$grado}} GRUPO “{{$grupo}}”, 
-            del ciclo escolar {{$periodo}}, 
+            {{$genero}} <b>{{$alumno}} con número de matrícula {{$clave}} </b>  {{$parametro_consideracion}} regular de este plantel, al {{$grado}} GRUPO “{{$grupo}}”,
+            del ciclo escolar {{$periodo}},
             durante el tiempo que ha estudiado en este plantel, se ha observado buena conducta y cumplimiento del reglamento de la escuela.
           </p>
 
@@ -548,26 +549,26 @@
           <br>
 
           <p style="text-indent: 4em; font-size: 15px; text-align: justify;">
-            Y a pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día de hoy, en la ciudad de Valladolid Yucatán, México.            
+            Y a pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día de hoy, en la ciudad de Valladolid Yucatán, México.
           </p>
         </div>
       </div>
-      
-      <br><br><br><br><br><br><br> 
+
+      <br><br><br><br><br><br><br>
 
       <div class="row">
         <div class="columns medium-12">
 
           <p class="tcenter"><b>ATENTAMENTE</b></p>
-          <br><br><br><br>          
+          <br><br><br><br>
           <p class="tcenter"><b>________________________________________________________</b></p>
 
           {{--  @if ($parametro_ubicacion_clave == "CVA")  --}}
             <p class="tcenter"><b>Mtra. Lol-Há Canché Gómez</b></p>
             <p class="tcenter"><b>DIRECTORA</b></p>
           {{--  @endif  --}}
-          
-        
+
+
         </div>
       </div>
       {{--  @if(!$loop->last)

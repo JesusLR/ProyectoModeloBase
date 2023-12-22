@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -20px;
         right: 0px;
@@ -512,7 +513,7 @@
           <p>Nivel: {{$empleado[0]->plan->programa->progClave}} ({{$empleado[0]->plan->planClave}}) {{$empleado[0]->plan->programa->progNombre}}</p>
 
           @if ($empEstado == "T")
-              
+
           @else
           <p>Estado:
             @if ($empEstado == "A")
@@ -528,7 +529,7 @@
             @endif
           </p>
           @endif
-          
+
         </div>
       </div>
     </header>
@@ -550,7 +551,7 @@
               @if ($empEstado == "T")
               <th align="center" style="font-weight: 400;width: 20px;">Estado</th>
               @else
-                  
+
               @endif
               <th align="center"  style="font-weight: 400;">Materia Complementaria</th>
               <th  style="font-weight: 400;">Grado/Clave Grupo</th>
@@ -582,13 +583,13 @@
                             @endif
                             @if ($empleado->primaria_empleado->empEstado == "B")
                                 BAJA
-                            @endif                      
+                            @endif
                             @if ($empleado->primaria_empleado->empEstado == "S")
                                 SUSPENDIDO
                             @endif
                           </td>
                           @else
-                              
+
                           @endif
                           <td>
                               <span style="font-weight: 500;">

@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -504,7 +505,7 @@
     @foreach ($grupos as $grupo)
 			@php
         $inscritos = $grupo['inscritos'];
-        
+
         // dd($grupos, $grupo, $inscritos);
 			@endphp
       @if (!is_null($inscritos))

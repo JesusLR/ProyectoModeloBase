@@ -20,7 +20,7 @@ class SecundariaConstanciasController extends Controller
 
     public function imprimirCartaConducta($id_curso)
     {
-        // query de seleccion de alumno 
+        // query de seleccion de alumno
         $curso_alumno = Curso::select(
             "cursos.id",
             "alumnos.id as alumno_id",
@@ -57,7 +57,7 @@ class SecundariaConstanciasController extends Controller
 
 
 
-        // buscar el grupo al que el alumno pertenece 
+        // buscar el grupo al que el alumno pertenece
         // $resultado_array =  DB::select("call procSecundariaObtieneGrupoCurso(" . $id_curso . ")");
 
         // if (empty($resultado_array)) {
@@ -79,7 +79,7 @@ class SecundariaConstanciasController extends Controller
             $es = "alumno";
         }
 
-        // valida que grado es para escribir lo que corresponda 
+        // valida que grado es para escribir lo que corresponda
         $gradoEnLetras = "";
         if ($parametro_grado == 1) {
             $gradoEnLetras = "primer grado";
@@ -100,7 +100,7 @@ class SecundariaConstanciasController extends Controller
             $gradoEnLetras = "sexto grado";
         }
 
-        // obtener fecha del sistema 
+        // obtener fecha del sistema
         $fechaActual = Carbon::now('America/Merida');
         setlocale(LC_TIME, 'es_ES.UTF-8');
         // En windows
@@ -151,7 +151,7 @@ class SecundariaConstanciasController extends Controller
 
 
         // view('reportes.pdf.secundaria.constancias.pdf_secundaria_carta_conducta')
-        // fecha que se mostrara en PDF 
+        // fecha que se mostrara en PDF
         if ($parametro_clave_ubicacion == "CME") {
             $fechahoy = 'MÉRIDA, YUC., ' . $fechaDia . ' DE ' . $mesLetras . ' DE ' . $fechaAnio . '.';
         }
@@ -185,7 +185,7 @@ class SecundariaConstanciasController extends Controller
     {
 
         //return "hola";
-        // query de seleccion de alumno 
+        // query de seleccion de alumno
         $curso_alumno = Curso::select(
             "cursos.id",
             "cursos.curSecundariaFoto",
@@ -217,7 +217,7 @@ class SecundariaConstanciasController extends Controller
                     $query->where('cursos.curSecundariaFoto', '!=', "");
                 }
 
-             
+
             })
             ->first();
 
@@ -237,7 +237,7 @@ class SecundariaConstanciasController extends Controller
         $parametro_clave = $curso_alumno->aluClave;
         $parametro_ubicacion_clave = $curso_alumno->ubiClave;
 
-        // buscar el grupo al que el alumno pertenece 
+        // buscar el grupo al que el alumno pertenece
         $resultado_array =  DB::select("call procSecundariaObtieneGrupoCurso(" . $id_curso . ")");
 
         if (empty($resultado_array)) {
@@ -257,7 +257,7 @@ class SecundariaConstanciasController extends Controller
             $parametro_consideracion = "es alumno ";
         }
 
-        // valida que grado es para escribir lo que corresponda 
+        // valida que grado es para escribir lo que corresponda
         $gradoEnLetras = "";
         if ($parametro_grado == 1) {
             $gradoEnLetras = "PRIMER GRADO";
@@ -278,7 +278,7 @@ class SecundariaConstanciasController extends Controller
             $gradoEnLetras = "SEXTO GRADO";
         }
 
-        // obtener fecha del sistema 
+        // obtener fecha del sistema
         $fechaActual = Carbon::now('America/Merida');
         setlocale(LC_TIME, 'es_ES.UTF-8');
         // En windows
@@ -327,8 +327,8 @@ class SecundariaConstanciasController extends Controller
             $mesLetras = "DICIEMBRE";
         }
 
-        
-                // fecha que se mostrara en PDF 
+
+                // fecha que se mostrara en PDF
         if ($parametro_ubicacion_clave == "CME") {
             $fechahoy = 'MÉRIDA, YUC., A ' . $fechaDia . ' DE ' . $mesLetras . ' DE ' . $fechaAnio . '.';
 
@@ -384,7 +384,7 @@ class SecundariaConstanciasController extends Controller
     public function imprimirConstanciaNoAdeudo($id_curso)
     {
 
-        // query de seleccion de alumno 
+        // query de seleccion de alumno
         $curso_alumno = Curso::select(
             "cursos.id",
             "alumnos.id as alumno_id",
@@ -424,7 +424,7 @@ class SecundariaConstanciasController extends Controller
         $parametro_clave_ubicacion = $curso_alumno->ubiClave;
 
 
-        // buscar el grupo al que el alumno pertenece 
+        // buscar el grupo al que el alumno pertenece
         $resultado_array =  DB::select("call procSecundariaObtieneGrupoCurso(" . $id_curso . ")");
 
         if (empty($resultado_array)) {
@@ -443,7 +443,7 @@ class SecundariaConstanciasController extends Controller
             $parametro_consideracion = "fue alumno  ";
         }
 
-        // valida que grado es para escribir lo que corresponda 
+        // valida que grado es para escribir lo que corresponda
         $gradoEnLetras = "";
         if ($parametro_grado == 1) {
             $gradoEnLetras = "PRIMER GRADO";
@@ -464,7 +464,7 @@ class SecundariaConstanciasController extends Controller
             $gradoEnLetras = "SEXTO GRADO";
         }
 
-        // obtener fecha del sistema 
+        // obtener fecha del sistema
         $fechaActual = Carbon::now('America/Merida');
         setlocale(LC_TIME, 'es_ES.UTF-8');
         // En windows
@@ -514,7 +514,7 @@ class SecundariaConstanciasController extends Controller
         }
 
 
-        // fecha que se mostrara en PDF 
+        // fecha que se mostrara en PDF
         if ($parametro_clave_ubicacion == "CME") {
             $fechahoy = 'MÉRIDA, YUC., A ' . $fechaDia . ' DE ' . $mesLetras . ' DE ' . $fechaAnio . '.';
         }
@@ -542,40 +542,40 @@ class SecundariaConstanciasController extends Controller
         return $pdf->download($parametro_NombreArchivo  . '.pdf');
     }
 
-    // constancia de cupo 
+    // constancia de cupo
     public function imprimirConstanciaCupo($id_curso, $tipoConstancia)
     {
 
 
         $inscrito = DB::select("SELECT
             sm.id as materia_id,
-            sm.matClave, 
+            sm.matClave,
             sm.matNombre,
             sm.matNombreCorto,
             sm.id as materia_id,
-            si.inscTrimestre1 as trimestre1,						
+            si.inscTrimestre1 as trimestre1,
 			IFNULL(CASE
 				WHEN si.inscRecuperativoTrimestre1 >= 6 THEN si.inscRecuperativoTrimestre1
 				WHEN si.inscRecuperativoTrimestre1 = -1 THEN 5
 				WHEN si.inscRecuperativoTrimestre1 = -2 THEN 5
 				ELSE NULL
-			END,si.inscTrimestre1) AS trimestre1Sep,	
-			si.inscRecuperativoTrimestre1,					
-            si.inscTrimestre2 as trimestre2,						
+			END,si.inscTrimestre1) AS trimestre1Sep,
+			si.inscRecuperativoTrimestre1,
+            si.inscTrimestre2 as trimestre2,
 			IFNULL(CASE
 				WHEN si.inscRecuperativoTrimestre2 >= 6 THEN si.inscRecuperativoTrimestre2
 				WHEN si.inscRecuperativoTrimestre2 = -1 THEN 5
 				WHEN si.inscRecuperativoTrimestre2 = -2 THEN 5
 				ELSE NULL
-			END,si.inscTrimestre2) AS trimestre2Sep,						
-            si.inscRecuperativoTrimestre2,						
+			END,si.inscTrimestre2) AS trimestre2Sep,
+            si.inscRecuperativoTrimestre2,
 			si.inscTrimestre3 as trimestre3,
 			IFNULL(CASE
 				WHEN si.inscRecuperativoTrimestre3 >= 6 THEN si.inscRecuperativoTrimestre3
 				WHEN si.inscRecuperativoTrimestre3 = -1 THEN 5
 				WHEN si.inscRecuperativoTrimestre3 = -2 THEN 5
 				ELSE NULL
-			END,si.inscTrimestre3) AS trimestre3Sep,          
+			END,si.inscTrimestre3) AS trimestre3Sep,
             si.inscRecuperativoTrimestre3,
             si.inscPromedioTrim as promedioTrimestre,
             si.inscCalificacionFinalModelo,
@@ -618,7 +618,7 @@ class SecundariaConstanciasController extends Controller
             WHERE
             cursos.id = $id_curso
             AND sm.matEspecialidad='1FA'
-            AND departamentos.depClave = 'SEC'          	
+            AND departamentos.depClave = 'SEC'
             ORDER BY sm.matOrdenVisual asc");
 
             // AND sm.matClave NOT LIKE ('ART%')
@@ -644,33 +644,33 @@ class SecundariaConstanciasController extends Controller
 
 
         $inscrito2 = DB::select("SELECT DISTINCT
-            sm.matClave, 
+            sm.matClave,
             sm.matNombre,
             sm.matNombreCorto,
             sm.id as materia_id,
-            si.inscTrimestre1 as trimestre1,                   
+            si.inscTrimestre1 as trimestre1,
             IFNULL(CASE
                 WHEN si.inscRecuperativoTrimestre1 >= 6 THEN si.inscRecuperativoTrimestre1
                 WHEN si.inscRecuperativoTrimestre1 = -1 THEN 6
                 WHEN si.inscRecuperativoTrimestre1 = -2 THEN 6
                 ELSE NULL
-            END,si.inscTrimestre1) AS trimestre1Sep,	
+            END,si.inscTrimestre1) AS trimestre1Sep,
             si.inscRecuperativoTrimestre1,
-            si.inscTrimestre2 as trimestre2,						
+            si.inscTrimestre2 as trimestre2,
             IFNULL(CASE
                 WHEN si.inscRecuperativoTrimestre2 >= 6 THEN si.inscRecuperativoTrimestre2
                 WHEN si.inscRecuperativoTrimestre2 = -1 THEN 6
                 WHEN si.inscRecuperativoTrimestre2 = -2 THEN 6
                 ELSE NULL
-            END,si.inscTrimestre2) AS trimestre2Sep,                    
-            si.inscRecuperativoTrimestre2,                    
+            END,si.inscTrimestre2) AS trimestre2Sep,
+            si.inscRecuperativoTrimestre2,
             si.inscTrimestre3 as trimestre3,
             IFNULL(CASE
                 WHEN si.inscRecuperativoTrimestre3 >= 6 THEN si.inscRecuperativoTrimestre3
                 WHEN si.inscRecuperativoTrimestre3 = -1 THEN 6
                 WHEN si.inscRecuperativoTrimestre3 = -2 THEN 6
                 ELSE NULL
-            END,si.inscTrimestre3) AS trimestre3Sep,  
+            END,si.inscTrimestre3) AS trimestre3Sep,
             si.inscRecuperativoTrimestre3,
             si.inscPromedioTrim as promedioTrimestre,
             si.inscCalificacionFinalModelo,
@@ -712,37 +712,37 @@ class SecundariaConstanciasController extends Controller
             AND personas.deleted_at IS NULL
             WHERE
             cursos.id = $id_curso
-            AND departamentos.depClave = 'SEC'										
+            AND departamentos.depClave = 'SEC'
             AND sm.matClave LIKE ('EF1%')");
 
         $inscrito3 = DB::select("SELECT DISTINCT
-            sm.matClave, 
+            sm.matClave,
             sm.matNombre,
             sm.matNombreCorto,
             sm.id as materia_id,
-            si.inscTrimestre1 as trimestre1,		
+            si.inscTrimestre1 as trimestre1,
 			IFNULL(CASE
 				WHEN si.inscRecuperativoTrimestre1 >= 6 THEN si.inscRecuperativoTrimestre1
 				WHEN si.inscRecuperativoTrimestre1 = -1 THEN 6
 				WHEN si.inscRecuperativoTrimestre1 = -2 THEN 6
 				ELSE NULL
-			END,si.inscTrimestre1) AS trimestre1Sep,	
+			END,si.inscTrimestre1) AS trimestre1Sep,
 			si.inscRecuperativoTrimestre1,
-            si.inscTrimestre2 as trimestre2,						
+            si.inscTrimestre2 as trimestre2,
 			IFNULL(CASE
                 WHEN si.inscRecuperativoTrimestre2 >= 6 THEN si.inscRecuperativoTrimestre2
 				WHEN si.inscRecuperativoTrimestre2 = -1 THEN 6
 				WHEN si.inscRecuperativoTrimestre2 = -2 THEN 6
 				ELSE NULL
-		    END,si.inscTrimestre2) AS trimestre2Sep,						
-            si.inscRecuperativoTrimestre2,						
+		    END,si.inscTrimestre2) AS trimestre2Sep,
+            si.inscRecuperativoTrimestre2,
 			si.inscTrimestre3 as trimestre3,
 			IFNULL(CASE
 				WHEN si.inscRecuperativoTrimestre3 >= 6 THEN si.inscRecuperativoTrimestre3
 				WHEN si.inscRecuperativoTrimestre3 = -1 THEN 6
 				WHEN si.inscRecuperativoTrimestre3 = -2 THEN 6
 				ELSE NULL
-			END,si.inscTrimestre3) AS trimestre3Sep,         
+			END,si.inscTrimestre3) AS trimestre3Sep,
             si.inscRecuperativoTrimestre3,
             si.inscPromedioTrim as promedioTrimestre,
             si.inscCalificacionFinalModelo,
@@ -784,7 +784,7 @@ class SecundariaConstanciasController extends Controller
             AND personas.deleted_at IS NULL
             WHERE
             cursos.id = $id_curso
-            AND departamentos.depClave = 'SEC'										
+            AND departamentos.depClave = 'SEC'
             AND sm.matClave LIKE ('DVE%')");
 
         $parametro_alumno = $inscrito[0]->perApellido1 . ' ' . $inscrito[0]->perApellido2 . ' ' . $inscrito[0]->perNombre;
@@ -804,7 +804,7 @@ class SecundariaConstanciasController extends Controller
         }
 
 
-        // obtener fecha del sistema 
+        // obtener fecha del sistema
         $fechaActual = Carbon::now('America/Merida');
         setlocale(LC_TIME, 'es_ES.UTF-8');
         // En windows
@@ -814,7 +814,7 @@ class SecundariaConstanciasController extends Controller
         $fechaMes = $fechaActual->format('m');
         $fechaAnio = $fechaActual->format('Y');
 
-        // valida que grado es para escribir lo que corresponda 
+        // valida que grado es para escribir lo que corresponda
         $gradoEnLetras = "";
         $gradoSiguiente = "";
         $nivel = "";
@@ -846,7 +846,7 @@ class SecundariaConstanciasController extends Controller
         //      $gradoSiguiente = "";
         //  }
 
-        // meeses en letras 
+        // meeses en letras
         $mesLetras = "";
         if ($fechaMes == "01") {
             $mesLetras = "Enero";
@@ -887,11 +887,11 @@ class SecundariaConstanciasController extends Controller
 
 
         if ($parametro_ubicacion == "CME") {
-            // fecha que se mostrara en PDF 
+            // fecha que se mostrara en PDF
             $fechahoy = 'Mérida, Yucatán, a ' . $fechaDia . ' de ' . $mesLetras . ' de ' . $fechaAnio;
         }
         if ($parametro_ubicacion == "CVA") {
-            // fecha que se mostrara en PDF 
+            // fecha que se mostrara en PDF
             $fechahoy = 'Valladolid, Yucatán, a ' . $fechaDia . ' de ' . $mesLetras . ' de ' . $fechaAnio;
         }
 
@@ -948,13 +948,13 @@ class SecundariaConstanciasController extends Controller
         return $pdf->download($parametro_NombreArchivo  . '.pdf');
     }
 
-    // constancia de promedio final 
+    // constancia de promedio final
     public function imprimirConstanciaPromedioFinal($id_curso, $tipoConstancia)
     {
 
 
         $inscrito = DB::select("SELECT DISTINCT
-            sm.matClave, 
+            sm.matClave,
             sm.matNombre,
             sm.matNombreCorto,
             sm.id as materia_id,
@@ -999,7 +999,7 @@ class SecundariaConstanciasController extends Controller
                                 AND personas.deleted_at IS NULL
         WHERE
             cursos.id = $id_curso
-            AND departamentos.depClave = 'SEC'										
+            AND departamentos.depClave = 'SEC'
             AND sm.matClave NOT LIKE ('ART%')
             AND sm.matClave NOT LIKE ('TEC%')
             AND sm.matClave NOT LIKE ('FIN%')
@@ -1030,7 +1030,7 @@ class SecundariaConstanciasController extends Controller
         }
 
 
-        // obtener fecha del sistema 
+        // obtener fecha del sistema
         $fechaActual = Carbon::now('America/Merida');
         setlocale(LC_TIME, 'es_ES.UTF-8');
         // En windows
@@ -1040,7 +1040,7 @@ class SecundariaConstanciasController extends Controller
         $fechaMes = $fechaActual->format('m');
         $fechaAnio = $fechaActual->format('Y');
 
-        // valida que grado es para escribir lo que corresponda 
+        // valida que grado es para escribir lo que corresponda
         $gradoEnLetras = "";
         $gradoSiguiente = "";
         $nivel = "";
@@ -1072,7 +1072,7 @@ class SecundariaConstanciasController extends Controller
         //      $gradoSiguiente = "";
         //  }
 
-        // meeses en letras 
+        // meeses en letras
         $mesLetras = "";
         if ($fechaMes == "01") {
             $mesLetras = "Enero";
@@ -1146,11 +1146,11 @@ class SecundariaConstanciasController extends Controller
 
 
         if ($parametro_ubicacion == "CME") {
-            // fecha que se mostrara en PDF 
+            // fecha que se mostrara en PDF
             $fechahoy = 'Mérida, Yucatán, a ' . $fechaDia . ' de ' . $mesLetras . ' de ' . $fechaAnio;
         }
         if ($parametro_ubicacion == "CVA") {
-            // fecha que se mostrara en PDF 
+            // fecha que se mostrara en PDF
             $fechahoy = 'Valladolid, Yucatán, a ' . $fechaDia . ' de ' . $mesLetras . ' de ' . $fechaAnio;
         }
 
@@ -1207,12 +1207,12 @@ class SecundariaConstanciasController extends Controller
     {
 
 
-        // llama al procedure de los alumnos a buscar 
+        // llama al procedure de los alumnos a buscar
         $resultado_array =  DB::select("call procSecundariaConstanciaArtesTalleres(" . $id_curso . ")");
 
         $resultado_collection = collect($resultado_array);
 
-        // si no hay datos muestra alerta 
+        // si no hay datos muestra alerta
         if ($resultado_collection->isEmpty()) {
             alert()->warning('Sin coincidencias', 'No se ha encontrado datos relacionados al alumno')->showConfirmButton();
             return back()->withInput();
@@ -1229,7 +1229,7 @@ class SecundariaConstanciasController extends Controller
         }
 
 
-        // obtener fecha del sistema 
+        // obtener fecha del sistema
         $fechaActual = Carbon::now('America/Merida');
         setlocale(LC_TIME, 'es_ES.UTF-8');
         // En windows
@@ -1242,11 +1242,11 @@ class SecundariaConstanciasController extends Controller
 
         $mesLetras = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
         if ($parametro_ubicacion == "CME") {
-            // fecha que se mostrara en PDF 
+            // fecha que se mostrara en PDF
             $fechahoy = 'Mérida, Yucatán, a ' . $fechaDia . ' de ' . $mesLetras[$fechaMes - 1] . ' de ' . $fechaAnio;
         }
         if ($parametro_ubicacion == "CVA") {
-            // fecha que se mostrara en PDF 
+            // fecha que se mostrara en PDF
             $fechahoy = 'Valladolid, Yucatán, a ' . $fechaDia . ' de ' . $mesLetras[$fechaMes - 1] . ' de ' . $fechaAnio;
         }
 
@@ -1281,7 +1281,7 @@ class SecundariaConstanciasController extends Controller
     {
 
 
-        // query de seleccion de alumno 
+        // query de seleccion de alumno
         $curso_alumno = Curso::select(
             "cursos.id",
             "alumnos.id as alumno_id",
@@ -1307,7 +1307,7 @@ class SecundariaConstanciasController extends Controller
             ->where("cursos.id", $id_curso)
             ->first();
 
-        // si no hay datos muestra alerta 
+        // si no hay datos muestra alerta
         if ($curso_alumno == "") {
             alert()->warning('Sin coincidencias', 'No se ha encontrado datos relacionados al alumno')->showConfirmButton();
             return back()->withInput();
@@ -1331,7 +1331,7 @@ class SecundariaConstanciasController extends Controller
         }
 
 
-        // obtener fecha del sistema 
+        // obtener fecha del sistema
         $fechaActual = Carbon::now('America/Merida');
         setlocale(LC_TIME, 'es_ES.UTF-8');
         // En windows
@@ -1344,15 +1344,15 @@ class SecundariaConstanciasController extends Controller
 
         $mesLetras = ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'];
         if ($parametro_ubicacion == "CME") {
-            // fecha que se mostrara en PDF 
+            // fecha que se mostrara en PDF
             $fechahoy = 'MÉRIDA, YUC., A ' . $fechaDia . ' DE ' . $mesLetras[$fechaMes - 1] . ' DE ' . $fechaAnio;
         }
         if ($parametro_ubicacion == "CVA") {
-            // fecha que se mostrara en PDF 
+            // fecha que se mostrara en PDF
             $fechahoy = 'VALLADOLID, YUC., A ' . $fechaDia . ' DE ' . $mesLetras[$fechaMes - 1] . ' DE ' . $fechaAnio;
         }
 
-        // Curso en letras  
+        // Curso en letras
         if ($parametroGrado == "1") {
             $parametroGradoLetras = "PRIMER GRADO";
         }
@@ -1392,7 +1392,7 @@ class SecundariaConstanciasController extends Controller
     public function imprimirConstanciaEscolaridad($id_curso, $tipoConstancia)
     {
 
-        // query de seleccion de alumno 
+        // query de seleccion de alumno
         $curso_alumno = Curso::select(
             "cursos.id",
             "alumnos.id as alumno_id",
@@ -1440,7 +1440,7 @@ class SecundariaConstanciasController extends Controller
             $parametro_consideracion = "es alumno ";
         }
 
-        // valida que grado es para escribir lo que corresponda 
+        // valida que grado es para escribir lo que corresponda
         $gradoEnLetras = "";
         if ($parametro_grado == 1) {
             $gradoEnLetras = "primer grado";
@@ -1461,7 +1461,7 @@ class SecundariaConstanciasController extends Controller
         //     $gradoEnLetras = "SEXTO GRADO";
         // }
 
-        // obtener fecha del sistema 
+        // obtener fecha del sistema
         $fechaActual = Carbon::now('America/Merida');
         setlocale(LC_TIME, 'es_ES.UTF-8');
         // En windows
@@ -1511,7 +1511,7 @@ class SecundariaConstanciasController extends Controller
         }
 
 
-        // fecha que se mostrara en PDF 
+        // fecha que se mostrara en PDF
         if ($parametro_ubicacion_clave == "CME") {
             $fechahoy = 'Mérida, Yucatán, a ' . $fechaDia . ' de ' . $mesLetras . ' de ' . $fechaAnio . '.';
         }

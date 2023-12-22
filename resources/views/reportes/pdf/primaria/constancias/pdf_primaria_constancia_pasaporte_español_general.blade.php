@@ -496,6 +496,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -10px;
       right: 0px;
@@ -612,7 +613,7 @@
 @foreach ($inscrito as $item)
 
   @php
-    $resultado_array =  DB::select("call procPrimariaObtieneGrupoCurso(" . $item->id . ")");       
+    $resultado_array =  DB::select("call procPrimariaObtieneGrupoCurso(" . $item->id . ")");
 
     $resultado_grupo = collect($resultado_array);
 
@@ -621,11 +622,11 @@
     }else{
       $parametro_grupo = "";
     }
-            
+
   @endphp
 
   <body>
-    
+
     <div class="row">
       <div class="columns medium-12">
         <p class="tright">{{$fechaHoy}}</p>
@@ -634,9 +635,9 @@
 
         {{--  incluir foto   --}}
         @if ($incluyeFoto == "SI")
-          @if ($item->curPrimariaFoto != "")          
+          @if ($item->curPrimariaFoto != "")
             @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus .'/'. $item->curPrimariaFoto)))
-      
+
               <p><img class="fotoAlumno" style="float: left; margin-top: 165px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus. '/' . $item->curPrimariaFoto) }}"></p>
             @endif
           @endif
@@ -649,13 +650,13 @@
         <br>
 
         <p>A quien corresponda:</p>
-        
+
         <br>
         <br>
 
         <br>
         <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-          La que suscribe, 
+          La que suscribe,
           @if ($parametro_ubicacion == "CME")
           MAOE. María Trinidad Díaz Cervera,
           @endif
@@ -674,13 +675,13 @@
           @else
           Que la niña
           @endif
-          <b>{{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}} con número de matrícula {{ $item->aluClave }}</b> cuya fotografía aparece al margen, 
-          es alumno regular de esta institución 
+          <b>{{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}} con número de matrícula {{ $item->aluClave }}</b> cuya fotografía aparece al margen,
+          es alumno regular de esta institución
           @if ($item->perSexo == "M")
           inscrito
           @else
           inscrita
-          @endif           
+          @endif
           al {{ $grado }}, GRUPO “{{ $item->cgtGrupo }}” del ciclo escolar {{ $periodo }}.
         </p>
 
@@ -695,7 +696,7 @@
     </div>
 
     <br><br><br><br><br>
-    
+
 
     <div class="row">
       <div class="columns medium-12">
@@ -707,7 +708,7 @@
         @else
         <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ</b></p>
         @endif
-        
+
         <p class="tcenter"><b>DIRECTORA</b></p>
 
       </div>

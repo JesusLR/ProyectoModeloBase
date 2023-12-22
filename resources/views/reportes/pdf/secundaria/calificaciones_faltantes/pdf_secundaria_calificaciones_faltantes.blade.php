@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 8px;
         right: 0px;
@@ -506,7 +507,7 @@
       </div>
     </header>
 
-    <footer id="footer">       
+    <footer id="footer">
       <div class="page-number"></div>
     </footer>
 
@@ -517,12 +518,12 @@
               <th align="center" style="font-weight: 400; width: 10px;">Num</th>
               <th align="center" style="font-weight: 400; width: 30px;">Cve Pago</th>
               <th style="font-weight: 400; width: 300px;">Nombre del alumno</th>
-              <th align="center" style="font-weight: 400; width: 30px;">Grado</th>      
-              <th align="center" style="font-weight: 400; width: 30px;">Grupo</th>      
-              <th align="center" style="font-weight: 400; width: 30px;">Turno</th>   
+              <th align="center" style="font-weight: 400; width: 30px;">Grado</th>
+              <th align="center" style="font-weight: 400; width: 30px;">Grupo</th>
+              <th align="center" style="font-weight: 400; width: 30px;">Turno</th>
 
-              <th  style="font-weight: 400; width: 300px;">Materia</th>      
-                     
+              <th  style="font-weight: 400; width: 300px;">Materia</th>
+
             </tr>
             @foreach ($alumnos as $key => $alumno)
             <tr>
@@ -534,11 +535,11 @@
               <td align="center" style="height: 30px;">{{$alumno->turno}}</td>
               <td>{{$alumno->matNombre}} @if($alumno->gpoMatComplementaria != "") <b>({{$alumno->gpoMatComplementaria}})</b> @endif</td>
             </tr>
-                
-            @endforeach          
-              
+
+            @endforeach
+
           </table>
-        </div>        
+        </div>
       </div>
 
 

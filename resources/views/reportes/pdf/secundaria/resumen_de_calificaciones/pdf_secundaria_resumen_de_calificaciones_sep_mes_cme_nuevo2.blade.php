@@ -494,6 +494,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: 10px;
       right: 0px;
@@ -885,7 +886,7 @@
               <th align="center"
                 style="font-weight: 400; width:40px; border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">
                 {{$itemmatNombreColumna}}</th>
-              @endforeach            
+              @endforeach
             @endif
             {{-- agregamos columna de promedio EDU FIS si es de merida --}}
             {{-- @if ($parametro_ubicacion_clave === "CME")
@@ -951,26 +952,26 @@
           @foreach ($alumnosInscritos as $aluClave => $valoresAlumnos)
             @foreach ($valoresAlumnos as $valor)
               @if ($aluClave == $valor->clave_pago && $contador1++ == 1)
-                <tr>                   
-                      
+                <tr>
+
                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">{{$contador2++}}</td>
                   <td align="center" style="width: 50px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">{{$valor->clave_pago}}</td>
                   <td style="width: 250px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
-                      {{$valor->ape_paterno}} {{$valor->ape_materno}} {{$valor->nombres}}                        
-                  </td>                
-                
+                      {{$valor->ape_paterno}} {{$valor->ape_materno}} {{$valor->nombres}}
+                  </td>
+
                   @foreach ($tablaBody as $item => $value)
                     @foreach ($matNombreColumna as $matNombreColumna1 => $valores_matNombreColumna)
                       @if ($contador4++ == 1 && $matNombreColumna1 == $value['matNombreColumna'])
 
                         @if ($modoCalificacion == "BASEDIEZ")
 
-                          @if ($tipoReporte == "porMes")                  
-                        
-                            @if ($mesEvaluar == "Septiembre")  
-                              
+                          @if ($tipoReporte == "porMes")
+
+                            @if ($mesEvaluar == "Septiembre")
+
                               @php
-                                $calificacion = $value["matNombreColumna"]."_septiembre_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_septiembre_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -988,7 +989,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1004,19 +1005,19 @@
                                   {{--  fin promedio fisica   --}}
 
                                   @if ($value[$calificacion] < 6)
-                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>                                  
+                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>
                                   @else
                                     {{$value[$calificacion]}}
-                                  @endif                    
+                                  @endif
                                 @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
-                            @if ($mesEvaluar == "Octubre")  
-                              
+                            @if ($mesEvaluar == "Octubre")
+
                               @php
-                                $calificacion = $value["matNombreColumna"]."_octubre_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_octubre_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1034,7 +1035,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1050,19 +1051,19 @@
                                   {{--  fin promedio fisica   --}}
 
                                   @if ($value[$calificacion] < 6)
-                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>                                  
+                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>
                                   @else
                                     {{$value[$calificacion]}}
-                                  @endif                    
+                                  @endif
                                 @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
-                            @if ($mesEvaluar == "Noviembre")  
-                              
+                            @if ($mesEvaluar == "Noviembre")
+
                               @php
-                                $calificacion = $value["matNombreColumna"]."_noviembre_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_noviembre_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1080,7 +1081,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1096,19 +1097,19 @@
                                   {{--  fin promedio fisica   --}}
 
                                   @if ($value[$calificacion] < 6)
-                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>                                  
+                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>
                                   @else
                                     {{$value[$calificacion]}}
-                                  @endif                    
+                                  @endif
                                 @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
-                            @if ($mesEvaluar == "Diciembre")  
-                              
+                            @if ($mesEvaluar == "Diciembre")
+
                               @php
-                                $calificacion = $value["matNombreColumna"]."_diciembre_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_diciembre_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1126,7 +1127,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1142,19 +1143,19 @@
                                   {{--  fin promedio fisica   --}}
 
                                   @if ($value[$calificacion] < 6)
-                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>                                  
+                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>
                                   @else
                                     {{$value[$calificacion]}}
-                                  @endif                    
+                                  @endif
                                 @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
-                            @if ($mesEvaluar == "Enero")  
-                              
+                            @if ($mesEvaluar == "Enero")
+
                               @php
-                                $calificacion = $value["matNombreColumna"]."_enero_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_enero_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1172,7 +1173,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1188,19 +1189,19 @@
                                   {{--  fin promedio fisica   --}}
 
                                   @if ($value[$calificacion] < 6)
-                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>                                  
+                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>
                                   @else
                                     {{$value[$calificacion]}}
-                                  @endif                    
+                                  @endif
                                 @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
-                            @if ($mesEvaluar == "Febrero")  
-                              
+                            @if ($mesEvaluar == "Febrero")
+
                               @php
-                                $calificacion = $value["matNombreColumna"]."_febrero_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_febrero_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1218,7 +1219,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1234,19 +1235,19 @@
                                   {{--  fin promedio fisica   --}}
 
                                   @if ($value[$calificacion] < 6)
-                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>                                  
+                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>
                                   @else
                                     {{$value[$calificacion]}}
-                                  @endif                    
+                                  @endif
                                 @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
-                            @if ($mesEvaluar == "Marzo")  
-                              
+                            @if ($mesEvaluar == "Marzo")
+
                               @php
-                                $calificacion = $value["matNombreColumna"]."_marzo_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_marzo_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1264,7 +1265,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1280,19 +1281,19 @@
                                   {{--  fin promedio fisica   --}}
 
                                   @if ($value[$calificacion] < 6)
-                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>                                  
+                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>
                                   @else
                                     {{$value[$calificacion]}}
-                                  @endif                    
+                                  @endif
                                 @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
-                            @if ($mesEvaluar == "Abril")  
-                              
+                            @if ($mesEvaluar == "Abril")
+
                               @php
-                                $calificacion = $value["matNombreColumna"]."_abril_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_abril_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1310,7 +1311,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1326,65 +1327,19 @@
                                   {{--  fin promedio fisica   --}}
 
                                   @if ($value[$calificacion] < 6)
-                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>                                  
+                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>
                                   @else
                                     {{$value[$calificacion]}}
-                                  @endif                    
+                                  @endif
                                 @endisset
-                              </td> 
-
-                            @endif
-                            
-                            @if ($mesEvaluar == "Mayo")  
-                              
-                              @php
-                                $calificacion = $value["matNombreColumna"]."_mayo_".$valor->clave_pago;                                
-                              @endphp
-
-                              <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
-                                @isset($value[$calificacion])
-                                  @php
-                                    $totalMateriasReales++;
-                                  @endphp
-
-                                  {{--  promedio fisica   --}}
-                                  {{--Promedio edu fis--}}
-                                  @if ($matNombreColumna1 == "EDU.FIS" || $matNombreColumna1 == "EF.VESP")
-                                    @php
-                                      $vueltaFis++;
-                                      $promedioEducacionFis = $promedioEducacionFis +  $value[$calificacion];
-                                    @endphp
-                                  @endif
-                                  @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
-                                  @endphp
-                                  {{--  para la columna de Rep de la fila de materias de un alumno   --}}
-                                  @if ($value[$calificacion] < 6)
-                                      @php
-                                          $repXMateria++;
-                                      @endphp
-                                  @endif
-                                  @if ($value[$calificacion] >= 6)
-                                      @php
-                                          $aproXMateria++;
-                                      @endphp
-                                  @endif
-                                  {{--  fin promedio fisica   --}}
-
-                                  @if ($value[$calificacion] < 6)
-                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>                                  
-                                  @else
-                                    {{$value[$calificacion]}}
-                                  @endif                    
-                                @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
-                            @if ($mesEvaluar == "Junio")  
-                              
+                            @if ($mesEvaluar == "Mayo")
+
                               @php
-                                $calificacion = $value["matNombreColumna"]."_junio_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_mayo_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1402,7 +1357,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1418,12 +1373,58 @@
                                   {{--  fin promedio fisica   --}}
 
                                   @if ($value[$calificacion] < 6)
-                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>                                  
+                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>
                                   @else
                                     {{$value[$calificacion]}}
-                                  @endif                    
+                                  @endif
                                 @endisset
-                              </td> 
+                              </td>
+
+                            @endif
+
+                            @if ($mesEvaluar == "Junio")
+
+                              @php
+                                $calificacion = $value["matNombreColumna"]."_junio_".$valor->clave_pago;
+                              @endphp
+
+                              <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
+                                @isset($value[$calificacion])
+                                  @php
+                                    $totalMateriasReales++;
+                                  @endphp
+
+                                  {{--  promedio fisica   --}}
+                                  {{--Promedio edu fis--}}
+                                  @if ($matNombreColumna1 == "EDU.FIS" || $matNombreColumna1 == "EF.VESP")
+                                    @php
+                                      $vueltaFis++;
+                                      $promedioEducacionFis = $promedioEducacionFis +  $value[$calificacion];
+                                    @endphp
+                                  @endif
+                                  @php
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
+                                  @endphp
+                                  {{--  para la columna de Rep de la fila de materias de un alumno   --}}
+                                  @if ($value[$calificacion] < 6)
+                                      @php
+                                          $repXMateria++;
+                                      @endphp
+                                  @endif
+                                  @if ($value[$calificacion] >= 6)
+                                      @php
+                                          $aproXMateria++;
+                                      @endphp
+                                  @endif
+                                  {{--  fin promedio fisica   --}}
+
+                                  @if ($value[$calificacion] < 6)
+                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>
+                                  @else
+                                    {{$value[$calificacion]}}
+                                  @endif
+                                @endisset
+                              </td>
 
                             @endif
 
@@ -1434,7 +1435,7 @@
                             {{-- bimestre 1 --}}
                             @if ($bimestreEvaluar == "BIMESTRE1")
                               @php
-                                $calificacion = $value["matNombreColumna"]."_bimestre1_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_bimestre1_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1452,7 +1453,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1468,18 +1469,18 @@
                                   {{--  fin promedio fisica   --}}
 
                                   @if ($value[$calificacion] < 6)
-                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>                                  
+                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>
                                   @else
                                     {{$value[$calificacion]}}
-                                  @endif                    
+                                  @endif
                                 @endisset
-                              </td> 
+                              </td>
                             @endif
 
                             {{-- bimestre 2 --}}
                             @if ($bimestreEvaluar == "BIMESTRE2")
                               @php
-                                $calificacion = $value["matNombreColumna"]."_bimestre2_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_bimestre2_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1497,7 +1498,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1513,18 +1514,18 @@
                                   {{--  fin promedio fisica   --}}
 
                                   @if ($value[$calificacion] < 6)
-                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>                                  
+                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>
                                   @else
                                     {{$value[$calificacion]}}
-                                  @endif                    
+                                  @endif
                                 @endisset
-                              </td> 
+                              </td>
                             @endif
 
                             {{-- bimestre 3 --}}
                             @if ($bimestreEvaluar == "BIMESTRE3")
                               @php
-                                $calificacion = $value["matNombreColumna"]."_bimestre3_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_bimestre3_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1542,7 +1543,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1558,18 +1559,18 @@
                                   {{--  fin promedio fisica   --}}
 
                                   @if ($value[$calificacion] < 6)
-                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>                                  
+                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>
                                   @else
                                     {{$value[$calificacion]}}
-                                  @endif                    
+                                  @endif
                                 @endisset
-                              </td> 
+                              </td>
                             @endif
 
                             {{-- bimestre 4 --}}
                             @if ($bimestreEvaluar == "BIMESTRE4")
                               @php
-                                $calificacion = $value["matNombreColumna"]."_bimestre4_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_bimestre4_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1587,7 +1588,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1603,18 +1604,18 @@
                                   {{--  fin promedio fisica   --}}
 
                                   @if ($value[$calificacion] < 6)
-                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>                                  
+                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>
                                   @else
                                     {{$value[$calificacion]}}
-                                  @endif                    
+                                  @endif
                                 @endisset
-                              </td> 
+                              </td>
                             @endif
 
                             {{-- bimestre 5 --}}
                             @if ($bimestreEvaluar == "BIMESTRE5")
                               @php
-                                $calificacion = $value["matNombreColumna"]."_bimestre5_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_bimestre5_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1632,7 +1633,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1648,29 +1649,29 @@
                                   {{--  fin promedio fisica   --}}
 
                                   @if ($value[$calificacion] < 6)
-                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>                                  
+                                    <p style="background-color:#F3F648;">{{$value[$calificacion]}}</p>
                                   @else
                                     {{$value[$calificacion]}}
-                                  @endif                    
+                                  @endif
                                 @endisset
-                              </td> 
+                              </td>
                             @endif
 
                           @endif
 
-                          
+
 
                         @endif
-                        
+
 
                         @if ($modoCalificacion == "BASEPORCENTAJE")
 
-                          @if ($tipoReporte == "porMes")                  
-                        
-                            @if ($mesEvaluar == "Septiembre")  
-                              
+                          @if ($tipoReporte == "porMes")
+
+                            @if ($mesEvaluar == "Septiembre")
+
                               @php
-                                $calificacion = $value["matNombreColumna"]."_septiembre_porcentaje_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_septiembre_porcentaje_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1688,7 +1689,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1703,16 +1704,16 @@
                                   @endif
                                   {{--  fin promedio fisica   --}}
 
-                                  {{$value[$calificacion]}}                   
+                                  {{$value[$calificacion]}}
                                 @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
-                            @if ($mesEvaluar == "Octubre")  
-                              
+                            @if ($mesEvaluar == "Octubre")
+
                               @php
-                                $calificacion = $value["matNombreColumna"]."_octubre_porcentaje_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_octubre_porcentaje_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1730,7 +1731,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1745,16 +1746,16 @@
                                   @endif
                                   {{--  fin promedio fisica   --}}
 
-                                  {{$value[$calificacion]}}                   
+                                  {{$value[$calificacion]}}
                                 @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
-                            @if ($mesEvaluar == "Noviembre")  
-                              
+                            @if ($mesEvaluar == "Noviembre")
+
                               @php
-                                $calificacion = $value["matNombreColumna"]."_noviembre_porcentaje_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_noviembre_porcentaje_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1772,7 +1773,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1787,16 +1788,16 @@
                                   @endif
                                   {{--  fin promedio fisica   --}}
 
-                                  {{$value[$calificacion]}}                  
+                                  {{$value[$calificacion]}}
                                 @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
-                            @if ($mesEvaluar == "Diciembre")  
-                              
+                            @if ($mesEvaluar == "Diciembre")
+
                               @php
-                                $calificacion = $value["matNombreColumna"]."_diciembre_porcentaje_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_diciembre_porcentaje_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1814,7 +1815,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1829,16 +1830,16 @@
                                   @endif
                                   {{--  fin promedio fisica   --}}
 
-                                  {{$value[$calificacion]}}                  
+                                  {{$value[$calificacion]}}
                                 @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
-                            @if ($mesEvaluar == "Enero")  
-                              
+                            @if ($mesEvaluar == "Enero")
+
                               @php
-                                $calificacion = $value["matNombreColumna"]."_enero_porcentaje_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_enero_porcentaje_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1856,7 +1857,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1871,16 +1872,16 @@
                                   @endif
                                   {{--  fin promedio fisica   --}}
 
-                                  {{$value[$calificacion]}}                   
+                                  {{$value[$calificacion]}}
                                 @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
-                            @if ($mesEvaluar == "Febrero")  
-                              
+                            @if ($mesEvaluar == "Febrero")
+
                               @php
-                                $calificacion = $value["matNombreColumna"]."_febrero_porcentaje_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_febrero_porcentaje_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1898,7 +1899,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1913,16 +1914,16 @@
                                   @endif
                                   {{--  fin promedio fisica   --}}
 
-                                  {{$value[$calificacion]}}                   
+                                  {{$value[$calificacion]}}
                                 @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
-                            @if ($mesEvaluar == "Marzo")  
-                              
+                            @if ($mesEvaluar == "Marzo")
+
                               @php
-                                $calificacion = $value["matNombreColumna"]."_marzo_porcentaje_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_marzo_porcentaje_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1940,7 +1941,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1955,16 +1956,16 @@
                                   @endif
                                   {{--  fin promedio fisica   --}}
 
-                                  {{$value[$calificacion]}}                  
+                                  {{$value[$calificacion]}}
                                 @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
-                            @if ($mesEvaluar == "Abril")  
-                              
+                            @if ($mesEvaluar == "Abril")
+
                               @php
-                                $calificacion = $value["matNombreColumna"]."_abril_porcentaje_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_abril_porcentaje_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -1982,7 +1983,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -1997,58 +1998,16 @@
                                   @endif
                                   {{--  fin promedio fisica   --}}
 
-                                  {{$value[$calificacion]}}                    
+                                  {{$value[$calificacion]}}
                                 @endisset
-                              </td> 
-
-                            @endif
-                            
-                            @if ($mesEvaluar == "Mayo")  
-                              
-                              @php
-                                $calificacion = $value["matNombreColumna"]."_mayo_porcentaje_".$valor->clave_pago;                                
-                              @endphp
-
-                              <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
-                                @isset($value[$calificacion])
-                                  @php
-                                    $totalMateriasReales++;
-                                  @endphp
-
-                                  {{--  promedio fisica   --}}
-                                  {{--Promedio edu fis--}}
-                                  @if ($matNombreColumna1 == "EDU.FIS" || $matNombreColumna1 == "EF.VESP")
-                                    @php
-                                      $vueltaFis++;
-                                      $promedioEducacionFis = $promedioEducacionFis +  $value[$calificacion];
-                                    @endphp
-                                  @endif
-                                  @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
-                                  @endphp
-                                  {{--  para la columna de Rep de la fila de materias de un alumno   --}}
-                                  @if ($value[$calificacion] < 6)
-                                      @php
-                                          $repXMateria++;
-                                      @endphp
-                                  @endif
-                                  @if ($value[$calificacion] >= 6)
-                                      @php
-                                          $aproXMateria++;
-                                      @endphp
-                                  @endif
-                                  {{--  fin promedio fisica   --}}
-
-                                  {{$value[$calificacion]}}                   
-                                @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
-                            @if ($mesEvaluar == "Junio")  
-                              
+                            @if ($mesEvaluar == "Mayo")
+
                               @php
-                                $calificacion = $value["matNombreColumna"]."_junio_porcentaje_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_mayo_porcentaje_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -2066,7 +2025,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -2081,9 +2040,51 @@
                                   @endif
                                   {{--  fin promedio fisica   --}}
 
-                                  {{$value[$calificacion]}}                    
+                                  {{$value[$calificacion]}}
                                 @endisset
-                              </td> 
+                              </td>
+
+                            @endif
+
+                            @if ($mesEvaluar == "Junio")
+
+                              @php
+                                $calificacion = $value["matNombreColumna"]."_junio_porcentaje_".$valor->clave_pago;
+                              @endphp
+
+                              <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
+                                @isset($value[$calificacion])
+                                  @php
+                                    $totalMateriasReales++;
+                                  @endphp
+
+                                  {{--  promedio fisica   --}}
+                                  {{--Promedio edu fis--}}
+                                  @if ($matNombreColumna1 == "EDU.FIS" || $matNombreColumna1 == "EF.VESP")
+                                    @php
+                                      $vueltaFis++;
+                                      $promedioEducacionFis = $promedioEducacionFis +  $value[$calificacion];
+                                    @endphp
+                                  @endif
+                                  @php
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
+                                  @endphp
+                                  {{--  para la columna de Rep de la fila de materias de un alumno   --}}
+                                  @if ($value[$calificacion] < 6)
+                                      @php
+                                          $repXMateria++;
+                                      @endphp
+                                  @endif
+                                  @if ($value[$calificacion] >= 6)
+                                      @php
+                                          $aproXMateria++;
+                                      @endphp
+                                  @endif
+                                  {{--  fin promedio fisica   --}}
+
+                                  {{$value[$calificacion]}}
+                                @endisset
+                              </td>
 
                             @endif
 
@@ -2093,7 +2094,7 @@
                             @if ($bimestreEvaluar == "BIMESTRE1")
 
                               @php
-                                $calificacion = $value["matNombreColumna"]."_bimestre1_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_bimestre1_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -2111,7 +2112,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -2126,16 +2127,16 @@
                                   @endif
                                   {{--  fin promedio fisica   --}}
 
-                                  {{$value[$calificacion]}}                   
+                                  {{$value[$calificacion]}}
                                 @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
                             @if ($bimestreEvaluar == "BIMESTRE2")
 
                               @php
-                                $calificacion = $value["matNombreColumna"]."_bimestre2_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_bimestre2_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -2153,7 +2154,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -2168,16 +2169,16 @@
                                   @endif
                                   {{--  fin promedio fisica   --}}
 
-                                  {{$value[$calificacion]}}                   
+                                  {{$value[$calificacion]}}
                                 @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
                             @if ($bimestreEvaluar == "BIMESTRE3")
 
                               @php
-                                $calificacion = $value["matNombreColumna"]."_bimestre3_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_bimestre3_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -2195,7 +2196,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -2210,16 +2211,16 @@
                                   @endif
                                   {{--  fin promedio fisica   --}}
 
-                                  {{$value[$calificacion]}}                   
+                                  {{$value[$calificacion]}}
                                 @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
                             @if ($bimestreEvaluar == "BIMESTRE4")
 
                               @php
-                                $calificacion = $value["matNombreColumna"]."_bimestre4_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_bimestre4_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -2237,7 +2238,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -2252,16 +2253,16 @@
                                   @endif
                                   {{--  fin promedio fisica   --}}
 
-                                  {{$value[$calificacion]}}                   
+                                  {{$value[$calificacion]}}
                                 @endisset
-                              </td> 
+                              </td>
 
                             @endif
 
                             @if ($bimestreEvaluar == "BIMESTRE5")
 
                               @php
-                                $calificacion = $value["matNombreColumna"]."_bimestre5_".$valor->clave_pago;                                
+                                $calificacion = $value["matNombreColumna"]."_bimestre5_".$valor->clave_pago;
                               @endphp
 
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -2279,7 +2280,7 @@
                                     @endphp
                                   @endif
                                   @php
-                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                  $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                   @endphp
                                   {{--  para la columna de Rep de la fila de materias de un alumno   --}}
                                   @if ($value[$calificacion] < 6)
@@ -2294,9 +2295,9 @@
                                   @endif
                                   {{--  fin promedio fisica   --}}
 
-                                  {{$value[$calificacion]}}                   
+                                  {{$value[$calificacion]}}
                                 @endisset
-                              </td> 
+                              </td>
 
                             @endif
                           @endif
@@ -2309,7 +2310,7 @@
                       @php
                         $contador4 =1;
                       @endphp
-                    @endforeach                  
+                    @endforeach
                   @endforeach
 
 
@@ -2317,15 +2318,15 @@
                     $promedioPer = $promedioPeriodo/$totalMateriasReales;
                     #$promedioPer = $promedioPeriodo;
                   @endphp
-                  
-                  
+
+
 
                   @if ($modoCalificacion == "BASEDIEZ")
                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">{{number_format((float)$promedioPer, 1, '.', '')}}</td>
                   @else
                     <td align="center" style="border-top: 0px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;"></td>
                   @endif
-                
+
                   @php
                     $sumaPromedioDeAlumnos = $sumaPromedioDeAlumnos + number_format((float)$promedioPer, 1, '.', '');
                   @endphp
@@ -2347,7 +2348,7 @@
 
                     $repFilaMateriasApr = ($aproXMateria * 100)/$totalMaterias;
                   @endphp
-                  
+
 
                   @if ($modoCalificacion != "BASEPORCENTAJE")
                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -2364,12 +2365,12 @@
                         <b>{{number_format((float)$repFilaMateriasApr, 1, '.', '')}}</b>
                       @endif
                     </td>
-                    <td align="center" style="border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 1px solid;"></td>  
+                    <td align="center" style="border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 1px solid;"></td>
                   @endif
-                  
+
                 </tr>
-                
-              @endif                          
+
+              @endif
             @endforeach
 
             @if($loop->last)
@@ -2391,67 +2392,67 @@
                             @if ($mesEvaluar == "Septiembre")
                               @php
                                 $sumaDePromedios = $sumaDePromedios +  $itemMatNombreColumna->inscCalificacionSep;
-                              @endphp                        
+                              @endphp
                             @endif
 
                             @if ($mesEvaluar == "Octubre")
                               @php
                                 $sumaDePromedios = $sumaDePromedios +  $itemMatNombreColumna->inscCalificacionOct;
-                              @endphp                        
+                              @endphp
                             @endif
 
                             @if ($mesEvaluar == "Noviembre")
                               @php
                                 $sumaDePromedios = $sumaDePromedios +  $itemMatNombreColumna->inscCalificacionNov;
-                              @endphp                        
+                              @endphp
                             @endif
 
                             @if ($mesEvaluar == "Diciembre")
                               @php
                                 $sumaDePromedios = $sumaDePromedios +  $itemMatNombreColumna->inscCalificacionDic;
-                              @endphp                        
+                              @endphp
                             @endif
 
                             @if ($mesEvaluar == "Enero")
                               @php
                                 $sumaDePromedios = $sumaDePromedios +  $itemMatNombreColumna->inscCalificacionEne;
-                              @endphp                        
+                              @endphp
                             @endif
 
                             @if ($mesEvaluar == "Febrero")
                               @php
                                 $sumaDePromedios = $sumaDePromedios +  $itemMatNombreColumna->inscCalificacionFeb;
-                              @endphp                        
+                              @endphp
                             @endif
 
                             @if ($mesEvaluar == "Marzo")
                               @php
                                 $sumaDePromedios = $sumaDePromedios +  $itemMatNombreColumna->inscCalificacionMar;
-                              @endphp                        
+                              @endphp
                             @endif
 
                             @if ($mesEvaluar == "Abril")
                               @php
                                 $sumaDePromedios = $sumaDePromedios +  $itemMatNombreColumna->inscCalificacionAbr;
-                              @endphp                        
+                              @endphp
                             @endif
 
                             @if ($mesEvaluar == "Mayo")
                               @php
                                 $sumaDePromedios = $sumaDePromedios +  $itemMatNombreColumna->inscCalificacionMay;
-                              @endphp                        
+                              @endphp
                             @endif
 
                             @if ($mesEvaluar == "Junio")
                               @php
                                 $sumaDePromedios = $sumaDePromedios +  $itemMatNombreColumna->inscCalificacionJun;
-                              @endphp                        
+                              @endphp
                             @endif
 
-                               
-                                
-                          @endif      
-                          
+
+
+                          @endif
+
                           @if ($tipoReporte == "porBimestre")
 
                             @if ($bimestreEvaluar == "BIMESTRE1")
@@ -2493,14 +2494,14 @@
                             @if ($trimestreEvaluar == "TRIMESTRE1")
                               @php
                                 $sumaDePromedios = $sumaDePromedios +  $itemMatNombreColumna->inscTrimestre1;
-                              @endphp 
+                              @endphp
                             @endif
 
                             {{-- trimestre 2 --}}
                             @if ($trimestreEvaluar == "TRIMESTRE2")
                               @php
                                 $sumaDePromedios = $sumaDePromedios +  $itemMatNombreColumna->inscTrimestre2;
-                              @endphp 
+                              @endphp
                             @endif
 
 
@@ -2508,13 +2509,13 @@
                             @if ($trimestreEvaluar == "TRIMESTRE3")
                               @php
                                 $sumaDePromedios = $sumaDePromedios +  $itemMatNombreColumna->inscTrimestre3;
-                              @endphp 
+                              @endphp
                             @endif
 
                           @endif
 
 
-                        @endif                          
+                        @endif
                       @endforeach  aquijeje
                       <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">
                         {{number_format((float)$sumaDePromedios/$totalDeAlumnosReales1, 1, '.', '')}}
@@ -2522,10 +2523,10 @@
                       @php
                         $sumaDePromedios = 0;
                         $totalDeAlumnosReales1 = 0;
-                      @endphp                      
+                      @endphp
                     @endforeach
 
-                             
+
                     @php
                         $ResultadoPromedio = $sumaPromedioDeAlumnos / $totalDeAlumnos;
                     @endphp
@@ -2543,7 +2544,7 @@
                     <td  style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></td>
                     <td  style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></td>
                 </tr>
-              
+
                 <tr>
                   <td  style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></td>
                   <td  style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></td>
@@ -2698,7 +2699,7 @@
                               @php
                                 $reprobados++;
                               @endphp
-                            @endif   
+                            @endif
                           @endif
 
                           {{-- trimestre 2 --}}
@@ -2707,7 +2708,7 @@
                               @php
                                 $reprobados++;
                               @endphp
-                            @endif   
+                            @endif
                           @endif
 
 
@@ -2717,7 +2718,7 @@
                               @php
                                 $reprobados++;
                               @endphp
-                            @endif   
+                            @endif
                           @endif
 
                         @endif
@@ -2734,7 +2735,7 @@
                     <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">
                       @if (number_format((float)$porcentajeReprobados, 1, '.', '') == "100")
                           <b>{{number_format((float)$porcentajeReprobados, 0, '.', '')}}</b>
-                      @else                        
+                      @else
                         <b>{{number_format((float)$porcentajeReprobados, 1, '.', '')}}</b>
                       @endif
                     </td>
@@ -2742,10 +2743,10 @@
                       $reprobados = 0;
                       $totalDeAlumnosReales2 = 0;
                     @endphp
-                  @endforeach              
-                
+                  @endforeach
+
                   @php
-                    $genRepro = ($generalReprobados * 100)/$totalDeAlumnos;                
+                    $genRepro = ($generalReprobados * 100)/$totalDeAlumnos;
                   @endphp
                   {{-- Columna para promedio general de educacion fisica si es de merida  --}}
                   {{--  @if ($parametro_ubicacion_clave === "CME")
@@ -2778,7 +2779,7 @@
                           @php
                             $totalDeAlumnosReales3++;
                           @endphp
-                        
+
                           @if ($tipoReporte == "porMes")
 
                             @if ($mesEvaluar == "Septiembre")
@@ -2917,7 +2918,7 @@
                                 @php
                                   $aprobados++;
                                 @endphp
-                              @endif  
+                              @endif
                             @endif
 
                             {{-- trimestre 2 --}}
@@ -2926,7 +2927,7 @@
                                 @php
                                   $aprobados++;
                                 @endphp
-                              @endif  
+                              @endif
                             @endif
 
                             {{-- trimestre 3 --}}
@@ -2935,7 +2936,7 @@
                                 @php
                                   $aprobados++;
                                 @endphp
-                              @endif  
+                              @endif
                             @endif
 
                           @endif
@@ -2991,28 +2992,28 @@
                   @foreach ($matNombreColumna as $itemMatClave => $finalValores)
                       <td align="center" style="border-top: 1px solid; border-right: 0px; border-bottom: 0px; border-left: 1px solid;"></td>
                   @endforeach
-            
+
                   @if ($modoCalificacion != "BASEPORCENTAJE")
                   <td  style="border-top: 1px solid; border-right: 0px; border-bottom: 10px; border-left: 1px solid;"></td>
                   <td  style="border-top: 1px solid; border-right: 0px; border-bottom: 1px; border-left: 1px solid;"></td>
                   <td  style="border-top: 1px solid; border-right: 0px; border-bottom: 1px; border-left: 1px solid;"></td>
                   @endif
                   <td  style="border-top: 0px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;"></td>
-                  
+
               </tr>
             @endif
 
            @php
-              $contador1 = 1; 
-              $totalMateriasReales = 0;   
-              $promedioPeriodo = 0;  
-              
+              $contador1 = 1;
+              $totalMateriasReales = 0;
+              $promedioPeriodo = 0;
+
               $repXMateria = 0;
               $aproXMateria = 0;
               $VUELTA = 0;
 
               $promedioSep = 0.0;
-              $vuelta1 = 0; 
+              $vuelta1 = 0;
 
               $vueltaFis = 0;
               $promedioEducacionFis = 0.0;
@@ -3025,11 +3026,11 @@
 
               $promEducacionFisicaNov = 0.0;
               $promediodelMesNov = 0.0;
-           @endphp         
-          
+           @endphp
+
 
           @endforeach
-   
+
         </tbody>
       </table>
 

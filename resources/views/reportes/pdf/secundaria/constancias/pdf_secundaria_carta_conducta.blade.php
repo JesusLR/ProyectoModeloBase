@@ -19,7 +19,7 @@
         -webkit-text-size-adjust: 100%;
         /* 2 */
       }
-  
+
       /* Sections
           ========================================================================== */
       /**
@@ -28,14 +28,14 @@
       body {
         margin: 0;
       }
-  
+
       /**
         * Render the `main` element consistently in IE.
         */
       main {
         display: block;
       }
-  
+
       /**
         * Correct the font size and margin on `h1` elements within `section` and
         * `article` contexts in Chrome, Firefox, and Safari.
@@ -44,7 +44,7 @@
         font-size: 2em;
         margin: 0.67em 0;
       }
-  
+
       /* Grouping content
           ========================================================================== */
       /**
@@ -59,7 +59,7 @@
         overflow: visible;
         /* 2 */
       }
-  
+
       /**
         * 1. Correct the inheritance and scaling of font size in all browsers.
         * 2. Correct the odd `em` font sizing in all browsers.
@@ -70,7 +70,7 @@
         font-size: 1em;
         /* 2 */
       }
-  
+
       /* Text-level semantics
           ========================================================================== */
       /**
@@ -79,7 +79,7 @@
       a {
         background-color: transparent;
       }
-  
+
       /**
         * 1. Remove the bottom border in Chrome 57-
         * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
@@ -92,7 +92,7 @@
         text-decoration: underline dotted;
         /* 2 */
       }
-  
+
       /**
         * Add the correct font weight in Chrome, Edge, and Safari.
         */
@@ -100,7 +100,7 @@
       strong {
         font-weight: bolder;
       }
-  
+
       /**
         * 1. Correct the inheritance and scaling of font size in all browsers.
         * 2. Correct the odd `em` font sizing in all browsers.
@@ -113,14 +113,14 @@
         font-size: 1em;
         /* 2 */
       }
-  
+
       /**
         * Add the correct font size in all browsers.
         */
       small {
         font-size: 80%;
       }
-  
+
       /**
         * Prevent `sub` and `sup` elements from affecting the line height in
         * all browsers.
@@ -132,15 +132,15 @@
         position: relative;
         vertical-align: baseline;
       }
-  
+
       sub {
         bottom: -0.25em;
       }
-  
+
       sup {
         top: -0.5em;
       }
-  
+
       /* Embedded content
           ========================================================================== */
       /**
@@ -149,7 +149,7 @@
       img {
         border-style: none;
       }
-  
+
       /* Forms
           ========================================================================== */
       /**
@@ -170,7 +170,7 @@
         margin: 0;
         /* 2 */
       }
-  
+
       /**
         * Show the overflow in IE.
         * 1. Show the overflow in Edge.
@@ -180,7 +180,7 @@
         /* 1 */
         overflow: visible;
       }
-  
+
       /**
         * Remove the inheritance of text transform in Edge, Firefox, and IE.
         * 1. Remove the inheritance of text transform in Firefox.
@@ -190,7 +190,7 @@
         /* 1 */
         text-transform: none;
       }
-  
+
       /**
         * Correct the inability to style clickable types in iOS and Safari.
         */
@@ -200,7 +200,7 @@
       [type="submit"] {
         -webkit-appearance: button;
       }
-  
+
       /**
         * Remove the inner border and padding in Firefox.
         */
@@ -211,7 +211,7 @@
         border-style: none;
         padding: 0;
       }
-  
+
       /**
         * Restore the focus styles unset by the previous rule.
         */
@@ -221,14 +221,14 @@
       [type="submit"]:-moz-focusring {
         outline: 1px dotted ButtonText;
       }
-  
+
       /**
         * Correct the padding in Firefox.
         */
       fieldset {
         padding: 0.35em 0.75em 0.625em;
       }
-  
+
       /**
         * 1. Correct the text wrapping in Edge and IE.
         * 2. Correct the color inheritance from `fieldset` elements in IE.
@@ -249,21 +249,21 @@
         white-space: normal;
         /* 1 */
       }
-  
+
       /**
         * Add the correct vertical alignment in Chrome, Firefox, and Opera.
         */
       progress {
         vertical-align: baseline;
       }
-  
+
       /**
         * Remove the default vertical scrollbar in IE 10+.
         */
       textarea {
         overflow: auto;
       }
-  
+
       /**
         * 1. Add the correct box sizing in IE 10.
         * 2. Remove the padding in IE 10.
@@ -275,7 +275,7 @@
         padding: 0;
         /* 2 */
       }
-  
+
       /**
         * Correct the cursor style of increment and decrement buttons in Chrome.
         */
@@ -283,7 +283,7 @@
       [type="number"]::-webkit-outer-spin-button {
         height: auto;
       }
-  
+
       /**
         * 1. Correct the odd appearance in Chrome and Safari.
         * 2. Correct the outline style in Safari.
@@ -294,14 +294,14 @@
         outline-offset: -2px;
         /* 2 */
       }
-  
+
       /**
         * Remove the inner padding in Chrome and Safari on macOS.
         */
       [type="search"]::-webkit-search-decoration {
         -webkit-appearance: none;
       }
-  
+
       /**
         * 1. Correct the inability to style clickable types in iOS and Safari.
         * 2. Change font properties to `inherit` in Safari.
@@ -312,7 +312,7 @@
         font: inherit;
         /* 2 */
       }
-  
+
       /* Interactive
           ========================================================================== */
       /*
@@ -321,14 +321,14 @@
       details {
         display: block;
       }
-  
+
       /*
         * Add the correct display in all browsers.
         */
       summary {
         display: list-item;
       }
-  
+
       /* Misc
           ========================================================================== */
       /**
@@ -337,24 +337,29 @@
       template {
         display: none;
       }
-  
+
       /**
         * Add the correct display in IE 10.
         */
       [hidden] {
         display: none;
       }
-  
+
       body {
         /*font-family: 'Calibri';*/
         font-family: 'Times New Roman';
-        font-size: 16px;
+        margin-top: 113px;
+        margin-left: 100px;
+        margin-right:100px;
+        margin-bottom: 113px;
+        font-size: 14px;
+        /* font-size: 16px;
         margin-top: 6cm;
         margin-bottom: 3cm;
         margin-left: 2.5cm;
-        margin-right: 2.5cm;
+        margin-right: 2.5cm; */
       }
-  
+
       .row {
         width: 100%;
         display: block;
@@ -362,104 +367,104 @@
         margin-left: -30px;
         margin-right: -30px;
       }
-  
+
       .row::after {
         content: "";
         clear: both;
         display: table;
       }
-  
+
       .column,
       .columns {
         width: 100%;
         float: left;
         box-sizing: border-box !important;
       }
-  
+
       .medium-1 {
         width: 8.33333333333%;
       }
-  
+
       .medium-4 {
         width: 16.6666666667%;
       }
-  
+
       .medium-3 {
         width: 25%;
       }
-  
+
       .medium-4 {
         width: 33.3333333333%;
       }
-  
+
       .medium-5 {
         width: 41.6666666667%;
       }
-  
+
       .medium-6 {
         width: 50%;
       }
-  
+
       .medium-7 {
         width: 58.3333333333%;
       }
-  
+
       .medium-8 {
         width: 66.6666666667%;
       }
-  
+
       .medium-9 {
         width: 75%;
       }
-  
+
       .medium-10 {
         width: 83.3333333333%;
       }
-  
+
       .medium-11 {
         width: 91.6666666667%;
       }
-  
+
       .medium-12 {
         width: 100%;
       }
-  
+
       .clearfix::after {
         content: "";
         clear: both;
         display: table;
       }
-  
+
       span {
         font-weight: bold;
       }
-  
+
       p {
         margin: 0;
       }
-  
+
       .left {
         float: left;
       }
-  
+
       .float-right: {
         float: right;
       }
-  
+
       .logo {
         width: 100%;
       }
-  
+
       .box-solicitud {
         border: 1px solid "black";
         padding: 5px;
         border-radius: 2px;
       }
-  
+
       .estilos-tabla {
         width: 100%;
       }
-  
+
       .estilos-tabla tr th {
         font-size: 12px;
         background-color: #000;
@@ -470,7 +475,7 @@
         box-sizing: border-box;
         text-align: center;
       }
-  
+
       .estilos-tabla tr td {
         font-size: 12px;
         padding-left: 2px;
@@ -478,11 +483,11 @@
         box-sizing: border-box;
         color: #000;
       }
-  
+
       .page_break {
         page-break-before: always;
       }
-  
+
       /** Define the footer rules **/
       footer {
         position: fixed;
@@ -493,18 +498,19 @@
         color: #000;
         text-align: center;
       }
-  
+
       header {
+        left: 0px;
         position: fixed;
         top: 40px;
         right: 0px;
         height: 3px;
         /** Extra personal styles **/
-  
+
         margin-left: 57px;
         margin-right: 5px;
       }
-  
+
       #watermark {
         position: fixed;
         top: 15%;
@@ -513,91 +519,91 @@
         height: 700px;
         opacity: .3;
       }
-  
+
       .img-header {
         height: 80px;
       }
-  
+
       .inicio-pagina {
         margin-top: 0;
         display: block;
       }
-  
+
       @page {
         margin-top: 30px;
         margin-bottom: 30px;
       }
-  
+
       .listas-info {
         margin-top: 0px;
         margin-bottom: 0px;
       }
-  
+
       .listas-info li {
         display: inline;
         list-style-type: none;
         margin-left: 40px;
-  
+
       }
-  
+
       .listas-info li:first-child {
         margin-left: 0px;
       }
-  
+
       .listas-asistencia {
         margin-top: 0px;
         margin-bottom: 0px;
         margin-left: 0px !important;
         padding-left: 0 !important;
       }
-  
+
       .listas-asistencia li {
         display: inline;
         list-style-type: none;
       }
-  
+
       .table {
         width: 100%;
       }
-  
+
       .table {
         border-collapse: collapse;
       }
-  
+
       .table th {
         border-bottom: 1px solid #000;
       }
-  
+
       .table td,
       .table th {
         padding-top: 0px;
         padding-bottom: 0px;
         padding-right: 5px;
       }
-  
+
       .page-number:before {
         content: "Pág "counter(page);
       }
-  
+
       /** row columna triple Nivel o Escuela**/
       .ne-txt {
         width: 66px;
       }
-  
+
       .tcenter {
         text-align: center;
       }
-  
+
       .tright {
         text-align: right;
       }
-  
+
       .bordered {
         border: 1px solid #000;
       }
     </style>
 	</head>
-  
+
   <header>
     <div>
       <img style="height: 111px;" src="{{base_path('resources/assets/img/logo.jpg')}}" alt="">
@@ -612,19 +618,19 @@
           <p class="tright"><b>ASUNTO: CONSTANCIA DE BUENA CONDUCTA</b></p>
           <br>
           <br>
-          <br>          
+          <br>
           <p><b>A QUIEN CORRESPONDA:</b></p>
           <br>
         </div>
       </div>
       <div class="row">
         <div class="columns medium-12">
-         
+
           @if ($parametro_clave_ubicacion == "CME")
-          <p style="text-indent: 14em; text-align: justify;">La que suscribe, Psic. Silvia Violeta Pool Dorantes, 
+          <p style="text-indent: 14em; text-align: justify;">La que suscribe, Psic. Silvia Violeta Pool Dorantes,
             Directora de la Escuela Secundaria Particular Incorporada “Modelo” Clave 31PES0012T de esta ciudad, hace constar que
-            {{ $alumno }} fue @if($sexo == "F") alumna @else alumno @endif 
-            regular de esta escuela @if($sexo == "F") inscrita @else inscrito @endif en el {{ $grado }} de secundaria en el curso escolar {{$periodo}}, 
+            {{ $alumno }} fue @if($sexo == "F") alumna @else alumno @endif
+            regular de esta escuela @if($sexo == "F") inscrita @else inscrito @endif en el {{ $grado }} de secundaria en el curso escolar {{$periodo}},
           quien durante este curso mostró buena conducta, cumpliendo con el reglamento de la escuela.</p>
 
           <br>
@@ -635,19 +641,19 @@
           </p>
 
           @endif
-          
+
           {{-- valida si proviene de Valladolid --}}
           @if ($parametro_clave_ubicacion == "CVA")
-     
-          <p style="text-indent: 14em; text-align: justify;">La que suscribe, Mtra. Lol –Há Canché Gómez, 
+
+          <p style="text-indent: 14em; text-align: justify;">La que suscribe, Mtra. Lol –Há Canché Gómez,
             Directora de la Escuela Secundaria Particular Incorporada “Modelo Valladolid” Clave 31PES0143L de esta ciudad, hace constar que
-            {{ $alumno }} fue @if($sexo == "F") alumna @else alumno @endif 
-            regular de esta escuela @if($sexo == "F") inscrita @else inscrito @endif en el {{ $grado }} de secundaria en el curso escolar {{$periodo}}, 
+            {{ $alumno }} fue @if($sexo == "F") alumna @else alumno @endif
+            regular de esta escuela @if($sexo == "F") inscrita @else inscrito @endif en el {{ $grado }} de secundaria en el curso escolar {{$periodo}},
           quien durante este curso mostró buena conducta, cumpliendo con el reglamento de la escuela.</p>
 
 
           <br>
-    
+
           <p style="text-indent: 14em; text-align: justify;">
             Y a pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día de
             hoy, en la ciudad de Valladolid Yucatán, México.
@@ -657,13 +663,13 @@
 
         </div>
       </div>
-      
+
       <br><br><br><br><br><br>
       <div class="row">
         <div class="columns medium-12">
             <p class="tcenter"><b>ATENTAMENTE</b></p>
             <p class="tcenter"><b>Para Sí, Para Todos</b></p>
-        </div>        
+        </div>
       </div>
       <br>
       <br>
@@ -676,20 +682,20 @@
         <div class="columns medium-12">
           <p class="tcenter"><b>PSIC. SILVIA VIOLETA POOL DORANTES</b></p>
           <p class="tcenter"><b>DIRECTORA</b></p>
-        </div>        
+        </div>
       </div>
       @endif
-    
+
       @if ($parametro_clave_ubicacion == "CVA")
       <div class="row">
         <div class="columns medium-12">
           <p class="tcenter"><b>MTRA. LOL-HÁ CANCHÉ GÓMEZ</b></p>
           <p class="tcenter"><b>DIRECTORA</b></p>
-        </div>        
+        </div>
       </div>
       @endif
-      
 
-      
+
+
     </body>
 </html>

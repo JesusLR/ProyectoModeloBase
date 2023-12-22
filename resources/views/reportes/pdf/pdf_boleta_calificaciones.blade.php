@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -488,7 +489,7 @@
         <h5 syle="margin-top:0px; margin-bottom: 10px;">PERIODO ESCOLAR:   {{$periodo}}</h5>
         </div>
       </div>
-      
+
     </header>
 
     @php
@@ -525,13 +526,13 @@
       }
 
     @endphp
-   
+
     @foreach ($datos as $alumno)
     @php
       $calificaciones = $alumno['calificaciones'];
       $adeudadas = $alumno['adeudadas'];
     @endphp
-    
+
     <div class="row">
       <div class="columns medium-6">
       <p style="margin-top:0px; margin-bottom: 10px;">Clave: {{$alumno['aluClave']}}</p>
@@ -544,9 +545,9 @@
           <p>{{$alumno['gpoSemestre']}}  {{$alumno['gpoClave']}}</p>
           </div>
       </div>
-    </div>   
-  
-    
+    </div>
+
+
       <div class="row">
         <div class="columns medium-12">
           <table class="table">
@@ -564,7 +565,7 @@
               <th align="center">Calif Ordi.</th>
               <th align="center">Calif Final</th>
             </tr>
-         
+
             @if ($loop->last)
               <hr>
             @endif
@@ -579,12 +580,12 @@
                   <td>{{$calificacion['matClave']}}</td>
                   <td style="width: 200px;">{{$calificacion['matNombre']}}</td>
 
-                  <td align="center"> 
+                  <td align="center">
                     @if (es_reprobada($calificacion, 'inscCalificacionParcial1'))
                       <strong>{{mostrarCalificacion($calificacion, 'inscCalificacionParcial1')}}</strong>
                     @else
                       {{mostrarCalificacion($calificacion, 'inscCalificacionParcial1')}}
-                    @endif  - 
+                    @endif  -
                     @if (mostrarCalificacion($calificacion, 'inscCalificacionParcial1') || mostrarCalificacion($calificacion, 'inscCalificacionParcial1') == 0)
                       {{mostrarFaltas($calificacion['inscFaltasParcial1'])}}
                     @endif
@@ -595,7 +596,7 @@
                       <strong>{{mostrarCalificacion($calificacion, 'inscCalificacionParcial2')}}</strong>
                     @else
                       {{mostrarCalificacion($calificacion, 'inscCalificacionParcial2')}}
-                    @endif  -  
+                    @endif  -
                     @if (mostrarCalificacion($calificacion, 'inscCalificacionParcial2') || mostrarCalificacion($calificacion, 'inscCalificacionParcial2') == 0)
                       {{mostrarFaltas($calificacion['inscFaltasParcial2'])}}
                     @endif
@@ -607,7 +608,7 @@
                       <strong>{{mostrarCalificacion($calificacion, 'inscCalificacionParcial3')}}</strong>
                     @else
                       {{mostrarCalificacion($calificacion, 'inscCalificacionParcial3')}}
-                    @endif  -  
+                    @endif  -
                     @if(mostrarCalificacion($calificacion, 'inscCalificacionParcial3') || mostrarCalificacion($calificacion, 'inscCalificacionParcial3') == 0)
                       {{mostrarFaltas($calificacion['inscFaltasParcial3'])}}
                     @endif
@@ -647,7 +648,7 @@
                 @endif
               @endforeach
             @endif
-                
+
             <tr>
               <td></td>
               <td align="right" style="width: 200px;">Total de faltas del parcial:</td>
@@ -701,6 +702,6 @@
       <footer id="footer">
         <div class="page-number"></div>
       </footer>
-       
+
   </body>
 </html>

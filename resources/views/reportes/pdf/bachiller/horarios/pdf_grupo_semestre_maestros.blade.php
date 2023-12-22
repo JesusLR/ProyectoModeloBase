@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -470,8 +471,8 @@
         content: "Pág " counter(page);
       }
 
-      .punteado{       
-            
+      .punteado{
+
         border-top: 1px dotted;
         border-bottom: 1px dotted;
      }
@@ -482,7 +483,7 @@
       $grupo = $grupo = ($grupos)->first();
       $grupo = $grupo ? $grupo->first(): []
 
-      
+
     @endphp
     @php
       $contador = 1;
@@ -511,10 +512,10 @@
               @php
               setlocale(LC_ALL, 'es_MX', 'es', 'ES')
               @endphp
-              Período : {{ Utils::fecha_string($grupo["bachiller_grupo_merida"]["periodo"]["perFechaInicial"], $grupo["bachiller_grupo_merida"]["periodo"]["perFechaInicial"]) }} 
-              - 
+              Período : {{ Utils::fecha_string($grupo["bachiller_grupo_merida"]["periodo"]["perFechaInicial"], $grupo["bachiller_grupo_merida"]["periodo"]["perFechaInicial"]) }}
+              -
               {{ Utils::fecha_string($grupo["bachiller_grupo_merida"]["periodo"]["perFechaFinal"], $grupo["bachiller_grupo_merida"]["periodo"]["perFechaFinal"]) }}
-               
+
             @endif
           </p>
         </div>
@@ -532,7 +533,7 @@
         <div class="columns medium-12">
           @if($grupo)
             <p>Ubicac. : {{$grupo["bachiller_grupo_merida"]["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiClave"] ?
-                $grupo["bachiller_grupo_merida"]["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiClave"]: "" }} 
+                $grupo["bachiller_grupo_merida"]["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiClave"]: "" }}
               {{$grupo["bachiller_grupo_merida"]["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiNombre"] ?
                 $grupo["bachiller_grupo_merida"]["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiNombre"]: ""}}
             </p>
@@ -540,7 +541,7 @@
         </div>
       </div>
     </header>
-   
+
     @foreach ($grupos as $grupo)
       @php
         $grupo = $grupo->sortBy('bachiller_grupo_merida.gpoClave');
@@ -570,7 +571,7 @@
                 $id_grupo = $grupo->groupBy('grupo_id');
               @endphp
 
-              @foreach ($id_grupo as $id_grupo => $valores)                  
+              @foreach ($id_grupo as $id_grupo => $valores)
                 @foreach ($valores as $materia)
                   @if ($id_grupo == $materia->grupo_id && $contador++ == 1)
                     @php
@@ -582,7 +583,7 @@
                       <td class="punteado" style="width: 150px; font-size: 10px;">{{$materia["bachiller_grupo_merida"]["gpoMatComplementaria"]}}</td>
                       <td align="center" class="punteado" style="width: 20px;">{{$materia["bachiller_grupo_merida"]["gpoClave"]}}</td>
                       <td align="center" class="punteado" style="width: 20px;">{{$materia["bachiller_grupo_merida"]["gpoTurno"]}}</td>
-                
+
                       <td class="punteado" style="width: 30px;">
                         {{\Carbon\Carbon::parse($materia["bachiller_grupo_merida"]["gpoFechaExamenOrdinario"])->day
                         .'/'. \Carbon\Carbon::parse($materia["bachiller_grupo_merida"]["gpoFechaExamenOrdinario"])->formatLocalized('%b')
@@ -612,7 +613,7 @@
                 <td class="punteado" style="width: 150px; font-size: 10px;">{{$materia["bachiller_grupo_merida"]["gpoMatComplementaria"]}}</td>
                 <td align="center" class="punteado" style="width: 20px;">{{$materia["bachiller_grupo_merida"]["gpoClave"]}}</td>
                 <td align="center" class="punteado" style="width: 20px;">{{$materia["bachiller_grupo_merida"]["gpoTurno"]}}</td>
-                
+
                 <td class="punteado" style="width: 30px;">
                   {{\Carbon\Carbon::parse($materia["bachiller_grupo_merida"]["gpoFechaExamenOrdinario"])->day
                   .'/'. \Carbon\Carbon::parse($materia["bachiller_grupo_merida"]["gpoFechaExamenOrdinario"])->formatLocalized('%b')

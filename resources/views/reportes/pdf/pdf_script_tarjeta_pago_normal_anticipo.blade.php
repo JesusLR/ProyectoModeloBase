@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -475,11 +476,11 @@
     <header>
     </header>
 
-      
-    
 
 
-    
+
+
+
     <div class="row">
 
 
@@ -530,7 +531,7 @@
       </div>
 
 
-        
+
       <div class="columns medium-4">
         <div style="height: 145px; width: 75%; position: relative; border: 1px solid #000; padding: 10px;  margin: 0 auto;">
           <p style="text-align: center; font-weight: 700; margin-bottom: 10px;">MAYO</p>
@@ -578,7 +579,7 @@
           @endif
         </div>
       </div>
-  
+
       <div class="columns medium-4">
         <div style="height: 145px; width: 75%; position: relative; border: 1px solid #000; padding: 10px;  margin: 0 auto;">
           <p style="text-align: center; font-weight: 700; margin-bottom: 10px;">JUNIO</p>
@@ -678,7 +679,7 @@
             @if (isset($junio->esBeca))
             @if ($junio->esBeca)
             <p>Aplica beca de {{$junio->descuentoBeca * 100}}%</p>
-            @else 
+            @else
             <p>Aplica descuento de 20%</p>
             <p>El descuento sustituye a la beca</p>
             @endif
@@ -692,7 +693,7 @@
           <div style="float:right;">
             <p>
               Aplica Ant/Cred:
-              @php 
+              @php
                 $inscripcionAnticipoCredito = (Double) $inscripcion->importeInscripcion / 10;
                 $inscripcionAnticipoCredito = (string) number_format($inscripcionAnticipoCredito, 2, ".", "");
               @endphp
@@ -711,6 +712,6 @@
         </div>
       @endif
     </div>
-    
+
   </body>
 </html>

@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -30px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -486,7 +487,7 @@
           <h4 style="margin-top:0px; margin-bottom: 10px;">ESCUELA MODELO, S.C.P.</h4>
           <p style="margin-top:0px; margin-bottom: 10px;">ALUMNOS ASISTENTES ({{$tipoReporte}})</p>
         <p style="margin-top:0px; margin-bottom: 10px;">Período : {{$periodo}}</p>
-        
+
         </div>
         <div class="columns medium-6">
           <div style="text-align: right;">
@@ -496,8 +497,8 @@
           </div>
         </div>
       </div>
- 
-      
+
+
     </header>
 
       <div class="row">
@@ -518,7 +519,7 @@
           @foreach ($datos as $alumnos)
 
             @foreach ($alumnos as $alumno)
-           
+
             <tr>
               <td align="center">{{$contador}}</td>
               <td align="center">{{$alumno['aluClave']}}</td>
@@ -526,16 +527,16 @@
               <td align="center">{{$alumno['nivCar']}}</td>
               <td align="center">{{$alumno['grado']}}</td>
               <td align="center">{{$alumno['grupo']}}</td>
-            </tr>  
+            </tr>
             @php
             $contador++;
             @endphp
             @endforeach
             @endforeach
-          </table> 
+          </table>
         </div>
       </div>
-      
+
     <footer id="footer">
       <div class="page-number"></div>
     </footer>

@@ -369,7 +369,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -393,15 +393,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -485,15 +486,15 @@
       }
     </style>
 	</head>
-  
+
   <header>
-   
+
   </header>
 
   @foreach ($curso_alumno as $curso)
-    
+
       @php
-    
+
         if ($curso->perSexo == "F") {
         $parametro_genero_alumno = "Que la niña ";
         $parametro_consideracion = "está considerada como alumna ";
@@ -501,7 +502,7 @@
         $parametro_genero_alumno = "Que el niño";
         $parametro_consideracion = "es alumno ";
         }
-        
+
         if ($curso->cgtGradoSemestre == 1) {
         $gradoEnLetras = "PRIMER GRADO";
         }
@@ -520,7 +521,7 @@
         if ($curso->cgtGradoSemestre == 6) {
         $gradoEnLetras = "SEXTO GRADO";
         }
-    
+
         #buscar el grupo al que el alumno pertenece
         $resultado_array = DB::select("call procSecundariaObtieneGrupoCurso(" . $curso->id . ")");
 
@@ -533,7 +534,7 @@
 
       @if ($gpoClave != "")
       <body>
-      
+
         <div class="row">
           <div class="columns medium-12">
             <p class="tright">{{$fechaHoy}}</p>
@@ -543,20 +544,20 @@
             <br>
             <br>
             <br>
-  
+
             <br>
             <p>A QUIEN CORRESPONDA:</p>
-            <br>          
+            <br>
             @if ($fotoAlumno == "NO")
-            <br>         
+            <br>
             <br>
             <br>
             <br>
             <br>
             @endif
-  
-            @if ($fotoAlumno == "SI")     
-  
+
+            @if ($fotoAlumno == "SI")
+
               @if ($curso->curSecundariaFoto != "")
                 @if (file_exists(base_path('storage/app/public/secundaria/cursos/fotos/' . $curso->perAnioPago . '/' . $campus .'/'. $curso->curSecundariaFoto)))
 
@@ -574,55 +575,55 @@
               La que suscribe,  Mtra. Lol –Há Canché Gómez, Directora de la
               Escuela Secundaria "Modelo Valladolid", clave C.T. 31PES0143L de esta ciudad hace constar:
             </p>
-                     
-            
+
+
             <br>
             <br>
             <br>
             <br>
-            
-  
-  
+
+
+
             <p style="text-indent: 4em; font-size: 15px; text-align: justify;">
-              {{$parametro_genero_alumno}} <b>{{$curso->perApellido1.' '.$curso->perApellido2.' '.$curso->perNombre}} con número de matrícula {{$curso->aluClave}} </b>  {{$parametro_consideracion}} 
-              regular de este plantel, al {{$gradoEnLetras}} GRUPO “{{$gpoClave}}”, 
-              del ciclo escolar {{$periodo}}, 
+              {{$parametro_genero_alumno}} <b>{{$curso->perApellido1.' '.$curso->perApellido2.' '.$curso->perNombre}} con número de matrícula {{$curso->aluClave}} </b>  {{$parametro_consideracion}}
+              regular de este plantel, al {{$gradoEnLetras}} GRUPO “{{$gpoClave}}”,
+              del ciclo escolar {{$periodo}},
               durante el tiempo que ha estudiado en este plantel, se ha observado buena conducta y cumplimiento del reglamento de la escuela.
             </p>
-  
+
             <br>
             <br>
             <br>
             <br>
-  
+
             <p style="text-indent: 4em; font-size: 15px; text-align: justify;">
-              Y a pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día de hoy, en la ciudad de Valladolid Yucatán, México.            
+              Y a pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día de hoy, en la ciudad de Valladolid Yucatán, México.
             </p>
           </div>
         </div>
-        
-        <br><br><br><br><br><br><br> 
-  
+
+        <br><br><br><br><br><br><br>
+
         <div class="row">
           <div class="columns medium-12">
-  
+
             <p class="tcenter"><b>ATENTAMENTE</b></p>
-            <br><br><br><br>          
+            <br><br><br><br>
             <p class="tcenter"><b>________________________________________________________</b></p>
-  
+
               <p class="tcenter"><b>Mtra. Lol-Há Canché Gómez</b></p>
               <p class="tcenter"><b>DIRECTORA</b></p>
-            
-          
+
+
           </div>
         </div>
         {{--  @if(!$loop->last)
           <div class="page_break"></div>
         @endif  --}}
-        
+
       </body>
       @endif
-    
+
     @endforeach
-    
+
 </html>

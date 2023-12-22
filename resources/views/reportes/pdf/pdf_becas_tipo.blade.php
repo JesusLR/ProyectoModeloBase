@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -20px;
         right: 0px;
@@ -688,7 +689,7 @@
 
               @endforeach
 
-             
+
               <tr>
                       <td></td>
                       <td align="left" colspan="2" style="width: 240px;"><b>{{$escClave}} {{$escNombre}}</b></td>
@@ -699,7 +700,7 @@
                       <td align="right"><b>${{number_format($acumuladoMes, 2, '.', ',')}}</b></td>
                       <td align="right"><b>${{number_format($acumuladoAnio, 2, '.', ',')}}</b></td>
               </tr>
-              
+
               @php
 
                 $conteo = 0;
@@ -725,7 +726,7 @@
 
                       $mensualidadBase2 = $beca["mensualidad"];
                       $numeromesesBase2 = $beca["numMeses"];
-                      
+
 
                       //ESTIMAMOS POR TIPO DE MENSUALIDAD
                       if ( $mensualidadBase2 < 3000 )
@@ -749,10 +750,10 @@
                       $acumuladoMes2 = $acumuladoMes2 + ($equivalente2 * $mensualidad2); //$campus["mensualidad"];
                       $acumuladoAnio2 = $acumuladoAnio2 + (($equivalente2 * $mensualidad2) * $numdeMeses2); //$campus["numMeses"]
                     @endphp
-                  
-                    
+
+
                   @endif
-                @endforeach  
+                @endforeach
                 <tr>
                   <td></td>
                   <td align="left" colspan="2" style="width: 240px;"></td>
@@ -761,15 +762,15 @@
 
                   <td align="center">${{number_format($mensualidadBase2, 2, '.', ',')}}</td>
 
-                  <td align="right">{{$conteo}}</td>   
-                  
+                  <td align="right">{{$conteo}}</td>
+
                   <td align="right">{{number_format($acumuladoEquivalente2, 2, '.', ',')}}</td>
 
                   <td align="right">${{number_format($acumuladoMes2, 2, '.', ',')}}</td>
 
                   <td align="right">${{number_format($acumuladoAnio2, 2, '.', ',')}}</td>
 
-                  
+
                   {{$acumuladoEquivalente2 = 0}}
                   {{$mensualidadBase2 = 0}}
                   {{$conteo = 0}}
@@ -777,22 +778,22 @@
                   {{$acumuladoAnio2 = 0}}
 
 
-                </tr>     
+                </tr>
 
-                
-                   
+
+
               @endforeach
               <tr>
                 <td style="height: 15px;"></td>
                 <td align="left" colspan="2" style="width: 240px;"></td>
                 <td></td>
                 <td align="center"></td>
-                <td align="right"></td>              
                 <td align="right"></td>
                 <td align="right"></td>
                 <td align="right"></td>
-              </tr>    
-              
+                <td align="right"></td>
+              </tr>
+
               {{$nivelAlumnos = $nivelAlumnos + $cuenta}}
               {{$nivelacumuladoMes = $nivelacumuladoMes + $acumuladoMes}}
               {{$nivelacumuladoAnio = $nivelacumuladoAnio + $acumuladoAnio}}
@@ -801,10 +802,10 @@
               {{$acumuladoMes = 0}}
               {{$acumuladoAnio = 0}}
 
-              
 
-              
-              
+
+
+
             @endforeach
             <tr>
                   <td colspan="8">&nbsp;</td>

@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 20px;
         right: 0px;
@@ -500,7 +501,7 @@
           </div>
         </div>
       </header>
-    
+
       <footer id="footer">
         <div class="page-number"></div>
       </footer>
@@ -509,7 +510,7 @@
       $totalLoops = 0;
     @endphp
     @foreach ($datos as $programa)
-      
+
       @foreach($programa as $plan)
         @php
           $grados = $plan->sortKeys();
@@ -558,7 +559,7 @@
                     <th style="font-weight: 400;">Nombre del alumno</th>
                     <th align="center" style="font-weight: 400;">Estado de Pago</th>
 
-              
+
                   </tr>
                   @foreach ($grupo as $alumno)
                     @php
@@ -593,11 +594,11 @@
                         @else
 
                         {{ $alumno['estatus_pago'] }}
-                            
+
                         @endif
 
 
-                        
+
                       </td>
                     </tr>
                   @endforeach <!-- foreach alumno -->
@@ -617,6 +618,6 @@
       @endforeach <!-- foreach plan -->
     @endforeach <!-- foreach programa -->
 
-    
+
   </body>
 </html>

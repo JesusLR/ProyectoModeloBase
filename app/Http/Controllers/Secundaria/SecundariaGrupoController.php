@@ -28,6 +28,7 @@ use App\Models\Secundaria\Secundaria_inscritos;
 use App\Models\Secundaria\Secundaria_materias;
 use App\Models\Secundaria\Secundaria_materias_acd;
 use App\Models\Secundaria\Secundaria_mes_evaluaciones;
+use App\Models\Optativa;
 use Carbon\Carbon;
 
 class SecundariaGrupoController extends Controller
@@ -220,8 +221,8 @@ class SecundariaGrupoController extends Controller
                 $editarCalificaciones = "";
                 $btnEditarGrupo = "";
                 $btnEliminar = "";
-                
-                if(auth()->user()->departamento_sistemas == 1){ 
+
+                if(auth()->user()->departamento_sistemas == 1){
                     $btnRecuperativos = '<a href="secundaria_calificacion/grupo/' . $grupos->id . '/recuperativos" class="button button--icon js-button js-ripple-effect" title="Recuperativos" >
                     <i class="material-icons">wrap_text</i>
                     </a>';
@@ -276,13 +277,13 @@ class SecundariaGrupoController extends Controller
                         $editarCalificaciones = "";
                         $btnEditarGrupo = "";
                         $btnEliminar = "";
-                        
+
                     }
                 }
 
-                
 
-                if(auth()->user()->departamento_sistemas == 1){                
+
+                if(auth()->user()->departamento_sistemas == 1){
 
 
                     $acciones = '<div class="row">'
@@ -338,7 +339,7 @@ class SecundariaGrupoController extends Controller
                     '</div>';
                 }
 
-                
+
 
                 return $acciones;
             })
@@ -614,7 +615,7 @@ class SecundariaGrupoController extends Controller
         DB::beginTransaction();
         try {
 
-            // valida si viene check 
+            // valida si viene check
             if ($request->gpoACD == 1) {
                 $gpoACD = 1;
                 $gpoMatComplementaria = $request->gpoMatComplementaria;
@@ -734,7 +735,7 @@ class SecundariaGrupoController extends Controller
 
         $cgts = Cgt::where([['plan_id', $grupo->plan_id], ['periodo_id', $grupo->periodo_id]])->get();
         $materias = Secundaria_materias::where([['plan_id', '=', $grupo->plan_id], ['matSemestre', '=', $grupo->gpoGrado]])->get();
-        // $optativas = Optativa::where('materia_id', '=', $grupo->materia_id)->get();
+        $optativas = Optativa::where('materia_id', '=', $grupo->materia_id)->get();
 
 
 

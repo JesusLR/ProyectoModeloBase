@@ -499,6 +499,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: -50px;
             right: 0px;

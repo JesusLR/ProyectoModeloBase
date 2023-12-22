@@ -368,7 +368,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -392,15 +392,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -492,8 +493,8 @@
     </style>
 
       <style>
-        .rectangulo {     
-          border: 1px solid #555;          
+        .rectangulo {
+          border: 1px solid #555;
           -moz-border-radius: 50%;
           -webkit-border-radius: 50%;
           border-radius: 70%;
@@ -512,7 +513,7 @@
             background: #000;
        }
 
-       
+
        </style>
 </head>
 
@@ -525,7 +526,7 @@
       <p style="text-align: center; font-size: 14px;"><b>ESCUELA  MODELO</b></p>
       <p style="text-align: center; font-size: 13px;">Primaria Particular Incorporada</p>
       <p style="text-align: center; font-size: 13px;">CCT31PPR0097X</p>
-      <p style="text-align: center; font-size: 13px;">{{$ciclo_escolar}}</p>           
+      <p style="text-align: center; font-size: 13px;">{{$ciclo_escolar}}</p>
       <br>
       <p style="text-align: center; font-size: 13px; text-decoration: underline;"><strong>GUÍA DE ENTREVISTA A PADRES DE FAMILIA</strong></p>
       <br>
@@ -536,7 +537,7 @@
   </div>
 </header>
 <body>
- 
+
   <footer id="footer">
     <div class="page-number"></div>
   </footer>
@@ -558,10 +559,10 @@
         <p style="text-align: left"><b>Fecha de Nacimiento: </b>{{$diaNac}} de {{$mes}} de {{$yearNAc}}</p>
       </div>
       <div class="columns medium-4">
-      </div> 
+      </div>
       <div class="columns medium-4">
         <p style="text-align: right"><b>Edad: </b>{{$edad}} <b>Grado: </b>{{$primaria_expediente_seguimiento_escolar->cgtGradoSemestre}}{{$primaria_expediente_seguimiento_escolar->cgtGrupo}}</p>
-      </div> 
+      </div>
     </div>
 
     <br>
@@ -583,8 +584,8 @@
             Papá
           </div>
         @endif
-        
-      </div> 
+
+      </div>
       <div class="columns medium-3">
         @if ($primaria_expediente_seguimiento_escolar->perAsistieronEntrevista == "MAMÁ")
           <div style="border: 1px solid #555; width: 50px;">
@@ -595,7 +596,7 @@
             Mamá
           </div>
         @endif
-      </div> 
+      </div>
 
       <div class="columns medium-3">
         @if ($primaria_expediente_seguimiento_escolar->perAsistieronEntrevista == "AMBOS")
@@ -607,7 +608,7 @@
             Ambos
           </div>
         @endif
-      </div> 
+      </div>
 
 
       <div class="columns medium-3">
@@ -620,8 +621,8 @@
             Otro
           </div>
         @endif
-      </div> 
-       
+      </div>
+
     </div>
     <br>
     <div class="row">
@@ -666,14 +667,14 @@
       <p><b>Próxima entrevista: </b>{{\Carbon\Carbon::parse($primaria_expediente_seguimiento_escolar->proximaEntrevista)->format('d-m-Y')}}
         <b>Hora: </b>{{\Carbon\Carbon::parse($primaria_expediente_seguimiento_escolar->proximaEntrevista)->format('H:i')}}</p>
     </div>
-   
+
     <br>
     <div class="row">
       <div class="columns medium-3">
         <p><b>Firma de asistentes</b></p>
         <br>
         <p>________________________________________________</p>
-        <br>      
+        <br>
         <p>________________________________________________</p>
       </div>
       <div class="columns medium-4">
@@ -701,7 +702,7 @@
         </p>
       </div>
     </div>
-    
+
 
     {{-- <footer id="footer">
         <div class="page-number"></div>

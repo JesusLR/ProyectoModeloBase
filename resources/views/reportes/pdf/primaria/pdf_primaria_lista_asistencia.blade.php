@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -504,7 +505,7 @@
 
 			{{--  @php  --}}
         {{--  $inscritos = $grupo['inscritos'];  --}}
-        
+
         // dd($grupos, $grupo, $inscritos);
 			{{--  @endphp
       @if (!is_null($inscritos))  --}}
@@ -565,7 +566,7 @@
                      {{-- @for($i = 0; $i < 4; $i++)
                     <li><div></div></li>
                     @endfor  --}}
-                    
+
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -578,8 +579,8 @@
                   </ul>
                 </th>
               </tr>
-                @foreach ($cursos_grupo as $itemCurso)                 
-                
+                @foreach ($cursos_grupo as $itemCurso)
+
                   <tr>
                     <td align="center" style="width: 15px;">{{$itemCurso->alumno_id}}</td>
                     <td align="center" style="width: 40px;">{{$itemCurso->aluClave}}</td>
@@ -596,12 +597,12 @@
                     </td>
                     <td style="padding-top: 5px;">
                       <ul class="listas-asistencia">
-                        
+
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        
+
                         {{--  faltas de primer trimeste   --}}
                         @for($i = 0; $i < 1; $i++)
                           <li><div>{{$itemCurso->trimestre1_faltas}}</div></li>

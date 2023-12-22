@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -70px;
         right: 0px;
@@ -419,7 +420,7 @@
         height: 80px;
         float: right;
         margin-top: -100px;
-      
+
         padding:2px;
         background-color: #f5f5f5;
         border: 1px solid #999999;
@@ -468,7 +469,7 @@
         border-collapse: collapse;
       }
 
-      
+
 
       .table td, .table  th {
         padding-top: 0px;
@@ -513,9 +514,9 @@
   $acd = 0;
   $Keynasistencias = 0;
 
-  
+
   //hay que declarar mas variables, una por columna diferente y categoria
-  //iniciarlas en 0.0 
+  //iniciarlas en 0.0
   $promSEPFA = 0.0;
   $promOCTFA = 0.0;
   $promNOVFA = 0.0;
@@ -533,7 +534,7 @@
   $promedioGen3SEPFA = 0.0;
   $promedioFinalFA = 0.0;
   $promedioFinalSEPFA = 0.0;
-  
+
   $promSEPDESA = 0.0;
   $promOCTDESA = 0.0;
   $promNOVDESA = 0.0;
@@ -590,19 +591,19 @@
 
         {{--  llave del 1 hasta donde llege y se sepite el ciclo  --}}
         @php
-            $key++;            
+            $key++;
         @endphp
             @if ($key == 1)
             {{--  Cargar la foto del alumno   --}}
             @if ($inscrito->cursecundariaFoto != "")
-            <img class="img-foto" src="{{base_path('storage/app/public/secundaria/cursos/fotos/' . $inscrito->perAnioPago . '/' . $inscrito->cursecundariaFoto) }}" alt="">    
-    
+            <img class="img-foto" src="{{base_path('storage/app/public/secundaria/cursos/fotos/' . $inscrito->perAnioPago . '/' . $inscrito->cursecundariaFoto) }}" alt="">
+
             @else
-            <img class="img-foto"  src="" alt="">    
+            <img class="img-foto"  src="" alt="">
             @endif
-            
+
             {{--  fin foto   --}}
-            
+
             <div class="row">
               <div class="columns medium-4">
                   <div style="text-align: left;">
@@ -625,7 +626,7 @@
             </div>
 
             <br>
-               
+
         <div class="row">
           <div class="columns medium-12">
               <table class="table table-bordered">
@@ -683,41 +684,41 @@
                         <tr>
                           @php
                               $keyMatFA++;
-                      
+
                           @endphp
                           <td style="width: 200px;">{{$item->matNombreOficial}} ({{$item->gpoClave}})</td>
 
                           <td align="center">
-                            @if ($item->inscCalificacionSep == 1.0 || $item->inscCalificacionSep == 2.0 || $item->inscCalificacionSep == 3.0 || $item->inscCalificacionSep == 4.0 || 
-                            $item->inscCalificacionSep == 5.0 || $item->inscCalificacionSep == 6.0 || $item->inscCalificacionSep == 7.0 || $item->inscCalificacionSep == 8.0 || 
-                            $item->inscCalificacionSep == 9.0 || $item->inscCalificacionSep == 10.0) 
+                            @if ($item->inscCalificacionSep == 1.0 || $item->inscCalificacionSep == 2.0 || $item->inscCalificacionSep == 3.0 || $item->inscCalificacionSep == 4.0 ||
+                            $item->inscCalificacionSep == 5.0 || $item->inscCalificacionSep == 6.0 || $item->inscCalificacionSep == 7.0 || $item->inscCalificacionSep == 8.0 ||
+                            $item->inscCalificacionSep == 9.0 || $item->inscCalificacionSep == 10.0)
 
                             {{round($item->inscCalificacionSep)}}
-                            
+
                             @else
                             {{round($item->inscCalificacionSep, 1)}}
                             @endif
                           </td>
 
                           <td align="center">
-                            @if ($item->inscCalificacionOct == 1.0 || $item->inscCalificacionOct == 2.0 || $item->inscCalificacionOct == 3.0 || $item->inscCalificacionOct == 4.0 || 
-                            $item->inscCalificacionOct == 5.0 || $item->inscCalificacionOct == 6.0 || $item->inscCalificacionOct == 7.0 || $item->inscCalificacionOct == 8.0 || 
-                            $item->inscCalificacionOct == 9.0 || $item->inscCalificacionOct == 10.0) 
+                            @if ($item->inscCalificacionOct == 1.0 || $item->inscCalificacionOct == 2.0 || $item->inscCalificacionOct == 3.0 || $item->inscCalificacionOct == 4.0 ||
+                            $item->inscCalificacionOct == 5.0 || $item->inscCalificacionOct == 6.0 || $item->inscCalificacionOct == 7.0 || $item->inscCalificacionOct == 8.0 ||
+                            $item->inscCalificacionOct == 9.0 || $item->inscCalificacionOct == 10.0)
 
                             {{round($item->inscCalificacionOct)}}
-                            
+
                             @else
                             {{round($item->inscCalificacionOct, 1)}}
                             @endif
                           </td>
 
                           <td align="center">
-                            @if ($item->inscCalificacionNov == 1.0 || $item->inscCalificacionNov == 2.0 || $item->inscCalificacionNov == 3.0 || $item->inscCalificacionNov == 4.0 || 
-                            $item->inscCalificacionNov == 5.0 || $item->inscCalificacionNov == 6.0 || $item->inscCalificacionNov == 7.0 || $item->inscCalificacionNov == 8.0 || 
-                            $item->inscCalificacionNov == 9.0 || $item->inscCalificacionNov == 10.0) 
+                            @if ($item->inscCalificacionNov == 1.0 || $item->inscCalificacionNov == 2.0 || $item->inscCalificacionNov == 3.0 || $item->inscCalificacionNov == 4.0 ||
+                            $item->inscCalificacionNov == 5.0 || $item->inscCalificacionNov == 6.0 || $item->inscCalificacionNov == 7.0 || $item->inscCalificacionNov == 8.0 ||
+                            $item->inscCalificacionNov == 9.0 || $item->inscCalificacionNov == 10.0)
 
                             {{round($item->inscCalificacionNov)}}
-                            
+
                             @else
                             {{round($item->inscCalificacionNov, 1)}}
                             @endif
@@ -727,40 +728,40 @@
                           <td align="center"><b>{{round($item->inscTrimestre1,1)}}</b></td>
                           <td align="center">{{$item->inscTrimestre1SEP}}</td>
 
-    
+
                           <td align="center">{{""}}</td>
 
                           <td align="center">
-                            @if ($item->inscCalificacionDicEnero == 1.0 || $item->inscCalificacionDicEnero == 2.0 || $item->inscCalificacionDicEnero == 3.0 || $item->inscCalificacionDicEnero == 4.0 || 
-                            $item->inscCalificacionDicEnero == 5.0 || $item->inscCalificacionDicEnero == 6.0 || $item->inscCalificacionDicEnero == 7.0 || $item->inscCalificacionDicEnero == 8.0 || 
-                            $item->inscCalificacionDicEnero == 9.0 || $item->inscCalificacionDicEnero == 10.0) 
+                            @if ($item->inscCalificacionDicEnero == 1.0 || $item->inscCalificacionDicEnero == 2.0 || $item->inscCalificacionDicEnero == 3.0 || $item->inscCalificacionDicEnero == 4.0 ||
+                            $item->inscCalificacionDicEnero == 5.0 || $item->inscCalificacionDicEnero == 6.0 || $item->inscCalificacionDicEnero == 7.0 || $item->inscCalificacionDicEnero == 8.0 ||
+                            $item->inscCalificacionDicEnero == 9.0 || $item->inscCalificacionDicEnero == 10.0)
 
                             {{round($item->inscCalificacionDicEnero)}}
-                            
+
                             @else
                             {{round($item->inscCalificacionDicEnero, 1)}}
                             @endif
                           </td>
 
                           <td align="center">
-                            @if ($item->inscCalificacionFeb == 1.0 || $item->inscCalificacionFeb == 2.0 || $item->inscCalificacionFeb == 3.0 || $item->inscCalificacionFeb == 4.0 || 
-                            $item->inscCalificacionFeb == 5.0 || $item->inscCalificacionFeb == 6.0 || $item->inscCalificacionFeb == 7.0 || $item->inscCalificacionFeb == 8.0 || 
-                            $item->inscCalificacionFeb == 9.0 || $item->inscCalificacionFeb == 10.0) 
+                            @if ($item->inscCalificacionFeb == 1.0 || $item->inscCalificacionFeb == 2.0 || $item->inscCalificacionFeb == 3.0 || $item->inscCalificacionFeb == 4.0 ||
+                            $item->inscCalificacionFeb == 5.0 || $item->inscCalificacionFeb == 6.0 || $item->inscCalificacionFeb == 7.0 || $item->inscCalificacionFeb == 8.0 ||
+                            $item->inscCalificacionFeb == 9.0 || $item->inscCalificacionFeb == 10.0)
 
                             {{round($item->inscCalificacionFeb)}}
-                            
+
                             @else
                             {{round($item->inscCalificacionFeb, 1)}}
                             @endif
                           </td>
 
                           <td align="center">
-                            @if ($item->inscCalificacionMar == 1.0 || $item->inscCalificacionMar == 2.0 || $item->inscCalificacionMar == 3.0 || $item->inscCalificacionMar == 4.0 || 
-                            $item->inscCalificacionMar == 5.0 || $item->inscCalificacionMar == 6.0 || $item->inscCalificacionMar == 7.0 || $item->inscCalificacionMar == 8.0 || 
-                            $item->inscCalificacionMar == 9.0 || $item->inscCalificacionMar == 10.0) 
+                            @if ($item->inscCalificacionMar == 1.0 || $item->inscCalificacionMar == 2.0 || $item->inscCalificacionMar == 3.0 || $item->inscCalificacionMar == 4.0 ||
+                            $item->inscCalificacionMar == 5.0 || $item->inscCalificacionMar == 6.0 || $item->inscCalificacionMar == 7.0 || $item->inscCalificacionMar == 8.0 ||
+                            $item->inscCalificacionMar == 9.0 || $item->inscCalificacionMar == 10.0)
 
                             {{round($item->inscCalificacionMar)}}
-                            
+
                             @else
                             {{round($item->inscCalificacionMar, 1)}}
                             @endif
@@ -779,28 +780,28 @@
                           <td align="center"><b>{{round($item->inscTrimestre3,1)}}</b></td>
                           <td align="center">{{$item->inscTrimestre3SEP}}</td>
 
-                                                  
+
                           <td align="center">{{""}}</td>
 
                           {{--  promedio final   --}}
                           <td align="center">
-                            @if (round($item->inscPromedioTrimCALCULADO, 1) == 1.0 || round($item->inscPromedioTrimCALCULADO, 1) == 2.0 || round($item->inscPromedioTrimCALCULADO, 1) == 3.0 || round($item->inscPromedioTrimCALCULADO, 1) == 4.0 || 
-                              round($item->inscPromedioTrimCALCULADO, 1) == 5.0 || round($item->inscPromedioTrimCALCULADO, 1) == 6.0 || round($item->inscPromedioTrimCALCULADO, 1) == 7.0 || round($item->inscPromedioTrimCALCULADO, 1) == 8.0 || 
-                              round($item->inscPromedioTrimCALCULADO, 1) == 9.0 || round($item->inscPromedioTrimCALCULADO, 1) == 10.0) 
+                            @if (round($item->inscPromedioTrimCALCULADO, 1) == 1.0 || round($item->inscPromedioTrimCALCULADO, 1) == 2.0 || round($item->inscPromedioTrimCALCULADO, 1) == 3.0 || round($item->inscPromedioTrimCALCULADO, 1) == 4.0 ||
+                              round($item->inscPromedioTrimCALCULADO, 1) == 5.0 || round($item->inscPromedioTrimCALCULADO, 1) == 6.0 || round($item->inscPromedioTrimCALCULADO, 1) == 7.0 || round($item->inscPromedioTrimCALCULADO, 1) == 8.0 ||
+                              round($item->inscPromedioTrimCALCULADO, 1) == 9.0 || round($item->inscPromedioTrimCALCULADO, 1) == 10.0)
 
                               <b>{{round($item->inscPromedioTrimCALCULADO)}}</b>
 
                             @else
                               <b>{{round($item->inscPromedioTrimCALCULADO, 1)}}</b>
                             @endif
-                            
+
                           </td>
 
                           {{--  promedio final sep   --}}
                           <td align="center">
-                            @if (round($item->inscPromedioTrimCALCULADOSEP, 1) == 1.0 || round($item->inscPromedioTrimCALCULADOSEP, 1) == 2.0 || round($item->inscPromedioTrimCALCULADOSEP, 1) == 3.0 || round($item->inscPromedioTrimCALCULADOSEP, 1) == 4.0 || 
-                            round($item->inscPromedioTrimCALCULADOSEP, 1) == 5.0 || round($item->inscPromedioTrimCALCULADOSEP, 1) == 6.0 || round($item->inscPromedioTrimCALCULADOSEP, 1) == 7.0 || round($item->inscPromedioTrimCALCULADOSEP, 1) == 8.0 || 
-                            round($item->inscPromedioTrimCALCULADOSEP, 1) == 9.0 || round($item->inscPromedioTrimCALCULADOSEP, 1) == 10.0) 
+                            @if (round($item->inscPromedioTrimCALCULADOSEP, 1) == 1.0 || round($item->inscPromedioTrimCALCULADOSEP, 1) == 2.0 || round($item->inscPromedioTrimCALCULADOSEP, 1) == 3.0 || round($item->inscPromedioTrimCALCULADOSEP, 1) == 4.0 ||
+                            round($item->inscPromedioTrimCALCULADOSEP, 1) == 5.0 || round($item->inscPromedioTrimCALCULADOSEP, 1) == 6.0 || round($item->inscPromedioTrimCALCULADOSEP, 1) == 7.0 || round($item->inscPromedioTrimCALCULADOSEP, 1) == 8.0 ||
+                            round($item->inscPromedioTrimCALCULADOSEP, 1) == 9.0 || round($item->inscPromedioTrimCALCULADOSEP, 1) == 10.0)
 
                             {{round($item->inscPromedioTrimCALCULADOSEP)}}
 
@@ -811,20 +812,20 @@
 
                           <td align="center">{{""}}</td>
                         </tr>
-                        @endif                           
-                      @endif                          
+                        @endif
+                      @endif
                     @endforeach
-                    
+
                     @php
 
                     @endphp
                     <tr>
-                      <td><b>PROM. FORMACIÓN ACADÉMICA</b></td> 
+                      <td><b>PROM. FORMACIÓN ACADÉMICA</b></td>
                       {{--  promedio septiembree  --}}
                       <td align="center">
-                        @if (round($promSEPFA, 1) == 1.0 || round($promSEPFA, 1) == 2.0 || round($promSEPFA, 1) == 3.0 || round($promSEPFA, 1) == 4.0 || 
-                        round($promSEPFA, 1) == 5.0 || round($promSEPFA, 1) == 6.0 || round($promSEPFA, 1) == 7.0 || round($promSEPFA, 1) == 8.0 || 
-                        round($promSEPFA, 1) == 9.0 || round($promSEPFA, 1) == 10.0) 
+                        @if (round($promSEPFA, 1) == 1.0 || round($promSEPFA, 1) == 2.0 || round($promSEPFA, 1) == 3.0 || round($promSEPFA, 1) == 4.0 ||
+                        round($promSEPFA, 1) == 5.0 || round($promSEPFA, 1) == 6.0 || round($promSEPFA, 1) == 7.0 || round($promSEPFA, 1) == 8.0 ||
+                        round($promSEPFA, 1) == 9.0 || round($promSEPFA, 1) == 10.0)
 
                         <b>{{round($promSEPFA)}}</b>
 
@@ -835,9 +836,9 @@
 
                       {{--  promedio octubre   --}}
                       <td align="center">
-                        @if (round($promOCTFA, 1) == 1.0 || round($promOCTFA, 1) == 2.0 || round($promOCTFA, 1) == 3.0 || round($promOCTFA, 1) == 4.0 || 
-                        round($promOCTFA, 1) == 5.0 || round($promOCTFA, 1) == 6.0 || round($promOCTFA, 1) == 7.0 || round($promOCTFA, 1) == 8.0 || 
-                        round($promOCTFA, 1) == 9.0 || round($promOCTFA, 1) == 10.0) 
+                        @if (round($promOCTFA, 1) == 1.0 || round($promOCTFA, 1) == 2.0 || round($promOCTFA, 1) == 3.0 || round($promOCTFA, 1) == 4.0 ||
+                        round($promOCTFA, 1) == 5.0 || round($promOCTFA, 1) == 6.0 || round($promOCTFA, 1) == 7.0 || round($promOCTFA, 1) == 8.0 ||
+                        round($promOCTFA, 1) == 9.0 || round($promOCTFA, 1) == 10.0)
 
                         <b>{{round($promOCTFA)}}</b>
 
@@ -848,9 +849,9 @@
 
                       {{--  promedio noviembre   --}}
                       <td align="center">
-                        @if (round($promNOVFA, 1) == 1.0 || round($promNOVFA, 1) == 2.0 || round($promNOVFA, 1) == 3.0 || round($promNOVFA, 1) == 4.0 || 
-                        round($promNOVFA, 1) == 5.0 || round($promNOVFA, 1) == 6.0 || round($promNOVFA, 1) == 7.0 || round($promNOVFA, 1) == 8.0 || 
-                        round($promNOVFA, 1) == 9.0 || round($promNOVFA, 1) == 10.0) 
+                        @if (round($promNOVFA, 1) == 1.0 || round($promNOVFA, 1) == 2.0 || round($promNOVFA, 1) == 3.0 || round($promNOVFA, 1) == 4.0 ||
+                        round($promNOVFA, 1) == 5.0 || round($promNOVFA, 1) == 6.0 || round($promNOVFA, 1) == 7.0 || round($promNOVFA, 1) == 8.0 ||
+                        round($promNOVFA, 1) == 9.0 || round($promNOVFA, 1) == 10.0)
 
                         <b>{{round($promNOVFA)}}</b>
 
@@ -861,9 +862,9 @@
 
                       {{--  promedio general primer periodo   --}}
                       <td align="center">
-                        @if (round($promedioGen1FA, 1) == 1.0 || round($promedioGen1FA, 1) == 2.0 || round($promedioGen1FA, 1) == 3.0 || round($promedioGen1FA, 1) == 4.0 || 
-                        round($promedioGen1FA, 1) == 5.0 || round($promedioGen1FA, 1) == 6.0 || round($promedioGen1FA, 1) == 7.0 || round($promedioGen1FA, 1) == 8.0 || 
-                        round($promedioGen1FA, 1) == 9.0 || round($promedioGen1FA, 1) == 10.0) 
+                        @if (round($promedioGen1FA, 1) == 1.0 || round($promedioGen1FA, 1) == 2.0 || round($promedioGen1FA, 1) == 3.0 || round($promedioGen1FA, 1) == 4.0 ||
+                        round($promedioGen1FA, 1) == 5.0 || round($promedioGen1FA, 1) == 6.0 || round($promedioGen1FA, 1) == 7.0 || round($promedioGen1FA, 1) == 8.0 ||
+                        round($promedioGen1FA, 1) == 9.0 || round($promedioGen1FA, 1) == 10.0)
 
                         <b>{{round($promedioGen1FA)}}</b>
 
@@ -880,9 +881,9 @@
                       {{--  segundo periodo  --}}
                       {{--  promedio dic enero  --}}
                       <td align="center">
-                        @if (round($promDicEneFA, 1) == 1.0 || round($promDicEneFA, 1) == 2.0 || round($promDicEneFA, 1) == 3.0 || round($promDicEneFA, 1) == 4.0 || 
-                        round($promDicEneFA, 1) == 5.0 || round($promDicEneFA, 1) == 6.0 || round($promDicEneFA, 1) == 7.0 || round($promDicEneFA, 1) == 8.0 || 
-                        round($promDicEneFA, 1) == 9.0 || round($promDicEneFA, 1) == 10.0) 
+                        @if (round($promDicEneFA, 1) == 1.0 || round($promDicEneFA, 1) == 2.0 || round($promDicEneFA, 1) == 3.0 || round($promDicEneFA, 1) == 4.0 ||
+                        round($promDicEneFA, 1) == 5.0 || round($promDicEneFA, 1) == 6.0 || round($promDicEneFA, 1) == 7.0 || round($promDicEneFA, 1) == 8.0 ||
+                        round($promDicEneFA, 1) == 9.0 || round($promDicEneFA, 1) == 10.0)
 
                         <b>{{round($promDicEneFA)}}</b>
 
@@ -893,9 +894,9 @@
 
                       {{--  promedio febrero  --}}
                       <td align="center">
-                        @if (round($promFEBFA, 1) == 1.0 || round($promFEBFA, 1) == 2.0 || round($promFEBFA, 1) == 3.0 || round($promFEBFA, 1) == 4.0 || 
-                        round($promFEBFA, 1) == 5.0 || round($promFEBFA, 1) == 6.0 || round($promFEBFA, 1) == 7.0 || round($promFEBFA, 1) == 8.0 || 
-                        round($promFEBFA, 1) == 9.0 || round($promFEBFA, 1) == 10.0) 
+                        @if (round($promFEBFA, 1) == 1.0 || round($promFEBFA, 1) == 2.0 || round($promFEBFA, 1) == 3.0 || round($promFEBFA, 1) == 4.0 ||
+                        round($promFEBFA, 1) == 5.0 || round($promFEBFA, 1) == 6.0 || round($promFEBFA, 1) == 7.0 || round($promFEBFA, 1) == 8.0 ||
+                        round($promFEBFA, 1) == 9.0 || round($promFEBFA, 1) == 10.0)
 
                         <b>{{round($promFEBFA)}}</b>
 
@@ -906,9 +907,9 @@
 
                       {{--  promedio marzo  --}}
                       <td align="center">
-                        @if (round($promMARFA, 1) == 1.0 || round($promMARFA, 1) == 2.0 || round($promMARFA, 1) == 3.0 || round($promMARFA, 1) == 4.0 || 
-                        round($promMARFA, 1) == 5.0 || round($promMARFA, 1) == 6.0 || round($promMARFA, 1) == 7.0 || round($promMARFA, 1) == 8.0 || 
-                        round($promMARFA, 1) == 9.0 || round($promMARFA, 1) == 10.0) 
+                        @if (round($promMARFA, 1) == 1.0 || round($promMARFA, 1) == 2.0 || round($promMARFA, 1) == 3.0 || round($promMARFA, 1) == 4.0 ||
+                        round($promMARFA, 1) == 5.0 || round($promMARFA, 1) == 6.0 || round($promMARFA, 1) == 7.0 || round($promMARFA, 1) == 8.0 ||
+                        round($promMARFA, 1) == 9.0 || round($promMARFA, 1) == 10.0)
 
                         <b>{{round($promMARFA)}}</b>
 
@@ -919,9 +920,9 @@
 
                       {{--  promedio general segundo periodo   --}}
                       <td align="center">
-                        @if (round($promedioGen2FA, 1) == 1.0 || round($promedioGen2FA, 1) == 2.0 || round($promedioGen2FA, 1) == 3.0 || round($promedioGen2FA, 1) == 4.0 || 
-                        round($promedioGen2FA, 1) == 5.0 || round($promedioGen2FA, 1) == 6.0 || round($promedioGen2FA, 1) == 7.0 || round($promedioGen2FA, 1) == 8.0 || 
-                        round($promedioGen2FA, 1) == 9.0 || round($promedioGen2FA, 1) == 10.0) 
+                        @if (round($promedioGen2FA, 1) == 1.0 || round($promedioGen2FA, 1) == 2.0 || round($promedioGen2FA, 1) == 3.0 || round($promedioGen2FA, 1) == 4.0 ||
+                        round($promedioGen2FA, 1) == 5.0 || round($promedioGen2FA, 1) == 6.0 || round($promedioGen2FA, 1) == 7.0 || round($promedioGen2FA, 1) == 8.0 ||
+                        round($promedioGen2FA, 1) == 9.0 || round($promedioGen2FA, 1) == 10.0)
 
                         <b>{{round($promedioGen2FA)}}</b>
 
@@ -936,9 +937,9 @@
                       {{--  tercer periodo   --}}
                       {{--  promedio abril  --}}
                       <td align="center">
-                        @if (round($promABRFA, 1) == 1.0 || round($promABRFA, 1) == 2.0 || round($promABRFA, 1) == 3.0 || round($promABRFA, 1) == 4.0 || 
-                        round($promABRFA, 1) == 5.0 || round($promABRFA, 1) == 6.0 || round($promABRFA, 1) == 7.0 || round($promABRFA, 1) == 8.0 || 
-                        round($promABRFA, 1) == 9.0 || round($promABRFA, 1) == 10.0) 
+                        @if (round($promABRFA, 1) == 1.0 || round($promABRFA, 1) == 2.0 || round($promABRFA, 1) == 3.0 || round($promABRFA, 1) == 4.0 ||
+                        round($promABRFA, 1) == 5.0 || round($promABRFA, 1) == 6.0 || round($promABRFA, 1) == 7.0 || round($promABRFA, 1) == 8.0 ||
+                        round($promABRFA, 1) == 9.0 || round($promABRFA, 1) == 10.0)
 
                         <b>{{round($promABRFA)}}</b>
 
@@ -949,9 +950,9 @@
 
                       {{--  promedio mayo  --}}
                       <td align="center">
-                        @if (round($promMAYFA, 1) == 1.0 || round($promMAYFA, 1) == 2.0 || round($promMAYFA, 1) == 3.0 || round($promMAYFA, 1) == 4.0 || 
-                        round($promMAYFA, 1) == 5.0 || round($promMAYFA, 1) == 6.0 || round($promMAYFA, 1) == 7.0 || round($promMAYFA, 1) == 8.0 || 
-                        round($promMAYFA, 1) == 9.0 || round($promMAYFA, 1) == 10.0) 
+                        @if (round($promMAYFA, 1) == 1.0 || round($promMAYFA, 1) == 2.0 || round($promMAYFA, 1) == 3.0 || round($promMAYFA, 1) == 4.0 ||
+                        round($promMAYFA, 1) == 5.0 || round($promMAYFA, 1) == 6.0 || round($promMAYFA, 1) == 7.0 || round($promMAYFA, 1) == 8.0 ||
+                        round($promMAYFA, 1) == 9.0 || round($promMAYFA, 1) == 10.0)
 
                         <b>{{round($promMAYFA)}}</b>
 
@@ -962,9 +963,9 @@
 
                       {{--  promedio junio  --}}
                       <td align="center">
-                        @if (round($promJUNFA, 1) == 1.0 || round($promJUNFA, 1) == 2.0 || round($promJUNFA, 1) == 3.0 || round($promJUNFA, 1) == 4.0 || 
-                        round($promJUNFA, 1) == 5.0 || round($promJUNFA, 1) == 6.0 || round($promJUNFA, 1) == 7.0 || round($promJUNFA, 1) == 8.0 || 
-                        round($promJUNFA, 1) == 9.0 || round($promJUNFA, 1) == 10.0) 
+                        @if (round($promJUNFA, 1) == 1.0 || round($promJUNFA, 1) == 2.0 || round($promJUNFA, 1) == 3.0 || round($promJUNFA, 1) == 4.0 ||
+                        round($promJUNFA, 1) == 5.0 || round($promJUNFA, 1) == 6.0 || round($promJUNFA, 1) == 7.0 || round($promJUNFA, 1) == 8.0 ||
+                        round($promJUNFA, 1) == 9.0 || round($promJUNFA, 1) == 10.0)
 
                         <b>{{round($promJUNFA)}}</b>
 
@@ -975,9 +976,9 @@
 
                       {{--  promedio general tercer periodo   --}}
                       <td align="center">
-                        @if (round($promedioGen3FA, 1) == 1.0 || round($promedioGen3FA, 1) == 2.0 || round($promedioGen3FA, 1) == 3.0 || round($promedioGen3FA, 1) == 4.0 || 
-                        round($promedioGen3FA, 1) == 5.0 || round($promedioGen3FA, 1) == 6.0 || round($promedioGen3FA, 1) == 7.0 || round($promedioGen3FA, 1) == 8.0 || 
-                        round($promedioGen3FA, 1) == 9.0 || round($promedioGen3FA, 1) == 10.0) 
+                        @if (round($promedioGen3FA, 1) == 1.0 || round($promedioGen3FA, 1) == 2.0 || round($promedioGen3FA, 1) == 3.0 || round($promedioGen3FA, 1) == 4.0 ||
+                        round($promedioGen3FA, 1) == 5.0 || round($promedioGen3FA, 1) == 6.0 || round($promedioGen3FA, 1) == 7.0 || round($promedioGen3FA, 1) == 8.0 ||
+                        round($promedioGen3FA, 1) == 9.0 || round($promedioGen3FA, 1) == 10.0)
 
                         <b>{{round($promedioGen3FA)}}</b>
 
@@ -992,9 +993,9 @@
 
                       {{--  promedio final de la sep   --}}
                       <td align="center">
-                        @if (round($promedioFinalFA, 1) == 1.0 || round($promedioFinalFA, 1) == 2.0 || round($promedioFinalFA, 1) == 3.0 || round($promedioFinalFA, 1) == 4.0 || 
-                        round($promedioFinalFA, 1) == 5.0 || round($promedioFinalFA, 1) == 6.0 || round($promedioFinalFA, 1) == 7.0 || round($promedioFinalFA, 1) == 8.0 || 
-                        round($promedioFinalFA, 1) == 9.0 || round($promedioFinalFA, 1) == 10.0) 
+                        @if (round($promedioFinalFA, 1) == 1.0 || round($promedioFinalFA, 1) == 2.0 || round($promedioFinalFA, 1) == 3.0 || round($promedioFinalFA, 1) == 4.0 ||
+                        round($promedioFinalFA, 1) == 5.0 || round($promedioFinalFA, 1) == 6.0 || round($promedioFinalFA, 1) == 7.0 || round($promedioFinalFA, 1) == 8.0 ||
+                        round($promedioFinalFA, 1) == 9.0 || round($promedioFinalFA, 1) == 10.0)
 
                         <b>{{round($promedioFinalFA)}}</b>
 
@@ -1003,9 +1004,9 @@
                         @endif
                       </td>
                       <td align="center">
-                        @if (round($promedioFinalSEPFA, 1) == 1.0 || round($promedioFinalSEPFA, 1) == 2.0 || round($promedioFinalSEPFA, 1) == 3.0 || round($promedioFinalSEPFA, 1) == 4.0 || 
-                        round($promedioFinalSEPFA, 1) == 5.0 || round($promedioFinalSEPFA, 1) == 6.0 || round($promedioFinalSEPFA, 1) == 7.0 || round($promedioFinalSEPFA, 1) == 8.0 || 
-                        round($promedioFinalSEPFA, 1) == 9.0 || round($promedioFinalSEPFA, 1) == 10.0) 
+                        @if (round($promedioFinalSEPFA, 1) == 1.0 || round($promedioFinalSEPFA, 1) == 2.0 || round($promedioFinalSEPFA, 1) == 3.0 || round($promedioFinalSEPFA, 1) == 4.0 ||
+                        round($promedioFinalSEPFA, 1) == 5.0 || round($promedioFinalSEPFA, 1) == 6.0 || round($promedioFinalSEPFA, 1) == 7.0 || round($promedioFinalSEPFA, 1) == 8.0 ||
+                        round($promedioFinalSEPFA, 1) == 9.0 || round($promedioFinalSEPFA, 1) == 10.0)
 
                         <b>{{round($promedioFinalSEPFA)}}</b>
 
@@ -1014,19 +1015,19 @@
                         @endif
                       </td>
 
-                                                                    
+
                       <td align="center"><b>{{""}}</b></td>
-                    </tr>        
+                    </tr>
               </tbody>
               </table>
 
-           
+
 
               {{--  INASISTENCIAS  --}}
               <br>
               <table class="table table-bordered">
                 <thead>
-                
+
                 </thead>
                 <tbody>
                   @foreach($calificaciones as $key => $inasistencia)
@@ -1035,21 +1036,21 @@
                          $Keynasistencias++;
                      @endphp
                      @if ($Keynasistencias == 1)
-                     <tr>                      
+                     <tr>
                       <td style="width: 200px;">INASISTENCIAS</td>
-                      @if ($inasistencia->falTotalSep != "")                            
+                      @if ($inasistencia->falTotalSep != "")
                         <td align="center" style="width: 25px;">{{$inasistencia->falTotalSep}}</td>
                       @else
                         <td align="center" style="width: 25px;"><label style="opacity: .01;">0</label></td>
                       @endif
 
-                      @if ($inasistencia->falTotalOct != "")                            
+                      @if ($inasistencia->falTotalOct != "")
                         <td align="center" style="width: 25px;">{{$inasistencia->falTotalOct}}</td>
                       @else
                         <td align="center" style="width: 25px;"><label style="opacity: .01;">0</label></td>
                       @endif
 
-                      @if ($inasistencia->falTotalNov != "")                            
+                      @if ($inasistencia->falTotalNov != "")
                         <td align="center" style="width: 25px;">{{$inasistencia->falTotalNov}}</td>
                       @else
                         <td align="center" style="width: 25px;"><label style="opacity: .01;">0</label></td>
@@ -1058,19 +1059,19 @@
                       <td align="center" style="width: 37px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
                       <td align="center" style="width: 37px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
 
-                      @if ($inasistencia->falTotalEne != "")                            
+                      @if ($inasistencia->falTotalEne != "")
                         <td align="center" style="width: 28px;">{{$inasistencia->falTotalEne}}</td>
                       @else
                         <td align="center" style="width: 28px;"><label style="opacity: .01;">0</label></td>
                       @endif
 
-                      @if ($inasistencia->falTotalFeb != "")                            
+                      @if ($inasistencia->falTotalFeb != "")
                         <td align="center" style="width: 25px;">{{$inasistencia->falTotalFeb}}</td>
                       @else
                         <td align="center" style="width: 25px;"><label style="opacity: .01;">0</label></td>
                       @endif
 
-                      @if ($inasistencia->falTotalMar != "")                            
+                      @if ($inasistencia->falTotalMar != "")
                         <td align="center" style="width: 25px;">{{$inasistencia->falTotalMar}}</td>
                       @else
                         <td align="center" style="width: 25px;"><label style="opacity: .01;">0</label></td>
@@ -1079,19 +1080,19 @@
                       <td align="center" style="width: 36px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
                       <td align="center" style="width: 36px; border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"><label style="opacity: .01;">0</label></td>
 
-                      @if ($inasistencia->falTotalAbr != "")                            
+                      @if ($inasistencia->falTotalAbr != "")
                         <td align="center" style="width: 28px;">{{$inasistencia->falTotalAbr}}</td>
                       @else
                         <td align="center" style="width: 28px;"><label style="opacity: .01;">0</label></td>
                       @endif
 
-                      @if ($inasistencia->falTotalMay != "")                            
+                      @if ($inasistencia->falTotalMay != "")
                         <td align="center" style="width: 29px;">{{$inasistencia->falTotalMay}}</td>
                       @else
                         <td align="center" style="width: 29px;"><label style="opacity: .01;">0</label></td>
                       @endif
 
-                      @if ($inasistencia->falTotalJun != "")                            
+                      @if ($inasistencia->falTotalJun != "")
                         <td align="center" style="width: 27px;">{{$inasistencia->falTotalJun}}</td>
                       @else
                         <td align="center" style="width: 27px;"><label style="opacity: .01;">0</label></td>
@@ -1109,21 +1110,21 @@
                       <td align="center" style="width: 35px;">{{$totalFaltas}}</td> //total faltas
                       <td align="center" style="border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;">{{""}}</td>
                       <td align="center" style="border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;">{{""}}</td>
-                    </tr>                  
+                    </tr>
                      @endif
                     @endif
                   @endforeach
-              
+
                 </tbody>
               </table>
-             
+
           </div>
         </div>
 
         <br>
         <div class="row">
           <div class="columns medium-12">
-                 
+
           </div>
         </div>
             @endif
@@ -1148,9 +1149,9 @@
         $keyPromedioGeneral = 0;
         $acd = 0;
         $Keynasistencias = 0;
-  
+
         //hay que declarar mas variables, una por columna diferente y categoria
-        //iniciarlas en 0.0 
+        //iniciarlas en 0.0
 
         $promSEPFA = 0.0;
         $promOCTFA = 0.0;

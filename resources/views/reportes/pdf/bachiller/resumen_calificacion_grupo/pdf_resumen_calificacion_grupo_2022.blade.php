@@ -499,6 +499,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: -50px;
             right: 0px;
@@ -695,7 +696,7 @@
 
                                             @php
                                                 $sumaPromedioHorizontal = $sumaPromedioHorizontal + $value[$bachiller_materia_id . '_calif'];
-                                                
+
                                                 $totalMateriasAlumno++;
                                             @endphp
                                         @endif
@@ -757,7 +758,7 @@
                                     @if ($value[$materiaIDPromedio . '_materia_id'] == $materiaIDPromedio)
                                         @php
                                             $sumaPromedioVerticales = $sumaPromedioVerticales + $value[$materiaIDPromedio . '_calif'];
-                                            
+
                                             $totalAlumnoVertical++;
                                         @endphp
                                     @endif
@@ -786,7 +787,7 @@
                                     @if ($materias_acd_id == $itemACDMat[$materias_acd_id . '_materia_acd_id'])
                                         @php
                                             $sumaPromedioVerticales = $sumaPromedioVerticales + $itemACDMat[$materias_acd_id . '_calif'];
-                                            
+
                                             $totalAlumnoVertical++;
                                         @endphp
                                     @endif

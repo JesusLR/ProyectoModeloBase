@@ -498,6 +498,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -50px;
       right: 0px;
@@ -607,7 +608,7 @@
       $posi1 = 1;
       $contador = 1;
       $contador2 = 1;
-      
+
   @endphp
 
   <header>
@@ -615,9 +616,9 @@
       <div class="columns medium-12">
 
         {{--  <img class="img-header" src="{{base_path('resources/assets/img/logo.jpg')}}" alt="">  --}}
-        <h1 style="margin-top:0px; margin-bottom: 0px;">Preparatoria "ESCUELA MODELO"</h1>       
+        <h1 style="margin-top:0px; margin-bottom: 0px;">Preparatoria "ESCUELA MODELO"</h1>
         <h3 style="margin-top:0px; margin-bottom: 0px;">OBSERVACIONES CUALITATIVAS</h3>
-        
+
       </div>
     </div>
   </header>
@@ -627,27 +628,27 @@
 
   @foreach ($alumno as $aluClave => $valoresAlu)
     @foreach ($valoresAlu as $item)
-        @if ($aluClave == $item->aluClave && $posi1++ == 1)          
+        @if ($aluClave == $item->aluClave && $posi1++ == 1)
           <div class="row">
             <div class="columns medium-8">
               <p>Período: {{$cicloEscolar}}</p>
               <p>Ubicación: {{$item->ubiClave .' '.$item->ubiNombre}}</p>
               <p>Nivel: {{$item->depClave}} ({{$item->planClave}}) {{$item->progNombre}}</p>
-              <p>Alumno: {{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}}</p>     
-              <p>Grupo: {{$item->semestre.' '.$item->grupo}} 
+              <p>Alumno: {{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}}</p>
+              <p>Grupo: {{$item->semestre.' '.$item->grupo}}
                 @if($item->curEstado == "P") (Pre) @endif
                 @if($item->curEstado == "C" || $item->curEstado == "A") (Con) @endif
-              </p>       
-              
+              </p>
+
             </div>
             {{--  <div class="columns medium-2">
-         
-              
+
+
             </div>  --}}
             <div class="columns medium-4" style="text-align: right">
               <p>Fecha: {{$fechaActual}}</p>
               <p>Hora: {{$hora}}</p>
-             
+
             </div>
           </div>
 
@@ -656,8 +657,8 @@
             <div class="columns medium-12">
               <table class="table table-bordered">
                 <thead>
-                  <tr>                    
-                    <th style="border: medium transparent" align="center" colspan="6"></th>                                       
+                  <tr>
+                    <th style="border: medium transparent" align="center" colspan="6"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -669,19 +670,19 @@
                         $item->cuaCategoria3 == "PUNT.POS" || $item->cuaCategoria3 == "PARP.POS" || $item->cuaCategoria3 == "ACTI.POS")
 
                         @if ($contador++ == 1)
-                        <tr>                    
-                          <th align="center" colspan="6" style="border: medium transparent"><h3>COMENTARIOS POSITIVOS</h3></th>                                        
+                        <tr>
+                          <th align="center" colspan="6" style="border: medium transparent"><h3>COMENTARIOS POSITIVOS</h3></th>
                         </tr>
-                        <tr>                    
+                        <tr>
                           <th align="center">Materia</th>
                           <th align="center"># ADA</th>
                           <th align="center">Fecha de captura</th>
                           <th align="center">Observacion 1</th>
                           <th align="center">Observacion 2</th>
-                          <th align="center">Observacion 3</th>                          
+                          <th align="center">Observacion 3</th>
                         </tr>
                         @endif
-                       
+
                         <tr>
                           <td>{{$item->matNombre}} @if ($item->gpoMatComplementaria != "") <b>({{$item->gpoMatComplementaria}})</b> @endif</td>
                           <td align="center">{{$item->eviNumero}}</td>
@@ -694,19 +695,19 @@
                         @else
                         {{--  <caption>Dinosaurios en el período Jurásico</caption>  --}}
                         @if ($contador2++ == 1)
-                        <tr>                    
-                          <th align="center" colspan="6" style="border: medium transparent"><h3>COMENTARIOS NEGATIVOS</h3></th>                                        
+                        <tr>
+                          <th align="center" colspan="6" style="border: medium transparent"><h3>COMENTARIOS NEGATIVOS</h3></th>
                         </tr>
-                        <tr>                    
+                        <tr>
                           <th align="center">Materia</th>
                           <th align="center"># ADA</th>
                           <th align="center">Fecha de captura</th>
                           <th align="center">Observacion 1</th>
                           <th align="center">Observacion 2</th>
-                          <th align="center">Observacion 3</th>                          
+                          <th align="center">Observacion 3</th>
                         </tr>
                         @endif
-                       
+
                         <tr>
                           <td>{{$item->matNombre}} @if ($item->gpoMatComplementaria != "") <b>({{$item->gpoMatComplementaria}})</b> @endif</td>
                           <td align="center">{{$item->eviNumero}}</td>
@@ -715,18 +716,18 @@
                           <td>{{$item->cuaDescripcion2}}</td>
                           <td>{{$item->cuaDescripcion3}}</td>
                         </tr>
-                        @endif                      
-                      @endif                        
-                    @endif                      
-                  @endforeach                  
+                        @endif
+                      @endif
+                    @endif
+                  @endforeach
                 </tbody>
-              </table>              
+              </table>
             </div>
           </div>
 
 
         @endif
-    @endforeach  
+    @endforeach
     @php
         $posi1 = 1;
         $NombreAlumno = "";
@@ -735,8 +736,8 @@
 
         $contador = 1;
         $contador2 = 1;
-    @endphp    
-    
+    @endphp
+
     @if (!$loop->last)
       <div class="page_break"></div>
     @endif

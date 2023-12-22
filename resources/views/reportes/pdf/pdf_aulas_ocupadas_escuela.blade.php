@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -486,7 +487,7 @@
           <h5 style="margin-top:0px; margin-bottom: 10px;">APOYO A LA DOCENCIA</h5>
           <h5 style="margin-top:0px; margin-bottom: 10px;">AULAS OCUPADAS POR ESCUELA</h5>
           <h5 style="margin-top:0px; margin-bottom: 10px;">Ubicac. : {{$ubicacionNombre->ubiClave}} {{$ubicacionNombre->ubiNombre}}</h5>
-        
+
         </div>
         <div class="columns medium-6">
           <div style="text-align: right;">
@@ -504,16 +505,16 @@
         </div>
       </div>
       <div class="row" style="margin-bottom: 2px;">
-        
+
           <div class="colums medium-6">
           <p>Fecha del prefecteo: {{$fechaPrefecteo}}</p>
           </div>
           <div class="colums medium-6" align="right">
           <p style="text-align:right;">Hora del prefecteo: {{$horaPrefecteo}} hrs</p>
           </div>
-     
+
       </div>
-      
+
     </header>
 
       <div class="row">
@@ -529,7 +530,7 @@
             </tr>
             @foreach ($aulaOcu as $aulaUbi)
             @foreach ($aulaUbi as $aula)
-           
+
             <tr>
               <td align="center" style="width: 10px;">{{$aula["aulaClave"]}}</td>
               <td align="center" style="width: 10px;">______</td>
@@ -537,14 +538,14 @@
               <td style="width: 30px;">{{$aula['aulaUbicacion']}}</td>
               <td style="width: 30px;" align="center">{{$aula['progClave']}}</td>
               <td style="width: 30px;" align="center">{{$aula['escClave']}}</td>
-            </tr>  
-     
+            </tr>
+
             @endforeach
             @endforeach
           </table>
         </div>
       </div>
-      
+
     <footer id="footer">
       <div class="page-number"></div>
     </footer>

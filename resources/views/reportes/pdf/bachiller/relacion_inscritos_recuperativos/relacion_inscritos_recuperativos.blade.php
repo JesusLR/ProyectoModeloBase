@@ -367,11 +367,11 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
-  
+
       .estilos-tabla tr th {
         font-size: 12px;
         background-color: #000;
@@ -382,7 +382,7 @@
         box-sizing: border-box;
         text-align: center;
       }
-  
+
       .estilos-tabla tr td {
         font-size: 12px;
         padding-left: 2px;
@@ -390,19 +390,20 @@
         box-sizing: border-box;
         color: #000;
       }
-  
+
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -40px;
         right: 0px;
@@ -412,7 +413,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -478,9 +479,9 @@
 	</head>
   <body>
 
-    @php 
+    @php
     use App\Http\Helpers\Utils;
-    
+
     @endphp
     <header>
       <div class="row">
@@ -492,12 +493,12 @@
         <div class="columns medium-6">
           <div style="text-align: right;">
             <p>Fecha: {{$fechaHoy}}</p>
-            <p>Hora: {{$fechaActual->format('H:i:s')}}</p> 
+            <p>Hora: {{$fechaActual->format('H:i:s')}}</p>
           </div>
         </div>
       </div>
 
-      
+
       <div class="row" style="margin-bottom: 2px">
         <div class="columns medium-12">
           <p>Ubicación: {{$info_reporte['ubicacion']->ubiClave}}-{{$info_reporte['ubicacion']->ubiNombre}}</p>
@@ -507,7 +508,7 @@
         <div class="columns medium-12">
           <p>
               Departamento: {{$info_reporte['departamento']->depClave}}
-          </p> 
+          </p>
         </div>
       </div>
       <div class="row" style="margin-bottom: 2px">
@@ -526,7 +527,7 @@
           <p>Plan: {{$info_reporte['plan']->planClave}}</p>
         </div>
       </div>
-      
+
 
       <div class="row" style="margin-bottom: 2px">
         <div class="columns medium-4">
@@ -543,7 +544,7 @@
       @endif
 
 
-    </header>   
+    </header>
 
     @php
         $pos = 0;
@@ -572,9 +573,9 @@
               <th align="center" style="width: 50px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">Estado</th>
 
 
-            </tr>     
-            
-                   
+            </tr>
+
+
           </thead>
           <tbody>
             @foreach ($inscritos->sortBy('orden') as $inscrito)
@@ -599,27 +600,27 @@
                       @else
                         <label>NO PAGAGO</label>
                       @endif
-                        
+
                     @endif
                   </td>
 
                 </tr>
-            @endforeach    
-            
-       
-  
+            @endforeach
+
+
+
           </tbody>
         </table>
-  
+
       </div>
     </div>
 
-    
+
     @php
       $suma = 0;
     @endphp
 
-    
+
 
     <footer id="footer">
       <div class="page-number"></div>

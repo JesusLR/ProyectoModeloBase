@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -70px;
         right: 0px;
@@ -483,19 +484,19 @@
       <br><br><br><br><br><br><br><br><br>
       <p style="font-family: sans-serif;font-size: 14px;">A quien corresponda:</p>
           <br><br>
-      <p style="font-family: sans-serif;font-size: 14px;" align="justify">El “Instituto de Idiomas de la Escuela Modelo, S.C.P.”, registrado ante la Secretaría 
-          de Educación Pública con fecha 24 de agosto de 2004 y habiéndole sido asignada la clave de centro de 
+      <p style="font-family: sans-serif;font-size: 14px;" align="justify">El “Instituto de Idiomas de la Escuela Modelo, S.C.P.”, registrado ante la Secretaría
+          de Educación Pública con fecha 24 de agosto de 2004 y habiéndole sido asignada la clave de centro de
           trabajo 31PBT0245A, hace constar por medio de la presente que {{ $genero == 'M' ? 'el': 'la' }} Br.
       </p>
           <br>
           <p style="font-family: sans-serif;font-size: 14px;" align="center"><b>{{ $nombre }}</b></p>
           <br>
-      <p style="font-family: sans-serif;font-size: 14px;" align="justify">ha demostrado poseer un nivel satisfactorio del idioma inglés mediante examen interno 
-        aplicado en fecha reciente siendo que obtuvo la calificación de: Aprobado. {{ $genero == 'M' ? 'El': 'La' }} sustentante demostró poseer 
-        habilidad satisfactoria para la comprensión de textos, comprensión auditiva, expresión escrita y uso de 
+      <p style="font-family: sans-serif;font-size: 14px;" align="justify">ha demostrado poseer un nivel satisfactorio del idioma inglés mediante examen interno
+        aplicado en fecha reciente siendo que obtuvo la calificación de: Aprobado. {{ $genero == 'M' ? 'El': 'La' }} sustentante demostró poseer
+        habilidad satisfactoria para la comprensión de textos, comprensión auditiva, expresión escrita y uso de
         la gramática en el idioma inglés.</p>
           <br>
-      <p style="font-family: sans-serif;font-size: 14px;" align="justify">Se expide la presente para los fines a que haya lugar en la ciudad de Mérida, Yucatán 
+      <p style="font-family: sans-serif;font-size: 14px;" align="justify">Se expide la presente para los fines a que haya lugar en la ciudad de Mérida, Yucatán
         {{ $message }}.
       </p>
           <br><br><br><br>

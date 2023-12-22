@@ -501,6 +501,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -50px;
       right: 0px;
@@ -600,21 +601,21 @@
     .page-break {
       page-break-after: always;
     }
-   
+
 
     .punteado{
-      border-top: 1px dotted; 
-      border-right: 1px dotted; 
-      border-bottom: 1px dotted; 
+      border-top: 1px dotted;
+      border-right: 1px dotted;
+      border-bottom: 1px dotted;
       border-left: 1px dotted;
        //border-color: 660033;
       //background-color: cc3366;
     }
 
     .punteado2{
-      border-top: 1px dotted; 
-      border-right: 0px dotted; 
-      border-bottom: 1px dotted; 
+      border-top: 1px dotted;
+      border-right: 0px dotted;
+      border-bottom: 1px dotted;
       border-left: 0px;
        //border-color: 660033;
       //background-color: cc3366;
@@ -632,15 +633,15 @@
       <div class="columns medium-12">
 
         {{--  <img class="img-header" src="{{base_path('resources/assets/img/logo.jpg')}}" alt="">  --}}
-        <h1 style="margin-top:0px; margin-bottom: 0px; text-align: center;">Preparatoria "ESCUELA MODELO"</h1>       
+        <h1 style="margin-top:0px; margin-bottom: 0px; text-align: center;">Preparatoria "ESCUELA MODELO"</h1>
         <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">HORARIO DE CLASES POR MATERIA</h4>
         <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">PERIODO ESCOLAR: {{$cicloEscolar}}</h4>
-        
+
       </div>
     </div>
   </header>
 
-  
+
   @foreach ($alumnoClave as $aluClave => $valores)
     @foreach ($valores as $item)
       @if ($aluClave == $item->aluClave && $pocision++ == 1)
@@ -650,14 +651,14 @@
             <p><b>Alumno:</b> {{$item->nombre_completo_alumno}}</p>
           </div>
           <div class="columns medium-2">
-            
+
           </div>
           <div class="columns medium-3">
             <p><b>Clav.Plan:</b> {{$item->planClave}}</p>
             <p><b>Ubicación:</b> {{$item->ubiClave}}</p>
           </div>
           <div class="columns medium-1-2">
-            
+
           </div>
           <div class="columns medium-3">
             <p><b>Fecha:</b> {{$fechaActual}}</p>
@@ -677,104 +678,104 @@
                   <th class="punteado" align="center">MIERCOLES</th>
                   <th class="punteado" align="center">JUEVES</th>
                   <th class="punteado" align="center">VIERNES</th>
-                </tr>          
+                </tr>
               </thead>
               {{--  7:00 a 8:00   --}}
               <tbody>
                 <tr>
 
-                  
-                  <td class="punteado" align="center">07:00-08:00</td>  
 
-                  {{--  lunes   --}}                
+                  <td class="punteado" align="center">07:00-08:00</td>
+
+                  {{--  lunes   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemL)
-                      @if ($aluClave == $itemL->aluClave)                    
+                      @if ($aluClave == $itemL->aluClave)
 
-                        @if ($itemL->lunes == '7:00 a 8:00' || $itemL->lunes == '7:00 a 9:00')                
+                        @if ($itemL->lunes == '7:00 a 8:00' || $itemL->lunes == '7:00 a 9:00')
                           @if ($itemL->materia_acd != "")
                             {{$itemL->materia_acd}}
-                          @else         
+                          @else
                             {{$itemL->materia}}
                           @endif
                         @else
-                        
+
                         @endif
 
-                      @endif                      
+                      @endif
                     @endforeach
-                  </td>  
+                  </td>
 
 
                   {{--  martes   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemMartes)
                       @if ($aluClave == $itemMartes->aluClave)
-                        @if ($itemMartes->martes == '7:00 a 8:00' || $itemMartes->martes == '7:00 a 9:00')                
+                        @if ($itemMartes->martes == '7:00 a 8:00' || $itemMartes->martes == '7:00 a 9:00')
                           @if ($itemMartes->materia_acd != "")
                             {{$itemMartes->materia_acd}}
-                          @else         
+                          @else
                             {{$itemMartes->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  Miercoles   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemMiercoles)
                       @if ($aluClave == $itemMiercoles->aluClave)
-                        @if ($itemMiercoles->miercoles == '7:00 a 8:00' || $itemMiercoles->miercoles == '7:00 a 9:00')                
+                        @if ($itemMiercoles->miercoles == '7:00 a 8:00' || $itemMiercoles->miercoles == '7:00 a 9:00')
                           @if ($itemMiercoles->materia_acd != "")
                             {{$itemMiercoles->materia_acd}}
-                          @else         
+                          @else
                             {{$itemMiercoles->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  Jueves   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemJue)
                       @if ($aluClave == $itemJue->aluClave)
-                        @if ($itemJue->jueves == '7:00 a 8:00' || $itemJue->jueves == '7:00 a 9:00')                
+                        @if ($itemJue->jueves == '7:00 a 8:00' || $itemJue->jueves == '7:00 a 9:00')
                           @if ($itemJue->materia_acd != "")
                             {{$itemJue->materia_acd}}
-                          @else         
+                          @else
                             {{$itemJue->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  viernes   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemVier)
                       @if ($aluClave == $itemVier->aluClave)
-                        @if ($itemVier->viernes == '7:00 a 8:00')                
+                        @if ($itemVier->viernes == '7:00 a 8:00')
                           @if ($itemVier->materia_acd != "")
                             {{$itemVier->materia_acd}}
-                          @else         
+                          @else
                             {{$itemVier->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
-                </tr>           
+                </tr>
               </tbody>
 
               {{--  8:00 a 9:00   --}}
@@ -785,89 +786,89 @@
                   {{--  lunes   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemL)
-                      @if ($aluClave == $itemL->aluClave) 
-                        @if ($itemL->lunes == '8:00 a 9:00' || $itemL->lunes == '7:00 a 9:00')                
+                      @if ($aluClave == $itemL->aluClave)
+                        @if ($itemL->lunes == '8:00 a 9:00' || $itemL->lunes == '7:00 a 9:00')
                           @if ($itemL->materia_acd != "")
                             {{$itemL->materia_acd}}
-                          @else         
+                          @else
                             {{$itemL->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td>  
-                  
+                  </td>
+
                   {{--  martes   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemMartes)
-                      @if ($aluClave == $itemMartes->aluClave) 
-                        @if ($itemMartes->martes == '8:00 a 9:00' || $itemMartes->martes == '7:00 a 9:00')                
+                      @if ($aluClave == $itemMartes->aluClave)
+                        @if ($itemMartes->martes == '8:00 a 9:00' || $itemMartes->martes == '7:00 a 9:00')
                           @if ($itemMartes->materia_acd != "")
                             {{$itemMartes->materia_acd}}
-                          @else         
+                          @else
                             {{$itemMartes->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  Miercoles   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemMiercoles)
-                      @if ($aluClave == $itemMiercoles->aluClave) 
-                        @if ($itemMiercoles->miercoles == '8:00 a 9:00' || $itemMiercoles->miercoles == '7:00 a 9:00')                
+                      @if ($aluClave == $itemMiercoles->aluClave)
+                        @if ($itemMiercoles->miercoles == '8:00 a 9:00' || $itemMiercoles->miercoles == '7:00 a 9:00')
                           @if ($itemMiercoles->materia_acd != "")
                             {{$itemMiercoles->materia_acd}}
-                          @else         
+                          @else
                             {{$itemMiercoles->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  Jueves   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemJue)
                       @if ($aluClave == $itemJue->aluClave)
-                        @if ($itemJue->jueves == '8:00 a 9:00' || $itemJue->jueves == '7:00 a 9:00' || $itemJue->jueves == '8:00 a 10:00')                
+                        @if ($itemJue->jueves == '8:00 a 9:00' || $itemJue->jueves == '7:00 a 9:00' || $itemJue->jueves == '8:00 a 10:00')
                           @if ($itemJue->materia_acd != "")
                             {{$itemJue->materia_acd}}
-                          @else         
+                          @else
                             {{$itemJue->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  viernes   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemVier)
                       @if ($aluClave == $itemVier->aluClave)
-                        @if ($itemVier->viernes == '8:00 a 9:00' || $itemVier->viernes == '8:00 a 10:00')                
+                        @if ($itemVier->viernes == '8:00 a 9:00' || $itemVier->viernes == '8:00 a 10:00')
                           @if ($itemVier->materia_acd != "")
                             {{$itemVier->materia_acd}}
-                          @else         
+                          @else
                             {{$itemVier->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
                 </tr>
-                
+
               </tbody>
 
               {{--  9:00 a 10:00   --}}
@@ -879,88 +880,88 @@
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemL)
                       @if ($aluClave == $itemL->aluClave)
-                        @if ($itemL->lunes == '9:00 a 10:00' || $itemL->lunes == '9:00 a 11:00')                
+                        @if ($itemL->lunes == '9:00 a 10:00' || $itemL->lunes == '9:00 a 11:00')
                           @if ($itemL->materia_acd != "")
                             {{$itemL->materia_acd}}
-                          @else         
+                          @else
                             {{$itemL->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td>  
-                  
+                  </td>
+
                   {{--  martes   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemMartes)
                       @if ($aluClave == $itemMartes->aluClave)
-                        @if ($itemMartes->martes == '9:00 a 10:00' || $itemMartes->martes == '9:00 a 11:00')                
+                        @if ($itemMartes->martes == '9:00 a 10:00' || $itemMartes->martes == '9:00 a 11:00')
                           @if ($itemMartes->materia_acd != "")
                             {{$itemMartes->materia_acd}}
-                          @else         
+                          @else
                             {{$itemMartes->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  Miercoles   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemMiercoles)
                       @if ($aluClave == $itemMiercoles->aluClave)
-                        @if ($itemMiercoles->miercoles == '9:00 a 10:00')                
+                        @if ($itemMiercoles->miercoles == '9:00 a 10:00')
                           @if ($itemMiercoles->materia_acd != "")
                             {{$itemMiercoles->materia_acd}}
-                          @else         
+                          @else
                             {{$itemMiercoles->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  Jueves   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemJue)
                       @if ($aluClave == $itemJue->aluClave)
-                        @if ($itemJue->jueves == '9:00 a 10:00' || $itemJue->jueves == '8:00 a 10:00')                
+                        @if ($itemJue->jueves == '9:00 a 10:00' || $itemJue->jueves == '8:00 a 10:00')
                           @if ($itemJue->materia_acd != "")
                             {{$itemJue->materia_acd}}
-                          @else         
+                          @else
                             {{$itemJue->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  viernes   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemVier)
                       @if ($aluClave == $itemVier->aluClave)
-                        @if ($itemVier->viernes == '9:00 a 10:00' || $itemVier->viernes == '8:00 a 10:00' || $itemVier->viernes == '9:00 a 11:00')                
+                        @if ($itemVier->viernes == '9:00 a 10:00' || $itemVier->viernes == '8:00 a 10:00' || $itemVier->viernes == '9:00 a 11:00')
                           @if ($itemVier->materia_acd != "")
                             {{$itemVier->materia_acd}}
-                          @else         
+                          @else
                             {{$itemVier->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
                 </tr>
-                
+
               </tbody>
 
               {{--  10:00 a 11:00   --}}
@@ -972,91 +973,91 @@
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemL)
                       @if ($aluClave == $itemL->aluClave)
-                        @if ($itemL->lunes == '10:00 a 11:00' || $itemL->lunes == '10:00 a 12:30' || $itemL->lunes == '9:00 a 11:00')                
+                        @if ($itemL->lunes == '10:00 a 11:00' || $itemL->lunes == '10:00 a 12:30' || $itemL->lunes == '9:00 a 11:00')
                           @if ($itemL->materia_acd != "")
                             {{$itemL->materia_acd}}
-                          @else         
+                          @else
                             {{$itemL->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td>  
-                  
+                  </td>
+
                   {{--  martes   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemMartes)
                       @if ($aluClave == $itemMartes->aluClave)
-                        @if ($itemMartes->martes == '10:00 a 11:00' || $itemMartes->martes == '9:00 a 11:00')                
+                        @if ($itemMartes->martes == '10:00 a 11:00' || $itemMartes->martes == '9:00 a 11:00')
                           @if ($itemMartes->materia_acd != "")
                             {{$itemMartes->materia_acd}}
-                          @else         
+                          @else
                             {{$itemMartes->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  Miercoles   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemMiercoles)
                       @if ($aluClave == $itemMiercoles->aluClave)
-                        @if ($itemMiercoles->miercoles == '10:00 a 11:00')                
+                        @if ($itemMiercoles->miercoles == '10:00 a 11:00')
                           @if ($itemMiercoles->materia_acd != "")
                             {{$itemMiercoles->materia_acd}}
-                          @else         
+                          @else
                             {{$itemMiercoles->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  Jueves   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemJue)
                       @if ($aluClave == $itemJue->aluClave)
-                        @if ($itemJue->jueves == '10:00 a 11:00' || $itemJue->jueves == '10:00 a 12:30')                
+                        @if ($itemJue->jueves == '10:00 a 11:00' || $itemJue->jueves == '10:00 a 12:30')
                           @if ($itemJue->materia_acd != "")
                             {{$itemJue->materia_acd}}
-                          @else         
+                          @else
                             {{$itemJue->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  viernes   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemVier)
                       @if ($aluClave == $itemVier->aluClave)
-                        @if ($itemVier->viernes == '10:00 a 11:00' || $itemVier->viernes == '9:00 a 11:00' || $itemVier->viernes == '10:00 a 12:30')                
+                        @if ($itemVier->viernes == '10:00 a 11:00' || $itemVier->viernes == '9:00 a 11:00' || $itemVier->viernes == '10:00 a 12:30')
                           @if ($itemVier->materia_acd != "")
                             {{$itemVier->materia_acd}}
-                          @else         
+                          @else
                             {{$itemVier->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
                 </tr>
-                
+
               </tbody>
 
-              {{--  11:00 a 11:30   --}} 
+              {{--  11:00 a 11:30   --}}
               {{--  receso   --}}
               <tbody>
                 <tr>
@@ -1065,10 +1066,10 @@
                   {{--  lunes   --}}
                   <td class="punteado" align="center" colspan="5">
                     <b>RECESO</b>
-                  </td>  
-                  
+                  </td>
+
                 </tr>
-                
+
               </tbody>
 
               {{--  11:30 a 12:30   --}}
@@ -1080,88 +1081,88 @@
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemL)
                       @if ($aluClave == $itemL->aluClave)
-                        @if ($itemL->lunes == '11:30 a 12:30' || $itemL->lunes == '10:00 a 12:30')                
+                        @if ($itemL->lunes == '11:30 a 12:30' || $itemL->lunes == '10:00 a 12:30')
                           @if ($itemL->materia_acd != "")
                             {{$itemL->materia_acd}}
-                          @else         
+                          @else
                             {{$itemL->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td>  
-                  
+                  </td>
+
                   {{--  martes   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemMartes)
                       @if ($aluClave == $itemMartes->aluClave)
-                        @if ($itemMartes->martes == '11:30 a 12:30')                
+                        @if ($itemMartes->martes == '11:30 a 12:30')
                           @if ($itemMartes->materia_acd != "")
                             {{$itemMartes->materia_acd}}
-                          @else         
+                          @else
                             {{$itemMartes->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  Miercoles   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemMiercoles)
                       @if ($aluClave == $itemMiercoles->aluClave)
-                        @if ($itemMiercoles->miercoles == '11:30 a 12:30' || $itemMiercoles->miercoles == '11:30 a 13:30')                
+                        @if ($itemMiercoles->miercoles == '11:30 a 12:30' || $itemMiercoles->miercoles == '11:30 a 13:30')
                           @if ($itemMiercoles->materia_acd != "")
                             {{$itemMiercoles->materia_acd}}
-                          @else         
+                          @else
                             {{$itemMiercoles->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  Jueves   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemJue)
                       @if ($aluClave == $itemJue->aluClave)
-                        @if ($itemJue->jueves == '11:30 a 12:30' || $itemJue->jueves == '10:00 a 12:30')                
+                        @if ($itemJue->jueves == '11:30 a 12:30' || $itemJue->jueves == '10:00 a 12:30')
                           @if ($itemJue->materia_acd != "")
                             {{$itemJue->materia_acd}}
-                          @else         
+                          @else
                             {{$itemJue->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  viernes   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemVier)
                       @if ($aluClave == $itemVier->aluClave)
-                        @if ($itemVier->viernes == '11:30 a 12:30' || $itemVier->viernes == '10:00 a 12:30' || $itemVier->viernes == '11:30 a 13:30')                
+                        @if ($itemVier->viernes == '11:30 a 12:30' || $itemVier->viernes == '10:00 a 12:30' || $itemVier->viernes == '11:30 a 13:30')
                           @if ($itemVier->materia_acd != "")
                             {{$itemVier->materia_acd}}
-                          @else         
+                          @else
                             {{$itemVier->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
                 </tr>
-                
+
               </tbody>
 
               {{--  12:30 a 13:30   --}}
@@ -1173,88 +1174,88 @@
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemL)
                       @if ($aluClave == $itemL->aluClave)
-                        @if ($itemL->lunes == '12:30 a 13:30' || $itemL->lunes == '12:30 a 14:30')                
+                        @if ($itemL->lunes == '12:30 a 13:30' || $itemL->lunes == '12:30 a 14:30')
                           @if ($itemL->materia_acd != "")
                             {{$itemL->materia_acd}}
-                          @else         
+                          @else
                             {{$itemL->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td>  
-                  
+                  </td>
+
                   {{--  martes   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemMartes)
                       @if ($aluClave == $itemMartes->aluClave)
-                        @if ($itemMartes->martes == '12:30 a 13:30' || $itemMartes->martes == '12:30 a 14:30')                
+                        @if ($itemMartes->martes == '12:30 a 13:30' || $itemMartes->martes == '12:30 a 14:30')
                           @if ($itemMartes->materia_acd != "")
                             {{$itemMartes->materia_acd}}
-                          @else         
+                          @else
                             {{$itemMartes->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  Miercoles   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemMiercoles)
                       @if ($aluClave == $itemMiercoles->aluClave)
-                        @if ($itemMiercoles->miercoles == '12:30 a 13:30' || $itemMiercoles->miercoles == '12:30 a 14:30' || $itemMiercoles->miercoles == '11:30 a 13:30')                
+                        @if ($itemMiercoles->miercoles == '12:30 a 13:30' || $itemMiercoles->miercoles == '12:30 a 14:30' || $itemMiercoles->miercoles == '11:30 a 13:30')
                           @if ($itemMiercoles->materia_acd != "")
                             {{$itemMiercoles->materia_acd}}
-                          @else         
+                          @else
                             {{$itemMiercoles->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  Jueves   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemJue)
                       @if ($aluClave == $itemJue->aluClave)
-                        @if ($itemJue->jueves == '12:30 a 13:30' || $itemJue->jueves == '12:30 a 14:30')                
+                        @if ($itemJue->jueves == '12:30 a 13:30' || $itemJue->jueves == '12:30 a 14:30')
                           @if ($itemJue->materia_acd != "")
                             {{$itemJue->materia_acd}}
-                          @else         
+                          @else
                             {{$itemJue->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  viernes   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemVier)
                       @if ($aluClave == $itemVier->aluClave)
-                        @if ($itemVier->viernes == '12:30 a 13:30' || $itemVier->viernes == '11:30 a 13:30' || $itemVier->viernes == '12:30 a 14:30')                
+                        @if ($itemVier->viernes == '12:30 a 13:30' || $itemVier->viernes == '11:30 a 13:30' || $itemVier->viernes == '12:30 a 14:30')
                           @if ($itemVier->materia_acd != "")
                             {{$itemVier->materia_acd}}
-                          @else         
+                          @else
                             {{$itemVier->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
                 </tr>
-                
+
               </tbody>
 
               {{--  13:30 a 14:30   --}}
@@ -1266,103 +1267,103 @@
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemL)
                       @if ($aluClave == $itemL->aluClave)
-                        @if ($itemL->lunes == '13:30 a 14:30' || $itemL->lunes == '12:30 a 14:30')                
+                        @if ($itemL->lunes == '13:30 a 14:30' || $itemL->lunes == '12:30 a 14:30')
                           @if ($itemL->materia_acd != "")
                             {{$itemL->materia_acd}}
-                          @else         
+                          @else
                             {{$itemL->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td>  
-                  
+                  </td>
+
                   {{--  martes   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemMartes)
                       @if ($aluClave == $itemMartes->aluClave)
-                        @if ($itemMartes->martes == '13:30 a 14:30' || $itemMartes->martes == '12:30 a 14:30')                
+                        @if ($itemMartes->martes == '13:30 a 14:30' || $itemMartes->martes == '12:30 a 14:30')
                           @if ($itemMartes->materia_acd != "")
                             {{$itemMartes->materia_acd}}
-                          @else         
+                          @else
                             {{$itemMartes->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  Miercoles   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemMiercoles)
                       @if ($aluClave == $itemMiercoles->aluClave)
-                        @if ($itemMiercoles->miercoles == '13:30 a 14:30' ||$itemMiercoles->miercoles == '12:30 a 14:30')                
+                        @if ($itemMiercoles->miercoles == '13:30 a 14:30' ||$itemMiercoles->miercoles == '12:30 a 14:30')
                           @if ($itemMiercoles->materia_acd != "")
                             {{$itemMiercoles->materia_acd}}
-                          @else         
+                          @else
                             {{$itemMiercoles->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  Jueves   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemJue)
                       @if ($aluClave == $itemJue->aluClave)
-                        @if ($itemJue->jueves == '13:30 a 14:30' || $itemJue->jueves == '12:30 a 14:30')                
+                        @if ($itemJue->jueves == '13:30 a 14:30' || $itemJue->jueves == '12:30 a 14:30')
                           @if ($itemJue->materia_acd != "")
                             {{$itemJue->materia_acd}}
-                          @else         
+                          @else
                             {{$itemJue->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
 
                   {{--  viernes   --}}
                   <td class="punteado" align="center">
                     @foreach ($alumno as $itemVier)
                       @if ($aluClave == $itemVier->aluClave)
-                        @if ($itemVier->viernes == '13:30 a 14:30' || $itemVier->viernes == '12:30 a 14:30')                
+                        @if ($itemVier->viernes == '13:30 a 14:30' || $itemVier->viernes == '12:30 a 14:30')
                           @if ($itemVier->materia_acd != "")
                             {{$itemVier->materia_acd}}
-                          @else         
+                          @else
                             {{$itemVier->materia}}
                           @endif
                         @else
-                        
+
                         @endif
                       @endif
                     @endforeach
-                  </td> 
+                  </td>
                 </tr>
-                
+
               </tbody>
             </table>
-      
+
           </div>
         </div>
       @endif
-    @endforeach   
+    @endforeach
     @php
       $pocision = 0;
-    @endphp   
+    @endphp
     @if (!$loop->last)
-          <div class="page_break"></div>  
+          <div class="page_break"></div>
         @endif
   @endforeach
-  
+
 
 
 

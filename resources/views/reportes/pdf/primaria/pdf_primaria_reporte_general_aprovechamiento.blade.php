@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -70px;
         right: 0px;
@@ -479,7 +480,7 @@
 	</head>
   <body>
 
-    
+
 
   <header>
       <div class="row" style="margin-top: 0px;">
@@ -643,7 +644,7 @@
       </div>
   </div>
 
-  
+
       @if ($loop->first)
       <footer id="footer">
         <div class="page-number"></div>

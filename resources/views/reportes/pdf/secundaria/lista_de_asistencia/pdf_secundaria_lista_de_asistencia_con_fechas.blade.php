@@ -494,6 +494,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: 11px;
             right: 0px;
@@ -593,7 +594,7 @@
         .page-number:before {
             content: "Pág " counter(page);
           }
-    
+
           .page-break {
               page-break-after: always;
           }
@@ -667,7 +668,7 @@
                     <th style="font-weight: 400;width: 20px; padding-top: 8px;">Núm</th>
                     <th  style="font-weight: 400; padding-top: 7px;">Cve pago</th>
                     <th align="center" style="font-weight: 400;width: 210px; padding-top: 12px;">Nombre del Alumno</th>
-          
+
 
                     <style>
                         .verticalText {
@@ -681,15 +682,15 @@
                         {{ \Carbon\Carbon::parse($fechas)->format('d-m')}}
                     </th>
                     @endforeach
-                    
+
                     <th style="font-weight: 400; padding-top: 12px;">
                         |Calif|
                     </th>
                     <th style="font-weight: 400; padding-top: 12px;">
                         |Falt|
                     </th>
-                  
-      
+
+
                   </tr>
                 </thead>
                 <tbody>
@@ -701,8 +702,8 @@
                             <td style="padding-top: 5px;">{{$itemInscritos->clavePago}}</td>
 
                             <td style="padding-top: 5px;">{{$itemInscritos->ape_paterno}} {{$itemInscritos->ape_materno}} {{$itemInscritos->nombres}}</td>
-                           
-                            @foreach ($agruparFechas as $fec => $key)     
+
+                            @foreach ($agruparFechas as $fec => $key)
                                 @foreach ($agruparMaterias as $mat => $keyMat)
                                     @if ($mat == $itemInscritos->matNombre)
                                         @foreach ($asistencia_fechas as $item)
@@ -711,19 +712,19 @@
                                             @endif
                                         @endforeach
                                     @endif
-                                @endforeach                           
-                            @endforeach 
+                                @endforeach
+                            @endforeach
 
-                            
+
                             <td style="padding-top: 5px;">
                                |___|
                             </td>
                             <td style="padding-top: 5px;">
                                |___|
-                            </td>     
+                            </td>
                         </tr>
-                        @endif                  
-                    @endforeach                   
+                        @endif
+                    @endforeach
                 </tbody>
               </table>
             </div>

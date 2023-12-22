@@ -400,6 +400,7 @@
             text-align: center;
         }
         header {
+        left: 0px;
             position: fixed;
             top: -70px;
             right: 0px;
@@ -592,8 +593,8 @@
         }
     @endphp
 
-   
-   
+
+
     <div class="row">
         <div class="columns medium-12">
             @foreach($calificaciones_array as $item)
@@ -712,7 +713,7 @@
     $promedioTipo = 0.0;
     $tipo = "";
     @endphp
-    
+
     @if (!$loop->last)
       <div class="page_break"></div>
     @endif

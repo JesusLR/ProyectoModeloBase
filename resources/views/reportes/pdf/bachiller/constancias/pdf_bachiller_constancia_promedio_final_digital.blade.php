@@ -369,7 +369,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -393,15 +393,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -488,7 +489,7 @@
       }
     </style>
 	</head>
-  
+
 <header>
 
 </header>
@@ -513,7 +514,7 @@
             <br>
 
             {{-- {{\Carbon\Carbon::parse($fechaActual)->subDays(5)->diffForHumans()}} --}}
-            @foreach ($inscrito as $itemInscrito)                    
+            @foreach ($inscrito as $itemInscrito)
                     @php
                         $sumaDePromedios = $sumaDePromedios + $itemInscrito->promedioTrimestre;
                         $vuelta++;
@@ -521,12 +522,12 @@
                         $promedioGeneral = $sumaDePromedios / $vuelta;
                     @endphp
              @endforeach
-         
+
             @if ($parametro_ubicacion == "CME")
             <p style="font-size: 16px; text-align: justify;">
                La que suscribe Psic. Silvia Violeta Pool Dorantes Directora de la Secundaria Particular
-               Incorporada Escuela Modelo con clave de centro de trabajo 31PES0012T, hace costar que. 
-               {{$alumno}} cursa el {{$grado}} de Educación Secundaria en esta institución y  
+               Incorporada Escuela Modelo con clave de centro de trabajo 31PES0012T, hace costar que.
+               {{$alumno}} cursa el {{$grado}} de Educación Secundaria en esta institución y
                obtuvo hasta el día de hoy un promedio de aprovechamiento del primer grado de <b>{{number_format((float)$promedioGeneral, 1, '.', '')}}</b> en el periodo escolar {{$periodo_inicio}}-{{$periodo_fin}}.
 
                <br><br><br><br>
@@ -541,8 +542,8 @@
             @if ($parametro_ubicacion == "CVA")
                 <p style="font-size: 16px; text-align: justify;">
                   La que suscribe Mtra. Lol –Há Canché Gómez Directora de la Secundaria Particular
-                  Incorporada Escuela Modelo con clave de centro de trabajo 31PES0143L, hace costar que. 
-                  {{$alumno}} cursa el {{$grado}} de Educación Secundaria en esta institución y 
+                  Incorporada Escuela Modelo con clave de centro de trabajo 31PES0143L, hace costar que.
+                  {{$alumno}} cursa el {{$grado}} de Educación Secundaria en esta institución y
                   obtuvo hasta el día de hoy un promedio de aprovechamiento del primer grado de <b>{{number_format((float)$promedioGeneral, 1, '.', '')}}</b> en el periodo escolar {{$periodo_inicio}}-{{$periodo_fin}}.
                 </p>
 
@@ -552,15 +553,15 @@
                 <p style="font-size: 16px; text-align: justify;">
                   A petición de la parte interesada se expide la presente constancia en la ciudad de Valladolid, Yucatán {{$fechaDiaLetra}} del mes de {{$mesLetras}} de {{$anoLEtras}}.
                 </p>
-            @endif           
-        
-           
+            @endif
+
+
             <br>
 
         </div>
     </div>
 
-    
+
 
     <br><br><br>
 
@@ -579,7 +580,7 @@
             <p class="tcenter"><b>Psic. Silvia Violeta Pool Dorantes</b></p>
             {{-- <p class="tcenter"><b>DIRECTORA</b></p> --}}
             @endif
-            
+
             @if ($parametro_ubicacion == "CVA")
             <div style="text-align: center">
               <img class="img-header"  src="{{base_path('resources/assets/img/firmas_logos_secundaria/secundaria_cva_firma_lolha.png')}}" alt="">

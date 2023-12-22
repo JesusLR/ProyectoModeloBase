@@ -494,6 +494,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: 11px;
             right: 0px;
@@ -593,7 +594,7 @@
         .page-number:before {
             content: "Pág " counter(page);
           }
-    
+
           .page-break {
               page-break-after: always;
           }
@@ -638,8 +639,8 @@
                         </p>
                     <p>Incluye alumnos inscritos, PRE-inscritos y CON-dicionados.</p>
                     </div>
-                </div>   
-                
+                </div>
+
                 <div class="row">
                     <div class="columns medium-12">
                       <table class="table">
@@ -653,15 +654,15 @@
                                 |__|
                             </th>
                             @endfor
-                            
+
                             <th style="font-weight: 400;">
                                 |Calif|
                             </th>
                             <th style="font-weight: 400;">
                                 |Falt|
                             </th>
-                          
-              
+
+
                           </tr>
                         </thead>
                         <tbody>
@@ -681,13 +682,13 @@
                                         </td>
                                         <td style="padding-top: 5px;">
                                         |___|
-                                        </td>    
-                                    </tr>                                        
-                                @endif                                
-                            @endforeach    
+                                        </td>
+                                    </tr>
+                                @endif
+                            @endforeach
                             @php
                                 $total = 1;
-                            @endphp                            
+                            @endphp
                         </tbody>
                       </table>
                     </div>

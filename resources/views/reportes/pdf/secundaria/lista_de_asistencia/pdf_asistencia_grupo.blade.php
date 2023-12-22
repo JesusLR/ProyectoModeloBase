@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 20px;
         right: 0px;
@@ -507,7 +508,7 @@
       $totalLoops = 0;
     @endphp
     @foreach ($datos as $programa)
-      
+
       @foreach($programa as $plan)
         @php
           $grados = $plan->sortKeys();
@@ -573,14 +574,14 @@
                     <th align="center" style="font-weight: 400;">Nombre del alumno</th>
                     <th style="padding-top: 10px;">
                       <ul class="listas-asistencia">
-    
+
                         @for($i = 0; $i < 15; $i++)
                         <li><div></div></li>
                         @endfor
-    
+
                         <li><div><span>Calif</span></div></li>
                         <li><div><span>Falta</span></div></li>
-    
+
                       </ul>
                     </th>
                   </tr>
@@ -625,6 +626,6 @@
       @endforeach <!-- foreach plan -->
     @endforeach <!-- foreach programa -->
 
-    
+
   </body>
 </html>

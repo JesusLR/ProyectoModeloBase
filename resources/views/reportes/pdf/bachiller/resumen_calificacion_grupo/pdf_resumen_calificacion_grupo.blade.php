@@ -498,6 +498,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -50px;
       right: 0px;
@@ -611,7 +612,7 @@
       <div class="columns medium-12">
 
         {{--  <img class="img-header" src="{{base_path('resources/assets/img/logo.jpg')}}" alt="">  --}}
-        <h3 style="margin-top:0px; margin-bottom: 0px;">Preparatoria "ESCUELA MODELO"</h3>       
+        <h3 style="margin-top:0px; margin-bottom: 0px;">Preparatoria "ESCUELA MODELO"</h3>
         <h3 style="margin-top:0px; margin-bottom: 0px;">RESUMEN DE CALIFICACIONES POR GRUPO</h3>
 
 
@@ -620,7 +621,7 @@
         <p>Ubica.: {{$ubicacion}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calif.Min.Aprob: {{$aprobatorio}}</p>
         <p>Calificaciones finales del período. Inscritos, preinscritos y condicionados </p>
-        
+
       </div>
     </div>
   </header>
@@ -631,7 +632,7 @@
       $contador3 = 1;
       $total = 1;
       $sumaPromedioVerticales = 0;
-      $sumaPromedioHorizontal = 0;      
+      $sumaPromedioHorizontal = 0;
       $totalAlumnoVertical = 0;
       $totalMateriasAlumno = 0;
   @endphp
@@ -649,13 +650,13 @@
                   @if ($matClave == $item->matClave && $contador1++ == 1)
                     <td align="center" style="width: 50px;">{{substr($item->matNombre, 0, 7)}}</td>
                   @endif
-              @endforeach             
+              @endforeach
               @php
               $contador1 = 1;
-              @endphp 
-            @endforeach   
+              @endphp
+            @endforeach
             <td align="center">Promed.</td>
-          </tr>         
+          </tr>
         </thead>
         <tbody>
           @foreach ($tablaBody as $itemssss => $value)
@@ -672,36 +673,36 @@
                     <b>{{$value[$matClave.'_calif']}}</b>
                   @else
                     {{$value[$matClave.'_calif']}}
-                  @endif    
-              
+                  @endif
+
                   @php
                       $sumaPromedioHorizontal = $sumaPromedioHorizontal + $value[$matClave.'_calif'];
 
                       $totalMateriasAlumno++;
                   @endphp
-                  @endif     
+                  @endif
                 @endisset
-                          
-              </td>             
-              @endforeach  
+
+              </td>
+              @endforeach
 
               <td align="center">
                 @if ($sumaPromedioHorizontal != 0)
-                {{number_format((float)($sumaPromedioHorizontal/$totalMateriasAlumno), 3, '.', '')}} 
+                {{number_format((float)($sumaPromedioHorizontal/$totalMateriasAlumno), 3, '.', '')}}
                 @else
-                    
+
                 @endif
-                
+
               </td>
 
               @php
                 $sumaPromedioHorizontal = 0;
                 $totalMateriasAlumno = 0;
               @endphp
-              
+
             </tr>
-          @endforeach   
-          
+          @endforeach
+
 
           <tr>
             <td align="center" style="width: 15px;"></td>
@@ -716,35 +717,35 @@
                       $sumaPromedioVerticales = $sumaPromedioVerticales + $value[$matClavePromedio.'_calif'];
 
                       $totalAlumnoVertical++;
-                      @endphp   
-                    @endif                     
-                  @endisset                                         
-              @endforeach                  
+                      @endphp
+                    @endif
+                  @endisset
+              @endforeach
               <td align="center" style="width: 50px;">
                 @if ($sumaPromedioVerticales != 0)
                 {{number_format((float)($sumaPromedioVerticales/$totalAlumnoVertical), 3, '.', '')}}
                 @else
-                    
+
                 @endif
-                
+
               </td>
 
               @php
                 $sumaPromedioVerticales = 0;
                 $totalAlumnoVertical = 0;
               @endphp
-            @endforeach                
-            
-            
+            @endforeach
+
+
             <td align="center"></td>
           </tr>
-         
+
         </tbody>
       </table>
     </div>
   </div>
 
- 
+
 </body>
 
 </html>

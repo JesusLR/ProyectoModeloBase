@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -486,7 +487,7 @@
           <h4 style="margin-top:0px; margin-bottom: 10px;">UNIVERSIDAD MODELO</h4>
           <p style="margin-top:0px; margin-bottom: 10px;">RELACIÓN DE CGT (Curso-Grupo-Turno)</p>
           <p style="margin-top:0px; margin-bottom: 10px;">Período: {{$periodo}} ({{$perNumero}}/{{$perAnio}})</p>
-        
+
         </div>
         <div class="columns medium-6">
           <div style="text-align: right;">
@@ -496,8 +497,8 @@
           </div>
         </div>
       </div>
- 
-      
+
+
     </header>
 
       <div class="row">
@@ -539,7 +540,7 @@
           </table>
         </div>
       </div>
-      
+
     <footer id="footer">
       <div class="page-number"></div>
     </footer>

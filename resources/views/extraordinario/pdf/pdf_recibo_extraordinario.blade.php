@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -480,7 +481,7 @@
       }
     </style>
 	</head>
-  
+
   <header>
     @php
       $ubiClave = $inscritoExt->extraordinario->periodo->departamento->ubicacion->ubiClave;
@@ -502,7 +503,7 @@
       $empAp2 = $inscritoExt->extraordinario->empleado->persona->perApellido2;
       $empNombreCom = $empNombre.' '.$empAp1.' '.$empAp2;
     @endphp
-    
+
     <div class="row">
         <div class="columns medium-6">
           <p>UNIVERSIDAD MODELO</p>
@@ -519,7 +520,7 @@
       </div>
   </header>
   <body>
-    
+
       <div class="row">
         <div class="columns medium-6">
             <p>Clave del examen: {{$inscritoExt->extraordinario_id}}</p>
@@ -539,7 +540,7 @@
           ({{$pagoLetras}})
           por concepto de Examen Extraordinario de la materia clave {{$matClave}}
           {{$matNombre}} a realizarse el día {{$extFecha}}
-          a las {{$extHora}} hrs. 
+          a las {{$extHora}} hrs.
           <br></br>
           <br></br>
           Sinodal: {{$empNombreCom}}.
@@ -565,5 +566,5 @@
       <span class="page-number"></span>
     </div>
   </footer>
-    
+
 </html>

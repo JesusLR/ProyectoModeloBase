@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -30px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -477,7 +478,7 @@
       use App\Http\Models\Bachiller\Bachiller_empleados;
       use App\Http\Models\Bachiller\Bachiller_horariosadmivos;
     @endphp
-   
+
     <header>
       <div class="row">
         <div class="columns medium-6">
@@ -512,13 +513,13 @@
           <p>Ubicación : {{ $ubic }} </p>
         </div>
       </div>
-    
+
     </header>
 
     <footer id="footer">
       <div class="page-number"></div>
     </footer>
-    
+
     <div class="row">
       <div class="columns medium-12">
         @foreach ($horarios_admin as $item)
@@ -526,20 +527,20 @@
           $empleado = Bachiller_empleados::select('bachiller_empleados.*', 'escuelas.escClave')
           ->join('escuelas', 'bachiller_empleados.escuela_id', '=', 'escuelas.id')
           ->where('bachiller_empleados.id', $item->empleado_id)
-          ->first();                  
+          ->first();
         @endphp
 
         <p><b>{{ $empleado->empApellido1.' '.$empleado->empApellido2.' '.$empleado->empNombre }} - Escuela: {{ $empleado->escClave }}</b></p>
         <br>
         <table class="table">
 
-         
-                
+
+
           {{--  <caption><b>{{ $empleado->perApellido1.' '.$empleado->perApellido2.' '.$empleado->perNombre }}</b></caption>  --}}
-        
+
           <col style="width:10%;" />
           <col style="width:30%;" />
-        
+
           <thead>
             <tr>
               <th align="center" scope="col" style="width: 100px; border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">Lun</th>
@@ -550,7 +551,7 @@
               <th align="center" scope="col" style="width: 100px; border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">Sab</th>
             </tr>
           </thead>
-        
+
           @php
             $horarios = Bachiller_horariosadmivos::select(
             'bachiller_horariosadmivos.id',
@@ -606,12 +607,12 @@
 
                     {{ $hadmHoraInicioL.':'.$horario->gMinInicio }} a {{ $hadmFinalL.':'.$horario->gMinFinal }}
                     <br>
-                  @endif  
-                @endforeach     
+                  @endif
+                @endforeach
               </td>
 
               {{--  martes   --}}
-              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;"> 
+              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                 @foreach ($horarios as $horario)
                   @if ($horario->hadmDia == 2)
                     @if ($horario->hadmHoraInicio < 10)
@@ -636,12 +637,12 @@
                     @endif
                     {{ $hadmHoraInicioM.':'.$horario->gMinInicio }} a {{ $hadmFinalM.':'.$horario->gMinFinal }}
                     <br>
-                  @endif  
-                @endforeach                      
+                  @endif
+                @endforeach
               </td>
 
               {{--  miercoles   --}}
-              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;"> 
+              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                 @foreach ($horarios as $horario)
                   @if ($horario->hadmDia == 3)
 
@@ -667,12 +668,12 @@
                       @endif
                     {{ $hadmHoraInicioMi.':'.$horario->gMinInicio }} a {{ $hadmFinalMi.':'.$horario->gMinFinal }}
                     <br>
-                  @endif  
-                @endforeach                      
+                  @endif
+                @endforeach
               </td>
 
               {{--  jueves   --}}
-              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;"> 
+              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                 @foreach ($horarios as $horario)
                   @if ($horario->hadmDia == 4)
                       @if ($horario->hadmHoraInicio < 10)
@@ -697,12 +698,12 @@
                       @endif
                     {{ $hadmHoraInicioJ.':'.$horario->gMinInicio }} a {{ $hadmFinalJ.':'.$horario->gMinFinal }}
                     <br>
-                  @endif  
-                @endforeach                      
+                  @endif
+                @endforeach
               </td>
-              
+
               {{--  viernes   --}}
-              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;"> 
+              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                 @foreach ($horarios as $horario)
                   @if ($horario->hadmDia == 5)
                   @if ($horario->hadmHoraInicio < 10)
@@ -727,12 +728,12 @@
                       @endif
                     {{ $hadmHoraInicioV.':'.$horario->gMinInicio }} a {{ $hadmFinalV.':'.$horario->gMinFinal }}
                     <br>
-                  @endif  
-                @endforeach                      
+                  @endif
+                @endforeach
               </td>
 
               {{--  sabado   --}}
-              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;"> 
+              <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                 @foreach ($horarios as $horario)
                   @if ($horario->hadmDia == 6)
                     @if ($horario->hadmHoraInicio < 10)
@@ -757,8 +758,8 @@
                       @endif
                     {{ $hadmHoraInicioS.':'.$horario->gMinInicio }} a {{ $hadmFinalS.':'.$horario->gMinFinal }}
                     <br>
-                  @endif  
-                @endforeach                      
+                  @endif
+                @endforeach
               </td>
             </tr>
           </tbody>
@@ -775,7 +776,7 @@
       </footer>
     @endif  --}}
 
- 
-      
+
+
   </body>
 </html>

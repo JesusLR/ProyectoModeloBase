@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 20px;
         right: 0px;
@@ -500,7 +501,7 @@
           </div>
         </div>
       </header>
-    
+
       <footer id="footer">
         <div class="page-number"></div>
       </footer>
@@ -509,7 +510,7 @@
       use App\Http\Models\Primaria\Primaria_falta;
     @endphp
     @foreach ($datos as $programa)
-      
+
       @foreach($programa as $plan)
         @php
           $grados = $plan->sortKeys();
@@ -684,52 +685,52 @@
                         <td align="center" style="border-bottom: 1px solid;">
                           @if ($falTotalSep != 0)
                           {{ $falTotalSep }}
-                          @endif                          
+                          @endif
                         </td>
                         <td align="center" style="border-bottom: 1px solid;">
                           @if ($falTotalOct != 0)
                           {{ $falTotalOct }}
-                          @endif                          
+                          @endif
                         </td>
                         <td align="center" style="border-bottom: 1px solid;">
                           @if ($falTotalNov != 0)
                           {{ $falTotalNov }}
-                          @endif                          
+                          @endif
                         </td>
                         <td align="center" style="border-bottom: 1px solid;">
                           @if ($falTotalEne != 0)
                           {{ $falTotalEne }}
-                          @endif                          
+                          @endif
                         </td>
                         <td align="center" style="border-bottom: 1px solid;">
                           @if ($falTotalFeb != 0)
                           {{ $falTotalFeb }}
-                          @endif                          
+                          @endif
                         </td>
                         <td align="center" style="border-bottom: 1px solid;">
                           @if ($falTotalMar != 0)
                           {{ $falTotalMar }}
-                          @endif                          
+                          @endif
                         </td>
                         <td align="center" style="border-bottom: 1px solid;">
                           @if ($falTotalAbr != 0)
                           {{ $falTotalAbr }}
-                          @endif                          
+                          @endif
                         </td>
                         <td align="center" style="border-bottom: 1px solid;">
                           @if ($falTotalMay != 0)
                           {{ $falTotalMay }}
-                          @endif                          
+                          @endif
                         </td>
                         <td align="center" style="border-bottom: 1px solid;">
                           @if ($falTotalJun != 0)
                           {{ $falTotalJun }}
-                          @endif                          
+                          @endif
                         </td>
                         <td align="center" style="border-bottom: 1px solid;">
                           @if ($total != 0)
                             <b>{{ $total }}</b>
-                          @endif                          
+                          @endif
                         </td>
 
                         @php
@@ -755,7 +756,7 @@
                         <td align="center"></td>
                         <td align="center"></td>
                         <td align="center"></td>
-                      @endif                     
+                      @endif
                     </tr>
                   @endforeach <!-- foreach alumno -->
                 </table>
@@ -774,6 +775,6 @@
       @endforeach <!-- foreach plan -->
     @endforeach <!-- foreach programa -->
 
-    
+
   </body>
 </html>

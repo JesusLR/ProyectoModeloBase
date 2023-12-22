@@ -369,7 +369,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -393,15 +393,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -491,9 +492,9 @@
       }
     </style>
 	</head>
-  
+
   <header>
-   
+
   </header>
     <body>
       {{-- Controlador: ConstanciaDocenteController --}}
@@ -510,22 +511,22 @@
           <br>
           <p>A quien corresponda:</p>
           @if ($foto == "con_foto")
-              @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus .'/'. $curPrimariaFoto)))              
+              @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus .'/'. $curPrimariaFoto)))
               <p><img class="fotoAlumno" style="float: left; margin-top: 54px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $campus. '/' . $curPrimariaFoto) }}"></p>
             @endif
           @endif
           <br>
           <br>
-         
+
           <br>
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-            La que suscribe, 
+            La que suscribe,
             @if ($parametro_ubicacion == "CME")
             MAOE. María Trinidad Díaz Cervera,
             @endif
             @if ($parametro_ubicacion == "CVA")
               Mtra. Arely Martinez Díaz,
-            @endif  
+            @endif
             directora de la Escuela Primaria Modelo con clave {{ $depClaveOficial }} establecida en esta ciudad, HACE CONSTAR:
           </p>
           <br>
@@ -533,7 +534,7 @@
           <br>
 
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-            {{$genero}} <strong>{{$alumno}}</strong> {{$parametro_consideracion}} regular del {{$grado}}, GRUPO “{{$grupo}}” 
+            {{$genero}} <strong>{{$alumno}}</strong> {{$parametro_consideracion}} regular del {{$grado}}, GRUPO “{{$grupo}}”
             de este plantel en el curso escolar  {{$periodo}} y, durante el tiempo que estudió en éste, estuvo al corriente en el pago de sus colegiaturas, por lo que <b>NO ADEUDA</b>.
           </p>
 
@@ -553,7 +554,7 @@
           </p>
         </div>
       </div>
-      
+
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
       <div class="row">
@@ -568,7 +569,7 @@
           <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ</b></p>
           @endif
           <p class="tcenter"><b>DIRECTORA</b></p>
-        
+
         </div>
       </div>
       {{--  @if(!$loop->last)

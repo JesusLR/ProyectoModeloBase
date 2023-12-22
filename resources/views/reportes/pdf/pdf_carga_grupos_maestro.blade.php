@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -50px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -514,7 +515,7 @@
             <th align="center" style="font-weight: 400; width: 20px;">Total <br> Horas</th>
             <th align="center" style="font-weight: 400; width: 35px;"># Gpos</th>
             <th align="center" style="font-weight: 400; width: 20px;"># Als</th>
-          </tr>   
+          </tr>
         </thead>
     @php
     $contadorEmpleado = 0;
@@ -559,7 +560,7 @@
             @if($tipoReporte == true)
             @foreach ($empleado as $materia)
                 @if ($materia)
-               
+
                   <tr>
                     <td style="width: 400px;">
                       <span style="font-weight: 400; display:inline-block; width: 10px; margin-left: 20px;">
@@ -609,7 +610,7 @@
                       <span style="font-weight: 400; display:inline-block;">
                         {{isset($materia['matNombre']) ? $materia['matNombre']: ""}}
                       </span>
-                    </td> 
+                    </td>
                     <td style="width: 40px;" align="center"></td>
                     <td style="width: 40px;" align="center"></td>
                     <td style="width: 40px;" align="center"></td>
@@ -617,7 +618,7 @@
                     <td style="width: 40px;" align="center"></td>
                     <td style="width: 40px;" align="center"></td>
                   </tr>
-               
+
                 @endif
             @endforeach
             @endif

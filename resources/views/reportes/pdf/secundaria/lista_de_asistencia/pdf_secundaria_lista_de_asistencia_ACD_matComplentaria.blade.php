@@ -494,6 +494,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: 11px;
             right: 0px;
@@ -606,11 +607,11 @@
 @endphp
 
 <body>
-    
+
     @php
     $total=1;
     @endphp
-    
+
 @foreach ($gpoClave as $gpoClave2 => $GradoInscritos)
 
 
@@ -624,7 +625,7 @@
             <p>Perido: {{ \Carbon\Carbon::parse($inscritos[0]->perFechaInicial)->format('d/m/Y')}} al
                 {{ \Carbon\Carbon::parse($inscritos[0]->perFechaFinal)->format('d/m/Y')}}</p>
             <p>Nivel: {{$inscritos[0]->progClave}} ({{$inscritos[0]->planClave}}) {{$inscritos[0]->programa}}</p>
-            <p>Ubicac. : {{$inscritos[0]->ubicacion}} {{$inscritos[0]->ubiNombre}}</p>      
+            <p>Ubicac. : {{$inscritos[0]->ubicacion}} {{$inscritos[0]->ubiNombre}}</p>
 
             @foreach ($inscritos as $key => $itemInscritos)
                 @if ($gpoClave2 == $itemInscritos->gpoClave && $vuelta2++ == 1)
@@ -685,7 +686,7 @@
                                 <td style="padding-top: 5px;">{{$itemInscritos->cgtGrupo}}</td>
 
 
-                                @for ($i = 0; $i < 25; $i++) 
+                                @for ($i = 0; $i < 25; $i++)
                                 <td style="padding-top: 5px;">
                                     |__|
                                 </td>
@@ -701,7 +702,7 @@
                             </tr>
                             @endif
                         @endforeach
-                        
+
                 </tbody>
             </table>
         </div>
@@ -719,7 +720,7 @@
     $vuelta = 1;
     $vuelta2 = 1;
     $total=1;
-    @endphp 
+    @endphp
 @endforeach
 
 

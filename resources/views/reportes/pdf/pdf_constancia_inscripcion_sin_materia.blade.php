@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -524,7 +525,7 @@
           </p>
           <p style="font-size: 15px; margin-bottom: 35px; text-align: justify;">
             Y para los fines que le sean convenientes, se expide la presente constancia
-            en la ciudad de 
+            en la ciudad de
             {{$departamento->ubicacion->ubiClave == "CME" ? "Mérida Yucatán,": "" }}
             {{$departamento->ubicacion->ubiClave == "CVA" ? "Valladolid Yucatán,": "" }}
             {{$departamento->ubicacion->ubiClave == "CCH" ? "Chetumal Quintana Roo,": "" }}
@@ -539,7 +540,7 @@
 
       </div>
 
-      
+
 
     <footer id="footer">
     </footer>

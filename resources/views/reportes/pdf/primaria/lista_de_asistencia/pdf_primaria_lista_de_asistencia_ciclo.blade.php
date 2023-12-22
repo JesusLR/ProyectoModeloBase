@@ -494,6 +494,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: -10px;
             right: 0px;
@@ -593,7 +594,7 @@
         .page-number:before {
             content: "Pág " counter(page);
           }
-    
+
           .page-break {
               page-break-after: always;
           }
@@ -645,7 +646,7 @@
                     : {{$datosCabecera->gpoGrado}}° Grupo: {{$datosCabecera->gpoClave}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </p>
                 @endif
-                
+
 
                     <p style="text-align: right; margin-top: -40px">Fecha: __________________________</p>
 
@@ -686,15 +687,15 @@
                         |__|
                     </th>
                     @endfor
-                    
+
                     <th style="font-weight: 400;">
                         |Calif|
                     </th>
                     <th style="font-weight: 400;">
                         |Falt|
                     </th>
-                  
-      
+
+
                   </tr>
                 </thead>
                 <tbody>
@@ -716,7 +717,7 @@
                             </td>
                             <td style="padding-top: 5px;">
                                |___|
-                            </td>     
+                            </td>
                         </tr>
                         @else
                             @if ($itemInscritos->matNombre == $datosCabecera->matNombre && $datosCabecera->matClaveAsignatura == $itemInscritos->matClaveAsignatura)
@@ -736,11 +737,11 @@
                                 </td>
                                 <td style="padding-top: 5px;">
                                 |___|
-                                </td>     
+                                </td>
                             </tr>
                             @endif
-                        @endif                  
-                    @endforeach                   
+                        @endif
+                    @endforeach
                 </tbody>
               </table>
             </div>

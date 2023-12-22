@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -20px;
         right: 0px;
@@ -511,19 +512,19 @@
 
           @endphp
            <p>Nivel: {{$empleado[0]->plan->programa->progClave}} ({{$empleado[0]->plan->planClave}}) {{$empleado[0]->plan->programa->progNombre}}</p>
-         
+
            @if ($empEstado == "T")
-              
+
            @else
            <p>Estado:
              @if ($empEstado == "A")
                  ACTIVO
              @endif
- 
+
              @if ($empEstado == "B")
              BAJA
              @endif
- 
+
               @if ($empEstado == "S")
               SUSPENDIDO
              @endif
@@ -550,7 +551,7 @@
               @if ($empEstado == "T")
               <th align="center" style="font-weight: 400;width: 20px;">Estado</th>
               @else
-                  
+
               @endif
               <th style="font-weight: 400;">Grado/Clave Grupo</th>
             </tr>
@@ -572,7 +573,7 @@
                   {{$empleado["empleado_id_docente"]}}
                 </td>
                 <td style="width: 400px;">{{$empleado['SecundariaNombreCompleto']}}</td>
-          
+
                 @if ($empEstado == "T")
                     <td align="center">
                     @if ($empleado->secundaria_empleado->empEstado == "A")
@@ -580,15 +581,15 @@
                     @endif
                     @if ($empleado->secundaria_empleado->empEstado == "B")
                       BAJA
-                    @endif                      
+                    @endif
                     @if ($empleado->secundaria_empleado->empEstado == "S")
                       SUSPENDIDO
                     @endif
                 </td>
                 @else
-                              
+
                 @endif
-                
+
                 <td >
                   @php
                     $grupo = collect($grupo)->unique("gpoGradoGrupo");

@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -471,7 +472,7 @@
       }
     </style>
   </head>
-  
+
   <footer id="footer">
     <div class="page-number"></div>
   </footer>
@@ -523,7 +524,7 @@
         <div class="columns medium-12">
           @if($grupo)
             <p>Ubicac. : {{$grupo["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiClave"] ?
-                $grupo["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiClave"]: "" }} 
+                $grupo["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiClave"]: "" }}
               {{$grupo["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiNombre"] ?
                 $grupo["plan"]["programa"]["escuela"]["departamento"]["ubicacion"]["ubiNombre"]: ""}}
             </p>
@@ -533,7 +534,7 @@
     </header>
 
 
-   
+
 
 
     @foreach ($grupos as $grupo)
@@ -599,7 +600,7 @@
                   <td style="">{{$loop->iteration}}</td>
                   <td style="font-size: 10px;">{{$inscrito->aluClave ?$inscrito->aluClave: "" }}</td>
                   <td style="">{{$inscrito["perApellido1"]}} {{$inscrito["perApellido2"]}} {{$inscrito["perNombre"]}}</td>
-    
+
                   @if($TERCER_PARCIAL)
                   <td style="" align="center">
                     <div style="display: inline-block;font-weight: 400; border-bottom: .5px solid #000; width: 30px; height: 15px;">
@@ -684,13 +685,13 @@
                     @endif
                   @endif
 
-                  
+
                   <td>{{$inscrito->curEstado == "P" ? "Pre": ""}}</td>
                 </tr>
               @endforeach
             </tbody>
           </table>
-  
+
 
         </div>
       </div>
@@ -727,7 +728,7 @@
       </div>
 
 
-    
+
 
       @if (!$loop->last)
         <div class="page_break"></div>
