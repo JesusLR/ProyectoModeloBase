@@ -351,16 +351,16 @@
       font-size: 11px;
       margin-top: 40px;
       /* ALTURA HEADER */
-      margin-left: -20px;
-      margin-right: -20px;
+      margin-left: 5px;
+      margin-right: 5px;
     }
 
     .row {
       width: 100%;
       display: block;
       position: relative;
-      /* margin-left: -30px;
-      margin-right: -30px; */
+      /* /* margin-left: -30px; */
+      /* margin-right: -30px; */ */
     }
 
     .row::after {
@@ -545,6 +545,8 @@
     }
 
     @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
       margin-top: 80px;
       margin-bottom: 40px;
     }
