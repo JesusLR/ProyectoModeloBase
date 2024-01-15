@@ -36,6 +36,10 @@ class BachillerRelacionExtraordinarioController extends Controller
 
     public function imprimir(Request $request)
     {
+        set_time_limit(0);
+        ini_set('max_execution_time', 600);
+        ini_set('memory_limit', '1024M');
+
         $ubi = Ubicacion::select('ubiClave')->where('id', $request->ubicacion_id)->first();
         $dep = Departamento::select('depCalMinAprob', 'depClave')->where('id', $request->departamento_id)->first();
         $esc = Escuela::select('escClave')->where('id', $request->escuela_id)->first();
@@ -46,7 +50,7 @@ class BachillerRelacionExtraordinarioController extends Controller
         $grado = $request->cgtGradoSemestre ? $request->cgtGradoSemestre: 'null';
         $aluClave = $request->aluClave ? $request->aluClave: 'null';
 
-        // CAMBIAR de NOMBRE con el NIVEL 
+        // CAMBIAR de NOMBRE con el NIVEL
         $result =  DB::select("call procBachillerRelacionExtras ('"
         .$per->perNumero."','" // número de periodo
         .$per->perAnio."','" // año de periodo
@@ -159,7 +163,7 @@ class BachillerRelacionExtraordinarioController extends Controller
         // ->where('alumnos.aluEstado', '<>', 'B')
         ->where(static function($query) use ($request) {
 
-           
+
             if($request->cgtGradoSemestre) {
                 $query->where('bachiller_materias.matSemestre', '=', $request->cgtGradoSemestre);
             }
@@ -172,7 +176,7 @@ class BachillerRelacionExtraordinarioController extends Controller
                 $query->where('alumnos.aluClave', '=', $request->aluClave);
             }
 
-          
+
         })
         ->whereNull('alumnos.deleted_at')
         ->whereNull('planes.deleted_at')

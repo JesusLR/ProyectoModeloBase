@@ -281,7 +281,8 @@ class BachillerConstanciaComputoController extends Controller
         $fechaMes = strtolower(Utils::num_meses_string($fechaActual->month));
         $fechaAnio = $fechaActual->format('Y');
 
-        $numeroLetras = str_replace(" CON 00/100", "", NumeroALetras::convert($fechaAnio));
+        $formatter = new NumeroALetras();
+        $numeroLetras = str_replace(" CON 00/100", "", $formatter->toWords($fechaAnio));
         $minusculas = strtolower($numeroLetras);
 
         if($minusculas == "dos mil veintitres"){

@@ -53,6 +53,10 @@ class BachillerAsistenciaGrupoController extends Controller
     }
 
     public function imprimir(Request $request) {
+        set_time_limit(0);
+        ini_set('max_execution_time', 600);
+        ini_set('memory_limit', '1024M');
+
         $fechaActual = Carbon::now('CDT');
         $alert_title = 'Sin registros';
         $alert_text = 'No hay datos que coincidan con la información proporcionada. Favor de verificar.';

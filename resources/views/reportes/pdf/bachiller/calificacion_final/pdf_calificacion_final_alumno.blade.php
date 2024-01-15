@@ -360,7 +360,7 @@
       display: block;
       position: relative;
       /* /* margin-left: -30px; */
-      /* margin-right: -30px; */ */
+      /* margin-right: -30px; */
     }
 
     .row::after {

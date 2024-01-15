@@ -682,7 +682,9 @@
                   @if ($item->aluClave == $aluClave)
                   <tr>
                     <td>{{$item->matNombre}}</td>
-                    <td>{{$item->histCalificacion}} {{str_replace(" CON 00/100", "", NumeroALetras::convert($item->histCalificacion))}}</td>
+                    <?php $formatter = new NumeroALetras()?>
+
+                    <td>{{$item->histCalificacion}} {{str_replace(" CON 00/100", "", $formatter->toWords($item->histCalificacion))}}</td>
                     <td align="left">
                       {{--  #0 - 69: "No acreditada"  --}}
                       @if ($item->histCalificacion >= 0 && $item->histCalificacion <= 69)

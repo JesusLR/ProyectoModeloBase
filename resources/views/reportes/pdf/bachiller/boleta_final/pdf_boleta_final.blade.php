@@ -359,8 +359,8 @@
       width: 100%;
       display: block;
       position: relative;
-      /* /* margin-left: -30px; */
-      /* margin-right: -30px; */ */
+       /* margin-left: -30px; */
+      /* margin-right: -30px; */
     }
 
     .row::after {
@@ -609,6 +609,9 @@
       $posi1 = 1;
       use Illuminate\Support\Arr;
       use App\Http\Helpers\Utils;
+        set_time_limit(0);
+        ini_set('max_execution_time', 600);
+        ini_set('memory_limit', '1024M');
   @endphp
 
   <header>

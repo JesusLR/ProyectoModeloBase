@@ -360,7 +360,7 @@
       display: block;
       position: relative;
       /* /* margin-left: -30px; */
-      /* margin-right: -30px; */ */
+      /* margin-right: -30px; */
     }
 
     .row::after {
@@ -628,8 +628,12 @@
 <body>
 
   @php
-      $pocision = 0;
+    set_time_limit(0);
+    ini_set('max_execution_time', 600);
+    ini_set('memory_limit', '1024M');
+    $pocision = 0;
   @endphp
+
   <header>
     <div class="row" style="margin-top: 0px;">
       <div class="columns medium-12">

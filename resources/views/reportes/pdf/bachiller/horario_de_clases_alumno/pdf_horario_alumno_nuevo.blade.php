@@ -360,7 +360,7 @@
       display: block;
       position: relative;
       /* /* margin-left: -30px; */
-      /* margin-right: -30px; */ */
+      /* margin-right: -30px; */
     }
 
     .row::after {
@@ -627,6 +627,12 @@
 </head>
 
 <body>
+
+    @php
+        set_time_limit(0);
+        ini_set('max_execution_time', 600);
+        ini_set('memory_limit', '1024M');
+    @endphp
 
   <header>
     <div class="row" style="margin-top: 0px;">
