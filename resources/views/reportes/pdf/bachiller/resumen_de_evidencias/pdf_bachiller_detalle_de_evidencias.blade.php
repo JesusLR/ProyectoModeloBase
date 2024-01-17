@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,11 +367,11 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
-  
+
       .estilos-tabla tr th {
         font-size: 12px;
         background-color: #000;
@@ -382,7 +382,7 @@
         box-sizing: border-box;
         text-align: center;
       }
-  
+
       .estilos-tabla tr td {
         font-size: 12px;
         padding-left: 2px;
@@ -390,19 +390,20 @@
         box-sizing: border-box;
         color: #000;
       }
-  
+
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -40px;
         right: 0px;
@@ -412,7 +413,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -422,6 +423,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 70px;
         margin-bottom: 70px;
       }
@@ -481,7 +484,7 @@
     @php
     use App\Http\Helpers\Utils;
     @endphp
-   
+
     <header>
       <div class="row">
         <div class="columns medium-6">
@@ -497,7 +500,7 @@
         </div>
       </div>
 
-      
+
       <div class="row" style="margin-bottom: 2px">
         <div class="columns medium-12">
             <p>Ubicación : {{$ubicacion}}</p>
@@ -508,7 +511,7 @@
           <p>
               Período: {{ \Carbon\Carbon::parse($inicioPeriodo)->day.'/'.\Carbon\Carbon::parse($inicioPeriodo)->formatLocalized('%b').'/'.\Carbon\Carbon::parse($inicioPeriodo)->year }}
               -
-              {{ \Carbon\Carbon::parse($finalPeriodo)->day.'/'.\Carbon\Carbon::parse($finalPeriodo)->formatLocalized('%b').'/'.\Carbon\Carbon::parse($finalPeriodo)->year }}           
+              {{ \Carbon\Carbon::parse($finalPeriodo)->day.'/'.\Carbon\Carbon::parse($finalPeriodo)->formatLocalized('%b').'/'.\Carbon\Carbon::parse($finalPeriodo)->year }}
           </p>
         </div>
       </div>
@@ -527,7 +530,7 @@
       </div>
       </div>
 
-    </header>   
+    </header>
 
     @php
       $suma = 0;
@@ -545,37 +548,37 @@
                     <th style="width: 50px;" align="center">Ptos</th>
                     <th style="width: 50px;" align="center">Acum.</th>
                     <th style="width: 50px;"align="center">Falt?</th>
-                  </tr>                  
+                  </tr>
                 </thead>
                 <tbody>
                   @foreach ($materiasTotales as $matClave => $valores)
                     @foreach ($valores as $llave => $values)
-                      
+
                     <tr>
                       <td align="center" style="height: 20px;">
                         {{$values->eviNumero}}
                       </td>
-                    
+
                       <td>
                         @if ($values->eviTipo == "A")
                           Proceso
                         @else
-                           Producto 
-                        @endif                        
+                           Producto
+                        @endif
                       </td>
-                    
+
                       <td>
                         {{$values->eviDescripcion}}
                       </td>
-                    
+
                       <td align="center">
-                        {{Utils::fecha_string($values->eviFechaEntrega, 'mesCorto')}} 
+                        {{Utils::fecha_string($values->eviFechaEntrega, 'mesCorto')}}
                       </td>
-                    
+
                       <td align="center">
                         {{$values->puntosMaximos}}
                       </td>
-                    
+
                       @php
                           $suma = $suma + $values->puntosMaximos;
                       @endphp
@@ -587,19 +590,19 @@
                         @if ($values->eviFaltas == "S")
                             SI
                         @else
-                            
+
                         @endif
                       </td>
 
                     </tr>
-                    
-                    @endforeach                                           
-                  @endforeach                    
+
+                    @endforeach
+                  @endforeach
                 </tbody>
               </table>
         </div>
     </div>
-    
+
 
     <footer id="footer">
       <div class="page-number"></div>

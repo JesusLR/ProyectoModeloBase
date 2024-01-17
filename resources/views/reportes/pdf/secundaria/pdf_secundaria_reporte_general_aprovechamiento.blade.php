@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -70px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 80px;
         margin-bottom: 70px;
       }
@@ -479,7 +482,7 @@
 	</head>
   <body>
 
-    
+
 
   <header>
       <div class="row" style="margin-top: 0px;">
@@ -643,7 +646,7 @@
       </div>
   </div>
 
-  
+
       @if ($loop->first)
       <footer id="footer">
         <div class="page-number"></div>

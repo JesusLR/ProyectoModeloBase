@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -418,6 +419,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 30px;
         margin-bottom: 30px;
       }
@@ -480,9 +483,9 @@
       }
     </style>
 	</head>
-  
+
   <header>
-    
+
     <div class="row">
         <div class="columns medium-6">
           <p >UNIVERSIDAD MODELO</p>
@@ -510,25 +513,25 @@
               <th align="center" style="font-weight: 400;width:50px;">Mes</th>
               <th align="center" style="font-weight: 400;width:50px;">Día</th>
             </tr>
-            
-           </table> 
+
+           </table>
         </div>
       </div>
   </header>
   <body>
-    
+
     <div class="row">
         <div class="columns medium-12">
           @php
             $datos = $datos->groupBy('escClave');
           @endphp
         @foreach($datos as $escuela)
-         <table class="table"> 
+         <table class="table">
           @php
             $empNum = 0;
           @endphp
           @foreach($escuela as $empleado)
-            @php 
+            @php
               $empNum++;
             @endphp
             <tr>
@@ -543,7 +546,7 @@
               <td style="width:50px;">{{$empleado['empDia']}}</td>
             </tr>
             @endforeach <!-- FIN foreach empleado -->
-          
+
           </table>
         @endforeach <!-- FIN foreach escuela -->
         </div>
@@ -554,5 +557,5 @@
         <span class="page-number"></span>
       </div>
     </footer>
-    
+
 </html>

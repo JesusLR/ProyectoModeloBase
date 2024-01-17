@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -50px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top:273px;
         margin-bottom: 70px;
         margin-left: 94.488188976px;
@@ -660,14 +663,14 @@
         <br>
         <br>
         @if ($desdeCurso == "")
-        @else    
-        <p>{{$firmante->firPuesto}}</p>        
+        @else
+        <p>{{$firmante->firPuesto}}</p>
         @endif
-        
+
         <br>
         <br>
         @if ($desdeCurso == "")
-        @else    
+        @else
         <p class="borde-superior-solid">{{$firmante->firNombre}}</p>
         @endif
         <br>

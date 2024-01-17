@@ -358,8 +358,8 @@
             width: 100%;
             display: block;
             position: relative;
-            margin-left: -30px;
-            margin-right: -30px;
+            /* margin-left: -30px; */
+            /* margin-right: -30px; */
         }
 
         .row::after {
@@ -494,6 +494,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: 11px;
             right: 0px;
@@ -523,6 +524,8 @@
         }
 
         @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
             margin-top: 20px;
             margin-bottom: 70px;
         }
@@ -629,15 +632,15 @@
                         @if ($item->gpoMatComplementaria != "")
                         <p>Materia complementaria: {{$item->gpoMatComplementaria}} </p>
                         @endif
-            
+
                         <p style="text-align: right; margin-top: -40px">Fecha: __________________________</p>
-            
+
                         <p>Docente: {{$item->nombre_empleado}} ({{$item->empleado_id}})</p>
 
                         <p>Incluye alumnos inscritos, PRE-inscritos y CON-dicionados.</p>
-            
+
                     </div>
-                </div>   
+                </div>
             @endif
         @endforeach
 
@@ -650,29 +653,29 @@
                     <th style="font-weight: 400;width: 20px; padding-top: 7px; height: 20px;">Núm</th>
                     <th  style="font-weight: 400; padding-top: 7px;">Cve pago</th>
                     <th align="center" style="font-weight: 400;width: 210px; padding-top: 7px;">Nombre del Alumno</th>
-                    @for ($i = 0; $i < 26; $i++)                  
+                    @for ($i = 0; $i < 26; $i++)
 
                     <td style="font-weight: 400; padding-top: 7px; border-top: 0px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;">
-                        <ul class="listas-asistencia">  
+                        <ul class="listas-asistencia">
                           <li><div><span></span></div></li>
                         </ul>
                     </td>
                     @endfor
-                    
+
                     {{--  <th style="font-weight: 400; padding-top: 7px;">
                         |Calif|
                     </th>  --}}
                     <td style="font-weight: 400; padding-top: 7px; border-top: 0px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;">
-                        <ul class="listas-asistencia">  
+                        <ul class="listas-asistencia">
                           <li><div style="width: 20px;"><span>Calif</span></div></li>
                         </ul>
                     </td>
                     <td style="font-weight: 400; padding-top: 7px; border-top: 0px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;">
-                        <ul class="listas-asistencia">  
+                        <ul class="listas-asistencia">
                           <li><div style="width: 20px;"><span>Falt</span></div></li>
                         </ul>
-                    </td>         
-      
+                    </td>
+
                   </tr>
                 </thead>
                 <tbody>
@@ -684,21 +687,21 @@
                                 <td style="padding-top: 5px;">{{$item2->nombre_alumno}}</td>
                                 @for ($i = 0; $i < 26; $i++)
                                 <td style="padding-top: 5px;">
-                                    <ul class="listas-asistencia">  
+                                    <ul class="listas-asistencia">
                                       <li><div><span></span></div></li>
                                     </ul>
                                 </td>
                                 @endfor
                                 <td style="padding-top: 5px;">
-                                    <ul class="listas-asistencia">  
+                                    <ul class="listas-asistencia">
                                       <li><div style="width: 20px;"><span></span></div></li>
                                     </ul>
                                 </td>
                                 <td style="padding-top: 5px;">
-                                    <ul class="listas-asistencia">  
+                                    <ul class="listas-asistencia">
                                       <li><div style="width: 20px;"><span></span></div></li>
                                     </ul>
-                                </td>  
+                                </td>
 
                             </tr>
                         @endif

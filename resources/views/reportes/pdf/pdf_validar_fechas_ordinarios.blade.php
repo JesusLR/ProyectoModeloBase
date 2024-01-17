@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -418,6 +419,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 30px;
         margin-bottom: 30px;
       }
@@ -490,7 +493,7 @@
       }
     </style>
 	</head>
-  
+
   <header>
     @php
       use App\clases\cgts\MetodosCgt;
@@ -515,7 +518,7 @@
   <body>
     @foreach($grupos as $carrera)
       @foreach($carrera as $plan)
-        @php 
+        @php
           $grupo1 = $plan->first()->first();
           $progClave = $grupo1['progClave'];
           $planClave = $grupo1['planClave'];
@@ -530,7 +533,7 @@
           </div>
         @endif
         @foreach($plan as $grado)
-        @php 
+        @php
           $gpo1 = $grado->first();
           $gpoSemestre = $gpo1['gpoSemestre'];
         @endphp
@@ -543,7 +546,7 @@
         @endif
         <div class="row">
           <div class="columns medium-12">
-           <table class="table"> 
+           <table class="table">
 
               <tr>
                 @if($tipoReporte == 'C' && $loopCarrera == 1)
@@ -566,7 +569,7 @@
                   <th align="center" style="width:20px;" class="boldFont">HoraEx</th>
                   <th align="center" style="width:15px;" class="boldFont">Ins</th>
                 @endif
-                  
+
               </tr>
               @foreach($grado as $grupo)
                 <tr>
@@ -590,7 +593,7 @@
         </div>
         @endforeach <!-- grado -->
       @endforeach <!-- plan -->
-      @php  
+      @php
         $loopCarrera++;
       @endphp
       @if(!$loop->last)
@@ -604,5 +607,5 @@
       <span class="page-number"></span>
     </div>
   </footer>
-    
+
 </html>

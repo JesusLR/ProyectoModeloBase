@@ -359,8 +359,8 @@
       width: 100%;
       display: block;
       position: relative;
-      margin-left: -30px;
-      margin-right: -30px;
+      /* /* margin-left: -30px; */
+      /* margin-right: -30px; */
     }
 
     .row::after {
@@ -498,6 +498,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -50px;
       right: 0px;
@@ -540,6 +541,8 @@
     }
 
     @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
       margin-top: 80px;
       margin-bottom: 40px;
     }
@@ -606,6 +609,10 @@
       $posi1 = 1;
       use Illuminate\Support\Arr;
       use App\Http\Helpers\Utils;
+
+      set_time_limit(0);
+      ini_set('max_execution_time', 600);
+      ini_set('memory_limit', '1024M');
   @endphp
 
   <header>
@@ -613,10 +620,10 @@
       <div class="columns medium-12">
 
         {{--  <img class="img-header" src="{{base_path('resources/assets/img/logo.jpg')}}" alt="">  --}}
-        <h1 style="margin-top:0px; margin-bottom: 0px; text-align: center;">Preparatoria "ESCUELA MODELO"</h1>       
+        <h1 style="margin-top:0px; margin-bottom: 0px; text-align: center;">Preparatoria "ESCUELA MODELO"</h1>
         <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">INCORPORADA A LA UNIVERSIDAD AUTONOMA DE YUCATAN</h4>
         <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">PERIODO ESCOLAR: {{$cicloEscolar}}</h4>
-        
+
       </div>
     </div>
   </header>
@@ -659,7 +666,7 @@
       $gradoGrupo3 = "";
       $vueltas3 = 1;
 
-      
+
       $eviProcesoObte4 = 0;
       $eviProcesoMax4 = 0;
       $eviProductoObte4 = 0;
@@ -684,7 +691,7 @@
       $gradoGrupo5 = "";
       $vueltas5 = 1;
 
-      
+
       $eviProcesoObte6 = 0;
       $eviProcesoMax6 = 0;
       $eviProductoObte6 = 0;
@@ -697,7 +704,7 @@
       $gradoGrupo6 = "";
       $vueltas6 = 1;
 
-      
+
   @endphp
 
   @foreach ($alumno as $aluClave => $valoresAlu)
@@ -706,24 +713,24 @@
           <div class="row">
             <div class="columns medium-4">
               <p><b>Clave: {{$item->aluClave}} </b></p>
-              <p><b>Alumno: {{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}}</b></p>         
+              <p><b>Alumno: {{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}}</b></p>
               @php
                 $NombreAlumno = $item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre;
-              @endphp   
+              @endphp
             </div>
             {{--  <div class="columns medium-2">
-              
+
             </div>  --}}
             <div class="columns medium-4" style="text-align: center">
               <p><b>Clav.Plan: {{$item->planClave}} </b></p>
               <p><b>Ubicación: {{$item->ubiClave}} </b></p>
             </div>
             {{--  <div class="columns medium-2">
-              
+
             </div>  --}}
             <div class="columns medium-4" style="text-align: right">
               <p><b>Fecha: {{$fechaActual}} </b></p>
-              <p><b>Grupo: {{$item->semestre.' '.$item->grupo}} 
+              <p><b>Grupo: {{$item->semestre.' '.$item->grupo}}
                 @if($item->curEstado == "P") (Pre) @endif
                 @if($item->curEstado == "C" || $item->curEstado == "A") (Con) @endif
               </b></p>
@@ -770,12 +777,12 @@
                   </tr>
                 </thead>
                 <tbody>
-                  
+
                   @foreach($alumno as $clave_pago => $valoresDelAlumno)
                     @foreach ($valoresDelAlumno as $itemAlumno)
                         @if ($aluClave == $itemAlumno->aluClave && $aluClave == $clave_pago)
                           @php
-                            $puntos = DB::select("SELECT 
+                            $puntos = DB::select("SELECT
                             bachiller_inscritos_evidencias.id,
                             bachiller_inscritos_evidencias.ievPuntos AS puntosObtenidos,
                             bachiller_inscritos_evidencias.ievFaltas AS faltas,
@@ -823,7 +830,7 @@
                             planes.planClave,
                             ubicacion.ubiClave,
                             cgt.cgtGradoSemestre as semestre,
-                            cgt.cgtGrupo as grupo            
+                            cgt.cgtGrupo as grupo
                             FROM bachiller_inscritos_evidencias AS bachiller_inscritos_evidencias
                             INNER JOIN bachiller_inscritos ON bachiller_inscritos.id = bachiller_inscritos_evidencias.bachiller_inscrito_id
                             INNER JOIN bachiller_evidencias ON bachiller_evidencias.id = bachiller_inscritos_evidencias.evidencia_id
@@ -839,7 +846,7 @@
                             INNER JOIN planes ON planes.id = bachiller_grupos.plan_id
                             INNER JOIN programas ON programas.id = planes.programa_id
                             INNER JOIN cgt ON cgt.id = cursos.cgt_id
-                            INNER JOIN ubicacion ON ubicacion.id = departamentos.ubicacion_id                        
+                            INNER JOIN ubicacion ON ubicacion.id = departamentos.ubicacion_id
                             WHERE bachiller_inscritos_evidencias.bachiller_inscrito_id = $itemAlumno->id
                             AND bachiller_inscritos.deleted_at IS NULL
                             AND bachiller_evidencias.deleted_at IS NULL
@@ -852,53 +859,53 @@
                             AND planes.deleted_at IS NULL
                             AND bachiller_inscritos_evidencias.deleted_at IS NULL
                             AND programas.deleted_at IS NULL");
-                      
+
                             if(count($puntos) > 0){
                               foreach($puntos as $punto){
                                 if($punto->bachiller_materia_id = $itemAlumno->bachiller_materia_id && $punto->eviTipo == "A"){
                                   $eviProcesoObte = $eviProcesoObte + $punto->puntosObtenidos;
                                 }
-                                
+
                                 if($punto->bachiller_materia_id = $itemAlumno->bachiller_materia_id && $punto->eviTipo == "P"){
                                   $eviProductoObte = $eviProductoObte + $punto->puntosObtenidos;
                                 }
-  
+
                                 if($punto->bachiller_materia_id = $itemAlumno->bachiller_materia_id && $punto->eviTipo == "A"){
                                   $eviProcesoMax = $eviProcesoMax + $punto->puntosMaximos;
                                 }
-  
+
                                 if($punto->bachiller_materia_id = $itemAlumno->bachiller_materia_id && $punto->eviTipo == "P"){
                                   $eviProductoMax = $eviProductoMax + $punto->puntosMaximos;
                                 }
                                 #Obteber las faltas del alumno por materia
                                 $faltas = $faltas + $punto->faltas;
                               }
-  
-                              #Obteber los puntos finales sumados 
-  
-                              $eviFinalObte = $eviProcesoObte + $eviProductoObte;
-  
-                              $eviFinalMax = $eviProcesoMax + $eviProductoMax;
-                            }                           
 
-                                                       
+                              #Obteber los puntos finales sumados
+
+                              $eviFinalObte = $eviProcesoObte + $eviProductoObte;
+
+                              $eviFinalMax = $eviProcesoMax + $eviProductoMax;
+                            }
+
+
 
                           @endphp
                           <tr>
                             <td style="width:50px; border-top: 0px solid; border-bottom: 0px solid; border-left: 0px solid; border-right: 0px solid;">
-                              {{$itemAlumno->matClave}} 
+                              {{$itemAlumno->matClave}}
                             </td>
                             <td style="width: 300px; border-top: 0px solid; border-bottom: 0px solid; border-left: 0px solid; border-right: 0px solid;">
                               {{$itemAlumno->matNombre}}
                             </td>
                             <td style="border-top: 0px solid; border-bottom: 0px solid; border-left: 0px solid; border-right: 0px solid;"></td>
-                            
+
                             <td align="right" style="border-top: 0px solid; border-bottom: 0px solid; border-left: 0px solid; border-right: 0px solid;">
                               @if (number_format((float)$eviProcesoObte, 1, '.', '') != 0.0)
                                 {{number_format((float)$eviProcesoObte, 1, '.', '')}}
-                              @else                              
+                              @else
                               @php
-                                $prueba = DB::select("SELECT 
+                                $prueba = DB::select("SELECT
                                 bachiller_inscritos_evidencias.id,
                                 bachiller_inscritos_evidencias.ievPuntos AS puntosObtenidos,
                                 bachiller_inscritos_evidencias.ievFaltas AS faltas,
@@ -948,7 +955,7 @@
                                 planes.planClave,
                                 ubicacion.ubiClave,
                                 cgt.cgtGradoSemestre as semestre,
-                                cgt.cgtGrupo as grupo            
+                                cgt.cgtGrupo as grupo
                                 FROM bachiller_inscritos_evidencias AS bachiller_inscritos_evidencias
                                 INNER JOIN bachiller_inscritos ON bachiller_inscritos.id = bachiller_inscritos_evidencias.bachiller_inscrito_id
                                 INNER JOIN bachiller_evidencias ON bachiller_evidencias.id = bachiller_inscritos_evidencias.evidencia_id
@@ -964,7 +971,7 @@
                                 INNER JOIN planes ON planes.id = bachiller_grupos.plan_id
                                 INNER JOIN programas ON programas.id = planes.programa_id
                                 INNER JOIN cgt ON cgt.id = cursos.cgt_id
-                                INNER JOIN ubicacion ON ubicacion.id = departamentos.ubicacion_id                        
+                                INNER JOIN ubicacion ON ubicacion.id = departamentos.ubicacion_id
                                 WHERE bachiller_materias.matComplementaria in ('".$itemAlumno->matClaveTELNET."')
                                 AND periodos.id = $itemAlumno->periodo_id
                                 AND alumnos.aluClave=$itemAlumno->aluClave
@@ -985,34 +992,34 @@
                                     if($punto->matClaveTELNET = $itemAlumno->matClaveTELNET && $punto->eviTipo == "A"){
                                       $eviProcesoObte4 = $eviProcesoObte4 + $punto->puntosObtenidos;
                                     }
-                                    
+
                                     if($punto->matClaveTELNET = $itemAlumno->matClaveTELNET && $punto->eviTipo == "P"){
                                       $eviProductoObte4 = $eviProductoObte4 + $punto->puntosObtenidos;
                                     }
-      
+
                                     if($punto->matClaveTELNET = $itemAlumno->matClaveTELNET && $punto->eviTipo == "A"){
                                       $eviProcesoMax4 = $eviProcesoMax4 + $punto->puntosMaximos;
                                     }
-      
+
                                     if($punto->matClaveTELNET = $itemAlumno->matClaveTELNET && $punto->eviTipo == "P"){
                                       $eviProductoMax4 = $eviProductoMax4 + $punto->puntosMaximos;
                                     }
-                              
+
                                   }
-                                }            
+                                }
 
                               @endphp
                               {{number_format((float)$eviProcesoObte4, 1, '.', '')}}
-                              @endif                              
+                              @endif
                             </td>
-        
+
                             <td align="right" style="border-top: 0px solid; border-bottom: 0px solid; border-left: 0px solid; border-right: 0px solid;">
                               @if (number_format((float)$eviProcesoMax, 1, '.', '') != 0.0)
                                 {{number_format((float)$eviProcesoMax, 1, '.', '')}}
-                              @else     
-                              
+                              @else
+
                               @php
-                                $prueba = DB::select("SELECT 
+                                $prueba = DB::select("SELECT
                                 bachiller_inscritos_evidencias.id,
                                 bachiller_inscritos_evidencias.ievPuntos AS puntosObtenidos,
                                 bachiller_inscritos_evidencias.ievFaltas AS faltas,
@@ -1062,7 +1069,7 @@
                                 planes.planClave,
                                 ubicacion.ubiClave,
                                 cgt.cgtGradoSemestre as semestre,
-                                cgt.cgtGrupo as grupo            
+                                cgt.cgtGrupo as grupo
                                 FROM bachiller_inscritos_evidencias AS bachiller_inscritos_evidencias
                                 INNER JOIN bachiller_inscritos ON bachiller_inscritos.id = bachiller_inscritos_evidencias.bachiller_inscrito_id
                                 INNER JOIN bachiller_evidencias ON bachiller_evidencias.id = bachiller_inscritos_evidencias.evidencia_id
@@ -1078,7 +1085,7 @@
                                 INNER JOIN planes ON planes.id = bachiller_grupos.plan_id
                                 INNER JOIN programas ON programas.id = planes.programa_id
                                 INNER JOIN cgt ON cgt.id = cursos.cgt_id
-                                INNER JOIN ubicacion ON ubicacion.id = departamentos.ubicacion_id                        
+                                INNER JOIN ubicacion ON ubicacion.id = departamentos.ubicacion_id
                                 WHERE bachiller_materias.matComplementaria in ('".$itemAlumno->matClaveTELNET."')
                                 AND periodos.id = $itemAlumno->periodo_id
                                 AND alumnos.aluClave=$itemAlumno->aluClave
@@ -1096,31 +1103,31 @@
 
                                 if(count($prueba) > 0){
                                   foreach($prueba as $punto){
-                                       
+
                                     if($punto->matClaveTELNET = $itemAlumno->matClaveTELNET && $punto->eviTipo == "A"){
                                       $eviProcesoMax2 = $eviProcesoMax2 + $punto->puntosMaximos;
                                     }
-      
+
                                   }
-      
-                                 
-                               }            
+
+
+                               }
 
                               @endphp
-                              
+
                               {{number_format((float)$eviProcesoMax2, 1, '.', '')}}
-                              @endif  
+                              @endif
                             </td>
-        
+
                             <td align="center" style="border-top: 0px solid; border-bottom: 0px solid; border-left: 0px solid; border-right: 0px solid;"></td>
-        
+
                             <td align="right" style="border-top: 0px solid; border-bottom: 0px solid; border-left: 0px solid; border-right: 0px solid;">
                               @if (number_format((float)$eviProductoObte, 1, '.', '') != 0.0)
                               {{number_format((float)$eviProductoObte, 1, '.', '')}}
-                              @else                              
-                              
+                              @else
+
                               @php
-                                $prueba = DB::select("SELECT 
+                                $prueba = DB::select("SELECT
                                   bachiller_inscritos_evidencias.id,
                                   bachiller_inscritos_evidencias.ievPuntos AS puntosObtenidos,
                                   bachiller_inscritos_evidencias.ievFaltas AS faltas,
@@ -1170,7 +1177,7 @@
                                   planes.planClave,
                                   ubicacion.ubiClave,
                                   cgt.cgtGradoSemestre as semestre,
-                                  cgt.cgtGrupo as grupo            
+                                  cgt.cgtGrupo as grupo
                                   FROM bachiller_inscritos_evidencias AS bachiller_inscritos_evidencias
                                   INNER JOIN bachiller_inscritos ON bachiller_inscritos.id = bachiller_inscritos_evidencias.bachiller_inscrito_id
                                   INNER JOIN bachiller_evidencias ON bachiller_evidencias.id = bachiller_inscritos_evidencias.evidencia_id
@@ -1186,7 +1193,7 @@
                                   INNER JOIN planes ON planes.id = bachiller_grupos.plan_id
                                   INNER JOIN programas ON programas.id = planes.programa_id
                                   INNER JOIN cgt ON cgt.id = cursos.cgt_id
-                                  INNER JOIN ubicacion ON ubicacion.id = departamentos.ubicacion_id                        
+                                  INNER JOIN ubicacion ON ubicacion.id = departamentos.ubicacion_id
                                   WHERE bachiller_materias.matComplementaria in ('".$itemAlumno->matClaveTELNET."')
                                   AND periodos.id = $itemAlumno->periodo_id
                                   AND alumnos.aluClave=$itemAlumno->aluClave
@@ -1207,33 +1214,33 @@
                                       if($punto->matClaveTELNET = $itemAlumno->matClaveTELNET && $punto->eviTipo == "A"){
                                         $eviProcesoObte5 = $eviProcesoObte5 + $punto->puntosObtenidos;
                                       }
-                                      
+
                                       if($punto->matClaveTELNET = $itemAlumno->matClaveTELNET && $punto->eviTipo == "P"){
                                         $eviProductoObte5 = $eviProductoObte5 + $punto->puntosObtenidos;
                                       }
-        
+
                                       if($punto->matClaveTELNET = $itemAlumno->matClaveTELNET && $punto->eviTipo == "A"){
                                         $eviProcesoMax5 = $eviProcesoMax5 + $punto->puntosMaximos;
                                       }
-        
+
                                       if($punto->matClaveTELNET = $itemAlumno->matClaveTELNET && $punto->eviTipo == "P"){
                                         $eviProductoMax5 = $eviProductoMax5 + $punto->puntosMaximos;
                                       }
-                                
+
                                     }
-                                  }            
+                                  }
 
                               @endphp
                               {{number_format((float)$eviProductoObte5, 1, '.', '')}}
-                              @endif 
+                              @endif
                             </td>
-        
+
                             <td align="right" style="border-top: 0px solid; border-bottom: 0px solid; border-left: 0px solid; border-right: 0px solid;">
                               @if(number_format((float)$eviProductoMax, 1, '.', '') != 0.0)
                                 {{number_format((float)$eviProductoMax, 1, '.', '')}}
                               @else
                                 @php
-                                  $prueba2 = DB::select("SELECT 
+                                  $prueba2 = DB::select("SELECT
                                   bachiller_inscritos_evidencias.id,
                                   bachiller_inscritos_evidencias.ievPuntos AS puntosObtenidos,
                                   bachiller_inscritos_evidencias.ievFaltas AS faltas,
@@ -1283,7 +1290,7 @@
                                   planes.planClave,
                                   ubicacion.ubiClave,
                                   cgt.cgtGradoSemestre as semestre,
-                                  cgt.cgtGrupo as grupo            
+                                  cgt.cgtGrupo as grupo
                                   FROM bachiller_inscritos_evidencias AS bachiller_inscritos_evidencias
                                   INNER JOIN bachiller_inscritos ON bachiller_inscritos.id = bachiller_inscritos_evidencias.bachiller_inscrito_id
                                   INNER JOIN bachiller_evidencias ON bachiller_evidencias.id = bachiller_inscritos_evidencias.evidencia_id
@@ -1299,7 +1306,7 @@
                                   INNER JOIN planes ON planes.id = bachiller_grupos.plan_id
                                   INNER JOIN programas ON programas.id = planes.programa_id
                                   INNER JOIN cgt ON cgt.id = cursos.cgt_id
-                                  INNER JOIN ubicacion ON ubicacion.id = departamentos.ubicacion_id                        
+                                  INNER JOIN ubicacion ON ubicacion.id = departamentos.ubicacion_id
                                   WHERE bachiller_materias.matComplementaria in ('".$itemAlumno->matClaveTELNET."')
                                   AND periodos.id = $itemAlumno->periodo_id
                                   AND alumnos.aluClave=$itemAlumno->aluClave
@@ -1317,31 +1324,31 @@
 
                                   if(count($prueba2) > 0){
                                     foreach($prueba2 as $punto){
-                                  
-                                      
+
+
                                       if($punto->matClaveTELNET = $itemAlumno->matClaveTELNET && $punto->eviTipo == "P"){
                                         $eviProductoMax2 = $eviProductoMax2 + $punto->puntosMaximos;
                                       }
-                                      
+
                                     }
-        
-                                  
-                                  }            
+
+
+                                  }
 
                                 @endphp
                                 {{number_format((float)$eviProductoMax2, 1, '.', '')}}
                               @endif
                             </td>
-        
+
                             <td align="center" style="border-top: 0px solid; border-bottom: 0px solid; border-left: 0px solid; border-right: 0px solid;"></td>
-        
+
                             <td align="right" style="border-top: 0px solid; border-bottom: 0px solid; border-left: 0px solid; border-right: 0px solid;">
                               @if (number_format((float)$eviFinalObte, 0, '.', '') != 0)
                                 {{number_format((float)$eviFinalObte, 0, '.', '')}}
                               @else
 
                                 @php
-                                  $prueba = DB::select("SELECT 
+                                  $prueba = DB::select("SELECT
                                     bachiller_inscritos_evidencias.id,
                                     bachiller_inscritos_evidencias.ievPuntos AS puntosObtenidos,
                                     bachiller_inscritos_evidencias.ievFaltas AS faltas,
@@ -1391,7 +1398,7 @@
                                     planes.planClave,
                                     ubicacion.ubiClave,
                                     cgt.cgtGradoSemestre as semestre,
-                                    cgt.cgtGrupo as grupo            
+                                    cgt.cgtGrupo as grupo
                                     FROM bachiller_inscritos_evidencias AS bachiller_inscritos_evidencias
                                     INNER JOIN bachiller_inscritos ON bachiller_inscritos.id = bachiller_inscritos_evidencias.bachiller_inscrito_id
                                     INNER JOIN bachiller_evidencias ON bachiller_evidencias.id = bachiller_inscritos_evidencias.evidencia_id
@@ -1407,7 +1414,7 @@
                                     INNER JOIN planes ON planes.id = bachiller_grupos.plan_id
                                     INNER JOIN programas ON programas.id = planes.programa_id
                                     INNER JOIN cgt ON cgt.id = cursos.cgt_id
-                                    INNER JOIN ubicacion ON ubicacion.id = departamentos.ubicacion_id                        
+                                    INNER JOIN ubicacion ON ubicacion.id = departamentos.ubicacion_id
                                     WHERE bachiller_materias.matComplementaria in ('".$itemAlumno->matClaveTELNET."')
                                     AND periodos.id = $itemAlumno->periodo_id
                                     AND alumnos.aluClave=$itemAlumno->aluClave
@@ -1428,35 +1435,35 @@
                                         if($punto->matClaveTELNET = $itemAlumno->matClaveTELNET && $punto->eviTipo == "A"){
                                           $eviProcesoObte6 = $eviProcesoObte6 + $punto->puntosObtenidos;
                                         }
-                                        
+
                                         if($punto->matClaveTELNET = $itemAlumno->matClaveTELNET && $punto->eviTipo == "P"){
                                           $eviProductoObte6 = $eviProductoObte6 + $punto->puntosObtenidos;
                                         }
-          
+
                                         if($punto->matClaveTELNET = $itemAlumno->matClaveTELNET && $punto->eviTipo == "A"){
                                           $eviProcesoMax6 = $eviProcesoMax6 + $punto->puntosMaximos;
                                         }
-          
+
                                         if($punto->matClaveTELNET = $itemAlumno->matClaveTELNET && $punto->eviTipo == "P"){
                                           $eviProductoMax6 = $eviProductoMax6 + $punto->puntosMaximos;
                                         }
 
                                         $eviFinalObte6 = $eviProcesoObte6 + $eviProductoObte6;
-                                  
+
                                       }
-                                    }            
+                                    }
 
                                 @endphp
                                 {{number_format((float)$eviFinalObte6, 0, '.', '')}}
                               @endif
                             </td>
-        
+
                             <td align="right" style="border-top: 0px solid; border-bottom: 0px solid; border-left: 0px solid; border-right: 0px solid;">
                               @if (number_format((float)$eviFinalMax, 0, '.', '') != 0)
                                 {{number_format((float)$eviFinalMax, 0, '.', '')}}
                               @else
                                 @php
-                                  $prueba = DB::select("SELECT 
+                                  $prueba = DB::select("SELECT
                                   bachiller_inscritos_evidencias.id,
                                   bachiller_inscritos_evidencias.ievPuntos AS puntosObtenidos,
                                   bachiller_inscritos_evidencias.ievFaltas AS faltas,
@@ -1506,7 +1513,7 @@
                                   planes.planClave,
                                   ubicacion.ubiClave,
                                   cgt.cgtGradoSemestre as semestre,
-                                  cgt.cgtGrupo as grupo            
+                                  cgt.cgtGrupo as grupo
                                   FROM bachiller_inscritos_evidencias AS bachiller_inscritos_evidencias
                                   INNER JOIN bachiller_inscritos ON bachiller_inscritos.id = bachiller_inscritos_evidencias.bachiller_inscrito_id
                                   INNER JOIN bachiller_evidencias ON bachiller_evidencias.id = bachiller_inscritos_evidencias.evidencia_id
@@ -1522,7 +1529,7 @@
                                   INNER JOIN planes ON planes.id = bachiller_grupos.plan_id
                                   INNER JOIN programas ON programas.id = planes.programa_id
                                   INNER JOIN cgt ON cgt.id = cursos.cgt_id
-                                  INNER JOIN ubicacion ON ubicacion.id = departamentos.ubicacion_id                        
+                                  INNER JOIN ubicacion ON ubicacion.id = departamentos.ubicacion_id
                                   WHERE bachiller_materias.matComplementaria in ('".$itemAlumno->matClaveTELNET."')
                                   AND periodos.id = $itemAlumno->periodo_id
                                   AND alumnos.aluClave=$itemAlumno->aluClave
@@ -1542,40 +1549,40 @@
 
                                   if(count($prueba) > 0){
                                     foreach($prueba as $punto){
-                                     
+
                                       if($punto->matClaveTELNET = $itemAlumno->matClaveTELNET && $punto->eviTipo == "A"){
                                         $eviProcesoMax3 = $eviProcesoMax3 + $punto->puntosMaximos;
                                       }
-        
+
                                       if($punto->matClaveTELNET = $itemAlumno->matClaveTELNET && $punto->eviTipo == "P"){
                                         $eviProductoMax3 = $eviProductoMax3 + $punto->puntosMaximos;
                                       }
                                       #Obteber las faltas del alumno por materia
                                       $faltas3 = $faltas3 + $punto->faltas;
                                     }
-        
-                                    #Obteber los puntos finales sumados         
-        
+
+                                    #Obteber los puntos finales sumados
+
                                     $eviFinalMax3 = $eviProcesoMax3 + $eviProductoMax3;
-                                  }            
+                                  }
 
                                 @endphp
 
                                 {{number_format((float)$eviFinalMax3, 0, '.', '')}}
                               @endif
                             </td>
-        
+
                             <td align="center" style="width 1px;border-top: 0px solid; border-bottom: 0px solid; border-left: 0px solid; border-right: 0px solid;"></td>
-        
+
                             <td align="right" style="border-top: 0px solid; border-bottom: 0px solid; border-left: 0px solid; border-right: 0px solid;">
                               @if ($faltas != 0)
                                 {{$faltas}}
                               @else
                                 @if ($faltas3 != 0)
-                                  {{$faltas3}}  
+                                  {{$faltas3}}
                                 @else
-                                    
-                                @endif                              
+
+                                @endif
                               @endif
                             </td>
                           </tr>
@@ -1648,15 +1655,15 @@
                           $fechaBoleta6 = "";
                           $gradoGrupo6 = "";
                           $vueltas6 = 1;
-                        @endphp    
-                    @endforeach               
-                  @endforeach                                              
-                
+                        @endphp
+                    @endforeach
+                  @endforeach
+
                 </tbody>
               </table>
             </div>
           </div>
-          
+
 
           <br><br>
           <div class="row">
@@ -1672,12 +1679,12 @@
                     <th align="center" style="border-top: 1px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;">Opor2</th>
                     <th align="center" style="border-top: 1px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;">Opor3</th>
                     <th align="center" style="border-top: 1px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;">Ult. Examen</th>
-                  </tr>          
+                  </tr>
                 </thead>
                 <tbody>
                   @php
 
-                              
+
                   $ubiClave = $item->ubiClave;
 
                   $aluClave = $item->aluClave;
@@ -1749,7 +1756,7 @@
 
                     $buscar_alumno3 = collect($matNoaprobadas);
                     $buscar_alumno4 = $buscar_alumno3->groupBy('bachiller_materia_id');
-                 
+
                   @endphp
 
                   @forelse ($buscar_alumno4 as $bachiller_materia_id => $valores)
@@ -1765,7 +1772,7 @@
                           <td align="center">{{$item->extra3}}</td>
                           <td align="center">{{Utils::fecha_string($item->ultimoexa, 'mesCorto')}}</td>
                         </tr>
-                        @endif                        
+                        @endif
                     @endforeach
                     @php
                             $vueltas = 1;
@@ -1781,14 +1788,14 @@
                     <td align="center" style="border-top: 0px solid; border-right: 0px solid; border-bottom: 0px solid; border-left: 0px solid;"></td>
                     <td align="center" style="border-top: 0px solid; border-right: 0px solid; border-bottom: 0px solid; border-left: 0px solid;"></td>
                   </tr>
-                  
-                                  
-                  @endforelse   
+
+
+                  @endforelse
                   @php
                   $alumno_id = "";
                   $plan_id = "";
-                  @endphp     
-                    
+                  @endphp
+
                 </tbody>
               </table>
             </div>
@@ -1796,7 +1803,7 @@
 
           <br><br>
 
-             
+
 
           @php
           $alumno_id = "";
@@ -1809,7 +1816,7 @@
               <p>Alumno: {{$NombreAlumno}}</p>
             </div>
             <div class="columns medium-6">
-              
+
             </div>
             <div class="columns medium-6" style="text-align: right;">
               <p>Fecha: {{$fechaBoleta}}</p>
@@ -1817,13 +1824,13 @@
             </div>
           </div>
         @endif
-    @endforeach  
+    @endforeach
     @php
         $posi1 = 1;
         $NombreAlumno = "";
         $fechaBoleta = "";
         $gradoGrupo = "";
-    @endphp    
+    @endphp
     @if (!$loop->last)
       <div class="page_break"></div>
     @endif

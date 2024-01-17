@@ -364,8 +364,8 @@
             width: 100%;
             display: block;
             position: relative;
-            margin-left: -30px;
-            margin-right: -30px;
+            /* margin-left: -30px; */
+            /* margin-right: -30px; */
         }
 
         .row::after {
@@ -500,6 +500,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: 11px;
             right: 0px;
@@ -529,6 +530,8 @@
         }
 
         @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
             margin-top: 20px;
             margin-bottom: 70px;
         }
@@ -599,7 +602,7 @@
         .page-number:before {
             content: "Pág " counter(page);
           }
-    
+
           .page-break {
               page-break-after: always;
           }
@@ -618,7 +621,7 @@
                     Lista de insteresados
                 @endif
 
-                
+
             </div>
             <div class="columns medium-4"></div>
             <div class="columns medium-4">
@@ -633,7 +636,7 @@
     <footer id="footer">
         <div class="page-number"></div>
     </footer>
-    
+
     <div class="row">
         <div class="columns medium-12">
           <table class="table">
@@ -644,8 +647,8 @@
                 <th style="font-weight: 400; width: 170px; padding-top: 7px;">Alumno</th>
                 <th style="font-weight: 400; width: 170px; padding-top: 7px;">Curp</th>
                 <th align="center" style="font-weight: 400; width: 120px; padding-top: 7px;">Grado Ingreso</th>
-                <th style="font-weight: 400; width: 170px; padding-top: 7px;">Correo</th>                                 
-  
+                <th style="font-weight: 400; width: 170px; padding-top: 7px;">Correo</th>
+
               </tr>
             </thead>
             <tbody>
@@ -660,17 +663,17 @@
                     <td style="padding-top: 5px; height: 14px;">{{$alumno->perCorreo1}}</td>
 
 
-                   
-                </tr> 
+
+                </tr>
                 @endforeach
-                             
+
             </tbody>
           </table>
         </div>
     </div>
 
 
-   
+
 
 </body>
 

@@ -358,8 +358,8 @@
             width: 100%;
             display: block;
             position: relative;
-            margin-left: -30px;
-            margin-right: -30px;
+            /* margin-left: -30px; */
+            /* margin-right: -30px; */
         }
 
         .row::after {
@@ -494,6 +494,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: 12px;
             right: 0px;
@@ -523,6 +524,8 @@
         }
 
         @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
             margin-top: 20px;
             margin-bottom: 70px;
         }
@@ -593,14 +596,14 @@
         .page-number:before {
             content: "Pág " counter(page);
           }
-    
+
           .page-break {
               page-break-after: always;
           }
 
           .cuadrado {
-            width: 12px; 
-            height: 12px; 
+            width: 12px;
+            height: 12px;
             border: 1px solid #555;
        }
     </style>
@@ -615,7 +618,7 @@
                 <p style="margin-top:0px; font-size:11px;">Ciclo escolar {{$parametro_ciclo_escolar}}</p>
 
                 @if ($modalidad == "")
-                    @if ($prametro_progClave == "PRI") 
+                    @if ($prametro_progClave == "PRI")
                     <p style="margin-top:0px; font-size:11px;">{{$gpoGrado}}°  TRADICIONAL</p>
                     @endif
 
@@ -625,7 +628,7 @@
                 @endif
 
                 @if ($modalidad == "P")
-                    @if ($prametro_progClave == "PRI") 
+                    @if ($prametro_progClave == "PRI")
                     <p style="margin-top:0px; font-size:11px;">{{$gpoGrado}}°  TRADICIONAL PRESENCIAL</p>
                     @endif
 
@@ -636,14 +639,14 @@
 
                 @if ($modalidad == "V")
 
-                    @if ($prametro_progClave == "PRI")  
+                    @if ($prametro_progClave == "PRI")
                     <p style="margin-top:0px; font-size:11px;">{{$gpoGrado}}°  TRADICIONAL VIRTUAL</p>
-                    @endif 
+                    @endif
 
-                    @if ($prametro_progClave == "PRB")  
+                    @if ($prametro_progClave == "PRB")
                     <p style="margin-top:0px; font-size:11px;">{{$gpoGrado}}°  BILINGÜE VIRTUAL</p>
-                    @endif 
-                
+                    @endif
+
                 @endif
 
                 <p style="margin-top:0px; font-size:11px;">Docente titular: {{$parametro_docente}}</p>
@@ -653,7 +656,7 @@
         </div>
 
     </header>
-  
+
     @php
         $total = 1;
         $vuelta = 1;
@@ -672,8 +675,8 @@
                     {{--  |__|  --}}
                 </th>
                 @endfor
-                
-               
+
+
               </tr>
             </thead>
             <tbody>
@@ -692,11 +695,11 @@
                                 @endfor
                             </tr>
                         @endif
-                    @endforeach   
+                    @endforeach
                     @php
                         $vuelta = 1;
-                    @endphp                 
-                @endforeach                                
+                    @endphp
+                @endforeach
             </tbody>
           </table>
         </div>

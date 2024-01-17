@@ -358,8 +358,8 @@
             width: 100%;
             display: block;
             position: relative;
-            margin-left: -30px;
-            margin-right: -30px;
+            /* margin-left: -30px; */
+            /* margin-right: -30px; */
         }
 
         .row::after {
@@ -494,6 +494,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: 11px;
             right: 0px;
@@ -523,6 +524,8 @@
         }
 
         @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
             margin-top: 20px;
             margin-bottom: 70px;
         }
@@ -616,7 +619,7 @@
         </div>
 
     </header>
-    
+
     @foreach ($grupos as $gpoclave => $valoresForeach)
         @foreach ($valoresForeach as $item)
             @if ($gpoclave == $item->cgtGrupo && $pocision1++ == 1)
@@ -627,13 +630,13 @@
                         <p>Ubicac. : {{$item->ubiClave}} {{$item->ubiNombre}}</p>
                         <p>Semestre. : {{$item->gpoGrado}} Grupo: {{$item->cgtGrupo}}</p>
 
-                                    
-                        <p style="text-align: right; margin-top: -40px">Fecha: __________________________</p>            
+
+                        <p style="text-align: right; margin-top: -40px">Fecha: __________________________</p>
 
                         <p>Incluye alumnos inscritos, PRE-inscritos y CON-dicionados.</p>
-            
+
                     </div>
-                </div>   
+                </div>
             @endif
         @endforeach
 
@@ -648,23 +651,23 @@
                     <th align="center" style="font-weight: 400;width: 210px; padding-top: 7px;">Nombre del Alumno</th>
                     @for ($i = 0; $i < 26; $i++)
                     <td style="font-weight: 400; padding-top: 7px; border-top: 0px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;">
-                        <ul class="listas-asistencia">  
+                        <ul class="listas-asistencia">
                           <li><div><span></span></div></li>
                         </ul>
                     </td>
                     @endfor
-                    
+
                     <td style="font-weight: 400; padding-top: 7px; border-top: 0px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;">
-                        <ul class="listas-asistencia">  
+                        <ul class="listas-asistencia">
                           <li><div style="width: 20px;"><span>Calif</span></div></li>
                         </ul>
                     </td>
                     <td style="font-weight: 400; padding-top: 7px; border-top: 0px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;">
-                        <ul class="listas-asistencia">  
+                        <ul class="listas-asistencia">
                           <li><div style="width: 20px;"><span>Falt</span></div></li>
                         </ul>
-                    </td>                  
-      
+                    </td>
+
                   </tr>
                 </thead>
                 <tbody>
@@ -677,29 +680,29 @@
                                     <td style="padding-top: 5px;">{{$item2->nombre_alumno}}</td>
                                     @for ($i = 0; $i < 26; $i++)
                                     <td style="padding-top: 5px;">
-                                        <ul class="listas-asistencia">  
+                                        <ul class="listas-asistencia">
                                           <li><div><span></span></div></li>
                                         </ul>
                                     </td>
                                     @endfor
                                     <td style="padding-top: 5px;">
-                                        <ul class="listas-asistencia">  
+                                        <ul class="listas-asistencia">
                                           <li><div style="width: 20px;"><span></span></div></li>
                                         </ul>
                                     </td>
                                     <td style="padding-top: 5px;">
-                                        <ul class="listas-asistencia">  
+                                        <ul class="listas-asistencia">
                                           <li><div style="width: 20px;"><span></span></div></li>
                                         </ul>
                                     </td>
 
                                 </tr>
                             @endif
-                        @endforeach                        
+                        @endforeach
                         @php
                             $pocision2 = 1;
                         @endphp
-                    @endforeach                    
+                    @endforeach
                 </tbody>
               </table>
             </div>

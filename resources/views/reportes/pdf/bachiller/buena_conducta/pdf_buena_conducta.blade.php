@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -70px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 80px;
         margin-bottom: 70px;
       }
@@ -513,7 +516,7 @@
           {{$curso->cgt->plan->programa->escuela->departamento->ubicacion->municipio->estado->edoNombre}}, al día
           {{--\Carbon\Carbon::parse($fechaActual)->format('d/m/Y')--}}
           @php
-                
+
                 $fechaletras = Utils::fecha_string($fechaActual);
           @endphp
           {{$fechaletras}}.
@@ -526,7 +529,7 @@
         <br>
         {{$departamento->depPuestoDoc}}</p>
 
-      </div>      
+      </div>
       @endif
 
 
@@ -537,7 +540,7 @@
 
       </div>
       @endif
-     
+
     </div>
   </body>
 </html>

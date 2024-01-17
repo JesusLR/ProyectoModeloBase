@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top:70px;
         margin-bottom: 70px;
       }
@@ -493,8 +496,8 @@
           </div>
         </div>
       </div>
- 
-      
+
+
     </header>
 
       <div class="row">
@@ -532,8 +535,8 @@
               <tr>
               <td colspan="7">Ubicación: {{$primerDato['ubicacion']['ubiClave']}} {{$primerDato['ubicacion']['ubiNombre']}}</td>
               </tr>
-              @endif 
-            @foreach ($dato as $item) 
+              @endif
+            @foreach ($dato as $item)
             @php
             $diferencia1 += $item['diferencia1'];
             $diferencia2 += $item['diferencia2'];
@@ -552,8 +555,8 @@
               <td align="center">{{$diferencia1}}</td>
               <td align="center">{{$diferencia2}}</td>
               <td align="center">{{$diferencia3}}</td>
-              <td align="center">{{$diferenciaTotal}}</td> 
-            </tr> 
+              <td align="center">{{$diferenciaTotal}}</td>
+            </tr>
             @php
             $diferencia1 = 0;
             $diferencia2 = 0;
@@ -569,7 +572,7 @@
               <td align="center" style="border-top:1px dashed black;">{{$totalDiferenciaTotal}}</td>
             </tr>
             @endif
-          </tbody> 
+          </tbody>
             @endforeach
             {{-- Opción de tipo detalle  --}}
             @else
@@ -582,14 +585,14 @@
               <tr>
               <td colspan="7">Ubicación: {{$primerDato['ubicacion']['ubiClave']}} {{$primerDato['ubicacion']['ubiNombre']}}</td>
               </tr>
-              @endif 
+              @endif
               <tr>
               <td><b>{{$primerDato['programa']['progClave']}}</b></td>
               <td><b>{{$primerDato['programa']['progNombre']}}</b></td>
               <td align="center"><b>{{$primerDato['ubicacion']['ubiClave']}}</b></td>
               <td colspan="4"></td>
               </tr>
-            @foreach ($dato as $item) 
+            @foreach ($dato as $item)
             @php
             if($item['diferencia1']){
               $diferencia1++;
@@ -616,7 +619,7 @@
               $totalDiferenciaTotal++;
             }
             @endphp
-            
+
             <tr>
               <td></td>
               <td>{{$item['aluClave']}} {{$item['nombreAlumno']}}</td>
@@ -624,10 +627,10 @@
               <td align="center">{{$item['diferencia1']}}</td>
               <td align="center">{{$item['diferencia2']}}</td>
               <td align="center">{{$item['diferencia3']}}</td>
-              <td></td> 
-            </tr> 
-            
-            
+              <td></td>
+            </tr>
+
+
             @endforeach
             <tr>
             <td><b>{{$primerDato['programa']['progClave']}}</b></td>
@@ -653,13 +656,13 @@
               <td align="center" style="border-top:1px dashed black;">{{$totalDiferenciaTotal}}</td>
             </tr>
             @endif
-          </tbody> 
+          </tbody>
             @endforeach
             @endif
           </table>
         </div>
       </div>
-      
+
     <footer id="footer">
       <div class="page-number"></div>
     </footer>

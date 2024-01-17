@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top:70px;
         margin-bottom: 70px;
       }
@@ -485,7 +488,7 @@
         <div class="columns medium-6">
           <h5 style="margin-top:0px; margin-bottom: 10px;">UNIVERSIDAD MODELO</h5>
           <h5 style="margin-top:0px; margin-bottom: 10px;">MATERIAS POR PLAN</h5>
-        
+
         </div>
         <div class="columns medium-6">
           <div style="text-align: right;">
@@ -508,7 +511,7 @@
       </div>
 
     </header>
-   
+
     @php
     $contarCred = 0;
     $contarCredTotal = 0;
@@ -557,7 +560,7 @@
                 <td align="center" style="width: 30px;">{{$item["materiaPreNombre"]}}</td>
               </tr>
             @endforeach
-            
+
               <tr>
                 <td align="center" style="width: 10px;"></td>
                 <td align="center" style="width: 10px;"></td>
@@ -593,7 +596,7 @@
           </table>
         </div>
       </div>
-      
+
     <footer id="footer">
       <div class="page-number"></div>
     </footer>

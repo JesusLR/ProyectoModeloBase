@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 15px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 20px;
         margin-bottom: 70px;
       }
@@ -484,8 +487,8 @@
         content: "Pág " counter(page);
       }
 
-      .punteado{       
-            
+      .punteado{
+
         border-top: 1px dotted;
         border-bottom: 1px dotted;
         border-right: 1px dotted;
@@ -497,7 +500,7 @@
     <header>
         <div class="row">
           <div class="columns medium-4">
-            
+
               <h3 style="margin-top:0px; margin-bottom: 10px;">ESCUELA PRIM. PART. INC. MODELO</h3>
               <h3 style="margin-top:0px; margin-bottom: 10px;">LISTA DE ASISTENCIA POR GRUPO-MATERIA</h3>
               <p><b>Perído: </b> {{ $parametro_periodo }}</p>
@@ -508,11 +511,11 @@
 
               @if ($primaria_inscritos[0]->matClaveAsignatura != "")
               <p><b>Asignatura: </b> {{$parametro_asignatura}}</p>
-              @endif  
+              @endif
               <br>
 
               <b><b>Rango: </b></b>
-            
+
           </div>
           <div class="columns medium-4">
           </div>
@@ -540,8 +543,8 @@
                 <th class="punteado" style="font-weight: 400; width: 20px; padding-top: 7px;"><b>Núm</b></th>
                 <th class="punteado" align="center" style="font-weight: 400; width: 50; padding-top: 7px;"><b>Clave Pago</b></th>
                 <th class="punteado" style="font-weight: 400;width: 265px; padding-top: 7px;"><b>Nombre del Alumno</b></th>
-                <th class="punteado" align="center" style="font-weight: 400;width: 60px; padding-top: 7px;"><b>Total Faltas</b></th>             
-  
+                <th class="punteado" align="center" style="font-weight: 400;width: 60px; padding-top: 7px;"><b>Total Faltas</b></th>
+
               </tr>
             </thead>
             <tbody>
@@ -551,9 +554,9 @@
                   <td class="punteado" style="height: 20px;">{{$key+1}}</td>
                   <td class="punteado" align="center">{{$item->aluClave}}</td>
                   <td class="punteado">{{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}}</td>
-                  
+
                   @php
-                      $cuenta_faltas = DB::select("SELECT 
+                      $cuenta_faltas = DB::select("SELECT
                       COUNT(pa.estado) AS total_faltas
                       FROM primaria_asistencia AS pa
                       INNER JOIN primaria_inscritos pi ON pi.id = pa.asistencia_inscrito_id
@@ -577,14 +580,14 @@
                     @if ($cuenta_faltas[0]->total_faltas != 0)
                       {{$cuenta_faltas[0]->total_faltas}}
                     @else
-                        
+
                     @endif
-                    
+
                   </td>
 
-                </tr>                  
-              @endforeach             
-             
+                </tr>
+              @endforeach
+
             </tbody>
           </table>
         </div>

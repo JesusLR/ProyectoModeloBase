@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -70px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 80px;
         margin-bottom: 70px;
       }
@@ -476,7 +479,7 @@
     @php
     use App\Http\Helpers\Utils;
     @endphp
-    
+
     <header>
       <div class="row">
         <div class="columns medium-6">
@@ -496,7 +499,7 @@
           <p>Período: {{$periodo}}</p>
           <p>Ubicación: {{$ubicacionNombre->ubiClave}}  {{$ubicacionNombre->ubiNombre}}</p>
           @if ($programaNombre)
-            <p>Niv/Carr: {{$programaNombre->progClave}} ({{$plan->planClave}})  {{$programaNombre->progNombre}}</p>     
+            <p>Niv/Carr: {{$programaNombre->progClave}} ({{$plan->planClave}})  {{$programaNombre->progNombre}}</p>
           @endif
           <p>Inscrip: {{$tipoInscrip}}  </p>
 
@@ -507,14 +510,14 @@
           @endif
         </div>
       </div>
-      
+
     </header>
     <!-- fix no aparece footer en la primera hoja -->
     <footer id="footer">
       <div class="page-number"></div>
     </footer>
-    
-    
+
+
     <div class="row">
       <div class="columns medium-12">
         <table class="table">
@@ -538,13 +541,13 @@
             @if ($traer == "N")
             <th align="center" style="width:10px;">No pagados</th>
             @endif
-            
+
             @if ($traer == "T")
             <th align="center" style="width:10px;">Pagados</th>
             <th align="center" style="width:10px;">No pagados</th>
             @endif
             <th align="center" style="width:10px;">Tot</th>
-           
+
           </tr>
         </thead>
           @php
@@ -562,7 +565,7 @@
               $primerExamen = $programa->first()->first();
               $progClave = $primerExamen['progClave'];
             @endphp
-         
+
         <tbody>
           <tr>
             <td align="right">Niv/Carr:</td>
@@ -573,7 +576,7 @@
             @if ($traer == "T")
               <td colspan="12">{{$progClave}}</td>
             @endif
-            
+
           </tr>
           @foreach($programa as $grado)
 
@@ -585,7 +588,7 @@
             <tr><td colspan="13" style="border-bottom: none;"> &nbsp; </td></tr>
             <tr><td colspan="13" style="border-bottom: none;"> &nbsp; </td></tr>
             @endif
-            
+
             @foreach ($grado as $examen)
               @php
                 $solTotal += $examen["sol"];
@@ -599,14 +602,14 @@
                 <td align="center">{{$examen["extraId"]}}</td>
                 {{--  <td align="center">{{$examen["planClave"]}}</td>  --}}
                 <td align="center">{{$examen["matClave"]}} </td>
-                <td style="font-size:9px;">{{$examen["matNombre"]}} 
+                <td style="font-size:9px;">{{$examen["matNombre"]}}
                   <br>
                   <span style="text-align:right">({{$examen['sinodalNombre'] ?: $examen["empleadoNombre"]}})</span>
                 </td>
                 <td align="center">{{$examen["gdo"]}}</td>
                 <td align="center">{{$examen["gpo"]}}</td>
                 <td align="center">
-                  {{Utils::fecha_string($examen["extFecha"], $examen["extFecha"])}}                 
+                  {{Utils::fecha_string($examen["extFecha"], $examen["extFecha"])}}
                 </td>
                 @if ($examen["extHora"])
                   <td align="center">{{\Carbon\Carbon::createFromFormat('H:i:s',$examen["extHora"])->format('h:i')}}</td>
@@ -634,8 +637,8 @@
                     foreach($cuantosX as $item){
                       $descontar = $descontar + $item->extPago;
                     }
-                    
-                    $priceTotalReal = $priceSubTotal - $descontar; 
+
+                    $priceTotalReal = $priceSubTotal - $descontar;
 
                     $priceTotal2 = $priceTotal2 + $priceTotalReal;
                   @endphp
@@ -655,8 +658,8 @@
                     foreach($cuantosX as $item){
                       $descontar = $descontar + $item->extPago;
                     }
-                    
-                    $priceTotalReal = $descontar; 
+
+                    $priceTotalReal = $descontar;
 
                     $priceTotal2 = $priceTotal2 + $priceTotalReal;
                   @endphp
@@ -678,18 +681,18 @@
                     foreach($cuantosXPagados as $item){
                       $descontar = $descontar + $item->extPago;
                     }
-                    
-                    $priceTotalReal = $descontar; 
+
+                    $priceTotalReal = $descontar;
 
                     $priceTotal2 = $priceTotal2 + $priceTotalReal;
 
-                    #No pagos 
+                    #No pagos
                     $cuantosNoPagados = DB::select("SELECT * FROM bachiller_inscritosextraordinarios WHERE iexEstado='N' AND extraordinario_id=$id AND deleted_at IS NULL");
 
                     $totallNoPagados += count($cuantosNoPagados);
                   @endphp
                 @endif
-               
+
                 @if ($traer == "P" || $traer == "N")
                 <td align="center">{{count($cuantos)}}</td>
                 @endif
@@ -698,13 +701,13 @@
                 <td align="center">{{count($cuantosPagados)}}</td>
                 <td align="center">{{count($cuantosNoPagados)}}</td>
                 @endif
-                
+
                 <td align="center">${{number_format($priceTotalReal,0)}}</td>
               </tr>
               @php
-                
+
                 $descontar = 0;
-                
+
               @endphp
             @endforeach
           @endforeach
@@ -724,15 +727,15 @@
             <td style="width: 150px;" align="center">${{number_format($priceTotal2,0)}}</td>
           </tr>
           @php
-            $solTotal = 0;  
-            $priceTotal = 0;  
+            $solTotal = 0;
+            $priceTotal = 0;
             $priceTotal2 = 0;
           @endphp
           @if (!$loop->last)
-            <div class="page_break"></div> 
+            <div class="page_break"></div>
           @endif
           </tbody>
-          
+
           @endforeach
         </table>
       </div>

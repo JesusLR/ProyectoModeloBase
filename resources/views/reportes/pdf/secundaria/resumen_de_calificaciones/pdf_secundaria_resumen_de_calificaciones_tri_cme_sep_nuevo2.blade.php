@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 10px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 20px;
         margin-bottom: 70px;
       }
@@ -505,7 +508,7 @@
 
 			{{--  @php  --}}
         {{--  $inscritos = $grupo['inscritos'];  --}}
-        
+
         // dd($grupos, $grupo, $inscritos);
 			{{--  @endphp
       @if (!is_null($inscritos))  --}}
@@ -526,7 +529,7 @@
 
             {{-- Muestra si es por mes  --}}
             @if ($tipoReporte == "porMes")
-            <p>Mes : {{$mesEvaluar}} Incluye insc, 
+            <p>Mes : {{$mesEvaluar}} Incluye insc,
               @if ($conceptos == "R")
                 regular ({{$conceptos}})
               @endif
@@ -553,23 +556,23 @@
 
             {{-- Muestra si es por bimestre --}}
             @if ($tipoReporte == "porBimestre")
-            <p>Bimestre : 
+            <p>Bimestre :
               @if ($bimestreEvaluar == "BIMESTRE1")
-                1            
-              @endif 
+                1
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE2")
-                2            
-              @endif 
+                2
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE3")
-                3            
-              @endif 
+                3
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE4")
-                4            
-              @endif 
+                4
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE5")
-                5            
-              @endif 
-              Incluye insc, 
+                5
+              @endif
+              Incluye insc,
               @if ($conceptos == "R")
                 regular ({{$conceptos}})
               @endif
@@ -596,18 +599,18 @@
 
             {{-- Muestra si es por trimestre  --}}
             @if ($tipoReporte == "porTrimestre")
-            <p>Trimestre : 
+            <p>Trimestre :
               @if ($trimestreEvaluar == "TRIMESTRE1")
-                1            
-              @endif 
+                1
+              @endif
               @if ($trimestreEvaluar == "TRIMESTRE2")
-                2            
-              @endif 
+                2
+              @endif
               @if ($trimestreEvaluar == "TRIMESTRE3")
-                3            
-              @endif 
-             
-              Incluye insc, 
+                3
+              @endif
+
+              Incluye insc,
               @if ($conceptos == "R")
                 regular ({{$conceptos}})
               @endif
@@ -631,7 +634,7 @@
               @endif
             </p>
             @endif
-            
+
             @if ($tipoReporte == "califRecuperativos")
       <p>Recuperativo Trimestre :
         @if ($tipoRecuperativo == "recuperativosTrimestre1")
@@ -677,7 +680,7 @@
         @if ($tipoFinal == "finalSep")
         SEP
         @endif
-        
+
 
         Incluye insc,
         @if ($conceptos == "R")
@@ -708,31 +711,31 @@
               @if ($modoCalificacion == "BASEPORCENTAJE")
                 @if ($mesEvaluar == "Septiembre")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeSeptiembre}}</p>
-                @endif     
-                
+                @endif
+
                 @if ($mesEvaluar == "Octubre")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeOctubre}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Noviembre")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeNoviembre}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Diciembre")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeDiciembre}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Enero")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeEnero}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Febrero")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeFebrero}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Marzo")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeMarzo}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Abril")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeAbril}}</p>
@@ -747,14 +750,14 @@
                 @endif
               @endif
             @endif
-            
+
           </div>
         </div>
 
 
 
         <br>
-        
+
         @php
             $poscion = 0;
         @endphp
@@ -762,7 +765,7 @@
 
         <div class="row">
           <div class="columns medium-12">
-            
+
             <table class="table">
               <thead>
                 <tr>
@@ -778,7 +781,7 @@
                           @if ($i == 2)
                           ASIGNATURAS
                           @endif
-                         
+
                       </th>
                   @endfor  --}}
                   @if ($parametro_ubicacion_clave === "CME")
@@ -787,45 +790,45 @@
                         $poscion++;
                       @endphp
                       @foreach ($valores as $llave => $itemV)
-                            
+
                         @if ($itemV->matNombreColumna && $llave == 1)
                           @if ($itemmatNombreColumna != "EF.VESP" && $itemmatNombreColumna != "EDU.FIS")
                             <th align="center" style="font-weight: 400; @if ($llave == 0){{$stilo}} @endif @if ($llave != 0){{$stilo2}} @endif">
                               @if ($poscion == 2)
                                 ASIGNATURAS
-                              @endif                           
+                              @endif
                             </th>
-                          @endif                                                  
+                          @endif
                         @endif
                       @endforeach
                     @endforeach
                   @endif
-                  
+
                   {{-- agregamos columna de promedio EDU FIS si es de merida  --}}
                   @if ($parametro_ubicacion_clave === "CME")
                     <th align="center" style="font-weight: 400; border-top: 1px solid; border-right: 1px solid; border-bottom: 0px; border-left: 0px solid;"></th>
                   @endif
-  
+
                   {{--  mostrar o no   --}}
                   @if ($tipoReporte == "porTrimestre" || $tipoReporte == "califRecuperativos" || $tipoReporte == "califFinales" && $modoCalificacion == "BASEDIEZ")
                     <th align="center" style="font-weight: 400; border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">Promed.</th>
                     <th style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>
                     <th style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>
-                    <th style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>       
+                    <th style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>
                   @else
-                    <th style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>             
+                    <th style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>
                   @endif
-                  
-  
-  
+
+
+
                 </tr>
                 <tr>
                   <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid; width:7px;">Num</th>
                   <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">Cve Pago</th>
                   <th  style="font-weight: 400; border-top: 0px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">Nombre del alumno</th>
-                  
-                  {{--  recorremos array para mostrar materias   --}}           
-  
+
+                  {{--  recorremos array para mostrar materias   --}}
+
                   @if ($parametro_ubicacion_clave === "CME")
                     @foreach ($matNombreColumna as $itemmatNombreColumna => $key)
                       @if ($itemmatNombreColumna != "EF.VESP" && $itemmatNombreColumna != "EDU.FIS" && $itemmatNombreColumna != "ARTES")
@@ -836,25 +839,25 @@
                   {{-- agregamos columna de promedio EDU FIS si es de merida  --}}
                   @if ($parametro_ubicacion_clave === "CME")
                     <th align="center" style="font-weight: 400; border-top: 1px solid; border-right: 1px solid; border-bottom: 0px; border-left: 1px solid;">EF PROM</th>
-  
-  
+
+
                     @foreach ($matNombreColumna as $itemmatNombreColumna => $key)
                       @if ($itemmatNombreColumna == "ARTES")
                       <th align="center" style="font-weight: 400; width:40px; border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">{{$itemmatNombreColumna}}</th>
                       @endif
                     @endforeach
                   @endif
-  
+
                   {{--  mostrar o no   --}}
                   @if ($tipoReporte == "porTrimestre" || $tipoReporte == "califRecuperativos" || $tipoReporte == "califFinales" && $modoCalificacion == "BASEDIEZ")
                     <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">Período</th>
                     <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">%Rep</th>
-                    <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 1px solid; border-left: 1px solid;">%Apro</th> 
-                    <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th> 
+                    <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 1px solid; border-left: 1px solid;">%Apro</th>
+                    <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>
                   @else
-                    <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th> 
+                    <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>
                   @endif
-                         
+
                 </tr>
                 @php
                   $sumaDePromedios = 0;
@@ -866,52 +869,52 @@
                   $repXMateria = 0;
                   $aproXMateria = 0;
                   $promedioPeriodo = 0.0;
-  
+
                   $VUELTA = 0;
-  
+
                   $vueltaFis = 0;
                   $promedioEducacionFis = 0.0;
-  
+
                   $promEducacionFisicaSep = 0.0;
                   $promediodelMesSept = 0.0;
 
                   $promEducacionFisicaGenSep = 0.0;
                   $promediodelMesGenSep = 0.0;
-  
-  
+
+
                   $promEducacionFisicaOct = 0.0;
                   $promediodelMesOct = 0.0;
 
                   $promEducacionFisicaGenOct = 0.0;
                   $promediodelMesGenOct = 0.0;
-  
+
                   $promEducacionFisicaNov = 0.0;
                   $promediodelMesNov = 0.0;
 
                   $promEducacionFisicaGenNov = 0.0;
                   $promediodelMesGenNov = 0.0;
-  
-  
+
+
                   $promEducacionFisicaEne = 0.0;
                   $promediodelMesEne = 0.0;
-  
-  
+
+
                   $promEducacionFisicaFeb = 0.0;
                   $promediodelMesFeb = 0.0;
-  
+
                   $promEducacionFisicaMar = 0.0;
                   $promediodelMesMar = 0.0;
-                  
+
                   $promEducacionFisicaAbr = 0.0;
                   $promediodelMesAbr = 0.0;
-  
-  
+
+
                   $promEducacionFisicaMay = 0.0;
                   $promediodelMesMay = 0.0;
-  
+
                   $promEducacionFisicaJun = 0.0;
                   $promediodelMesJun = 0.0;
-                
+
                   $contador1 = 1;
                   $contador2 = 1;
                   $contador4 = 1;
@@ -952,7 +955,7 @@
 
                   $porgentajeReprobadosGeneralVertical = 0;
                   $porgentajeAprobadosGeneralVertical = 0;
-  
+
                 @endphp
               </thead>
               <tbody>
@@ -963,15 +966,15 @@
                         <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">{{$contador2++}}</td>
                         <td align="center" style="width: 50px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">{{$valor->clave_pago}}</td>
                         <td style="width: 250px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
-                            {{$valor->ape_paterno}} {{$valor->ape_materno}} {{$valor->nombres}}                        
+                            {{$valor->ape_paterno}} {{$valor->ape_materno}} {{$valor->nombres}}
                         </td>
 
-                        
+
                         @foreach ($tablaBody as $item => $value)
                           @foreach ($matNombreColumna as $matNombreColumna1 => $valores_matNombreColumna)
                             @if ($contador4++ == 1 && $matNombreColumna1 == $value['matNombreColumna'])
-                            
-                              @if ($modoCalificacion == "BASEDIEZ") 
+
+                              @if ($modoCalificacion == "BASEDIEZ")
 
                                 {{-- mostrar por trimestre --}}
                                 @if ($tipoReporte == "porTrimestre")
@@ -981,12 +984,12 @@
                                   @if ($parametro_ubicacion_clave === "CME")
 
                                     @if ($trimestreEvaluar == "TRIMESTRE1")
-                                      @if ($value['matNombreColumna'] != "EF.VESP" && $matNombreColumna1 != "EF.VESP" && 
-                                        $value['matNombreColumna'] != "EDU.FIS" && $matNombreColumna1 != "EDU.FIS" && 
+                                      @if ($value['matNombreColumna'] != "EF.VESP" && $matNombreColumna1 != "EF.VESP" &&
+                                        $value['matNombreColumna'] != "EDU.FIS" && $matNombreColumna1 != "EDU.FIS" &&
                                         $value['matNombreColumna'] != "ARTES" && $matNombreColumna1 != "ARTES")
 
                                         @php
-                                          $calificacion = $value["matNombreColumna"]."_trimestre1_".$valor->clave_pago;                                
+                                          $calificacion = $value["matNombreColumna"]."_trimestre1_".$valor->clave_pago;
                                         @endphp
 
 
@@ -994,7 +997,7 @@
                                           @isset($value[$calificacion])
 
                                           @php
-                                            $sumaPromedioHorizontal = $sumaPromedioHorizontal + $value[$calificacion];                                          
+                                            $sumaPromedioHorizontal = $sumaPromedioHorizontal + $value[$calificacion];
                                           @endphp
 
                                           @php
@@ -1014,9 +1017,9 @@
                                               $porcentajeAprobadoHorizontal++;
                                             @endphp
                                           @endif
-                                                      
+
                                           @endisset
-                                        </td> 
+                                        </td>
 
                                       @endif
                                     @endif
@@ -1026,18 +1029,18 @@
                                   {{--  para poder recuperar el valor  TRIMESTRE 1 --}}
                                   @if ($parametro_ubicacion_clave === "CME")
                                     @if ($trimestreEvaluar == "TRIMESTRE1")
-                                      {{--  @if ($value['matNombreColumna'] != "EF.VESP" && $matNombreColumna1 != "EF.VESP" && 
-                                        $value['matNombreColumna'] != "EDU.FIS" && $matNombreColumna1 != "EDU.FIS" && 
+                                      {{--  @if ($value['matNombreColumna'] != "EF.VESP" && $matNombreColumna1 != "EF.VESP" &&
+                                        $value['matNombreColumna'] != "EDU.FIS" && $matNombreColumna1 != "EDU.FIS" &&
                                         $value['matNombreColumna'] != "ARTES" && $matNombreColumna1 != "ARTES")  --}}
 
                                         @php
-                                          $calificacion = $value["matNombreColumna"]."_trimestre1_".$valor->clave_pago;                                
+                                          $calificacion = $value["matNombreColumna"]."_trimestre1_".$valor->clave_pago;
                                         @endphp
 
                                         @isset($value[$calificacion])
-                                        
+
                                           @php
-                                            $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                            $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                           @endphp
 
                                           {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1051,29 +1054,29 @@
                                                   $aproXMateria++;
                                               @endphp
                                           @endif
-                                                      
-                                        @endisset 
+
+                                        @endisset
 
                                       {{--  @endif  --}}
 
                                       @if ($value['matNombreColumna'] == "EF.VESP" || $value['matNombreColumna'] == "EDU.FIS")
 
                                         @php
-                                          $calificacion = $value["matNombreColumna"]."_trimestre1_".$valor->clave_pago;   
-                                          
-                                          $puntosObtenidosSep = $value["matNombreColumna"]."_puntosobtenidos_Sep_".$valor->clave_pago;   
-                                          $puntosReprobarSep = $value["matNombreColumna"]."_puntosREPROBAR_Sep_".$valor->clave_pago;   
+                                          $calificacion = $value["matNombreColumna"]."_trimestre1_".$valor->clave_pago;
 
-                                          $puntosObtenidosOct = $value["matNombreColumna"]."_puntosobtenidos_Oct_".$valor->clave_pago;   
-                                          $puntosReprobarOct = $value["matNombreColumna"]."_puntosREPROBAR_Oct_".$valor->clave_pago;  
+                                          $puntosObtenidosSep = $value["matNombreColumna"]."_puntosobtenidos_Sep_".$valor->clave_pago;
+                                          $puntosReprobarSep = $value["matNombreColumna"]."_puntosREPROBAR_Sep_".$valor->clave_pago;
 
-                                          $puntosObtenidosNov = $value["matNombreColumna"]."_puntosobtenidos_Nov_".$valor->clave_pago;   
-                                          $puntosReprobarNov = $value["matNombreColumna"]."_puntosREPROBAR_Nov_".$valor->clave_pago;  
+                                          $puntosObtenidosOct = $value["matNombreColumna"]."_puntosobtenidos_Oct_".$valor->clave_pago;
+                                          $puntosReprobarOct = $value["matNombreColumna"]."_puntosREPROBAR_Oct_".$valor->clave_pago;
+
+                                          $puntosObtenidosNov = $value["matNombreColumna"]."_puntosobtenidos_Nov_".$valor->clave_pago;
+                                          $puntosReprobarNov = $value["matNombreColumna"]."_puntosREPROBAR_Nov_".$valor->clave_pago;
 
                                         @endphp
 
                                         @isset($value[$calificacion])
-                                        
+
                                           @php
                                             $vueltaFis++;
 
@@ -1095,7 +1098,7 @@
                                               $promEducacionFisicaNov  = $promEducacionFisicaNov  + $value[$puntosReprobarNov];
                                             }else{
                                               $promEducacionFisicaNov = $promEducacionFisicaNov + $value[$puntosObtenidosNov];
-                                            }    
+                                            }
 
 
                                             $promediodelMesSept = $promEducacionFisicaSep/2;
@@ -1111,11 +1114,11 @@
 
 
                                           @endphp
-                                                      
-                                        @endisset 
+
+                                        @endisset
 
                                       @endif
-                                    
+
                                     @endif
                                   @endif
 
@@ -1123,12 +1126,12 @@
                                   @if ($parametro_ubicacion_clave === "CME")
 
                                     @if ($trimestreEvaluar == "TRIMESTRE2")
-                                      @if ($value['matNombreColumna'] != "EF.VESP" && $matNombreColumna1 != "EF.VESP" && 
-                                        $value['matNombreColumna'] != "EDU.FIS" && $matNombreColumna1 != "EDU.FIS" && 
+                                      @if ($value['matNombreColumna'] != "EF.VESP" && $matNombreColumna1 != "EF.VESP" &&
+                                        $value['matNombreColumna'] != "EDU.FIS" && $matNombreColumna1 != "EDU.FIS" &&
                                         $value['matNombreColumna'] != "ARTES" && $matNombreColumna1 != "ARTES")
 
                                         @php
-                                          $calificacion = $value["matNombreColumna"]."_trimestre2_".$valor->clave_pago;                                
+                                          $calificacion = $value["matNombreColumna"]."_trimestre2_".$valor->clave_pago;
                                         @endphp
 
 
@@ -1136,7 +1139,7 @@
                                           @isset($value[$calificacion])
 
                                           @php
-                                            $sumaPromedioHorizontal = $sumaPromedioHorizontal + $value[$calificacion];                                          
+                                            $sumaPromedioHorizontal = $sumaPromedioHorizontal + $value[$calificacion];
                                           @endphp
 
                                           @php
@@ -1156,9 +1159,9 @@
                                               $porcentajeAprobadoHorizontal++;
                                             @endphp
                                           @endif
-                                                      
+
                                           @endisset
-                                        </td> 
+                                        </td>
 
                                       @endif
                                     @endif
@@ -1168,18 +1171,18 @@
                                   {{--  para poder recuperar el valor  TRIMESTRE 2 --}}
                                   @if ($parametro_ubicacion_clave === "CME")
                                     @if ($trimestreEvaluar == "TRIMESTRE2")
-                                      {{--  @if ($value['matNombreColumna'] != "EF.VESP" && $matNombreColumna1 != "EF.VESP" && 
-                                        $value['matNombreColumna'] != "EDU.FIS" && $matNombreColumna1 != "EDU.FIS" && 
+                                      {{--  @if ($value['matNombreColumna'] != "EF.VESP" && $matNombreColumna1 != "EF.VESP" &&
+                                        $value['matNombreColumna'] != "EDU.FIS" && $matNombreColumna1 != "EDU.FIS" &&
                                         $value['matNombreColumna'] != "ARTES" && $matNombreColumna1 != "ARTES")  --}}
 
                                         @php
-                                          $calificacion = $value["matNombreColumna"]."_trimestre2_".$valor->clave_pago;                                
+                                          $calificacion = $value["matNombreColumna"]."_trimestre2_".$valor->clave_pago;
                                         @endphp
 
                                         @isset($value[$calificacion])
-                                        
+
                                           @php
-                                            $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                            $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                           @endphp
 
                                           {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1193,29 +1196,29 @@
                                                   $aproXMateria++;
                                               @endphp
                                           @endif
-                                                      
-                                        @endisset 
+
+                                        @endisset
 
                                       {{--  @endif  --}}
 
                                       @if ($value['matNombreColumna'] == "EF.VESP" || $value['matNombreColumna'] == "EDU.FIS")
 
                                         @php
-                                          $calificacion = $value["matNombreColumna"]."_trimestre2_".$valor->clave_pago;   
-                                          
-                                          $puntosObtenidosEne = $value["matNombreColumna"]."_puntosREPROBAR_Ene_".$valor->clave_pago;   
-                                          $puntosReprobarEne = $value["matNombreColumna"]."_puntosREPROBAR_Ene_".$valor->clave_pago;   
+                                          $calificacion = $value["matNombreColumna"]."_trimestre2_".$valor->clave_pago;
 
-                                          $puntosObtenidosFeb = $value["matNombreColumna"]."_puntosobtenidos_Feb_".$valor->clave_pago;   
-                                          $puntosReprobarFeb = $value["matNombreColumna"]."_puntosREPROBAR_Feb_".$valor->clave_pago;  
+                                          $puntosObtenidosEne = $value["matNombreColumna"]."_puntosREPROBAR_Ene_".$valor->clave_pago;
+                                          $puntosReprobarEne = $value["matNombreColumna"]."_puntosREPROBAR_Ene_".$valor->clave_pago;
 
-                                          $puntosObtenidosMar = $value["matNombreColumna"]."_puntosobtenidos_Mar_".$valor->clave_pago;   
-                                          $puntosReprobarMar = $value["matNombreColumna"]."_puntosREPROBAR_Mar_".$valor->clave_pago;  
+                                          $puntosObtenidosFeb = $value["matNombreColumna"]."_puntosobtenidos_Feb_".$valor->clave_pago;
+                                          $puntosReprobarFeb = $value["matNombreColumna"]."_puntosREPROBAR_Feb_".$valor->clave_pago;
+
+                                          $puntosObtenidosMar = $value["matNombreColumna"]."_puntosobtenidos_Mar_".$valor->clave_pago;
+                                          $puntosReprobarMar = $value["matNombreColumna"]."_puntosREPROBAR_Mar_".$valor->clave_pago;
 
                                         @endphp
 
                                         @isset($value[$calificacion])
-                                        
+
                                           @php
                                             $vueltaFis++;
 
@@ -1237,7 +1240,7 @@
                                               $promEducacionFisicaMar = $promEducacionFisicaMar  + $value[$puntosReprobarMar];
                                             }else{
                                               $promEducacionFisicaMar = $promEducacionFisicaMar + $value[$puntosObtenidosMar];
-                                            }    
+                                            }
 
 
                                             $promediodelMesEne = $promEducacionFisicaEne/2;
@@ -1253,25 +1256,25 @@
 
 
                                           @endphp
-                                                      
-                                        @endisset 
+
+                                        @endisset
 
                                       @endif
-                                    
+
                                     @endif
                                   @endif
-                                                
-                                  
+
+
                                   {{-- trimestre 3 --}}
                                   @if ($parametro_ubicacion_clave === "CME")
 
                                     @if ($trimestreEvaluar == "TRIMESTRE3")
-                                      @if ($value['matNombreColumna'] != "EF.VESP" && $matNombreColumna1 != "EF.VESP" && 
-                                        $value['matNombreColumna'] != "EDU.FIS" && $matNombreColumna1 != "EDU.FIS" && 
+                                      @if ($value['matNombreColumna'] != "EF.VESP" && $matNombreColumna1 != "EF.VESP" &&
+                                        $value['matNombreColumna'] != "EDU.FIS" && $matNombreColumna1 != "EDU.FIS" &&
                                         $value['matNombreColumna'] != "ARTES" && $matNombreColumna1 != "ARTES")
 
                                         @php
-                                          $calificacion = $value["matNombreColumna"]."_trimestre3_".$valor->clave_pago;                                
+                                          $calificacion = $value["matNombreColumna"]."_trimestre3_".$valor->clave_pago;
                                         @endphp
 
 
@@ -1279,7 +1282,7 @@
                                           @isset($value[$calificacion])
 
                                           @php
-                                            $sumaPromedioHorizontal = $sumaPromedioHorizontal + $value[$calificacion];                                          
+                                            $sumaPromedioHorizontal = $sumaPromedioHorizontal + $value[$calificacion];
                                           @endphp
 
                                           @php
@@ -1299,9 +1302,9 @@
                                               $porcentajeAprobadoHorizontal++;
                                             @endphp
                                           @endif
-                                                      
+
                                           @endisset
-                                        </td> 
+                                        </td>
 
                                       @endif
                                     @endif
@@ -1311,18 +1314,18 @@
                                   {{--  para poder recuperar el valor  TRIMESTRE 2 --}}
                                   @if ($parametro_ubicacion_clave === "CME")
                                     @if ($trimestreEvaluar == "TRIMESTRE3")
-                                      {{--  @if ($value['matNombreColumna'] != "EF.VESP" && $matNombreColumna1 != "EF.VESP" && 
-                                        $value['matNombreColumna'] != "EDU.FIS" && $matNombreColumna1 != "EDU.FIS" && 
+                                      {{--  @if ($value['matNombreColumna'] != "EF.VESP" && $matNombreColumna1 != "EF.VESP" &&
+                                        $value['matNombreColumna'] != "EDU.FIS" && $matNombreColumna1 != "EDU.FIS" &&
                                         $value['matNombreColumna'] != "ARTES" && $matNombreColumna1 != "ARTES")  --}}
 
                                         @php
-                                          $calificacion = $value["matNombreColumna"]."_trimestre3_".$valor->clave_pago;                                
+                                          $calificacion = $value["matNombreColumna"]."_trimestre3_".$valor->clave_pago;
                                         @endphp
 
                                         @isset($value[$calificacion])
-                                        
+
                                           @php
-                                            $promedioPeriodo = $promedioPeriodo + $value[$calificacion];                                           
+                                            $promedioPeriodo = $promedioPeriodo + $value[$calificacion];
                                           @endphp
 
                                           {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1336,29 +1339,29 @@
                                                   $aproXMateria++;
                                               @endphp
                                           @endif
-                                                      
-                                        @endisset 
+
+                                        @endisset
 
                                       {{--  @endif  --}}
 
                                       @if ($value['matNombreColumna'] == "EF.VESP" || $value['matNombreColumna'] == "EDU.FIS")
 
                                         @php
-                                          $calificacion = $value["matNombreColumna"]."_trimestre3_".$valor->clave_pago;   
-                                          
-                                          $puntosObtenidosAbr = $value["matNombreColumna"]."_puntosobtenidos_Abr_".$valor->clave_pago;   
-                                          $puntosReprobarAbr = $value["matNombreColumna"]."_puntosREPROBAR_Abr_".$valor->clave_pago;   
+                                          $calificacion = $value["matNombreColumna"]."_trimestre3_".$valor->clave_pago;
 
-                                          $puntosObtenidosMay = $value["matNombreColumna"]."_puntosobtenidos_May_".$valor->clave_pago;   
-                                          $puntosReprobarMay = $value["matNombreColumna"]."_puntosREPROBAR_May_".$valor->clave_pago;  
+                                          $puntosObtenidosAbr = $value["matNombreColumna"]."_puntosobtenidos_Abr_".$valor->clave_pago;
+                                          $puntosReprobarAbr = $value["matNombreColumna"]."_puntosREPROBAR_Abr_".$valor->clave_pago;
 
-                                          $puntosObtenidosJun = $value["matNombreColumna"]."_puntosobtenidos_Jun_".$valor->clave_pago;   
-                                          $puntosReprobarJun = $value["matNombreColumna"]."_puntosREPROBAR_Jun_".$valor->clave_pago;  
+                                          $puntosObtenidosMay = $value["matNombreColumna"]."_puntosobtenidos_May_".$valor->clave_pago;
+                                          $puntosReprobarMay = $value["matNombreColumna"]."_puntosREPROBAR_May_".$valor->clave_pago;
+
+                                          $puntosObtenidosJun = $value["matNombreColumna"]."_puntosobtenidos_Jun_".$valor->clave_pago;
+                                          $puntosReprobarJun = $value["matNombreColumna"]."_puntosREPROBAR_Jun_".$valor->clave_pago;
 
                                         @endphp
 
                                         @isset($value[$calificacion])
-                                        
+
                                           @php
                                             $vueltaFis++;
 
@@ -1380,7 +1383,7 @@
                                               $promEducacionFisicaJun = $promEducacionFisicaJun  + $value[$puntosReprobarJun];
                                             }else{
                                               $promEducacionFisicaJun = $promEducacionFisicaJun + $value[$puntosObtenidosJun];
-                                            }    
+                                            }
 
 
                                             $promediodelMesAbr = $promEducacionFisicaAbr/2;
@@ -1396,14 +1399,14 @@
 
 
                                           @endphp
-                                                      
-                                        @endisset 
+
+                                        @endisset
 
                                       @endif
-                                    
+
                                     @endif
                                   @endif
-                                  
+
                                 @endif
 
 
@@ -1413,13 +1416,13 @@
                             @php
                               $contador4 =1;
                             @endphp
-                          @endforeach                  
+                          @endforeach
                         @endforeach
 
 
                         {{--  promedio educacion fisica   --}}
-                        @if ($parametro_ubicacion_clave === "CME") 
-                        
+                        @if ($parametro_ubicacion_clave === "CME")
+
                           @if ($tipoReporte == "porTrimestre")
                             @php
                               $sumaPromedioFisicaHorizontal = number_format((float)$promedioEducacionFis, 0, '.', '');
@@ -1430,7 +1433,7 @@
                                 <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color:#F3F648">
                                   {{number_format((float)$promedioEducacionFis, 0, '.', '')}}
                                 </td>
-          
+
                                 @php
                                   $totalMateriasReprobadasFisicaVertical++;
 
@@ -1438,12 +1441,12 @@
                                 @endphp
                             @else
                                 <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">{{number_format((float)$promedioEducacionFis, 0, '.', '')}}</td>
-        
-                            @endif       
-                            
+
+                            @endif
+
                             @php
-                              $promedioMateriaVerticalEduFisica = $promedioMateriaVerticalEduFisica +number_format((float)$promedioEducacionFis, 0, '.', '');        
-                                
+                              $promedioMateriaVerticalEduFisica = $promedioMateriaVerticalEduFisica +number_format((float)$promedioEducacionFis, 0, '.', '');
+
                               $totalMateriasAprobadasFisicaVertical++;
 
                               $porcentajeAprobadoHorizontal++;
@@ -1455,8 +1458,8 @@
                         @foreach ($tablaBody as $item => $value)
                           @foreach ($matNombreColumna as $matNombreColumna1 => $valores_matNombreColumna)
                             @if ($contador5++ == 1 && $matNombreColumna1 == $value['matNombreColumna'])
-                            
-                              @if ($modoCalificacion == "BASEDIEZ") 
+
+                              @if ($modoCalificacion == "BASEDIEZ")
 
                                 {{-- mostrar por trimestre --}}
                                 @if ($tipoReporte == "porTrimestre")
@@ -1469,14 +1472,14 @@
                                       @if ($value['matNombreColumna'] == "ARTES" && $matNombreColumna1 == "ARTES")
 
                                         @php
-                                          $calificacion = $value["matNombreColumna"]."_trimestre1_".$valor->clave_pago;                                
+                                          $calificacion = $value["matNombreColumna"]."_trimestre1_".$valor->clave_pago;
                                         @endphp
 
 
                                         <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                           @isset($value[$calificacion])
 
-                                            @php                                      
+                                            @php
                                               $sumaPromedioArtesHorizontal = $sumaPromedioArtesHorizontal + $value[$calificacion];
                                               $totalMateriasHorizontal++;
                                             @endphp
@@ -1494,9 +1497,9 @@
                                                 $porcentajeAprobadoHorizontal++;
                                               @endphp
                                             @endif
-                                                      
+
                                           @endisset
-                                        </td> 
+                                        </td>
 
                                       @endif
                                     @endif
@@ -1505,14 +1508,14 @@
                                       @if ($value['matNombreColumna'] == "ARTES" && $matNombreColumna1 == "ARTES")
 
                                         @php
-                                          $calificacion = $value["matNombreColumna"]."_trimestre2_".$valor->clave_pago;                                
+                                          $calificacion = $value["matNombreColumna"]."_trimestre2_".$valor->clave_pago;
                                         @endphp
 
 
                                         <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                           @isset($value[$calificacion])
 
-                                            @php                                      
+                                            @php
                                               $sumaPromedioArtesHorizontal = $sumaPromedioArtesHorizontal + $value[$calificacion];
                                               $totalMateriasHorizontal++;
                                             @endphp
@@ -1530,9 +1533,9 @@
                                                 $porcentajeAprobadoHorizontal++;
                                               @endphp
                                             @endif
-                                                      
+
                                           @endisset
-                                        </td> 
+                                        </td>
 
                                       @endif
                                     @endif
@@ -1541,14 +1544,14 @@
                                       @if ($value['matNombreColumna'] == "ARTES" && $matNombreColumna1 == "ARTES")
 
                                         @php
-                                          $calificacion = $value["matNombreColumna"]."_trimestre3_".$valor->clave_pago;                                
+                                          $calificacion = $value["matNombreColumna"]."_trimestre3_".$valor->clave_pago;
                                         @endphp
 
 
                                         <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                           @isset($value[$calificacion])
 
-                                            @php                                      
+                                            @php
                                               $sumaPromedioArtesHorizontal = $sumaPromedioArtesHorizontal + $value[$calificacion];
                                               $totalMateriasHorizontal++;
                                             @endphp
@@ -1566,17 +1569,17 @@
                                                 $porcentajeAprobadoHorizontal++;
                                               @endphp
                                             @endif
-                                                      
+
                                           @endisset
-                                        </td> 
+                                        </td>
 
                                       @endif
                                     @endif
 
                                   @endif
 
-                         
-                                  
+
+
                                 @endif
 
 
@@ -1586,7 +1589,7 @@
                             @php
                               $contador5 =1;
                             @endphp
-                          @endforeach                  
+                          @endforeach
                         @endforeach
 
 
@@ -1600,7 +1603,7 @@
 
                         @if ($modoCalificacion == "BASEDIEZ")
                             {{--  promedio general horizontal   --}}
-                          <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;"> 
+                          <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                             @if ($tipoReporte == "porTrimestre")
                               {{number_format((float)($sumaPromedioHorizontal+$sumaPromedioFisicaHorizontal+$sumaPromedioArtesHorizontal)/$totalMateriasHorizontal, 0, '.', '')}}
 
@@ -1615,8 +1618,8 @@
                                   $porgentajeAprobadosGeneralVertical++;
                                 @endphp
                               @endif
-                            @endif         
-                            
+                            @endif
+
                             @if ($tipoReporte == "califRecuperativos")
                               {{number_format((float)($sumaPromedioHorizontal+$sumaPromedioFisicaHorizontal+$sumaPromedioArtesHorizontal)/$totalMateriasHorizontal, 1, '.', '')}}
 
@@ -1631,7 +1634,7 @@
                                   $porgentajeAprobadosGeneralVertical++;
                                 @endphp
                               @endif
-                            @endif 
+                            @endif
 
                             @if ($tipoReporte == "califFinales")
                               {{number_format((float)($sumaPromedioHorizontal+$sumaPromedioFisicaHorizontal+$sumaPromedioArtesHorizontal)/$totalMateriasHorizontal, 1, '.', '')}}
@@ -1647,21 +1650,21 @@
                                   $porgentajeAprobadosGeneralVertical++;
                                 @endphp
                               @endif
-                            @endif 
-                          
+                            @endif
+
                           </td>
 
                           {{--  porcentaje reprobado horizontal   --}}
-                          <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">                          
+                          <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                             <b>{{number_format((float)($porcentajeReprobadoHorizontal * 100)/$totalMateriasHorizontal, 1, '.', '')}}</b>
                           </td>
 
                           {{--  porcentaje aprobado horizontal   --}}
-                          <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">                          
+                          <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                             <b>{{number_format((float)($porcentajeAprobadoHorizontal * 100)/$totalMateriasHorizontal, 1, '.', '')}}</b>
                           </td>
                         @endif
-                       
+
 
                         <td align="center" style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 0px solid;"></td>
                       </tr>
@@ -1674,10 +1677,10 @@
                           $porcentajeReprobadoHorizontal = 0;
                           $porcentajeAprobadoHorizontal = 0;
                       @endphp
-                      
+
                     @endif
                   @endforeach
-                  
+
                   @php
                     $promedioPeriodo = 0.0;
 
@@ -1686,7 +1689,7 @@
                     $VUELTA = 0;
 
                     $promedioSep = 0.0;
-                    $vuelta1 = 0; 
+                    $vuelta1 = 0;
 
                     $vueltaFis = 0;
                     $promedioEducacionFis = 0.0;
@@ -1710,7 +1713,7 @@
 
                     $promEducacionFisicaMar = 0.0;
                     $promediodelMesMar = 0.0;
-                    
+
                     $promEducacionFisicaAbr = 0.0;
                     $promediodelMesAbr = 0.0;
 
@@ -1723,10 +1726,10 @@
 
                     $contador1 = 1;
 
-                 
+
                   @endphp
 
-                   
+
                 @endforeach
               </tbody>
             </table>

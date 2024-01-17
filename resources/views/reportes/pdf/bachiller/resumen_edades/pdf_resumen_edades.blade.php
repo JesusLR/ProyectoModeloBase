@@ -359,8 +359,8 @@
       width: 100%;
       display: block;
       position: relative;
-      margin-left: -30px;
-      margin-right: -30px;
+      /* /* margin-left: -30px; */
+      /* margin-right: -30px; */
     }
 
     .row::after {
@@ -502,6 +502,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -50px;
       right: 0px;
@@ -544,6 +545,8 @@
     }
 
     @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
       margin-top: 80px;
       margin-bottom: 40px;
     }
@@ -601,39 +604,39 @@
     .page-break {
       page-break-after: always;
     }
-   
+
 
     .punteado{
-      border-top: 1px dotted; 
-      border-right: 1px dotted; 
-      border-bottom: 1px dotted; 
+      border-top: 1px dotted;
+      border-right: 1px dotted;
+      border-bottom: 1px dotted;
       border-left: 1px;
        //border-color: 660033;
       //background-color: cc3366;
     }
 
     .punteado2{
-      border-top: 1px dotted; 
-      border-right: 0px dotted; 
-      border-bottom: 1px dotted; 
+      border-top: 1px dotted;
+      border-right: 0px dotted;
+      border-bottom: 1px dotted;
       border-left: 0px;
        //border-color: 660033;
       //background-color: cc3366;
     }
 
     .punteado3{
-      border-top: 1px dotted; 
-      border-right: 0px dotted; 
-      //border-bottom: 1px dotted; 
+      border-top: 1px dotted;
+      border-right: 0px dotted;
+      //border-bottom: 1px dotted;
       border-left: 0px;
        //border-color: 660033;
       //background-color: cc3366;
     }
 
     .punteado4 {
-      border-top: 0px dotted; 
-      border-right: 0px dotted; 
-      //border-bottom: 0px dotted; 
+      border-top: 0px dotted;
+      border-right: 0px dotted;
+      //border-bottom: 0px dotted;
       border-left: 0px;
        //border-color: 660033;
       //background-color: cc3366;
@@ -652,8 +655,8 @@
         <p>Curso escolar: {{$ciclo[0]->perAnio}}-{{$ciclo[1]->perAnio}}</p>
         <p>Ubicación: {{$ubicacion->ubiClave}}</p>
         <p>Inscritos, Pre-inscritos, Condicionados</p>
-      
-        
+
+
       </div>
 
       <div class="columns medium-6" style="text-align: right;">
@@ -670,14 +673,14 @@
       <p><b>Alumno:</b> {{$alumno[0]->nombre_completo_alumno}}</p>
     </div>
     <div class="columns medium-2">
-      
+
     </div>
     <div class="columns medium-3">
       <p><b>Clav.Plan:</b> {{$alumno[0]->planClave}}</p>
       <p><b>Ubicación:</b> {{$alumno[0]->ubiClave}}</p>
     </div>
     <div class="columns medium-1-2">
-      
+
     </div>
     <div class="columns medium-3">
       <p><b>Fecha:</b> {{$fechaActual}}</p>
@@ -804,7 +807,7 @@
 
     $sumaTerceroHombres21 = 0;
     $sumaTerceroMujeres21 = 0;
-    
+
     $sumaTerceroHombres22 = 0;
     $sumaTerceroMujeres22 = 0;
 
@@ -861,46 +864,46 @@
               <th class="punteado2" align="center">Exist</th>
               <th class="punteado2" align="center">Bajas</th>
               <th class="punteado2" align="center">Inscr</th>
-            </tr>          
+            </tr>
           </thead>
           <tbody>
             <tr>
               <td>Hombres:</td>
-            @foreach ($conteo_edades as $primeros)               
-              @if ($primeros->grado == "Primeros" && $primeros->sexo == "M")        
+            @foreach ($conteo_edades as $primeros)
+              @if ($primeros->grado == "Primeros" && $primeros->sexo == "M")
 
               <td align="center">
                 @isset($primeros->edad14)
                 {{$primeros->edad14}}
-                @endisset                
-              </td>    
+                @endisset
+              </td>
 
 
               @isset($primeros->edad14)
                 @php
                   $sumaPrimeroHombres14 = $primeros->edad14;
-                @endphp  
-              @endisset 
-              
+                @endphp
+              @endisset
+
 
               <td align="center">
                 @isset($primeros->edad15)
                 {{$primeros->edad15}}
-                @endisset  
-              </td>    
+                @endisset
+              </td>
 
               @isset($primeros->edad15)
                 @php
                   $sumaPrimeroHombres15 = $primeros->edad15;
                 @endphp
               @endisset
-                     
+
 
               <td align="center">
                 @isset($primeros->edad16)
                 {{$primeros->edad16}}
-                @endisset  
-              </td>    
+                @endisset
+              </td>
 
               @isset($primeros->edad16)
                 @php
@@ -911,8 +914,8 @@
               <td align="center">
                 @isset($primeros->edad17)
                 {{$primeros->edad17}}
-                @endisset  
-              </td>    
+                @endisset
+              </td>
 
               @isset($primeros->edad17)
                 @php
@@ -923,8 +926,8 @@
               <td align="center">
                 @isset($primeros->edad18)
                 {{$primeros->edad18}}
-                @endisset  
-              </td>    
+                @endisset
+              </td>
 
               @isset($primeros->edad18)
                 @php
@@ -936,8 +939,8 @@
               <td align="center">
                 @isset($primeros->edad19)
                 {{$primeros->edad19}}
-                @endisset  
-              </td>    
+                @endisset
+              </td>
 
               @isset($primeros->edad19)
                 @php
@@ -949,8 +952,8 @@
               <td align="center">
                 @isset($primeros->edad20)
                 {{$primeros->edad20}}
-                @endisset  
-              </td>    
+                @endisset
+              </td>
 
               @isset($primeros->edad20)
                 @php
@@ -962,8 +965,8 @@
               <td align="center">
                 @isset($primeros->edad21)
                 {{$primeros->edad21}}
-                @endisset  
-              </td>    
+                @endisset
+              </td>
 
               @isset($primeros->edad21)
                 @php
@@ -975,8 +978,8 @@
               <td align="center">
                 @isset($primeros->edad22)
                 {{$primeros->edad22}}
-                @endisset  
-              </td>    
+                @endisset
+              </td>
 
               @isset($primeros->edad22)
                 @php
@@ -988,8 +991,8 @@
               <td align="center">
                 @isset($primeros->edad23)
                 {{$primeros->edad23}}
-                @endisset  
-              </td>    
+                @endisset
+              </td>
 
               @isset($primeros->edad23)
                 @php
@@ -1002,8 +1005,8 @@
               <td align="center">
                 @isset($primeros->edad24)
                 {{$primeros->edad24}}
-                @endisset  
-              </td>    
+                @endisset
+              </td>
 
               @isset($primeros->edad24)
                 @php
@@ -1015,8 +1018,8 @@
               <td align="center">
                 @isset($primeros->edad25)
                 {{$primeros->edad25}}
-                @endisset  
-              </td>    
+                @endisset
+              </td>
 
               @isset($primeros->edad25)
                 @php
@@ -1024,203 +1027,203 @@
                 @endphp
               @endisset
 
-              <td align="center">{{$primeros->existencia}}</td>  
+              <td align="center">{{$primeros->existencia}}</td>
               @php
                   $sumaPrimeroHombresExistentes = $primeros->existencia;
               @endphp
 
-              <td align="center">{{$primeros->bajas}}</td> 
+              <td align="center">{{$primeros->bajas}}</td>
               @php
                   $sumaPrimeroHombresBajas = $primeros->bajas;
               @endphp
 
-              <td align="center">{{$primeros->inscritos}}</td> 
+              <td align="center">{{$primeros->inscritos}}</td>
               @php
                   $sumaPrimeroHombresInscritos = $primeros->inscritos;
               @endphp
-              @endif              
+              @endif
             @endforeach
             </tr>
           </tbody>
           <tbody>
             <tr>
               <td>Mujeres:</td>
-              @foreach ($conteo_edades as $primeros)               
+              @foreach ($conteo_edades as $primeros)
                 @if ($primeros->grado == "Primeros" && $primeros->sexo == "F")
-                
+
                 <td align="center">
                   @isset($primeros->edad14)
                     {{$primeros->edad14}}
-                  @endisset 
-                </td>    
-                
+                  @endisset
+                </td>
+
                 @isset($primeros->edad14)
                   @php
                     $sumaPrimeroMujeres14 = $primeros->edad14;
                   @endphp
-                @endisset 
+                @endisset
 
 
                 {{--  15   --}}
                 <td align="center">
                   @isset($primeros->edad15)
                     {{$primeros->edad15}}
-                  @endisset 
-                </td>    
-                
+                  @endisset
+                </td>
+
                 @isset($primeros->edad15)
                   @php
                     $sumaPrimeroMujeres15 = $primeros->edad15;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  16   --}}
                 <td align="center">
                   @isset($primeros->edad16)
                     {{$primeros->edad16}}
-                  @endisset 
-                </td>    
-                
+                  @endisset
+                </td>
+
                 @isset($primeros->edad16)
                   @php
                     $sumaPrimeroMujeres16 = $primeros->edad16;
                   @endphp
-                @endisset 
+                @endisset
 
 
                 {{--  17   --}}
                 <td align="center">
                   @isset($primeros->edad17)
                     {{$primeros->edad17}}
-                  @endisset 
-                </td>    
-                
+                  @endisset
+                </td>
+
                 @isset($primeros->edad17)
                   @php
                     $sumaPrimeroMujeres17 = $primeros->edad17;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  18   --}}
                 <td align="center">
                   @isset($primeros->edad18)
                     {{$primeros->edad18}}
-                  @endisset 
-                </td>    
-                
+                  @endisset
+                </td>
+
                 @isset($primeros->edad18)
                   @php
                     $sumaPrimeroMujeres18 = $primeros->edad18;
                   @endphp
-                @endisset                 
+                @endisset
 
                 {{--  19   --}}
                 <td align="center">
                   @isset($primeros->edad19)
                     {{$primeros->edad19}}
-                  @endisset 
-                </td>    
-                
+                  @endisset
+                </td>
+
                 @isset($primeros->edad19)
                   @php
                     $sumaPrimeroMujeres19 = $primeros->edad19;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  20   --}}
                 <td align="center">
                   @isset($primeros->edad20)
                     {{$primeros->edad20}}
-                  @endisset 
-                </td>    
-                
+                  @endisset
+                </td>
+
                 @isset($primeros->edad20)
                   @php
                     $sumaPrimeroMujeres20 = $primeros->edad20;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  21   --}}
                 <td align="center">
                   @isset($primeros->edad21)
                     {{$primeros->edad21}}
-                  @endisset 
-                </td>    
-                
+                  @endisset
+                </td>
+
                 @isset($primeros->edad21)
                   @php
                     $sumaPrimeroMujeres21 = $primeros->edad21;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  22   --}}
                 <td align="center">
                   @isset($primeros->eda22)
                     {{$primeros->eda22}}
-                  @endisset 
-                </td>    
-                
+                  @endisset
+                </td>
+
                 @isset($primeros->eda22)
                   @php
                     $sumaPrimeroMujeres20 = $primeros->eda22;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  23   --}}
                 <td align="center">
                   @isset($primeros->edad23)
                     {{$primeros->edad23}}
-                  @endisset 
-                </td>    
-                
+                  @endisset
+                </td>
+
                 @isset($primeros->edad23)
                   @php
                     $sumaPrimeroMujeres23 = $primeros->edad23;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  24   --}}
                 <td align="center">
                   @isset($primeros->edad24)
                     {{$primeros->edad24}}
-                  @endisset 
-                </td>    
-                
+                  @endisset
+                </td>
+
                 @isset($primeros->edad24)
                   @php
                     $sumaPrimeroMujeres24 = $primeros->edad24;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  25   --}}
                 <td align="center">
                   @isset($primeros->edad25)
                     {{$primeros->edad25}}
-                  @endisset 
-                </td>    
-                
+                  @endisset
+                </td>
+
                 @isset($primeros->edad25)
                   @php
                     $sumaPrimeroMujeres25 = $primeros->edad25;
                   @endphp
-                @endisset 
-             
+                @endisset
 
-                <td align="center">{{$primeros->existencia}}</td>  
+
+                <td align="center">{{$primeros->existencia}}</td>
                 @php
                   $sumaPrimeroMujeresExistentes = $primeros->existencia;
                 @endphp
 
-                <td align="center">{{$primeros->bajas}}</td> 
+                <td align="center">{{$primeros->bajas}}</td>
                 @php
                   $sumaPrimeroMujeresBajas = $primeros->bajas;
                 @endphp
 
-                <td align="center">{{$primeros->inscritos}}</td> 
+                <td align="center">{{$primeros->inscritos}}</td>
                 @php
                   $sumaPrimeroMujeresInscritos = $primeros->inscritos;
                 @endphp
-                @endif              
+                @endif
               @endforeach
             </tr>
           </tbody>
@@ -1229,31 +1232,31 @@
           <tbody>
             <tr>
               <td></td>
-              <td align="center" class="punteado3">@if ($sumaPrimeroHombres14 + $sumaPrimeroMujeres14 != 0) {{$sumaPrimeroHombres14 + $sumaPrimeroMujeres14}} @endif</td>       
-              <td align="center" class="punteado3">@if ($sumaPrimeroHombres15 + $sumaPrimeroMujeres15 != 0) {{$sumaPrimeroHombres15 + $sumaPrimeroMujeres15}} @endif</td>       
-              <td align="center" class="punteado3">@if ($sumaPrimeroHombres16 + $sumaPrimeroMujeres16 != 0) {{$sumaPrimeroHombres16 + $sumaPrimeroMujeres16}} @endif</td>       
-              <td align="center" class="punteado3">@if ($sumaPrimeroHombres17 + $sumaPrimeroMujeres17 != 0) {{$sumaPrimeroHombres17 + $sumaPrimeroMujeres17}} @endif</td>       
-              <td align="center" class="punteado3">@if ($sumaPrimeroHombres18 + $sumaPrimeroMujeres18 != 0) {{$sumaPrimeroHombres18 + $sumaPrimeroMujeres18}} @endif</td>       
-              <td align="center" class="punteado3">@if ($sumaPrimeroHombres19 + $sumaPrimeroMujeres19 != 0) {{$sumaPrimeroHombres19 + $sumaPrimeroMujeres19}} @endif</td>       
-              <td align="center" class="punteado3">@if ($sumaPrimeroHombres20 + $sumaPrimeroMujeres20 != 0) {{$sumaPrimeroHombres20 + $sumaPrimeroMujeres20}} @endif</td>       
-              <td align="center" class="punteado3">@if ($sumaPrimeroHombres21 + $sumaPrimeroMujeres21 != 0) {{$sumaPrimeroHombres21 + $sumaPrimeroMujeres21}} @endif</td>       
-              <td align="center" class="punteado3">@if ($sumaPrimeroHombres22 + $sumaPrimeroMujeres22 != 0) {{$sumaPrimeroHombres22 + $sumaPrimeroMujeres22}} @endif</td>       
-              <td align="center" class="punteado3">@if ($sumaPrimeroHombres23 + $sumaPrimeroMujeres23 != 0) {{$sumaPrimeroHombres23 + $sumaPrimeroMujeres23}} @endif</td>       
-              <td align="center" class="punteado3">@if ($sumaPrimeroHombres24 + $sumaPrimeroMujeres24 != 0) {{$sumaPrimeroHombres24 + $sumaPrimeroMujeres24}} @endif</td>       
-              <td align="center" class="punteado3">@if ($sumaPrimeroHombres25 + $sumaPrimeroMujeres25 != 0) {{$sumaPrimeroHombres25 + $sumaPrimeroMujeres25}} @endif</td>       
+              <td align="center" class="punteado3">@if ($sumaPrimeroHombres14 + $sumaPrimeroMujeres14 != 0) {{$sumaPrimeroHombres14 + $sumaPrimeroMujeres14}} @endif</td>
+              <td align="center" class="punteado3">@if ($sumaPrimeroHombres15 + $sumaPrimeroMujeres15 != 0) {{$sumaPrimeroHombres15 + $sumaPrimeroMujeres15}} @endif</td>
+              <td align="center" class="punteado3">@if ($sumaPrimeroHombres16 + $sumaPrimeroMujeres16 != 0) {{$sumaPrimeroHombres16 + $sumaPrimeroMujeres16}} @endif</td>
+              <td align="center" class="punteado3">@if ($sumaPrimeroHombres17 + $sumaPrimeroMujeres17 != 0) {{$sumaPrimeroHombres17 + $sumaPrimeroMujeres17}} @endif</td>
+              <td align="center" class="punteado3">@if ($sumaPrimeroHombres18 + $sumaPrimeroMujeres18 != 0) {{$sumaPrimeroHombres18 + $sumaPrimeroMujeres18}} @endif</td>
+              <td align="center" class="punteado3">@if ($sumaPrimeroHombres19 + $sumaPrimeroMujeres19 != 0) {{$sumaPrimeroHombres19 + $sumaPrimeroMujeres19}} @endif</td>
+              <td align="center" class="punteado3">@if ($sumaPrimeroHombres20 + $sumaPrimeroMujeres20 != 0) {{$sumaPrimeroHombres20 + $sumaPrimeroMujeres20}} @endif</td>
+              <td align="center" class="punteado3">@if ($sumaPrimeroHombres21 + $sumaPrimeroMujeres21 != 0) {{$sumaPrimeroHombres21 + $sumaPrimeroMujeres21}} @endif</td>
+              <td align="center" class="punteado3">@if ($sumaPrimeroHombres22 + $sumaPrimeroMujeres22 != 0) {{$sumaPrimeroHombres22 + $sumaPrimeroMujeres22}} @endif</td>
+              <td align="center" class="punteado3">@if ($sumaPrimeroHombres23 + $sumaPrimeroMujeres23 != 0) {{$sumaPrimeroHombres23 + $sumaPrimeroMujeres23}} @endif</td>
+              <td align="center" class="punteado3">@if ($sumaPrimeroHombres24 + $sumaPrimeroMujeres24 != 0) {{$sumaPrimeroHombres24 + $sumaPrimeroMujeres24}} @endif</td>
+              <td align="center" class="punteado3">@if ($sumaPrimeroHombres25 + $sumaPrimeroMujeres25 != 0) {{$sumaPrimeroHombres25 + $sumaPrimeroMujeres25}} @endif</td>
 
 
-              <td align="center" class="punteado3"><b>{{$sumaPrimeroHombresExistentes + $sumaPrimeroMujeresExistentes}}</b></td>  
+              <td align="center" class="punteado3"><b>{{$sumaPrimeroHombresExistentes + $sumaPrimeroMujeresExistentes}}</b></td>
               @php
                 $totalExistentes = $totalExistentes + $sumaPrimeroHombresExistentes + $sumaPrimeroMujeresExistentes;
               @endphp
 
-              <td align="center" class="punteado3"><b>{{$sumaPrimeroHombresBajas + $sumaPrimeroMujeresBajas}}</b></td> 
+              <td align="center" class="punteado3"><b>{{$sumaPrimeroHombresBajas + $sumaPrimeroMujeresBajas}}</b></td>
               @php
                 $totalBajas = $totalBajas + $sumaPrimeroHombresBajas + $sumaPrimeroMujeresBajas;
               @endphp
 
-              <td align="center" class="punteado3"><b>{{$sumaPrimeroHombresInscritos + $sumaPrimeroMujeresInscritos}}</b></td> 
+              <td align="center" class="punteado3"><b>{{$sumaPrimeroHombresInscritos + $sumaPrimeroMujeresInscritos}}</b></td>
               @php
                 $totalInscritos = $totalInscritos + $sumaPrimeroHombresInscritos + $sumaPrimeroMujeresInscritos;
               @endphp
@@ -1295,382 +1298,382 @@
               <th class="punteado2" align="center">Exist</th>
               <th class="punteado2" align="center">Bajas</th>
               <th class="punteado2" align="center">Inscr</th>
-            </tr>          
+            </tr>
           </thead>
           <tbody>
             <tr>
               <td>Hombres:</td>
-            @foreach ($conteo_edades as $segundos)               
-              @if ($segundos->grado == "Segundos" && $segundos->sexo == "M")        
+            @foreach ($conteo_edades as $segundos)
+              @if ($segundos->grado == "Segundos" && $segundos->sexo == "M")
 
               {{--  14   --}}
               <td align="center">
                 @isset($segundos->edad14)
                   {{$segundos->edad14}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($segundos->edad14)
                 @php
                   $sumaSegundoHombres14 = $segundos->edad14;
-                @endphp   
-              @endisset 
-              
+                @endphp
+              @endisset
+
 
               {{--  15   --}}
               <td align="center">
                 @isset($segundos->edad15)
                   {{$segundos->edad15}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($segundos->edad15)
                 @php
                   $sumaSegundoHombres15 = $segundos->edad15;
-                @endphp   
-              @endisset 
+                @endphp
+              @endisset
 
 
               {{--  16   --}}
               <td align="center">
                 @isset($segundos->edad16)
                   {{$segundos->edad16}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($segundos->edad16)
                 @php
                   $sumaSegundoHombres16 = $segundos->edad16;
-                @endphp   
-              @endisset 
+                @endphp
+              @endisset
 
 
               {{--  17   --}}
               <td align="center">
                 @isset($segundos->edad17)
                   {{$segundos->edad17}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($segundos->edad17)
                 @php
                   $sumaSegundoHombres17 = $segundos->edad17;
-                @endphp   
-              @endisset 
+                @endphp
+              @endisset
 
 
               {{--  18   --}}
               <td align="center">
                 @isset($segundos->edad18)
                   {{$segundos->edad18}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($segundos->edad18)
                 @php
                   $sumaSegundoHombres18 = $segundos->edad18;
-                @endphp   
-              @endisset 
+                @endphp
+              @endisset
 
 
               {{--  19   --}}
               <td align="center">
                 @isset($segundos->edad19)
                   {{$segundos->edad19}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($segundos->edad19)
                 @php
                   $sumaSegundoHombres19 = $segundos->edad19;
-                @endphp   
-              @endisset 
+                @endphp
+              @endisset
 
 
               {{--  20   --}}
               <td align="center">
                 @isset($segundos->edad20)
                   {{$segundos->edad20}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($segundos->edad20)
                 @php
                   $sumaSegundoHombres20 = $segundos->edad20;
-                @endphp   
-              @endisset 
+                @endphp
+              @endisset
 
 
               {{--  21   --}}
               <td align="center">
                 @isset($segundos->edad21)
                   {{$segundos->edad21}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($segundos->edad21)
                 @php
                   $sumaSegundoHombres21 = $segundos->edad21;
-                @endphp   
-              @endisset 
+                @endphp
+              @endisset
 
 
               {{--  22   --}}
               <td align="center">
                 @isset($segundos->edad22)
                   {{$segundos->edad22}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($segundos->edad22)
                 @php
                   $sumaSegundoHombres22 = $segundos->edad22;
-                @endphp   
-              @endisset 
+                @endphp
+              @endisset
 
 
               {{--  23   --}}
               <td align="center">
                 @isset($segundos->edad23)
                   {{$segundos->edad23}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($segundos->edad23)
                 @php
                   $sumaSegundoHombres23 = $segundos->edad23;
-                @endphp   
-              @endisset 
+                @endphp
+              @endisset
 
               {{--  24   --}}
               <td align="center">
                 @isset($segundos->edad24)
                   {{$segundos->edad24}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($segundos->edad24)
                 @php
                   $sumaSegundoHombres24 = $segundos->edad24;
-                @endphp   
-              @endisset 
+                @endphp
+              @endisset
 
 
               {{--  25   --}}
               <td align="center">
                 @isset($segundos->edad25)
                   {{$segundos->edad25}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($segundos->edad25)
                 @php
                   $sumaSegundoHombres25 = $segundos->edad25;
-                @endphp   
-              @endisset 
+                @endphp
+              @endisset
 
-               
-              <td align="center">{{$segundos->existencia}}</td>  
+
+              <td align="center">{{$segundos->existencia}}</td>
               @php
                   $sumaSegundoHombresExistentes = $segundos->existencia;
               @endphp
 
-              <td align="center">{{$segundos->bajas}}</td> 
+              <td align="center">{{$segundos->bajas}}</td>
               @php
                   $sumaSegundoHombresBajas = $segundos->bajas;
               @endphp
 
-              <td align="center">{{$segundos->inscritos}}</td> 
+              <td align="center">{{$segundos->inscritos}}</td>
               @php
                   $sumaSegundoHombresInscritos = $segundos->inscritos;
               @endphp
-              @endif              
+              @endif
             @endforeach
             </tr>
           </tbody>
           <tbody>
             <tr>
               <td>Mujeres:</td>
-              @foreach ($conteo_edades as $segundos)               
+              @foreach ($conteo_edades as $segundos)
                 @if ($segundos->grado == "Segundos" && $segundos->sexo == "F")
-                
+
                 {{--  14   --}}
                 <td align="center">
                   @isset($segundos->edad14)
                     {{$segundos->edad14}}
-                  @endisset 
-                </td>   
-                
+                  @endisset
+                </td>
+
                 @isset($segundos->edad14)
                   @php
                     $sumaSegundoMujeres14 = $segundos->edad14;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  15   --}}
                 <td align="center">
                   @isset($segundos->edad15)
                     {{$segundos->edad15}}
-                  @endisset 
-                </td>   
-                
+                  @endisset
+                </td>
+
                 @isset($segundos->edad15)
                   @php
                     $sumaSegundoMujeres15 = $segundos->edad15;
                   @endphp
-                @endisset 
+                @endisset
 
 
                 {{--  16   --}}
                 <td align="center">
                   @isset($segundos->edad16)
                     {{$segundos->edad16}}
-                  @endisset 
-                </td>   
-                
+                  @endisset
+                </td>
+
                 @isset($segundos->edad16)
                   @php
                     $sumaSegundoMujeres16 = $segundos->edad16;
                   @endphp
-                @endisset 
+                @endisset
 
 
                 {{--  17   --}}
                 <td align="center">
                   @isset($segundos->edad17)
                     {{$segundos->edad17}}
-                  @endisset 
-                </td>   
-                
+                  @endisset
+                </td>
+
                 @isset($segundos->edad17)
                   @php
                     $sumaSegundoMujeres17 = $segundos->edad17;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  18   --}}
                 <td align="center">
                   @isset($segundos->edad18)
                     {{$segundos->edad18}}
-                  @endisset 
-                </td>   
-                
+                  @endisset
+                </td>
+
                 @isset($segundos->edad18)
                   @php
                     $sumaSegundoMujeres18 = $segundos->edad18;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  19  --}}
                 <td align="center">
                   @isset($segundos->edad19)
                     {{$segundos->edad19}}
-                  @endisset 
-                </td>   
-                
+                  @endisset
+                </td>
+
                 @isset($segundos->edad19)
                   @php
                     $sumaSegundoMujeres19 = $segundos->edad19;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  20   --}}
                 <td align="center">
                   @isset($segundos->edad20)
                     {{$segundos->edad20}}
-                  @endisset 
-                </td>   
-                
+                  @endisset
+                </td>
+
                 @isset($segundos->edad20)
                   @php
                     $sumaSegundoMujeres20 = $segundos->edad20;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  21  --}}
                 <td align="center">
                   @isset($segundos->edad21)
                     {{$segundos->edad21}}
-                  @endisset 
-                </td>   
-                
+                  @endisset
+                </td>
+
                 @isset($segundos->edad21)
                   @php
                     $sumaSegundoMujeres21 = $segundos->edad21;
                   @endphp
-                @endisset 
+                @endisset
 
 
                 {{--  22  --}}
                 <td align="center">
                   @isset($segundos->edad22)
                     {{$segundos->edad22}}
-                  @endisset 
-                </td>   
-                
+                  @endisset
+                </td>
+
                 @isset($segundos->edad22)
                   @php
                     $sumaSegundoMujeres22 = $segundos->edad22;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  23  --}}
                 <td align="center">
                   @isset($segundos->edad23)
                     {{$segundos->edad23}}
-                  @endisset 
-                </td>   
-                
+                  @endisset
+                </td>
+
                 @isset($segundos->edad23)
                   @php
                     $sumaSegundoMujeres23 = $segundos->edad23;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  24  --}}
                 <td align="center">
                   @isset($segundos->edad24)
                     {{$segundos->edad24}}
-                  @endisset 
-                </td>   
-                
+                  @endisset
+                </td>
+
                 @isset($segundos->edad24)
                   @php
                     $sumaSegundoMujeres24 = $segundos->edad24;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  25  --}}
                 <td align="center">
                   @isset($segundos->edad25)
                     {{$segundos->edad25}}
-                  @endisset 
-                </td>   
-                
+                  @endisset
+                </td>
+
                 @isset($segundos->edad25)
                   @php
                     $sumaSegundoMujeres25 = $segundos->edad25;
                   @endphp
-                @endisset 
-                
+                @endisset
 
-                  
 
-                <td align="center">{{$segundos->existencia}}</td>  
+
+
+                <td align="center">{{$segundos->existencia}}</td>
                 @php
                   $sumaSegundoMujeresExistentes = $segundos->existencia;
                 @endphp
 
-                <td align="center">{{$segundos->bajas}}</td> 
+                <td align="center">{{$segundos->bajas}}</td>
                 @php
                   $sumaSegundoMujeresBajas = $segundos->bajas;
                 @endphp
 
-                <td align="center">{{$segundos->inscritos}}</td> 
+                <td align="center">{{$segundos->inscritos}}</td>
                 @php
                   $sumaSegundoMujeresInscritos = $segundos->inscritos;
                 @endphp
-                @endif              
+                @endif
               @endforeach
             </tr>
           </tbody>
@@ -1692,17 +1695,17 @@
               <td align="center" class="punteado3">@if($sumaSegundoHombres24 + $sumaSegundoMujeres24 != 0) {{$sumaSegundoHombres24 + $sumaSegundoMujeres24}} @endif</td>
               <td align="center" class="punteado3">@if($sumaSegundoHombres25 + $sumaSegundoMujeres25 != 0) {{$sumaSegundoHombres25 + $sumaSegundoMujeres25}} @endif</td>
 
-              <td align="center" class="punteado3"><b>{{$sumaSegundoHombresExistentes + $sumaSegundoMujeresExistentes}}</b></td>  
+              <td align="center" class="punteado3"><b>{{$sumaSegundoHombresExistentes + $sumaSegundoMujeresExistentes}}</b></td>
               @php
                 $totalExistentes = $totalExistentes + $sumaSegundoHombresExistentes + $sumaSegundoMujeresExistentes;
               @endphp
 
-              <td align="center" class="punteado3"><b>{{$sumaSegundoHombresBajas + $sumaSegundoMujeresBajas}}</b></td> 
+              <td align="center" class="punteado3"><b>{{$sumaSegundoHombresBajas + $sumaSegundoMujeresBajas}}</b></td>
               @php
                 $totalBajas = $totalBajas + $sumaSegundoHombresBajas + $sumaSegundoMujeresBajas;
               @endphp
 
-              <td align="center" class="punteado3"><b>{{$sumaSegundoHombresInscritos + $sumaSegundoMujeresInscritos}}</b></td> 
+              <td align="center" class="punteado3"><b>{{$sumaSegundoHombresInscritos + $sumaSegundoMujeresInscritos}}</b></td>
               @php
                 $totalInscritos = $totalInscritos + $sumaSegundoHombresInscritos + $sumaSegundoMujeresInscritos;
               @endphp
@@ -1744,370 +1747,370 @@
               <th class="punteado2" align="center">Exist</th>
               <th class="punteado2" align="center">Bajas</th>
               <th class="punteado2" align="center">Inscr</th>
-            </tr>          
+            </tr>
           </thead>
           <tbody>
             <tr>
               <td>Hombres:</td>
-            @foreach ($conteo_edades as $terceros)               
-              @if ($terceros->grado == "Terceros" && $terceros->sexo == "M")        
+            @foreach ($conteo_edades as $terceros)
+              @if ($terceros->grado == "Terceros" && $terceros->sexo == "M")
 
               {{--  14   --}}
               <td align="center">
                 @isset($terceros->edad14)
                   {{$terceros->edad14}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($terceros->edad14)
                 @php
                   $sumaTerceroHombres14 = $terceros->edad14;
-                @endphp  
-              @endisset 
+                @endphp
+              @endisset
 
 
               {{--  15  --}}
               <td align="center">
                 @isset($terceros->edad15)
                   {{$terceros->edad15}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($terceros->edad15)
                 @php
                   $sumaTerceroHombres15 = $terceros->edad15;
-                @endphp  
-              @endisset 
+                @endphp
+              @endisset
 
               {{--  16  --}}
               <td align="center">
                 @isset($terceros->edad16)
                   {{$terceros->edad16}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($terceros->edad16)
                 @php
                   $sumaTerceroHombres16 = $terceros->edad16;
-                @endphp  
-              @endisset 
+                @endphp
+              @endisset
 
               {{--  17  --}}
               <td align="center">
                 @isset($terceros->edad17)
                   {{$terceros->edad17}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($terceros->edad17)
                 @php
                   $sumaTerceroHombres17 = $terceros->edad17;
-                @endphp  
-              @endisset 
+                @endphp
+              @endisset
 
               {{--  18  --}}
               <td align="center">
                 @isset($terceros->edad18)
                   {{$terceros->edad18}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($terceros->edad18)
                 @php
                   $sumaTerceroHombres18 = $terceros->edad18;
-                @endphp  
-              @endisset 
+                @endphp
+              @endisset
 
               {{--  19  --}}
               <td align="center">
                 @isset($terceros->edad19)
                   {{$terceros->edad19}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($terceros->edad19)
                 @php
                   $sumaTerceroHombres19 = $terceros->edad19;
-                @endphp  
-              @endisset 
+                @endphp
+              @endisset
 
               {{--  20  --}}
               <td align="center">
                 @isset($terceros->edad20)
                   {{$terceros->edad20}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($terceros->edad20)
                 @php
                   $sumaTerceroHombres20 = $terceros->edad20;
-                @endphp  
-              @endisset 
+                @endphp
+              @endisset
 
               {{--  21  --}}
               <td align="center">
                 @isset($terceros->edad21)
                   {{$terceros->edad21}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($terceros->edad21)
                 @php
                   $sumaTerceroHombres21 = $terceros->edad21;
-                @endphp  
-              @endisset 
+                @endphp
+              @endisset
 
               {{--  22  --}}
               <td align="center">
                 @isset($terceros->edad22)
                   {{$terceros->edad22}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($terceros->edad22)
                 @php
                   $sumaTerceroHombres22 = $terceros->edad22;
-                @endphp  
-              @endisset 
+                @endphp
+              @endisset
 
               {{--  23  --}}
               <td align="center">
                 @isset($terceros->edad23)
                   {{$terceros->edad23}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($terceros->edad23)
                 @php
                   $sumaTerceroHombres23 = $terceros->edad23;
-                @endphp  
-              @endisset 
+                @endphp
+              @endisset
 
               {{--  24  --}}
               <td align="center">
                 @isset($terceros->edad24)
                   {{$terceros->edad24}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($terceros->edad24)
                 @php
                   $sumaTerceroHombres24 = $terceros->edad24;
-                @endphp  
-              @endisset 
+                @endphp
+              @endisset
 
               {{--  25  --}}
               <td align="center">
                 @isset($terceros->edad25)
                   {{$terceros->edad25}}
-                @endisset 
-              </td>    
+                @endisset
+              </td>
 
               @isset($terceros->edad25)
                 @php
                   $sumaTerceroHombres25 = $terceros->edad25;
-                @endphp  
-              @endisset 
-               
+                @endphp
+              @endisset
 
-                
-              <td align="center">{{$terceros->existencia}}</td>  
+
+
+              <td align="center">{{$terceros->existencia}}</td>
               @php
                   $sumaTerceroHombresExistentes = $terceros->existencia;
               @endphp
 
-              <td align="center">{{$terceros->bajas}}</td> 
+              <td align="center">{{$terceros->bajas}}</td>
               @php
                   $sumaTerceroHombresBajas = $terceros->bajas;
               @endphp
 
-              <td align="center">{{$terceros->inscritos}}</td> 
+              <td align="center">{{$terceros->inscritos}}</td>
               @php
                   $sumaTerceroHombresInscritos = $terceros->inscritos;
               @endphp
-              @endif              
+              @endif
             @endforeach
             </tr>
           </tbody>
           <tbody>
             <tr>
               <td>Mujeres:</td>
-              @foreach ($conteo_edades as $terceros)               
+              @foreach ($conteo_edades as $terceros)
                 @if ($terceros->grado == "Terceros" && $terceros->sexo == "F")
-                
+
                 {{--  14   --}}
                 <td align="center">
                   @isset($terceros->edad14)
                     {{$terceros->edad14}}
-                  @endisset 
-                </td>      
+                  @endisset
+                </td>
 
                 @isset($terceros->edad14)
                   @php
                     $sumaTerceroMujeres14 = $terceros->edad14;
                   @endphp
-                @endisset 
-                
+                @endisset
+
 
                 {{--  15  --}}
                 <td align="center">
                   @isset($terceros->edad15)
                     {{$terceros->edad15}}
-                  @endisset 
-                </td>      
+                  @endisset
+                </td>
 
                 @isset($terceros->edad15)
                   @php
                     $sumaTerceroMujeres15 = $terceros->edad15;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  16  --}}
                 <td align="center">
                   @isset($terceros->edad16)
                     {{$terceros->edad16}}
-                  @endisset 
-                </td>      
+                  @endisset
+                </td>
 
                 @isset($terceros->edad16)
                   @php
                     $sumaTerceroMujeres16 = $terceros->edad16;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  17  --}}
                 <td align="center">
                   @isset($terceros->edad17)
                     {{$terceros->edad17}}
-                  @endisset 
-                </td>      
+                  @endisset
+                </td>
 
                 @isset($terceros->edad17)
                   @php
                     $sumaTerceroMujeres17 = $terceros->edad17;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  18  --}}
                 <td align="center">
                   @isset($terceros->edad18)
                     {{$terceros->edad18}}
-                  @endisset 
-                </td>      
+                  @endisset
+                </td>
 
                 @isset($terceros->edad18)
                   @php
                     $sumaTerceroMujeres18 = $terceros->edad18;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  19  --}}
                 <td align="center">
                   @isset($terceros->edad19)
                     {{$terceros->edad19}}
-                  @endisset 
-                </td>      
+                  @endisset
+                </td>
 
                 @isset($terceros->edad19)
                   @php
                     $sumaTerceroMujeres19 = $terceros->edad19;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  20  --}}
                 <td align="center">
                   @isset($terceros->edad20)
                     {{$terceros->edad20}}
-                  @endisset 
-                </td>      
+                  @endisset
+                </td>
 
                 @isset($terceros->edad20)
                   @php
                     $sumaTerceroMujeres20 = $terceros->edad20;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  21  --}}
                 <td align="center">
                   @isset($terceros->edad21)
                     {{$terceros->edad21}}
-                  @endisset 
-                </td>      
+                  @endisset
+                </td>
 
                 @isset($terceros->edad21)
                   @php
                     $sumaTerceroMujeres21 = $terceros->edad21;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  22  --}}
                 <td align="center">
                   @isset($terceros->edad22)
                     {{$terceros->edad22}}
-                  @endisset 
-                </td>      
+                  @endisset
+                </td>
 
                 @isset($terceros->edad22)
                   @php
                     $sumaTerceroMujeres22 = $terceros->edad22;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  23  --}}
                 <td align="center">
                   @isset($terceros->edad23)
                     {{$terceros->edad23}}
-                  @endisset 
-                </td>      
+                  @endisset
+                </td>
 
                 @isset($terceros->edad23)
                   @php
                     $sumaTerceroMujeres23 = $terceros->edad23;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  24  --}}
                 <td align="center">
                   @isset($terceros->edad24)
                     {{$terceros->edad24}}
-                  @endisset 
-                </td>      
+                  @endisset
+                </td>
 
                 @isset($terceros->edad24)
                   @php
                     $sumaTerceroMujeres24 = $terceros->edad24;
                   @endphp
-                @endisset 
+                @endisset
 
                 {{--  25  --}}
                 <td align="center">
                   @isset($terceros->edad25)
                     {{$terceros->edad25}}
-                  @endisset 
-                </td>      
+                  @endisset
+                </td>
 
                 @isset($terceros->edad25)
                   @php
                     $sumaTerceroMujeres25 = $terceros->edad25;
                   @endphp
-                @endisset 
+                @endisset
 
 
-                <td align="center">{{$terceros->existencia}}</td>  
+                <td align="center">{{$terceros->existencia}}</td>
                 @php
                   $sumaTerceroMujeresExistentes = $terceros->existencia;
                 @endphp
 
-                <td align="center">{{$terceros->bajas}}</td> 
+                <td align="center">{{$terceros->bajas}}</td>
                 @php
                   $sumaTerceroMujeresBajas = $terceros->bajas;
                 @endphp
 
-                <td align="center">{{$terceros->inscritos}}</td> 
+                <td align="center">{{$terceros->inscritos}}</td>
                 @php
                   $sumaTerceroMujeresInscritos = $terceros->inscritos;
                 @endphp
-                @endif              
+                @endif
               @endforeach
             </tr>
           </tbody>
@@ -2116,7 +2119,7 @@
           <tbody>
             <tr>
               <td></td>
-              <td align="center" class="punteado3">@if($sumaTerceroHombres14 + $sumaTerceroMujeres14 != 0) {{$sumaTerceroHombres14 + $sumaTerceroMujeres14}} @endif</td>     
+              <td align="center" class="punteado3">@if($sumaTerceroHombres14 + $sumaTerceroMujeres14 != 0) {{$sumaTerceroHombres14 + $sumaTerceroMujeres14}} @endif</td>
               <td align="center" class="punteado3">@if($sumaTerceroHombres14 + $sumaTerceroMujeres15 != 0) {{$sumaTerceroHombres15 + $sumaTerceroMujeres15}} @endif</td>
               <td align="center" class="punteado3">@if($sumaTerceroHombres16 + $sumaTerceroMujeres16 != 0) {{$sumaTerceroHombres16 + $sumaTerceroMujeres16}} @endif</td>
               <td align="center" class="punteado3">@if($sumaTerceroHombres17 + $sumaTerceroMujeres17 != 0) {{$sumaTerceroHombres17 + $sumaTerceroMujeres17}} @endif</td>
@@ -2128,18 +2131,18 @@
               <td align="center" class="punteado3">@if($sumaTerceroHombres23 + $sumaTerceroMujeres23 != 0) {{$sumaTerceroHombres23 + $sumaTerceroMujeres23}} @endif</td>
               <td align="center" class="punteado3">@if($sumaTerceroHombres24 + $sumaTerceroMujeres24 != 0) {{$sumaTerceroHombres24 + $sumaTerceroMujeres24}} @endif</td>
               <td align="center" class="punteado3">@if($sumaTerceroHombres25 + $sumaTerceroMujeres25 != 0) {{$sumaTerceroHombres25 + $sumaTerceroMujeres25}} @endif</td>
- 
-              <td align="center" class="punteado3"><b>{{$sumaTerceroHombresExistentes + $sumaTerceroMujeresExistentes}}</b></td> 
+
+              <td align="center" class="punteado3"><b>{{$sumaTerceroHombresExistentes + $sumaTerceroMujeresExistentes}}</b></td>
               @php
                 $totalExistentes = $totalExistentes + $sumaTerceroHombresExistentes + $sumaTerceroMujeresExistentes;
-              @endphp 
+              @endphp
 
-              <td align="center" class="punteado3"><b>{{$sumaTerceroHombresBajas + $sumaTerceroMujeresBajas}}</b></td> 
+              <td align="center" class="punteado3"><b>{{$sumaTerceroHombresBajas + $sumaTerceroMujeresBajas}}</b></td>
               @php
                 $totalBajas = $totalBajas + $sumaTerceroHombresBajas + $sumaTerceroMujeresBajas;
               @endphp
 
-              <td align="center" class="punteado3"><b>{{$sumaTerceroHombresInscritos + $sumaTerceroMujeresInscritos}}</b></td> 
+              <td align="center" class="punteado3"><b>{{$sumaTerceroHombresInscritos + $sumaTerceroMujeresInscritos}}</b></td>
               @php
                 $totalInscritos = $totalInscritos + $sumaTerceroHombresInscritos + $sumaTerceroMujeresInscritos;
               @endphp
@@ -2174,26 +2177,26 @@
               <th class="punteado4"><label style="opacity: 0.1; color: #ffffff">Exist</label></th>
               <th class="punteado4"><label style="opacity: 0.1; color: #ffffff">Bajas</label></th>
               <th class="punteado4"><label style="opacity: 0.1; color: #ffffff">Inscr</label></th>
-            </tr>          
+            </tr>
           </thead>
           <tbody>
             <tr>
               <td>Total<label style="opacity: 0.1; color: #ffffff">Hombres:</label></td>
-              <td align="center" class="punteado4"><label style="opacity: 0.1; color: #ffffff">0</label></td>       
+              <td align="center" class="punteado4"><label style="opacity: 0.1; color: #ffffff">0</label></td>
               <td><label style="opacity: 0.1; color: #ffffff">0</label></td>
-              <td><label style="opacity: 0.1; color: #ffffff">0</label></td> 
-              <td><label style="opacity: 0.1; color: #ffffff">0</label></td> 
               <td><label style="opacity: 0.1; color: #ffffff">0</label></td>
-              <td><label style="opacity: 0.1; color: #ffffff">0</label></td> 
-              <td><label style="opacity: 0.1; color: #ffffff">0</label></td> 
-              <td><label style="opacity: 0.1; color: #ffffff">0</label></td> 
-              <td><label style="opacity: 0.1; color: #ffffff">0</label></td> 
-              <td><label style="opacity: 0.1; color: #ffffff">0</label></td> 
-              <td><label style="opacity: 0.1; color: #ffffff">0</label></td> 
-              <td><label style="opacity: 0.1; color: #ffffff">0</label></td>    
-              <td align="center" class="punteado4"><b>{{$totalExistentes}}</b></td> 
-              <td align="center" class="punteado4"><b>{{$totalBajas}}</b></td> 
-              <td align="center" class="punteado4"><b>{{$totalInscritos}}</b></td> 
+              <td><label style="opacity: 0.1; color: #ffffff">0</label></td>
+              <td><label style="opacity: 0.1; color: #ffffff">0</label></td>
+              <td><label style="opacity: 0.1; color: #ffffff">0</label></td>
+              <td><label style="opacity: 0.1; color: #ffffff">0</label></td>
+              <td><label style="opacity: 0.1; color: #ffffff">0</label></td>
+              <td><label style="opacity: 0.1; color: #ffffff">0</label></td>
+              <td><label style="opacity: 0.1; color: #ffffff">0</label></td>
+              <td><label style="opacity: 0.1; color: #ffffff">0</label></td>
+              <td><label style="opacity: 0.1; color: #ffffff">0</label></td>
+              <td align="center" class="punteado4"><b>{{$totalExistentes}}</b></td>
+              <td align="center" class="punteado4"><b>{{$totalBajas}}</b></td>
+              <td align="center" class="punteado4"><b>{{$totalInscritos}}</b></td>
             </tr>
           </tbody>
         </table>
@@ -2201,7 +2204,7 @@
       </div>
     </div>
   @endif
-  
+
 
 </body>
 

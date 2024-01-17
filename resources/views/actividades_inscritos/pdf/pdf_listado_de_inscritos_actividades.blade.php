@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -404,6 +404,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 10px;
         right: 0px;
@@ -423,6 +424,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 20px;
         margin-bottom: 70px;
       }
@@ -490,12 +493,12 @@
     </style>
     <style>
       .verticalText {
-        -moz-transform: rotate(270deg); /* FF3.5+ */ 
-        -o-transform: rotate(270deg); /* Opera 10.5 */ 
-        -webkit-transform: rotate(270deg); /* Saf3.1+, Chrome IE6,IE7 */ 
+        -moz-transform: rotate(270deg); /* FF3.5+ */
+        -o-transform: rotate(270deg); /* Opera 10.5 */
+        -webkit-transform: rotate(270deg); /* Saf3.1+, Chrome IE6,IE7 */
         -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
 
-         
+
           }
   </style>
 	</head>
@@ -515,7 +518,7 @@
                 <p>Clave actividad: {{$inscritosActividades[0]->actGrupo}}</p>
                 <p>Nombre actividad: {{$inscritosActividades[0]->actDescripcion}}</p>
                 <p>Número de pagos: {{$inscritosActividades[0]->actNumeroPagos}}</p>
-                <p>Instructor: {{$inscritosActividades[0]->apellido1Docente.' '.$inscritosActividades[0]->apellido2Docente.' '.$inscritosActividades[0]->nombreDocente}}</p>                
+                <p>Instructor: {{$inscritosActividades[0]->apellido1Docente.' '.$inscritosActividades[0]->apellido2Docente.' '.$inscritosActividades[0]->nombreDocente}}</p>
             </div>
 
             <div class="columns medium-12">
@@ -536,7 +539,7 @@
                   <tr>
                     <th align="center" style="font-weight: 400;width: 1px; padding-top: 7px;">Núm</th>
                     <th align="center" style="font-weight: 400; padding-top: 7px; width: 1px">Cve pago</th>
-                    <th style="font-weight: 400; padding-top: 7px; width: 100px">Nombre del Alumno</th>    
+                    <th style="font-weight: 400; padding-top: 7px; width: 100px">Nombre del Alumno</th>
                     <th align="center" style="font-weight: 400; padding-top: 7px; width: 5px">Pago 1</th>
                     <th align="center" style="font-weight: 400; padding-top: 7px; width: 5px">Pago 2</th>
                     <th align="center" style="font-weight: 400; padding-top: 7px; width: 5px">Pago 3</th>
@@ -546,7 +549,7 @@
                     <th align="center" style="font-weight: 400; padding-top: 7px; width: 5px">Pago 7</th>
                     <th align="center" style="font-weight: 400; padding-top: 7px; width: 5px">Pago 8</th>
                     <th align="center" style="font-weight: 400; padding-top: 7px; width: 5px">Pago 9</th>
-                    <th align="center" style="font-weight: 400; padding-top: 7px; width: 5px">Pago 10</th> 
+                    <th align="center" style="font-weight: 400; padding-top: 7px; width: 5px">Pago 10</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -558,76 +561,76 @@
 
                             @php
                                 if($inscrito->conc_pago1 != ""){
-                                    $pago1 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave 
+                                    $pago1 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave
                                     AND pagAnioPer=$inscrito->perAnioPago AND pagConcPago=$inscrito->conc_pago1");
                                 }else{
                                     $pago1 = "";
                                 }
-                                
+
                                 if($inscrito->conc_pago2 != ""){
-                                    $pago2 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave 
+                                    $pago2 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave
                                     AND pagAnioPer=$inscrito->perAnioPago AND pagConcPago=$inscrito->conc_pago2");
                                 }else{
                                     $pago2 = "";
                                 }
 
                                 if($inscrito->conc_pago3 != ""){
-                                    $pago3 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave 
+                                    $pago3 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave
                                     AND pagAnioPer=$inscrito->perAnioPago AND pagConcPago=$inscrito->conc_pago3");
                                 }else{
                                     $pago3 = "";
                                 }
 
                                 if($inscrito->conc_pago4 != ""){
-                                    $pago4 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave 
+                                    $pago4 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave
                                     AND pagAnioPer=$inscrito->perAnioPago AND pagConcPago=$inscrito->conc_pago4");
                                 }else{
                                     $pago4 = "";
                                 }
 
                                 if($inscrito->conc_pago5 != ""){
-                                    $pago5 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave 
+                                    $pago5 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave
                                     AND pagAnioPer=$inscrito->perAnioPago AND pagConcPago=$inscrito->conc_pago5");
                                 }else{
                                     $pago5 = "";
                                 }
 
                                 if($inscrito->conc_pago6 != ""){
-                                    $pago6 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave 
+                                    $pago6 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave
                                     AND pagAnioPer=$inscrito->perAnioPago AND pagConcPago=$inscrito->conc_pago6");
                                 }else{
                                     $pago6 = "";
                                 }
 
                                 if($inscrito->conc_pago7 != ""){
-                                    $pago7 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave 
+                                    $pago7 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave
                                     AND pagAnioPer=$inscrito->perAnioPago AND pagConcPago=$inscrito->conc_pago7");
                                 }else{
                                     $pago7 = "";
                                 }
 
                                 if($inscrito->conc_pago8 != ""){
-                                    $pago8 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave 
+                                    $pago8 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave
                                     AND pagAnioPer=$inscrito->perAnioPago AND pagConcPago=$inscrito->conc_pago8");
                                 }else{
                                     $pago8 = "";
                                 }
 
                                 if($inscrito->conc_pago9 != ""){
-                                    $pago9 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave 
+                                    $pago9 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave
                                     AND pagAnioPer=$inscrito->perAnioPago AND pagConcPago=$inscrito->conc_pago9");
                                 }else{
                                     $pago9 = "";
                                 }
 
                                 if($inscrito->conc_pago10 != ""){
-                                    $pago10 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave 
+                                    $pago10 = DB::select("SELECT pagClaveAlu, pagAnioPer, pagConcPago, pagFechaPago FROM pagos WHERE pagClaveAlu=$inscrito->aluClave
                                     AND pagAnioPer=$inscrito->perAnioPago AND pagConcPago=$inscrito->conc_pago10");
                                 }else{
                                     $pago10 = "";
                                 }
                             @endphp
-                            
+
                             <td align="center">
                                 @if ($pago1 != "")
                                     @foreach ($pago1 as $item)
@@ -635,7 +638,7 @@
                                     @endforeach
                                 @else
                                 @endif
-                            </td> 
+                            </td>
 
                             <td align="center">
                                 @if ($pago2 != "")
@@ -644,7 +647,7 @@
                                     @endforeach
                                 @else
                                 @endif
-                            </td> 
+                            </td>
 
                             <td align="center">
                                 @if ($pago3 != "")
@@ -653,7 +656,7 @@
                                     @endforeach
                                 @else
                                 @endif
-                            </td> 
+                            </td>
 
                             <td align="center">
                                 @if ($pago4 != "")
@@ -662,8 +665,8 @@
                                     @endforeach
                                 @else
                                 @endif
-                            </td> 
-                            
+                            </td>
+
                             <td align="center">
                                 @if ($pago5 != "")
                                     @foreach ($pago5 as $item5)
@@ -671,7 +674,7 @@
                                     @endforeach
                                 @else
                                 @endif
-                            </td> 
+                            </td>
                             <td align="center">
                                 @if ($pago6 != "")
                                     @foreach ($pago6 as $item6)
@@ -679,7 +682,7 @@
                                     @endforeach
                                 @else
                                 @endif
-                            </td> 
+                            </td>
                             <td align="center">
                                 @if ($pago7 != "")
                                     @foreach ($pago7 as $item7)
@@ -687,7 +690,7 @@
                                     @endforeach
                                 @else
                                 @endif
-                            </td> 
+                            </td>
                             <td align="center">
                                 @if ($pago8 != "")
                                     @foreach ($pago8 as $item8)
@@ -695,7 +698,7 @@
                                     @endforeach
                                 @else
                                 @endif
-                            </td> 
+                            </td>
                             <td align="center">
                                 @if ($pago9 != "")
                                     @foreach ($pago9 as $item9)
@@ -703,7 +706,7 @@
                                     @endforeach
                                 @else
                                 @endif
-                            </td> 
+                            </td>
                             <td align="center">
                                 @if ($pago10 != "")
                                     @foreach ($pago10 as $item10)
@@ -711,11 +714,11 @@
                                     @endforeach
                                 @else
                                 @endif
-                            </td> 
-                                                     
-                            
+                            </td>
+
+
                         </tr>
-                    @endforeach                  
+                    @endforeach
                 </tbody>
             </table>
         </div>

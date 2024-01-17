@@ -359,8 +359,8 @@
       width: 100%;
       display: block;
       position: relative;
-      margin-left: -30px;
-      margin-right: -30px;
+       /* margin-left: -30px; */
+      /* margin-right: -30px; */
     }
 
     .row::after {
@@ -498,6 +498,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -50px;
       right: 0px;
@@ -540,6 +541,8 @@
     }
 
     @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
       margin-top: 80px;
       margin-bottom: 40px;
     }
@@ -606,6 +609,9 @@
       $posi1 = 1;
       use Illuminate\Support\Arr;
       use App\Http\Helpers\Utils;
+        set_time_limit(0);
+        ini_set('max_execution_time', 600);
+        ini_set('memory_limit', '1024M');
   @endphp
 
   <header>
@@ -613,10 +619,10 @@
       <div class="columns medium-12">
 
         {{--  <img class="img-header" src="{{base_path('resources/assets/img/logo.jpg')}}" alt="">  --}}
-        <h1 style="margin-top:0px; margin-bottom: 0px; text-align: center;">Preparatoria "ESCUELA MODELO"</h1>       
+        <h1 style="margin-top:0px; margin-bottom: 0px; text-align: center;">Preparatoria "ESCUELA MODELO"</h1>
         <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">INCORPORADA A LA UNIVERSIDAD AUTONOMA DE YUCATAN</h4>
         <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">PERIODO ESCOLAR: {{$cicloEscolar}}</h4>
-        
+
       </div>
     </div>
   </header>
@@ -633,7 +639,7 @@
       $fechaBoleta = "";
       $gradoGrupo = "";
       $vueltas = 1;
-      
+
   @endphp
 
   @foreach ($alumno as $aluClave => $valoresAlu)
@@ -642,24 +648,24 @@
           <div class="row">
             <div class="columns medium-4">
               <p><b>Clave: {{$item->aluClave}} </b></p>
-              <p><b>Alumno: {{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}}</b></p>         
+              <p><b>Alumno: {{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}}</b></p>
               @php
                 $NombreAlumno = $item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre;
-              @endphp   
+              @endphp
             </div>
             {{--  <div class="columns medium-2">
-              
+
             </div>  --}}
             <div class="columns medium-4" style="text-align: center">
               <p><b>Clav.Plan: {{$item->planClave}} </b></p>
               <p><b>Ubicación: {{$item->ubiClave}} </b></p>
             </div>
             {{--  <div class="columns medium-2">
-              
+
             </div>  --}}
             <div class="columns medium-4" style="text-align: right">
               <p><b>Fecha: {{$fechaActual}} </b></p>
-              <p><b>Grupo: {{$item->semestre.' '.$item->grupo}} 
+              <p><b>Grupo: {{$item->semestre.' '.$item->grupo}}
                 @if($item->curEstado == "P") (Pre) @endif
                 @if($item->curEstado == "C" || $item->curEstado == "A") (Con) @endif
               </b></p>
@@ -708,11 +714,11 @@
                 <tbody>
                   @php
                       $agrupamosPorIdMateria = $valoresAlu->groupBy('bachiller_materia_id');
-                  @endphp                              
+                  @endphp
                   @foreach ($agrupamosPorIdMateria as $mater_id => $valoresMateria )
                     @foreach ($valoresMateria as $itemMateria)
                       @php
-                        $puntos = DB::select("SELECT 
+                        $puntos = DB::select("SELECT
                         bachiller_inscritos_evidencias.id,
                         bachiller_inscritos_evidencias.ievPuntos AS puntosObtenidos,
                         bachiller_inscritos_evidencias.ievFaltas AS faltas,
@@ -760,7 +766,7 @@
                         planes.planClave,
                         ubicacion.ubiClave,
                         cgt.cgtGradoSemestre as semestre,
-                        cgt.cgtGrupo as grupo            
+                        cgt.cgtGrupo as grupo
                         FROM bachiller_inscritos_evidencias AS bachiller_inscritos_evidencias
                         INNER JOIN bachiller_inscritos ON bachiller_inscritos.id = bachiller_inscritos_evidencias.bachiller_inscrito_id
                         INNER JOIN bachiller_evidencias ON bachiller_evidencias.id = bachiller_inscritos_evidencias.evidencia_id
@@ -776,7 +782,7 @@
                         INNER JOIN planes ON planes.id = bachiller_grupos.plan_id
                         INNER JOIN programas ON programas.id = planes.programa_id
                         INNER JOIN cgt ON cgt.id = cursos.cgt_id
-                        INNER JOIN ubicacion ON ubicacion.id = departamentos.ubicacion_id                        
+                        INNER JOIN ubicacion ON ubicacion.id = departamentos.ubicacion_id
                         WHERE bachiller_inscritos_evidencias.bachiller_inscrito_id = $itemMateria->id
                         AND bachiller_inscritos.deleted_at IS NULL
                         AND bachiller_evidencias.deleted_at IS NULL
@@ -789,13 +795,13 @@
                         AND planes.deleted_at IS NULL
                         AND bachiller_inscritos_evidencias.deleted_at IS NULL
                         AND programas.deleted_at IS NULL");
-                    
+
 
                         foreach($puntos as $punto){
                           if($punto->bachiller_materia_id = $itemMateria->bachiller_materia_id && $punto->eviTipo == "A"){
                             $eviProcesoObte = $eviProcesoObte + $punto->puntosObtenidos;
                           }
-                          
+
                           if($punto->bachiller_materia_id = $itemMateria->bachiller_materia_id && $punto->eviTipo == "P"){
                             $eviProductoObte = $eviProductoObte + $punto->puntosObtenidos;
                           }
@@ -811,12 +817,12 @@
                           $faltas = $faltas + $punto->faltas;
                         }
 
-                        
-
-                     
 
 
-                        #Obteber los puntos finales sumados 
+
+
+
+                        #Obteber los puntos finales sumados
 
                         $eviFinalObte = $eviProcesoObte + $eviProductoObte;
 
@@ -829,7 +835,7 @@
                         <td style="width:50px; border-top: 0px solid; border-bottom: 0px solid; border-left: 0px solid; border-right: 0px solid;">{{$ico->matClave}}</td>
                         <td style="width: 300px; border-top: 0px solid; border-bottom: 0px solid; border-left: 0px solid; border-right: 0px solid;">{{$ico->matNombre}}</td>
                         <td style="border-top: 0px solid; border-bottom: 0px solid; border-left: 0px solid; border-right: 0px solid;"></td>
-                        
+
                         <td align="right" style="border-top: 0px solid; border-bottom: 0px solid; border-left: 0px solid; border-right: 0px solid;">{{number_format((float)$eviProcesoObte, 1, '.', '')}}</td>
 
                         <td align="right" style="border-top: 0px solid; border-bottom: 0px solid; border-left: 0px solid; border-right: 0px solid;">{{number_format((float)$eviProcesoMax, 1, '.', '')}}</td>
@@ -852,7 +858,7 @@
                           @if ($faltas != 0)
                             {{$faltas}}
                           @else
-                              
+
                           @endif
                         </td>
                       </tr>
@@ -865,14 +871,14 @@
                           $eviFinalMax = 0;
                           $faltas = 0;
                       @endphp
-                      @endif                      
-                    @endforeach                  
+                      @endif
+                    @endforeach
                   @endforeach
                 </tbody>
               </table>
             </div>
           </div>
-          
+
 
           <br><br>
           <div class="row">
@@ -883,24 +889,24 @@
                     <td style="width: 20px; border-top: 1px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;"></td>
                     <th style="width: 325px;border-top: 1px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;">ASIGNATURAS NO ACREDITADAS</th>
                     <th align="center" style="border-top: 1px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;">Sem</th>
-                    <th style="width: 71px; border-top: 1px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;" align="center">C.F.</th>                    
+                    <th style="width: 71px; border-top: 1px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;" align="center">C.F.</th>
                     <th align="center" style="border-top: 1px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;">Opor1</th>
                     <th align="center" style="border-top: 1px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;">Opor2</th>
                     <th align="center" style="border-top: 1px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;">Opor3</th>
                     <th align="center" style="border-top: 1px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;">Ult. Examen</th>
-                  </tr>          
+                  </tr>
                 </thead>
                 <tbody>
                   @php
 
-                              
+
                   $ubiClave = $item->ubiClave;
                   $aluClave = $item->aluClave;
                   $plan_id = $item->plan_id;
                   $alumno_id = $item->alumno_id;
 
 
-                 
+
 
                   $matNoaprobadas = DB::select("SELECT
                   ordi.periodo_id,
@@ -964,15 +970,15 @@
                   AND ordi.plan_id = $plan_id
                   AND ordi.alumno_id = $alumno_id
                   AND ordi.bachiller_materia_id NOT IN(1077, 998, 1067, 1075, 1076, 1012, 1712, 1069, 1286, 1769, 1986, 1288, 1070, 1770, 1988,
-                  1770, 1959, 1259, 1024, 1078, 1778, 1781, 1081, 1080, 1780, 1943, 1702, 1243, 1002, 1253, 1016, 1953, 1716, 1088, 1251, 1304, 1073, 
-                  1317, 1292, 1080, 1324, 1077, 1096, 1299, 1051, 1083, 1072, 1011, 1047, 1079, 1025, 1086, 1082, 1073, 1096, 1087, 1094, 1085, 1092, 
-                  1083, 1058, 1025, 1090, 1088, 1002, 1095, 1086, 1028, 1028, 1084, 1091, 1082, 1057, 1089, 999, 1087, 1085, 1792, 1767, 1732, 1767, 
-                  1774, 1725, 1770, 1721, 1795, 1795, 1728, 1770, 1735, 1759, 1791, 1766, 1724, 1759, 1699, 1773, 1787, 1762, 1713, 1713, 1794, 1769, 
+                  1770, 1959, 1259, 1024, 1078, 1778, 1781, 1081, 1080, 1780, 1943, 1702, 1243, 1002, 1253, 1016, 1953, 1716, 1088, 1251, 1304, 1073,
+                  1317, 1292, 1080, 1324, 1077, 1096, 1299, 1051, 1083, 1072, 1011, 1047, 1079, 1025, 1086, 1082, 1073, 1096, 1087, 1094, 1085, 1092,
+                  1083, 1058, 1025, 1090, 1088, 1002, 1095, 1086, 1028, 1028, 1084, 1091, 1082, 1057, 1089, 999, 1087, 1085, 1792, 1767, 1732, 1767,
+                  1774, 1725, 1770, 1721, 1795, 1795, 1728, 1770, 1735, 1759, 1791, 1766, 1724, 1759, 1699, 1773, 1787, 1762, 1713, 1713, 1794, 1769,
                   1794, 1762, 1769, 1702, 1758, 1709, 1790, 1765, 1716, 1758, 1698, 1765, 1772, 1786, 1712, 1726, 1757, 1796, 1757, 1796, 1736)");
 
                     $buscar_alumno3 = collect($matNoaprobadas);
                     $buscar_alumno4 = $buscar_alumno3->groupBy('bachiller_materia_id');
-                 
+
                   @endphp
 
                   @forelse ($buscar_alumno4 as $bachiller_materia_id => $valores)
@@ -982,13 +988,13 @@
                           <td style="width: 20px;">{{$item->cvemateria}}</td>
                           <td style="width: 325px;">{{$item->materia}}</td>
                           <td align="center">{{$item->matSem}}</td>
-                          <td style="width: 71px;" align="center">{{$item->califinal}}</td>                          
+                          <td style="width: 71px;" align="center">{{$item->califinal}}</td>
                           <td align="center">{{$item->extra1}}</td>
                           <td align="center">{{$item->extra2}}</td>
                           <td align="center">{{$item->extra3}}</td>
                           <td align="center">{{Utils::fecha_string($item->ultimoexa, 'mesCorto')}}</td>
                         </tr>
-                        @endif                        
+                        @endif
                     @endforeach
                     @php
                             $vueltas = 1;
@@ -1004,13 +1010,13 @@
                     <td align="center" style="border-top: 0px solid; border-right: 0px solid; border-bottom: 0px solid; border-left: 0px solid;"></td>
                     <td align="center" style="border-top: 0px solid; border-right: 0px solid; border-bottom: 0px solid; border-left: 0px solid;"></td>
                   </tr>
-                  
-                                  
-                  @endforelse   
+
+
+                  @endforelse
                   @php
                     $plan_id = "";
-                  @endphp     
-                    
+                  @endphp
+
                 </tbody>
               </table>
             </div>
@@ -1018,7 +1024,7 @@
 
           <br><br>
 
-             
+
 
           @php
           $plan_id = "";
@@ -1030,7 +1036,7 @@
               <p>Alumno: {{$NombreAlumno}}</p>
             </div>
             <div class="columns medium-6">
-              
+
             </div>
             <div class="columns medium-6" style="text-align: right;">
               <p>Fecha: {{$fechaBoleta}}</p>
@@ -1038,13 +1044,13 @@
             </div>
           </div>
         @endif
-    @endforeach  
+    @endforeach
     @php
         $posi1 = 1;
         $NombreAlumno = "";
         $fechaBoleta = "";
         $gradoGrupo = "";
-    @endphp    
+    @endphp
     @if (!$loop->last)
       <div class="page_break"></div>
     @endif

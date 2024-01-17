@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 40px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 20px;
         margin-bottom: 70px;
       }
@@ -484,8 +487,8 @@
           @if ($titulo == "pendientesCapturar")
           <h5 style="margin-top:0px; margin-bottom: 10px;">ACTAS DE RECUPERATIVOS PENDIENTES POR CAPTURAR</h5>
           @endif
-          
-              
+
+
 
           <p><b>Período: </b>{{$periodo}}</p>
           <p><b>Nivel: </b>{{$nivel}}</p>
@@ -501,7 +504,7 @@
         </div>
       </div>
     </header>
-    
+
 
 
       <div class="row" style="margin-bottom: 20px;">
@@ -524,7 +527,7 @@
             </tr>
             </thead>
             <tbody>
-              
+
               @foreach ($extraordinarios as $extra)
 
               @foreach ($extra->bachiller_inscritos as $item)
@@ -544,10 +547,10 @@
                 <td style="width: 50px;">{{!is_null($extra->aula) ? $extra->aula->aulaClave : ""}}</td>
                 <td style="width: 20px;">{{"$".$extra->extPago}}</td>
 
-               
+
               </tr>
               @endforeach
-                
+
               @endforeach
             </tbody>
           </table>

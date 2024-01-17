@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -70px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 80px;
         margin-bottom: 70px;
       }
@@ -486,7 +489,7 @@
     <div class="row">
       <div class="columns medium-12">
       <p align="center">No: {{$minutario->id}}</p>
-    
+
       <br><br><br><br><br><br><br>
       <p>A QUIÉN CORRESPONDA:</p>
           <br><br>
@@ -506,7 +509,7 @@
         <p style="padding:0 0 0 30px;">{{$materiaNombre}} <span style="float:right;">{{$materia['histCalificacion']}}</span></p>
         @php
         if(!in_array($materia['histCalificacion'], ['Apr', 'No Apr', 'S/D', 'Npa'])) {
-          
+
           $contarMaterias++;
 
           if(intval($materia['histCalificacion'])) {

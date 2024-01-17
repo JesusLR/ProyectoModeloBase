@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 20px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 20px;
         margin-bottom: 70px;
       }
@@ -507,7 +510,7 @@
     @foreach ($grupos as $grupo)
 			@php
         $inscritos = $grupo['inscritos'];
-        
+
         // dd($grupos, $grupo, $inscritos);
 			@endphp
       @if (!is_null($inscritos))
@@ -596,7 +599,7 @@
                       </ul>
                     </td>
                   </tr>
-                @endforeach 
+                @endforeach
                 {{--  <!-- foreach inscrito -->  --}}
                 @if (!$loop->last)
                 <div class="page_break"></div>
@@ -604,10 +607,10 @@
             </table>
           </div>
         </div>
-            
+
       @endif
-     
-    @endforeach 
+
+    @endforeach
     {{--  <!-- foreach grupo -->  --}}
 
     {{--  <footer id="footer">

@@ -358,8 +358,8 @@
             width: 100%;
             display: block;
             position: relative;
-            margin-left: -30px;
-            margin-right: -30px;
+            /* margin-left: -30px; */
+            /* margin-right: -30px; */
         }
 
         .row::after {
@@ -494,6 +494,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: 11px;
             right: 0px;
@@ -523,6 +524,8 @@
         }
 
         @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
             margin-top: 20px;
             margin-bottom: 70px;
         }
@@ -593,7 +596,7 @@
         .page-number:before {
             content: "Pág " counter(page);
           }
-    
+
           .page-break {
               page-break-after: always;
           }
@@ -622,7 +625,7 @@
     @foreach ($grupos_docente as $grado => $datosObtenidos)
         @php
             $grupos = $datosObtenidos->groupBy('cgtGrupo');
-        @endphp       
+        @endphp
 
         @foreach ($grupos as $grupo => $valoresObt)
             @foreach ($valoresObt as $item)
@@ -643,7 +646,7 @@
                         </p>
                     <p>Incluye alumnos inscritos, PRE-inscritos y CON-dicionados.</p>
                     </div>
-                </div>   
+                </div>
 
                 <div class="row">
                     <div class="columns medium-12">
@@ -658,15 +661,15 @@
                                 |__|
                             </th>
                             @endfor
-                            
+
                             <th style="font-weight: 400;">
                                 |Calif|
                             </th>
                             <th style="font-weight: 400;">
                                 |Falt|
                             </th>
-                          
-              
+
+
                           </tr>
                         </thead>
                         <tbody>
@@ -686,13 +689,13 @@
                                         </td>
                                         <td style="padding-top: 5px;">
                                         |___|
-                                        </td>    
-                                    </tr>                                        
-                                @endif                                
-                            @endforeach    
+                                        </td>
+                                    </tr>
+                                @endif
+                            @endforeach
                             @php
                                 $total = 1;
-                            @endphp                            
+                            @endphp
                         </tbody>
                       </table>
                     </div>
@@ -705,10 +708,10 @@
             @if (!$loop->last)
             <div class="page_break"></div>
             @endif
-        @endforeach      
+        @endforeach
         @if (!$loop->last)
         <div class="page_break"></div>
-        @endif  
+        @endif
     @endforeach
 
 </body>

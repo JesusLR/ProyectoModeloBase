@@ -351,16 +351,16 @@
       font-size: 12px;
       margin-top: 100px;
       /* ALTURA HEADER */
-      margin-left: 5px;
-      margin-right: 5px;
+      /* margin-left: 5px;
+      margin-right: 5px; */
     }
 
     .row {
       width: 100%;
       display: block;
       position: relative;
-      margin-left: -30px;
-      margin-right: -30px;
+      margin-left: 5px;
+      margin-right: 5px;
     }
 
     .row::after {
@@ -498,6 +498,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -50px;
       right: 0px;
@@ -540,6 +541,8 @@
     }
 
     @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
       margin-top: 80px;
       margin-bottom: 40px;
     }
@@ -610,8 +613,8 @@
     <div class="row" style="margin-top: 0px;">
       <div class="columns medium-8">
         {{--  <img class="img-header" src="{{base_path('resources/assets/img/logo.jpg')}}" alt="">  --}}
-        <h1 style="margin-top:0px; margin-bottom: 0px;">Preparatoria "ESCUELA MODELO"</h1>       
-        <h4 style="margin-top:0px; margin-bottom: 0px;">EVIDENCIAS FALTANTES POR CALIFICAR</h4>     
+        <h1 style="margin-top:0px; margin-bottom: 0px;">Preparatoria "ESCUELA MODELO"</h1>
+        <h4 style="margin-top:0px; margin-bottom: 0px;">EVIDENCIAS FALTANTES POR CALIFICAR</h4>
 
       </div>
     </div>
@@ -662,30 +665,30 @@
     </div>
   </div>
 
-  
+
 
   {{--  @foreach ($alumno as $aluClave => $valoresAlu)
     @foreach ($valoresAlu as $item)
         @if ($aluClave == $item->aluClave && $posi1++ == 1)
-          
+
 
           <br>
           <div class="row">
             <div class="columns medium-12">
-             
+
             </div>
           </div>
 
-          
-        
+
+
         @endif
-    @endforeach  
+    @endforeach
     @php
         $posi1 = 1;
         $NombreAlumno = "";
         $fechaBoleta = "";
         $gradoGrupo = "";
-    @endphp    
+    @endphp
     @if (!$loop->last)
       <div class="page_break"></div>
     @endif

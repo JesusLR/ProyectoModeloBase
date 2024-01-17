@@ -360,8 +360,8 @@
       width: 100%;
       display: block;
       position: relative;
-      margin-left: -30px;
-      margin-right: -30px;
+      /* margin-left: -30px; */
+      /* margin-right: -30px; */
     }
 
     .row::after {
@@ -496,6 +496,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: 40px;
       right: 0px;
@@ -525,6 +526,8 @@
     }
 
     @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
       margin-top: 30px;
       margin-bottom: 30px;
     }
@@ -607,7 +610,7 @@
 @foreach ($curso_alumno as $item)
 
   @php
-   
+
     $gradoEnLetras = "";
     if ($item->cgtGradoSemestre == 1) {
       $gradoEnLetras = "primer grado";
@@ -627,42 +630,42 @@
     if ($item->cgtGradoSemestre == 6) {
       $gradoEnLetras = "sexto grado";
     }
-        
+
   @endphp
 
   <body>
-    
+
     <div class="row">
       <div class="columns medium-12">
         <p class="tright">{{ $fecha }}</p><br>
         <p class="tright"><b>ASUNTO: CONSTANCIA DE BUENA CONDUCTA</b></p>
         <br>
         <br>
-        <br>          
+        <br>
         <p><b>A QUIEN CORRESPONDA:</b></p>
         <br>
-       
-        <p style="text-indent: 14em; text-align: justify;">La que suscribe, Mtra. Lol –Há Canché Gómez, 
+
+        <p style="text-indent: 14em; text-align: justify;">La que suscribe, Mtra. Lol –Há Canché Gómez,
           Directora de la Escuela Secundaria Particular Incorporada “Modelo Valladolid” Clave 31PES0143L de esta ciudad, hace constar que
-          {{ $item->perNombre.' '.$item->perApellido1.' '.$item->perApellido2 }} fue @if($item->perSexo == "F") alumna @else alumno @endif 
-          regular de esta escuela @if($item->perSexo == "F") inscrita @else inscrito @endif en el {{ $gradoEnLetras }} de secundaria en el curso escolar {{$item->perAnioPago}}-{{$item->perAnioPago+1}}, 
+          {{ $item->perNombre.' '.$item->perApellido1.' '.$item->perApellido2 }} fue @if($item->perSexo == "F") alumna @else alumno @endif
+          regular de esta escuela @if($item->perSexo == "F") inscrita @else inscrito @endif en el {{ $gradoEnLetras }} de secundaria en el curso escolar {{$item->perAnioPago}}-{{$item->perAnioPago+1}},
         quien durante este curso mostró buena conducta, cumpliendo con el reglamento de la escuela.</p>
-  
+
         <br>
-  
+
         <p style="text-indent: 14em; text-align: justify;">
           Y a pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día de
           hoy, en la ciudad de Valladolid Yucatán, México.
         </p>
       </div>
     </div>
-  
+
     <br><br><br><br><br><br>
     <div class="row">
       <div class="columns medium-12">
           <p class="tcenter"><b>ATENTAMENTE</b></p>
           <p class="tcenter"><b>Para Sí, Para Todos</b></p>
-      </div>        
+      </div>
     </div>
 
     @if ($firmaSello == "SI")
@@ -675,27 +678,27 @@
     <br>
     <br>
     <br>
-    @endif      
+    @endif
 
     <div class="row">
       <div class="columns medium-12">
         <p class="tcenter"><b>MTRA. LOL-HÁ CANCHÉ GÓMEZ</b></p>
         <p class="tcenter"><b>DIRECTORA</b></p>
-      </div>        
+      </div>
     </div>
     <div class="columns medium-12">
-      <div style="text-align: right; margin-top: -150px; margin-right: -62px;">    
+      <div style="text-align: right; margin-top: -150px; margin-right: -62px;">
         @if ($firmaSello == "SI")
         <img style="margin-top: -25px; height: 170px;" src="{{base_path('resources/assets/img/firmas_logos_secundaria/secundaria_cva_sello.jpg')}}" alt="">
         @endif
       </div>
     </div>
-  
+
     @if (!$loop->last)
     <div class="page_break"></div>
     @endif
-    
-  
+
+
   </body>
 
 @endforeach

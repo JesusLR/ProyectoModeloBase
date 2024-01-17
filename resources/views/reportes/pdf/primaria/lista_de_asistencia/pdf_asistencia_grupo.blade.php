@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 20px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 20px;
         margin-bottom: 70px;
       }
@@ -500,7 +503,7 @@
           </div>
         </div>
       </header>
-    
+
       <footer id="footer">
         <div class="page-number"></div>
       </footer>
@@ -508,7 +511,7 @@
       $totalLoops = 0;
     @endphp
     @foreach ($datos as $programa)
-      
+
       @foreach($programa as $plan)
         @php
           $grados = $plan->sortKeys();
@@ -574,14 +577,14 @@
                     <th align="center" style="font-weight: 400;">Nombre del alumno</th>
                     <th style="padding-top: 10px;">
                       <ul class="listas-asistencia">
-    
+
                         @for($i = 0; $i < 25; $i++)
                         <li><div></div></li>
                         @endfor
-    
+
                         <li><div><span>Calif</span></div></li>
                         <li><div><span>Falta</span></div></li>
-    
+
                       </ul>
                     </th>
                   </tr>
@@ -626,6 +629,6 @@
       @endforeach <!-- foreach plan -->
     @endforeach <!-- foreach programa -->
 
-    
+
   </body>
 </html>

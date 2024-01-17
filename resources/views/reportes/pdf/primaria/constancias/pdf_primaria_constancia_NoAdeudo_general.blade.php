@@ -294,8 +294,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -369,7 +369,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -393,15 +393,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -420,6 +421,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 30px;
         margin-bottom: 30px;
       }
@@ -491,9 +494,9 @@
       }
     </style>
 	</head>
-  
+
   <header>
-   
+
   </header>
     @php
     use App\clases\alumnos\MetodosAlumnos;
@@ -507,14 +510,14 @@
         $resultado_array =  DB::select("call procPrimariaObtieneGrupoCurso(" . $item->id . ")");
 
         $resultado_grupo = collect($resultado_array);
-        
+
 
         if(isset($resultado_grupo[0]->gpoClave)){
           $parametro_grupo = $resultado_grupo[0]->gpoClave;
         }else{
           $parametro_grupo = "";
         }
-          
+
       @endphp
 
       @if ($parametro_grupo != "")
@@ -530,23 +533,23 @@
                 <br>
                 <br>
                 <br>
-      
+
                 <br>
                 <p>A quien corresponda:</p>
                 @if ($incluyeFoto == "SI")
-                  @if ($item->curPrimariaFoto != "")          
+                  @if ($item->curPrimariaFoto != "")
                     @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus .'/'. $item->curPrimariaFoto)))
-              
+
                       <p><img class="fotoAlumno" style="float: left; margin-top: 55px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus. '/' . $item->curPrimariaFoto) }}"></p>
                     @endif
                   @endif
                 @endif
                 <br>
                 <br>
-              
+
                 <br>
                 <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-                  La que suscribe, 
+                  La que suscribe,
                   @if ($ubicacion == "CME")
                   MAOE. María Trinidad Díaz Cervera,
                   @endif
@@ -558,31 +561,31 @@
                 <br>
                 <br>
                 <br>
-      
-                
+
+
                 <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-                  @if($item->perSexo == "F") Que la niña @endif 
+                  @if($item->perSexo == "F") Que la niña @endif
                   @if($item->perSexo == "M") Que el niño @endif
-                  <strong>{{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}}</strong> @if($item->perSexo == "F") fue alumna @endif @if($item->perSexo == "M") fue alumno @endif regular del {{$grado}}, GRUPO “{{$parametro_grupo}}” 
+                  <strong>{{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}}</strong> @if($item->perSexo == "F") fue alumna @endif @if($item->perSexo == "M") fue alumno @endif regular del {{$grado}}, GRUPO “{{$parametro_grupo}}”
                   en el curso escolar {{$periodo}} y, durante el
                   tiempo que estudió en éste, estuvo al corriente en el pago de sus colegiaturas, por lo que <b>NO ADEUDA</b>.
                 </p>
-      
+
                 <br>
                 <br>
                 <br>
-      
+
                 <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
                   A pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día de hoy en la ciudad de @if ($ubicacion == "CVA") Valladolid, @endif @if ($ubicacion == "CME") Mérida, @endif Yucatán, México.
                 </p>
               </div>
             </div>
-  
+
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  
+
             <div class="row">
               <div class="columns medium-12">
-  
+
                 <p class="tcenter"><b>ATENTAMENTE</b></p>
                 <br><br>
                 @if ($ubicacion == "CME")
@@ -591,7 +594,7 @@
                 <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ</b></p>
                 @endif
                 <p class="tcenter"><b>DIRECTORA</b></p>
-              
+
               </div>
             </div>
             @if(!$loop->last)
@@ -602,5 +605,5 @@
         @endif
       @endif
     @endforeach
-   
+
 </html>

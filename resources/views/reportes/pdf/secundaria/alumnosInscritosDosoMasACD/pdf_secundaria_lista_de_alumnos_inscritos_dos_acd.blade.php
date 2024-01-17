@@ -358,8 +358,8 @@
             width: 100%;
             display: block;
             position: relative;
-            margin-left: -30px;
-            margin-right: -30px;
+            /* margin-left: -30px; */
+            /* margin-right: -30px; */
         }
 
         .row::after {
@@ -494,6 +494,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: 0px;
             right: 0px;
@@ -523,6 +524,8 @@
         }
 
         @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
             margin-top: 20px;
             margin-bottom: 70px;
         }
@@ -593,7 +596,7 @@
         .page-number:before {
             content: "Pág " counter(page);
           }
-    
+
           .page-break {
               page-break-after: always;
           }
@@ -608,7 +611,7 @@
                 <h3 style="margin-top:0px; margin-bottom: 10px;">ESCUELA MODELO SECUNDARIA</h3>
 
                 <h3 style="margin-top:0px; margin-bottom: 10px;">LISTA DE ALUMNOS CON DOS O MAS ACD</h3>
-                
+
 
                 <p>Período: {{$alumnos[0]->perAnioPago}}-{{$alumnos[0]->perAnioPago+1}}</p>
                 <p>Nivel: {{$alumnos[0]->progClave}} ({{$alumnos[0]->planClave}}) {{$alumnos[0]->programa}}</p>
@@ -619,13 +622,13 @@
 
                     <p style="text-align: right; margin-top: -40px">Fecha: {{$fechaActual}} Hora: {{$horaActual}}</p>
 
-          
+
                 <p>Incluye alumnos inscritos, PRE-inscritos y CON-dicionados.</p>
             </div>
 
         </div>
 
-    </header>  
+    </header>
     <footer id="footer">
         <div class="page-number"></div>
     </footer>
@@ -644,16 +647,16 @@
                     <th style="font-weight: 400;width: 20px; padding-top: 7px;">Núm</th>
                     <th  style="font-weight: 400; padding-top: 7px;">Clave Pago</th>
                     <th  style="font-weight: 400;width: 210px; padding-top: 7px;">Nombre del Alumno</th>
-                 
-      
+
+
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($alumnos as $KEY => $valuesAlumno)                    
+                  @foreach ($alumnos as $KEY => $valuesAlumno)
                   <tr>
-                    
+
                     <td align="center" style="padding-top: 5px; width: 20px; ">{{$total++}}</td>
-                    <td style="padding-top: 5px;  width: 20px;" >{{$valuesAlumno->clavePago}}</td>                   
+                    <td style="padding-top: 5px;  width: 20px;" >{{$valuesAlumno->clavePago}}</td>
 
                     <td style="padding-top: 5px;">{{$valuesAlumno->ape_paterno}} {{$valuesAlumno->ape_materno}} {{$valuesAlumno->nombres}}</td>
 
@@ -661,16 +664,16 @@
 
                     {{-- <td style="padding-top: 5px;">{{$itemInscritos->ape_paterno}} {{$itemInscritos->ape_materno}} {{$itemInscritos->nombres}}</td> --}}
 
-                                                
+
                   </tr>
-                  @endforeach  
+                  @endforeach
                 </tbody>
               </table>
             </div>
           </div>
 
 
-        
+
         {{--  <div class="page_break"></div>  --}}
 
 

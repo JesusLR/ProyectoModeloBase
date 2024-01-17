@@ -359,8 +359,8 @@
       width: 100%;
       display: block;
       position: relative;
-      margin-left: -30px;
-      margin-right: -30px;
+      /* /* margin-left: -30px; */
+      /* margin-right: -30px; */
     }
 
     .row::after {
@@ -498,6 +498,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -50px;
       right: 0px;
@@ -540,6 +541,8 @@
     }
 
     @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
       margin-top: 80px;
       margin-bottom: 40px;
     }
@@ -607,10 +610,10 @@
       <div class="columns medium-12">
 
         {{--  <img class="img-header" src="{{base_path('resources/assets/img/logo.jpg')}}" alt="">  --}}
-        <h1 style="margin-top:0px; margin-bottom: 0px; text-align: center;">Preparatoria "ESCUELA MODELO"</h1>       
+        <h1 style="margin-top:0px; margin-bottom: 0px; text-align: center;">Preparatoria "ESCUELA MODELO"</h1>
         <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">INCORPORADA A LA UNIVERSIDAD AUTONOMA DE YUCATAN</h4>
         <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">PERIODO ESCOLAR: {{$cicloEscolar}}</h4>
-        
+
       </div>
     </div>
   </header>
@@ -628,14 +631,14 @@
           <p><b>Alumno:</b> {{$valorAgrupado->ape_paterno.' '.$valorAgrupado->ape_materno.' '.$valorAgrupado->nombres}}</p>
         </div>
         <div class="columns medium-2">
-          
+
         </div>
         <div class="columns medium-3">
           <p><b>Clav.Plan:</b> {{$valorAgrupado->planClave}}</p>
           <p><b>Ubicación:</b> {{$valorAgrupado->ubiClave}}</p>
         </div>
         <div class="columns medium-2">
-          
+
         </div>
         <div class="columns medium-3">
           <p><b>Fecha:</b> {{$fechaActual}}</p>
@@ -677,7 +680,7 @@
                   @if ($matClave == $item->matClave && $item->clave_pago == $valorAgrupado->clave_pago && $pos++ == 1)
                     @php
 
-                      $bachiller_inscritos_evidencias =  DB::select("SELECT 
+                      $bachiller_inscritos_evidencias =  DB::select("SELECT
                       bachiller_inscritos_evidencias.id,
                       bachiller_inscritos_evidencias.evidencia_id,
                       bachiller_inscritos_evidencias.bachiller_inscrito_id,
@@ -718,32 +721,32 @@
                       foreach($bachiller_inscritos_evidencias as $inscrito_evidencia){
 
                         if($inscrito_evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial1 && $inscrito_evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial1){
-                          
+
                           if($inscrito_evidencia->puntosObtenidos == ""){
                             $puntosObtenidos = 0;
                           }else{
                             $puntosObtenidos = $inscrito_evidencia->puntosObtenidos;
                           }
                           $sumaEvidenciaObteCorte1 = $sumaEvidenciaObteCorte1 + $puntosObtenidos;
-          
+
                         }
-          
+
                         if($inscrito_evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial2 && $inscrito_evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial2){
                           $sumaEvidenciaObteCorte2 = $sumaEvidenciaObteCorte2 + $inscrito_evidencia->puntosObtenidos;
-          
+
                         }
-                        
+
                         if($inscrito_evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial3 && $inscrito_evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial3){
                           $sumaEvidenciaObteCorte3 = $sumaEvidenciaObteCorte3 + $inscrito_evidencia->puntosObtenidos;
-          
+
                         }
-          
+
                         $sumaEvidenciaObteCorteBueno = $sumaEvidenciaObteCorteBueno + $inscrito_evidencia->puntosObtenidos;
-          
-          
+
+
                       }
 
-                      $bachiller_evidencias =  DB::select("SELECT 
+                      $bachiller_evidencias =  DB::select("SELECT
                       bachiller_evidencias.id,
                       bachiller_evidencias.periodo_id,
                       bachiller_evidencias.bachiller_materia_id,
@@ -765,20 +768,20 @@
 
                       foreach($bachiller_evidencias as $evidencia){
                         if($evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial1 && $evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial1){
-          
+
                           $sumaEvidenciaMaxCorte1 = $sumaEvidenciaMaxCorte1 + $evidencia->puntosMaximos;
                         }
-          
+
                         if($evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial2 && $evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial2){
-          
+
                           $sumaEvidenciaMaxCorte2 = $sumaEvidenciaMaxCorte2 + $evidencia->puntosMaximos;
                         }
-                        
+
                         if($evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial3 && $evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial3){
-          
+
                           $sumaEvidenciaMaxCorte3 = $sumaEvidenciaMaxCorte3 + $evidencia->puntosMaximos;
                         }
-          
+
                         ##$sumaEvidenciaMaxCorteBueno = $sumaEvidenciaMaxCorte1 + $sumaEvidenciaMaxCorte2 + $sumaEvidenciaMaxCorte3;
                       }
 
@@ -797,35 +800,35 @@
                         <td align="center">
                           {{$sumaEvidenciaMaxCorte1}}
                         </td>
-            
+
                         <td align="center">
                           {{$sumaEvidenciaObteCorte2}}
                         </td>
-            
+
                         <td align="center">
                           {{$sumaEvidenciaMaxCorte2}}
                         </td>
-            
+
                         <td align="center">
                           {{$sumaEvidenciaObteCorte3}}
                         </td>
-            
+
                         <td align="center">
                           {{$sumaEvidenciaMaxCorte3}}
                         </td>
-            
-                        <td align="center">              
+
+                        <td align="center">
                           {{$sumaEvidenciaObteCorteBueno}}
                         </td>
                         <td align="center">
                           {{$sumarEvidenciasCapturadas[0]->evidenciasCapturadas}}
                         </td>
                       </tr>
-                  @endif                    
+                  @endif
                 @endforeach
                 @php
                   $pos = 1;
-                @endphp   
+                @endphp
                 @php
                 $sumaEvidenciaObteCorte1 = 0;
                 $sumaEvidenciaMaxCorte1 = 0;
@@ -838,10 +841,10 @@
 
                 $sumaEvidenciaObteCorteBueno = 0;
                 $sumaEvidenciaMaxCorteBueno = 0;
-                @endphp              
+                @endphp
               @endforeach
-                         
-              
+
+
             </tbody>
 
             {{--  materias acd   --}}
@@ -851,7 +854,7 @@
                   @if ($item_aluClave == $item10->clave_pago && $item_aluClave == $valorAgrupado->clave_pago)
                   @php
 
-                    $bachiller_inscritos_evidencias_acd =  DB::select("SELECT 
+                    $bachiller_inscritos_evidencias_acd =  DB::select("SELECT
                     bachiller_inscritos_evidencias.id,
                     bachiller_inscritos_evidencias.evidencia_id,
                     bachiller_inscritos_evidencias.bachiller_inscrito_id,
@@ -893,32 +896,32 @@
                     foreach($bachiller_inscritos_evidencias_acd as $inscrito_evidencia){
 
                       if($inscrito_evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial1 && $inscrito_evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial1){
-                        
+
                         if($inscrito_evidencia->puntosObtenidos == ""){
                           $puntosObtenidos = 0;
                         }else{
                           $puntosObtenidos = $inscrito_evidencia->puntosObtenidos;
                         }
                         $sumaEvidenciaObteCorte1ACD = $sumaEvidenciaObteCorte1ACD + $puntosObtenidos;
-        
+
                       }
-        
+
                       if($inscrito_evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial2 && $inscrito_evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial2){
                         $sumaEvidenciaObteCorte2ACD = $sumaEvidenciaObteCorte2ACD + $inscrito_evidencia->puntosObtenidos;
-        
+
                       }
-                      
+
                       if($inscrito_evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial3 && $inscrito_evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial3){
                         $sumaEvidenciaObteCorte3ACd = $sumaEvidenciaObteCorte3ACd + $inscrito_evidencia->puntosObtenidos;
-        
+
                       }
-      
+
                       $sumaEvidenciaObteCorteBuenoACD = $sumaEvidenciaObteCorteBuenoACD + $inscrito_evidencia->puntosObtenidos;
-        
-        
+
+
                     }
 
-                    $bachiller_evidencias_acd =  DB::select("SELECT 
+                    $bachiller_evidencias_acd =  DB::select("SELECT
                     bachiller_evidencias.id,
                     bachiller_evidencias.periodo_id,
                     bachiller_evidencias.bachiller_materia_id,
@@ -941,20 +944,20 @@
 
                     foreach($bachiller_evidencias_acd as $evidencia){
                       if($evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial1 && $evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial1){
-        
+
                         $sumaEvidenciaMaxCorte1ACD = $sumaEvidenciaMaxCorte1ACD + $evidencia->puntosMaximos;
                       }
-        
+
                       if($evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial2 && $evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial2){
-        
+
                         $sumaEvidenciaMaxCorte2ACD = $sumaEvidenciaMaxCorte2ACD + $evidencia->puntosMaximos;
                       }
-                      
+
                       if($evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial3 && $evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial3){
-        
+
                         $sumaEvidenciaMaxCorte3ACD = $sumaEvidenciaMaxCorte3ACD + $evidencia->puntosMaximos;
                       }
-        
+
                       $sumaEvidenciaMaxCorteBuenoACD = $sumaEvidenciaMaxCorte1ACD + $sumaEvidenciaMaxCorte2ACD + $sumaEvidenciaMaxCorte3ACD;
                     }
 
@@ -974,24 +977,24 @@
                     <td align="center">
                       {{$sumaEvidenciaMaxCorte1ACD}}
                     </td>
-        
+
                     <td align="center">
                       {{$sumaEvidenciaObteCorte2ACD}}
                     </td>
-        
+
                     <td align="center">
                       {{$sumaEvidenciaMaxCorte2ACD}}
                     </td>
-        
+
                     <td align="center">
                       {{$sumaEvidenciaObteCorte3ACd}}
                     </td>
-        
+
                     <td align="center">
                       {{$sumaEvidenciaMaxCorte3ACD}}
                     </td>
-        
-                    <td align="center">              
+
+                    <td align="center">
                       {{$sumaEvidenciaObteCorteBuenoACD}}
                     </td>
                     <td align="center">
@@ -1002,20 +1005,20 @@
                   @php
                   $sumaEvidenciaObteCorte1ACD = 0;
                   $sumaEvidenciaMaxCorte1ACD = 0;
-  
+
                   $sumaEvidenciaObteCorte2ACD = 0;
                   $sumaEvidenciaMaxCorte2ACD = 0;
-  
+
                   $sumaEvidenciaObteCorte3ACd = 0;
                   $sumaEvidenciaMaxCorte3ACD = 0;
-  
+
                   $sumaEvidenciaObteCorteBuenoACD = 0;
                   $sumaEvidenciaMaxCorteBuenoACD = 0;
                   @endphp
-                  @endif 
-                @endforeach                               
-              @endforeach             
-              
+                  @endif
+                @endforeach
+              @endforeach
+
             </tbody>
           </table>
 
@@ -1036,7 +1039,7 @@
                 <th align="center">Opor2</th>
                 <th align="center">Opor3</th>
                 <th align="center">Ult. Examen</th>
-              </tr>          
+              </tr>
             </thead>
             <tbody>
               @php
@@ -1122,7 +1125,7 @@
                 <td align="center" style="border-top: 1px solid; border-right: 0px solid; border-bottom: 0px solid; border-left: 1px solid;"></td>
                 <td align="center" style="border-top: 1px solid; border-right: 0px solid; border-bottom: 0px solid; border-left: 1px solid;"></td>
               </tr>
-              @endforelse          
+              @endforelse
             </tbody>
           </table>
         </div>
@@ -1143,9 +1146,9 @@
     @endif
   @endforeach
 
-  
 
-  
+
+
 
 
 

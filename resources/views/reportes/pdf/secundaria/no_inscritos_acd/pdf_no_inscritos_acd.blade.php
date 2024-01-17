@@ -358,8 +358,8 @@
       width: 100%;
       display: block;
       position: relative;
-      margin-left: -30px;
-      margin-right: -30px;
+      /* margin-left: -30px; */
+      /* margin-right: -30px; */
     }
 
     .row::after {
@@ -494,6 +494,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -30px;
       right: 0px;
@@ -523,6 +524,8 @@
     }
 
     @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
       margin-top: 70px;
       margin-bottom: 70px;
     }

@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -120px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top:273px;
         margin-bottom: 70px;
         margin-left: 94.488188976px;
@@ -666,7 +669,7 @@
           @else
           L.E.S. Yendy Noemí Vidal Martínez
           @endif
-         
+
         </p>
         <br>
         <p>Observaciones: Para cualquier aclaración, dirigirse al director correspondiente</p>

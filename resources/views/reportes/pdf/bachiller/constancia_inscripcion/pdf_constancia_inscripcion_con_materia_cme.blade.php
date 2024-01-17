@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 150px;
         margin-bottom: 150px;
         margin-left: 150px;
@@ -484,7 +487,7 @@
         $periodo = $curso->periodo;
         $departamento = $periodo->departamento;
       @endphp
-   
+
 
       <div class="row">
         <div class="columns medium-12">
@@ -502,7 +505,7 @@
             La que suscribe, Lic. en Psic. María Inés Sauri Quintal,
             Secretaria Administrativa de la {{$departamento->depNombreOficial}}
             incorporada a la Universidad Autónoma de Yucatán, hago
-            constar que:           
+            constar que:
           </p>
           <p style="font-size: 14px; margin-bottom: 35px; text-align: justify;">
             {{$persona->perSexo == "M" ? "El": ""}}
@@ -522,17 +525,17 @@
             @else
               @if (ceil($curso->cgt->cgtGradoSemestre) == 1 || ceil($curso->cgt->cgtGradoSemestre) == 2)
                 {{$curso->cgt->cgtGradoSemestre == 1 ? "PRIMER": ""}}
-                {{$curso->cgt->cgtGradoSemestre == 3 ? "PRIMER": ""}}             
+                {{$curso->cgt->cgtGradoSemestre == 3 ? "PRIMER": ""}}
               @endif
 
               @if (ceil($curso->cgt->cgtGradoSemestre) == 3 || ceil($curso->cgt->cgtGradoSemestre) == 4)
                 {{$curso->cgt->cgtGradoSemestre == 3 ? "SEGUNDO": ""}}
-                {{$curso->cgt->cgtGradoSemestre == 4 ? "SEGUNDO": ""}}             
+                {{$curso->cgt->cgtGradoSemestre == 4 ? "SEGUNDO": ""}}
               @endif
 
               @if (ceil($curso->cgt->cgtGradoSemestre) == 5 || ceil($curso->cgt->cgtGradoSemestre) == 6)
                 {{$curso->cgt->cgtGradoSemestre == 5 ? "TERCER": ""}}
-                {{$curso->cgt->cgtGradoSemestre == 6 ? "TERCER": ""}}             
+                {{$curso->cgt->cgtGradoSemestre == 6 ? "TERCER": ""}}
               @endif
             @endif
 
@@ -541,7 +544,7 @@
             @endif
             @if ($leyenda == "GRADO")
                 grado
-            @endif 
+            @endif
             de la enseñanza preparatoria
             de esta escuela correspondiente al período escolar
             {{\Carbon\Carbon::parse($periodo->perFechaInicial)->day}} de
@@ -555,8 +558,8 @@
           </p>
 
           <div style="margin-bottom: 35px;">
-            @foreach ($materias as $materia)          
-              
+            @foreach ($materias as $materia)
+
               <p style="font-size: 14px;  text-align: justify;">{{$materia->matNombre}}</p>
             @endforeach
           </div>
@@ -587,7 +590,7 @@
 
       </div>
 
-      
+
 
     <footer id="footer">
     </footer>

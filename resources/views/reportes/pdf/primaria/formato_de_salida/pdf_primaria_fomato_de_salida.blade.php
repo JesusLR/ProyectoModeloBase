@@ -358,8 +358,8 @@
       width: 100%;
       display: block;
       position: relative;
-      margin-left: -30px;
-      margin-right: -30px;
+      /* margin-left: -30px; */
+      /* margin-right: -30px; */
     }
 
     .row::after {
@@ -494,6 +494,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -10px;
       right: 0px;
@@ -523,6 +524,8 @@
     }
 
     @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
       margin-top: 30px;
       margin-bottom: 30px;
     }
@@ -671,9 +674,9 @@
     <div class="columns medium-12">
       <p style="text-indent: 50px; line-height : 35px;">
         Por este medio, el o la  que suscribe   _____________________________________________________________________
-         padre o tutor responsable del alumno (a):________________________________________________________________________ de _________________________ grado, 
-        otorgo el presente consentimiento a la Dirección de la Escuela  Primaria Modelo,  para que en caso de accidente en las instalaciones del plantel, 
-        mi hijo (a) sea trasladado al hospital más cercano para su atención inmediata. 
+         padre o tutor responsable del alumno (a):________________________________________________________________________ de _________________________ grado,
+        otorgo el presente consentimiento a la Dirección de la Escuela  Primaria Modelo,  para que en caso de accidente en las instalaciones del plantel,
+        mi hijo (a) sea trasladado al hospital más cercano para su atención inmediata.
       </p>
     </div>
   </div>
@@ -695,7 +698,7 @@
   <br>
   <br>
   <br>
- 
+
 
   <div class="row">
     <div class="columns medium-12">
@@ -703,7 +706,7 @@
     </div>
   </div>
   <br>
-  <br> 
+  <br>
   <br>
   <div class="row">
     <div class="columns medium-12">

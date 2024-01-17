@@ -294,8 +294,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -369,7 +369,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -393,15 +393,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -420,6 +421,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 30px;
         margin-bottom: 30px;
       }
@@ -485,9 +488,9 @@
       }
     </style>
 	</head>
-  
+
   <header>
-   
+
   </header>
     <body>
       {{-- Controlador: ConstanciaDocenteController --}}
@@ -499,7 +502,7 @@
           <br>
           <br>
           <p style="text-align: center">No: {{$minutario->id}}</p>
-          
+
           <br>
           <br>
           <p class="tright"><b>ASUNTO: CARTA DE CONDUCTA</b></p>
@@ -513,7 +516,7 @@
           <br>
           <p>A QUIEN CORRESPONDA:</p>
           <br>
-         
+
           {{-- valida si proviene de mérida --}}
           @if ($parametro_clave_ubicacion == "CME")
           {{--  text-indent: 3em;   --}}
@@ -523,7 +526,7 @@
             que:
           </p>
           @endif
-          
+
           {{-- valida si proviene de Valladolid --}}
           @if ($parametro_clave_ubicacion == "CVA")
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">La que suscribe, Mtra. Lol –Há Canché Gómez, Directora académica de la
@@ -559,9 +562,9 @@
           @endif
         </div>
       </div>
-      
-      <br><br><br><br><br><br><br><br><br>     
-    
+
+      <br><br><br><br><br><br><br><br><br>
+
 
       <div class="row">
         <div class="columns medium-12">
@@ -573,8 +576,8 @@
             <p class="tcenter"><b>Lic. en Psic. María Inés Sauri Quintal</b></p>
             <p class="tcenter"><b>Secretaria Administrativa</b></p>
           @endif
-          
-          
+
+
           @if ($parametro_clave_ubicacion == "CVA")
             <p class="tcenter"><b>Mtra. Lol-Há Canché Gómez</b></p>
             <p class="tcenter"><b>DIRECTORA ACADEMICA</b></p>

@@ -359,8 +359,8 @@
       width: 100%;
       display: block;
       position: relative;
-      margin-left: -30px;
-      margin-right: -30px;
+      /* /* margin-left: -30px; */
+      /* margin-right: -30px; */
     }
 
     .row::after {
@@ -498,6 +498,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -50px;
       right: 0px;
@@ -540,6 +541,8 @@
     }
 
     @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
       margin-top: 80px;
       margin-bottom: 40px;
     }
@@ -605,7 +608,7 @@
   @php
   use App\Http\Helpers\Utils;
       $posi1 = 1;
-      
+
   @endphp
 
   <header>
@@ -613,9 +616,9 @@
       <div class="columns medium-12">
 
         {{--  <img class="img-header" src="{{base_path('resources/assets/img/logo.jpg')}}" alt="">  --}}
-        <h1 style="margin-top:0px; margin-bottom: 0px;">Preparatoria "ESCUELA MODELO"</h1>       
+        <h1 style="margin-top:0px; margin-bottom: 0px;">Preparatoria "ESCUELA MODELO"</h1>
         <h3 style="margin-top:0px; margin-bottom: 0px;">OBSERVACIONES CUALITATIVAS</h3>
-        
+
       </div>
     </div>
   </header>
@@ -625,27 +628,27 @@
 
   @foreach ($alumno as $aluClave => $valoresAlu)
     @foreach ($valoresAlu as $item)
-        @if ($aluClave == $item->aluClave && $posi1++ == 1)          
+        @if ($aluClave == $item->aluClave && $posi1++ == 1)
           <div class="row">
             <div class="columns medium-8">
               <p>Período: {{$cicloEscolar}}</p>
               <p>Ubicación: {{$item->ubiClave .' '.$item->ubiNombre}}</p>
               <p>Nivel: {{$item->depClave}} ({{$item->planClave}}) {{$item->progNombre}}</p>
-              <p>Alumno: {{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}}</p>     
-              <p>Grupo: {{$item->semestre.' '.$item->grupo}} 
+              <p>Alumno: {{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}}</p>
+              <p>Grupo: {{$item->semestre.' '.$item->grupo}}
                 @if($item->curEstado == "P") (Pre) @endif
                 @if($item->curEstado == "C" || $item->curEstado == "A") (Con) @endif
-              </p>       
-              
+              </p>
+
             </div>
             {{--  <div class="columns medium-2">
-         
-              
+
+
             </div>  --}}
             <div class="columns medium-4" style="text-align: right">
               <p>Fecha: {{$fechaActual}}</p>
               <p>Hora: {{$hora}}</p>
-             
+
             </div>
           </div>
 
@@ -654,7 +657,7 @@
             <div class="columns medium-12">
               <table class="table table-bordered">
                 <thead>
-                  <tr>                    
+                  <tr>
                     <th align="center">Materia</th>
                     <th align="center"># ADA</th>
                     <th align="center">Fecha de captura</th>
@@ -677,10 +680,10 @@
                             <b>POSITIVO:</b> {{$item->cuaDescripcion1}}
                             @else
                               <b>NEGATIVO:</b> {{$item->cuaDescripcion1}}
-                            @endif 
+                            @endif
                           @else
-                              
-                          @endif                                                   
+
+                          @endif
                         </td>
                         <td>
                           @if ($item->ievClaveCualitativa2 != "")
@@ -688,10 +691,10 @@
                             <b>POSITIVO:</b> {{$item->cuaDescripcion2}}
                             @else
                               <b>NEGATIVO:</b> {{$item->cuaDescripcion2}}
-                            @endif 
+                            @endif
                           @else
-                              
-                          @endif                                                   
+
+                          @endif
                         </td>
 
                         <td>
@@ -700,29 +703,29 @@
                             <b>POSITIVO:</b> {{$item->cuaDescripcion3}}
                             @else
                               <b>NEGATIVO:</b> {{$item->cuaDescripcion3}}
-                            @endif 
+                            @endif
                           @else
-                              
-                          @endif                                                   
+
+                          @endif
                         </td>
                       </tr>
-                      @endif                        
-                    @endif                      
-                  @endforeach                  
+                      @endif
+                    @endif
+                  @endforeach
                 </tbody>
-              </table>              
+              </table>
             </div>
           </div>
 
 
         @endif
-    @endforeach  
+    @endforeach
     @php
         $posi1 = 1;
         $NombreAlumno = "";
         $fechaBoleta = "";
         $gradoGrupo = "";
-    @endphp    
+    @endphp
     @if (!$loop->last)
       <div class="page_break"></div>
     @endif

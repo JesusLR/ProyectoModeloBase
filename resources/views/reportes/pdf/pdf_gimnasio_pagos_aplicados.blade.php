@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -418,6 +419,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 30px;
         margin-bottom: 30px;
       }
@@ -480,7 +483,7 @@
       }
     </style>
 	</head>
-  
+
   <header>
     <div class="row">
       <div class="columns medium-6">
@@ -505,7 +508,7 @@
     {{-- Controlador: GimnasioPagosAplicadosController --}}
     <div class="row">
         <div class="columns medium-12">
-         <table class="table"> 
+         <table class="table">
             <thead>
               <tr>
                 <th align="center" style="width:15px;">Num</th>
@@ -540,5 +543,5 @@
         <span class="page-number"></span>
       </div>
     </footer>
-    
+
 </html>

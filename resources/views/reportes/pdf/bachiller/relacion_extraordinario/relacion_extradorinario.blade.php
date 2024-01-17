@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 20px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 20px;
         margin-bottom: 70px;
       }
@@ -485,6 +488,11 @@
     </style>
 	</head>
   <body>
+    @php
+        set_time_limit(0);
+        ini_set('max_execution_time', 600);
+        ini_set('memory_limit', '1024M');
+    @endphp
     <header>
         <div class="row">
           <div class="columns medium-6">
@@ -512,16 +520,16 @@
         <div class="row">
           <div class="columns medium-6">
             <p>Período: {{$perFechaInicial}}-{{$perFechaFinal}}</p>
-          </div>          
+          </div>
         </div>
 
         <div class="row">
           <div class="columns medium-6">
             <p>@if($cualesIncluir == "D") Solo deudores a extraordinarios @endif @if($curEstado == "NO") (No incluye bajas) @endif @if($numeroExtraordinarios == "T") (Todos los extraordinarios) @endif</p>
-          </div>          
+          </div>
         </div>
       </header>
-    
+
       <footer id="footer">
         <div class="page-number"></div>
       </footer>
@@ -684,12 +692,12 @@
                     @endforeach
                 @php
                 $pos1 = 1;
-                @endphp            
+                @endphp
               @endforeach
             </tbody>
           </table>
         </div>
       </div>
-       
+
   </body>
 </html>

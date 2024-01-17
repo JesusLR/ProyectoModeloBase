@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 15px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 20px;
         margin-bottom: 70px;
       }
@@ -484,8 +487,8 @@
         content: "Pág " counter(page);
       }
 
-      .punteado{       
-            
+      .punteado{
+
         border-top: 1px dotted;
         border-bottom: 1px dotted;
         border-right: 1px dotted;
@@ -501,7 +504,7 @@
     <header>
         <div class="row">
           <div class="columns medium-4">
-            
+
               <h3 style="margin-top:0px; margin-bottom: 10px;">ESCUELA PRIM. PART. INC. MODELO</h3>
               <h3 style="margin-top:0px; margin-bottom: 10px;">LISTA DE FALTAS POR GRUPO-MATERIA</h3>
               <p><b>Perído: </b> {{ $parametro_periodo }}</p>
@@ -512,11 +515,11 @@
 
               @if ($primaria_inscritos[0]->matClaveAsignatura != "")
               <p><b>Asignatura: </b> {{$parametro_asignatura}}</p>
-              @endif  
+              @endif
               <br>
 
               <p><b>Búsqueda: </b>{{$parametro_rango_busqueda}}</p>  --}}
-            
+
           </div>
           <div class="columns medium-4">
           </div>
@@ -536,24 +539,24 @@
       @foreach ($agrupados as $grupos => $valores)
         @foreach ($valores as $value)
           @if ($grupos == $value->primaria_grupo_id && $posicion++ == 1)
-         
+
             <div class="row">
               <div class="columns medium-8">
-      
-              
-      
+
+
+
                   <p><b>Materia: </b> {{$value->matClave.'-'.$value->matNombre}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Grado : {{$value->gpoGrado}}° Grupo: {{$value->gpoClave}}</p>
-      
+
                   @if ($value->matClaveAsignatura != "")
                   <p><b>Asignatura: </b> {{$value->matClaveAsignatura.'-'.$value->matNombreAsignatura}}</p>
-                  @endif  
+                  @endif
                   <p><b>Docente: </b>{{$value->empApellido1.' '.$value->empApellido2.' '.$value->empNombre}}</p>
                   <br>
-      
+
                   <p><b>Consulta: </b>{{$parametro_rango_busqueda}}</p>
-                
-              </div>             
-      
+
+              </div>
+
             </div>
 
             <br>
@@ -566,14 +569,14 @@
                       <th class="punteado" align="center" style="font-weight: 400; width: 20px; padding-top: 7px;"><b>Núm</b></th>
                       <th class="punteado" align="center" style="font-weight: 400; width: 50; padding-top: 7px;"><b>Clave Pago</b></th>
                       <th class="punteado" style="font-weight: 400;width: 265px; padding-top: 7px;"><b>Nombre del Alumno</b></th>
-                      <th class="punteado" align="center" style="font-weight: 400;width: 60px; padding-top: 7px;"><b>Total Faltas</b></th>             
-        
+                      <th class="punteado" align="center" style="font-weight: 400;width: 60px; padding-top: 7px;"><b>Total Faltas</b></th>
+
                     </tr>
                   </thead>
-                  <tbody>         
-                    
+                  <tbody>
+
                     @php
-                    $primaria_inscritos = DB::select("SELECT 
+                    $primaria_inscritos = DB::select("SELECT
                     pi.id,
                     pg.id AS primaria_grupo_id,
                     pg.gpoGrado,
@@ -598,7 +601,7 @@
                     pm.matClave,
                     pm.matNombre,
                     pma.matClaveAsignatura,
-                    pma.matNombreAsignatura 
+                    pma.matNombreAsignatura
                     FROM primaria_inscritos AS pi
                     INNER JOIN primaria_grupos AS pg ON pg.id = pi.primaria_grupo_id
                     AND pg.deleted_at IS NULL
@@ -637,7 +640,7 @@
                       <td class="punteado">{{$primaria_inscrito->perApellido1.' '.$primaria_inscrito->perApellido2.' '.$primaria_inscrito->perNombre}}</td>
 
                       @php
-                          $cuenta_faltas = DB::select("SELECT 
+                          $cuenta_faltas = DB::select("SELECT
                           COUNT(pa.estado) AS total_faltas
                           FROM primaria_asistencia AS pa
                           INNER JOIN primaria_inscritos pi ON pi.id = pa.asistencia_inscrito_id
@@ -661,39 +664,39 @@
                         @if ($cuenta_faltas[0]->total_faltas != 0)
                           {{$cuenta_faltas[0]->total_faltas}}
                         @else
-                            
+
                         @endif
-                        
+
                       </td>
 
                     </tr>
-                    @endforeach                    
+                    @endforeach
                   </tbody>
                 </table>
               </div>
             </div>
-            
-          @endif        
 
-          
-          
-         
-        @endforeach  
+          @endif
+
+
+
+
+        @endforeach
         @php
           $posicion = 1;
           $posicion2 = 1;
-        @endphp     
+        @endphp
         @if ($loop->first)
         <footer id="footer">
           <div class="page-number"></div>
-        </footer>        
-        @endif       
+        </footer>
+        @endif
         @if (!$loop->last)
           <div class="page_break"></div>
         @endif
       @endforeach
-     
 
-      
+
+
   </body>
 </html>

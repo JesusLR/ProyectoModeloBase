@@ -16,7 +16,7 @@ use PDF;
 
 class BachillerBoletaFinalController extends Controller
 {
-    
+
 
     public function __construct()
     {
@@ -37,6 +37,9 @@ class BachillerBoletaFinalController extends Controller
 
     public function imprimir(Request $request)
     {
+        set_time_limit(0);
+        ini_set('max_execution_time', 600);
+        ini_set('memory_limit', '1024M');
 
         $periodo = Periodo::find($request->periodo_id);
 
@@ -61,7 +64,7 @@ class BachillerBoletaFinalController extends Controller
                 'bachiller_inscritos.insPuntosMaximosCorte2',
                 'bachiller_inscritos.insPuntosMaximosCorte3',
                 'bachiller_inscritos.insPuntosObtenidosAcumulados',
-                'bachiller_inscritos.insPuntosMaximosAcumulados',                
+                'bachiller_inscritos.insPuntosMaximosAcumulados',
                 'alumnos.id AS alumno_id',
                 'alumnos.aluClave',
                 'personas.perApellido1',
@@ -199,8 +202,8 @@ class BachillerBoletaFinalController extends Controller
                 'bachiller_inscritos.insPuntosMaximosCorte2',
                 'bachiller_inscritos.insPuntosMaximosCorte3',
                 'bachiller_inscritos.insPuntosObtenidosAcumulados',
-                'bachiller_inscritos.insPuntosMaximosAcumulados',      
-                'bachiller_inscritos.insCalificacionOrdinario',          
+                'bachiller_inscritos.insPuntosMaximosAcumulados',
+                'bachiller_inscritos.insCalificacionOrdinario',
                 'alumnos.id AS alumno_id',
                 'alumnos.aluClave',
                 'personas.perApellido1',

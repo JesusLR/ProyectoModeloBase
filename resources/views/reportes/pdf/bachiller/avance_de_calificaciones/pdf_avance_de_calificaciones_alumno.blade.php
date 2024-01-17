@@ -359,8 +359,8 @@
             width: 100%;
             display: block;
             position: relative;
-            margin-left: -30px;
-            margin-right: -30px;
+            /* margin-left: -30px; */
+            /* margin-right: -30px; */
         }
 
         .row::after {
@@ -499,6 +499,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: -50px;
             right: 0px;
@@ -541,6 +542,8 @@
         }
 
         @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
             margin-top: 80px;
             margin-bottom: 40px;
         }
@@ -710,35 +713,35 @@
                   AND bachiller_evidencias.deleted_at IS NULL
                   AND bachiller_inscritos_evidencias.deleted_at IS NULL
                   AND bachiller_materias.deleted_at IS NULL");
-                                    
+
                                     $sumaEvidenciaObteCorte1 = 0;
                                     $sumaEvidenciaMaxCorte1 = 0;
-                                    
+
                                     $sumaEvidenciaObteCorte2 = 0;
                                     $sumaEvidenciaMaxCorte2 = 0;
-                                    
+
                                     $sumaEvidenciaObteCorte3 = 0;
                                     $sumaEvidenciaMaxCorte3 = 0;
-                                    
+
                                     $sumaEvidenciaObteCorteBueno = 0;
                                     $sumaEvidenciaMaxCorteBueno = 0;
-                                    
+
                                     foreach ($bachiller_inscritos_evidencias as $inscrito_evidencia) {
                                         if ($inscrito_evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial1 && $inscrito_evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial1) {
                                             $sumaEvidenciaObteCorte1 = $sumaEvidenciaObteCorte1 + $inscrito_evidencia->puntosObtenidos;
                                         }
-                                    
+
                                         if ($inscrito_evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial2 && $inscrito_evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial2) {
                                             $sumaEvidenciaObteCorte2 = $sumaEvidenciaObteCorte2 + $inscrito_evidencia->puntosObtenidos;
                                         }
-                                    
+
                                         if ($inscrito_evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial3 && $inscrito_evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial3) {
                                             $sumaEvidenciaObteCorte3 = $sumaEvidenciaObteCorte3 + $inscrito_evidencia->puntosObtenidos;
                                         }
-                                    
+
                                         $sumaEvidenciaObteCorteBueno = $sumaEvidenciaObteCorteBueno + $inscrito_evidencia->puntosObtenidos;
                                     }
-                                    
+
                                     $bachiller_evidencias = DB::select("SELECT
                   bachiller_evidencias.id,
                   bachiller_evidencias.periodo_id,
@@ -758,28 +761,28 @@
                   AND bachiller_evidencias.bachiller_materia_id = $item->bachiller_materia_id
                   AND bachiller_evidencias.deleted_at IS NULL
                   AND bachiller_materias.deleted_at IS NULL");
-                                    
+
                                     foreach ($bachiller_evidencias as $evidencia) {
                                         if ($evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial1 && $evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial1) {
                                             $sumaEvidenciaMaxCorte1 = $sumaEvidenciaMaxCorte1 + $evidencia->puntosMaximos;
                                         }
-                                    
+
                                         if ($evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial2 && $evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial2) {
                                             $sumaEvidenciaMaxCorte2 = $sumaEvidenciaMaxCorte2 + $evidencia->puntosMaximos;
                                         }
-                                    
+
                                         if ($evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial3 && $evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial3) {
                                             $sumaEvidenciaMaxCorte3 = $sumaEvidenciaMaxCorte3 + $evidencia->puntosMaximos;
                                         }
-                                    
+
                                         #$sumaEvidenciaMaxCorteBueno = $sumaEvidenciaMaxCorte1 + $sumaEvidenciaMaxCorte2 + $sumaEvidenciaMaxCorte3;
                                     }
-                                    
+
                                     $sumarEvidenciasCapturadas = DB::select("SELECT SUM(be.eviPuntos) AS evidenciasCapturadas FROM bachiller_evidencias_capturadas AS bec
                   INNER JOIN bachiller_evidencias be ON be.id = bec.evidencia_id
                   INNER JOIN bachiller_materias bm on bm.id = be.bachiller_materia_id
                   WHERE bec.bachiller_grupo_id = $item->bachiller_grupo_id");
-                                    
+
                                 @endphp
                                 <tr>
                                     <td
@@ -829,10 +832,10 @@
                     @php
                         $sumaEvidenciaObteCorte1 = 0;
                         $sumaEvidenciaMaxCorte1 = 0;
-                        
+
                         $sumaEvidenciaObteCorte2 = 0;
                         $sumaEvidenciaMaxCorte2 = 0;
-                        
+
                         $sumaEvidenciaObteCorte3 = 0;
                         $sumaEvidenciaMaxCorte3 = 0;
                     @endphp
@@ -866,35 +869,35 @@
             AND bachiller_evidencias.deleted_at IS NULL
             AND bachiller_inscritos_evidencias.deleted_at IS NULL
             AND bachiller_materias.deleted_at IS NULL");
-                            
+
                             $sumaEvidenciaObteCorte1Acd = 0;
                             $sumaEvidenciaMaxCorte1Acd = 0;
-                            
+
                             $sumaEvidenciaObteCorte2Acd = 0;
                             $sumaEvidenciaMaxCorte2Acd = 0;
-                            
+
                             $sumaEvidenciaObteCorte3Acd = 0;
                             $sumaEvidenciaMaxCorte3 = 0;
-                            
+
                             $sumaEvidenciaObteCorteBueno = 0;
                             $sumaEvidenciaMaxCorteBuenoAcd = 0;
-                            
+
                             foreach ($bachiller_inscritos_evidencias_acd as $inscrito_evidencia) {
                                 if ($inscrito_evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial1 && $inscrito_evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial1) {
                                     $sumaEvidenciaObteCorte1Acd = $sumaEvidenciaObteCorte1Acd + $inscrito_evidencia->puntosObtenidos;
                                 }
-                            
+
                                 if ($inscrito_evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial2 && $inscrito_evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial2) {
                                     $sumaEvidenciaObteCorte2Acd = $sumaEvidenciaObteCorte2Acd + $inscrito_evidencia->puntosObtenidos;
                                 }
-                            
+
                                 if ($inscrito_evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial3 && $inscrito_evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial3) {
                                     $sumaEvidenciaObteCorte3Acd = $sumaEvidenciaObteCorte3Acd + $inscrito_evidencia->puntosObtenidos;
                                 }
-                            
+
                                 $sumaEvidenciaObteCorteBueno = $sumaEvidenciaObteCorteBueno + $inscrito_evidencia->puntosObtenidos;
                             }
-                            
+
                             $bachiller_evidencias_acd = DB::select("SELECT
             bachiller_evidencias.id,
             bachiller_evidencias.periodo_id,
@@ -915,28 +918,28 @@
             AND bachiller_evidencias.bachiller_materia_acd_id = $alum_acd->bachiller_materia_acd_id
             AND bachiller_evidencias.deleted_at IS NULL
             AND bachiller_materias.deleted_at IS NULL");
-                            
+
                             foreach ($bachiller_evidencias_acd as $evidencia) {
                                 if ($evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial1 && $evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial1) {
                                     $sumaEvidenciaMaxCorte1Acd = $sumaEvidenciaMaxCorte1Acd + $evidencia->puntosMaximos;
                                 }
-                            
+
                                 if ($evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial2 && $evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial2) {
                                     $sumaEvidenciaMaxCorte2Acd = $sumaEvidenciaMaxCorte2Acd + $evidencia->puntosMaximos;
                                 }
-                            
+
                                 if ($evidencia->eviFechaEntrega >= $bachiller_calendario_examenes->calexInicioParcial3 && $evidencia->eviFechaEntrega <= $bachiller_calendario_examenes->calexFinParcial3) {
                                     $sumaEvidenciaMaxCorte3 = $sumaEvidenciaMaxCorte3 + $evidencia->puntosMaximos;
                                 }
-                            
+
                                 $sumaEvidenciaMaxCorteBuenoAcd = $sumaEvidenciaMaxCorte1Acd + $sumaEvidenciaMaxCorte2Acd + $sumaEvidenciaMaxCorte3;
                             }
-                            
+
                             $sumarEvidenciasCapturadasACD = DB::select("SELECT SUM(be.eviPuntos) AS evidenciasCapturadas FROM bachiller_evidencias_capturadas AS bec
             INNER JOIN bachiller_evidencias be ON be.id = bec.evidencia_id
             INNER JOIN bachiller_materias bm on bm.id = be.bachiller_materia_id
             WHERE bec.bachiller_grupo_id = $item->bachiller_grupo_id");
-                            
+
                         @endphp
 
                         <tr>
@@ -982,10 +985,10 @@
                     @php
                         $sumaEvidenciaObteCorte1Acd = 0;
                         $sumaEvidenciaMaxCorte1Acd = 0;
-                        
+
                         $sumaEvidenciaObteCorte2Acd = 0;
                         $sumaEvidenciaMaxCorte2Acd = 0;
-                        
+
                         $sumaEvidenciaObteCorte3Acd = 0;
                         $sumaEvidenciaMaxCorte3Acd = 0;
                     @endphp

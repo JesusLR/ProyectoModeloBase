@@ -360,8 +360,8 @@
       width: 100%;
       display: block;
       position: relative;
-      margin-left: -30px;
-      margin-right: -30px;
+      /* margin-left: -30px; */
+      /* margin-right: -30px; */
     }
 
     .row::after {
@@ -496,6 +496,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -10px;
       right: 0px;
@@ -525,6 +526,8 @@
     }
 
     @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
       margin-top: 30px;
       margin-bottom: 30px;
     }
@@ -612,7 +615,7 @@
 @foreach ($inscrito as $item)
 
   @php
-    $resultado_array =  DB::select("call procPrimariaObtieneGrupoCurso(" . $item->id . ")");       
+    $resultado_array =  DB::select("call procPrimariaObtieneGrupoCurso(" . $item->id . ")");
 
     $resultado_grupo = collect($resultado_array);
 
@@ -621,11 +624,11 @@
     }else{
       $parametro_grupo = "";
     }
-            
+
   @endphp
 
   <body>
-    
+
     <div class="row">
       <div class="columns medium-12">
         <p class="tright">{{$fechaHoy}}</p>
@@ -634,9 +637,9 @@
 
         {{--  incluir foto   --}}
         @if ($incluyeFoto == "SI")
-          @if ($item->curPrimariaFoto != "")          
+          @if ($item->curPrimariaFoto != "")
             @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus .'/'. $item->curPrimariaFoto)))
-      
+
               <p><img class="fotoAlumno" style="float: left; margin-top: 165px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus. '/' . $item->curPrimariaFoto) }}"></p>
             @endif
           @endif
@@ -649,15 +652,15 @@
         <br>
 
         <p>{{ strtoupper("To whom it may concern:") }}</p>
-        
+
         <br>
         <br>
 
         <br>
         <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-          The undersigned,  
+          The undersigned,
           @if ($parametro_ubicacion == "CME")
-          MAOE. María Trinidad Díaz Cervera 
+          MAOE. María Trinidad Díaz Cervera
           @endif
           @if ($parametro_ubicacion == "CVA")
           Mtra. Arely Martinez Díaz
@@ -668,7 +671,7 @@
         <br>
         <br>
         <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-          That the student <b>{{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}} with registration number {{ $item->aluClave }}</b>, whose photograph appears in the margin, 
+          That the student <b>{{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}} with registration number {{ $item->aluClave }}</b>, whose photograph appears in the margin,
           is a regular student of this school, enrolled in the {{ $grado }} GROUP "{{ $item->cgtGrupo }}", of the {{ $periodo }} school year
         </p>
 
@@ -683,7 +686,7 @@
     </div>
 
     <br><br><br><br><br>
-    
+
 
     <div class="row">
       <div class="columns medium-12">
@@ -695,7 +698,7 @@
         @else
         <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ.</b></p>
         @endif
-        
+
         <p class="tcenter"><b>PRINCIPAL</b></p>
 
       </div>

@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,11 +367,11 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
-  
+
       .estilos-tabla tr th {
         font-size: 12px;
         background-color: #000;
@@ -382,7 +382,7 @@
         box-sizing: border-box;
         text-align: center;
       }
-  
+
       .estilos-tabla tr td {
         font-size: 12px;
         padding-left: 2px;
@@ -390,19 +390,20 @@
         box-sizing: border-box;
         color: #000;
       }
-  
+
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -40px;
         right: 0px;
@@ -412,7 +413,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -422,6 +423,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 70px;
         margin-bottom: 70px;
       }
@@ -478,7 +481,7 @@
 	</head>
   <body>
 
-   
+
     <header>
       <div class="row">
         <div class="columns medium-6">
@@ -493,7 +496,7 @@
         </div>
       </div>
 
-      
+
       <div class="row" style="margin-bottom: 2px">
         <div class="columns medium-12">
             <p>Ubicación : {{$ubicacion}}</p>
@@ -504,7 +507,7 @@
           <p>
               Período: {{ \Carbon\Carbon::parse($inicioPeriodo)->day.'/'.\Carbon\Carbon::parse($inicioPeriodo)->formatLocalized('%b').'/'.\Carbon\Carbon::parse($inicioPeriodo)->year }}
               -
-              {{ \Carbon\Carbon::parse($finalPeriodo)->day.'/'.\Carbon\Carbon::parse($finalPeriodo)->formatLocalized('%b').'/'.\Carbon\Carbon::parse($finalPeriodo)->year }}           
+              {{ \Carbon\Carbon::parse($finalPeriodo)->day.'/'.\Carbon\Carbon::parse($finalPeriodo)->formatLocalized('%b').'/'.\Carbon\Carbon::parse($finalPeriodo)->year }}
           </p>
         </div>
       </div>
@@ -515,13 +518,13 @@
         </div>
       </div>
 
-      <div class="row" style="margin-bottom: 2px">        
+      <div class="row" style="margin-bottom: 2px">
         <div class="columns medium-4">
           <p>Semestre : {{$matSemestre}}</p>
         </div>
       </div>
 
-    </header>   
+    </header>
 
 
     <div class="row">
@@ -533,7 +536,7 @@
               <th style="border-top: 1px solid; border-right: 0px solid; border-bottom: 0px solid; border-left: 0px solid;">Nombre de la materia</th>
               @foreach ($bachiller_grupos as $item)
               <th align="center" colspan="2">Grupo {{$item->gpoClave}}</th>
-              @endforeach              
+              @endforeach
             </tr>
             <tr>
               <th style="border-top: 0px solid; border-right: 0px solid; border-bottom: 0px solid; border-left: 1px solid;"></th>
@@ -542,8 +545,8 @@
               @foreach ($bachiller_grupos as $item)
               <th align="center">Prog.</th>
               <th align="center">Real.</th>
-              @endforeach   
-              
+              @endforeach
+
             </tr>
           </thead>
           <tbody>
@@ -555,10 +558,10 @@
                   @foreach ($bachiller_mate as $mat)
                     @if ($item->matClave == $mat->matClave)
 
-                     
+
                       @php
-                        #puntos programados 
-                          $programados = DB::select("SELECT sum(eviPuntos) as puntos_programados from bachiller_evidencias where 
+                        #puntos programados
+                          $programados = DB::select("SELECT sum(eviPuntos) as puntos_programados from bachiller_evidencias where
                           bachiller_materia_id = 1866
                           and periodo_id = 1979
                           and eviFechaEntrega <= '$fechaHoy'
@@ -569,13 +572,13 @@
 
                           $collect = collect($total_alumnos);
 
-                          
+
                       @endphp
 
                       {{--  <td>{{$mat->bachiller_materia_id}}</td>  --}}
                       @foreach ($programados as $prog)
-                      <td>{{$prog->puntos_programados}}</td> 
-                      @endforeach                 
+                      <td>{{$prog->puntos_programados}}</td>
+                      @endforeach
 
                       {{--  <td>Real</td>  --}}
 
@@ -607,24 +610,24 @@
                           <td>{{$real->gpoClave}}</td>
                         {{--  @endif  --}}
                       @endforeach
-                    
-                    @endif                 
-                  @endforeach  
-                  
+
+                    @endif
+                  @endforeach
+
                 </tr>
-            @endforeach            
+            @endforeach
           </tbody>
         </table>
-  
+
       </div>
     </div>
 
-    
+
     @php
       $suma = 0;
     @endphp
 
-    
+
 
     <footer id="footer">
       <div class="page-number"></div>

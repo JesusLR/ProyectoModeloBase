@@ -294,8 +294,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -369,7 +369,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -393,15 +393,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -420,6 +421,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 30px;
         margin-bottom: 30px;
       }
@@ -491,7 +494,7 @@
       }
     </style>
   </head>
-  
+
 <header>
 
 </header>
@@ -499,7 +502,7 @@
 @php
     $sumaDePromedios = 0.0;
     $vuelta = 0;
-    
+
 @endphp
 @php
 use App\Http\Helpers\TruncarDecimales;
@@ -520,19 +523,19 @@ use App\Http\Helpers\TruncarDecimales;
           {{--  @endif  --}}
             <br>
             <br>
-            
+
 
             <p>A quien corresponda:</p>
             <br>
-         
+
             <p style="font-size: 15px; text-align: justify;">
-                La que suscribe, 
+                La que suscribe,
                 @if ($parametro_ubicacion == "CME")
                   MAOE. María Trinidad Díaz Cervera,
                 @endif
                 @if ($parametro_ubicacion == "CVA")
                   Mtra. Arely Martinez Díaz,
-                @endif   
+                @endif
                 directora de la Escuela Primaria Modelo con clave {{ $parametro_CCT }} establecida en esta ciudad, HACE CONSTAR {{ $genero }}:
             </p>
             <br>
@@ -541,7 +544,7 @@ use App\Http\Helpers\TruncarDecimales;
             <p style="font-size: 15px; text-align: justify;">
               obtuvo las siguientes calificaciones en el {{strtoupper($grado)}}, GRUPO "{{$grupo}}" del
           curso escolar {{$periodo_inicio}}-{{$periodo_fin}}:
-              
+
               {{--  obtuvo el promedio en las asignaturas academicas en el {{$grado}},
                 grupo "{{$grupo}}" en el
                 curso escolar {{$periodo_inicio}}-{{$periodo_fin}} sin considerar dentro de este promedio Educ. Fisica y Educ. Artística:  --}}
@@ -587,8 +590,8 @@ use App\Http\Helpers\TruncarDecimales;
                             @if ($itemInscrito->inscTrimestre3 != "")
                               {{$itemInscrito->inscTrimestre3SEP}}
                             @else
-                                
-                            @endif                          
+
+                            @endif
                           </td>
                           <td style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;" align="center">
 
@@ -612,8 +615,8 @@ use App\Http\Helpers\TruncarDecimales;
                           $promedioGeneral = $sumaDePromedios / $vuelta;
                         @endphp
                       @endif
-                    
-                    
+
+
                     @endforeach
                     <tr>
                       <td><b>PROMEDIO FINAL</b></td>
@@ -624,9 +627,9 @@ use App\Http\Helpers\TruncarDecimales;
                         @if ($itemInscrito->inscTrimestre1 != "" && $itemInscrito->inscTrimestre2 != "" && $itemInscrito->inscTrimestre3 != "")
                         <b>{{TruncarDecimales::truncateFloat($promedioGeneral, 1)}}</b>
                         @else
-                            
+
                         @endif
-                         
+
                        </td>
                      </tr>
                 </tbody>
@@ -644,13 +647,13 @@ use App\Http\Helpers\TruncarDecimales;
         <br>
 
         <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-          A pedimento del interesado y para los fines legales que correspondan se expide la presente constancia con la fecha de hoy en la ciudad de 
+          A pedimento del interesado y para los fines legales que correspondan se expide la presente constancia con la fecha de hoy en la ciudad de
           @if ($parametro_ubicacion == "CME")
           Mérida, Yucatán, México.
           @else
           Valladolid, Yucatán, México.
           @endif
-          
+
 
 
         </p>

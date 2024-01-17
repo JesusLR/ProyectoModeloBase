@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 10px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 20px;
         margin-bottom: 70px;
       }
@@ -505,7 +508,7 @@
 
 			{{--  @php  --}}
         {{--  $inscritos = $grupo['inscritos'];  --}}
-        
+
         // dd($grupos, $grupo, $inscritos);
 			{{--  @endphp
       @if (!is_null($inscritos))  --}}
@@ -526,7 +529,7 @@
 
             {{-- Muestra si es por mes  --}}
             @if ($tipoReporte == "porMes")
-            <p>Mes : {{$mesEvaluar}} Incluye insc, 
+            <p>Mes : {{$mesEvaluar}} Incluye insc,
               @if ($conceptos == "R")
                 regular ({{$conceptos}})
               @endif
@@ -553,23 +556,23 @@
 
             {{-- Muestra si es por bimestre --}}
             @if ($tipoReporte == "porBimestre")
-            <p>Bimestre : 
+            <p>Bimestre :
               @if ($bimestreEvaluar == "BIMESTRE1")
-                1            
-              @endif 
+                1
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE2")
-                2            
-              @endif 
+                2
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE3")
-                3            
-              @endif 
+                3
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE4")
-                4            
-              @endif 
+                4
+              @endif
               @if ($bimestreEvaluar == "BIMESTRE5")
-                5            
-              @endif 
-              Incluye insc, 
+                5
+              @endif
+              Incluye insc,
               @if ($conceptos == "R")
                 regular ({{$conceptos}})
               @endif
@@ -596,18 +599,18 @@
 
             {{-- Muestra si es por trimestre  --}}
             @if ($tipoReporte == "porTrimestre")
-            <p>Trimestre : 
+            <p>Trimestre :
               @if ($trimestreEvaluar == "TRIMESTRE1")
-                1            
-              @endif 
+                1
+              @endif
               @if ($trimestreEvaluar == "TRIMESTRE2")
-                2            
-              @endif 
+                2
+              @endif
               @if ($trimestreEvaluar == "TRIMESTRE3")
-                3            
-              @endif 
-             
-              Incluye insc, 
+                3
+              @endif
+
+              Incluye insc,
               @if ($conceptos == "R")
                 regular ({{$conceptos}})
               @endif
@@ -631,7 +634,7 @@
               @endif
             </p>
             @endif
-            
+
             @if ($tipoReporte == "califRecuperativos")
       <p>Recuperativo Trimestre :
         @if ($tipoRecuperativo == "recuperativosTrimestre1")
@@ -677,7 +680,7 @@
         @if ($tipoFinal == "finalSep")
         SEP
         @endif
-        
+
 
         Incluye insc,
         @if ($conceptos == "R")
@@ -708,31 +711,31 @@
               @if ($modoCalificacion == "BASEPORCENTAJE")
                 @if ($mesEvaluar == "Septiembre")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeSeptiembre}}</p>
-                @endif     
-                
+                @endif
+
                 @if ($mesEvaluar == "Octubre")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeOctubre}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Noviembre")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeNoviembre}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Diciembre")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeDiciembre}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Enero")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeEnero}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Febrero")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeFebrero}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Marzo")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeMarzo}}</p>
-                @endif  
+                @endif
 
                 @if ($mesEvaluar == "Abril")
                 <p>Calificación en Puntos obtenidos en el Mes de {{$mesEvaluar}} - Puntuación Máxima del % {{$porcentajeAbril}}</p>
@@ -747,14 +750,14 @@
                 @endif
               @endif
             @endif
-            
+
           </div>
         </div>
 
 
 
         <br>
-        
+
         @php
             $poscion = 0;
         @endphp
@@ -762,7 +765,7 @@
 
         <div class="row">
           <div class="columns medium-12">
-            
+
             <table class="table">
               <thead>
                 <tr>
@@ -778,7 +781,7 @@
                           @if ($i == 2)
                           ASIGNATURAS
                           @endif
-                         
+
                       </th>
                   @endfor  --}}
                   @if ($parametro_ubicacion_clave === "CME")
@@ -787,45 +790,45 @@
                         $poscion++;
                       @endphp
                       @foreach ($valores as $llave => $itemV)
-                            
+
                         @if ($itemV->matNombreColumna && $llave == 1)
                           @if ($itemmatNombreColumna != "EF.VESP" && $itemmatNombreColumna != "EDU.FIS")
                             <th align="center" style="font-weight: 400; @if ($llave == 0){{$stilo}} @endif @if ($llave != 0){{$stilo2}} @endif">
                               @if ($poscion == 2)
                                 ASIGNATURAS
-                              @endif                           
+                              @endif
                             </th>
-                          @endif                                                  
+                          @endif
                         @endif
                       @endforeach
                     @endforeach
                   @endif
-                  
+
                   {{-- agregamos columna de promedio EDU FIS si es de merida  --}}
                   @if ($parametro_ubicacion_clave === "CME")
                     <th align="center" style="font-weight: 400; border-top: 1px solid; border-right: 1px solid; border-bottom: 0px; border-left: 0px solid;"></th>
                   @endif
-  
+
                   {{--  mostrar o no   --}}
                   @if ($tipoReporte == "porTrimestre" || $tipoReporte == "califRecuperativos" || $tipoReporte == "califFinales" && $modoCalificacion == "BASEDIEZ")
                     <th align="center" style="font-weight: 400; border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">Promed.</th>
                     <th style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>
                     <th style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>
-                    <th style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>       
+                    <th style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>
                   @else
-                    <th style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>             
+                    <th style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>
                   @endif
-                  
-  
-  
+
+
+
                 </tr>
                 <tr>
                   <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid; width:7px;">Num</th>
                   <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">Cve Pago</th>
                   <th  style="font-weight: 400; border-top: 0px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">Nombre del alumno</th>
-                  
-                  {{--  recorremos array para mostrar materias   --}}           
-  
+
+                  {{--  recorremos array para mostrar materias   --}}
+
                   @if ($parametro_ubicacion_clave === "CME")
                     @foreach ($matNombreColumna as $itemmatNombreColumna => $key)
                       @if ($itemmatNombreColumna != "EF.VESP" && $itemmatNombreColumna != "EDU.FIS" && $itemmatNombreColumna != "ARTES")
@@ -836,25 +839,25 @@
                   {{-- agregamos columna de promedio EDU FIS si es de merida  --}}
                   @if ($parametro_ubicacion_clave === "CME")
                     <th align="center" style="font-weight: 400; border-top: 1px solid; border-right: 1px solid; border-bottom: 0px; border-left: 1px solid;">EF PROM</th>
-  
-  
+
+
                     @foreach ($matNombreColumna as $itemmatNombreColumna => $key)
                       @if ($itemmatNombreColumna == "ARTES")
                       <th align="center" style="font-weight: 400; width:40px; border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">{{$itemmatNombreColumna}}</th>
                       @endif
                     @endforeach
                   @endif
-  
+
                   {{--  mostrar o no   --}}
                   @if ($tipoReporte == "porTrimestre" || $tipoReporte == "califRecuperativos" || $tipoReporte == "califFinales" && $modoCalificacion == "BASEDIEZ")
                     <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">Período</th>
                     <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">%Rep</th>
-                    <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 1px solid; border-left: 1px solid;">%Apro</th> 
-                    <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th> 
+                    <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 1px solid; border-left: 1px solid;">%Apro</th>
+                    <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>
                   @else
-                    <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th> 
+                    <th align="center" style="font-weight: 400; border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></th>
                   @endif
-                         
+
                 </tr>
                 @php
                   $sumaDePromedios = 0;
@@ -866,52 +869,52 @@
                   $repXMateria = 0;
                   $aproXMateria = 0;
                   $promedioPeriodo = 0.0;
-  
+
                   $VUELTA = 0;
-  
+
                   $vueltaFis = 0;
                   $promedioEducacionFis = 0.0;
-  
+
                   $promEducacionFisicaSep = 0.0;
                   $promediodelMesSept = 0.0;
 
                   $promEducacionFisicaGenSep = 0.0;
                   $promediodelMesGenSep = 0.0;
-  
-  
+
+
                   $promEducacionFisicaOct = 0.0;
                   $promediodelMesOct = 0.0;
 
                   $promEducacionFisicaGenOct = 0.0;
                   $promediodelMesGenOct = 0.0;
-  
+
                   $promEducacionFisicaNov = 0.0;
                   $promediodelMesNov = 0.0;
 
                   $promEducacionFisicaGenNov = 0.0;
                   $promediodelMesGenNov = 0.0;
-  
-  
+
+
                   $promEducacionFisicaEne = 0.0;
                   $promediodelMesEne = 0.0;
-  
-  
+
+
                   $promEducacionFisicaFeb = 0.0;
                   $promediodelMesFeb = 0.0;
-  
+
                   $promEducacionFisicaMar = 0.0;
                   $promediodelMesMar = 0.0;
-                  
+
                   $promEducacionFisicaAbr = 0.0;
                   $promediodelMesAbr = 0.0;
-  
-  
+
+
                   $promEducacionFisicaMay = 0.0;
                   $promediodelMesMay = 0.0;
-  
+
                   $promEducacionFisicaJun = 0.0;
                   $promediodelMesJun = 0.0;
-                
+
                   $contador1 = 1;
                   $contador2 = 1;
 
@@ -949,7 +952,7 @@
 
                   $porgentajeReprobadosGeneralVertical = 0;
                   $porgentajeAprobadosGeneralVertical = 0;
-  
+
                 @endphp
               </thead>
               <tbody>
@@ -960,14 +963,14 @@
                         <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">{{$contador2++}}</td>
                         <td align="center" style="width: 50px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">{{$valor->clave_pago}}</td>
                         <td style="width: 250px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
-                            {{$valor->ape_paterno}} {{$valor->ape_materno}} {{$valor->nombres}}                        
+                            {{$valor->ape_paterno}} {{$valor->ape_materno}} {{$valor->nombres}}
                         </td>
 
                         @foreach ($matClave as $KmatClave => $key)
                           @foreach ($calificaciones as $item)
 
-                            @if ($modoCalificacion == "BASEDIEZ")                   
-                          
+                            @if ($modoCalificacion == "BASEDIEZ")
+
 
                               {{-- mostrar por trimestre --}}
                               @if ($tipoReporte == "porTrimestre")
@@ -975,16 +978,16 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $sumaPromedioHorizontal = $sumaPromedioHorizontal + $item->inscTrimestre1;                                           
+                                      $sumaPromedioHorizontal = $sumaPromedioHorizontal + $item->inscTrimestre1;
                                       @endphp
 
                                       @php
                                         $totalMateriasHorizontal++;
                                       @endphp
-                                  
+
                                       @if ($item->inscTrimestre1 != null)
                                         @if (number_format((float)$item->inscTrimestre1, 0, '.', '') < 6)
                                           <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color: #F3F648">
@@ -1003,7 +1006,7 @@
                                             $porcentajeAprobadoHorizontal++;
                                           @endphp
                                         @endif
-                                        
+
                                       @else
                                         <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         </td>
@@ -1015,10 +1018,10 @@
                                 {{--  para poder recuperar el valor  TRIMESTRE 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1055,8 +1058,8 @@
                                             $promEducacionFisicaNov  = $promEducacionFisicaNov  + $item->puntosREPROBAR_Nov_;
                                           }else{
                                             $promEducacionFisicaNov = $promEducacionFisicaNov + $item->puntosobtenidos_Nov_;
-                                          }                       
-                                          
+                                          }
+
                                           $promediodelMesSept = $promEducacionFisicaSep/2;
                                           $promediodelMesOct = $promEducacionFisicaOct/2;
                                           $promediodelMesNov = $promEducacionFisicaNov/2;
@@ -1068,10 +1071,10 @@
                                             $promedioEducacionFis = $promediodelMesSept + $promediodelMesOct + $promediodelMesNov;
                                           }
 
-                                          
-                                      
+
+
                                         @endphp
-                                      @endif                             
+                                      @endif
                                     @endif
                                   @endif
                                 @endif
@@ -1079,16 +1082,16 @@
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $sumaPromedioHorizontal = $sumaPromedioHorizontal + $item->inscTrimestre2;                                           
+                                      $sumaPromedioHorizontal = $sumaPromedioHorizontal + $item->inscTrimestre2;
                                       @endphp
 
                                       @php
                                         $totalMateriasHorizontal++;
                                       @endphp
-                                  
+
                                       @if ($item->inscTrimestre2 != null)
                                         @if (number_format((float)$item->inscTrimestre2, 0, '.', '') < 6)
                                           <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color: #F3F648">
@@ -1107,7 +1110,7 @@
                                             $porcentajeAprobadoHorizontal++;
                                           @endphp
                                         @endif
-                                        
+
                                       @else
                                         <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         </td>
@@ -1119,9 +1122,9 @@
                                 {{--  para poder recuperar el valor  TRIMESTRE 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
-                                      
+
                                       {{--Promedio edu fis--}}
                                       @if ($item->matNombre == "EDUCACION FISICA" || $item->matNombre == "EDUCACION FISICA VESP")
                                             @php
@@ -1144,8 +1147,8 @@
                                                 $promEducacionFisicaMar  = $promEducacionFisicaMar  + $item->puntosREPROBAR_Mar_;
                                               }else{
                                                 $promEducacionFisicaMar = $promEducacionFisicaMar + $item->puntosobtenidos_Mar_;
-                                              }                       
-                                              
+                                              }
+
                                               $promediodelMesEne = $promEducacionFisicaEne/2;
                                               $promediodelMesFeb = $promEducacionFisicaFeb/2;
                                               $promediodelMesMar = $promEducacionFisicaMar/2;
@@ -1156,30 +1159,30 @@
                                               }else{
                                                 $promedioEducacionFis = $promediodelMesEne + $promediodelMesFeb + $promediodelMesMar;
                                               }
-                                            
-                                            @endphp                                      
-                                      
-                                      @endif                             
+
+                                            @endphp
+
+                                      @endif
                                     @endif
                                   @endif
                                 @endif
 
-                          
-                            
+
+
 
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $sumaPromedioHorizontal = $sumaPromedioHorizontal + $item->inscTrimestre3;                                           
+                                      $sumaPromedioHorizontal = $sumaPromedioHorizontal + $item->inscTrimestre3;
                                       @endphp
 
                                       @php
                                         $totalMateriasHorizontal++;
                                       @endphp
-                                  
+
                                       @if ($item->inscTrimestre3 != null)
                                         @if (number_format((float)$item->inscTrimestre3, 0, '.', '') < 6)
                                           <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color: #F3F648">
@@ -1198,7 +1201,7 @@
                                             $porcentajeAprobadoHorizontal++;
                                           @endphp
                                         @endif
-                                        
+
                                       @else
                                         <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         </td>
@@ -1210,8 +1213,8 @@
                                 {{--  para poder recuperar el valor  TRIMESTRE 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
-                                    
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
+
                                       {{--Promedio edu fis--}}
                                       @if ($item->matNombre == "EDUCACION FISICA" || $item->matNombre == "EDUCACION FISICA VESP")
                                         @php
@@ -1235,8 +1238,8 @@
                                             $promEducacionFisicaJun  = $promEducacionFisicaJun  + $item->puntosREPROBAR_Jun_;
                                           }else{
                                             $promEducacionFisicaJun = $promEducacionFisicaJun + $item->puntosobtenidos_Jun_;
-                                          }                       
-                                          
+                                          }
+
                                           $promediodelMesAbr = $promEducacionFisicaAbr/2;
                                           $promediodelMesMay = $promEducacionFisicaMay/2;
                                           $promediodelMesJun = $promEducacionFisicaJun/2;
@@ -1247,13 +1250,13 @@
                                           }else{
                                             $promedioEducacionFis = $promediodelMesAbr + $promediodelMesMay + $promediodelMesJun;
                                           }
-                                          
+
                                         @endphp
-                                      @endif                             
+                                      @endif
                                     @endif
                                   @endif
                                 @endif
-                                
+
                               @endif
 
                               {{-- mostrar por trimestre recuperativo --}}
@@ -1262,16 +1265,16 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $sumaPromedioHorizontal = $sumaPromedioHorizontal + $item->trimestre1Sep;                                           
+                                      $sumaPromedioHorizontal = $sumaPromedioHorizontal + $item->trimestre1Sep;
                                       @endphp
 
                                       @php
                                         $totalMateriasHorizontal++;
                                       @endphp
-                                  
+
                                       @if ($item->trimestre1Sep != null)
                                         @if (number_format((float)$item->trimestre1Sep, 0, '.', '') < 6)
                                           <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color: #F3F648">
@@ -1290,7 +1293,7 @@
                                             $porcentajeAprobadoHorizontal++;
                                           @endphp
                                         @endif
-                                        
+
                                       @else
                                         <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         </td>
@@ -1302,10 +1305,10 @@
                                 {{--  para poder recuperar el valor  TRIMESTRE 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->trimestre1Sep;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->trimestre1Sep;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1322,15 +1325,15 @@
                                       {{--Promedio edu fis--}}
                                       @if ($item->matNombre == "EDUCACION FISICA" || $item->matNombre == "EDUCACION FISICA VESP")
                                         @php
-                                                             
-                                          
-                                          $promediodelMesSept = ($promediodelMesSept + $item->trimestre1Sep);
-                                          
 
-                                          $promedioEducacionFis = $promediodelMesSept;                                          
-                                      
+
+                                          $promediodelMesSept = ($promediodelMesSept + $item->trimestre1Sep);
+
+
+                                          $promedioEducacionFis = $promediodelMesSept;
+
                                         @endphp
-                                      @endif                             
+                                      @endif
                                     @endif
                                   @endif
                                 @endif
@@ -1338,16 +1341,16 @@
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $sumaPromedioHorizontal = $sumaPromedioHorizontal + $item->trimestre2Sep;                                           
+                                      $sumaPromedioHorizontal = $sumaPromedioHorizontal + $item->trimestre2Sep;
                                       @endphp
 
                                       @php
                                         $totalMateriasHorizontal++;
                                       @endphp
-                                  
+
                                       @if ($item->trimestre2Sep != null)
                                         @if (number_format((float)$item->trimestre2Sep, 1, '.', '') < 6)
                                           <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color: #F3F648">
@@ -1366,7 +1369,7 @@
                                             $porcentajeAprobadoHorizontal++;
                                           @endphp
                                         @endif
-                                        
+
                                       @else
                                         <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         </td>
@@ -1378,42 +1381,42 @@
                                 {{--  para poder recuperar el valor  TRIMESTRE 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
-                                      
+
                                       {{--Promedio edu fis--}}
                                       @if ($item->matNombre == "EDUCACION FISICA" || $item->matNombre == "EDUCACION FISICA VESP")
                                             @php
 
-                                                                 
-                                              
+
+
                                               $promediodelMesEne = ($promediodelMesEne + $item->trimestre2Sep);
 
                                               $promedioEducacionFis = $promediodelMesEne;
 
-                                            
-                                            @endphp                                      
-                                      
-                                      @endif                             
+
+                                            @endphp
+
+                                      @endif
                                     @endif
                                   @endif
                                 @endif
 
-                          
+
 
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $sumaPromedioHorizontal = $sumaPromedioHorizontal + $item->trimestre3Sep;                                           
+                                      $sumaPromedioHorizontal = $sumaPromedioHorizontal + $item->trimestre3Sep;
                                       @endphp
 
                                       @php
                                         $totalMateriasHorizontal++;
                                       @endphp
-                                  
+
                                       @if ($item->trimestre3Sep != null)
                                         @if (number_format((float)$item->trimestre3Sep, 1, '.', '') < 6)
                                           <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color: #F3F648">
@@ -1432,7 +1435,7 @@
                                             $porcentajeAprobadoHorizontal++;
                                           @endphp
                                         @endif
-                                        
+
                                       @else
                                         <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         </td>
@@ -1444,23 +1447,23 @@
                                 {{--  para poder recuperar el valor  TRIMESTRE 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
-                                    
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
+
                                       {{--Promedio edu fis--}}
                                       @if ($item->matNombre == "EDUCACION FISICA" || $item->matNombre == "EDUCACION FISICA VESP")
                                         @php
-                                          
+
                                           $promediodelMesAbr = $promediodelMesAbr + $item->trimestre3Sep;
-                                          
+
                                           $promedioEducacionFis = $promediodelMesAbr;
 
-                                          
+
                                         @endphp
-                                      @endif                             
+                                      @endif
                                     @endif
                                   @endif
                                 @endif
-                                
+
                               @endif
 
                               {{-- mostrar por promedio sep --}}
@@ -1468,16 +1471,16 @@
 
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoFinal == "finalSep")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $sumaPromedioHorizontal = $sumaPromedioHorizontal + $item->inscCalificacionFinalSEP;                                           
+                                      $sumaPromedioHorizontal = $sumaPromedioHorizontal + $item->inscCalificacionFinalSEP;
                                       @endphp
 
                                       @php
                                         $totalMateriasHorizontal++;
                                       @endphp
-                                  
+
                                       @if ($item->inscCalificacionFinalSEP != null)
                                         @if (number_format((float)$item->inscCalificacionFinalSEP, 0, '.', '') < 6)
                                           <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color: #F3F648">
@@ -1496,7 +1499,7 @@
                                             $porcentajeAprobadoHorizontal++;
                                           @endphp
                                         @endif
-                                        
+
                                       @else
                                         <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         </td>
@@ -1508,10 +1511,10 @@
                                 {{--  para poder recuperar el valor  1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoFinal == "finalSep")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionFinalSEP;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionFinalSEP;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1528,15 +1531,15 @@
                                       {{--Promedio edu fis--}}
                                       @if ($item->matNombre == "EDUCACION FISICA" || $item->matNombre == "EDUCACION FISICA VESP")
                                         @php
-                                                             
-                                          
-                                          $promediodelMesSept = ($promediodelMesSept + $item->inscCalificacionFinalSEP);
-                                          
 
-                                          $promedioEducacionFis = $promediodelMesSept;                                          
-                                      
+
+                                          $promediodelMesSept = ($promediodelMesSept + $item->inscCalificacionFinalSEP);
+
+
+                                          $promedioEducacionFis = $promediodelMesSept;
+
                                         @endphp
-                                      @endif                             
+                                      @endif
                                     @endif
                                   @endif
                                 @endif
@@ -1545,16 +1548,16 @@
                                 {{--  finales modelo   --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoFinal == "finaLModelo")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $sumaPromedioHorizontal = $sumaPromedioHorizontal + $item->inscCalificacionFinalModelo;                                           
+                                      $sumaPromedioHorizontal = $sumaPromedioHorizontal + $item->inscCalificacionFinalModelo;
                                       @endphp
 
                                       @php
                                         $totalMateriasHorizontal++;
                                       @endphp
-                                  
+
                                       @if ($item->inscCalificacionFinalModelo != null)
                                         @if (number_format((float)$item->inscCalificacionFinalModelo, 0, '.', '') < 6)
                                           <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color: #F3F648">
@@ -1573,7 +1576,7 @@
                                             $porcentajeAprobadoHorizontal++;
                                           @endphp
                                         @endif
-                                        
+
                                       @else
                                         <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         </td>
@@ -1585,10 +1588,10 @@
                                 {{--  para poder recuperar el valor  1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoFinal == "finaLModelo")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionFinalModelo;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscCalificacionFinalModelo;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1605,36 +1608,36 @@
                                       {{--Promedio edu fis--}}
                                       @if ($item->matNombre == "EDUCACION FISICA" || $item->matNombre == "EDUCACION FISICA VESP")
                                         @php
-                                                             
-                                          
-                                          $promediodelMesSept = ($promediodelMesSept + $item->inscCalificacionFinalModelo);
-                                          
 
-                                          $promedioEducacionFis = $promediodelMesSept;                                          
-                                      
+
+                                          $promediodelMesSept = ($promediodelMesSept + $item->inscCalificacionFinalModelo);
+
+
+                                          $promedioEducacionFis = $promediodelMesSept;
+
                                         @endphp
-                                      @endif                             
+                                      @endif
                                     @endif
                                   @endif
                                 @endif
                                 {{--  end final modelo   --}}
-                                
+
                               @endif
-                         
+
                             @endif
 
-                            @if ($modoCalificacion == "BASEPORCENTAJE")                          
-                              
+                            @if ($modoCalificacion == "BASEPORCENTAJE")
+
                               {{-- mostrar por trimestre --}}
                               @if ($tipoReporte == "porTrimestre")
 
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1648,8 +1651,8 @@
                                               $aproXMateria++;
                                           @endphp
                                       @endif
-                                  
-                              
+
+
 
 
                                       @if ($item->inscTrimestre1 != null)
@@ -1675,10 +1678,10 @@
                                 {{--  para poder recuperar el valor  TRIMESTRE 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1715,8 +1718,8 @@
                                         $promEducacionFisicaNov  = $promEducacionFisicaNov  + $item->puntosREPROBAR_Nov_;
                                       }else{
                                         $promEducacionFisicaNov = $promEducacionFisicaNov + $item->puntosobtenidos_Nov_;
-                                      }                       
-                                      
+                                      }
+
                                       $promediodelMesSept = $promEducacionFisicaSep/2;
                                       $promediodelMesOct = $promEducacionFisicaOct/2;
                                       $promediodelMesNov = $promEducacionFisicaNov/2;
@@ -1727,9 +1730,9 @@
                                       }else{
                                         $promedioEducacionFis = $promediodelMesSept + $promediodelMesOct + $promediodelMesNov;
                                       }
-                                      
+
                                     @endphp
-                                  @endif                             
+                                  @endif
                                     @endif
                                   @endif
                                 @endif
@@ -1737,10 +1740,10 @@
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1778,10 +1781,10 @@
                                 {{--  para poder recuperar el valor  TRIMESTRE 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1818,8 +1821,8 @@
                                         $promEducacionFisicaMar  = $promEducacionFisicaMar  + $item->puntosREPROBAR_Mar_;
                                       }else{
                                         $promEducacionFisicaMar = $promEducacionFisicaMar + $item->puntosobtenidos_Mar_;
-                                      }                       
-                                      
+                                      }
+
                                       $promediodelMesEne = $promEducacionFisicaEne/2;
                                       $promediodelMesFeb = $promEducacionFisicaFeb/2;
                                       $promediodelMesMar = $promEducacionFisicaMar/2;
@@ -1830,9 +1833,9 @@
                                       }else{
                                         $promedioEducacionFis = $promediodelMesEne + $promediodelMesFeb + $promediodelMesMar;
                                       }
-                                      
+
                                     @endphp
-                                  @endif                             
+                                  @endif
                                     @endif
                                   @endif
                                 @endif
@@ -1840,10 +1843,10 @@
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1880,10 +1883,10 @@
                                 {{--  para poder recuperar el valor  TRIMESTRE 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -1920,8 +1923,8 @@
                                           $promEducacionFisicaJun  = $promEducacionFisicaJun  + $item->puntosREPROBAR_Jun_;
                                         }else{
                                           $promEducacionFisicaJun = $promEducacionFisicaJun + $item->puntosobtenidos_Jun_;
-                                        }                       
-                                        
+                                        }
+
                                         $promediodelMesAbr = $promEducacionFisicaAbr/2;
                                         $promediodelMesMay = $promEducacionFisicaMay/2;
                                         $promediodelMesJun = $promEducacionFisicaJun/2;
@@ -1932,22 +1935,22 @@
                                         }else{
                                           $promedioEducacionFis = $promediodelMesAbr + $promediodelMesMay + $promediodelMesJun;
                                         }
-                                        
+
                                       @endphp
-                                      @endif                             
+                                      @endif
                                     @endif
                                   @endif
                                 @endif
-                                
+
                               @endif
 
                             @endif
-                        
-                          @endforeach                      
+
+                          @endforeach
                         @endforeach
 
                         {{--  promedio educacion fisica   --}}
-                        @if ($parametro_ubicacion_clave === "CME")    
+                        @if ($parametro_ubicacion_clave === "CME")
 
                           @if ($tipoReporte == "porTrimestre")
                             @php
@@ -1959,7 +1962,7 @@
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color:#F3F648">
                                 {{number_format((float)$promedioEducacionFis, 0, '.', '')}}
                               </td>
-        
+
                               @php
                                 $totalMateriasReprobadasFisicaVertical++;
 
@@ -1967,18 +1970,18 @@
                               @endphp
                             @else
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">{{number_format((float)$promedioEducacionFis, 0, '.', '')}}</td>
-      
-                            @endif       
-                          
+
+                            @endif
+
                             @php
-                              $promedioMateriaVerticalEduFisica = $promedioMateriaVerticalEduFisica +number_format((float)$promedioEducacionFis, 0, '.', '');        
-                              
+                              $promedioMateriaVerticalEduFisica = $promedioMateriaVerticalEduFisica +number_format((float)$promedioEducacionFis, 0, '.', '');
+
                               $totalMateriasAprobadasFisicaVertical++;
 
                               $porcentajeAprobadoHorizontal++;
                             @endphp
                           @endif
-                          
+
                           @if($tipoReporte == "califRecuperativos")
                             @php
                               $sumaPromedioFisicaHorizontal = number_format((float)($promedioEducacionFis/2), 1, '.', '');
@@ -1989,7 +1992,7 @@
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color:#F3F648">
                                 {{number_format((float)($promedioEducacionFis/2), 1, '.', '')}}
                               </td>
-        
+
                               @php
                                 $totalMateriasReprobadasFisicaVertical++;
 
@@ -1997,18 +2000,18 @@
                               @endphp
                             @else
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">{{number_format((float)($promedioEducacionFis/2), 1, '.', '')}}</td>
-      
-                            @endif       
-                          
+
+                            @endif
+
                             @php
-                              $promedioMateriaVerticalEduFisica = $promedioMateriaVerticalEduFisica +number_format((float)($promedioEducacionFis/2), 1, '.', '');        
-                              
+                              $promedioMateriaVerticalEduFisica = $promedioMateriaVerticalEduFisica +number_format((float)($promedioEducacionFis/2), 1, '.', '');
+
                               $totalMateriasAprobadasFisicaVertical++;
 
                               $porcentajeAprobadoHorizontal++;
                             @endphp
-                          @endif     
-                          
+                          @endif
+
                           @if($tipoReporte == "califFinales")
                             @php
                               $sumaPromedioFisicaHorizontal = number_format((float)($promedioEducacionFis/2), 1, '.', '');
@@ -2019,7 +2022,7 @@
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color:#F3F648">
                                 {{number_format((float)($promedioEducacionFis/2), 1, '.', '')}}
                               </td>
-        
+
                               @php
                                 $totalMateriasReprobadasFisicaVertical++;
 
@@ -2029,17 +2032,17 @@
                               <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                 {{number_format((float)($promedioEducacionFis/2), 1, '.', '')}}
                               </td>
-      
-                            @endif       
-                          
+
+                            @endif
+
                             @php
-                              $promedioMateriaVerticalEduFisica = $promedioMateriaVerticalEduFisica +number_format((float)($promedioEducacionFis/2), 1, '.', '');        
-                              
+                              $promedioMateriaVerticalEduFisica = $promedioMateriaVerticalEduFisica +number_format((float)($promedioEducacionFis/2), 1, '.', '');
+
                               $totalMateriasAprobadasFisicaVertical++;
 
                               $porcentajeAprobadoHorizontal++;
                             @endphp
-                          @endif 
+                          @endif
 
                         @endif
 
@@ -2047,7 +2050,7 @@
                         @foreach ($matClave as $KmatClave => $key)
                           @foreach ($calificaciones as $item)
 
-                            @if ($modoCalificacion == "BASEDIEZ")                       
+                            @if ($modoCalificacion == "BASEDIEZ")
 
                               {{-- mostrar por trimestre --}}
                               @if ($tipoReporte == "porTrimestre")
@@ -2055,22 +2058,22 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      
-                                      $sumaPromedioArtesHorizontal = $sumaPromedioArtesHorizontal + $item->inscTrimestre1;  
+
+                                      $sumaPromedioArtesHorizontal = $sumaPromedioArtesHorizontal + $item->inscTrimestre1;
 
                                       $totalMateriasHorizontal++;
                                       @endphp
 
-                                                                    
+
                                       @if ($item->inscTrimestre1 !=  null)
                                         @if (number_format((float)$item->inscTrimestre1, 0, '.', '') < 6)
                                           <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color:#F3F648">
                                             {{number_format((float)$item->inscTrimestre1, 0, '.', '')}}
-                                          </td>     
-                                          
+                                          </td>
+
                                           @php
                                               $totalMateriasReprobadasArtesVertical++;
                                               $porcentajeReprobadoHorizontal++;
@@ -2090,30 +2093,30 @@
                                       </td>
                                       @endif
 
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
 
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      
-                                      $sumaPromedioArtesHorizontal = $sumaPromedioArtesHorizontal + $item->inscTrimestre2;  
+
+                                      $sumaPromedioArtesHorizontal = $sumaPromedioArtesHorizontal + $item->inscTrimestre2;
 
                                       $totalMateriasHorizontal++;
                                       @endphp
 
-                                                                    
+
                                       @if ($item->inscTrimestre2 !=  null)
                                         @if (number_format((float)$item->inscTrimestre2, 0, '.', '') < 6)
                                           <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color:#F3F648">
                                             {{number_format((float)$item->inscTrimestre2, 0, '.', '')}}
-                                          </td>     
-                                          
+                                          </td>
+
                                           @php
                                               $totalMateriasReprobadasArtesVertical++;
                                               $porcentajeReprobadoHorizontal++;
@@ -2133,30 +2136,30 @@
                                       </td>
                                       @endif
 
-                                    
+
                                     @endif
-                                  @endif 
+                                  @endif
                                 @endif
 
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      
-                                      $sumaPromedioArtesHorizontal = $sumaPromedioArtesHorizontal + $item->inscTrimestre3;  
+
+                                      $sumaPromedioArtesHorizontal = $sumaPromedioArtesHorizontal + $item->inscTrimestre3;
 
                                       $totalMateriasHorizontal++;
                                       @endphp
 
-                                                                    
+
                                       @if ($item->inscTrimestre3 !=  null)
                                         @if (number_format((float)$item->inscTrimestre3, 0, '.', '') < 6)
                                           <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color:#F3F648">
                                             {{number_format((float)$item->inscTrimestre3, 0, '.', '')}}
-                                          </td>     
-                                          
+                                          </td>
+
                                           @php
                                               $totalMateriasReprobadasArtesVertical++;
                                               $porcentajeReprobadoHorizontal++;
@@ -2176,11 +2179,11 @@
                                       </td>
                                       @endif
 
-                                    
+
                                     @endif
-                                  @endif 
+                                  @endif
                                 @endif
-                                
+
                               @endif
 
                               {{-- mostrar por trimestre --}}
@@ -2189,22 +2192,22 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      
-                                      $sumaPromedioArtesHorizontal = $sumaPromedioArtesHorizontal + $item->trimestre1Sep;  
+
+                                      $sumaPromedioArtesHorizontal = $sumaPromedioArtesHorizontal + $item->trimestre1Sep;
 
                                       $totalMateriasHorizontal++;
                                       @endphp
 
-                                                                    
+
                                       @if ($item->trimestre1Sep !=  null)
                                         @if (number_format((float)$item->trimestre1Sep, 1, '.', '') < 6)
                                           <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color:#F3F648">
                                             {{number_format((float)$item->trimestre1Sep, 1, '.', '')}}
-                                          </td>     
-                                          
+                                          </td>
+
                                           @php
                                               $totalMateriasReprobadasArtesVertical++;
                                               $porcentajeReprobadoHorizontal++;
@@ -2224,30 +2227,30 @@
                                       </td>
                                       @endif
 
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
 
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      
-                                      $sumaPromedioArtesHorizontal = $sumaPromedioArtesHorizontal + $item->trimestre2Sep;  
+
+                                      $sumaPromedioArtesHorizontal = $sumaPromedioArtesHorizontal + $item->trimestre2Sep;
 
                                       $totalMateriasHorizontal++;
                                       @endphp
 
-                                                                    
+
                                       @if ($item->trimestre2Sep !=  null)
                                         @if (number_format((float)$item->trimestre2Sep, 1, '.', '') < 6)
                                           <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color:#F3F648">
                                             {{number_format((float)$item->trimestre2Sep, 1, '.', '')}}
-                                          </td>     
-                                          
+                                          </td>
+
                                           @php
                                               $totalMateriasReprobadasArtesVertical++;
                                               $porcentajeReprobadoHorizontal++;
@@ -2267,30 +2270,30 @@
                                       </td>
                                       @endif
 
-                                    
+
                                     @endif
-                                  @endif 
+                                  @endif
                                 @endif
 
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      
-                                      $sumaPromedioArtesHorizontal = $sumaPromedioArtesHorizontal + $item->trimestre3Sep;  
+
+                                      $sumaPromedioArtesHorizontal = $sumaPromedioArtesHorizontal + $item->trimestre3Sep;
 
                                       $totalMateriasHorizontal++;
                                       @endphp
 
-                                                                    
+
                                       @if ($item->trimestre3Sep !=  null)
                                         @if (number_format((float)$item->trimestre3Sep, 1, '.', '') < 6)
                                           <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color:#F3F648">
                                             {{number_format((float)$item->trimestre3Sep, 1, '.', '')}}
-                                          </td>     
-                                          
+                                          </td>
+
                                           @php
                                               $totalMateriasReprobadasArtesVertical++;
                                               $porcentajeReprobadoHorizontal++;
@@ -2310,11 +2313,11 @@
                                       </td>
                                       @endif
 
-                                    
+
                                     @endif
-                                  @endif 
+                                  @endif
                                 @endif
-                                
+
                               @endif
 
                               {{--  finales   --}}
@@ -2324,22 +2327,22 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoFinal == "finalSep")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      
-                                      $sumaPromedioArtesHorizontal = $sumaPromedioArtesHorizontal + $item->inscCalificacionFinalSEP;  
+
+                                      $sumaPromedioArtesHorizontal = $sumaPromedioArtesHorizontal + $item->inscCalificacionFinalSEP;
 
                                       $totalMateriasHorizontal++;
                                       @endphp
 
-                                                                    
+
                                       @if ($item->inscCalificacionFinalSEP !=  null)
                                         @if (number_format((float)$item->inscCalificacionFinalSEP, 1, '.', '') < 6)
                                           <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color:#F3F648">
                                             {{number_format((float)$item->inscCalificacionFinalSEP, 1, '.', '')}}
-                                          </td>     
-                                          
+                                          </td>
+
                                           @php
                                               $totalMateriasReprobadasArtesVertical++;
                                               $porcentajeReprobadoHorizontal++;
@@ -2359,27 +2362,27 @@
                                       </td>
                                       @endif
 
-                                    
+
                                     @endif
-                                  @endif   
-                                  
+                                  @endif
+
                                   @if ($tipoFinal == "finaLModelo")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      
-                                      $sumaPromedioArtesHorizontal = $sumaPromedioArtesHorizontal + $item->inscCalificacionFinalModelo;  
+
+                                      $sumaPromedioArtesHorizontal = $sumaPromedioArtesHorizontal + $item->inscCalificacionFinalModelo;
 
                                       $totalMateriasHorizontal++;
                                       @endphp
 
-                                                                    
+
                                       @if ($item->inscCalificacionFinalModelo !=  null)
                                         @if (number_format((float)$item->inscCalificacionFinalModelo, 1, '.', '') < 6)
                                           <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid; background-color:#F3F648">
                                             {{number_format((float)$item->inscCalificacionFinalModelo, 1, '.', '')}}
-                                          </td>     
-                                          
+                                          </td>
+
                                           @php
                                               $totalMateriasReprobadasArtesVertical++;
                                               $porcentajeReprobadoHorizontal++;
@@ -2399,17 +2402,17 @@
                                       </td>
                                       @endif
 
-                                    
+
                                     @endif
-                                  @endif 
+                                  @endif
                                 @endif
-                              
+
                               @endif
 
                             @endif
 
-                            @if ($modoCalificacion == "BASEPORCENTAJE")                        
-                            
+                            @if ($modoCalificacion == "BASEPORCENTAJE")
+
 
                               {{-- mostrar por trimestre --}}
                               @if ($tipoReporte == "porTrimestre")
@@ -2417,10 +2420,10 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -2434,7 +2437,7 @@
                                               $aproXMateria++;
                                           @endphp
                                       @endif
-                                  
+
 
                                       @if ($item->inscTrimestre1 != null)
                                         @if (number_format((float)$item->inscTrimestre1, 0, '.', '') < 6)
@@ -2451,7 +2454,7 @@
                                       </td>
                                       @endif
 
-                                      
+
                                     @endif
                                   @endif
                                 @endif
@@ -2459,10 +2462,10 @@
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -2499,10 +2502,10 @@
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -2535,12 +2538,12 @@
                                     @endif
                                   @endif
                                 @endif
-                                
+
                               @endif
 
                             @endif
-                        
-                          @endforeach                      
+
+                          @endforeach
                         @endforeach
 
                         @php
@@ -2550,12 +2553,12 @@
                         @php
                           $sumaPromedioDeAlumnos = $sumaPromedioDeAlumnos + number_format((float)$promedioPer, 1, '.', '');
                         @endphp
-    
-                       
+
+
 
                         @if ($modoCalificacion == "BASEDIEZ")
                             {{--  promedio general horizontal   --}}
-                          <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;"> 
+                          <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                             @if ($tipoReporte == "porTrimestre")
                               {{number_format((float)($sumaPromedioHorizontal+$sumaPromedioFisicaHorizontal+$sumaPromedioArtesHorizontal)/$totalMateriasHorizontal, 0, '.', '')}}
 
@@ -2570,8 +2573,8 @@
                                   $porgentajeAprobadosGeneralVertical++;
                                 @endphp
                               @endif
-                            @endif         
-                            
+                            @endif
+
                             @if ($tipoReporte == "califRecuperativos")
                               {{number_format((float)($sumaPromedioHorizontal+$sumaPromedioFisicaHorizontal+$sumaPromedioArtesHorizontal)/$totalMateriasHorizontal, 1, '.', '')}}
 
@@ -2586,7 +2589,7 @@
                                   $porgentajeAprobadosGeneralVertical++;
                                 @endphp
                               @endif
-                            @endif 
+                            @endif
 
                             @if ($tipoReporte == "califFinales")
                               {{number_format((float)($sumaPromedioHorizontal+$sumaPromedioFisicaHorizontal+$sumaPromedioArtesHorizontal)/$totalMateriasHorizontal, 1, '.', '')}}
@@ -2602,21 +2605,21 @@
                                   $porgentajeAprobadosGeneralVertical++;
                                 @endphp
                               @endif
-                            @endif 
-                          
+                            @endif
+
                           </td>
 
                           {{--  porcentaje reprobado horizontal   --}}
-                          <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">                          
+                          <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                             <b>{{number_format((float)($porcentajeReprobadoHorizontal * 100)/$totalMateriasHorizontal, 1, '.', '')}}</b>
                           </td>
 
                           {{--  porcentaje aprobado horizontal   --}}
-                          <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">                          
+                          <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                             <b>{{number_format((float)($porcentajeAprobadoHorizontal * 100)/$totalMateriasHorizontal, 1, '.', '')}}</b>
                           </td>
                         @endif
-                        
+
 
                         <td align="center" style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 0px solid;"></td>
                       </tr>
@@ -2629,10 +2632,10 @@
                           $porcentajeReprobadoHorizontal = 0;
                           $porcentajeAprobadoHorizontal = 0;
                       @endphp
-                      
+
                     @endif
                   @endforeach
-                  
+
                   @php
                     $promedioPeriodo = 0.0;
 
@@ -2641,7 +2644,7 @@
                     $VUELTA = 0;
 
                     $promedioSep = 0.0;
-                    $vuelta1 = 0; 
+                    $vuelta1 = 0;
 
                     $vueltaFis = 0;
                     $promedioEducacionFis = 0.0;
@@ -2665,7 +2668,7 @@
 
                     $promEducacionFisicaMar = 0.0;
                     $promediodelMesMar = 0.0;
-                    
+
                     $promEducacionFisicaAbr = 0.0;
                     $promediodelMesAbr = 0.0;
 
@@ -2678,7 +2681,7 @@
 
                     $contador1 = 1;
 
-                 
+
                   @endphp
 
                   @if($loop->last)
@@ -2692,8 +2695,8 @@
                         @foreach ($matClave as $KmatClave => $key)
                           @foreach ($calificaciones as $item)
 
-                            @if ($modoCalificacion == "BASEDIEZ")                   
-                          
+                            @if ($modoCalificacion == "BASEDIEZ")
+
 
                               {{-- mostrar por trimestre --}}
                               @if ($tipoReporte == "porTrimestre")
@@ -2701,20 +2704,20 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
                                       @php
-                                        $promedioMateriaVertical = $promedioMateriaVertical + $item->inscTrimestre1;                                           
+                                        $promedioMateriaVertical = $promedioMateriaVertical + $item->inscTrimestre1;
                                       @endphp
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
                                       @php
                                           $totalMateriasGeneralHorizontal++;
                                       @endphp
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         {{number_format((float)$promedioMateriaVertical/$totalDeAlumnos, 0, '.', '')}}
                                       </td>
-                                      
+
                                       @if (number_format((float)$promedioMateriaVertical/$totalDeAlumnos, 0, '.', '') < 6)
                                         $porgentajeReprobadosGeneralHorizontal++;
                                       @endif
@@ -2737,20 +2740,20 @@
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
                                       @php
-                                        $promedioMateriaVertical = $promedioMateriaVertical + $item->inscTrimestre2;                                           
+                                        $promedioMateriaVertical = $promedioMateriaVertical + $item->inscTrimestre2;
                                       @endphp
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
                                       @php
                                           $totalMateriasGeneralHorizontal++;
                                       @endphp
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         {{number_format((float)$promedioMateriaVertical/$totalDeAlumnos, 0, '.', '')}}
                                       </td>
-                                      
+
                                       @if (number_format((float)$promedioMateriaVertical/$totalDeAlumnos, 0, '.', '') < 6)
                                         $porgentajeReprobadosGeneralHorizontal++;
                                       @endif
@@ -2769,26 +2772,26 @@
                                   @endif
                                 @endif
 
-                             
-                            
+
+
 
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
                                       @php
-                                        $promedioMateriaVertical = $promedioMateriaVertical + $item->inscTrimestre3;                                           
+                                        $promedioMateriaVertical = $promedioMateriaVertical + $item->inscTrimestre3;
                                       @endphp
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
                                       @php
                                           $totalMateriasGeneralHorizontal++;
                                       @endphp
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         {{number_format((float)$promedioMateriaVertical/$totalDeAlumnos, 0, '.', '')}}
                                       </td>
-                                      
+
                                       @if (number_format((float)$promedioMateriaVertical/$totalDeAlumnos, 0, '.', '') < 6)
                                         $porgentajeReprobadosGeneralHorizontal++;
                                       @endif
@@ -2807,8 +2810,8 @@
                                   @endif
                                 @endif
 
-                                
-                                
+
+
                               @endif
 
                               {{-- mostrar por trimestre recuperativo--}}
@@ -2817,20 +2820,20 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre1")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
                                       @php
-                                        $promedioMateriaVertical = $promedioMateriaVertical + $item->trimestre1Sep;                                           
+                                        $promedioMateriaVertical = $promedioMateriaVertical + $item->trimestre1Sep;
                                       @endphp
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
                                       @php
                                           $totalMateriasGeneralHorizontal++;
                                       @endphp
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         {{number_format((float)$promedioMateriaVertical/$totalDeAlumnos, 1, '.', '')}}
                                       </td>
-                                      
+
                                       @if (number_format((float)$promedioMateriaVertical/$totalDeAlumnos, 1, '.', '') < 6)
                                         $porgentajeReprobadosGeneralHorizontal++;
                                       @endif
@@ -2853,20 +2856,20 @@
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre2")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
                                       @php
-                                        $promedioMateriaVertical = $promedioMateriaVertical + $item->trimestre2Sep;                                           
+                                        $promedioMateriaVertical = $promedioMateriaVertical + $item->trimestre2Sep;
                                       @endphp
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
                                       @php
                                           $totalMateriasGeneralHorizontal++;
                                       @endphp
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         {{number_format((float)$promedioMateriaVertical/$totalDeAlumnos, 1, '.', '')}}
                                       </td>
-                                      
+
                                       @if (number_format((float)$promedioMateriaVertical/$totalDeAlumnos, 1, '.', '') < 6)
                                         $porgentajeReprobadosGeneralHorizontal++;
                                       @endif
@@ -2885,26 +2888,26 @@
                                   @endif
                                 @endif
 
-                             
-                            
+
+
 
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre3")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
                                       @php
-                                        $promedioMateriaVertical = $promedioMateriaVertical + $item->trimestre3Sep;                                           
+                                        $promedioMateriaVertical = $promedioMateriaVertical + $item->trimestre3Sep;
                                       @endphp
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
                                       @php
                                           $totalMateriasGeneralHorizontal++;
                                       @endphp
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         {{number_format((float)$promedioMateriaVertical/$totalDeAlumnos, 1, '.', '')}}
                                       </td>
-                                      
+
                                       @if (number_format((float)$promedioMateriaVertical/$totalDeAlumnos, 1, '.', '') < 6)
                                         $porgentajeReprobadosGeneralHorizontal++;
                                       @endif
@@ -2923,8 +2926,8 @@
                                   @endif
                                 @endif
 
-                                
-                                
+
+
                               @endif
 
                               {{--  finales   --}}
@@ -2933,20 +2936,20 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoFinal == "finalSep")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
                                       @php
-                                        $promedioMateriaVertical = $promedioMateriaVertical + $item->inscCalificacionFinalSEP;                                           
+                                        $promedioMateriaVertical = $promedioMateriaVertical + $item->inscCalificacionFinalSEP;
                                       @endphp
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
                                       @php
                                           $totalMateriasGeneralHorizontal++;
                                       @endphp
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         {{number_format((float)$promedioMateriaVertical/$totalDeAlumnos, 1, '.', '')}}
                                       </td>
-                                      
+
                                       @if (number_format((float)$promedioMateriaVertical/$totalDeAlumnos, 1, '.', '') < 6)
                                         $porgentajeReprobadosGeneralHorizontal++;
                                       @endif
@@ -2965,20 +2968,20 @@
                                   @endif
 
                                   @if ($tipoFinal == "finaLModelo")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
                                       @php
-                                        $promedioMateriaVertical = $promedioMateriaVertical + $item->inscCalificacionFinalModelo;                                           
+                                        $promedioMateriaVertical = $promedioMateriaVertical + $item->inscCalificacionFinalModelo;
                                       @endphp
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
                                       @php
                                           $totalMateriasGeneralHorizontal++;
                                       @endphp
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         {{number_format((float)$promedioMateriaVertical/$totalDeAlumnos, 1, '.', '')}}
                                       </td>
-                                      
+
                                       @if (number_format((float)$promedioMateriaVertical/$totalDeAlumnos, 1, '.', '') < 6)
                                         $porgentajeReprobadosGeneralHorizontal++;
                                       @endif
@@ -2995,24 +2998,24 @@
                                       @endphp
                                     @endif
                                   @endif
-                                @endif                                
-                                
+                                @endif
+
                               @endif
-                         
+
                             @endif
 
-                            @if ($modoCalificacion == "BASEPORCENTAJE")                          
-                              
+                            @if ($modoCalificacion == "BASEPORCENTAJE")
+
                               {{-- mostrar por trimestre --}}
                               @if ($tipoReporte == "porTrimestre")
 
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -3026,8 +3029,8 @@
                                               $aproXMateria++;
                                           @endphp
                                       @endif
-                                  
-                              
+
+
 
 
                                       @if ($item->inscTrimestre1 != null)
@@ -3050,10 +3053,10 @@
                                   @endif
                                 @else
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -3067,7 +3070,7 @@
                                             $aproXMateria++;
                                         @endphp
                                     @endif
-                                  
+
 
                                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
                                       @if ($item->inscTrimestre1 != null)
@@ -3083,10 +3086,10 @@
                                 {{--  para poder recuperar el valor  TRIMESTRE 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -3123,8 +3126,8 @@
                                         $promEducacionFisicaNov  = $promEducacionFisicaNov  + $item->puntosREPROBAR_Nov_;
                                       }else{
                                         $promEducacionFisicaNov = $promEducacionFisicaNov + $item->puntosobtenidos_Nov_;
-                                      }                       
-                                      
+                                      }
+
                                       $promediodelMesSept = $promEducacionFisicaSep/2;
                                       $promediodelMesOct = $promEducacionFisicaOct/2;
                                       $promediodelMesNov = $promEducacionFisicaNov/2;
@@ -3135,9 +3138,9 @@
                                       }else{
                                         $promedioEducacionFis = $promediodelMesSept + $promediodelMesOct + $promediodelMesNov;
                                       }
-                                      
+
                                     @endphp
-                                  @endif                             
+                                  @endif
                                     @endif
                                   @endif
                                 @endif
@@ -3145,10 +3148,10 @@
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -3183,10 +3186,10 @@
                                   @endif
                                 @else
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -3200,7 +3203,7 @@
                                             $aproXMateria++;
                                         @endphp
                                     @endif
-                                  
+
 
                                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
                                       @if ($item->inscTrimestre2 != null)
@@ -3216,10 +3219,10 @@
                                 {{--  para poder recuperar el valor  TRIMESTRE 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -3256,8 +3259,8 @@
                                         $promEducacionFisicaMar  = $promEducacionFisicaMar  + $item->puntosREPROBAR_Mar_;
                                       }else{
                                         $promEducacionFisicaMar = $promEducacionFisicaMar + $item->puntosobtenidos_Mar_;
-                                      }                       
-                                      
+                                      }
+
                                       $promediodelMesEne = $promEducacionFisicaEne/2;
                                       $promediodelMesFeb = $promEducacionFisicaFeb/2;
                                       $promediodelMesMar = $promEducacionFisicaMar/2;
@@ -3268,9 +3271,9 @@
                                       }else{
                                         $promedioEducacionFis = $promediodelMesEne + $promediodelMesFeb + $promediodelMesMar;
                                       }
-                                      
+
                                     @endphp
-                                  @endif                             
+                                  @endif
                                     @endif
                                   @endif
                                 @endif
@@ -3278,10 +3281,10 @@
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -3315,10 +3318,10 @@
                                   @endif
                                 @else
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -3332,7 +3335,7 @@
                                             $aproXMateria++;
                                         @endphp
                                     @endif
-                                  
+
 
                                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
                                       @if ($item->inscTrimestre3 != null)
@@ -3348,10 +3351,10 @@
                                 {{--  para poder recuperar el valor  TRIMESTRE 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -3388,8 +3391,8 @@
                                         $promEducacionFisicaJun  = $promEducacionFisicaJun  + $item->puntosREPROBAR_Jun_;
                                       }else{
                                         $promEducacionFisicaJun = $promEducacionFisicaJun + $item->puntosobtenidos_Jun_;
-                                      }                       
-                                      
+                                      }
+
                                       $promediodelMesAbr = $promEducacionFisicaAbr/2;
                                       $promediodelMesMay = $promEducacionFisicaMay/2;
                                       $promediodelMesJun = $promEducacionFisicaJun/2;
@@ -3400,22 +3403,22 @@
                                       }else{
                                         $promedioEducacionFis = $promediodelMesAbr + $promediodelMesMay + $promediodelMesJun;
                                       }
-                                      
+
                                     @endphp
-                                  @endif                             
+                                  @endif
                                     @endif
                                   @endif
                                 @endif
-                                
+
                               @endif
 
                             @endif
-                        
-                          @endforeach                      
+
+                          @endforeach
                         @endforeach
 
                         {{--  promedio educacion fisica   --}}
-                        @if ($parametro_ubicacion_clave === "CME")     
+                        @if ($parametro_ubicacion_clave === "CME")
                           @if ($tipoReporte == "porTrimestre")
                             <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                               {{number_format((float)$promedioMateriaVerticalEduFisica/$totalDeAlumnos, 0, '.', '')}}
@@ -3430,11 +3433,11 @@
                                 $porgentajeAprobadosGeneralHorizontal++;
                               @endphp
                             @endif
-                
+
                             @php
                               $promedioGeneralHorizontal = $promedioGeneralHorizontal + number_format((float)$promedioMateriaVerticalEduFisica/$totalDeAlumnos, 0, '.', '');
-                              $promedioMateriaVerticalEduFisica = 0;    
-                              $totalMateriasGeneralHorizontal++;                          
+                              $promedioMateriaVerticalEduFisica = 0;
+                              $totalMateriasGeneralHorizontal++;
                             @endphp
                           @endif
                           @if($tipoReporte == "califRecuperativos")
@@ -3451,11 +3454,11 @@
                                 $porgentajeAprobadosGeneralHorizontal++;
                               @endphp
                             @endif
-                
+
                             @php
                               $promedioGeneralHorizontal = $promedioGeneralHorizontal + number_format((float)$promedioMateriaVerticalEduFisica/$totalDeAlumnos, 1, '.', '');
-                              $promedioMateriaVerticalEduFisica = 0;    
-                              $totalMateriasGeneralHorizontal++;                          
+                              $promedioMateriaVerticalEduFisica = 0;
+                              $totalMateriasGeneralHorizontal++;
                             @endphp
                           @endif
                           @if($tipoReporte == "califFinales")
@@ -3472,11 +3475,11 @@
                                 $porgentajeAprobadosGeneralHorizontal++;
                               @endphp
                             @endif
-                
+
                             @php
                               $promedioGeneralHorizontal = $promedioGeneralHorizontal + number_format((float)$promedioMateriaVerticalEduFisica/$totalDeAlumnos, 1, '.', '');
-                              $promedioMateriaVerticalEduFisica = 0;    
-                              $totalMateriasGeneralHorizontal++;                          
+                              $promedioMateriaVerticalEduFisica = 0;
+                              $totalMateriasGeneralHorizontal++;
                             @endphp
                           @endif
                         @endif
@@ -3485,7 +3488,7 @@
                         @foreach ($matClave as $KmatClave => $key)
                           @foreach ($calificaciones as $item)
 
-                            @if ($modoCalificacion == "BASEDIEZ")                       
+                            @if ($modoCalificacion == "BASEDIEZ")
 
                               {{-- mostrar por trimestre --}}
                               @if ($tipoReporte == "porTrimestre")
@@ -3493,16 +3496,16 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna == "ARTES")
                                       @php
-                                        $sumaDePromedioVerticalPorMateriaArtes = $sumaDePromedioVerticalPorMateriaArtes + $item->inscTrimestre1;                                        
+                                        $sumaDePromedioVerticalPorMateriaArtes = $sumaDePromedioVerticalPorMateriaArtes + $item->inscTrimestre1;
                                       @endphp
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
                                       @php
                                         $totalMateriasGeneralHorizontal++;
                                       @endphp
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         {{number_format((float)$sumaDePromedioVerticalPorMateriaArtes/$totalDeAlumnos, 0, '.', '')}}
                                       </td>
@@ -3518,24 +3521,24 @@
                                       @php
                                        $promedioGeneralHorizontal = $promedioGeneralHorizontal + number_format((float)$sumaDePromedioVerticalPorMateriaArtes/$totalDeAlumnos, 0, '.', '');
                                       @endphp
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
 
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna == "ARTES")
                                       @php
-                                        $sumaDePromedioVerticalPorMateriaArtes = $sumaDePromedioVerticalPorMateriaArtes + $item->inscTrimestre2;                                        
+                                        $sumaDePromedioVerticalPorMateriaArtes = $sumaDePromedioVerticalPorMateriaArtes + $item->inscTrimestre2;
                                       @endphp
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
                                       @php
                                         $totalMateriasGeneralHorizontal++;
                                       @endphp
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         {{number_format((float)$sumaDePromedioVerticalPorMateriaArtes/$totalDeAlumnos, 0, '.', '')}}
                                       </td>
@@ -3551,24 +3554,24 @@
                                       @php
                                        $promedioGeneralHorizontal = $promedioGeneralHorizontal + number_format((float)$sumaDePromedioVerticalPorMateriaArtes/$totalDeAlumnos, 0, '.', '');
                                       @endphp
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
 
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna == "ARTES")
                                       @php
-                                        $sumaDePromedioVerticalPorMateriaArtes = $sumaDePromedioVerticalPorMateriaArtes + $item->inscTrimestre3;                                        
+                                        $sumaDePromedioVerticalPorMateriaArtes = $sumaDePromedioVerticalPorMateriaArtes + $item->inscTrimestre3;
                                       @endphp
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
                                       @php
                                         $totalMateriasGeneralHorizontal++;
                                       @endphp
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         {{number_format((float)$sumaDePromedioVerticalPorMateriaArtes/$totalDeAlumnos, 0, '.', '')}}
                                       </td>
@@ -3584,11 +3587,11 @@
                                       @php
                                        $promedioGeneralHorizontal = $promedioGeneralHorizontal + number_format((float)$sumaDePromedioVerticalPorMateriaArtes/$totalDeAlumnos, 0, '.', '');
                                       @endphp
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
-                                
+
                               @endif
 
                               {{-- mostrar por trimestre recuperativos--}}
@@ -3597,16 +3600,16 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre1")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna == "ARTES")
                                       @php
-                                        $sumaDePromedioVerticalPorMateriaArtes = $sumaDePromedioVerticalPorMateriaArtes + $item->trimestre1Sep;                                        
+                                        $sumaDePromedioVerticalPorMateriaArtes = $sumaDePromedioVerticalPorMateriaArtes + $item->trimestre1Sep;
                                       @endphp
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
                                       @php
                                         $totalMateriasGeneralHorizontal++;
                                       @endphp
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         {{number_format((float)$sumaDePromedioVerticalPorMateriaArtes/$totalDeAlumnos, 1, '.', '')}}
                                       </td>
@@ -3622,24 +3625,24 @@
                                       @php
                                        $promedioGeneralHorizontal = $promedioGeneralHorizontal + number_format((float)$sumaDePromedioVerticalPorMateriaArtes/$totalDeAlumnos, 1, '.', '');
                                       @endphp
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
 
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre2")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna == "ARTES")
                                       @php
-                                        $sumaDePromedioVerticalPorMateriaArtes = $sumaDePromedioVerticalPorMateriaArtes + $item->trimestre2Sep;                                        
+                                        $sumaDePromedioVerticalPorMateriaArtes = $sumaDePromedioVerticalPorMateriaArtes + $item->trimestre2Sep;
                                       @endphp
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
                                       @php
                                         $totalMateriasGeneralHorizontal++;
                                       @endphp
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         {{number_format((float)$sumaDePromedioVerticalPorMateriaArtes/$totalDeAlumnos, 1, '.', '')}}
                                       </td>
@@ -3655,24 +3658,24 @@
                                       @php
                                        $promedioGeneralHorizontal = $promedioGeneralHorizontal + number_format((float)$sumaDePromedioVerticalPorMateriaArtes/$totalDeAlumnos, 1, '.', '');
                                       @endphp
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
 
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre3")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna == "ARTES")
                                       @php
-                                        $sumaDePromedioVerticalPorMateriaArtes = $sumaDePromedioVerticalPorMateriaArtes + $item->trimestre3Sep;                                        
+                                        $sumaDePromedioVerticalPorMateriaArtes = $sumaDePromedioVerticalPorMateriaArtes + $item->trimestre3Sep;
                                       @endphp
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
                                       @php
                                         $totalMateriasGeneralHorizontal++;
                                       @endphp
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         {{number_format((float)$sumaDePromedioVerticalPorMateriaArtes/$totalDeAlumnos, 1, '.', '')}}
                                       </td>
@@ -3688,11 +3691,11 @@
                                       @php
                                        $promedioGeneralHorizontal = $promedioGeneralHorizontal + number_format((float)$sumaDePromedioVerticalPorMateriaArtes/$totalDeAlumnos, 1, '.', '');
                                       @endphp
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
-                                
+
                               @endif
 
                               {{--  finales   --}}
@@ -3701,16 +3704,16 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoFinal == "finalSep")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna == "ARTES")
                                       @php
-                                        $sumaDePromedioVerticalPorMateriaArtes = $sumaDePromedioVerticalPorMateriaArtes + $item->inscCalificacionFinalSEP;                                        
+                                        $sumaDePromedioVerticalPorMateriaArtes = $sumaDePromedioVerticalPorMateriaArtes + $item->inscCalificacionFinalSEP;
                                       @endphp
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
                                       @php
                                         $totalMateriasGeneralHorizontal++;
                                       @endphp
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         {{number_format((float)$sumaDePromedioVerticalPorMateriaArtes/$totalDeAlumnos, 1, '.', '')}}
                                       </td>
@@ -3726,21 +3729,21 @@
                                       @php
                                        $promedioGeneralHorizontal = $promedioGeneralHorizontal + number_format((float)$sumaDePromedioVerticalPorMateriaArtes/$totalDeAlumnos, 1, '.', '');
                                       @endphp
-                                    
+
                                     @endif
-                                  @endif   
-                                  
+                                  @endif
+
                                   @if ($tipoFinal == "finaLModelo")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna == "ARTES")
                                       @php
-                                        $sumaDePromedioVerticalPorMateriaArtes = $sumaDePromedioVerticalPorMateriaArtes + $item->inscCalificacionFinalModelo;                                        
+                                        $sumaDePromedioVerticalPorMateriaArtes = $sumaDePromedioVerticalPorMateriaArtes + $item->inscCalificacionFinalModelo;
                                       @endphp
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
                                       @php
                                         $totalMateriasGeneralHorizontal++;
                                       @endphp
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         {{number_format((float)$sumaDePromedioVerticalPorMateriaArtes/$totalDeAlumnos, 1, '.', '')}}
                                       </td>
@@ -3756,17 +3759,17 @@
                                       @php
                                        $promedioGeneralHorizontal = $promedioGeneralHorizontal + number_format((float)$sumaDePromedioVerticalPorMateriaArtes/$totalDeAlumnos, 1, '.', '');
                                       @endphp
-                                    
+
                                     @endif
-                                  @endif  
+                                  @endif
                                 @endif
-                                
+
                               @endif
 
                             @endif
 
-                            @if ($modoCalificacion == "BASEPORCENTAJE")                        
-                            
+                            @if ($modoCalificacion == "BASEPORCENTAJE")
+
 
                               {{-- mostrar por trimestre --}}
                               @if ($tipoReporte == "porTrimestre")
@@ -3774,10 +3777,10 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -3791,7 +3794,7 @@
                                               $aproXMateria++;
                                           @endphp
                                       @endif
-                                  
+
 
                                       @if ($item->inscTrimestre1 != null)
                                         @if (number_format((float)$item->inscTrimestre1, 0, '.', '') < 6)
@@ -3808,15 +3811,15 @@
                                       </td>
                                       @endif
 
-                                      
+
                                     @endif
                                   @endif
                                 @else
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -3830,11 +3833,11 @@
                                             $aproXMateria++;
                                         @endphp
                                     @endif
-                                  
+
 
                                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
                                       @if ($item->inscTrimestre1 != null)
-                                      {{number_format((float)$item->inscTrimestre1, 0, '.', '')}} 
+                                      {{number_format((float)$item->inscTrimestre1, 0, '.', '')}}
                                       @else
                                       {{--  {{($item->inscCalificacionSep+$item->inscCalificacionOct+$item->inscCalificacionNov)/3}}  --}}
                                       @endif
@@ -3846,10 +3849,10 @@
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -3883,10 +3886,10 @@
                                   @endif
                                 @else
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -3900,7 +3903,7 @@
                                             $aproXMateria++;
                                         @endphp
                                     @endif
-                                  
+
 
                                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
                                       @if ($item->inscTrimestre2 != null)
@@ -3916,10 +3919,10 @@
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -3953,10 +3956,10 @@
                                   @endif
                                 @else
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -3970,7 +3973,7 @@
                                             $aproXMateria++;
                                         @endphp
                                     @endif
-                                  
+
 
                                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
                                       @if ($item->inscTrimestre3 != null)
@@ -3982,14 +3985,14 @@
                                     @endif
                                   @endif
                                 @endif
-                                
+
                               @endif
 
                             @endif
-                        
-                          @endforeach                      
+
+                          @endforeach
                         @endforeach
-                        
+
                         @if ($tipoReporte == "porTrimestre")
                            {{--  promedio general horizontal   --}}
                           <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px solid; border-left: 0px solid;">
@@ -4004,7 +4007,7 @@
                           {{--  porcentaje aprobado general horizontal   --}}
                           <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                             <b>{{number_format((float)($porgentajeAprobadosGeneralHorizontal*100)/$totalMateriasGeneralHorizontal, 1, '.', '')}}</b>
-                          </td> 
+                          </td>
                         @endif
                         @if($tipoReporte == "califRecuperativos")
                             {{--  promedio general horizontal   --}}
@@ -4022,7 +4025,7 @@
                             <b>{{number_format((float)($porgentajeAprobadosGeneralHorizontal*100)/$totalMateriasGeneralHorizontal, 1, '.', '')}}</b>
                           </td>
                         @endif
-                        
+
                         @if($tipoReporte == "califFinales")
                             {{--  promedio general horizontal   --}}
                           <td align="center" style="border-top: 1px solid; border-right: 1px; border-bottom: 1px solid; border-left: 0px solid;">
@@ -4052,8 +4055,8 @@
                         @foreach ($matClave as $KmatClave => $key)
                           @foreach ($calificaciones as $item)
 
-                            @if ($modoCalificacion == "BASEDIEZ")                   
-                          
+                            @if ($modoCalificacion == "BASEDIEZ")
+
 
                               {{-- mostrar por trimestre --}}
                               @if ($tipoReporte == "porTrimestre")
@@ -4061,17 +4064,17 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
-                                      
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
+
                                       @if ($item->inscTrimestre1 < 6)
                                         @php
                                           $totalMateriasReprobadasVertical++;
                                         @endphp
                                       @endif
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasReprobadasVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
@@ -4079,7 +4082,7 @@
                                       @php
                                         $totalMateriasReprobadasVertical = 0;
                                       @endphp
-                                    @endif                                    
+                                    @endif
                                   @endif
                                 @endif
 
@@ -4087,17 +4090,17 @@
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
-                                      
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
+
                                       @if ($item->inscTrimestre2 < 6)
                                         @php
                                           $totalMateriasReprobadasVertical++;
                                         @endphp
                                       @endif
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasReprobadasVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
@@ -4105,24 +4108,24 @@
                                       @php
                                         $totalMateriasReprobadasVertical = 0;
                                       @endphp
-                                    @endif                                    
+                                    @endif
                                   @endif
                                 @endif
 
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
-                                      
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
+
                                       @if ($item->inscTrimestre3 < 6)
                                         @php
                                           $totalMateriasReprobadasVertical++;
                                         @endphp
                                       @endif
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasReprobadasVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
@@ -4130,12 +4133,12 @@
                                       @php
                                         $totalMateriasReprobadasVertical = 0;
                                       @endphp
-                                    @endif                                    
+                                    @endif
                                   @endif
                                 @endif
 
-                             
-                                
+
+
                               @endif
 
                               {{-- mostrar por trimestre recuperativo--}}
@@ -4144,17 +4147,17 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre1")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
-                                      
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
+
                                       @if ($item->trimestre1Sep < 6)
                                         @php
                                           $totalMateriasReprobadasVertical++;
                                         @endphp
                                       @endif
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasReprobadasVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
@@ -4162,7 +4165,7 @@
                                       @php
                                         $totalMateriasReprobadasVertical = 0;
                                       @endphp
-                                    @endif                                    
+                                    @endif
                                   @endif
                                 @endif
 
@@ -4170,17 +4173,17 @@
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre2")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
-                                      
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
+
                                       @if ($item->trimestre2Sep < 6)
                                         @php
                                           $totalMateriasReprobadasVertical++;
                                         @endphp
                                       @endif
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasReprobadasVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
@@ -4188,24 +4191,24 @@
                                       @php
                                         $totalMateriasReprobadasVertical = 0;
                                       @endphp
-                                    @endif                                    
+                                    @endif
                                   @endif
                                 @endif
 
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre3")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
-                                      
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
+
                                       @if ($item->trimestre3Sep < 6)
                                         @php
                                           $totalMateriasReprobadasVertical++;
                                         @endphp
                                       @endif
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasReprobadasVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
@@ -4213,12 +4216,12 @@
                                       @php
                                         $totalMateriasReprobadasVertical = 0;
                                       @endphp
-                                    @endif                                    
+                                    @endif
                                   @endif
                                 @endif
 
-                             
-                                
+
+
                               @endif
 
                               {{--  finales   --}}
@@ -4227,17 +4230,17 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoFinal == "finalSep")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
-                                      
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
+
                                       @if ($item->inscCalificacionFinalSEP < 6)
                                         @php
                                           $totalMateriasReprobadasVertical++;
                                         @endphp
                                       @endif
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasReprobadasVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
@@ -4245,21 +4248,21 @@
                                       @php
                                         $totalMateriasReprobadasVertical = 0;
                                       @endphp
-                                    @endif                                    
+                                    @endif
                                   @endif
 
                                   @if ($tipoFinal == "finaLModelo")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
-                                      
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
+
                                       @if ($item->inscCalificacionFinalModelo < 6)
                                         @php
                                           $totalMateriasReprobadasVertical++;
                                         @endphp
                                       @endif
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasReprobadasVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
@@ -4267,27 +4270,27 @@
                                       @php
                                         $totalMateriasReprobadasVertical = 0;
                                       @endphp
-                                    @endif                                    
+                                    @endif
                                   @endif
-                                @endif                             
-                                
+                                @endif
+
                               @endif
 
-                         
+
                             @endif
 
-                            @if ($modoCalificacion == "BASEPORCENTAJE")                          
-                              
+                            @if ($modoCalificacion == "BASEPORCENTAJE")
+
                               {{-- mostrar por trimestre --}}
                               @if ($tipoReporte == "porTrimestre")
 
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -4301,8 +4304,8 @@
                                               $aproXMateria++;
                                           @endphp
                                       @endif
-                                  
-                              
+
+
 
 
                                       @if ($item->inscTrimestre1 != null)
@@ -4325,10 +4328,10 @@
                                   @endif
                                 @else
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -4342,7 +4345,7 @@
                                             $aproXMateria++;
                                         @endphp
                                     @endif
-                                  
+
 
                                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
                                       @if ($item->inscTrimestre1 != null)
@@ -4358,10 +4361,10 @@
                                 {{--  para poder recuperar el valor  TRIMESTRE 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -4398,8 +4401,8 @@
                                         $promEducacionFisicaNov  = $promEducacionFisicaNov  + $item->puntosREPROBAR_Nov_;
                                       }else{
                                         $promEducacionFisicaNov = $promEducacionFisicaNov + $item->puntosobtenidos_Nov_;
-                                      }                       
-                                      
+                                      }
+
                                       $promediodelMesSept = $promEducacionFisicaSep/2;
                                       $promediodelMesOct = $promEducacionFisicaOct/2;
                                       $promediodelMesNov = $promEducacionFisicaNov/2;
@@ -4410,9 +4413,9 @@
                                       }else{
                                         $promedioEducacionFis = $promediodelMesSept + $promediodelMesOct + $promediodelMesNov;
                                       }
-                                      
+
                                     @endphp
-                                  @endif                             
+                                  @endif
                                     @endif
                                   @endif
                                 @endif
@@ -4420,10 +4423,10 @@
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -4458,10 +4461,10 @@
                                   @endif
                                 @else
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -4475,7 +4478,7 @@
                                             $aproXMateria++;
                                         @endphp
                                     @endif
-                                  
+
 
                                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
                                       @if ($item->inscTrimestre2 != null)
@@ -4491,10 +4494,10 @@
                                 {{--  para poder recuperar el valor  TRIMESTRE 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -4531,8 +4534,8 @@
                                         $promEducacionFisicaMar  = $promEducacionFisicaMar  + $item->puntosREPROBAR_Mar_;
                                       }else{
                                         $promEducacionFisicaMar = $promEducacionFisicaMar + $item->puntosobtenidos_Mar_;
-                                      }                       
-                                      
+                                      }
+
                                       $promediodelMesEne = $promEducacionFisicaEne/2;
                                       $promediodelMesFeb = $promEducacionFisicaFeb/2;
                                       $promediodelMesMar = $promEducacionFisicaMar/2;
@@ -4543,9 +4546,9 @@
                                       }else{
                                         $promedioEducacionFis = $promediodelMesEne + $promediodelMesFeb + $promediodelMesMar;
                                       }
-                                      
+
                                     @endphp
-                                  @endif                             
+                                  @endif
                                     @endif
                                   @endif
                                 @endif
@@ -4553,10 +4556,10 @@
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -4590,10 +4593,10 @@
                                   @endif
                                 @else
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -4607,7 +4610,7 @@
                                             $aproXMateria++;
                                         @endphp
                                     @endif
-                                  
+
 
                                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
                                       @if ($item->inscTrimestre3 != null)
@@ -4623,10 +4626,10 @@
                                 {{--  para poder recuperar el valor  TRIMESTRE 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -4663,8 +4666,8 @@
                                         $promEducacionFisicaJun  = $promEducacionFisicaJun  + $item->puntosREPROBAR_Jun_;
                                       }else{
                                         $promEducacionFisicaJun = $promEducacionFisicaJun + $item->puntosobtenidos_Jun_;
-                                      }                       
-                                      
+                                      }
+
                                       $promediodelMesAbr = $promEducacionFisicaAbr/2;
                                       $promediodelMesMay = $promEducacionFisicaMay/2;
                                       $promediodelMesJun = $promEducacionFisicaJun/2;
@@ -4675,33 +4678,33 @@
                                       }else{
                                         $promedioEducacionFis = $promediodelMesAbr + $promediodelMesMay + $promediodelMesJun;
                                       }
-                                      
+
                                     @endphp
-                                  @endif                             
+                                  @endif
                                     @endif
                                   @endif
                                 @endif
-                                
+
                               @endif
 
                             @endif
-                        
-                          @endforeach                      
+
+                          @endforeach
                         @endforeach
 
                         {{--  promedio educacion fisica   --}}
-                        @if ($parametro_ubicacion_clave === "CME")     
+                        @if ($parametro_ubicacion_clave === "CME")
                           <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                             <b>{{number_format((float)($totalMateriasReprobadasFisicaVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                           </td>
-               
+
                         @endif
 
                         {{--  promedio artes   --}}
                         @foreach ($matClave as $KmatClave => $key)
                           @foreach ($calificaciones as $item)
 
-                            @if ($modoCalificacion == "BASEDIEZ")                       
+                            @if ($modoCalificacion == "BASEDIEZ")
 
                               {{-- mostrar por trimestre --}}
                               @if ($tipoReporte == "porTrimestre")
@@ -4709,48 +4712,48 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasReprobadasArtesVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
 
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
 
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasReprobadasArtesVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
 
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
 
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasReprobadasArtesVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
 
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
-                                
+
                               @endif
 
 
@@ -4760,48 +4763,48 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasReprobadasArtesVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
 
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
 
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasReprobadasArtesVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
 
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
 
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasReprobadasArtesVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
 
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
-                                
+
                               @endif
 
                               {{--  finales   --}}
@@ -4810,36 +4813,36 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoFinal == "finalSep")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasReprobadasArtesVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
 
-                                    
+
                                     @endif
-                                  @endif   
-                                  
+                                  @endif
+
                                   @if ($tipoFinal == "finaLModelo")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasReprobadasArtesVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
 
-                                    
+
                                     @endif
-                                  @endif 
+                                  @endif
                                 @endif
-                                
+
                               @endif
 
                             @endif
 
-                            @if ($modoCalificacion == "BASEPORCENTAJE")                        
-                            
+                            @if ($modoCalificacion == "BASEPORCENTAJE")
+
 
                               {{-- mostrar por trimestre --}}
                               @if ($tipoReporte == "porTrimestre")
@@ -4847,10 +4850,10 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -4864,7 +4867,7 @@
                                               $aproXMateria++;
                                           @endphp
                                       @endif
-                                  
+
 
                                       @if ($item->inscTrimestre1 != null)
                                         @if (number_format((float)$item->inscTrimestre1, 0, '.', '') < 6)
@@ -4881,15 +4884,15 @@
                                       </td>
                                       @endif
 
-                                      
+
                                     @endif
                                   @endif
                                 @else
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -4903,11 +4906,11 @@
                                             $aproXMateria++;
                                         @endphp
                                     @endif
-                                  
+
 
                                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
                                       @if ($item->inscTrimestre1 != null)
-                                      {{number_format((float)$item->inscTrimestre1, 0, '.', '')}} 
+                                      {{number_format((float)$item->inscTrimestre1, 0, '.', '')}}
                                       @else
                                       {{--  {{($item->inscCalificacionSep+$item->inscCalificacionOct+$item->inscCalificacionNov)/3}}  --}}
                                       @endif
@@ -4919,10 +4922,10 @@
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -4956,10 +4959,10 @@
                                   @endif
                                 @else
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -4973,7 +4976,7 @@
                                             $aproXMateria++;
                                         @endphp
                                     @endif
-                                  
+
 
                                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
                                       @if ($item->inscTrimestre2 != null)
@@ -4989,10 +4992,10 @@
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -5026,10 +5029,10 @@
                                   @endif
                                 @else
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -5043,7 +5046,7 @@
                                             $aproXMateria++;
                                         @endphp
                                     @endif
-                                  
+
 
                                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
                                       @if ($item->inscTrimestre3 != null)
@@ -5055,12 +5058,12 @@
                                     @endif
                                   @endif
                                 @endif
-                                
+
                               @endif
 
                             @endif
-                        
-                          @endforeach                      
+
+                          @endforeach
                         @endforeach
 
                         {{--  porcentaje general vertical   --}}
@@ -5074,7 +5077,7 @@
 
 
                         <td align="center" style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 0px solid;"></td>
-                                              
+
                       </tr>
 
 
@@ -5087,8 +5090,8 @@
                         @foreach ($matClave as $KmatClave => $key)
                           @foreach ($calificaciones as $item)
 
-                            @if ($modoCalificacion == "BASEDIEZ")                   
-                          
+                            @if ($modoCalificacion == "BASEDIEZ")
+
 
                               {{-- mostrar por trimestre --}}
                               @if ($tipoReporte == "porTrimestre")
@@ -5096,17 +5099,17 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
-                                      
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
+
                                       @if ($item->inscTrimestre1 >= 6)
                                         @php
                                           $totalMateriasAprobadasVertical++;
                                         @endphp
                                       @endif
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasAprobadasVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
@@ -5114,7 +5117,7 @@
                                       @php
                                         $totalMateriasAprobadasVertical = 0;
                                       @endphp
-                                    @endif                                    
+                                    @endif
                                   @endif
                                 @endif
 
@@ -5122,17 +5125,17 @@
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
-                                      
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
+
                                       @if ($item->inscTrimestre2 >= 6)
                                         @php
                                           $totalMateriasAprobadasVertical++;
                                         @endphp
                                       @endif
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasAprobadasVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
@@ -5140,27 +5143,27 @@
                                       @php
                                         $totalMateriasAprobadasVertical = 0;
                                       @endphp
-                                    @endif                                    
+                                    @endif
                                   @endif
                                 @endif
 
-                               
-                            
+
+
 
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
-                                      
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
+
                                       @if ($item->inscTrimestre3 >= 6)
                                         @php
                                           $totalMateriasAprobadasVertical++;
                                         @endphp
                                       @endif
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasAprobadasVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
@@ -5168,10 +5171,10 @@
                                       @php
                                         $totalMateriasAprobadasVertical = 0;
                                       @endphp
-                                    @endif                                    
+                                    @endif
                                   @endif
                                 @endif
-                                
+
                               @endif
 
                               {{-- mostrar por trimestre recuperativo--}}
@@ -5180,17 +5183,17 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre1")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
-                                      
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
+
                                       @if ($item->trimestre1Sep >= 6)
                                         @php
                                           $totalMateriasAprobadasVertical++;
                                         @endphp
                                       @endif
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasAprobadasVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
@@ -5198,7 +5201,7 @@
                                       @php
                                         $totalMateriasAprobadasVertical = 0;
                                       @endphp
-                                    @endif                                    
+                                    @endif
                                   @endif
                                 @endif
 
@@ -5206,17 +5209,17 @@
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre2")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
-                                      
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
+
                                       @if ($item->trimestre2Sep >= 6)
                                         @php
                                           $totalMateriasAprobadasVertical++;
                                         @endphp
                                       @endif
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasAprobadasVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
@@ -5224,27 +5227,27 @@
                                       @php
                                         $totalMateriasAprobadasVertical = 0;
                                       @endphp
-                                    @endif                                    
+                                    @endif
                                   @endif
                                 @endif
 
-                               
-                            
+
+
 
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre3")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
-                                      
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
+
                                       @if ($item->trimestre3Sep >= 6)
                                         @php
                                           $totalMateriasAprobadasVertical++;
                                         @endphp
                                       @endif
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasAprobadasVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
@@ -5252,10 +5255,10 @@
                                       @php
                                         $totalMateriasAprobadasVertical = 0;
                                       @endphp
-                                    @endif                                    
+                                    @endif
                                   @endif
                                 @endif
-                                
+
                               @endif
 
                               {{--  finales   --}}
@@ -5264,17 +5267,17 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoFinal == "finalSep" || $tipoFinal == "finaLModelo")
-                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
-                                      
+                                    @if ($KmatClave == $item->matClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
+
                                       @if ($item->inscCalificacionFinalSEP >= 6)
                                         @php
                                           $totalMateriasAprobadasVertical++;
                                         @endphp
                                       @endif
                                     @endif
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $aluClave && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
-                                  
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasAprobadasVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
@@ -5282,26 +5285,26 @@
                                       @php
                                         $totalMateriasAprobadasVertical = 0;
                                       @endphp
-                                    @endif                                    
+                                    @endif
                                   @endif
                                 @endif
-                              
+
                               @endif
-                         
+
                             @endif
 
-                            @if ($modoCalificacion == "BASEPORCENTAJE")                          
-                              
+                            @if ($modoCalificacion == "BASEPORCENTAJE")
+
                               {{-- mostrar por trimestre --}}
                               @if ($tipoReporte == "porTrimestre")
 
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -5315,8 +5318,8 @@
                                               $aproXMateria++;
                                           @endphp
                                       @endif
-                                  
-                              
+
+
 
 
                                       @if ($item->inscTrimestre1 != null)
@@ -5339,10 +5342,10 @@
                                   @endif
                                 @else
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -5356,7 +5359,7 @@
                                             $aproXMateria++;
                                         @endphp
                                     @endif
-                                  
+
 
                                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
                                       @if ($item->inscTrimestre1 != null)
@@ -5372,10 +5375,10 @@
                                 {{--  para poder recuperar el valor  TRIMESTRE 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -5412,8 +5415,8 @@
                                         $promEducacionFisicaNov  = $promEducacionFisicaNov  + $item->puntosREPROBAR_Nov_;
                                       }else{
                                         $promEducacionFisicaNov = $promEducacionFisicaNov + $item->puntosobtenidos_Nov_;
-                                      }                       
-                                      
+                                      }
+
                                       $promediodelMesSept = $promEducacionFisicaSep/2;
                                       $promediodelMesOct = $promEducacionFisicaOct/2;
                                       $promediodelMesNov = $promEducacionFisicaNov/2;
@@ -5424,9 +5427,9 @@
                                       }else{
                                         $promedioEducacionFis = $promediodelMesSept + $promediodelMesOct + $promediodelMesNov;
                                       }
-                                      
+
                                     @endphp
-                                  @endif                             
+                                  @endif
                                     @endif
                                   @endif
                                 @endif
@@ -5434,10 +5437,10 @@
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -5472,10 +5475,10 @@
                                   @endif
                                 @else
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -5489,7 +5492,7 @@
                                             $aproXMateria++;
                                         @endphp
                                     @endif
-                                  
+
 
                                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
                                       @if ($item->inscTrimestre2 != null)
@@ -5505,10 +5508,10 @@
                                 {{--  para poder recuperar el valor  TRIMESTRE 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -5545,8 +5548,8 @@
                                         $promEducacionFisicaMar  = $promEducacionFisicaMar  + $item->puntosREPROBAR_Mar_;
                                       }else{
                                         $promEducacionFisicaMar = $promEducacionFisicaMar + $item->puntosobtenidos_Mar_;
-                                      }                       
-                                      
+                                      }
+
                                       $promediodelMesEne = $promEducacionFisicaEne/2;
                                       $promediodelMesFeb = $promEducacionFisicaFeb/2;
                                       $promediodelMesMar = $promEducacionFisicaMar/2;
@@ -5557,9 +5560,9 @@
                                       }else{
                                         $promedioEducacionFis = $promediodelMesEne + $promediodelMesFeb + $promediodelMesMar;
                                       }
-                                      
+
                                     @endphp
-                                  @endif                             
+                                  @endif
                                     @endif
                                   @endif
                                 @endif
@@ -5567,10 +5570,10 @@
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna != "EF.VESP" && $item->matNombreColumna != "EDU.FIS" && $item->matNombreColumna != "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -5604,10 +5607,10 @@
                                   @endif
                                 @else
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -5621,7 +5624,7 @@
                                             $aproXMateria++;
                                         @endphp
                                     @endif
-                                  
+
 
                                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
                                       @if ($item->inscTrimestre3 != null)
@@ -5637,10 +5640,10 @@
                                 {{--  para poder recuperar el valor  TRIMESTRE 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -5677,8 +5680,8 @@
                                         $promEducacionFisicaJun  = $promEducacionFisicaJun  + $item->puntosREPROBAR_Jun_;
                                       }else{
                                         $promEducacionFisicaJun = $promEducacionFisicaJun + $item->puntosobtenidos_Jun_;
-                                      }                       
-                                      
+                                      }
+
                                       $promediodelMesAbr = $promEducacionFisicaAbr/2;
                                       $promediodelMesMay = $promEducacionFisicaMay/2;
                                       $promediodelMesJun = $promEducacionFisicaJun/2;
@@ -5689,33 +5692,33 @@
                                       }else{
                                         $promedioEducacionFis = $promediodelMesAbr + $promediodelMesMay + $promediodelMesJun;
                                       }
-                                      
+
                                     @endphp
-                                  @endif                             
+                                  @endif
                                     @endif
                                   @endif
                                 @endif
-                                
+
                               @endif
 
                             @endif
-                        
-                          @endforeach                      
+
+                          @endforeach
                         @endforeach
 
                         {{--  promedio educacion fisica   --}}
-                        @if ($parametro_ubicacion_clave === "CME")     
+                        @if ($parametro_ubicacion_clave === "CME")
                           <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                             <b>{{number_format((float)($totalMateriasAprobadasFisicaVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                           </td>
-               
+
                         @endif
 
                         {{--  promedio artes   --}}
                         @foreach ($matClave as $KmatClave => $key)
                           @foreach ($calificaciones as $item)
 
-                            @if ($modoCalificacion == "BASEDIEZ")                       
+                            @if ($modoCalificacion == "BASEDIEZ")
 
                               {{-- mostrar por trimestre --}}
                               @if ($tipoReporte == "porTrimestre")
@@ -5723,49 +5726,49 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasAprobadasArtesVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
 
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
 
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasAprobadasArtesVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
 
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
 
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasAprobadasArtesVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
 
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
-                                
-                                
+
+
                               @endif
 
                               {{-- mostrar por trimestre recuperativo--}}
@@ -5774,49 +5777,49 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasAprobadasArtesVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
 
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
 
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasAprobadasArtesVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
 
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
 
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoRecuperativo == "recuperativosTrimestre3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasAprobadasArtesVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
 
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
-                                
-                                
+
+
                               @endif
 
                               {{--  finales   --}}
@@ -5824,24 +5827,24 @@
 
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($tipoFinal == "finalSep" || $tipoFinal == "finaLModelo")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
-                                                                        
+
                                       <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                         <b>{{number_format((float)($totalMateriasAprobadasArtesVertical * 100)/$totalDeAlumnos, 1, '.', '')}}</b>
                                       </td>
 
-                                    
+
                                     @endif
-                                  @endif                               
+                                  @endif
                                 @endif
-                                
+
                               @endif
 
                             @endif
 
-                            @if ($modoCalificacion == "BASEPORCENTAJE")                        
-                            
+                            @if ($modoCalificacion == "BASEPORCENTAJE")
+
 
                               {{-- mostrar por trimestre --}}
                               @if ($tipoReporte == "porTrimestre")
@@ -5849,10 +5852,10 @@
                                 {{-- trimestre 1 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -5866,7 +5869,7 @@
                                               $aproXMateria++;
                                           @endphp
                                       @endif
-                                  
+
 
                                       @if ($item->inscTrimestre1 != null)
                                         @if (number_format((float)$item->inscTrimestre1, 0, '.', '') < 6)
@@ -5883,15 +5886,15 @@
                                       </td>
                                       @endif
 
-                                      
+
                                     @endif
                                   @endif
                                 @else
                                   @if ($trimestreEvaluar == "TRIMESTRE1")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre1;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -5905,11 +5908,11 @@
                                             $aproXMateria++;
                                         @endphp
                                     @endif
-                                  
+
 
                                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
                                       @if ($item->inscTrimestre1 != null)
-                                      {{number_format((float)$item->inscTrimestre1, 0, '.', '')}} 
+                                      {{number_format((float)$item->inscTrimestre1, 0, '.', '')}}
                                       @else
                                       {{--  {{($item->inscCalificacionSep+$item->inscCalificacionOct+$item->inscCalificacionNov)/3}}  --}}
                                       @endif
@@ -5921,10 +5924,10 @@
                                 {{-- trimestre 2 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -5958,10 +5961,10 @@
                                   @endif
                                 @else
                                   @if ($trimestreEvaluar == "TRIMESTRE2")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre2;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -5975,7 +5978,7 @@
                                             $aproXMateria++;
                                         @endphp
                                     @endif
-                                  
+
 
                                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
                                       @if ($item->inscTrimestre2 != null)
@@ -5991,10 +5994,10 @@
                                 {{-- trimestre 3 --}}
                                 @if ($parametro_ubicacion_clave === "CME")
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES") 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago && $item->matNombreColumna == "ARTES")
 
                                       @php
-                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;                                           
+                                      $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;
                                       @endphp
 
                                       {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -6028,10 +6031,10 @@
                                   @endif
                                 @else
                                   @if ($trimestreEvaluar == "TRIMESTRE3")
-                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago) 
+                                    @if ($KmatClave == $item->matClave && $item->clave_pago == $valor->clave_pago)
 
                                     @php
-                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;                                           
+                                    $promedioPeriodo = $promedioPeriodo + $item->inscTrimestre3;
                                     @endphp
 
                                     {{--  para la columna de Rep de la fila de materias de un alumno   --}}
@@ -6045,7 +6048,7 @@
                                             $aproXMateria++;
                                         @endphp
                                     @endif
-                                  
+
 
                                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
                                       @if ($item->inscTrimestre3 != null)
@@ -6057,12 +6060,12 @@
                                     @endif
                                   @endif
                                 @endif
-                                
+
                               @endif
 
                             @endif
-                        
-                          @endforeach                      
+
+                          @endforeach
                         @endforeach
 
                         {{--  porcentaje general vertical   --}}
@@ -6075,10 +6078,10 @@
                         <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;"></td>
 
                         <td align="center" style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 0px solid;"></td>
-                                              
+
                       </tr>
-                    @endif                      
-                  @endif  
+                    @endif
+                  @endif
                 @endforeach
               </tbody>
             </table>

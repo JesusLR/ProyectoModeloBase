@@ -294,8 +294,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -402,6 +402,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -70px;
         right: 0px;
@@ -421,6 +422,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 180px;
         margin-bottom: 40px;
       }
@@ -472,7 +475,7 @@
         content: "Pág " counter(page);
       }
 
-    
+
     </style>
 	</head>
   <body>
@@ -510,9 +513,9 @@
           Autónoma de Yucatán, hace constar que {{$alumno['pronombre']}} joven {{$alumno['nombreCompleto']}} {{$es_fue}}
           {{$alumno['alumnx']}} del {{$alumno['gradoLetras']}} curso del BACHILLERATO en el ciclo escolar del
           {{$fechaInicial}} al {{$fechaFinal}} y ha obtenido las siguientes
-          calificaciones{{$mensaje}} 
+          calificaciones{{$mensaje}}
         </p>
-        <br>  
+        <br>
       <p><b>ASIGNATURAS</b> <span style="float:right;">CALIFICACIONES</span></p>
 
       @foreach ($semestres as $semestre)
@@ -528,19 +531,19 @@
             $esAprobada = $materia['histCalificacion'] >= $calificacion_minima;
             $font_weight = (($esNumerica && $esAprobada) || !$esNumerica) ? 'normal' : 'bold';
           @endphp
-          <div style="padding:0 0 0 30px;">  
+          <div style="padding:0 0 0 30px;">
             <span @if ($materia['es_revalidacion'] == "RV") style="position: absolute; left:615px; font-weight:normal;" @else style="position: absolute; right:57px; font-weight:{{$font_weight}};"  @endif>
               @if ($materia['es_revalidacion'] == "RV")
                   Rev
               @else
               {{$materia['histCalificacion']}}
-              @endif 
+              @endif
             </span>
             {{$materia['matNombre']}}
           </div>
           @php
             if(!in_array($materia['histCalificacion'], ['Apr', 'No Apr', 'S/D', 'Npa'])) {
-              
+
               $contarMaterias++;
               $contarMateriasTotales++;
 
@@ -580,7 +583,7 @@
       <p align="justify">Y para los fines que le sean convenientes, se expide la presente constancia
         en la ciudad de {{$municipio->munNombre}} {{$estado->edoNombre}}, a los {{$fechaDeHoy}}.
       </p>
-      
+
           <br>
       <p align="center">ATENTAMENTE</p>
       <br><br>

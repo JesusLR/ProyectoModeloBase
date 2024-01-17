@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 8px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 20px;
         margin-bottom: 70px;
       }
@@ -507,7 +510,7 @@
       </div>
     </header>
 
-    <footer id="footer">       
+    <footer id="footer">
       <div class="page-number"></div>
     </footer>
 
@@ -519,16 +522,16 @@
               <th align="center" style="font-weight: 400; width: 30px;"><b>Cve Pago</b></th>
               <th style="font-weight: 400; width: 200px;"><b>Nombre del alumno</b></th>
               {{--  <th align="center" style="font-weight: 400; width: 50px;"><b>Programa</b></th>  --}}
-              <th align="center" style="font-weight: 400; width: 30px;"><b>Grado</b></th>      
-              <th align="center" style="font-weight: 400; width: 30px;"><b>Grupo</b></th>      
-              <th align="center" style="font-weight: 400; width: 30px;"><b>Modalidad</b></th>     
+              <th align="center" style="font-weight: 400; width: 30px;"><b>Grado</b></th>
+              <th align="center" style="font-weight: 400; width: 30px;"><b>Grupo</b></th>
+              <th align="center" style="font-weight: 400; width: 30px;"><b>Modalidad</b></th>
 
-              <th  style="font-weight: 400; width: 120px;"><b>Materia</b></th>    
-              <th  style="font-weight: 400; width: 130px;"><b>Asignatura</b></th>   
-              <th  style="font-weight: 400; width: 170px;"><b>Docente</b></th>      
-   
-  
-                     
+              <th  style="font-weight: 400; width: 120px;"><b>Materia</b></th>
+              <th  style="font-weight: 400; width: 130px;"><b>Asignatura</b></th>
+              <th  style="font-weight: 400; width: 170px;"><b>Docente</b></th>
+
+
+
             </tr>
             @foreach ($alumnos as $key => $alumno)
             <tr>
@@ -546,11 +549,11 @@
 
 
             </tr>
-                
-            @endforeach          
-              
+
+            @endforeach
+
           </table>
-        </div>        
+        </div>
       </div>
 
 

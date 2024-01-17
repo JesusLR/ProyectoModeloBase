@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,11 +367,11 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
-  
+
       .estilos-tabla tr th {
         font-size: 12px;
         background-color: #000;
@@ -382,7 +382,7 @@
         box-sizing: border-box;
         text-align: center;
       }
-  
+
       .estilos-tabla tr td {
         font-size: 12px;
         padding-left: 2px;
@@ -390,19 +390,20 @@
         box-sizing: border-box;
         color: #000;
       }
-  
+
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -40px;
         right: 0px;
@@ -412,7 +413,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -422,6 +423,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 70px;
         margin-bottom: 70px;
       }
@@ -478,9 +481,9 @@
 	</head>
   <body>
 
-    @php 
+    @php
     use App\Http\Helpers\Utils;
-    
+
     @endphp
     <header>
       <div class="row">
@@ -492,12 +495,12 @@
         <div class="columns medium-6">
           <div style="text-align: right;">
             <p>Fecha: {{$fechaHoy}}</p>
-            <p>Hora: {{$fechaActual->format('H:i:s')}}</p> 
+            <p>Hora: {{$fechaActual->format('H:i:s')}}</p>
           </div>
         </div>
       </div>
 
-      
+
       <div class="row" style="margin-bottom: 2px">
         <div class="columns medium-6">
             <p>Alumno: {{$alumno}}</p>
@@ -516,7 +519,7 @@
           <p>
               {{-- Período: {{ \Carbon\Carbon::parse($inicioPeriodo)->day.'/'.\Carbon\Carbon::parse($inicioPeriodo)->formatLocalized('%b').'/'.\Carbon\Carbon::parse($inicioPeriodo)->year }}
               -
-              {{ \Carbon\Carbon::parse($finalPeriodo)->day.'/'.\Carbon\Carbon::parse($finalPeriodo)->formatLocalized('%b').'/'.\Carbon\Carbon::parse($finalPeriodo)->year }}           
+              {{ \Carbon\Carbon::parse($finalPeriodo)->day.'/'.\Carbon\Carbon::parse($finalPeriodo)->formatLocalized('%b').'/'.\Carbon\Carbon::parse($finalPeriodo)->year }}
           </p> --}}
         </div>
       </div>
@@ -527,13 +530,13 @@
         </div>
       </div>
 
-      <div class="row" style="margin-bottom: 2px">        
+      <div class="row" style="margin-bottom: 2px">
         <div class="columns medium-4">
           {{-- <p>Semestre : {{$matSemestre}}</p> --}}
         </div>
       </div>
 
-    </header>   
+    </header>
 
     @php
         $pos = 0;
@@ -557,9 +560,9 @@
               <th align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">Libro</th>
               <th align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">Act</th>
               <th align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">Fol</th>
-            </tr>     
-            
-                   
+            </tr>
+
+
           </thead>
           <tbody>
             @foreach ($semestre as $seme => $valores_array)
@@ -567,17 +570,17 @@
                 @if ($seme != 0 && $pos++ == 1 && $seme == $item->matSemestre)
                 <tr>
                   <th colspan="9" style="height: 50px; border-top: 0px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 0px solid;">
-                    
-                    {{Utils::grados_numeracion_ordinal($seme)}} SEMESTRE   
+
+                    {{Utils::grados_numeracion_ordinal($seme)}} SEMESTRE
                     ({{\Carbon\Carbon::parse($item->fecha_inicio)->format('d')}}/{{Utils::num_meses_corto_string(\Carbon\Carbon::parse($item->fecha_inicio)->format('m'))}}/{{\Carbon\Carbon::parse($item->fecha_inicio)->format('Y')}}
                     -
                     {{\Carbon\Carbon::parse($item->fecha_fin)->format('d')}}/{{Utils::num_meses_corto_string(\Carbon\Carbon::parse($item->fecha_fin)->format('m'))}}/{{\Carbon\Carbon::parse($item->fecha_fin)->format('Y')}})
-                  
+
                   </th>
-                </tr> 
-                @endif                
-              @endforeach   
-              
+                </tr>
+                @endif
+              @endforeach
+
               @php
                   $pos = 0;
               @endphp
@@ -596,20 +599,20 @@
                 </tr>
                 @endif
               @endforeach
-            @endforeach    
-            
+            @endforeach
+
           </tbody>
         </table>
-  
+
       </div>
     </div>
 
-    
+
     @php
       $suma = 0;
     @endphp
 
-    
+
 
     <footer id="footer">
       <div class="page-number"></div>

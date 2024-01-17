@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 20px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 20px;
         margin-bottom: 70px;
       }
@@ -510,7 +513,7 @@
       $totalLoops = 0;
     @endphp
     @foreach ($datos as $programa)
-      
+
       @foreach($programa as $plan)
         @php
           $grados = $plan->sortKeys();
@@ -547,7 +550,7 @@
                 <p>Ubicac. : {{$info["ubiClave"]}} {{$info["ubiNombre"]}}</p>
               </div>
             </div>
-   
+
 
             <div class="row">
               <div class="columns medium-12">
@@ -559,7 +562,7 @@
 
                     @php
 
-                        $grado = $grupoInfo["grado"];                       
+                        $grado = $grupoInfo["grado"];
 
                     @endphp
 
@@ -569,8 +572,8 @@
                       @if ($grado == 1)
                         @foreach ($grupos_activos as $item1)
                           @if ($item1->gpoGrado == 1)
-                              <th align="center" style="font-weight: 400;">{{ $item1->matClave }}</th> 
-                          @endif                    
+                              <th align="center" style="font-weight: 400;">{{ $item1->matClave }}</th>
+                          @endif
                         @endforeach
                       @endif
 
@@ -579,8 +582,8 @@
                       @if ($grado == 2)
                         @foreach ($grupos_activos as $item2)
                           @if ($item2->gpoGrado == 2)
-                              <th align="center" style="font-weight: 400;">{{ $item2->matClave }}</th> 
-                          @endif                    
+                              <th align="center" style="font-weight: 400;">{{ $item2->matClave }}</th>
+                          @endif
                         @endforeach
                       @endif
 
@@ -588,16 +591,16 @@
                       @if ($grado == 3)
                         @foreach ($grupos_activos as $item3)
                           @if ($item3->gpoGrado == 3)
-                              <th align="center" style="font-weight: 400;">{{ $item3->matClave }}</th> 
-                          @endif                    
+                              <th align="center" style="font-weight: 400;">{{ $item3->matClave }}</th>
+                          @endif
                         @endforeach
-                      @endif                   
-                                         
-                        
+                      @endif
+
+
                     @endif
 
-                    
-                    
+
+
                   </tr>
                   @foreach ($grupo as $alumno)
                     @php
@@ -639,16 +642,16 @@
                                   ->where('secundaria_materias.id', $item4->secundaria_materia_id)
                                   ->first();
 
-                                @endphp   
+                                @endphp
 
                                 @if ($secundaria_inscrito != "")
                                   SI
                                 @else
                                   NO
                                 @endif
-                                
-                              </td> 
-                          @endif                    
+
+                              </td>
+                          @endif
                         @endforeach
                       @endif
 
@@ -674,16 +677,16 @@
                                   ->where('secundaria_materias.id', $item5->secundaria_materia_id)
                                   ->first();
 
-                                @endphp   
+                                @endphp
 
                                 @if ($secundaria_inscrito != "")
                                   SI
                                 @else
                                   NO
                                 @endif
-                                
-                              </td> 
-                          @endif                    
+
+                              </td>
+                          @endif
                         @endforeach
                       @endif
 
@@ -708,22 +711,22 @@
                                   ->where('secundaria_materias.id', $item6->secundaria_materia_id)
                                   ->first();
 
-                                @endphp   
+                                @endphp
 
                                 @if ($secundaria_inscrito != "")
                                   SI
                                 @else
                                   <strong>NO</strong>
                                 @endif
-                                
-                              </td> 
-                          @endif                    
+
+                              </td>
+                          @endif
                         @endforeach
-                      @endif                   
-                                         
-                        
+                      @endif
+
+
                     @endif
-                      
+
                     </tr>
                   @endforeach <!-- foreach alumno -->
                 </table>
@@ -742,6 +745,6 @@
       @endforeach <!-- foreach plan -->
     @endforeach <!-- foreach programa -->
 
-    
+
   </body>
 </html>

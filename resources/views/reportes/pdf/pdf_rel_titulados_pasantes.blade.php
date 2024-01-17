@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top:30px;
         margin-bottom: 70px;
       }
@@ -485,7 +488,7 @@
         <div class="columns medium-6">
           <h4 style="margin-top:0px; margin-bottom: 10px;">UNIVERSIDAD MODELO</h4>
           <p style="margin-top:0px; margin-bottom: 10px;">ALUMNOS TITULADOS Y PASANTES</p>
-        
+
         </div>
         <div class="columns medium-6">
           <div style="text-align: right;">
@@ -495,8 +498,8 @@
           </div>
         </div>
       </div>
- 
-      
+
+
     </header>
 
       <div class="row">
@@ -507,7 +510,7 @@
           @endphp
           <p>Niv/Carr: {{$primerEgresado['progClave']}} {{$primerEgresado['egresado']['plan']['programa']['progNombre']}}</p>
           <p>Ubicac. : {{$primerEgresado['ubicacion']['ubiClave']}} {{$primerEgresado['ubicacion']['ubiNombre']}}</p>
-          
+
           <table class="table">
             <thead>
               <tr>
@@ -547,7 +550,7 @@
                     @endif
                     <td align="center">{{$egresado['egrFechaExamenProfesional']}}</td>
                     <td>{{$egresado['conceptoTitulacion']}}</td>
-                  </tr>  
+                  </tr>
                   @php
                   $contador++;
                   @endphp
@@ -572,7 +575,7 @@
           @endforeach
         </div>
       </div>
-      
+
     <footer id="footer">
       <div class="page-number"></div>
     </footer>

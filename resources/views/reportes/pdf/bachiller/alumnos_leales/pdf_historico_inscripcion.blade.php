@@ -299,8 +299,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -407,6 +407,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 20px;
         right: 0px;
@@ -426,6 +427,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 20px;
         margin-bottom: 70px;
       }
@@ -499,14 +502,14 @@
             <h5 style="margin-top:0px; margin-bottom: 10px;">HISTORICOS DE INSCRIPCIONES DE ALUMNOS DE NIVEL PREPARATORIA</h5>
           </div>
 
-         
+
 
           <div class="columns medium-6">
             <div style="text-align: right;">
               <p>{{ $fechaActual->format('d/m/Y') }}</p>
               <p>{{ $fechaActual->format('H:i:s') }}</p>
               <p>Historial_de_cursos.pdf</p>
-              <p>Los alumnos marcados con un * tiene mas de una clave de pago																									
+              <p>Los alumnos marcados con un * tiene mas de una clave de pago
               </p>
             </div>
           </div>
@@ -521,7 +524,7 @@
           </div>
         </div>
       </header>
-    
+
       <footer id="footer">
         <div class="page-number"></div>
       </footer>
@@ -631,14 +634,14 @@
 
               </tr>
              @empty
-                 
+
              @endforelse
             </tbody>
           </table>
         </div>
       </div>
-    
 
-    
+
+
   </body>
 </html>

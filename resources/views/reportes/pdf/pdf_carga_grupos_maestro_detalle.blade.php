@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -20px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 30px;
         margin-bottom: 70px;
       }
@@ -501,7 +504,7 @@
       <div class="row" style="margin-bottom: 2px;">
         <div class="columns medium-12">
           <p>
-            Período : 
+            Período :
             @if ($maestro->first())
               {{\Carbon\Carbon::parse($maestro->first()->periodo->perFechaInicial)->day
               .'/'. \Carbon\Carbon::parse($maestro->first()->periodo->perFechaInicial)->formatLocalized('%b')
@@ -532,12 +535,12 @@
         </div>
       </div>
       <!-- VALIDAR -->
-      <p> Las horas docentes son de solo la ubicación seleccionada.</p> 
+      <p> Las horas docentes son de solo la ubicación seleccionada.</p>
 
       <div class="row">
         <div class="columns medium-12">
           <table class="table">
-            
+
             <tr>
               <th style="font-weight: 400; width: 400px;">
                 <span style="font-weight: 400; display:inline-block; width: 30px;">Num</span>
@@ -551,7 +554,7 @@
               <th align="center" style="font-weight: 400; width: 35px;"># Gpos</th>
               <th align="center" style="font-weight: 400; width: 20px;"># Als</th>
             </tr>
-                
+
             @foreach ($maestro as $mto)
               <tr>
                 <td style="width: 400px;">
@@ -621,10 +624,10 @@
                         {{$materia->inscritos_gpo ? $materia->inscritos_gpo : 0}}
                       </span>
                       <span style="font-weight: 400; display:inline-block;">
-   
+
                         {{$materia->materia->matNombre}}
                       </span>
-                    </td> 
+                    </td>
                     <td style="width: 40px;" align="center"></td>
                     <td style="width: 40px;" align="center"></td>
                     <td style="width: 40px;" align="center"></td>

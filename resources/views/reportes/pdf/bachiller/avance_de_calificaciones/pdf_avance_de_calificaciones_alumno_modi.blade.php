@@ -359,8 +359,8 @@
             width: 100%;
             display: block;
             position: relative;
-            margin-left: -30px;
-            margin-right: -30px;
+            /* margin-left: -30px; */
+            /* margin-right: -30px; */
         }
 
         .row::after {
@@ -499,6 +499,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: -50px;
             right: 0px;
@@ -541,6 +542,8 @@
         }
 
         @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
             margin-top: 80px;
             margin-bottom: 40px;
         }
@@ -630,13 +633,13 @@
             </p>
         </div>
         @php
-            
+
             if ($ubiClave == 'CME') {
                 $ejecutar_sp = DB::select('call procBachillerEvidenciasAcumuladoAdmin(' . $bachiller_inscritos[0]->periodo_id . ', ' . $bachiller_inscritos[0]->aluClave . ')');
             } else {
                 $ejecutar_sp = DB::select('call procBachillerEvidenciasAcumuladoAdminCVA(' . $bachiller_inscritos[0]->periodo_id . ', ' . $bachiller_inscritos[0]->aluClave . ')');
             }
-            
+
         @endphp
         {{--  <div class="columns medium-2">
 

@@ -358,8 +358,8 @@
       width: 100%;
       display: block;
       position: relative;
-      margin-left: -30px;
-      margin-right: -30px;
+      /* margin-left: -30px; */
+      /* margin-right: -30px; */
     }
 
     .row::after {
@@ -494,6 +494,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: 8px;
       right: 0px;
@@ -523,6 +524,8 @@
     }
 
     @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
       margin-top: 20px;
       margin-bottom: 70px;
     }
@@ -798,7 +801,7 @@
         @if ($tipoFinal == "finalSep")
         SEP
         @endif
-        
+
 
         Incluye insc,
         @if ($conceptos == "R")
@@ -993,15 +996,15 @@
                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">{{$contador2++}}</td>
                     <td align="center" style="width: 40px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">{{$itemAlumno->clave_pago}}</td>
                     <td style="width: 200px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
-                      {{$itemAlumno->ape_paterno}} {{$itemAlumno->ape_materno}} {{$itemAlumno->nombres}}                        
+                      {{$itemAlumno->ape_paterno}} {{$itemAlumno->ape_materno}} {{$itemAlumno->nombres}}
                     </td>
 
                     {{--  T3C3_septiembre_11125343  --}}
-                    @foreach ($tablaBody as $item => $value) 
-                    
+                    @foreach ($tablaBody as $item => $value)
+
                       @foreach ($matAgrupado as $matCa => $valsoso)
                           @if ($contador4++ == 1 && $matCa == $value['matClave'])
-                            
+
 
                             @if ($modoCalificacion == "BASEDIEZ")
 
@@ -1012,12 +1015,12 @@
                                   @php
                                     $calificacion = $value["matClave"]."_septiembre_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1028,28 +1031,28 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
                                 @if ($mesEvaluar == "Octubre")
 
                                   @php
                                     $calificacion = $value["matClave"]."_octubre_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1060,28 +1063,28 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
                                 @if ($mesEvaluar == "Noviembre")
 
                                   @php
                                     $calificacion = $value["matClave"]."_noviembre_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1092,28 +1095,28 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
                                 @if ($mesEvaluar == "Diciembre")
 
                                   @php
                                     $calificacion = $value["matClave"]."_diciembre_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1124,28 +1127,28 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
                                 @if ($mesEvaluar == "Enero")
 
                                   @php
                                     $calificacion = $value["matClave"]."_enero_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1156,28 +1159,28 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
                                 @if ($mesEvaluar == "Febrero")
 
                                   @php
                                     $calificacion = $value["matClave"]."_febrero_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1188,28 +1191,28 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
                                 @if ($mesEvaluar == "Marzo")
 
                                   @php
                                     $calificacion = $value["matClave"]."_marzo_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1220,28 +1223,28 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
                                 @if ($mesEvaluar == "Abril")
 
                                   @php
                                     $calificacion = $value["matClave"]."_abril_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1252,28 +1255,28 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
                                 @if ($mesEvaluar == "Mayo")
 
                                   @php
                                     $calificacion = $value["matClave"]."_mayo_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1284,28 +1287,28 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
                                 @if ($mesEvaluar == "Junio")
 
                                   @php
                                     $calificacion = $value["matClave"]."_junio_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1316,30 +1319,30 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
-                              @endif  
-                              
+                              @endif
+
                               @if ($tipoReporte == "porBimestre")
-                                @if ($bimestreEvaluar == "BIMESTRE1")                       
+                                @if ($bimestreEvaluar == "BIMESTRE1")
                                   @php
                                     $calificacion = $value["matClave"]."_bimestre1_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1350,26 +1353,26 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
-                                @endif                    
-                                
-                                @if ($bimestreEvaluar == "BIMESTRE2")                       
+                                  </td>
+                                @endif
+
+                                @if ($bimestreEvaluar == "BIMESTRE2")
                                   @php
                                     $calificacion = $value["matClave"]."_bimestre2_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1380,26 +1383,26 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
                                 @endif
 
-                                @if ($bimestreEvaluar == "BIMESTRE3")                       
+                                @if ($bimestreEvaluar == "BIMESTRE3")
                                   @php
                                     $calificacion = $value["matClave"]."_bimestre3_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1410,26 +1413,26 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
                                 @endif
-                                
-                                @if ($bimestreEvaluar == "BIMESTRE4")                       
+
+                                @if ($bimestreEvaluar == "BIMESTRE4")
                                   @php
                                     $calificacion = $value["matClave"]."_bimestre4_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1440,26 +1443,26 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
                                 @endif
 
-                                @if ($bimestreEvaluar == "BIMESTRE5")                       
+                                @if ($bimestreEvaluar == "BIMESTRE5")
                                   @php
                                     $calificacion = $value["matClave"]."_bimestre5_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1470,32 +1473,32 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
                                 @endif
 
-                              @endif 
+                              @endif
 
                               {{--  inicio trimestre   --}}
                               @if ($tipoReporte == "porTrimestre")
 
-                                @if ($trimestreEvaluar == "TRIMESTRE1")                     
-                                             
+                                @if ($trimestreEvaluar == "TRIMESTRE1")
+
                                   @php
                                     $calificacion = $value["matClave"]."_trimestre1_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1506,28 +1509,28 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
-                                  
-                                @endif 
-                                
-                                @if ($trimestreEvaluar == "TRIMESTRE2")                     
-                                             
+                                  </td>
+
+                                @endif
+
+                                @if ($trimestreEvaluar == "TRIMESTRE2")
+
                                   @php
                                     $calificacion = $value["matClave"]."_trimestre2_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1538,28 +1541,28 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
-                                  
-                                @endif 
-                                
-                                @if ($trimestreEvaluar == "TRIMESTRE3")                     
-                                             
+                                  </td>
+
+                                @endif
+
+                                @if ($trimestreEvaluar == "TRIMESTRE3")
+
                                   @php
                                     $calificacion = $value["matClave"]."_trimestre3_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1570,32 +1573,32 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
-                                  
-                                @endif 
-                              @endif 
+                                  </td>
+
+                                @endif
+                              @endif
                               {{--  fin trimestre   --}}
 
                               {{--  inicio recuperativos   --}}
                               @if ($tipoReporte == "califRecuperativos")
 
-                                @if ($tipoRecuperativo == "recuperativosTrimestre1") 
+                                @if ($tipoRecuperativo == "recuperativosTrimestre1")
                                   @php
                                     $calificacion = $value["matClave"]."_recuperativosTrimestre1_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1606,26 +1609,26 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
                                 @endif
 
-                                @if ($tipoRecuperativo == "recuperativosTrimestre2") 
+                                @if ($tipoRecuperativo == "recuperativosTrimestre2")
                                   @php
                                     $calificacion = $value["matClave"]."_recuperativosTrimestre2_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1636,26 +1639,26 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
                                 @endif
 
-                                @if ($tipoRecuperativo == "recuperativosTrimestre3") 
+                                @if ($tipoRecuperativo == "recuperativosTrimestre3")
                                   @php
                                     $calificacion = $value["matClave"]."_recuperativosTrimestre3_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1666,14 +1669,14 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
                                 @endif
 
                               @endif
@@ -1681,16 +1684,16 @@
 
                               {{--  inicio calificacion final   --}}
                               @if ($tipoReporte == "califFinales")
-                                @if ($tipoFinal == "finaLModelo")                       
+                                @if ($tipoFinal == "finaLModelo")
                                   @php
                                     $calificacion = $value["matClave"]."_inscCalificacionFinalModelo_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1701,26 +1704,26 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
-                                @endif       
-                          
-                                @if ($tipoFinal == "finalSep")                       
+                                  </td>
+                                @endif
+
+                                @if ($tipoFinal == "finalSep")
                                   @php
                                     $calificacion = $value["matClave"]."_inscCalificacionFinalSEP_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
                                       @if ($value[$calificacion] < 6)
@@ -1731,21 +1734,21 @@
                                         @endphp
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                        
+
                                         {{--  porcentaje aprobado vertical   --}}
                                         @php
                                           $numerosDeAprobadosVertical++;
                                         @endphp
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
-                                @endif 
+                                  </td>
+                                @endif
                               @endif
                               {{--  fin calificacion final   --}}
-                              
-                            @endif 
-                            
-                            
+
+                            @endif
+
+
                             @if ($modoCalificacion == "BASEPORCENTAJE")
 
                               @if ($tipoReporte == "porMes")
@@ -1755,38 +1758,38 @@
                                   @php
                                     $calificacion = $value["matClave"]."_septiembre_porcentaje_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
-                                      {{ $value[$calificacion] }}                             
+                                      {{ $value[$calificacion] }}
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
                                 @if ($mesEvaluar == "Octubre")
 
                                   @php
                                     $calificacion = $value["matClave"]."_octubre_porcentaje_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
-                                      {{ $value[$calificacion] }}                             
+                                      {{ $value[$calificacion] }}
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
 
                                 @if ($mesEvaluar == "Noviembre")
@@ -1794,19 +1797,19 @@
                                   @php
                                     $calificacion = $value["matClave"]."_noviembre_porcentaje_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
-                                      {{ $value[$calificacion] }}                             
+                                      {{ $value[$calificacion] }}
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
 
                                 @if ($mesEvaluar == "Diciembre")
@@ -1814,19 +1817,19 @@
                                   @php
                                     $calificacion = $value["matClave"]."_diciembre_porcentaje_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
-                                      {{ $value[$calificacion] }}                             
+                                      {{ $value[$calificacion] }}
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
 
                                 @if ($mesEvaluar == "Enero")
@@ -1834,19 +1837,19 @@
                                   @php
                                     $calificacion = $value["matClave"]."_enero_porcentaje_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
-                                      {{ $value[$calificacion] }}                             
+                                      {{ $value[$calificacion] }}
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
 
                                 @if ($mesEvaluar == "Febrero")
@@ -1854,19 +1857,19 @@
                                   @php
                                     $calificacion = $value["matClave"]."_febrero_porcentaje_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
-                                      {{ $value[$calificacion] }}                             
+                                      {{ $value[$calificacion] }}
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
 
                                 @if ($mesEvaluar == "Marzo")
@@ -1874,38 +1877,38 @@
                                   @php
                                     $calificacion = $value["matClave"]."_marzo_porcentaje_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
-                                      {{ $value[$calificacion] }}                             
+                                      {{ $value[$calificacion] }}
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
                                 @if ($mesEvaluar == "Abril")
 
                                   @php
                                     $calificacion = $value["matClave"]."_abril_porcentaje_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
-                                      {{ $value[$calificacion] }}                             
+                                      {{ $value[$calificacion] }}
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
 
                                 @if ($mesEvaluar == "Mayo")
@@ -1913,19 +1916,19 @@
                                   @php
                                     $calificacion = $value["matClave"]."_mayo_porcentaje_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
-                                      {{ $value[$calificacion] }}                             
+                                      {{ $value[$calificacion] }}
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
 
                                 @if ($mesEvaluar == "Junio")
@@ -1933,19 +1936,19 @@
                                   @php
                                     $calificacion = $value["matClave"]."_junio_porcentaje_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @php
-                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];     
-                                          $totalMat++;  
+                                          $promedioTotalAlumno = $promedioTotalAlumno + $value[$calificacion];
+                                          $totalMat++;
                                           #$sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $value[$calificacion];
                                       @endphp
-                                      {{ $value[$calificacion] }}                             
+                                      {{ $value[$calificacion] }}
                                     @endisset
-                                  </td> 
+                                  </td>
 
-                                @endif 
+                                @endif
 
                               @endif
 
@@ -1955,80 +1958,80 @@
                                   @php
                                     $calificacion = $value["matClave"]."_bimestre1_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
-                                    @isset($value[$calificacion])                                      
+                                    @isset($value[$calificacion])
                                       @if ($value[$calificacion] < 6)
                                         <p style="background-color:#F3F648">{{ $value[$calificacion] }}</p>
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
                                 @endif
 
                                 @if ($bimestreEvaluar == "BIMESTRE2")
                                   @php
                                     $calificacion = $value["matClave"]."_bimestre2_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
-                                    @isset($value[$calificacion])                                      
+                                    @isset($value[$calificacion])
                                       @if ($value[$calificacion] < 6)
                                         <p style="background-color:#F3F648">{{ $value[$calificacion] }}</p>
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
                                 @endif
 
                                 @if ($bimestreEvaluar == "BIMESTRE3")
                                   @php
                                     $calificacion = $value["matClave"]."_bimestre3_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
-                                    @isset($value[$calificacion])                                      
+                                    @isset($value[$calificacion])
                                       @if ($value[$calificacion] < 6)
                                         <p style="background-color:#F3F648">{{ $value[$calificacion] }}</p>
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
                                 @endif
 
                                 @if ($bimestreEvaluar == "BIMESTRE4")
                                   @php
                                     $calificacion = $value["matClave"]."_bimestre4_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
-                                    @isset($value[$calificacion])                                      
+                                    @isset($value[$calificacion])
                                       @if ($value[$calificacion] < 6)
                                         <p style="background-color:#F3F648">{{ $value[$calificacion] }}</p>
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
                                 @endif
 
                                 @if ($bimestreEvaluar == "BIMESTRE5")
                                   @php
                                     $calificacion = $value["matClave"]."_bimestre5_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
-                                    @isset($value[$calificacion])                                      
+                                    @isset($value[$calificacion])
                                       @if ($value[$calificacion] < 6)
                                         <p style="background-color:#F3F648">{{ $value[$calificacion] }}</p>
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
                                 @endif
 
                               @endif
@@ -2036,112 +2039,112 @@
                               {{--  inicio trimestre   --}}
                               @if ($tipoReporte == "porTrimestre")
 
-                                @if ($trimestreEvaluar == "TRIMESTRE1")                     
-                                             
+                                @if ($trimestreEvaluar == "TRIMESTRE1")
+
                                   @php
                                     $calificacion = $value["matClave"]."_trimestre1_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @if ($value[$calificacion] < 6)
                                         <p style="background-color:#F3F648">{{ $value[$calificacion] }}</p>
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
-                                  
-                                @endif 
+                                  </td>
 
-                                @if ($trimestreEvaluar == "TRIMESTRE2")                     
-                                             
+                                @endif
+
+                                @if ($trimestreEvaluar == "TRIMESTRE2")
+
                                   @php
                                     $calificacion = $value["matClave"]."_trimestre2_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @if ($value[$calificacion] < 6)
                                         <p style="background-color:#F3F648">{{ $value[$calificacion] }}</p>
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
-                                  
-                                @endif 
-                                
-                                @if ($trimestreEvaluar == "TRIMESTRE3")                     
-                                             
+                                  </td>
+
+                                @endif
+
+                                @if ($trimestreEvaluar == "TRIMESTRE3")
+
                                   @php
                                     $calificacion = $value["matClave"]."_trimestre3_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @if ($value[$calificacion] < 6)
                                         <p style="background-color:#F3F648">{{ $value[$calificacion] }}</p>
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
-                                  
-                                @endif 
+                                  </td>
 
-                              @endif 
+                                @endif
+
+                              @endif
                               {{--  fin trimestre   --}}
 
                               {{--  inicio recuperativos   --}}
                               @if ($tipoReporte == "califRecuperativos")
 
-                                @if ($tipoRecuperativo == "recuperativosTrimestre1") 
+                                @if ($tipoRecuperativo == "recuperativosTrimestre1")
                                   @php
                                     $calificacion = $value["matClave"]."_recuperativosTrimestre1_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @if ($value[$calificacion] < 6)
                                         <p style="background-color:#F3F648">{{ $value[$calificacion] }}</p>
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
                                 @endif
 
-                                @if ($tipoRecuperativo == "recuperativosTrimestre2") 
+                                @if ($tipoRecuperativo == "recuperativosTrimestre2")
                                   @php
                                     $calificacion = $value["matClave"]."_recuperativosTrimestre2_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @if ($value[$calificacion] < 6)
                                         <p style="background-color:#F3F648">{{ $value[$calificacion] }}</p>
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
                                 @endif
 
-                                @if ($tipoRecuperativo == "recuperativosTrimestre3") 
+                                @if ($tipoRecuperativo == "recuperativosTrimestre3")
                                   @php
                                     $calificacion = $value["matClave"]."_recuperativosTrimestre3_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @if ($value[$calificacion] < 6)
                                         <p style="background-color:#F3F648">{{ $value[$calificacion] }}</p>
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
+                                  </td>
                                 @endif
 
                               @endif
@@ -2150,37 +2153,37 @@
                               {{--  inicio calificacion final   --}}
                               @if ($tipoReporte == "califFinales")
 
-                                @if ($tipoFinal == "finaLModelo")                       
+                                @if ($tipoFinal == "finaLModelo")
                                   @php
                                     $calificacion = $value["matClave"]."_inscCalificacionFinalModelo_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @if ($value[$calificacion] < 6)
                                         <p style="background-color:#F3F648">{{ $value[$calificacion] }}</p>
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
-                                @endif       
-                          
-                                @if ($tipoFinal == "finalSep")                       
+                                  </td>
+                                @endif
+
+                                @if ($tipoFinal == "finalSep")
                                   @php
                                     $calificacion = $value["matClave"]."_inscCalificacionFinalSEP_".$itemAlumno->clave_pago;
                                   @endphp
-                                
+
                                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                                     @isset($value[$calificacion])
                                       @if ($value[$calificacion] < 6)
                                         <p style="background-color:#F3F648">{{ $value[$calificacion] }}</p>
                                       @else
                                         <p>{{ $value[$calificacion] }}</p>
-                                      @endif                                
+                                      @endif
                                     @endisset
-                                  </td> 
-                                @endif 
+                                  </td>
+                                @endif
                               @endif
                               {{--  fin calificacion final   --}}
 
@@ -2191,8 +2194,8 @@
                           @php
                             $contador4 =1;
                           @endphp
-                          
-                      @endforeach                        
+
+                      @endforeach
                     @endforeach
 
                     @if ($modoCalificacion == "BASEDIEZ")
@@ -2206,15 +2209,15 @@
 
                         @if (number_format((float)$promedioTotalAlumno/count($matAgrupado), 1, '.', '') < 6)
                           @php
-                            $generalReprobados++; 
+                            $generalReprobados++;
                           @endphp
-                        @endif            
-                        
+                        @endif
+
                         @if (number_format((float)$promedioTotalAlumno/count($matAgrupado), 1, '.', '') >= 6)
                           @php
-                            $generalAprobados++; 
+                            $generalAprobados++;
                           @endphp
-                        @endif    
+                        @endif
                       </td>
 
                       {{--  porcentaje reprobado vertical   --}}
@@ -2237,11 +2240,11 @@
                       {{--  porcentaje aprobado vertical   --}}
                       <td align="center" style="border-top: 0px solid; border-right: 0px; border-bottom: 1px; border-left: 0px solid;"></td>
 
-                    @endif 
-                    
+                    @endif
+
 
                   </tr>
-              @endif                
+              @endif
             @endforeach
 
             @php
@@ -2250,8 +2253,8 @@
               $numerosDeReprobadosVertical = 0;
               $numerosDeAprobadosVertical = 0;
               $totalMat = 0;
-             
-            @endphp 
+
+            @endphp
 
 
             @if($loop->last)
@@ -2261,11 +2264,11 @@
                   <td  style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;"></td>
                   <td  style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">PROMEDIO:</td>
 
-                                
+
                   @foreach ($matAgrupado as $matCa => $valsoso)
                     @foreach ($valsoso as $valsosowswww)
                       @if ($valsosowswww->matClave == $matCa)
-                      
+
                       @php
                       $totalDeAlumnosNuevo++
                       @endphp
@@ -2274,98 +2277,98 @@
 
                           @if ($tipoReporte == "porMes")
 
-                            @if ($mesEvaluar == "Septiembre")                            
+                            @if ($mesEvaluar == "Septiembre")
                               @php
                                   $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscCalificacionSep;
-                              @endphp                                
-                            @endif 
+                              @endphp
+                            @endif
 
-                            @if ($mesEvaluar == "Octubre")                            
+                            @if ($mesEvaluar == "Octubre")
                               @php
                                   $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscCalificacionOct;
-                              @endphp                                
-                            @endif 
+                              @endphp
+                            @endif
 
-                            @if ($mesEvaluar == "Noviembre")                            
+                            @if ($mesEvaluar == "Noviembre")
                               @php
                                   $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscCalificacionNov;
-                              @endphp                                
-                            @endif 
+                              @endphp
+                            @endif
 
-                            @if ($mesEvaluar == "Diciembre")                            
+                            @if ($mesEvaluar == "Diciembre")
                               @php
                                   $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscCalificacionDic;
-                              @endphp                                
-                            @endif 
+                              @endphp
+                            @endif
 
-                            @if ($mesEvaluar == "Enero")                            
+                            @if ($mesEvaluar == "Enero")
                               @php
                                   $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscCalificacionEne;
-                              @endphp                                
-                            @endif 
+                              @endphp
+                            @endif
 
-                            @if ($mesEvaluar == "Febrero")                            
+                            @if ($mesEvaluar == "Febrero")
                               @php
                                   $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscCalificacionFeb;
-                              @endphp                                
-                            @endif 
+                              @endphp
+                            @endif
 
-                            @if ($mesEvaluar == "Marzo")                            
+                            @if ($mesEvaluar == "Marzo")
                               @php
                                   $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscCalificacionMar;
-                              @endphp                                
+                              @endphp
                             @endif
 
-                            @if ($mesEvaluar == "Abril")                            
+                            @if ($mesEvaluar == "Abril")
                               @php
                                   $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscCalificacionAbr;
-                              @endphp                                
+                              @endphp
                             @endif
 
-                            @if ($mesEvaluar == "Mayo")                            
+                            @if ($mesEvaluar == "Mayo")
                               @php
                                   $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscCalificacionMay;
-                              @endphp                                
+                              @endphp
                             @endif
 
-                            @if ($mesEvaluar == "Junio")                            
+                            @if ($mesEvaluar == "Junio")
                               @php
                                   $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscCalificacionJun;
-                              @endphp                                
+                              @endphp
                             @endif
 
-                          @endif     
+                          @endif
 
                           @if ($tipoReporte == "porBimestre")
 
                             @if ($bimestreEvaluar == "BIMESTRE1")
                               @php
                                 $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscPromedioBimestre1;
-                              @endphp  
+                              @endphp
                             @endif
 
                             @if ($bimestreEvaluar == "BIMESTRE2")
                               @php
                                 $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscPromedioBimestre2;
-                              @endphp  
+                              @endphp
                             @endif
 
                             @if ($bimestreEvaluar == "BIMESTRE3")
                               @php
                                 $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscPromedioBimestre3;
-                              @endphp  
+                              @endphp
                             @endif
 
                             @if ($bimestreEvaluar == "BIMESTRE4")
                               @php
                                 $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscPromedioBimestre4;
-                              @endphp  
+                              @endphp
                             @endif
 
                             @if ($bimestreEvaluar == "BIMESTRE5")
                               @php
                                 $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscPromedioBimestre5;
-                              @endphp  
+                              @endphp
                             @endif
                           @endif
 
@@ -2374,19 +2377,19 @@
                             @if ($trimestreEvaluar == "TRIMESTRE1")
                               @php
                                 $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscTrimestre1;
-                              @endphp  
+                              @endphp
                             @endif
 
                             @if ($trimestreEvaluar == "TRIMESTRE2")
                               @php
                                 $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscTrimestre2;
-                              @endphp  
+                              @endphp
                             @endif
 
                             @if ($trimestreEvaluar == "TRIMESTRE3")
                               @php
                                 $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscTrimestre3;
-                              @endphp  
+                              @endphp
                             @endif
 
                           @endif
@@ -2397,50 +2400,50 @@
                               @php
                                 $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->trimestre1Sep;
                               @endphp
-                            @endif 
+                            @endif
 
                             @if ($tipoRecuperativo == "recuperativosTrimestre2")
                               @php
                                 $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->trimestre2Sep;
                               @endphp
-                            @endif 
+                            @endif
 
                             @if ($tipoRecuperativo == "recuperativosTrimestre3")
                               @php
                                 $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->trimestre3Sep;
                               @endphp
-                            @endif 
+                            @endif
 
-                          @endif 
+                          @endif
 
                           @if ($tipoReporte == "califFinales")
                             @if ($tipoFinal == "finaLModelo")
                               @php
                                 $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscCalificacionFinalModelo;
-                              @endphp                       
-                            @endif 
+                              @endphp
+                            @endif
 
-                            @if ($tipoFinal == "finalSep")                       
+                            @if ($tipoFinal == "finalSep")
                               @php
                                 $sumaDePromedioVerticalPorMateria = $sumaDePromedioVerticalPorMateria +  $valsosowswww->inscCalificacionFinalSEP;
-                              @endphp  
-                            @endif 
+                              @endphp
+                            @endif
                           @endif
 
 
-                        @endif     
-                      
-                      @endif 
-                    @endforeach    
+                        @endif
+
+                      @endif
+                    @endforeach
                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                       {{number_format((float)$sumaDePromedioVerticalPorMateria/$totalDeAlumnosNuevo, 1, '.', '')}}
                     </td>
                     @php
                       $sumaDePromedioVerticalPorMateria = 0;
                       $totalDeAlumnosNuevo = 0;
-                    @endphp                    
-                  @endforeach   
-                  
+                    @endphp
+                  @endforeach
+
 
                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                     {{number_format((float)$sumaPromedioDeAlumnos/$totalDeAlumnos, 1, '.', '')}}
@@ -2449,8 +2452,8 @@
                   <td  style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;"></td>
                   <td  style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;"></td>
                   <td  style="border-top: 0px solid; border-right: 0px solid; border-bottom: 0px solid; border-left: 1px solid;"></td>
-                </tr>    
-                
+                </tr>
+
                 <tr>
                   <td  style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;"></td>
                   <td  style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;"></td>
@@ -2460,7 +2463,7 @@
                   @foreach ($matAgrupado as $matCa => $valsoso)
                     @foreach ($valsoso as $valsosowswww)
                       @if ($valsosowswww->matClave == $matCa)
-                 
+
                         @php
                           $totalDeAlumnosNuevo2++;
                         @endphp
@@ -2468,88 +2471,88 @@
 
                           @if ($tipoReporte == "porMes")
 
-                            @if ($mesEvaluar == "Septiembre")                            
+                            @if ($mesEvaluar == "Septiembre")
                               @if ($valsosowswww->inscCalificacionSep < 6)
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif                                
-                            @endif 
+                              @endif
+                            @endif
 
-                            @if ($mesEvaluar == "Octubre")                            
+                            @if ($mesEvaluar == "Octubre")
                               @if ($valsosowswww->inscCalificacionOct < 6)
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif                                
-                            @endif 
+                              @endif
+                            @endif
 
-                            @if ($mesEvaluar == "Noviembre")                            
+                            @if ($mesEvaluar == "Noviembre")
                               @if ($valsosowswww->inscCalificacionNov < 6)
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif                               
+                              @endif
                             @endif
 
 
-                            @if ($mesEvaluar == "Diciembre")                            
+                            @if ($mesEvaluar == "Diciembre")
                               @if ($valsosowswww->inscCalificacionDic < 6)
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif                                
+                              @endif
                             @endif
 
-                            @if ($mesEvaluar == "Enero")                            
+                            @if ($mesEvaluar == "Enero")
                               @if ($valsosowswww->inscCalificacionEne < 6)
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif                                
+                              @endif
                             @endif
 
-                            @if ($mesEvaluar == "Febrero")                            
+                            @if ($mesEvaluar == "Febrero")
                               @if ($valsosowswww->inscCalificacionFeb < 6)
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif                               
+                              @endif
                             @endif
 
-                            @if ($mesEvaluar == "Marzo")                            
+                            @if ($mesEvaluar == "Marzo")
                               @if ($valsosowswww->inscCalificacionMar < 6)
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif                               
+                              @endif
                             @endif
 
-                            @if ($mesEvaluar == "Abril")                            
+                            @if ($mesEvaluar == "Abril")
                               @if ($valsosowswww->inscCalificacionAbr < 6)
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif                               
+                              @endif
                             @endif
 
-                            @if ($mesEvaluar == "Mayo")                            
+                            @if ($mesEvaluar == "Mayo")
                               @if ($valsosowswww->inscCalificacionMay < 6)
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif                               
+                              @endif
                             @endif
 
-                            @if ($mesEvaluar == "Junio")                            
+                            @if ($mesEvaluar == "Junio")
                               @if ($valsosowswww->inscCalificacionJun < 6)
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif                               
+                              @endif
                             @endif
 
-                          @endif    
+                          @endif
 
                           @if ($tipoReporte == "porBimestre")
 
@@ -2558,7 +2561,7 @@
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif    
+                              @endif
                             @endif
 
                             @if ($bimestreEvaluar == "BIMESTRE2")
@@ -2566,7 +2569,7 @@
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif 
+                              @endif
                             @endif
 
                             @if ($bimestreEvaluar == "BIMESTRE3")
@@ -2574,7 +2577,7 @@
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif   
+                              @endif
                             @endif
 
                             @if ($bimestreEvaluar == "BIMESTRE4")
@@ -2582,7 +2585,7 @@
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif 
+                              @endif
                             @endif
 
                             @if ($bimestreEvaluar == "BIMESTRE5")
@@ -2590,7 +2593,7 @@
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif 
+                              @endif
                             @endif
                           @endif
 
@@ -2601,7 +2604,7 @@
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif 
+                              @endif
                             @endif
 
                             @if ($trimestreEvaluar == "TRIMESTRE2")
@@ -2609,7 +2612,7 @@
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif  
+                              @endif
                             @endif
 
                             @if ($trimestreEvaluar == "TRIMESTRE3")
@@ -2617,7 +2620,7 @@
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif 
+                              @endif
                             @endif
 
                           @endif
@@ -2629,69 +2632,69 @@
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif 
-                            @endif 
+                              @endif
+                            @endif
 
                             @if ($tipoRecuperativo == "recuperativosTrimestre2")
                               @if ($valsosowswww->trimestre2Sep < 6)
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif 
-                            @endif 
+                              @endif
+                            @endif
 
                             @if ($tipoRecuperativo == "recuperativosTrimestre3")
                               @if ($valsosowswww->trimestre3Sep < 6)
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif 
-                            @endif 
+                              @endif
+                            @endif
 
-                          @endif 
+                          @endif
 
                           @if ($tipoReporte == "califFinales")
-                            @if ($tipoFinal == "finaLModelo")                
-                              
+                            @if ($tipoFinal == "finaLModelo")
+
                               @if ($valsosowswww->inscCalificacionFinalModelo < 6)
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif 
-                            @endif 
+                              @endif
+                            @endif
 
                             @if ($tipoFinal == "finalSep")
                               @if ($valsosowswww->inscCalificacionFinalSEP < 6)
                                 @php
                                   $reprobadosVertical++;
                                 @endphp
-                              @endif 
-                            @endif 
+                              @endif
+                            @endif
                           @endif
 
-                        @endif     
-                      
-                      @endif 
-                    @endforeach    
+                        @endif
+
+                      @endif
+                    @endforeach
                     {{--  reprobados horizontal   --}}
                     <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                       @if (number_format((float)($reprobadosVertical * 100)/$totalDeAlumnosNuevo2, 1, '.', '') == "100")
                         <b>{{number_format((float)($reprobadosVertical * 100)/$totalDeAlumnosNuevo2, 0, '.', '')}}</b>
-                      @else                              
+                      @else
                       <b>{{number_format((float)($reprobadosVertical * 100)/$totalDeAlumnosNuevo2, 1, '.', '')}}</b>
                       @endif
                     </td>
                     @php
                       $reprobadosVertical = 0;
                       $totalDeAlumnosNuevo2 = 0;
-                    @endphp                 
-                  @endforeach   
+                    @endphp
+                  @endforeach
 
 
 
                   {{--  @php
                   $genRepro = ($generalReprobados * 100)/$totalDeAlumnos;
-                      
+
                   @endphp  --}}
                   <td align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                     @if (number_format((float)($generalReprobados * 100)/$totalDeAlumnos, 1, '.', '') == "100")
@@ -2703,7 +2706,7 @@
                   <td  style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;"></td>
                   <td  style="border-top: 1px solid; border-right: 1px solid; border-bottom: 0px solid; border-left: 1px solid;"></td>
                   <td  style="border-top: 0px solid; border-right: 0px solid; border-bottom: 0px solid; border-left: 1px solid;"></td>
-                
+
                 </tr>
 
                 <tr>
@@ -2715,7 +2718,7 @@
                   @foreach ($matAgrupado as $matCa => $valsoso)
                     @foreach ($valsoso as $valsosowswww)
                       @if ($valsosowswww->matClave == $matCa)
-                 
+
                         @php
                             $totalDeAlumnosNuevo3++;
                         @endphp
@@ -2723,87 +2726,87 @@
 
                           @if ($tipoReporte == "porMes")
 
-                            @if ($mesEvaluar == "Septiembre")                            
+                            @if ($mesEvaluar == "Septiembre")
                               @if ($valsosowswww->inscCalificacionSep >= 6)
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif                               
-                            @endif 
+                              @endif
+                            @endif
 
-                            @if ($mesEvaluar == "Octubre")                            
+                            @if ($mesEvaluar == "Octubre")
                               @if ($valsosowswww->inscCalificacionOct >= 6)
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif                               
-                            @endif 
+                              @endif
+                            @endif
 
-                            @if ($mesEvaluar == "Noviembre")                            
+                            @if ($mesEvaluar == "Noviembre")
                               @if ($valsosowswww->inscCalificacionNov >= 6)
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif                               
-                            @endif 
+                              @endif
+                            @endif
 
-                            @if ($mesEvaluar == "Diciembre")                            
+                            @if ($mesEvaluar == "Diciembre")
                               @if ($valsosowswww->inscCalificacionDic >= 6)
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif                               
-                            @endif 
+                              @endif
+                            @endif
 
-                            @if ($mesEvaluar == "Enero")                            
+                            @if ($mesEvaluar == "Enero")
                               @if ($valsosowswww->inscCalificacionEne >= 6)
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif                               
-                            @endif 
+                              @endif
+                            @endif
 
-                            @if ($mesEvaluar == "Febrero")                            
+                            @if ($mesEvaluar == "Febrero")
                               @if ($valsosowswww->inscCalificacionFeb >= 6)
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif                               
-                            @endif 
+                              @endif
+                            @endif
 
-                            @if ($mesEvaluar == "Marzo")                            
+                            @if ($mesEvaluar == "Marzo")
                               @if ($valsosowswww->inscCalificacionMar >= 6)
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif                               
-                            @endif 
+                              @endif
+                            @endif
 
-                            @if ($mesEvaluar == "Abril")                            
+                            @if ($mesEvaluar == "Abril")
                               @if ($valsosowswww->inscCalificacionAbr >= 6)
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif                               
-                            @endif 
+                              @endif
+                            @endif
 
-                            @if ($mesEvaluar == "Mayo")                            
+                            @if ($mesEvaluar == "Mayo")
                               @if ($valsosowswww->inscCalificacionMay >= 6)
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif                               
-                            @endif 
+                              @endif
+                            @endif
 
-                            @if ($mesEvaluar == "Junio")                            
+                            @if ($mesEvaluar == "Junio")
                               @if ($valsosowswww->inscCalificacionJun >= 6)
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif                               
-                            @endif 
+                              @endif
+                            @endif
 
-                          @endif     
+                          @endif
 
                           @if ($tipoReporte == "porBimestre")
 
@@ -2812,7 +2815,7 @@
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif  
+                              @endif
                             @endif
 
                             @if ($bimestreEvaluar == "BIMESTRE2")
@@ -2820,7 +2823,7 @@
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif  
+                              @endif
                             @endif
 
                             @if ($bimestreEvaluar == "BIMESTRE3")
@@ -2828,7 +2831,7 @@
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif  
+                              @endif
                             @endif
 
                             @if ($bimestreEvaluar == "BIMESTRE4")
@@ -2836,7 +2839,7 @@
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif  
+                              @endif
                             @endif
 
                             @if ($bimestreEvaluar == "BIMESTRE5")
@@ -2844,63 +2847,63 @@
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif  
+                              @endif
                             @endif
 
                           @endif
 
                           @if ($tipoReporte == "porTrimestre")
-                          
+
                             @if ($trimestreEvaluar == "TRIMESTRE1")
                               @if ($valsosowswww->inscTrimestre1 >= 6)
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif  
-                            @endif   
+                              @endif
+                            @endif
 
                             @if ($trimestreEvaluar == "TRIMESTRE2")
                               @if ($valsosowswww->inscTrimestre2 >= 6)
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif  
-                            @endif 
+                              @endif
+                            @endif
 
                             @if ($trimestreEvaluar == "TRIMESTRE3")
                               @if ($valsosowswww->inscTrimestre3 >= 6)
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif  
-                            @endif 
+                              @endif
+                            @endif
 
-                          @endif   
+                          @endif
 
                           @if ($tipoReporte == "califRecuperativos")
 
-                            @if ($tipoRecuperativo == "recuperativosTrimestre1")                            
+                            @if ($tipoRecuperativo == "recuperativosTrimestre1")
                               @if ($valsosowswww->trimestre1Sep >= 6)
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif  
+                              @endif
                             @endif
 
-                            @if ($tipoRecuperativo == "recuperativosTrimestre2")                            
+                            @if ($tipoRecuperativo == "recuperativosTrimestre2")
                               @if ($valsosowswww->trimestre2Sep >= 6)
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif  
+                              @endif
                             @endif
 
-                            @if ($tipoRecuperativo == "recuperativosTrimestre3")                            
+                            @if ($tipoRecuperativo == "recuperativosTrimestre3")
                               @if ($valsosowswww->trimestre3Sep >= 6)
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif  
+                              @endif
                             @endif
 
                           @endif
@@ -2908,31 +2911,31 @@
 
 
                           @if ($tipoReporte == "califFinales")
-                            @if ($tipoFinal == "finaLModelo")                          
-                              
+                            @if ($tipoFinal == "finaLModelo")
+
                               @if ($valsosowswww->inscCalificacionFinalModelo >= 6)
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif 
+                              @endif
 
                             @endif
 
-                            @if ($tipoFinal == "finalSep")                           
-                              
+                            @if ($tipoFinal == "finalSep")
+
                               @if ($valsosowswww->inscCalificacionFinalSEP >= 6)
                                 @php
                                   $aprobadosVertical++;
                                 @endphp
-                              @endif 
+                              @endif
                             @endif
-                            
+
                           @endif
 
-                        @endif     
-                      
-                      @endif 
-                    @endforeach    
+                        @endif
+
+                      @endif
+                    @endforeach
                     <td align="center"
                       style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                       @if (number_format((float)($aprobadosVertical * 100)/$totalDeAlumnosNuevo3, 1, '.', '') == "100")
@@ -2944,10 +2947,10 @@
                       @php
                       $aprobadosVertical = 0;
                       $totalDeAlumnosNuevo3 = 0;
-                      @endphp          
-                  @endforeach  
+                      @endphp
+                  @endforeach
 
-                                 
+
                   <td align="center" style="border-top: 1px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 1px solid;">
                     @if (number_format((float)($generalAprobados * 100)/$totalDeAlumnos, 1, '.', '') == "100")
                       <b>{{number_format((float)($generalAprobados * 100)/$totalDeAlumnos, 0, '.', '')}}</b>
@@ -2959,13 +2962,13 @@
                   <td  style="border-top: 1px solid; border-right: 0px solid; border-bottom: 1px solid; border-left: 1px solid;"></td>
                   <td  style="border-top: 0px solid; border-right: 0px solid; border-bottom: 0px solid; border-left: 1px solid;"></td>
               </tr>
-              @endif                      
-            @endif  
+              @endif
+            @endif
 
           @endforeach
         </tbody>
 
-       
+
       </table>
 
     </div>

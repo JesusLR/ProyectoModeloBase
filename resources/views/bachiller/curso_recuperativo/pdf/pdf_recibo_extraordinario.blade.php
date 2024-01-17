@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -418,6 +419,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 30px;
         margin-bottom: 30px;
       }
@@ -480,7 +483,7 @@
       }
     </style>
 	</head>
-  
+
   <header>
     @php
       $ubiClave = $inscritoExt->bachiller_extraordinario->periodo->departamento->ubicacion->ubiClave;
@@ -502,7 +505,7 @@
       $empAp2 = $inscritoExt->bachiller_extraordinario->bachiller_empleado->empApellido2;
       $empNombreCom = $empNombre.' '.$empAp1.' '.$empAp2;
     @endphp
-    
+
     <div class="row">
         <div class="columns medium-6">
           <p>BACHILLER MODELO</p>
@@ -519,7 +522,7 @@
       </div>
   </header>
   <body>
-    
+
       <div class="row">
         <div class="columns medium-6">
             <p>Clave del examen: {{$inscritoExt->extraordinario_id}}</p>
@@ -539,7 +542,7 @@
           ({{$pagoLetras}})
           por concepto de Examen Extraordinario de la materia clave {{$matClave}}
           {{$matNombre}} a realizarse el día {{$extFecha}}
-          a las {{$extHora}} hrs. 
+          a las {{$extHora}} hrs.
           <br></br>
           <br></br>
           Sinodal: {{$empNombreCom}}.
@@ -565,5 +568,5 @@
       <span class="page-number"></span>
     </div>
   </footer>
-    
+
 </html>

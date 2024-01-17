@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,11 +367,11 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
-  
+
       .estilos-tabla tr th {
         font-size: 12px;
         background-color: #000;
@@ -382,7 +382,7 @@
         box-sizing: border-box;
         text-align: center;
       }
-  
+
       .estilos-tabla tr td {
         font-size: 12px;
         padding-left: 2px;
@@ -390,19 +390,20 @@
         box-sizing: border-box;
         color: #000;
       }
-  
+
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -40px;
         right: 0px;
@@ -412,7 +413,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -422,6 +423,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 70px;
         margin-bottom: 70px;
       }
@@ -498,7 +501,7 @@
         </div>
       </div>
 
-      
+
       <div class="row" style="margin-bottom: 2px">
         <div class="columns medium-12">
             <p>Ubicación : {{$ubicacion}}</p>
@@ -507,7 +510,7 @@
       <div class="row" style="margin-bottom: 2px;">
         <div class="columns medium-12">
           <p>
-              Período: {{ $periodo }}           
+              Período: {{ $periodo }}
           </p>
         </div>
       </div>
@@ -518,13 +521,13 @@
         </div>
       </div>
 
-      <div class="row" style="margin-bottom: 2px">        
+      <div class="row" style="margin-bottom: 2px">
         <div class="columns medium-4">
           <p>{{$gradoGrupo}}</p>
         </div>
       </div>
 
-    </header>   
+    </header>
 
     @php
         $pos0 = 1;
@@ -581,7 +584,7 @@
 
             <tr>
               <th align="center" colspan="3" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">Puntos de Adas programadas a la fecha => </th>
-             
+
 
               @foreach($clave_de_las_materias as $complementaria_id => $valores)
                 @foreach($valores as $item)
@@ -667,7 +670,7 @@
                       {{$ganado->puntos_que_deben_ganar}}
                       @else
                           0
-                      @endif                      
+                      @endif
                     </th>
                     @endforeach
                   @endif
@@ -677,7 +680,7 @@
                 @endphp
               @endforeach
             </tr>
-            
+
           </thead>
           <tbody>
             @foreach ($clave_del_alumno as $aluClave => $val_alumno)
@@ -688,7 +691,7 @@
                 @foreach ($val_alumno as $val)
                   @if ($aluClave == $val->aluClave && $pos4++ == 1)
                     <td colspan="1">{{$val->nombre_alumno}}</td>
-                  @endif                    
+                  @endif
                 @endforeach
                 @php
                   $pos4 = 1;
@@ -733,7 +736,7 @@
                             $sumaAdasEvidencias = $sumaAdasEvidencias + $puntos->eviPuntos;
                           }
 
-                         
+
                       @endphp
 
                       @foreach ($val_alumno as $val)
@@ -741,7 +744,7 @@
                           @php
                             $sumaAdasalumnoGanados = $sumaAdasalumnoGanados + $val->puntos_ganados;
                           @endphp
-                        @endif                    
+                        @endif
                       @endforeach
 
 
@@ -776,24 +779,24 @@
                           @endphp
                         @else
                             0
-                        @endif    
+                        @endif
                       @endforeach
 
                       @foreach ($val_alumno as $val)
-                        @if ($aluClave == $val->aluClave && $pos5++ == 1)                        
+                        @if ($aluClave == $val->aluClave && $pos5++ == 1)
                           <td align="center" colspan="1">
                             @if ($sumaAdasalumnoGanados == 0)
-                            
+
                             @else
                             {{--  {{$evidenciasCalificadas - $sumaAdasalumnoGanados}}  --}}
                             {{number_format((float)$evidenciasCalificadas - $sumaAdasalumnoGanados, 1, '.', '')}}
                             @endif
-                            
+
                           </td>
-                        @endif      
+                        @endif
                         @php
                             $evidenciasCalificadas = 0;
-                        @endphp             
+                        @endphp
                       @endforeach
                       {{--  <th align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">{{$sumaAdasEvidencias}}</th>  --}}
                     @endif
@@ -805,21 +808,21 @@
                     $sumaAdasalumnoGanados = 0;
                   @endphp
                 @endforeach
-                
-              </tr>                
-            @endforeach                       
+
+              </tr>
+            @endforeach
           </tbody>
         </table>
-  
+
       </div>
     </div>
 
-    
+
     @php
       $suma = 0;
     @endphp
 
-    
+
 
     <footer id="footer">
       <div class="page-number"></div>

@@ -360,8 +360,8 @@
       width: 100%;
       display: block;
       position: relative;
-      margin-left: -30px;
-      margin-right: -30px;
+      /* margin-left: -30px; */
+      /* margin-right: -30px; */
     }
 
     .row::after {
@@ -503,6 +503,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: 10px;
       right: 0px;
@@ -532,6 +533,8 @@
     }
 
     @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
       margin-top: 30px;
       margin-bottom: 30px;
     }
@@ -623,7 +626,7 @@
     <img class="img-header-cabecera" style="margin-top: -40px;"
     src="{{base_path('resources/assets/img/bachiller_valladolid/cabeceraContanciaValladolid.jpeg')}}" alt="">
   @endif
- 
+
 
 </header>
 
@@ -738,7 +741,7 @@
     <div class="columns medium-44">
       @if ($curso_alumno->ubiClave == "CVA")
       <img style="height: 160px;" src="{{base_path('resources/assets/img/bachiller_valladolid/valla_sello.png')}}" alt="">
-      @endif        
+      @endif
     </div>
   </div>
 

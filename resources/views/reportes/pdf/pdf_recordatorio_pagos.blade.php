@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -100px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 130px;
         margin-bottom: 70px;
       }
@@ -496,14 +499,14 @@
                 <p>{{$municipio->munNombre}}, {{$estado->edoNombre}}, {{$fechaActual}}</p>
                 </div>
             </div>
-          </div> 
+          </div>
     </header>
 
       @foreach($cursos as $curso)
         <div class="row">
           <div class="columns medium-12">
             <p>
-              {{$saludo_inicial}} {{$curso['nombreCompleto']}} 
+              {{$saludo_inicial}} {{$curso['nombreCompleto']}}
               <br><br><br>
               {{Lang::get('recordatorios/RecordatorioPago.acuerdo', ['ultimaFecha' => $ultimaFecha])}}
             </p>
@@ -537,7 +540,7 @@
           </div>
           <div class="columns medium-6">
             <p style="font-size: 12px;">
-              Gra/Sem: {{$curso['grado']}} Grupo: {{$curso['grupo']}} 
+              Gra/Sem: {{$curso['grado']}} Grupo: {{$curso['grupo']}}
               Clave de pago: {{$curso['aluClave']}} {{$curso['beca']}}
             </p>
           </div>

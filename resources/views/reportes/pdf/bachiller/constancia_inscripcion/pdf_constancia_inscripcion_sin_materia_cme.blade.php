@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 150px;
         margin-bottom: 150px;
         margin-left: 150px;
@@ -499,7 +502,7 @@
             La que suscribe, Lic. en Psic. María Inés Sauri Quintal,
             Secretaria Administrativa de la {{$departamento->depNombreOficial}}
             incorporada a la Universidad Autónoma de Yucatán, hago
-            constar que: 
+            constar que:
           </p>
           <p style="font-size: 15px; margin-bottom: 35px; text-align: justify;">
 
@@ -519,20 +522,20 @@
               @else
                 @if (ceil($curso->cgt->cgtGradoSemestre) == 1 || ceil($curso->cgt->cgtGradoSemestre) == 2)
                   {{$curso->cgt->cgtGradoSemestre == 1 ? "PRIMER": ""}}
-                  {{$curso->cgt->cgtGradoSemestre == 3 ? "PRIMER": ""}}             
+                  {{$curso->cgt->cgtGradoSemestre == 3 ? "PRIMER": ""}}
                 @endif
 
                 @if (ceil($curso->cgt->cgtGradoSemestre) == 3 || ceil($curso->cgt->cgtGradoSemestre) == 4)
                   {{$curso->cgt->cgtGradoSemestre == 3 ? "SEGUNDO": ""}}
-                  {{$curso->cgt->cgtGradoSemestre == 4 ? "SEGUNDO": ""}}             
+                  {{$curso->cgt->cgtGradoSemestre == 4 ? "SEGUNDO": ""}}
                 @endif
 
                 @if (ceil($curso->cgt->cgtGradoSemestre) == 5 || ceil($curso->cgt->cgtGradoSemestre) == 6)
                   {{$curso->cgt->cgtGradoSemestre == 5 ? "TERCER": ""}}
-                  {{$curso->cgt->cgtGradoSemestre == 6 ? "TERCER": ""}}             
+                  {{$curso->cgt->cgtGradoSemestre == 6 ? "TERCER": ""}}
                 @endif
               @endif
-             
+
             @if ($leyenda == "SEMESTRE")
                 semestre
             @endif
@@ -545,10 +548,10 @@
             {{\Carbon\Carbon::parse($periodo->perFechaInicial)->year}}
             al {{\Carbon\Carbon::parse($periodo->perFechaFinal)->day}} de
             {{App\Http\Helpers\Utils::num_meses_string(\Carbon\Carbon::parse($periodo->perFechaFinal)->month)}} de
-            {{\Carbon\Carbon::parse($periodo->perFechaFinal)->year}}.     
-           
-            
-            
+            {{\Carbon\Carbon::parse($periodo->perFechaFinal)->year}}.
+
+
+
           </p>
           <p style="font-size: 15px; margin-bottom: 35px; text-align: justify;">
 
@@ -569,7 +572,7 @@
             {{$departamento->ubicacion->ubiClave == "CCH" ? "Chetumal Quintana Roo,": "" }}
             a los {{$fechaActual->day}} dias del mes de {{App\Http\Helpers\Utils::num_meses_string($fechaActual->month)}} de {{$fechaActual->year}}.
 
-            
+
           </p>
           <p style="font-size: 15px; margin-bottom: 35px; text-align: center;">ATENTAMENTE</p>
           <p style="font-size: 15px; text-align: center;">
@@ -580,7 +583,7 @@
 
       </div>
 
-      
+
 
     <footer id="footer">
     </footer>

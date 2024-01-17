@@ -69,8 +69,10 @@ class ResumenInscritosController extends Controller
     //   'perAnio' => $request->perAnio,
     //   'perNumero'=> $request->perNumero
     //   ])->first();
+    $ultimoPagoFecha = Pago::select('pagFechaPago')->where('pagFormaAplico','A')->orderBy('pagFechaPago', 'desc')->first();
 
-    $ultimoPago = Utils::fecha_string(Pago::where('pagFormaAplico','A')->latest('pagFechaPago')->pluck('pagFechaPago')->first(),true);
+    // Pago::where('pagFormaAplico','A')->latest('pagFechaPago')->pluck('pagFechaPago')->first() //Esta era la cunsulta antigua
+    $ultimoPago = Utils::fecha_string($ultimoPagoFecha->pagFechaPago,true);
 
     // $ubicacion = Ubicacion::where('ubiClave',$request->ubiClave)->first();
     

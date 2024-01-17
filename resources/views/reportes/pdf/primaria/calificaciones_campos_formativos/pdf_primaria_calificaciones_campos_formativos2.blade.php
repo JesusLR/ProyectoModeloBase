@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 20px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 20px;
         margin-bottom: 70px;
       }
@@ -498,13 +501,13 @@
             <p>{{$horaActual}}</p>
             <p>{{$parametro_NombreArchivo}}</p>  --}}
           {{--  </div>
-        </div>  --}}        
+        </div>  --}}
       </div>
 
       <div class="row" style="margin-bottom: 2px;">
         <div class="columns medium-12">
           <p><b>Ubicación:</b> {{ $ubicacion->ubiClave }} {{ $ubicacion->ubiNombre }}</p>
-          <p><b>Período: </b> {{ $periodo->perNumero }}-{{ $periodo->perAnio }} </p>          
+          <p><b>Período: </b> {{ $periodo->perNumero }}-{{ $periodo->perAnio }} </p>
         </div>
       </div>
     </header>
@@ -514,7 +517,7 @@
     @endphp
 
     @foreach ($datos as $programa)
-      
+
       @foreach($programa as $plan)
         @php
           $grados = $plan->sortKeys();
@@ -552,7 +555,7 @@
               </div>
             </div>
 
-            
+
             <div class="row">
               <div class="columns medium-12">
                 <table class="table">
@@ -564,7 +567,7 @@
 
                     <th align="center" style="font-weight: 400; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">Calif</th>
                     <th align="center" style="font-weight: 400; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">Observacion</th>
-                    
+
                   </tr>
                   @foreach ($grupo as $alumno)
                     @php
@@ -575,16 +578,16 @@
                       <td align="center" style="width: 40px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">{{$alumno['aluClave']}}</td>
                       <td style="width: 200px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                         <div style="position:relative; width: 100%;display: block; font-size:11px;">
-                          {{$alumno['nombre']}}                          
+                          {{$alumno['nombre']}}
                         </div>
                       </td>
                       <td align="center" style="width: 40px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">{{ $alumno['camFormativos'] }}</td>
                       <td align="center" style="width: 40px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">{{ $alumno['promedio'] }}</td>
                       <td style="width: 300px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">{{$alumno['observaciones']}}</td>
-                      
+
                     </tr>
                   @endforeach <!-- foreach alumno -->
-                 
+
                 </table>
               </div>
             </div>

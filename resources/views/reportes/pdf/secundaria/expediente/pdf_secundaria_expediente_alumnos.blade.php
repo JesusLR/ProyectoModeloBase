@@ -359,8 +359,8 @@
             width: 100%;
             display: block;
             position: relative;
-            margin-left: -30px;
-            margin-right: -30px;
+            /* margin-left: -30px; */
+            /* margin-right: -30px; */
         }
 
         .row::after {
@@ -495,6 +495,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: -70px;
             right: 0px;
@@ -530,6 +531,8 @@
         }
 
         @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
             margin-top: 80px;
             margin-bottom: 40px;
         }
@@ -615,8 +618,8 @@
 
     <style>
         .cuadrado {
-            width: 70px; 
-            height: 90px; 
+            width: 70px;
+            height: 90px;
             border: solid;
             border-style: dotted;
             border-width: 1px;
@@ -663,8 +666,8 @@
                 <p style="margin-top:0px; margin-bottom: 10px;"><strong>Nombre(s): </strong>{{$alumnoDatos_collection[0]->nombres}}</p>
             </div>
             <div class="l6">
-                <p style="margin-top:0px; margin-bottom: 10px;"><strong>Sexo (Masculino/Femenino): </strong>{{$alumnoHistoria_collection[0]->sexo}}</p>                                
-            </div> 
+                <p style="margin-top:0px; margin-bottom: 10px;"><strong>Sexo (Masculino/Femenino): </strong>{{$alumnoHistoria_collection[0]->sexo}}</p>
+            </div>
             <div class="l6">
                 <p style="margin-top:0px; margin-bottom: 10px;"><strong>Fecha Ingreso a la Modelo: </strong>{{$alumno_collection[0]->fecha_registro}}</p>
             </div>
@@ -689,8 +692,8 @@
             <div class="l6">
                 <p><strong>Correo del Alumno: </strong>{{$alumnoHistoria_collection[0]->correo_escolar}}</p>
             </div>
-            
-            
+
+
         </div>
     </div>
 
@@ -702,18 +705,18 @@
             <p> <strong>Tutor {{$key+1}}: </strong> {{$itemTutor->tutNombre}} <strong>Correo: </strong>{{$itemTutor->tutCorreo}}</p>
             @empty
                <p>El alumno no cuenta con tutor(s) asignados</p>
-           @endforelse 
+           @endforelse
         </div>
     </div>
 
     <h3 style="text-align: center">Padres</h3>
 
     <div class="row">
-        <div class="right3">                            
-            <label><strong>Padre: </strong>{{$alumnoHistoria_collection[0]->nombresPadre}} {{$alumnoHistoria_collection[0]->apellido1Padre}} {{$alumnoHistoria_collection[0]->apellido2Padre}}</label>  
+        <div class="right3">
+            <label><strong>Padre: </strong>{{$alumnoHistoria_collection[0]->nombresPadre}} {{$alumnoHistoria_collection[0]->apellido1Padre}} {{$alumnoHistoria_collection[0]->apellido2Padre}}</label>
             <br>
-            <label><strong>Madre: </strong>{{$alumnoHistoria_collection[0]->nombresMadre}} {{$alumnoHistoria_collection[0]->apellido1Madre}} {{$alumnoHistoria_collection[0]->apellido2Madre}}</label> 
-            
+            <label><strong>Madre: </strong>{{$alumnoHistoria_collection[0]->nombresMadre}} {{$alumnoHistoria_collection[0]->apellido1Madre}} {{$alumnoHistoria_collection[0]->apellido2Madre}}</label>
+
         </div>
     </div>
 </div>
@@ -727,12 +730,12 @@
                             <th></th>
                             <th align="center"><label>Calle/Núm:</label></th>
                             <th align="center"><label>Colonia</label></th>
-                            <th align="center"><label>Cód.Post.</label></th>         
-                            <th align="center"><label>Población</label></th>  
-                            <th align="center"><label>Estado</label></th>        
-                            <th align="center"><label>Teléfono</label></th> 
-                            </tr>                      
-                            
+                            <th align="center"><label>Cód.Post.</label></th>
+                            <th align="center"><label>Población</label></th>
+                            <th align="center"><label>Estado</label></th>
+                            <th align="center"><label>Teléfono</label></th>
+                            </tr>
+
                             <tr>
                                 <td>
                                     <br>
@@ -740,97 +743,33 @@
                                     <br>
                                     <p>Padre</p>
                                     <br>
-                                    <p>Madre</p>                    
+                                    <p>Madre</p>
                                 </td>
-                               
 
 
-                                <td align="center">     
+
+                                <td align="center">
                                     @forelse ($alumnoTutor_collection as $key => $itemTutor)
-                                   
+
                                     {{--  alumno  --}}
                                     @if ($key == 0)
                                     <br>
-                                    <p>{{$itemTutor->tutCalle}}</p>                                    
-                                    @endif                           
-                                     
-                                    
-                                    {{--  padre   --}}
-                                    @if ($key == 0)
-                                    <br>
-                                    <p>{{$itemTutor->tutCalle}}</p>                                    
-                                    @endif  
-                                    
-                                    {{--  madre   --}}
-                                    @if ($key == 0)
-                                    <br>
-                                    <p>{{$itemTutor->tutCalle}}</p>                                    
-                                    @endif  
-                             
-                                    @empty
-                                        <br>
-                                        <p>NA</p>
-                                        <br>
-                                        <p>NA</p>
-                                        <br>
-                                        <p>NA</p>
-                                    @endforelse                       
-                                </td>
+                                    <p>{{$itemTutor->tutCalle}}</p>
+                                    @endif
 
-                                
-                                <td align="center">     
-                                        
-                                    <br>
-                                    {{--  alumno   --}}
-                                     <p>{{$alumnoHistoria_collection[0]->perDirColonia}}</p> 
-                                    <br>                  
-                                    {{--  padre   --}}
-                                     <p>{{$alumnoHistoria_collection[0]->perDirColonia}}</p> 
-                                    <br>                   
-                                    {{--  madre   --}}
-                                     <p>{{$alumnoHistoria_collection[0]->perDirColonia}}</p> 
-                                    
-                                </td>
-                                
-                                
-                                <td align="center">     
-                                        
-                                    <br>
-                                    {{--  alumno   --}}
-                                     <p>{{$alumnoHistoria_collection[0]->perDirCP}}</p> 
-                                    <br>                
-                                    {{--  padre   --}}
-                                     <p>{{$alumnoHistoria_collection[0]->perDirCP}}</p> 
-                                    <br>                
-                                    {{--  madre   --}}
-                                     <p>{{$alumnoHistoria_collection[0]->perDirCP}}</p> 
-                                    
-                                </td>
 
-                                {{--  columna población   --}}
-                                <td align="center">     
-                                        
-                                    @forelse ($alumnoTutor_collection as $key => $itemTutor)
-                                   
-                                    {{--  alumno  --}}
-                                    @if ($key == 0)
-                                    <br>
-                                    <p>{{$itemTutor->tutPoblacion}}</p>                                    
-                                    @endif                           
-                                     
-                                    
                                     {{--  padre   --}}
                                     @if ($key == 0)
                                     <br>
-                                    <p>{{$itemTutor->tutPoblacion}}</p>                                    
-                                    @endif  
-                                    
+                                    <p>{{$itemTutor->tutCalle}}</p>
+                                    @endif
+
                                     {{--  madre   --}}
                                     @if ($key == 0)
                                     <br>
-                                    <p>{{$itemTutor->tutPoblacion}}</p>                                    
-                                    @endif  
-                             
+                                    <p>{{$itemTutor->tutCalle}}</p>
+                                    @endif
+
                                     @empty
                                         <br>
                                         <p>NA</p>
@@ -839,34 +778,62 @@
                                         <br>
                                         <p>NA</p>
                                     @endforelse
-                                    
                                 </td>
 
-                                                                {{--  estado   --}}
-                                <td align="center">     
-                                        
-                                        
+
+                                <td align="center">
+
+                                    <br>
+                                    {{--  alumno   --}}
+                                     <p>{{$alumnoHistoria_collection[0]->perDirColonia}}</p>
+                                    <br>
+                                    {{--  padre   --}}
+                                     <p>{{$alumnoHistoria_collection[0]->perDirColonia}}</p>
+                                    <br>
+                                    {{--  madre   --}}
+                                     <p>{{$alumnoHistoria_collection[0]->perDirColonia}}</p>
+
+                                </td>
+
+
+                                <td align="center">
+
+                                    <br>
+                                    {{--  alumno   --}}
+                                     <p>{{$alumnoHistoria_collection[0]->perDirCP}}</p>
+                                    <br>
+                                    {{--  padre   --}}
+                                     <p>{{$alumnoHistoria_collection[0]->perDirCP}}</p>
+                                    <br>
+                                    {{--  madre   --}}
+                                     <p>{{$alumnoHistoria_collection[0]->perDirCP}}</p>
+
+                                </td>
+
+                                {{--  columna población   --}}
+                                <td align="center">
+
                                     @forelse ($alumnoTutor_collection as $key => $itemTutor)
-                                   
+
                                     {{--  alumno  --}}
                                     @if ($key == 0)
                                     <br>
-                                    <p>{{$itemTutor->tutEstado}}</p>                                    
-                                    @endif                           
-                                     
-                                    
+                                    <p>{{$itemTutor->tutPoblacion}}</p>
+                                    @endif
+
+
                                     {{--  padre   --}}
                                     @if ($key == 0)
                                     <br>
-                                    <p>{{$itemTutor->tutEstado}}</p>                                    
-                                    @endif  
-                                    
+                                    <p>{{$itemTutor->tutPoblacion}}</p>
+                                    @endif
+
                                     {{--  madre   --}}
                                     @if ($key == 0)
                                     <br>
-                                    <p>{{$itemTutor->tutEstado}}</p>                                    
-                                    @endif  
-                             
+                                    <p>{{$itemTutor->tutPoblacion}}</p>
+                                    @endif
+
                                     @empty
                                         <br>
                                         <p>NA</p>
@@ -874,10 +841,46 @@
                                         <p>NA</p>
                                         <br>
                                         <p>NA</p>
-                                    @endforelse                                  
+                                    @endforelse
+
                                 </td>
 
-                                <td align="center">  
+                                                                {{--  estado   --}}
+                                <td align="center">
+
+
+                                    @forelse ($alumnoTutor_collection as $key => $itemTutor)
+
+                                    {{--  alumno  --}}
+                                    @if ($key == 0)
+                                    <br>
+                                    <p>{{$itemTutor->tutEstado}}</p>
+                                    @endif
+
+
+                                    {{--  padre   --}}
+                                    @if ($key == 0)
+                                    <br>
+                                    <p>{{$itemTutor->tutEstado}}</p>
+                                    @endif
+
+                                    {{--  madre   --}}
+                                    @if ($key == 0)
+                                    <br>
+                                    <p>{{$itemTutor->tutEstado}}</p>
+                                    @endif
+
+                                    @empty
+                                        <br>
+                                        <p>NA</p>
+                                        <br>
+                                        <p>NA</p>
+                                        <br>
+                                        <p>NA</p>
+                                    @endforelse
+                                </td>
+
+                                <td align="center">
                                     <br>
                                     {{--  alumno   --}}
                                     <p>NA</p>
@@ -899,7 +902,7 @@
                                     <br>
                                     <p>NA</p>
                                     @endif
-                                    
+
                                 </td>
                             </tr>
                         </table>
@@ -928,7 +931,7 @@
             float: right;
             width: 65%;
         }
-       
+
     </style>
 
     <footer>
@@ -964,8 +967,8 @@
 
     <style>
         .cuadrado {
-            width: 70px; 
-            height: 90px; 
+            width: 70px;
+            height: 90px;
             border: solid;
             border-style: dotted;
             border-width: 1px;
@@ -1006,52 +1009,52 @@
                 <label style="margin-top:0px; margin-bottom: 10px;"><strong>Apellido Parterno: </strong>____________________________</label>
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <label>{{$alumnoDatos_collection[0]->ape_paterno}}</label> 
+                <label>{{$alumnoDatos_collection[0]->ape_paterno}}</label>
             </div>
 
             <div class="l6">
                 <label style="margin-top:0px; margin-bottom: 10px;"><strong>Apellido Materno: </strong>_____________________________</label>
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <label>{{$alumnoDatos_collection[0]->ape_materno}}</label>  
+                <label>{{$alumnoDatos_collection[0]->ape_materno}}</label>
             </div>
 
             <div class="l6">
-                <label style="margin-top:0px; margin-bottom: 10px;"><strong>Nombre(s): </strong>___________________________________</label> 
+                <label style="margin-top:0px; margin-bottom: 10px;"><strong>Nombre(s): </strong>___________________________________</label>
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <label>{{$alumnoDatos_collection[0]->nombres}}</label>  
+                <label>{{$alumnoDatos_collection[0]->nombres}}</label>
             </div>
 
             <div class="l6">
                 <label style="margin-top:0px; margin-bottom: 10px;"><strong>Sexo (Masculino/Femenino): </strong>_____________________</label>
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;    
-                <label>{{$alumnoHistoria_collection[0]->sexo}}</label>                       
-            </div> 
-
-            <div class="l6">
-                <label style="margin-top:0px; margin-bottom: 10px;"><strong>Fecha Ingreso a la Modelo: </strong>______________________</label> 
-                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;    
-                <label>{{$alumno_collection[0]->fecha_registro}}</label>  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                <label>{{$alumnoHistoria_collection[0]->sexo}}</label>
             </div>
 
             <div class="l6">
-                <label style="margin-top:0px; margin-bottom: 10px;"><strong>Grado Ingreso a la Modelo </strong>______________________</label> 
+                <label style="margin-top:0px; margin-bottom: 10px;"><strong>Fecha Ingreso a la Modelo: </strong>______________________</label>
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;    
-                <label>{{$alumno_collection[0]->grado}}°</label>  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;
+                <label>{{$alumno_collection[0]->fecha_registro}}</label>
+            </div>
+
+            <div class="l6">
+                <label style="margin-top:0px; margin-bottom: 10px;"><strong>Grado Ingreso a la Modelo </strong>______________________</label>
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;
+                <label>{{$alumno_collection[0]->grado}}°</label>
             </div>
 
             <div class="l6">
                 <label style="margin-top:0px; margin-bottom: 10px;"><strong>Nivel Ingreso a la Modelo: </strong>_______________________</label>
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-                <label>{{$alumno_collection[0]->progClave}}-{{$alumno_collection[0]->progNombre}}</label>  
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>{{$alumno_collection[0]->progClave}}-{{$alumno_collection[0]->progNombre}}</label>
             </div>
 
             <div class="l6">
-                <label style="margin-top:0px; margin-bottom: 10px;"><strong>Fecha de Nacimiento: </strong>___________________________</label> 
+                <label style="margin-top:0px; margin-bottom: 10px;"><strong>Fecha de Nacimiento: </strong>___________________________</label>
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <label>{{$alumnoHistoria_collection[0]->perFechaNac}}</label>
@@ -1079,13 +1082,13 @@
             </div>
 
             <div class="l6">
-                <label><strong>Correo del Alumno: </strong>_____________________________</label> 
+                <label><strong>Correo del Alumno: </strong>_____________________________</label>
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <label>{{$alumnoHistoria_collection[0]->correo_escolar}}</label>
             </div>
-            
-            
+
+
         </div>
     </div>
     <h3 style="text-align: center">Tutores</h3>
@@ -1094,19 +1097,19 @@
             <div class="right2">
                 @forelse ($alumnoTutor_collection as $key => $itemTutor)
                     <label> <strong>Tutor {{$key+1}}: </strong>___________________________________ <strong>Correo: </strong>_________________</label>
-                            
+
 
                     <br><label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          
-                        {{$itemTutor->tutNombre}} 
+
+                        {{$itemTutor->tutNombre}}
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         {{$itemTutor->tutCorreo}}</label>
                         <br>
                         @empty
                             <p class="right2">____________________________________________________</p>
-                        @endforelse 
+                        @endforelse
             </div>
         </div>
 
@@ -1115,15 +1118,15 @@
     <h3 style="text-align: center">Padres</h3>
 
         <div class="row">
-            <div class="right3">                            
-                <label><strong>Padre: </strong>_________________________________________</label>  
+            <div class="right3">
+                <label><strong>Padre: </strong>_________________________________________</label>
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <label>{{$alumnoHistoria_collection[0]->nombresPadre}} {{$alumnoHistoria_collection[0]->apellido1Padre}} {{$alumnoHistoria_collection[0]->apellido2Padre}}</label>
 
                 <br>
-                <label><strong>Madre: </strong>_________________________________________</label> 
+                <label><strong>Madre: </strong>_________________________________________</label>
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <label>{{$alumnoHistoria_collection[0]->nombresMadre}} {{$alumnoHistoria_collection[0]->apellido1Madre}} {{$alumnoHistoria_collection[0]->apellido2Madre}}</label> 
+                <label>{{$alumnoHistoria_collection[0]->nombresMadre}} {{$alumnoHistoria_collection[0]->apellido1Madre}} {{$alumnoHistoria_collection[0]->apellido2Madre}}</label>
             </div>
         </div>
     </div>
@@ -1139,7 +1142,7 @@
                         <th align="center"><label>Población</label></th>
                         <th align="center"><label>Estado</label></th>
                         <th align="center"><label>Teléfono</label></th>
-                    </tr>                   
+                    </tr>
                     <tr>
                         <td>
                             <br>
@@ -1149,20 +1152,20 @@
                             <p>Padre</p>
                             <br>
                             <br>
-                            <p>Madre</p>                    
+                            <p>Madre</p>
                         </td>
 
                          {{--  columna calle   --}}
                        <td align="center">
                             @forelse ($alumnoTutor_collection as $key => $itemTutor)
-                        
+
                             {{--  alumno  --}}
                             @if ($key == 0)
                                 <br>
                                 <label>___________________</label>
                                 <br><label>{{$itemTutor->tutCalle}}</label>
                                 @endif
-                                
+
                                 {{--  padre   --}}
                                 @if ($key == 0)
                                 <br>
@@ -1170,7 +1173,7 @@
                                 <label>___________________</label>
                                 <br><label>{{$itemTutor->tutCalle}}</label>
                             @endif
-                            
+
                             {{--  madre   --}}
                             @if ($key == 0)
                                 <br>
@@ -1178,7 +1181,7 @@
                                 <label>___________________</label>
                                 <br><label>{{$itemTutor->tutCalle}}</label>
                             @endif
-                            
+
                             @empty
                                 <br>
                                 <label>___________________</label>
@@ -1189,36 +1192,36 @@
                                 <br>
                                 <label>___________________</label>
                             @endforelse
-                            
+
                         </td>
 
                         {{--  columna colonia   --}}
-                        <td align="center">     
-                                            
+                        <td align="center">
+
                             <br>
-                        
+
                             {{--  alumno   --}}
-                            <label>___________________</label> 
+                            <label>___________________</label>
                             <br><label>{{$alumnoHistoria_collection[0]->perDirColonia}}</label>
-                            <br>  
-                            <br>                
+                            <br>
+                            <br>
                             {{--  padre   --}}
-                            <label>___________________</label> 
+                            <label>___________________</label>
                             <br><label>{{$alumnoHistoria_collection[0]->perDirColonia}}</label>
-                            <br> 
-                            <br>                  
+                            <br>
+                            <br>
                             {{--  madre   --}}
-                            <label>___________________</label> 
+                            <label>___________________</label>
                             <br><label>{{$alumnoHistoria_collection[0]->perDirColonia}}</label>
-                        
+
                         </td>
-                                
+
                         {{--  columna CP   --}}
-                        <td align="center">     
+                        <td align="center">
                            <br>
-                                            
-                           {{--  alumno   --}}                                   
-                            <label>___________</label>                                            
+
+                           {{--  alumno   --}}
+                            <label>___________</label>
                             <br><label>{{$alumnoHistoria_collection[0]->perDirCP}}</label>
                             <br>
                             <br>
@@ -1229,37 +1232,37 @@
                             <br>
                             {{--  madre   --}}
                             <label>___________</label>
-                            <br><label>{{$alumnoHistoria_collection[0]->perDirCP}}</label>                                    
+                            <br><label>{{$alumnoHistoria_collection[0]->perDirCP}}</label>
                         </td>
 
                         {{--  columna población   --}}
-                        <td align="center">     
-                                                                    
+                        <td align="center">
+
                             @forelse ($alumnoTutor_collection as $key => $itemTutor)
-                        
+
                             {{--  alumno  --}}
                             @if ($key == 0)
                             <br>
-                            <label>____________</label>  
-                            <br><label>{{$itemTutor->tutPoblacion}}</label>                                      
-                            @endif                           
-                            
-                            
+                            <label>____________</label>
+                            <br><label>{{$itemTutor->tutPoblacion}}</label>
+                            @endif
+
+
                             {{--  padre   --}}
                             @if ($key == 0)
                             <br>
                             <br>
-                            <label>____________</label>  
-                            <br><label>{{$itemTutor->tutPoblacion}}</label>                                     
-                            @endif  
-                            
+                            <label>____________</label>
+                            <br><label>{{$itemTutor->tutPoblacion}}</label>
+                            @endif
+
                             {{--  madre   --}}
                             @if ($key == 0)
                             <br>
                             <br>
-                            <label>____________</label>  
-                            <br><label>{{$itemTutor->tutPoblacion}}</label>                                      
-                            @endif  
+                            <label>____________</label>
+                            <br><label>{{$itemTutor->tutPoblacion}}</label>
+                            @endif
 
                             @empty
                                 <br>
@@ -1268,36 +1271,36 @@
                                 <p>___________________</p>
                                 <br>
                                 <p>___________________</p>
-                            @endforelse                                    
+                            @endforelse
                         </td>
 
                         {{--  estado   --}}
-                        <td align="center">                                  
+                        <td align="center">
                             @forelse ($alumnoTutor_collection as $key => $itemTutor)
-                        
+
                             {{--  alumno  --}}
                             @if ($key == 0)
                             <br>
-                            <label>____________</label> 
-                            <br><label>{{$itemTutor->tutEstado}}</label>                                   
-                            @endif                           
-                            
-                            
+                            <label>____________</label>
+                            <br><label>{{$itemTutor->tutEstado}}</label>
+                            @endif
+
+
                             {{--  padre   --}}
                             @if ($key == 0)
                             <br>
                             <br>
-                            <label>____________</label> 
-                            <br><label>{{$itemTutor->tutEstado}}</label>                                  
-                            @endif  
-                            
+                            <label>____________</label>
+                            <br><label>{{$itemTutor->tutEstado}}</label>
+                            @endif
+
                             {{--  madre   --}}
                             @if ($key == 0)
                             <br>
                             <br>
-                            <label>____________</label> 
-                            <br><label>{{$itemTutor->tutEstado}}</label>                                     
-                            @endif  
+                            <label>____________</label>
+                            <br><label>{{$itemTutor->tutEstado}}</label>
+                            @endif
 
                             @empty
                                 <br>
@@ -1308,7 +1311,7 @@
                                 <br>
                                 <br>
                                 <label>___________________</label>
-                            @endforelse                                  
+                            @endforelse
                         </td>
                             </tr>
                         </table>
@@ -1316,7 +1319,7 @@
                     </div>
 
     <br>
-  
+
     <div class="row">
         <div class="columns medium-12">
             <p><strong>Observ/Alergias: </strong> _______________________________________________________________________________________________________________________________________ </p>
@@ -1336,7 +1339,7 @@
             float: right;
             width: 65%;
         }
-       
+
     </style>
 
     <footer>

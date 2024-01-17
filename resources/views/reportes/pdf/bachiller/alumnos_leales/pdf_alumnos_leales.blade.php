@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 20px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 20px;
         margin-bottom: 70px;
       }
@@ -500,7 +503,7 @@
           </div>
         </div>
       </header>
-    
+
       <footer id="footer">
         <div class="page-number"></div>
       </footer>
@@ -510,7 +513,7 @@
       $totalCursos2 = 0;
     @endphp
     @foreach ($datos as $programa)
-      
+
       @foreach($programa as $plan)
         @php
           $grados = $plan->sortKeys();
@@ -578,7 +581,7 @@
 
                   </tr>
                   @foreach ($grupo as $alumno)
-                    
+
                     @php
 
                       $alumno_id = $alumno['alumno_id'];
@@ -588,7 +591,7 @@
                       cgt.cgtGradoSemestre,
                       alumnos.aluClave,
                       CONCAT_WS(' ',personas.perApellido1,personas.perApellido2, personas.perNombre) AS nombreAlumno
-                      FROM cursos 
+                      FROM cursos
                       INNER JOIN cgt on cgt.id = cursos.cgt_id
                       INNER JOIN planes ON planes.id = cgt.plan_id
                       INNER JOIN programas ON programas.id = planes.programa_id
@@ -599,8 +602,8 @@
                       AND cursos.deleted_at IS NULL
                       AND cursos.curEstado != 'B'
                       ORDER BY cgt.cgtGradoSemestre ASC, personas.perApellido1 ASC, personas.perApellido2 ASC, personas.perNombre ASC");
-                    @endphp  
-            
+                    @endphp
+
                     @if ($alumnos_leales[0]->cgtGradoSemestre == 1 && $alumnos_leales[1]->cgtGradoSemestre == 2 && $alumnos_leales[2]->cgtGradoSemestre == 3
                       && $alumnos_leales[3]->cgtGradoSemestre == 4 && $alumnos_leales[4]->cgtGradoSemestre == 5 && $alumnos_leales[5]->cgtGradoSemestre == 6)
                       @php
@@ -622,10 +625,10 @@
                       </tr>
 
                     @endif
-                    
+
                   @endforeach <!-- foreach alumno -->
                   @php
-                    $contador = 1;                    
+                    $contador = 1;
                   @endphp
                 </table>
               </div>
@@ -633,7 +636,7 @@
             @if($contador < $totalCursos2)
               <div class="page_break"></div>
             @endif
-            
+
             {{--  @if ($loop->first)
               <footer id="footer">
                 <div class="page-number"></div>
@@ -644,6 +647,6 @@
       @endforeach <!-- foreach plan -->
     @endforeach <!-- foreach programa -->
 
-    
+
   </body>
 </html>

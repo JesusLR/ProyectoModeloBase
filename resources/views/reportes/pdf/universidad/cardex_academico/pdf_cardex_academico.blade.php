@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -405,6 +405,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -200px;
         right: 0px;
@@ -424,6 +425,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top:273px;
         margin-bottom: 70px;
         margin-left: 94.488188976px;
@@ -517,15 +520,15 @@
               <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">Alumno:</td>
               <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">{{ $nombreAlumno }}</td>
               <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">Matrícula: {{ $aluMatricula }}</td>
-              <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">Turno: 
+              <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">Turno:
                 @if ($turno =='M')
-                  MATUTINO 
+                  MATUTINO
                 @endif
                 @if ($turno =='V')
-                  VESPERTINO 
+                  VESPERTINO
                 @endif
                 @if ($turno =='M')
-                  MIXTO 
+                  MIXTO
                 @endif
               </td>
             </tr>
@@ -533,7 +536,7 @@
             <tr>
               <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">CURP:</td>
               <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">{{ $perCurp }}</td>
-              <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">Sit: 
+              <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">Sit:
                 @if ($resEstado == "R")
                   ACTIVA
                 @endif
@@ -548,7 +551,7 @@
             </tr>
 
 
-          </table>          
+          </table>
         </div>
       </div>
 
@@ -556,7 +559,7 @@
       <div class="row">
         <br>
           <p>Fecha de Impresion: {{ $fechaImpresion }}</p>
-        <br>          
+        <br>
       </div>
 
       <div class="row">
@@ -564,15 +567,15 @@
           <div class="columns medium-2">
             {{--  <br>  --}}
             <div>
-              <div class="" style="position: fixed; top: -86px; border: 1px solid #000000; width: 25px; height: 25px;">                         
+              <div class="" style="position: fixed; top: -86px; border: 1px solid #000000; width: 25px; height: 25px;">
               </div>
               <label style="position: fixed; top: -71px; left: 50px;">Acta de Nac.</label>
-            </div>            
+            </div>
           </div>
 
           <div class="columns medium-2">
             <div>
-              <div class="" style="position: fixed; top: -86px; border: 1px solid #000000; width: 25px; height: 25px;">                         
+              <div class="" style="position: fixed; top: -86px; border: 1px solid #000000; width: 25px; height: 25px;">
               </div>
               <label style="position: fixed; top: -95px; left: 50px;">Certificado Bachillerato o
                 Licenciatura</label>
@@ -581,7 +584,7 @@
 
           <div class="columns medium-2">
             <div>
-              <div class="" style="position: fixed; top: -86px; border: 1px solid #000000; width: 25px; height: 25px;">                         
+              <div class="" style="position: fixed; top: -86px; border: 1px solid #000000; width: 25px; height: 25px;">
               </div>
               <label style="position: fixed; top: -71px; left: 50px;">CURP</label>
             </div>
@@ -589,7 +592,7 @@
 
           <div class="columns medium-2">
             <div>
-              <div class="" style="position: fixed; top: -86px; border: 1px solid #000000; width: 25px; height: 25px;">                         
+              <div class="" style="position: fixed; top: -86px; border: 1px solid #000000; width: 25px; height: 25px;">
               </div>
               <label style="position: fixed; top: -84px; left: 50px;">Certificado Validado</label>
             </div>
@@ -608,7 +611,7 @@
         (*) CALIFICACIÓN REPROBATORIA. EL MÍNIMO APROBATORIO ES: {{ $depCalMinAprob }}
       </div>
 
-         
+
 
     </header>
 
@@ -646,129 +649,129 @@
                 <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;"></td>
                 <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;"></td>
               </tr>
-              
+
               @foreach ($datos_alumno as $alumno)
                 <tr>
                   <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">{{ $alumno->nombreMateria }}</td>
                   <td align="center" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">{{ $alumno->claveMateria }}</td>
                   <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
-                    @if($alumno->ordinarioCal != "") 
-                      @if($alumno->acreditacion == "N") 
-                        {{ $alumno->ordinarioCal }} 
-                      @endif 
-                      @if($alumno->acreditacion == "A") 
+                    @if($alumno->ordinarioCal != "")
+                      @if($alumno->acreditacion == "N")
+                        {{ $alumno->ordinarioCal }}
+                      @endif
+                      @if($alumno->acreditacion == "A")
                         @if ($alumno->ordinarioCal == 0)
                           A
                         @else
                           NA
-                        @endif 
-                      @endif 
-                    @endif 
+                        @endif
+                      @endif
+                    @endif
 
-                    @if($alumno->ordinarioFecha != "") 
-                    ({{ Carbon\Carbon::parse($alumno->ordinarioFecha)->format('d/m/Y') }}) 
+                    @if($alumno->ordinarioFecha != "")
+                    ({{ Carbon\Carbon::parse($alumno->ordinarioFecha)->format('d/m/Y') }})
                     @endif
                   </td>
 
                   <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
-                    @if($alumno->extra1Cal != "") 
-                      @if($alumno->acreditacion == "N") 
-                        {{ $alumno->extra1Cal }} 
-                      @endif 
-                      @if($alumno->acreditacion == "A") 
+                    @if($alumno->extra1Cal != "")
+                      @if($alumno->acreditacion == "N")
+                        {{ $alumno->extra1Cal }}
+                      @endif
+                      @if($alumno->acreditacion == "A")
                         @if ($alumno->extra1Cal == 0)
                           A
                         @else
                           NA
-                        @endif 
-                      @endif 
-                    @endif 
+                        @endif
+                      @endif
+                    @endif
 
-                    @if($alumno->extra1Fecha != "") 
-                    ({{ Carbon\Carbon::parse($alumno->extra1Fecha)->format('d/m/Y') }}) 
+                    @if($alumno->extra1Fecha != "")
+                    ({{ Carbon\Carbon::parse($alumno->extra1Fecha)->format('d/m/Y') }})
                     @endif
                   </td>
 
                   <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
-                    @if($alumno->extra2Cal != "") 
-                      @if($alumno->acreditacion == "N") 
-                        {{ $alumno->extra2Cal }} 
-                      @endif 
-                      @if($alumno->acreditacion == "A") 
+                    @if($alumno->extra2Cal != "")
+                      @if($alumno->acreditacion == "N")
+                        {{ $alumno->extra2Cal }}
+                      @endif
+                      @if($alumno->acreditacion == "A")
                         @if ($alumno->extra2Cal == 0)
                           A
                         @else
                           NA
-                        @endif 
-                      @endif 
-                    @endif 
+                        @endif
+                      @endif
+                    @endif
 
-                    @if($alumno->extra2Fecha != "") 
-                    ({{ Carbon\Carbon::parse($alumno->extra2Fecha)->format('d/m/Y') }}) 
+                    @if($alumno->extra2Fecha != "")
+                    ({{ Carbon\Carbon::parse($alumno->extra2Fecha)->format('d/m/Y') }})
                     @endif
                   </td>
 
                   <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
-                    @if($alumno->extra3Cal != "") 
-                      @if($alumno->acreditacion == "N") 
-                        {{ $alumno->extra3Cal }} 
-                      @endif 
-                      @if($alumno->acreditacion == "A") 
+                    @if($alumno->extra3Cal != "")
+                      @if($alumno->acreditacion == "N")
+                        {{ $alumno->extra3Cal }}
+                      @endif
+                      @if($alumno->acreditacion == "A")
                         @if ($alumno->extra3Cal == 0)
                           A
                         @else
                           NA
-                        @endif 
-                      @endif 
-                    @endif 
+                        @endif
+                      @endif
+                    @endif
 
-                    @if($alumno->extra3Fecha != "") 
-                    ({{ Carbon\Carbon::parse($alumno->extra3Fecha)->format('d/m/Y') }}) 
+                    @if($alumno->extra3Fecha != "")
+                    ({{ Carbon\Carbon::parse($alumno->extra3Fecha)->format('d/m/Y') }})
                     @endif
                   </td>
 
                   <td style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
-                    @if($alumno->especialCal != "") 
-                      @if($alumno->acreditacion == "N") 
-                        {{ $alumno->especialCal }} 
-                      @endif 
-                      @if($alumno->acreditacion == "A") 
+                    @if($alumno->especialCal != "")
+                      @if($alumno->acreditacion == "N")
+                        {{ $alumno->especialCal }}
+                      @endif
+                      @if($alumno->acreditacion == "A")
                         @if ($alumno->especialCal == 0)
                           A
                         @else
                           NA
-                        @endif 
-                      @endif 
-                    @endif 
+                        @endif
+                      @endif
+                    @endif
 
-                    @if($alumno->especialFecha != "") 
-                    ({{ Carbon\Carbon::parse($alumno->especialFecha)->format('d/m/Y') }}) 
+                    @if($alumno->especialFecha != "")
+                    ({{ Carbon\Carbon::parse($alumno->especialFecha)->format('d/m/Y') }})
                     @endif
                   </td>
 
                   <td align="right" style="border-top: 1px solid; border-bottom: 1px solid; border-left: 1px solid; border-right: 1px solid;">
-                    @if($alumno->revalidaCal != "") 
-                      @if($alumno->acreditacion == "N") 
-                        {{ $alumno->revalidaCal }} 
-                      @endif 
-                      @if($alumno->acreditacion == "A") 
+                    @if($alumno->revalidaCal != "")
+                      @if($alumno->acreditacion == "N")
+                        {{ $alumno->revalidaCal }}
+                      @endif
+                      @if($alumno->acreditacion == "A")
                         @if ($alumno->revalidaCal == 0)
                           A
                         @else
                           NA
-                        @endif 
-                      @endif 
-                    @endif 
+                        @endif
+                      @endif
+                    @endif
                   </td>
 
                 </tr>
               @endforeach
-              
-            
+
+
             @endforeach
           </tbody>
-          
-        </table>          
+
+        </table>
       </div>
     </div>
 
@@ -784,8 +787,8 @@
       <p>Observaciones: Para cualquier aclaración, dirigirse al director correspondiente</p>
       <p>* No cuenta para promedios por haberla aprobado en el mismo período</p>
     </div>
-    
-    
-    
+
+
+
   </body>
 </html>

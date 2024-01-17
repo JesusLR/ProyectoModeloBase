@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 20px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 20px;
         margin-bottom: 70px;
       }
@@ -509,7 +512,7 @@
                 <p><b>Período:</b> {{Utils::fecha_string($secundaria_inscritos[0]->perFechaInicial, 'mesCorto')}} al {{Utils::fecha_string($secundaria_inscritos[0]->perFechaFinal, 'mesCorto')}}</p>
                 <p><b>Ubicación:</b> {{$secundaria_inscritos[0]->ubiClave.' '.$secundaria_inscritos[0]->ubiNombre}}</p>
                 <p><b>Nivel:</b> {{$secundaria_inscritos[0]->depClave}} ({{$secundaria_inscritos[0]->planClave}}) {{$secundaria_inscritos[0]->progNombre}}</p>
-                
+
                 @if ($trimestre == "")
                 <p><b>Trimestre:</b> 1, 2 y 3</p>
                 @endif
@@ -522,7 +525,7 @@
                 @if ($trimestre == "TRIMESTRE3")
                 <p><b>Trimestre:</b> 3</p>
                 @endif
-                
+
 
 
                 <p> @if($grado != "") <b>Grado:</b> {{$grado}} @endif  @if($grupo != "") <b>Grupo:</b> {{$grupo}} @endif</p>
@@ -535,7 +538,7 @@
         <div class="page-number"></div>
       </footer>
 
-  
+
     <div class="row">
         <div class="columns medium-12">
             <table class="table">
@@ -548,17 +551,17 @@
                         <th align="center" style="font-weight: 400;"><b>Grupo</b></th>
                         <th align="center" style="font-weight: 400;"><b>Materia</b></th>
                         <th align="center" style="font-weight: 400;"><b>Materia ACD</b></th>
-          
+
                         @if ($trimestre == "TRIMESTRE1")
                         <th align="center" style="font-weight: 400;"><b>Calif Trim 1</b></th>
                         <th align="center" style="font-weight: 400;"><b>Calif Rep Trim 1</b></th>
                         @endif
-          
+
                         @if ($trimestre == "TRIMESTRE2")
                         <th align="center" style="font-weight: 400;"><b>Calif Trimestre 2</b></th>
                         <th align="center" style="font-weight: 400;"><b>Calif Rep Trim 2</b></th>
                         @endif
-          
+
                         @if ($trimestre == "TRIMESTRE3")
                         <th align="center" style="font-weight: 400;"><b>Calif Trimestre 3</b></th>
                         <th align="center" style="font-weight: 400;"><b>Calif Rep Trim 3</b></th>
@@ -566,7 +569,7 @@
                       </tr>
                 </thead>
                 <tbody>
-                    @foreach ($secundaria_inscritos as $key => $item) 
+                    @foreach ($secundaria_inscritos as $key => $item)
                         <tr>
                             <td align="center" style="height: 25px; border-top: 1px solid;">{{$key+1}}</td>
                             <td style="border-top: 1px solid;" align="center">{{$item->aluClave}}</td>
@@ -592,8 +595,8 @@
                                     {{number_format((float)$item->inscRecuperativoTrimestre1, 0, '.', '')}}
                                   @endif
                                 @else
-                                    
-                                @endif                                                             
+
+                                @endif
                             </td>
                             @endif
 
@@ -601,8 +604,8 @@
                             <td style="border-top: 1px solid;" align="center">{{number_format((float)$item->inscTrimestre2, 0, '.', '')}}</td>
                             <td style="border-top: 1px solid;" align="center">
                                 @if ($item->inscRecuperativoTrimestre2 != "")
-                                
-                                    
+
+
                                     @if ($item->inscRecuperativoTrimestre2 == -1.0)
                                     <b>NP</b>
                                     @endif
@@ -615,8 +618,8 @@
                                       {{number_format((float)$item->inscRecuperativoTrimestre2, 0, '.', '')}}
                                     @endif
                                 @else
-                                    
-                                @endif                                                             
+
+                                @endif
                             </td>
                             @endif
 
@@ -634,18 +637,18 @@
 
                                   @if ($item->inscRecuperativoTrimestre3 == 6 || $item->inscRecuperativoTrimestre3 == 7)
                                     {{number_format((float)$item->inscRecuperativoTrimestre3, 0, '.', '')}}
-                                  @endif                                   
+                                  @endif
                                 @else
-                                    
-                                @endif                                                             
+
+                                @endif
                             </td>
                             @endif
 
                         </tr>
-                    @endforeach                 
+                    @endforeach
                 </tbody>
             </table>
-         
+
         </div>
       </div>
     {{--  <footer id="footer">

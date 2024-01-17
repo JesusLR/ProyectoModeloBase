@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: 8px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 20px;
         margin-bottom: 70px;
       }
@@ -535,14 +538,14 @@
           </p>
           @endif
 
-          
+
           @php
               $key++;
               $key2++;
               $key3++;
           @endphp
 
-          
+
           @foreach ($calificaciones as $llave => $item)
               @if ($item->matNombre == $matName->matNombre && $item->gpoMatComplementaria == $matName->gpoMatComplementaria)
                 @if ($key == 1 && $pocision2++ == 1)
@@ -551,13 +554,13 @@
               @endif
           @endforeach
 
-                
+
           @if ($matName->gpoMatComplementaria == null)
           <p>Materia: {{$matName->matClave}}-{{$matName->matNombre}}</p>
           @else
           <p>Materia: {{$matName->matClave}}-{{$matName->matNombre}} ({{$matName->gpoMatComplementaria}})</p>
           @endif
-          
+
         </div>
       </div>
 
@@ -575,20 +578,20 @@
               @endforeach
               <th align="center" style="font-weight: 400;">Total</th>
             </tr>
-            
+
               @php
                 $total = 0;
               @endphp
-              @foreach ($calificaciones as $key => $inscrito)                 
-  
+              @foreach ($calificaciones as $key => $inscrito)
+
                 @if ($matName->matNombre == $inscrito->matNombre)
-               
-                <tr>                    
+
+                <tr>
                   <td align="center" style="width: 40px;">{{$pocision++}}</td>
                   <td align="center" style="width: 40px;">{{$inscrito->clave_pago}}</td>
                   <td style="width: 260px;">
-                      {{$inscrito->ape_paterno}} {{$inscrito->ape_materno}} {{$inscrito->nombres}}                        
-                  </td>   
+                      {{$inscrito->ape_paterno}} {{$inscrito->ape_materno}} {{$inscrito->nombres}}
+                  </td>
 
                     @foreach($tbody[$inscrito->bachiller_inscrito_id] AS $key => $value)
                       <th align="center" style="font-weight: 400;">{{$value->ievPuntos}}</th>
@@ -602,17 +605,17 @@
                   @endphp
                 </tr>
 
-                
-                @endif        
-                 
+
+                @endif
+
               @endforeach
-              
+
           </table>
-        </div>        
+        </div>
       </div>
 
 
-       @if ($loop->first) 
+       @if ($loop->first)
         <footer id="footer">
           <div class="row">
             <p>_____________________________________</p>
@@ -620,10 +623,10 @@
           </div>
           <div class="page-number"></div>
         </footer>
-       @endif 
-       @if (!$loop->last) 
-         <div class="page_break"></div> 
-       @endif 
+       @endif
+       @if (!$loop->last)
+         <div class="page_break"></div>
+       @endif
        @php
        $pocision = 1;
        $pocision2 = 1;
@@ -635,7 +638,7 @@
        $key2 = 0;
        $key3 = 0;
 
-       @endphp 
+       @endphp
       @endforeach
 
 

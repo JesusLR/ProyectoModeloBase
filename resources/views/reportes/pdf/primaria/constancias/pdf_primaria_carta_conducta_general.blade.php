@@ -294,8 +294,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -369,7 +369,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -393,15 +393,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -420,6 +421,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 30px;
         margin-bottom: 30px;
       }
@@ -491,11 +494,11 @@
       }
     </style>
 	</head>
-  
+
   <header>
-   
+
   </header>
-  
+
   @foreach ($curso_alumno as $curso)
 
     @php
@@ -508,8 +511,8 @@
         $parametroAlumno = "alumno";
       }
 
-      #buscar el grupo al que el alumno pertenece 
-      $resultado_array =  DB::select("call procPrimariaObtieneGrupoCurso(" . $curso->id . ")"); 
+      #buscar el grupo al que el alumno pertenece
+      $resultado_array =  DB::select("call procPrimariaObtieneGrupoCurso(" . $curso->id . ")");
 
       if(isset($resultado_array[0]->gpoClave)){
         $gpoGrupo = $resultado_array[0]->gpoClave;
@@ -519,10 +522,10 @@
     @endphp
 
     {{--  @if ($gpoGrupo != "")
-    
+
     @endif  --}}
     <body>
-      
+
       <div class="row">
         <div class="columns medium-12">
           <p class="tright">{{$fechaHoy}}</p>
@@ -530,10 +533,10 @@
           <p class="tright"><b>ASUNTO</b>: CARTA DE CONDUCTA</p>
 
           @if ($incluyeFoto == "SI")
-            @if ($curso->curPrimariaFoto != "")   
+            @if ($curso->curPrimariaFoto != "")
               @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $curso->perAnioPago . '/' . $campus .'/'. $curso->curPrimariaFoto)))
-           
-                <p><img class="fotoAlumno" style="float: left; margin-top: 165px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $curso->perAnioPago . '/' . $campus. '/' . $curso->curPrimariaFoto) }}"></p>      
+
+                <p><img class="fotoAlumno" style="float: left; margin-top: 165px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $curso->perAnioPago . '/' . $campus. '/' . $curso->curPrimariaFoto) }}"></p>
 
               @endif
             @endif
@@ -545,10 +548,10 @@
           <br>
           <br>
           <br>
-                    
+
           @if ($parametro_ubicacion == "CVA")
           <br>
-          <br> 
+          <br>
           <br>
           <br>
           <br>
@@ -561,8 +564,8 @@
           @endif
           <br>
           <br>
-        
-         
+
+
           <br>
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">La que suscribe,
             @if ($parametro_ubicacion == "CME")
@@ -570,14 +573,14 @@
             @endif
             @if ($parametro_ubicacion == "CVA")
             Mtra. Arely Martinez Díaz,
-            @endif              
+            @endif
             directora de la Escuela Primaria Modelo con clave {{ $curso->depClaveOficial }} establecida en esta ciudad, HACE CONSTAR:</p>
           <br>
           <br>
           <br>
-          
-          <p style="text-indent: 3em; font-size: 15px; text-align: justify;">{{$parametro_genero_alumno}} <strong>{{$curso->perApellido1.' '.$curso->perApellido2.' '.$curso->perNombre}} </strong>fue  {{$parametroAlumno}} regular 
-            del {{$curso->cgtGradoSemestre}}, GRUPO “{{$curso->cgtGrupo}}”, de este plantel en el curso escolar {{$periodo}} 
+
+          <p style="text-indent: 3em; font-size: 15px; text-align: justify;">{{$parametro_genero_alumno}} <strong>{{$curso->perApellido1.' '.$curso->perApellido2.' '.$curso->perNombre}} </strong>fue  {{$parametroAlumno}} regular
+            del {{$curso->cgtGradoSemestre}}, GRUPO “{{$curso->cgtGrupo}}”, de este plantel en el curso escolar {{$periodo}}
             y, durante el tiempo que estudió en éste, se le observó  <strong>BUENA CONDUCTA</strong>.
           </p>
 
@@ -589,16 +592,16 @@
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
             A pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia el día de hoy en la ciudad de Mérida, Yucatán, México.
           </p>
-          @endif   
+          @endif
 
           @if ($parametro_ubicacion == "CVA")
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
             A pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia el día de hoy en la ciudad de Valladolid, Yucatán, México.
           </p>
-          @endif  
+          @endif
         </div>
       </div>
-      
+
       <br><br><br><br><br><br><br><br><br><br><br><br>
 
       <div class="row">
@@ -613,15 +616,15 @@
           <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ</b></p>
           @endif
           <p class="tcenter"><b>DIRECTORA</b></p>
-        
+
         </div>
       </div>
       @if(!$loop->last)
         <div class="page_break"></div>
       @endif
-    
+
     </body>
 
   @endforeach
-    
+
 </html>

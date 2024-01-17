@@ -359,8 +359,8 @@
             width: 100%;
             display: block;
             position: relative;
-            margin-left: -30px;
-            margin-right: -30px;
+            /* margin-left: -30px; */
+            /* margin-right: -30px; */
         }
 
         .row::after {
@@ -499,6 +499,7 @@
         }
 
         header {
+        left: 0px;
             position: fixed;
             top: -50px;
             right: 0px;
@@ -541,6 +542,8 @@
         }
 
         @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
             margin-top: 80px;
             margin-bottom: 40px;
         }
@@ -695,7 +698,7 @@
 
                                             @php
                                                 $sumaPromedioHorizontal = $sumaPromedioHorizontal + $value[$bachiller_materia_id . '_calif'];
-                                                
+
                                                 $totalMateriasAlumno++;
                                             @endphp
                                         @endif
@@ -757,7 +760,7 @@
                                     @if ($value[$materiaIDPromedio . '_materia_id'] == $materiaIDPromedio)
                                         @php
                                             $sumaPromedioVerticales = $sumaPromedioVerticales + $value[$materiaIDPromedio . '_calif'];
-                                            
+
                                             $totalAlumnoVertical++;
                                         @endphp
                                     @endif
@@ -786,7 +789,7 @@
                                     @if ($materias_acd_id == $itemACDMat[$materias_acd_id . '_materia_acd_id'])
                                         @php
                                             $sumaPromedioVerticales = $sumaPromedioVerticales + $itemACDMat[$materias_acd_id . '_calif'];
-                                            
+
                                             $totalAlumnoVertical++;
                                         @endphp
                                     @endif

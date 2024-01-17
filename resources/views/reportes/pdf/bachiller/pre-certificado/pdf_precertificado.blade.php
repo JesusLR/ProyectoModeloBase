@@ -360,8 +360,8 @@
       width: 100%;
       display: block;
       position: relative;
-      margin-left: -30px;
-      margin-right: -30px;
+      /* margin-left: -30px; */
+      /* margin-right: -30px; */
     }
 
     .row::after {
@@ -496,6 +496,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -140px;
       right: 0px;
@@ -525,6 +526,8 @@
     }
 
     @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
       margin-top: 180px;
       margin-bottom: 40px;
     }
@@ -586,7 +589,7 @@
       border-bottom: dotted;
        border-width: 1px;
        border-color: 660033;
-       background-color: cc3366;       
+       background-color: cc3366;
     }
   </style>
 </head>
@@ -698,18 +701,18 @@
                   @if ($materia['histFechaExamen'] != '0000-00-00')
                     {{Utils::fecha_string($materia['histFechaExamen'], 'mesCorto')}}
                   @else
-                      
+
                   @endif
-                  
+
                 </td>
                 <td align="center" style="width: 40px;">{{$materia['histLibro']}}</td>
                 <td align="center" style="width: 40px;">{{$materia['hisActa']}}</td>
                 <td align="center" style="width: 40px;">{{$materia['histFolio']}}</td>
-              </tr>  
+              </tr>
 
               @php
                 if(!in_array($materia['histCalificacion'], ['Apr', 'No Apr', 'S/D', 'Npa'])) {
-                  
+
                   $contarMaterias++;
                   $contarMateriasTotales++;
 
@@ -743,7 +746,7 @@
           @endforeach
         </tbody>
       </table>
-      
+
       <br>
       <p style="float:left; font-weight:normal;"> Promedio general: {{number_format($contarCalificacionTotales/$contarMateriasTotales,4)}}</p><p style="float:right; font-weight:normal;">Total de créditos : {{$credAprobTotal}} DE {{$credCurTotal}}</p>
     </div>

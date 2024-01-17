@@ -358,8 +358,8 @@
       width: 100%;
       display: block;
       position: relative;
-      margin-left: -30px;
-      margin-right: -30px;
+      /* margin-left: -30px; */
+      /* margin-right: -30px; */
     }
 
     .row::after {
@@ -494,6 +494,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -10px;
       right: 0px;
@@ -523,6 +524,8 @@
     }
 
     @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
       margin-top: 20px;
       margin-bottom: 70px;
     }
@@ -889,7 +892,7 @@
               @foreach ($calificaciones as $keyCalif => $item)
 
                 @if ($tipoReporte == "porMes")
-                    @if ($mesEvaluar == "Septiembre")                    
+                    @if ($mesEvaluar == "Septiembre")
                       @if ($matAlumnos->matClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
                         <td align="center"
                           style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
@@ -1214,16 +1217,16 @@
               @endfor
               <td style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></td>
               <td style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></td>
-  
+
           </tr>
-  
+
           <tr>
             <td style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></td>
             <td style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></td>
             <td style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">
               <p style="text-align: right">TOTALES:</p>
             </td>
-            @for ($i = 0; $i < count($materia_alumos); $i++) 
+            @for ($i = 0; $i < count($materia_alumos); $i++)
               @for ($x = 0; $x < count($calificaciones); $x++)
                 @if ($tipoReporte == "porMes")
                       @if ($mesEvaluar == "Septiembre")
@@ -1231,7 +1234,7 @@
                           @php
                             $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjSep;
                           @endphp
-                        @endif                        
+                        @endif
                       @endif
 
                       @if ($mesEvaluar == "Octubre")
@@ -1239,7 +1242,7 @@
                           @php
                             $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjOct;
                           @endphp
-                        @endif                        
+                        @endif
                       @endif
 
                       @if ($mesEvaluar == "Noviembre")
@@ -1247,7 +1250,7 @@
                           @php
                             $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjNov;
                           @endphp
-                        @endif                        
+                        @endif
                       @endif
 
                       @if ($mesEvaluar == "Diciembre")
@@ -1255,7 +1258,7 @@
                           @php
                             $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjDic;
                           @endphp
-                        @endif                        
+                        @endif
                       @endif
 
                       @if ($mesEvaluar == "Enero")
@@ -1263,7 +1266,7 @@
                           @php
                             $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjEne;
                           @endphp
-                        @endif                        
+                        @endif
                       @endif
 
 
@@ -1272,7 +1275,7 @@
                           @php
                             $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjFeb;
                           @endphp
-                        @endif                        
+                        @endif
                       @endif
 
                       @if ($mesEvaluar == "Marzo")
@@ -1280,7 +1283,7 @@
                           @php
                             $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjMar;
                           @endphp
-                        @endif                        
+                        @endif
                       @endif
 
                       @if ($mesEvaluar == "Abril")
@@ -1288,7 +1291,7 @@
                           @php
                             $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjAbr;
                           @endphp
-                        @endif                        
+                        @endif
                       @endif
 
 
@@ -1297,7 +1300,7 @@
                           @php
                             $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjMay;
                           @endphp
-                        @endif                        
+                        @endif
                       @endif
 
                       @if ($mesEvaluar == "Junio")
@@ -1305,11 +1308,11 @@
                           @php
                             $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjJun;
                           @endphp
-                        @endif                        
+                        @endif
                       @endif
-                      
-                @endif        
-                
+
+                @endif
+
                 {{-- mostrar por bimestre  --}}
                 @if ($tipoReporte == "porBimestre")
                   @if ($bimestreEvaluar == "BIMESTRE1")
@@ -1361,7 +1364,7 @@
                     @if ($materia_alumos[$i]->matClave == $calificaciones[$x]->matClave)
                     @php
                         $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjSep + $calificaciones[$x]->inscFaltasInjOct + $calificaciones[$x]->inscFaltasInjNov;
-                    @endphp                    
+                    @endphp
                     @endif
                   @endif
 
@@ -1370,8 +1373,8 @@
                     @if ($materia_alumos[$i]->matClave == $calificaciones[$x]->matClave)
                     @php
                         $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjDic + $calificaciones[$x]->inscFaltasInjEne + $calificaciones[$x]->inscFaltasInjFeb + $calificaciones[$x]->inscFaltasInjMar;
-                    @endphp 
-                    
+                    @endphp
+
                     @endif
                   @endif
 
@@ -1380,11 +1383,11 @@
                     @if ($materia_alumos[$i]->matClave == $calificaciones[$x]->matClave)
                     @php
                         $totalFaltasXmateria = $totalFaltasXmateria +  $calificaciones[$x]->inscFaltasInjAbr + $calificaciones[$x]->inscFaltasInjMay + $calificaciones[$x]->inscFaltasInjJun;
-                    @endphp                      
+                    @endphp
                     @endif
                   @endif
                 @endif
-                
+
               @endfor
               <td align="center"
                 style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">{{$totalFaltasXmateria}}
@@ -1393,13 +1396,13 @@
                 $totalFaltasXmateria = 0;
                 @endphp
             @endfor
-              
+
               <td align="center"
                 style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;">
                 {{$inasistenciaTotal}}</td>
               <td style="border-top: 0px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></td>
           </tr>
-  
+
           <tr>
             <td style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></td>
             <td style="border-top: 1px solid; border-right: 1px; border-bottom: 0px; border-left: 1px solid;"></td>
@@ -1419,7 +1422,7 @@
 
           @endphp
         @endforeach
-        
+
 
       </table>
     </div>

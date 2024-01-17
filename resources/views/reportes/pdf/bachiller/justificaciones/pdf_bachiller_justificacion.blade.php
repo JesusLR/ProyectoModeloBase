@@ -293,8 +293,8 @@
       width:100%;
       display: block;
       position: relative;
-      margin-left: -30px;
-      margin-right: -30px;
+      /* margin-left: -30px; */
+      /* margin-right: -30px; */
     }
     .row::after {
         content: "";
@@ -401,6 +401,7 @@
       text-align: center;
     }
     header {
+        left: 0px;
       position: fixed;
       top: 35px;
       right: 0px;
@@ -420,6 +421,8 @@
       display: block;
     }
     @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
       margin-top: 20px;
       margin-bottom: 70px;
     }
@@ -504,7 +507,7 @@
       {{--  <p style="margin-top:0px; margin-bottom: 10px; font-size: 15px;">Folio: @if ($contador < 10 ) 0{{$contador}} @else {{$contador}} @endif </p>  --}}
     </div>
   </div>
-  
+
 
 
 </header>
@@ -518,18 +521,18 @@
       <p style="font-size: 14px;">ESTIMADOS MAESTROS:</p>
 
       <br>
-   
+
       <p style="font-size: 14px; text-align: justify;">
         Por este medio me permito informarles {{$generoAlumno}} <b>{{$nombreAlumno}}</b> del {{$semestre}}
         semestre Grupo "{{$grupo}}" no pudo asistir a clases <b> {{$fechaFalta}}</b> debido a {{$faltopor}}.
       </p>
-      
+
       <br>
-    </div> 
+    </div>
   </div>
 
   <div class="row">
-    <p style="font-size: 14px;">Atentamente:</p>    
+    <p style="font-size: 14px;">Atentamente:</p>
   </div>
 
   <br>
@@ -548,16 +551,16 @@
   <br>
   {{--  <br>  --}}
   <div class="row">
-    <p style="font-size: 14px;">Enterado:</p>    
+    <p style="font-size: 14px;">Enterado:</p>
   </div>
 
   <br>
   {{--  <br>  --}}
   <div class="row">
     <div class="columns medium-6" style="line-height: 1.5em; text-align: left;">
-      <p>____________________________________________________</p>     
-      <p>____________________________________________________</p>      
-      <p>____________________________________________________</p>      
+      <p>____________________________________________________</p>
+      <p>____________________________________________________</p>
+      <p>____________________________________________________</p>
       <p>____________________________________________________</p>
     </div>
     <div class="columns medium-6" style="line-height: 1.5em; text-align: right;">
@@ -569,9 +572,9 @@
   </div>
   <br>
  <br>
-  
 
-  
+
+
   <div class="row">
     <ul style="list-style-type: disc; font-size: 14px;">
       <li><p>Este documento deberá ser devuelto a la dirección después de la firma de los docentes para

@@ -294,8 +294,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -369,7 +369,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -393,15 +393,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -420,6 +421,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 30px;
         margin-bottom: 30px;
       }
@@ -485,9 +488,9 @@
       }
     </style>
 	</head>
-  
+
   <header>
-   
+
   </header>
     <body>
       {{-- Controlador: ConstanciaDocenteController --}}
@@ -505,7 +508,7 @@
           <p>A QUIEN CORRESPONDA:</p>
           <br>
           <br>
-         
+
           <br>
           @if ($parametro_ubicacion_clave == "CME")
             <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
@@ -520,13 +523,13 @@
               Escuela Secundaria "Modelo Valladolid", clave C.T. 31PES0143L de esta ciudad hace constar:
             </p>
           @endif
-          
+
           <br>
           <br>
           <br>
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-            {{$genero}} <b>{{$alumno}} con número de matrícula {{$clave}} </b>  {{$parametro_consideracion}} regular de este plantel, al {{$grado}} GRUPO “{{$grupo}}”, 
-            del ciclo escolar {{$periodo}}, 
+            {{$genero}} <b>{{$alumno}} con número de matrícula {{$clave}} </b>  {{$parametro_consideracion}} regular de este plantel, al {{$grado}} GRUPO “{{$grupo}}”,
+            del ciclo escolar {{$periodo}},
             durante el tiempo que ha estudiado en este plantel, se ha observado buena conducta y cumplido con el reglamento de la escuela.
           </p>
 
@@ -535,7 +538,7 @@
           <br>
 
           <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-            Y a pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día de hoy, en la ciudad de 
+            Y a pedimento de la parte interesada y para los fines que se requiera, se expide la presente constancia al día de hoy, en la ciudad de
             @if ($parametro_ubicacion_clave == "CME")
               Mérida Yucatán, México.
             @endif
@@ -543,30 +546,30 @@
             @if ($parametro_ubicacion_clave == "CVA")
               Valladolid Yucatán, México.
             @endif
-            
+
           </p>
         </div>
       </div>
-      
+
       <br><br><br><br><br><br><br><br><br>      <br><br>
 
       <div class="row">
         <div class="columns medium-12">
 
           <p class="tcenter"><b>ATENTAMENTE</b></p>
-          <br><br><br><br>          
+          <br><br><br><br>
           <p class="tcenter"><b>________________________________________________________</b></p>
           @if ($parametro_ubicacion_clave == "CME")
             <p class="tcenter"><b>Psicóloga Silvia Violeta Pool Dorantes</b></p>
-            <p class="tcenter"><b>DIRECTORA</b></p>          
+            <p class="tcenter"><b>DIRECTORA</b></p>
           @endif
 
           @if ($parametro_ubicacion_clave == "CVA")
             <p class="tcenter"><b>Mtra. Lol-Há Canché Gómez</b></p>
             <p class="tcenter"><b>DIRECTORA ACADEMICA</b></p>
           @endif
-          
-        
+
+
         </div>
       </div>
       {{--  @if(!$loop->last)

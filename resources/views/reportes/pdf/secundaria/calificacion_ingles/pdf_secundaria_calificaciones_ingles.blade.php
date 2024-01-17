@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 20px;
         margin-bottom: 70px;
       }
@@ -504,7 +507,7 @@
 
 			{{--  @php  --}}
         {{--  $inscritos = $grupo['inscritos'];  --}}
-        
+
         // dd($grupos, $grupo, $inscritos);
 			{{--  @endphp
       @if (!is_null($inscritos))  --}}
@@ -523,7 +526,7 @@
 
             {{--  <p>Docente : {{$datos_cabecera[0]->empNombre}} {{$datos_cabecera[0]->empApellido1}} {{$datos_cabecera[0]->empApellido2}}</p>  --}}
 
-            <p>Mes : {{$mesEvaluar}} Incluye insc, 
+            <p>Mes : {{$mesEvaluar}} Incluye insc,
                 @if ($conceptos == "R")
                     regular ({{$conceptos}})
                 @endif
@@ -535,17 +538,17 @@
                 @endif
                 @if ($conceptos == "C")
                     condicionado ({{$conceptos}})
-                @endif 
+                @endif
                 @if ($conceptos == "X")
                     otro ({{$conceptos}})
-                @endif 
+                @endif
                 @if ($conceptos == "A")
                     condicionado 2 ({{$conceptos}})
                 @endif
                 @if ($conceptos == "R+P")
                     salon ({{$conceptos}})
                 @endif
-            
+
             </p>
 
           </div>
@@ -562,7 +565,7 @@
                 <th align="center" style="font-weight: 400;">Num</th>
                 <th align="center" style="font-weight: 400;">Cve Pago</th>
                 <th  style="font-weight: 400;">Nombre del alumno</th>
-                
+
                 {{--  recorremos array para mostrar materias   --}}
                 @foreach ($materia_alumos as $mat)
                 <th align="center" style="font-weight: 400;">{{$mat->matClave}}</th>
@@ -571,18 +574,18 @@
                 <th align="center" style="font-weight: 400;">Prome</th>
                 {{--  <th align="center" style="font-weight: 400;">Falt</th>                 --}}
               </tr>
-              
-              
-                @foreach ($calificacionesInscritos as $key => $inscrito)                 
-    
-                  <tr>                    
+
+
+                @foreach ($calificacionesInscritos as $key => $inscrito)
+
+                  <tr>
                     <td align="center">{{$key+1}}</td>
                     <td align="center" style="width: 40px;">{{$inscrito->aluClave}}</td>
                     <td style="width: 300px;">
-                        {{$inscrito->perApellido1}} {{$inscrito->perApellido2}} {{$inscrito->perNombre}}                        
+                        {{$inscrito->perApellido1}} {{$inscrito->perApellido2}} {{$inscrito->perNombre}}
                     </td>
 
-                    
+
                     @foreach ($materia_alumos as $matAlumnos)
                       @foreach ($calificaciones as $item)
                         @if ($mesEvaluar == "Septiembre")
@@ -594,8 +597,8 @@
                               __
                               @endif
                             </td>
-                          @endif  
-                        @endif   
+                          @endif
+                        @endif
 
                         @if ($mesEvaluar == "Octubre")
                           @if ($matAlumnos->matClave == $item->matClave && $item->clave_pago == $inscrito->aluClave)
@@ -705,14 +708,14 @@
                           @endif
                         @endif
                       @endforeach
-                      
+
                     @endforeach
-                   
-               
+
+
                     <td align="center">___</td>
                     {{--  <td align="center">___</td>  --}}
-                    
-                    
+
+
                   </tr>
                 @endforeach
             </table>

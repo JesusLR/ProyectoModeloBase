@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,7 +367,7 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
@@ -391,15 +391,16 @@
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -60px;
         right: 0px;
@@ -409,7 +410,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: -20px;
         margin-bottom: 30px;
       }
@@ -476,8 +479,8 @@
     <header>
     </header>
 
-    
-      
+
+
 
     <div class="row">
       <div class="columns medium-4">
@@ -603,7 +606,7 @@
 <!--                     <p style="font-size: 14px;">Vence  {{$junio->fechaNormalPagoCorto}} ${{$junio->cuotaNormal}}</p>
                     <p style="margin-bottom: 10px; font-size: 14px;">Refer. <span style="font-weight:700;">{{$junio->referenciaNormal}}</span></p>
  -->                  @endif
-                  
+
                   <p style="font-size: 14px;">Vence  {{$junio->fechaAtrasoPagoCorto}} ${{$junio->cuotaAtraso}}</p>
                   <p style="font-size: 14px;">Refer. <span style="font-weight:700;">{{$junio->referenciaAtraso}}</span></p>
                 @endif
@@ -665,7 +668,7 @@
           @if (isset($junio->esBeca))
             @if ($junio->esBeca)
             <p>Aplica beca de {{$junio->descuentoBeca * 100}}%</p>
-            @else 
+            @else
             <p>Aplica descuento de 20%</p>
             <p>El descuento sustituye a la beca</p>
             @endif

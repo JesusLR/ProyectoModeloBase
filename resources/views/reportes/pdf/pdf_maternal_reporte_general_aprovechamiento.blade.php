@@ -292,8 +292,8 @@
             width:100%;
             display: block;
             position: relative;
-            margin-left: -30px;
-            margin-right: -30px;
+            /* margin-left: -30px; */
+            /* margin-right: -30px; */
         }
         .row::after {
             content: "";
@@ -400,6 +400,7 @@
             text-align: center;
         }
         header {
+        left: 0px;
             position: fixed;
             top: -70px;
             right: 0px;
@@ -419,6 +420,8 @@
             display: block;
         }
         @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
             margin-top: 80px;
             margin-bottom: 70px;
         }
@@ -592,8 +595,8 @@
         }
     @endphp
 
-   
-   
+
+
     <div class="row">
         <div class="columns medium-12">
             @foreach($calificaciones_array as $item)
@@ -712,7 +715,7 @@
     $promedioTipo = 0.0;
     $tipo = "";
     @endphp
-    
+
     @if (!$loop->last)
       <div class="page_break"></div>
     @endif

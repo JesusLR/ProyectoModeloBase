@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -70px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 80px;
         margin-bottom: 70px;
       }
@@ -478,7 +481,7 @@
       .img-foto{
         border: 2px solid #0e2e42;
         position: absolute;
-        background: orange;        
+        background: orange;
         height: 100px;
         right: 130px;
         top: 37px;
@@ -503,11 +506,11 @@
                 <img class="img-foto" style="" src="{{base_path('storage/app/public/preescolar/cursos/fotos/' . $perAnioPago . '/' . $campus .'/'. $curPreescolarFoto) }}" alt="">
 
                 @else
-                  <img class="img-foto"  src="" alt="">    
+                  <img class="img-foto"  src="" alt="">
                 @endif
 
                 @else
-                <img class="img-foto"  src="" alt="">    
+                <img class="img-foto"  src="" alt="">
               @endif
           </div>
       </div>
@@ -710,7 +713,7 @@
       </div>
   </div>
 
-  
+
 
 
   </body>

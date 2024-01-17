@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,11 +367,11 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
-  
+
       .estilos-tabla tr th {
         font-size: 12px;
         background-color: #000;
@@ -382,7 +382,7 @@
         box-sizing: border-box;
         text-align: center;
       }
-  
+
       .estilos-tabla tr td {
         font-size: 12px;
         padding-left: 2px;
@@ -390,19 +390,20 @@
         box-sizing: border-box;
         color: #000;
       }
-  
+
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -40px;
         right: 0px;
@@ -412,7 +413,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -422,6 +423,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 70px;
         margin-bottom: 70px;
       }
@@ -478,7 +481,7 @@
 	</head>
   <body>
 
-   
+
     <header>
       <div class="row">
         <div class="columns medium-6">
@@ -494,7 +497,7 @@
         </div>
       </div>
 
-      
+
       <div class="row" style="margin-bottom: 2px">
         <div class="columns medium-12">
             <p>Ubicación : {{$ubicacion}}</p>
@@ -505,7 +508,7 @@
           <p>
               Período: {{ \Carbon\Carbon::parse($inicioPeriodo)->day.'/'.\Carbon\Carbon::parse($inicioPeriodo)->formatLocalized('%b').'/'.\Carbon\Carbon::parse($inicioPeriodo)->year }}
               -
-              {{ \Carbon\Carbon::parse($finalPeriodo)->day.'/'.\Carbon\Carbon::parse($finalPeriodo)->formatLocalized('%b').'/'.\Carbon\Carbon::parse($finalPeriodo)->year }}           
+              {{ \Carbon\Carbon::parse($finalPeriodo)->day.'/'.\Carbon\Carbon::parse($finalPeriodo)->formatLocalized('%b').'/'.\Carbon\Carbon::parse($finalPeriodo)->year }}
           </p>
         </div>
       </div>
@@ -515,7 +518,7 @@
             <p>Nivel : {{$departamento}} ({{$plan}}) {{$programa}}</p>
         </div>
       </div>
-    </header>   
+    </header>
 
     @php
       $pos = 0;
@@ -543,14 +546,14 @@
                     <th style="width: 50px;" align="center">Ptos Proc.</th>
                     <th style="width: 50px;"align="center">Ptos Prod.</th>
                     <th style="width: 50px;" align="center">Ptos Total</th>
-                  </tr>                  
+                  </tr>
                 </thead>
                 <tbody>
                   @foreach ($materiasTotales as $matClave => $valores)
                     @foreach ($valores as $llave => $values)
                       @if ($matClave == $values->matClave && $pos++ == 1)
                         @php
-                          $evidencias =  DB::select("SELECT 
+                          $evidencias =  DB::select("SELECT
                           bachiller_evidencias.id,
                           bachiller_evidencias.periodo_id,
                           bachiller_evidencias.bachiller_materia_id,
@@ -569,7 +572,7 @@
                           ubicacion.ubiClave,
                           ubicacion.ubiNombre,
                           planes.planClave,
-                          programas.progNombre,                          
+                          programas.progNombre,
                           bachiller_evidencias.bachiller_materia_acd_id,
                           bachiller_materias_acd.gpoMatComplementaria
                           FROM bachiller_evidencias AS bachiller_evidencias
@@ -602,12 +605,12 @@
 
                             #puntos proceso
                             if($evi->eviTipo == "A"){
-                              $numeroAdasSumaProceso = $numeroAdasSumaProceso + $evi->puntosMaximos; 
+                              $numeroAdasSumaProceso = $numeroAdasSumaProceso + $evi->puntosMaximos;
                             }
 
                             #puntos producción
                             if($evi->eviTipo == "P"){
-                              $numeroAdasSumaProduccion = $numeroAdasSumaProduccion + $evi->puntosMaximos; 
+                              $numeroAdasSumaProduccion = $numeroAdasSumaProduccion + $evi->puntosMaximos;
                             }
                           }
 
@@ -617,11 +620,11 @@
                           <td align="center" style="height: 20px;">
                             {{$pos2++}}
                           </td>
-                        
+
                           <td>
                             {{$evidencias_collect[0]->matClave}}
                           </td>
-                        
+
                           <td>
                             {{$evidencias_collect[0]->matNombre}}
                           </td>
@@ -629,15 +632,15 @@
                           <td>
                             {{$evidencias_collect[0]->gpoMatComplementaria}}
                           </td>
-                        
+
                           <td align="center">
                             {{$evidencias_collect[0]->matSemestre}}
                           </td>
-                        
+
                           <td align="center">
                             {{$numeroAdas}}
                           </td>
-                        
+
                           <td align="center">
                             {{number_format((float)$numeroAdasSumaProceso, 1, '.', '')  }}
                           </td>
@@ -656,19 +659,19 @@
                           $numeroAdasSumaProduccion = 0;
                         @endphp
                       @endif
-                    
+
                     @endforeach
                       @php
                       $pos = 0;
-                      @endphp                      
-                  @endforeach                    
+                      @endphp
+                  @endforeach
                 </tbody>
                 <tbody>
                   @foreach ($materiasAcdTotalesId as $itemIdAcd => $values)
                     @foreach ($values as $item2)
                       @if ($itemIdAcd == $item2->bachiller_materia_acd_id && $pos3++ == 1)
                       @php
-                          $evidenciasACD =  DB::select("SELECT 
+                          $evidenciasACD =  DB::select("SELECT
                           bachiller_evidencias.id,
                           bachiller_evidencias.periodo_id,
                           bachiller_evidencias.bachiller_materia_id,
@@ -687,7 +690,7 @@
                           ubicacion.ubiClave,
                           ubicacion.ubiNombre,
                           planes.planClave,
-                          programas.progNombre,                          
+                          programas.progNombre,
                           bachiller_evidencias.bachiller_materia_acd_id,
                           bachiller_materias_acd.gpoMatComplementaria
                           FROM bachiller_evidencias AS bachiller_evidencias
@@ -721,16 +724,16 @@
                             if($item2->bachiller_materia_id == $eviACD->bachiller_materia_id && $itemIdAcd == $eviACD->bachiller_materia_acd_id){
                               $numeroAdasACD++;
                             }
-                            
+
 
                             #puntos proceso
                             if($eviACD->eviTipo == "A"){
-                              $numeroAdasSumaProcesoACD = $numeroAdasSumaProcesoACD + $eviACD->puntosMaximos; 
+                              $numeroAdasSumaProcesoACD = $numeroAdasSumaProcesoACD + $eviACD->puntosMaximos;
                             }
 
                             #puntos producción
                             if($eviACD->eviTipo == "P"){
-                              $numeroAdasSumaProduccionACD = $numeroAdasSumaProduccionACD + $eviACD->puntosMaximos; 
+                              $numeroAdasSumaProduccionACD = $numeroAdasSumaProduccionACD + $eviACD->puntosMaximos;
                             }
                           }
 
@@ -750,25 +753,25 @@
                             {{number_format((float)$numeroAdasSumaProcesoACD+$numeroAdasSumaProduccionACD, 1, '.', '')  }}
                           </td>
 
-                          
+
                         </tr>
                         @php
                           $numeroAdasACD = 0;
                           $numeroAdasSumaProcesoACD = 0;
                           $numeroAdasSumaProduccionACD = 0;
                         @endphp
-                      @endif    
-                                          
-                    @endforeach  
+                      @endif
+
+                    @endforeach
                     @php
                       $pos3 = 0;
-                    @endphp                 
-                  @endforeach                  
+                    @endphp
+                  @endforeach
                 </tbody>
               </table>
         </div>
     </div>
-    
+
 
     <footer id="footer">
       <div class="page-number"></div>

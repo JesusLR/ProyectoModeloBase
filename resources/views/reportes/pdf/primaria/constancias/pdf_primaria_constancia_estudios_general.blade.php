@@ -360,8 +360,8 @@
       width: 100%;
       display: block;
       position: relative;
-      margin-left: -30px;
-      margin-right: -30px;
+      /* margin-left: -30px; */
+      /* margin-right: -30px; */
     }
 
     .row::after {
@@ -496,6 +496,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -10px;
       right: 0px;
@@ -525,6 +526,8 @@
     }
 
     @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
       margin-top: 30px;
       margin-bottom: 30px;
     }
@@ -612,7 +615,7 @@
 @foreach ($inscrito as $item)
 
   @php
-    $resultado_array =  DB::select("call procPrimariaObtieneGrupoCurso(" . $item->id . ")");       
+    $resultado_array =  DB::select("call procPrimariaObtieneGrupoCurso(" . $item->id . ")");
 
     $resultado_grupo = collect($resultado_array);
 
@@ -621,12 +624,12 @@
     }else{
       $parametro_grupo = "";
     }
-            
+
   @endphp
 
   @if ($parametro_grupo != "")
   <body>
-    
+
     <div class="row">
       <div class="columns medium-12">
         <p class="tright">{{$fechaHoy}}</p>
@@ -635,9 +638,9 @@
 
         {{--  incluir foto   --}}
         @if ($incluyeFoto == "SI")
-          @if ($item->curPrimariaFoto != "")          
+          @if ($item->curPrimariaFoto != "")
             @if (file_exists(base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus .'/'. $item->curPrimariaFoto)))
-      
+
               <p><img class="fotoAlumno" style="float: left; margin-top: 165px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $item->perAnioPago . '/' . $campus. '/' . $item->curPrimariaFoto) }}"></p>
             @endif
           @endif
@@ -651,7 +654,7 @@
 
         @if ($parametro_ubicacion == "CVA")
             <br>
-            <br> 
+            <br>
             <br>
             <br>
             <br>
@@ -664,15 +667,15 @@
         @else
           <p>A quien corresponda:</p>
         @endif
-        
+
         <br>
         <br>
 
         <br>
         <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
-          La que suscribe, 
+          La que suscribe,
           @if ($parametro_ubicacion == "CME")
-          MAOE. María Trinidad Díaz Cervera, 
+          MAOE. María Trinidad Díaz Cervera,
           @endif
           @if ($parametro_ubicacion == "CVA")
           Mtra. Arely Martinez Díaz,
@@ -684,12 +687,12 @@
         <br>
         <p style="text-indent: 3em; font-size: 15px; text-align: justify;">
           @if ($item->perSexo == "F")Que la niña @endif @if ($item->perSexo == "M")
-          
+
           Que el niño @endif <b>{{$item->perApellido1.' '.$item->perApellido2.' '.$item->perNombre}}</b>@if ($item->perSexo == "F") es alumna @endif
           @if ($item->perSexo == "M")es alumno @endif regular de este
-          plantel,  @if ($item->perSexo == "M") inscrito @else inscrita @endif a {{$grado}}, GRUPO 
+          plantel,  @if ($item->perSexo == "M") inscrito @else inscrita @endif a {{$grado}}, GRUPO
           @php
-            $resultado_array =  DB::select("call procPrimariaObtieneGrupoCurso(" . $item->id . ")");       
+            $resultado_array =  DB::select("call procPrimariaObtieneGrupoCurso(" . $item->id . ")");
 
             $resultado_grupo = collect($resultado_array);
 
@@ -698,9 +701,9 @@
             }else{
               $parametro_grupo = "SIN GRUPO";
             }
-            
+
           @endphp
-          
+
           “{{$parametro_grupo}}”,
           del ciclo escolar {{$periodo}}.
         </p>
@@ -718,10 +721,10 @@
 
     @if ($parametro_ubicacion == "CME")
     <br><br><br><br><br><br><br><br><br><br><br><br>
-    @else    
+    @else
      <br><br><br><br><br>
     @endif
-    
+
 
     <div class="row">
       <div class="columns medium-12">
@@ -733,7 +736,7 @@
         @else
         <p class="tcenter"><b>MTRA. ARELY MARTINEZ DÍAZ</b></p>
         @endif
-        
+
         <p class="tcenter"><b>DIRECTORA</b></p>
 
       </div>

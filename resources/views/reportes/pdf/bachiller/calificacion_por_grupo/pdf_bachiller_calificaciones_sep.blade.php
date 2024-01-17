@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -10px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 20px;
         margin-bottom: 70px;
       }
@@ -513,7 +516,7 @@
 
 			{{--  @php  --}}
         {{--  $inscritos = $grupo['inscritos'];  --}}
-        
+
         // dd($grupos, $grupo, $inscritos);
 			{{--  @endphp
       @if (!is_null($inscritos))  --}}
@@ -531,25 +534,25 @@
             Nivel: {{$parametro_progClave}} ({{$parametro_planClave}}) {{$parametro_progNombre}} Grado: {{$grado}} Grupo: {{$grupo}}
           </p>
 
-          
+
           @php
               $key++;
               $key2++;
-          @endphp          
+          @endphp
 
           @foreach ($calificaciones as $llave => $item)
                 @if ($item->matNombreColumna == $matName && $pocision2++ == 1)
                   <p>Docente : {{$item->empNombre}} {{$item->empApellido1}} {{$item->empApellido2}}</p>
                 @endif
-              
+
           @endforeach
 
-          
+
           <p>Materia: {{$matName}}</p>
 
           {{-- Muestra si es por mes  --}}
           @if ($tipoReporte == "porMes")
-          <p>Mes : {{$mesEvaluar}} Incluye insc, 
+          <p>Mes : {{$mesEvaluar}} Incluye insc,
             @if ($conceptos == "R")
               regular ({{$conceptos}})
             @endif
@@ -576,23 +579,23 @@
 
           {{-- Muestra si es por bimestre --}}
           @if ($tipoReporte == "porBimestre")
-          <p>Bimestre : 
+          <p>Bimestre :
             @if ($bimestreEvaluar == "BIMESTRE1")
-              1            
-            @endif 
+              1
+            @endif
             @if ($bimestreEvaluar == "BIMESTRE2")
-              2            
-            @endif 
+              2
+            @endif
             @if ($bimestreEvaluar == "BIMESTRE3")
-              3            
-            @endif 
+              3
+            @endif
             @if ($bimestreEvaluar == "BIMESTRE4")
-              4            
-            @endif 
+              4
+            @endif
             @if ($bimestreEvaluar == "BIMESTRE5")
-              5            
-            @endif 
-            Incluye insc, 
+              5
+            @endif
+            Incluye insc,
             @if ($conceptos == "R")
               regular ({{$conceptos}})
             @endif
@@ -619,18 +622,18 @@
 
           {{-- Muestra si es por trimestre  --}}
           @if ($tipoReporte == "porTrimestre")
-          <p>Trimestre : 
+          <p>Trimestre :
             @if ($trimestreEvaluar == "TRIMESTRE1")
-              1            
-            @endif 
+              1
+            @endif
             @if ($trimestreEvaluar == "TRIMESTRE2")
-              2            
-            @endif 
+              2
+            @endif
             @if ($trimestreEvaluar == "TRIMESTRE3")
-              3            
-            @endif 
-           
-            Incluye insc, 
+              3
+            @endif
+
+            Incluye insc,
             @if ($conceptos == "R")
               regular ({{$conceptos}})
             @endif
@@ -654,7 +657,7 @@
             @endif
           </p>
           @endif
-          
+
         </div>
       </div>
 
@@ -669,50 +672,50 @@
               <th align="center" style="font-weight: 400;">Cve Pago</th>
               <th  style="font-weight: 400;">Nombre del alumno</th>
               <th align="center" style="font-weight: 400;">Calif Ba 10</th>
-              
+
               @if ($tipoReporte != "porTrimestre" || $tipoReporte != "porBimestre")
 
                 @foreach ($calificaciones as $insc)
                   @if ($tipoReporte == "porMes")
-                    @if ($mesEvaluar == "Septiembre" && $pocision4++ == 1)                        
+                    @if ($mesEvaluar == "Septiembre" && $pocision4++ == 1)
                     <th align="center" style="font-weight: 400;">Calif B {{$insc->porc_septiembre/10}}</th>
                     @endif
 
-                    @if ($mesEvaluar == "Octubre" && $pocision4++ == 1)                        
+                    @if ($mesEvaluar == "Octubre" && $pocision4++ == 1)
                     <th align="center" style="font-weight: 400;">Calif B {{$insc->porc_octubre/10}}</th>
                     @endif
 
-                    @if ($mesEvaluar == "Noviembre" && $pocision4++ == 1)                        
+                    @if ($mesEvaluar == "Noviembre" && $pocision4++ == 1)
                     <th align="center" style="font-weight: 400;">Calif B {{$insc->porc_noviembre/10}}</th>
                     @endif
 
-                    @if ($mesEvaluar == "Diciembre" && $pocision4++ == 1)                        
+                    @if ($mesEvaluar == "Diciembre" && $pocision4++ == 1)
                     <th align="center" style="font-weight: 400;">Calif B {{$insc->porc_diciembre/10}}</th>
                     @endif
 
 
-                    @if ($mesEvaluar == "Enero" && $pocision4++ == 1)                        
+                    @if ($mesEvaluar == "Enero" && $pocision4++ == 1)
                     <th align="center" style="font-weight: 400;">Calif B {{$insc->porc_enero/10}}</th>
                     @endif
 
 
-                    @if ($mesEvaluar == "Febrero" && $pocision4++ == 1)                        
+                    @if ($mesEvaluar == "Febrero" && $pocision4++ == 1)
                     <th align="center" style="font-weight: 400;">Calif B {{$insc->porc_febrero/10}}</th>
                     @endif
 
-                    @if ($mesEvaluar == "Marzo" && $pocision4++ == 1)                        
+                    @if ($mesEvaluar == "Marzo" && $pocision4++ == 1)
                     <th align="center" style="font-weight: 400;">Calif B {{$insc->porc_marzo/10}}</th>
                     @endif
 
-                    @if ($mesEvaluar == "Abril" && $pocision4++ == 1)                        
+                    @if ($mesEvaluar == "Abril" && $pocision4++ == 1)
                     <th align="center" style="font-weight: 400;">Calif B {{$insc->porc_abril/10}}</th>
                     @endif
 
-                    @if ($mesEvaluar == "Mayo" && $pocision4++ == 1)                        
+                    @if ($mesEvaluar == "Mayo" && $pocision4++ == 1)
                     <th align="center" style="font-weight: 400;">Calif B {{$insc->porc_mayo/10}}</th>
                     @endif
 
-                    @if ($mesEvaluar == "Junio" && $pocision4++ == 1)                        
+                    @if ($mesEvaluar == "Junio" && $pocision4++ == 1)
                     <th align="center" style="font-weight: 400;">Calif B {{$insc->porc_junio/10}}</th>
                     @endif
                   @endif
@@ -724,94 +727,94 @@
               <th align="center" style="font-weight: 400;">Insasi Injus</th>
               <th align="center" style="font-weight: 400;">Insasi Justi</th>
 
-             
-                     
+
+
             </tr>
-            
-            
-              @foreach ($calificaciones as $key => $inscrito)       
-  
+
+
+              @foreach ($calificaciones as $key => $inscrito)
+
                   @if ($matName == $inscrito->matNombreColumna)
-                
-                  <tr>                    
+
+                  <tr>
                     <td align="center" style="width: 40px;">{{$pocision++}}</td>
                     <td align="center" style="width: 40px;">{{$inscrito->clave_pago}}</td>
                     <td style="width: 300px;">
-                        {{$inscrito->ape_paterno}} {{$inscrito->ape_materno}} {{$inscrito->nombres}}                        
-                    </td>   
-                    
+                        {{$inscrito->ape_paterno}} {{$inscrito->ape_materno}} {{$inscrito->nombres}}
+                    </td>
+
                     @if ($tipoReporte == "porMes")
                       @if ($mesEvaluar == "Septiembre")
                       <td align="center">{{$inscrito->inscCalificacionSep}}</td>
                       <td align="center">{{$inscrito->inscCalificacionPorcentajeSep}}</td>
-                      <td align="center">{{$inscrito->inscFaltasInjSep}}</td>    
-                      <td align="center">{{$inscrito->inscFaltasJusSep}}</td>    
+                      <td align="center">{{$inscrito->inscFaltasInjSep}}</td>
+                      <td align="center">{{$inscrito->inscFaltasJusSep}}</td>
                       @endif
 
                       @if ($mesEvaluar == "Octubre")
                       <td align="center">{{$inscrito->inscCalificacionOct}}</td>
                       <td align="center">{{$inscrito->inscCalificacionPorcentajeOct}}</td>
-                      <td align="center">{{$inscrito->inscFaltasInjOct}}</td>    
-                      <td align="center">{{$inscrito->inscFaltasJusOct}}</td>    
+                      <td align="center">{{$inscrito->inscFaltasInjOct}}</td>
+                      <td align="center">{{$inscrito->inscFaltasJusOct}}</td>
                       @endif
 
 
                       @if ($mesEvaluar == "Noviembre")
                       <td align="center">{{$inscrito->inscCalificacionNov}}</td>
                       <td align="center">{{$inscrito->inscCalificacionPorcentajeNov}}</td>
-                      <td align="center">{{$inscrito->inscFaltasInjNov}}</td>    
-                      <td align="center">{{$inscrito->inscFaltasJusNov}}</td>    
+                      <td align="center">{{$inscrito->inscFaltasInjNov}}</td>
+                      <td align="center">{{$inscrito->inscFaltasJusNov}}</td>
                       @endif
 
                       @if ($mesEvaluar == "Diciembre")
                       <td align="center">{{$inscrito->inscCalificacionDic}}</td>
                       <td align="center">{{$inscrito->inscCalificacionPorcentajeDic}}</td>
-                      <td align="center">{{$inscrito->inscFaltasInjDic}}</td>    
-                      <td align="center">{{$inscrito->inscFaltasJusDic}}</td>    
+                      <td align="center">{{$inscrito->inscFaltasInjDic}}</td>
+                      <td align="center">{{$inscrito->inscFaltasJusDic}}</td>
                       @endif
 
                       @if ($mesEvaluar == "Enero")
                       <td align="center">{{$inscrito->inscCalificacionEne}}</td>
                       <td align="center">{{$inscrito->inscCalificacionPorcentajeEne}}</td>
-                      <td align="center">{{$inscrito->inscFaltasInjEne}}</td>    
-                      <td align="center">{{$inscrito->inscFaltasJusEne}}</td>    
+                      <td align="center">{{$inscrito->inscFaltasInjEne}}</td>
+                      <td align="center">{{$inscrito->inscFaltasJusEne}}</td>
                       @endif
-                              
+
                       @if ($mesEvaluar == "Febrero")
                       <td align="center">{{$inscrito->inscCalificacionFeb}}</td>
                       <td align="center">{{$inscrito->inscCalificacionPorcentajeFeb}}</td>
-                      <td align="center">{{$inscrito->inscFaltasInjFeb}}</td>    
-                      <td align="center">{{$inscrito->inscFaltasJusFeb}}</td>    
+                      <td align="center">{{$inscrito->inscFaltasInjFeb}}</td>
+                      <td align="center">{{$inscrito->inscFaltasJusFeb}}</td>
                       @endif
 
 
                       @if ($mesEvaluar == "Marzo")
                       <td align="center">{{$inscrito->inscCalificacionMar}}</td>
                       <td align="center">{{$inscrito->inscCalificacionPorcentajeMar}}</td>
-                      <td align="center">{{$inscrito->inscFaltasInjMar}}</td>    
-                      <td align="center">{{$inscrito->inscFaltasJusMar}}</td>    
+                      <td align="center">{{$inscrito->inscFaltasInjMar}}</td>
+                      <td align="center">{{$inscrito->inscFaltasJusMar}}</td>
                       @endif
 
                       @if ($mesEvaluar == "Abril")
                       <td align="center">{{$inscrito->inscCalificacionAbr}}</td>
                       <td align="center">{{$inscrito->inscCalificacionPorcentajeAbr}}</td>
-                      <td align="center">{{$inscrito->inscFaltasInjAbr}}</td>    
-                      <td align="center">{{$inscrito->inscFaltasJusAbr}}</td>    
+                      <td align="center">{{$inscrito->inscFaltasInjAbr}}</td>
+                      <td align="center">{{$inscrito->inscFaltasJusAbr}}</td>
                       @endif
 
                       @if ($mesEvaluar == "Mayo")
                       <td align="center">{{$inscrito->inscCalificacionMay}}</td>
                       <td align="center">{{$inscrito->inscCalificacionPorcentajeMay}}</td>
-                      <td align="center">{{$inscrito->inscFaltasInjMay}}</td>    
-                      <td align="center">{{$inscrito->inscFaltasJusMay}}</td>    
+                      <td align="center">{{$inscrito->inscFaltasInjMay}}</td>
+                      <td align="center">{{$inscrito->inscFaltasJusMay}}</td>
                       @endif
 
 
                       @if ($mesEvaluar == "Junio")
                       <td align="center">{{$inscrito->inscCalificacionJun}}</td>
                       <td align="center">{{$inscrito->inscCalificacionPorcentajeJun}}</td>
-                      <td align="center">{{$inscrito->inscFaltasInjJun}}</td>    
-                      <td align="center">{{$inscrito->inscFaltasJusJun}}</td>    
+                      <td align="center">{{$inscrito->inscFaltasInjJun}}</td>
+                      <td align="center">{{$inscrito->inscFaltasJusJun}}</td>
                       @endif
                     @endif
 
@@ -819,32 +822,32 @@
                     @if ($tipoReporte == "porBimestre")                    {{-- bimestre 1 --}}
                       @if ($bimestreEvaluar == "BIMESTRE1")
                         <td align="center">{{$inscrito->inscPromedioBimestre1}}</td>
-                        <td align="center">{{$inscrito->faltasInjustificadasBimestre1}}</td>    
-                        <td align="center">{{$inscrito->faltasJustificadasBimestre1}}</td>  
+                        <td align="center">{{$inscrito->faltasInjustificadasBimestre1}}</td>
+                        <td align="center">{{$inscrito->faltasJustificadasBimestre1}}</td>
                       @endif
 
                       @if ($bimestreEvaluar == "BIMESTRE2")
                         <td align="center">{{$inscrito->inscPromedioBimestre2}}</td>
-                        <td align="center">{{$inscrito->faltasInjustificadasBimestre2}}</td>    
-                        <td align="center">{{$inscrito->faltasJustificadasBimestre2}}</td>  
+                        <td align="center">{{$inscrito->faltasInjustificadasBimestre2}}</td>
+                        <td align="center">{{$inscrito->faltasJustificadasBimestre2}}</td>
                       @endif
 
                       @if ($bimestreEvaluar == "BIMESTRE3")
                         <td align="center">{{$inscrito->inscPromedioBimestre3}}</td>
-                        <td align="center">{{$inscrito->faltasInjustificadasBimestre3}}</td>    
-                        <td align="center">{{$inscrito->faltasJustificadasBimestre3}}</td>  
+                        <td align="center">{{$inscrito->faltasInjustificadasBimestre3}}</td>
+                        <td align="center">{{$inscrito->faltasJustificadasBimestre3}}</td>
                       @endif
 
                       @if ($bimestreEvaluar == "BIMESTRE4")
                         <td align="center">{{$inscrito->inscPromedioBimestre4}}</td>
-                        <td align="center">{{$inscrito->faltasInjustificadasBimestre4}}</td>    
-                        <td align="center">{{$inscrito->faltasJustificadasBimestre4}}</td>  
+                        <td align="center">{{$inscrito->faltasInjustificadasBimestre4}}</td>
+                        <td align="center">{{$inscrito->faltasJustificadasBimestre4}}</td>
                       @endif
 
                       @if ($bimestreEvaluar == "BIMESTRE5")
                         <td align="center">{{$inscrito->inscPromedioBimestre5}}</td>
-                        <td align="center">{{$inscrito->faltasInjustificadasBimestre5}}</td>    
-                        <td align="center">{{$inscrito->faltasJustificadasBimestre5}}</td>  
+                        <td align="center">{{$inscrito->faltasInjustificadasBimestre5}}</td>
+                        <td align="center">{{$inscrito->faltasJustificadasBimestre5}}</td>
                       @endif
                     @endif
 
@@ -869,19 +872,19 @@
                         <td align="center">{{$inscrito->faltasJustificadasTrimestre3}}</td>
                       @endif
                     @endif
-                    
+
                   </tr>
 
-                  
-                  @endif        
+
+                  @endif
               @endforeach
-              
+
           </table>
-        </div>        
+        </div>
       </div>
 
 
-       @if ($loop->first) 
+       @if ($loop->first)
         <footer id="footer">
           <div class="row">
             @foreach ($calificaciones as $llave => $item)
@@ -889,15 +892,15 @@
                 <p>_____________________________________</p>
                 <p>{{$item->empNombre}} {{$item->empApellido1}} {{$item->empApellido2}}</p>
                 <p>Firma Maestro Titular</p>
-                @endif              
+                @endif
             @endforeach
           </div>
           <div class="page-number"></div>
         </footer>
-       @endif 
-       @if (!$loop->last) 
-         <div class="page_break"></div> 
-       @endif 
+       @endif
+       @if (!$loop->last)
+         <div class="page_break"></div>
+       @endif
        @php
        $pocision = 1;
        $pocision2 = 1;
@@ -905,7 +908,7 @@
        $pocision4 = 1;
        $key = 0;
        $key2 = 0;
-       @endphp 
+       @endphp
       @endforeach
 
 

@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -70px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 180px;
         margin-bottom: 40px;
       }
@@ -513,13 +516,13 @@
             $esAprobada = $materia['histCalificacion'] >= $calificacion_minima;
             $font_weight = (($esNumerica && $esAprobada) || !$esNumerica) ? 'normal' : 'bold';
           @endphp
-          <div style="padding:0 0 0 30px;">  
+          <div style="padding:0 0 0 30px;">
             <span style="float:right; font-weight:{{$font_weight}};">{{$materia['histCalificacion']}}</span>
             {{$materia['matNombre']}}
           </div>
           @php
             if(!in_array($materia['histCalificacion'], ['Apr', 'No Apr', 'S/D', 'Npa'])) {
-              
+
               $contarMaterias++;
               $contarMateriasTotales++;
 
@@ -559,7 +562,7 @@
       <p align="justify">Y para los fines que le sean convenientes, se expide la presente constancia
         en la ciudad de {{$municipio->munNombre}} {{$estado->edoNombre}}, a los {{$fechaDeHoy}}.
       </p>
-      
+
           <br>
       <p align="center">ATENTAMENTE</p>
       <br><br>

@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -367,11 +367,11 @@
         padding: 5px;
         border-radius: 2px;
       }
-      
+
       .estilos-tabla {
         width: 100%;
       }
-  
+
       .estilos-tabla tr th {
         font-size: 12px;
         background-color: #000;
@@ -382,7 +382,7 @@
         box-sizing: border-box;
         text-align: center;
       }
-  
+
       .estilos-tabla tr td {
         font-size: 12px;
         padding-left: 2px;
@@ -390,19 +390,20 @@
         box-sizing: border-box;
         color: #000;
       }
-  
+
       .page_break { page-break-before: always; }
       /** Define the footer rules **/
       footer {
-        position: fixed; 
-        bottom: 0px; 
-        left: 0cm; 
+        position: fixed;
+        bottom: 0px;
+        left: 0cm;
         right: 0cm;
         /** Extra personal styles **/
         color: #000;
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -40px;
         right: 0px;
@@ -412,7 +413,7 @@
         margin-left: 5px;
         margin-right: 5px;
       }
-      
+
       #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
       .img-header{
         height: 80px;
@@ -422,6 +423,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 70px;
         margin-bottom: 70px;
       }
@@ -498,7 +501,7 @@
         </div>
       </div>
 
-      
+
       <div class="row" style="margin-bottom: 2px">
         <div class="columns medium-12">
             <p>Ubicación : {{$ubicacion}}</p>
@@ -507,7 +510,7 @@
       <div class="row" style="margin-bottom: 2px;">
         <div class="columns medium-12">
           <p>
-              Período: {{ $periodo }}           
+              Período: {{ $periodo }}
           </p>
         </div>
       </div>
@@ -518,13 +521,13 @@
         </div>
       </div>
 
-      <div class="row" style="margin-bottom: 2px">        
+      <div class="row" style="margin-bottom: 2px">
         <div class="columns medium-4">
           <p>{{$gradoGrupo}}</p>
         </div>
       </div>
 
-    </header>   
+    </header>
 
     @php
         $pos0 = 1;
@@ -583,7 +586,7 @@
 
             <tr>
               <th align="center" colspan="3" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">Puntos de Adas programadas a la fecha => </th>
-             
+
 
               @foreach($clave_de_las_materias as $complementaria_id => $valores)
                 @foreach($valores as $item)
@@ -640,7 +643,7 @@
                 @foreach($valores as $item)
                   @if ($complementaria_id == $item->bachiller_materia_acd_id && $pos3++ == 1)
                     @php
-                     
+
 
                         $puntos_evidencias_calificados = DB::select("SELECT DISTINCT bachiller_evidencias.eviNumero, bachiller_evidencias.eviPuntos as puntos_que_deben_ganar, bachiller_grupos.plan_id
                         FROM bachiller_evidencias_capturadas
@@ -656,9 +659,9 @@
                         AND bachiller_evidencias.deleted_at IS NULL
                         AND bachiller_materias_acd.deleted_at IS NULL")
 
-                    @endphp     
-                    
-                    
+                    @endphp
+
+
 
                     <th align="center" style="border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                       {{--  @if ($sumarPuntosQueDebenGanar != "")
@@ -681,7 +684,7 @@
                 @endphp
               @endforeach
             </tr>
-            
+
           </thead>
           <tbody>
             @foreach ($clave_del_alumno as $aluClave => $val_alumno)
@@ -691,26 +694,26 @@
 
                 @foreach ($val_alumno as $val)
                   @if ($aluClave == $val->aluClave && $pos4++ == 1)
-                    <td colspan="1">{{$val->nombre_alumno}}</td>     
-                    
+                    <td colspan="1">{{$val->nombre_alumno}}</td>
+
 
                     @foreach ($clave_de_las_materias as $bachiller_acd_id => $valoresACD)
                       @foreach ($tablaBody as $value)
                         @if ($bachiller_acd_id == $value['bachiller_materia_acd_id'])
 
                         @php
-                         $grupo = $value["bachiller_materia_acd_id"]."_grupo_alumno_".$val->aluClave;  
-                         $grupo_materia_id = $value["bachiller_materia_acd_id"]."_grupo_materia_".$val->aluClave;                                
-                         $periodo = $value["bachiller_materia_acd_id"]."_periodo_".$val->aluClave;                                
-                         $plan = $value["bachiller_materia_acd_id"]."_plan_".$val->aluClave;                                
-                         $inscrito = $value["bachiller_materia_acd_id"]."_inscrito_id_".$val->aluClave;                                
+                         $grupo = $value["bachiller_materia_acd_id"]."_grupo_alumno_".$val->aluClave;
+                         $grupo_materia_id = $value["bachiller_materia_acd_id"]."_grupo_materia_".$val->aluClave;
+                         $periodo = $value["bachiller_materia_acd_id"]."_periodo_".$val->aluClave;
+                         $plan = $value["bachiller_materia_acd_id"]."_plan_".$val->aluClave;
+                         $inscrito = $value["bachiller_materia_acd_id"]."_inscrito_id_".$val->aluClave;
 
                         @endphp
                         <td align="center">
                           @isset($value[$grupo])
                             {{--  {{$value[$plan_id]}}  --}}
 
-                            
+
                             @php
                               $bachiller_grupo_id = $value[$grupo];
                               $bachiller_materia_id = $value[$grupo_materia_id];
@@ -727,7 +730,7 @@
                               INNER JOIN bachiller_grupos AS bg on bg.id = bec.bachiller_grupo_id
                               LEFT JOIN bachiller_materias_acd AS bma ON bma.id = bg.bachiller_materia_acd_id
                               INNER JOIN periodos AS p  ON p.id = bg.periodo_id
-                              INNER JOIN planes AS pl ON pl.id = bg.plan_id                        
+                              INNER JOIN planes AS pl ON pl.id = bg.plan_id
                               WHERE be.bachiller_materia_id = $bachiller_materia_id
                               AND bg.bachiller_materia_acd_id = $bachiller_acd_id
                               AND p.id = $periodo_id
@@ -756,50 +759,50 @@
                               AND bachiller_evidencias.deleted_at IS NULL
                               AND bachiller_evidencias.eviFechaEntrega <= NOW()");
                             @endphp
-                            
+
                             {{--  {{$puntos_ganar[0]->puntos_que_deben_ganar - $puntaje_real[0]->puntos_ganados_reales}}  --}}
                             {{number_format((float)$puntos_ganar[0]->puntos_que_deben_ganar - $puntaje_real[0]->puntos_ganados_reales, 1, '.', '')}}
 
-                            
 
-                          @endisset                  
+
+                          @endisset
 
                         </td>
-                        @endif                      
-                      @endforeach                   
+                        @endif
+                      @endforeach
                     @endforeach
                     {{--  @forelse ($tablaBody as $body)
 
                       @php
-                        $calificacion = $value["matNombreColumna"]."_septiembre_".$valor->clave_pago;                                
+                        $calificacion = $value["matNombreColumna"]."_septiembre_".$valor->clave_pago;
                       @endphp
-                      <td>{{$body['bachiller_materia_acd_id']}}</td>                        
+                      <td>{{$body['bachiller_materia_acd_id']}}</td>
                     @empty
-                        
+
                     @endforelse  --}}
-                   
-                    
-                  @endif  
-                                    
+
+
+                  @endif
+
                 @endforeach
                 @php
                   $pos4 = 1;
                 @endphp
 
-              </tr>                
-            @endforeach                       
+              </tr>
+            @endforeach
           </tbody>
         </table>
-  
+
       </div>
     </div>
 
-    
+
     @php
       $suma = 0;
     @endphp
 
-    
+
 
     <footer id="footer">
       <div class="page-number"></div>

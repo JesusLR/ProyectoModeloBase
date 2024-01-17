@@ -293,8 +293,8 @@
           width:100%;
           display: block;
           position: relative;
-          margin-left: -30px;
-          margin-right: -30px;
+          /* margin-left: -30px; */
+          /* margin-right: -30px; */
         }
         .row::after {
             content: "";
@@ -368,7 +368,7 @@
           padding: 5px;
           border-radius: 2px;
         }
-  
+
         .estilos-tabla {
           width: 100%;
         }
@@ -401,16 +401,17 @@
           text-align: center;
         }
         header {
+        left: 0px;
           position: fixed;
           top: -20px;
           right: 0px;
           height: 3px;
           /** Extra personal styles **/
-  
+
           margin-left: 5px;
           margin-right: 5px;
         }
-  
+
         #watermark { position: fixed; top: 15%; left: 0;  width: 700px; height: 700px; opacity: .3; }
         .img-header{
           height: 80px;
@@ -421,10 +422,12 @@
           display: block;
         }
         @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
           margin-top: 30px;
           margin-bottom: 70px;
         }
-  
+
         .listas-info {
           margin-top: 0px;
           margin-bottom: 0px;
@@ -433,12 +436,12 @@
           display: inline;
           list-style-type: none;
           margin-left: 40px;
-  
+
         }
         .listas-info li:first-child {
           margin-left: 0px;
         }
-  
+
         .listas-asistencia {
           margin-top: 0px;
           margin-bottom: 0px;
@@ -449,25 +452,25 @@
           display: inline;
           list-style-type: none;
         }
-  
+
         .table {
           width: 100%;
         }
-  
+
         .table {
           border-collapse: collapse;
         }
-  
+
         .table th {
           border-bottom: 1px solid #000;
         }
-  
+
         .table td, .table  th {
           padding-top: 0px;
           padding-bottom: 0px;
           padding-right: 5px;
         }
-  
+
         .page-number:before {
           content: "Pág " counter(page);
         }
@@ -478,7 +481,7 @@
     {{--  <header>  --}}
         <div class="row">
             <div class="columns medium-12" style="margin-top: 0px;">
-                <p style="font-size: 13px; margin-top: -30px;"><b>Nombre del alumno: {{$alumno}}</b></p>              
+                <p style="font-size: 13px; margin-top: -30px;"><b>Nombre del alumno: {{$alumno}}</b></p>
 
                 <p style="font-size: 13px;"><b>{{$grado}} Grupo {{$grupo}} {{$cilo_escolar}}</b></p>
 
@@ -487,7 +490,7 @@
                 @if ($foto != "")
                 <img class="img-header" style="margin-top:-75px;" src="{{base_path('storage/app/public/primaria/cursos/fotos/' . $perAnioPago . '/' . $foto) }}" alt="">
                 @endif
-                
+
 
 
                 @if ($estadoCurso == "B")
@@ -500,7 +503,7 @@
                 @endif
 
                 {{--  <div class="cuadrado img-header2">  --}}
-            </div>            
+            </div>
         </div>
     {{--  </header>  --}}
 
@@ -509,7 +512,7 @@
     <footer id="footer">
         <div class="page-number"></div>
     </footer>
-    
+
     <br><br>
 
     <div class="row">
@@ -522,7 +525,7 @@
                       <th style="width: 5px; border-top: 0px solid; border-right: 0px solid; border-bottom: 1px; border-left: 1px solid;"></th>
 
                     </tr>
-                    <tr>     
+                    <tr>
                         {{--  <th style="border-top: 0px solid; border-right: 0px; border-bottom: 0px; border-left: 0px solid;"></th>                     --}}
                         <th style="width: 170px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 1px solid;"></th>
                         <th style="border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid; background-color: #CDC0DA;">DESCRIPCIÓN DEL CONTENIDO</th>
@@ -541,14 +544,14 @@
                             <br>
                             <label style="opacity: .01;">Transparente</label>
                         </td>
-                        
+
                         <td style="width: 480px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                             @foreach ($perfiles_contenidos as $perfil_cont)
                                 @if ($perfil_cont->categoria == "Competencias curriculares de Español" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p><span>-</span>{{$perfil_cont->contenido}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td scope="row" align="center" style="width: 10px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
@@ -556,8 +559,8 @@
                                 @if ($perfil_cont->categoria == "Competencias curriculares de Español" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->calificador}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td style="width: 250px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
@@ -565,8 +568,8 @@
                                 @if ($perfil_cont->categoria == "Competencias curriculares de Español" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->observacion_contenido}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td style="width: 250px; border-top: 0px solid; border-right: 0px solid; border-bottom: 1px; border-left: 1px solid;"></td>
@@ -576,16 +579,16 @@
                     <tr>
                         {{--  <td></td>  --}}
                         <td style="width: 170px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                            <b>Competencias curriculares de Matemáticas</b>                            
+                            <b>Competencias curriculares de Matemáticas</b>
                         </td>
-                        
+
                         <td style="width: 480px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                             @foreach ($perfiles_contenidos as $perfil_cont)
                                 @if ($perfil_cont->categoria == "Competencias curriculares de Matemáticas" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->contenido}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td align="center" style="width: 10px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
@@ -593,8 +596,8 @@
                                 @if ($perfil_cont->categoria == "Competencias curriculares de Matemáticas" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->calificador}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td style="width: 250px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
@@ -602,8 +605,8 @@
                                 @if ($perfil_cont->categoria == "Competencias curriculares de Matemáticas" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->observacion_contenido}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td style="width: 250px; border-top: 0px solid; border-right: 0px solid; border-bottom: 1px; border-left: 1px solid;"></td>
@@ -614,16 +617,16 @@
                     <tr>
                         {{--  <td></td>  --}}
                         <td style="width: 170px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                            <b>Participación en clase</b>                            
+                            <b>Participación en clase</b>
                         </td>
-                        
+
                         <td style="width: 480px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                             @foreach ($perfiles_contenidos as $perfil_cont)
                                 @if ($perfil_cont->categoria == "Participación en clase" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->contenido}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td align="center" style="width: 10px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
@@ -631,8 +634,8 @@
                                 @if ($perfil_cont->categoria == "Participación en clase" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->calificador}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td style="width: 250px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
@@ -640,8 +643,8 @@
                                 @if ($perfil_cont->categoria == "Participación en clase" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->observacion_contenido}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td style="width: 250px; border-top: 0px solid; border-right: 0px solid; border-bottom: 1px; border-left: 1px solid;"></td>
@@ -652,16 +655,16 @@
                     <tr>
                         {{--  <td></td>  --}}
                         <td style="width: 170px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                            <b>Tareas</b>                            
+                            <b>Tareas</b>
                         </td>
-                        
+
                         <td style="width: 480px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                             @foreach ($perfiles_contenidos as $perfil_cont)
                                 @if ($perfil_cont->categoria == "Tareas" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->contenido}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td align="center" style="width: 10px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
@@ -669,8 +672,8 @@
                                 @if ($perfil_cont->categoria == "Tareas" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->calificador}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td style="width: 250px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
@@ -678,8 +681,8 @@
                                 @if ($perfil_cont->categoria == "Tareas" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->observacion_contenido}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td style="width: 250px; border-top: 0px solid; border-right: 0px solid; border-bottom: 1px; border-left: 1px solid;"></td>
@@ -690,16 +693,16 @@
                     <tr>
                         {{--  <td></td>  --}}
                         <td style="width: 170px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                            <b>Asistencia y puntualidad</b>                            
+                            <b>Asistencia y puntualidad</b>
                         </td>
-                        
+
                         <td style="width: 480px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                             @foreach ($perfiles_contenidos as $perfil_cont)
                                 @if ($perfil_cont->categoria == "Asistencia y puntualidad" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->contenido}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td align="center" style="width: 10px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
@@ -707,8 +710,8 @@
                                 @if ($perfil_cont->categoria == "Asistencia y puntualidad" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->calificador}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td style="width: 250px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
@@ -716,8 +719,8 @@
                                 @if ($perfil_cont->categoria == "Asistencia y puntualidad" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->observacion_contenido}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td style="width: 250px; border-top: 0px solid; border-right: 0px solid; border-bottom: 1px; border-left: 1px solid;"></td>
@@ -728,16 +731,16 @@
                     <tr>
                         {{--  <td></td>  --}}
                         <td style="width: 170px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
-                            <b>Convivencia escolar</b>                            
+                            <b>Convivencia escolar</b>
                         </td>
-                        
+
                         <td style="width: 480px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
                             @foreach ($perfiles_contenidos as $perfil_cont)
                                 @if ($perfil_cont->categoria == "Convivencia escolar" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->contenido}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td align="center" style="width: 10px; border-top: 1px solid; border-right: 1px; border-bottom: 1px; border-left: 1px solid;">
@@ -745,8 +748,8 @@
                                 @if ($perfil_cont->categoria == "Convivencia escolar" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->calificador}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td style="width: 250px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px; border-left: 1px solid;">
@@ -754,8 +757,8 @@
                                 @if ($perfil_cont->categoria == "Convivencia escolar" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->observacion_contenido}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td style="width: 250px; border-top: 0px solid; border-right: 0px solid; border-bottom: 1px; border-left: 1px solid;"></td>
@@ -766,16 +769,16 @@
                     <tr>
                         {{--  <td></td>  --}}
                         <td style="width: 170px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
-                            <b>Limpieza y orden</b>                            
+                            <b>Limpieza y orden</b>
                         </td>
-                        
+
                         <td style="width: 480px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
                             @foreach ($perfiles_contenidos as $perfil_cont)
                                 @if ($perfil_cont->categoria == "Limpieza y orden" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->contenido}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td align="center" style="width: 10px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -783,8 +786,8 @@
                                 @if ($perfil_cont->categoria == "Limpieza y orden" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->calificador}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td style="width: 250px; border-top: 1px solid; border-right: 1px solid; border-bottom: 1px solid; border-left: 1px solid;">
@@ -792,8 +795,8 @@
                                 @if ($perfil_cont->categoria == "Limpieza y orden" && $perfil_cont->primaria_contenidos_calificadores_id != null)
                                 <p>{{$perfil_cont->observacion_contenido}}</p>
                                 <br>
-                                @endif                            
-                            @endforeach                            
+                                @endif
+                            @endforeach
                         </td>
 
                         <td style="width: 250px; border-top: 0px solid; border-right: 0px solid; border-bottom: 0px; border-left: 1px solid;"></td>
@@ -805,14 +808,14 @@
                             <p><b>OBSERVACIONES:</b> {{$obsGeneral}}</p>
                         </td>
                     </tr>  --}}
-                                    
+
                 </tbody>
             </table>
 
-          
+
             <table>
                 <thead>
-                    <tr>     
+                    <tr>
                         <th></th>
                     </tr>
                 </thead>
@@ -827,7 +830,7 @@
         </div>
     </div>
 
-    
+
 
     {{-- <footer id="footer">
         <div class="page-number"></div>

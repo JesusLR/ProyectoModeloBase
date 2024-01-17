@@ -359,8 +359,8 @@
       width: 100%;
       display: block;
       position: relative;
-      margin-left: -30px;
-      margin-right: -30px;
+      /* /* margin-left: -30px; */
+      /* margin-right: -30px; */
     }
 
     .row::after {
@@ -501,6 +501,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: -50px;
       right: 0px;
@@ -543,6 +544,8 @@
     }
 
     @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
       margin-top: 80px;
       margin-bottom: 40px;
     }
@@ -600,21 +603,21 @@
     .page-break {
       page-break-after: always;
     }
-   
+
 
     .punteado{
-      border-top: 1px dotted; 
-      border-right: 1px dotted; 
-      border-bottom: 1px dotted; 
+      border-top: 1px dotted;
+      border-right: 1px dotted;
+      border-bottom: 1px dotted;
       border-left: 1px;
        //border-color: 660033;
       //background-color: cc3366;
     }
 
     .punteado2{
-      border-top: 1px dotted; 
-      border-right: 0px dotted; 
-      border-bottom: 1px dotted; 
+      border-top: 1px dotted;
+      border-right: 0px dotted;
+      border-bottom: 1px dotted;
       border-left: 0px;
        //border-color: 660033;
       //background-color: cc3366;
@@ -625,22 +628,26 @@
 <body>
 
   @php
-      $pocision = 0;
+    set_time_limit(0);
+    ini_set('max_execution_time', 600);
+    ini_set('memory_limit', '1024M');
+    $pocision = 0;
   @endphp
+
   <header>
     <div class="row" style="margin-top: 0px;">
       <div class="columns medium-12">
 
         {{--  <img class="img-header" src="{{base_path('resources/assets/img/logo.jpg')}}" alt="">  --}}
-        <h1 style="margin-top:0px; margin-bottom: 0px; text-align: center;">Preparatoria "ESCUELA MODELO"</h1>       
+        <h1 style="margin-top:0px; margin-bottom: 0px; text-align: center;">Preparatoria "ESCUELA MODELO"</h1>
         <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">HORARIO DE CLASES POR MATERIA</h4>
         <h4 style="margin-top:0px; margin-bottom: 0px; text-align: center;">PERIODO ESCOLAR: {{$cicloEscolar}}</h4>
-        
+
       </div>
     </div>
   </header>
 
-  
+
   @foreach ($alumnoClave as $aluClave => $valores)
     @foreach ($valores as $item)
       @if ($aluClave == $item->aluClave && $pocision++ == 1)
@@ -650,14 +657,14 @@
             <p><b>Alumno:</b> {{$item->nombre_completo_alumno}}</p>
           </div>
           <div class="columns medium-2">
-            
+
           </div>
           <div class="columns medium-3">
             <p><b>Clav.Plan:</b> {{$item->planClave}}</p>
             <p><b>Ubicación:</b> {{$item->ubiClave}}</p>
           </div>
           <div class="columns medium-1-2">
-            
+
           </div>
           <div class="columns medium-3">
             <p><b>Fecha:</b> {{$fechaActual}}</p>
@@ -680,10 +687,10 @@
                   <th class="punteado" align="center">JUEVES</th>
                   <th class="punteado2" align="center">VIERNES</th>
                   {{--  <th class="punteado2" align="center">SABADO</th>  --}}
-                </tr>          
+                </tr>
               </thead>
               <tbody>
-                @foreach ($alumno as $valor)    
+                @foreach ($alumno as $valor)
                   @if ($aluClave == $valor->aluClave)
                     <tr>
                       <td class="punteado2"></td>
@@ -698,25 +705,25 @@
                       <td class="punteado" align="center">{{$valor->jueves}}</td>
                       <td class="punteado2" align="center">{{$valor->viernes}}</td>
                       {{--  <td class="punteado2" align="center">{{$valor->sabado}}</td>        --}}
-                    </tr>    
-                  @endif                            
-                @endforeach    
-                  
+                    </tr>
+                  @endif
+                @endforeach
+
               </tbody>
             </table>
-      
+
           </div>
         </div>
       @endif
-    @endforeach   
+    @endforeach
     @php
       $pocision = 0;
-    @endphp   
+    @endphp
     @if (!$loop->last)
-          <div class="page_break"></div>  
+          <div class="page_break"></div>
         @endif
   @endforeach
-  
+
 
 
 

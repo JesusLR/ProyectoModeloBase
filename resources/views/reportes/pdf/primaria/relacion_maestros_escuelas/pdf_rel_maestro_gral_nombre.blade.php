@@ -292,8 +292,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -400,6 +400,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -5px;
         right: 0px;
@@ -419,6 +420,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 30px;
         margin-bottom: 70px;
       }
@@ -511,19 +514,19 @@
 
           @endphp
            <p>Nivel: {{$empleado[0]->plan->programa->progClave}} ({{$empleado[0]->plan->planClave}}) {{$empleado[0]->plan->programa->progNombre}}</p>
-         
+
            @if ($empEstado == "T")
-              
+
            @else
            <p>Estado:
              @if ($empEstado == "A")
                  ACTIVO
              @endif
- 
+
              @if ($empEstado == "B")
              BAJA
              @endif
- 
+
               @if ($empEstado == "S")
               SUSPENDIDO
              @endif
@@ -547,10 +550,10 @@
               <th style="font-weight: 400;width: 20px;">Núm</th>
               <th style="font-weight: 400;width: 50px;">Emp</th>
               @if ($modalidad == "")
-                <th align="center" style="font-weight: 400;width: 350px;">Nombre completo</th>                
+                <th align="center" style="font-weight: 400;width: 350px;">Nombre completo</th>
               @endif
               @if ($modalidad == "P")
-                <th align="center" style="font-weight: 400;width: 350px;">Docente modo presencial</th>                
+                <th align="center" style="font-weight: 400;width: 350px;">Docente modo presencial</th>
               @endif
               @if ($modalidad == "V")
               <th align="center" style="font-weight: 400;width: 350px;">Docente modo virtual</th>
@@ -558,7 +561,7 @@
               @if ($empEstado == "T")
               <th align="center" style="font-weight: 400;width: 20px;">Estado</th>
               @else
-                  
+
               @endif
               <th style="font-weight: 400;">Grado/Clave Grupo</th>
             </tr>
@@ -580,7 +583,7 @@
                   {{$empleado["empleado_id_docente"]}}
                 </td>
                 <td style="width: 400px;">{{$empleado['PrimariaNombreCompleto']}}</td>
-          
+
                 @if ($empEstado == "T")
                     <td align="center">
                     @if ($empleado->primaria_empleado->empEstado == "A")
@@ -588,15 +591,15 @@
                     @endif
                     @if ($empleado->primaria_empleado->empEstado == "B")
                       BAJA
-                    @endif                      
+                    @endif
                     @if ($empleado->primaria_empleado->empEstado == "S")
                       SUSPENDIDO
                     @endif
                 </td>
                 @else
-                              
+
                 @endif
-                
+
                 <td >
                   @php
                     $grupo = collect($grupo)->unique("gpoGradoGrupo");

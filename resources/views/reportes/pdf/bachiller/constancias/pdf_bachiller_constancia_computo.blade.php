@@ -360,8 +360,8 @@
       width: 100%;
       display: block;
       position: relative;
-      margin-left: -30px;
-      margin-right: -30px;
+      /* margin-left: -30px; */
+      /* margin-right: -30px; */
     }
 
     .row::after {
@@ -503,6 +503,7 @@
     }
 
     header {
+        left: 0px;
       position: fixed;
       top: 10px;
       right: 0px;
@@ -532,6 +533,8 @@
     }
 
     @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
       margin-top: 30px;
       margin-bottom: 30px;
     }
@@ -614,18 +617,18 @@
     }
 
     .punteado{
-      //border-top: 1px dotted; 
-      //border-right: 0px dotted; 
-      border-bottom: 1px dotted; 
+      //border-top: 1px dotted;
+      //border-right: 0px dotted;
+      border-bottom: 1px dotted;
       //border-left: 0px;
        //border-color: 660033;
       //background-color: cc3366;
     }
 
     .punteado2{
-      border-top: 1px dotted; 
-      border-right: 0px dotted; 
-      border-bottom: 1px dotted; 
+      border-top: 1px dotted;
+      border-right: 0px dotted;
+      border-bottom: 1px dotted;
       border-left: 0px;
        //border-color: 660033;
       //background-color: cc3366;
@@ -651,7 +654,7 @@
       @if ($aluClave == $alumno->aluClave && $contador++ == 1)
         <div class="row">
           <div class="columns medium-12">
-      
+
             <p style="font-size: 14px; text-align: center;">CLAVE DEL CENTRO DE TRABAJO: {{$parametroClaveEscuela}}</p>
             <br>
             <br>
@@ -661,8 +664,8 @@
             <br>
             <br>
             <p style="font-size: 14px; text-align: justify;">
-              {{$parametroNombreTitulo}} {{$parametroNombreSecretaria}}, {{$parametroPuesto}} de la Preparatoria “ESCUELA MODELO”, 
-              incorporada a la Universidad Autónoma de Yucatán. HAGO CONSTAR: Que en los libros de actas que obran en el archivo de esta Secretaría a mi cargo, aparece que: 
+              {{$parametroNombreTitulo}} {{$parametroNombreSecretaria}}, {{$parametroPuesto}} de la Preparatoria “ESCUELA MODELO”,
+              incorporada a la Universidad Autónoma de Yucatán. HAGO CONSTAR: Que en los libros de actas que obran en el archivo de esta Secretaría a mi cargo, aparece que:
               <b>{{$alumno->perApellido1.' '.$alumno->perApellido2.' '.$alumno->perNombre}}</b> aprobó las siguientes asignaturas extracurriculares del Plan de Estudios de Bachillerato General Universitario:
             </p>
             <br>
@@ -679,7 +682,9 @@
                   @if ($item->aluClave == $aluClave)
                   <tr>
                     <td>{{$item->matNombre}}</td>
-                    <td>{{$item->histCalificacion}} {{str_replace(" CON 00/100", "", NumeroALetras::convert($item->histCalificacion))}}</td>
+                    <?php $formatter = new NumeroALetras()?>
+
+                    <td>{{$item->histCalificacion}} {{str_replace(" CON 00/100", "", $formatter->toWords($item->histCalificacion))}}</td>
                     <td align="left">
                       {{--  #0 - 69: "No acreditada"  --}}
                       @if ($item->histCalificacion >= 0 && $item->histCalificacion <= 69)
@@ -699,38 +704,38 @@
                       {{--  90 - 100: "Sobresaliente"  --}}
                       @if ($item->histCalificacion >= 90 && $item->histCalificacion <= 100)
                         Sobresaliente
-                      @endif                      
+                      @endif
                     </td>
                     <td align="center">{{Utils::fecha_string($item->histFechaExamen, $item->histFechaExamen)}}</td>
-                  </tr>                  
-                  @endif  
-                @endforeach  
+                  </tr>
+                  @endif
+                @endforeach
                 <tr>
                   <td class="punteado"></td>
                   <td class="punteado"></td>
                   <td class="punteado"></td>
                   <td class="punteado"></td>
-                </tr>                          
+                </tr>
               </tbody>
             </table>
-      
+
             <br>
 
             <p style="font-size: 14px; text-align: justify;">
-              Y a petición @if($alumno->perSexo == "M") del interesado, @else de la interesada, @endif se expide la presente CONSTANCIA, 
+              Y a petición @if($alumno->perSexo == "M") del interesado, @else de la interesada, @endif se expide la presente CONSTANCIA,
               en la ciudad de {{$municipio->munNombre}}, Estado de {{$estado->edoNombre}}, Estados Unidos Mexicanos, {{$fechaDeHoy}}.
             </p>
-      
+
 
             <br>
             <br>
             <br>
-            
-      
-      
-          </div>      
-          
-          
+
+
+
+          </div>
+
+
         </div>
 
         <br>
@@ -753,10 +758,10 @@
             <p style="font-size: 14px;">{{$parametroNombreSecretariaMayus}}</p>
             <p style="font-size: 14px;">{{$parametroNombreTituloMayus}}</p>
           </div>
-          
+
           <div class="columns medium-6">
-           
-            
+
+
             <p style="font-size: 14px;">EL DIRECTOR DE LA PREPARATORIA</p>
             <p style="font-size: 14px;">ESCUELA MODELO</p>
 
@@ -771,12 +776,12 @@
             <p style="font-size: 14px;">OSWALDO JOSE AVILES ROSADO</p>
             <p style="font-size: 14px;">MÉDICO CIRUJANO</p>
             @endif
-            
-           
+
+
           </div>
         </div>
         <br>
-       
+
 
         <br>
         {{--  Minutario   --}}
@@ -786,13 +791,13 @@
                 $obtenerMinutario = DB::select("SELECT * FROM minutario WHERE minAnio=$alumno->perAnioPago AND minClavePago=$alumno->aluClave AND minDepartamento='BAC' AND minNombreDocumento='CONSTANCIA DE COMPUTO' ORDER BY id DESC LIMIT 1");
             @endphp
             <p style="font-size: 14px; position: relative; left: 50px;">No: {{$obtenerMinutario[0]->id}}/{{$obtenerMinutario[0]->minClavePago}}</p>
-       
+
           </div>
-          
+
         </div>
-        
-        
-      @endif     
+
+
+      @endif
     @endforeach
     @php
         $contador = 1;
@@ -801,9 +806,9 @@
     <div class="page_break"></div>
     @endif
   @endforeach
-  
 
- 
+
+
 
 
 

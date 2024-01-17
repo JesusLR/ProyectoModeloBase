@@ -294,8 +294,8 @@
         width:100%;
         display: block;
         position: relative;
-        margin-left: -30px;
-        margin-right: -30px;
+        /* margin-left: -30px; */
+        /* margin-right: -30px; */
       }
       .row::after {
           content: "";
@@ -402,6 +402,7 @@
         text-align: center;
       }
       header {
+        left: 0px;
         position: fixed;
         top: -70px;
         right: 0px;
@@ -421,6 +422,8 @@
         display: block;
       }
       @page {
+        margin-left: 0.5cm;
+        margin-right: 0.5cm;
         margin-top: 180px;
         margin-bottom: 40px;
       }
@@ -472,7 +475,7 @@
         content: "Pág " counter(page);
       }
 
-    
+
     </style>
 	</head>
   <body>
@@ -511,13 +514,13 @@
           La que suscribe, Lic. en Psic. María Inés Sauri Quintal, Secretaria Administrativa
           de la Preparatoria "Escuela Modelo" incorporada a la Universidad
           Autónoma de Yucatán, hace constar que {{$alumno['pronombre']}} joven {{$alumno['nombreCompleto']}} {{$es_fue}}
-          {{$alumno['alumnx']}} del 
+          {{$alumno['alumnx']}} del
           @if ($leyenda == "SEMESTRE")
             {{$alumno['gradoLetras']}} semestre
           @else
             {{$curso_perteneciente}}
           @endif
-           
+
           del BACHILLERATO en el ciclo escolar del
           {{$ciclo_escolar}} y ha obtenido las siguientes
           calificaciones{{$mensaje}}
@@ -540,23 +543,23 @@
             $esAprobada = $materia['histCalificacion'] >= $calificacion_minima;
             $font_weight = (($esNumerica && $esAprobada) || !$esNumerica) ? 'normal' : 'bold';
           @endphp
-          <div style="padding:0 0 0 30px;">  
+          <div style="padding:0 0 0 30px;">
             <span @if ($materia['es_revalidacion'] == "RV") style="position: absolute; left:615px; font-weight:normal;" @else style="position: absolute; right:57px; font-weight:{{$font_weight}};"  @endif>
               @if ($materia['es_revalidacion'] == "RV")
                   Rev
-                  
+
                   @php
                       $esRV = 1;
                   @endphp
               @else
               {{$materia['histCalificacion']}}
-              @endif              
+              @endif
             </span>
             {{$materia['matNombre']}}
           </div>
           @php
             if(!in_array($materia['histCalificacion'], ['Apr', 'No Apr', 'S/D', 'Npa'])) {
-              
+
               $contarMaterias++;
               $contarMateriasTotales++;
 
@@ -573,7 +576,7 @@
             $credCur+=$materia['matCreditos'];
             $credCurTotal+=$materia['matCreditos'];
           @endphp
-        @endforeach {{-- foreach materia --}}    
+        @endforeach {{-- foreach materia --}}
             @if ($esRV != 1)
               <div><span style="float:right; font-weight:normal;">CRED.APROB. DEL PERIODO : {{$credAprob}} DE {{$credCur}}</span> PROMEDIO DEL PERIODO : {{number_format($contarCalificacion/$contarMaterias,4)}}  </div>
 
@@ -602,7 +605,7 @@
       <p align="justify">Y para los fines que le sean convenientes, se expide la presente constancia
         en la ciudad de {{$municipio->munNombre}} {{$estado->edoNombre}}, a los {{$fechaDeHoy}}.
       </p>
-      
+
           <br>
       <p align="center">ATENTAMENTE</p>
       <br><br>
