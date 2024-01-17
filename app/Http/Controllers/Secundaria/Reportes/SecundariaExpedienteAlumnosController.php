@@ -102,13 +102,13 @@ class SecundariaExpedienteAlumnosController extends Controller
                 return $pdf->download($parametro_NombreArchivo  . '.pdf');
     
             }else{
-                
+
     
                 // buscar grupo de alumnos 
                 // llama al procedure de los alumnos a buscar 
                 $grupoAlumnos =  DB::select("call procSecundariaAlumnosInscritosGrupo(". $periodo_id . "," . $grado . ",'" . $grupo . "','" . $concepto . "')");
                 $alumnogrupo_collection = collect($grupoAlumnos);
-    
+
                  // si no hay datos muestra alerta 
                 if ($alumnogrupo_collection->isEmpty()) {
                     alert()->warning('Sin coincidencias', 'No hay calificaciones capturadas para este grupo. Favor de verificar.')->showConfirmButton();
@@ -119,6 +119,7 @@ class SecundariaExpedienteAlumnosController extends Controller
                 
     
                 $parametro_NombreArchivo = "pdf_secundaria_expediente_todogrupo_nuevo";
+
                 $pdf = PDF::loadView('reportes.pdf.secundaria.expediente.' . $parametro_NombreArchivo, [ 
                     "alumnogrupo_collection" => $alumnogrupo_collection,
                     "alumno_id" => $alumno_id,
