@@ -75,13 +75,13 @@ class ResumenInscritosController extends Controller
     $ultimoPago = Utils::fecha_string($ultimoPagoFecha->pagFechaPago,true);
 
     // $ubicacion = Ubicacion::where('ubiClave',$request->ubiClave)->first();
-    
+
     $ubicacionNombre = $ubicacion->ubiClave.' '.$ubicacion->ubiNombre;
 
     $alumnos = '';
 
     if($request->tipoReporte == 'I'){
-      $alumnos = 'ALUMNOS INSCRITOS AL PERIODO SEMESTRAL:'; 
+      $alumnos = 'ALUMNOS INSCRITOS AL PERIODO SEMESTRAL:';
     }else{
       $alumnos = 'ALUMNOS PRE-INSCRITOS Y CONDICIONADOS AL PERIODO SEMESTRAL:';
     }
@@ -192,8 +192,8 @@ class ResumenInscritosController extends Controller
         'totalR'=>$totalR ?: '',
         'total'=>$total ?: ''
       ]);
-    }    
-  
+    }
+
     $datos->push([
       'ubiClave'=>'',
       'depClave'=>'',
@@ -217,10 +217,10 @@ class ResumenInscritosController extends Controller
 
 
     return $datos;
-    
+
 
     // return view('reportes.resumen_inscritos.resumen_table',compact('datos','periodo','ubicacionNombre','ultimoPago'));
-    
+
     }
 
     public function descargarExcel($datos)
@@ -237,7 +237,7 @@ class ResumenInscritosController extends Controller
         return back()->withInput();
       }
       $datos = $this->imprimir($request);
-      
+
       return $this->descargarExcel($datos);
     }
 }

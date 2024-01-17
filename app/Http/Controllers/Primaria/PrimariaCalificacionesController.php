@@ -749,6 +749,7 @@ class PrimariaCalificacionesController extends Controller
                         'primaria_grupo_evidencia_id' => $primaria_grupo_evidencia_id,
                         'numero_evaluacion' => $numero_evaluacion,
                         'mes_evaluacion' => $mes_evaluacion,
+
                         'calificacion_evidencia1' => (isset($evidencia1[$i])) ? $evidencia1[$i] : false,
                         'calificacion_evidencia2' => (isset($evidencia2[$i])) ? $evidencia2[$i] : false,
                         'calificacion_evidencia3' => (isset($evidencia3[$i])) ? $evidencia3[$i] : false,
@@ -759,6 +760,7 @@ class PrimariaCalificacionesController extends Controller
                         'calificacion_evidencia8' => (isset($evidencia8[$i])) ? $evidencia8[$i] : false,
                         'calificacion_evidencia9' => (isset($evidencia9[$i])) ? $evidencia9[$i] : false,
                         'calificacion_evidencia10'=> (isset($evidencia10[$i])) ? $evidencia10[$i] : false,
+
                         'promedio_mes' => $actualizandoPromedio[$i],
                         'updated_at' => $fechaActual->format('Y-m-d H:i:s'),
                         'usuario_at' => auth()->user()->id
