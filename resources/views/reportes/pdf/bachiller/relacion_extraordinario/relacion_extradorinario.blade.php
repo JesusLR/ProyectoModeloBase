@@ -488,6 +488,11 @@
     </style>
 	</head>
   <body>
+    @php
+        set_time_limit(0);
+        ini_set('max_execution_time', 600);
+        ini_set('memory_limit', '1024M');
+    @endphp
     <header>
         <div class="row">
           <div class="columns medium-6">

@@ -12,7 +12,7 @@ use PDF;
 
 class BachillerEscuelaProcedenciaController extends Controller
 {
-    
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -20,19 +20,22 @@ class BachillerEscuelaProcedenciaController extends Controller
 
     public function reporte()
     {
-      
+
         $ubicaciones = Ubicacion::whereIn('id', [1, 2, 3])->get();
 
         return view('bachiller.reportes.escuela_procedencia.create',compact('ubicaciones'));
     }
 
     public function imprimir(Request $request) {
+        set_time_limit(0);
+        ini_set('max_execution_time', 600);
+        ini_set('memory_limit', '1024M');
 
         $fechaActual = Carbon::now('CDT');
         $alert_title = 'Sin registros';
         $alert_text = 'No hay datos que coincidan con la información proporcionada. Favor de verificar.';
-        
-      
+
+
 
         $cursos = Curso::with(['alumno.persona', 'cgt.plan.programa.escuela', 'alumno.secundariaProcedencia.municipioSec.estadoSec.paisSec', 'alumno.preparatoria.municipio.estado.pais'])
         ->whereHas('cgt.plan.programa.escuela', static function($query) use ($request) {
@@ -67,7 +70,7 @@ class BachillerEscuelaProcedenciaController extends Controller
         ->where(static function($query) use ($request) {
             $query->where('periodo_id', $request->periodo_id);
             $query->where('curEstado', '<>', 'B');
-            
+
         })->get();
 
         if($cursos->isEmpty()) {
@@ -89,7 +92,7 @@ class BachillerEscuelaProcedenciaController extends Controller
             $progClave = $curso->cgt->plan->programa->progClave;
             $grupo = $curso->cgt->cgtGrupo;
 
-            
+
 
             if(isset($curso->alumno->secundariaProcedencia->id)){
                 $secProcedencia_id = $curso->alumno->secundariaProcedencia->id;
@@ -117,7 +120,7 @@ class BachillerEscuelaProcedenciaController extends Controller
                 $municipioPrep = "";
                 $estadoPrep = "";
                 $paisPrep = "";
-            }            
+            }
 
             return collect([
                 'progClave' => $progClave,

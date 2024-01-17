@@ -73,7 +73,7 @@ class BachillerGrupoSemestreController extends Controller
     $inscritosByGrupoIds = Bachiller_inscritos::whereIn('bachiller_grupo_id', $grupos->pluck('grupo_id'))->get();
     //hacer merge de cantidad de alumnos a grupos
     $grupos = $grupos->map(function ($item, $key) use ($inscritosByGrupoIds) {
-      
+
       $item["sortGrupoClaveMat"] = str_slug($item["bachiller_grupo_merida"]["gpoClave"]
       .'-'.$item["bachiler_grupo"]["bachiller_materia"]["matClave"], '-');
 
@@ -117,7 +117,7 @@ class BachillerGrupoSemestreController extends Controller
 
     //hacer merge de cantidad de alumnos a grupos
     $grupos = $grupos->map(function ($item, $key) use ($inscritosByGrupoIds) {
-      
+
       $item["sortGrupoClaveMat"] = str_slug($item["bachiller_grupo_chetumal"]["gpoClave"]
       .'-'.$item["bachiller_grupo_chetumal"]["bachiller_materia"]["matClave"], '-');
 
@@ -132,7 +132,7 @@ class BachillerGrupoSemestreController extends Controller
 
     return collect($grupos)->sortBy("bachiller_grupo_chetumal.gpoGrado")->groupBy("bachiller_grupo_chetumal.gpoGrado");
   }
-  
+
 
   public function horariosGrupoSemestrePaquetesYucatan(Request $request)
   {
@@ -174,7 +174,7 @@ class BachillerGrupoSemestreController extends Controller
       $cantidadAlumnos = $inscritosByGrupoIds->filter(function ($value, $key) use ($item) {
         return $value->grupo_id == $item["id"];
       })->count();
-    
+
       $horarios = $horariosByGrupoIds->filter(function ($value, $key) use ($item) {
         return $value->grupo_id == $item["grupo_id"];
       });
@@ -192,7 +192,7 @@ class BachillerGrupoSemestreController extends Controller
       return collect($grupos)->sortBy("bachiller_grupo_yucatan.gpoGrado")->groupBy("bachiller_paquete_id");
     }
 
-    
+
   }
 
   public function horariosGrupoSemestrePaquetesChetumal(Request $request)
@@ -235,7 +235,7 @@ class BachillerGrupoSemestreController extends Controller
       $cantidadAlumnos = $inscritosByGrupoIds->filter(function ($value, $key) use ($item) {
         return $value->grupo_id == $item["id"];
       })->count();
-    
+
       $horarios = $horariosByGrupoIds->filter(function ($value, $key) use ($item) {
         return $value->grupo_id == $item["grupo_id"];
       });
@@ -292,7 +292,7 @@ class BachillerGrupoSemestreController extends Controller
       $cantidadAlumnos = $inscritosByGrupoIds->filter(function ($value, $key) use ($item) {
         return $value->grupo_id == $item["id"];
       })->count();
-    
+
       $horarios = $horariosByGrupoIds->filter(function ($value, $key) use ($item) {
         return $value->grupo_id == $item["grupo_id"];
       });
@@ -313,7 +313,7 @@ class BachillerGrupoSemestreController extends Controller
 
   public function imprimir(Request $request)
   {
-   
+
 
     if ($request->tipoReporte == "gradoMateria") {
       if($request->ubicacion_id == 1 || $request->ubicacion_id == 2 || $request->ubicacion_id == 4){
@@ -321,7 +321,7 @@ class BachillerGrupoSemestreController extends Controller
       }else{
         $grupos = $this->horariosGrupoSemestreChetumal($request);
       }
-      
+
     }
 
     if ($request->tipoReporte == "paquete") {
@@ -330,7 +330,7 @@ class BachillerGrupoSemestreController extends Controller
       }else{
         $grupos = $this->horariosGrupoSemestrePaquetesChetumal($request);
       }
-      
+
     }
 
     if(!$grupos) {
@@ -362,7 +362,7 @@ class BachillerGrupoSemestreController extends Controller
         $nombreArchivo = 'pdf_grupo_semestre_paquete_chetumal';
       }
     }
-    
+
 
     // view('reportes.pdf.bachiller.horarios.pdf_grupo_semestre');
     $pdf = PDF::loadView('reportes.pdf.bachiller.horarios.'.$nombreArchivo, [

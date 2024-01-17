@@ -24,7 +24,7 @@ class BachillerHorarioDeClasesAlumnoController extends Controller
      */
     public function reporte()
     {
-        // Mostrar el conmbo solo las ubicaciones correspondientes 
+        // Mostrar el conmbo solo las ubicaciones correspondientes
         $ubicaciones = Ubicacion::whereIn('id', [1,2,3])->get();
 
         return view('bachiller.reportes.horario_de_clases_alumno.create', [
@@ -34,10 +34,12 @@ class BachillerHorarioDeClasesAlumnoController extends Controller
 
     public function imprimir(Request $request)
     {
-        // dd($request->plan_id, $request->programa_id, $request->periodo_id, $request->gpoGrado, $request->gpoClave, $request->aluClave);     
+        // dd($request->plan_id, $request->programa_id, $request->periodo_id, $request->gpoGrado, $request->gpoClave, $request->aluClave);
+        set_time_limit(0);
+        ini_set('max_execution_time', 600);
+        ini_set('memory_limit', '1024M');
 
-
-        // Para obtener las fechas del periodo seleccionado 
+        // Para obtener las fechas del periodo seleccionado
         $periodo = Periodo::findOrFail($request->periodo_id);
         $perFechaInicialMes = Utils::num_meses_corto_string(\Carbon\Carbon::parse($periodo->perFechaInicial)->format('m'));
         $perFechaFinalMes = Utils::num_meses_corto_string(\Carbon\Carbon::parse($periodo->perFechaFinal)->format('m'));
@@ -52,10 +54,10 @@ class BachillerHorarioDeClasesAlumnoController extends Controller
         $fechaHoy = $fechaActual->format('d').'/'.$mesCorto.'/'.$fechaActual->format('Y');
 
 
-        // buscar por alumno 
+        // buscar por alumno
         if ($request->aluClave != "") {
             // dd($request->programa_id, $request->plan_id, $request->periodo_id, $request->gpoGrado, $request->aluClave);
-        
+
             $llamar_sp = DB::select("call procBachillerAppHorariosAlumnoYucatan(".$request->programa_id.",
             ".$request->plan_id.",
             ".$request->periodo_id.",
@@ -87,9 +89,9 @@ class BachillerHorarioDeClasesAlumnoController extends Controller
             return $pdf->download('horario de clases.pdf');
         }
 
-        // buscar por grado y grupo 
+        // buscar por grado y grupo
         if($request->gpoClave != ""){
-            
+
             $llamar_sp = DB::select("call procBachillerAppHorariosGrupoYucatan(".$request->programa_id.",
             ".$request->plan_id.",
             ".$request->periodo_id.",
@@ -124,9 +126,9 @@ class BachillerHorarioDeClasesAlumnoController extends Controller
             return $pdf->download('horario de clases.pdf');
         }
 
-        // buscar por solo grado 
+        // buscar por solo grado
         if($request->gpoClave == "" && $request->aluClave == ""){
-            
+
             $llamar_sp = DB::select("call procBachillerAppHorariosGradoYucatan(".$request->programa_id.",
             ".$request->plan_id.",
             ".$request->periodo_id.",
@@ -159,8 +161,8 @@ class BachillerHorarioDeClasesAlumnoController extends Controller
             return $pdf->stream('horario de clases.pdf');
             return $pdf->download('horario de clases.pdf');
         }
-       
-        
+
+
     }
 
 }
