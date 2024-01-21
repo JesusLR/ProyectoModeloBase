@@ -43,7 +43,7 @@ class ActaExtraordinarioController extends Controller
   public function imprimir(Request $request)
   {
     $inscritosEx = InscritoExtraordinario::with('extraordinario.materia.plan.programa.escuela.departamento.ubicacion', 'alumno.persona','extraordinario.periodo')
-      
+
       ->whereHas('extraordinario.periodo', function($query) use ($request) {
         $query->where('periodo_id', $request->periodo_id);
       })
@@ -79,15 +79,16 @@ class ActaExtraordinarioController extends Controller
         alert()->warning('Sin coincidencias', 'No hay datos que coincidan con la información proporcionada. Favor de verificar.')->showConfirmButton();
             return back()->withInput();
       }
-    
+
     $inscritoEx = collect();
     $fechaActual = Carbon::now('America/Merida');
 
     //variables que se mandan a la vista fuera del array
     $periodo = $inscritosEx->first()->extraordinario->periodo;
-  
+
     $perFechas = Carbon::parse($periodo->perFechaInicial)->format('d/m/Y').' al '.Carbon::parse($periodo->perFechaFinal)->format('d/m/Y').' ('.$periodo->perNumero.'/'.$periodo->perAnio.')';
 
+    $formatter = new NumeroALetras();
     foreach($inscritosEx as $inscrito){
       $idExtra = $inscrito->extraordinario->id;
       //Datos del alumno
@@ -113,7 +114,7 @@ class ActaExtraordinarioController extends Controller
       $extFecha = $inscrito->extraordinario->extFecha;
       $extHora = $inscrito->extraordinario->extHora;
       $extGrupo = $inscrito->extraordinario->extGrupo;
-      $califLetras = $iexCalificacion === null ? '' : str_replace(" CON 00/100","",NumeroALetras::convert($iexCalificacion));
+      $califLetras = $iexCalificacion === null ? '' : str_replace(" CON 00/100","",$formatter->toWords($iexCalificacion));
 
       if($inscrito->extraordinario->materia->esAlfabetica()) {
         if (!is_null($iexCalificacion)) {
@@ -124,7 +125,7 @@ class ActaExtraordinarioController extends Controller
 
       $optativa = Optativa::where('id',$inscrito->extraordinario->optativa_id)->first();
 
-      $inscritoEx->push([  
+      $inscritoEx->push([
         'idExtra'=>$idExtra,
         'aluClave'=>$aluClave,
         'alumnoNombre'=>$alumnoNombre,
@@ -148,9 +149,9 @@ class ActaExtraordinarioController extends Controller
         'ubiClave'=>$ubiClave,
         'ubiNombre'=>$ubiNombre
       ]);
-    
+
     }
-    
+
     $inscritoEx = $inscritoEx->sortBy('alumnoNombre')->groupBy('idExtra');
 
     $nombreArchivo = 'pdf_acta_extraordinario';

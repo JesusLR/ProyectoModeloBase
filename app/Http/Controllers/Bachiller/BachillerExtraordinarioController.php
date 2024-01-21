@@ -3123,7 +3123,7 @@ class BachillerExtraordinarioController extends Controller
         $inscritoEx = collect();
         $fechaActual = Carbon::now();
         $periodo = '';
-
+        $formatter = new NumeroALetras();
         foreach ($inscritoIds as $inscrito_id) {
             $inscrito = Bachiller_inscritosextraordinarios::where('id', '=', $inscrito_id)->first();
             $idExtra = $inscrito->bachiller_extraordinario->id;
@@ -3159,7 +3159,7 @@ class BachillerExtraordinarioController extends Controller
             $extFecha = $inscrito->bachiller_extraordinario->extFecha;
             $extHora = $inscrito->bachiller_extraordinario->extHora;
             $extGrupo = $inscrito->bachiller_extraordinario->extGrupo;
-            $califLetras = $iexCalificacion === null ? '' : str_replace(" CON 00/100", "", NumeroALetras::convert($iexCalificacion));
+            $califLetras = $iexCalificacion === null ? '' : str_replace(" CON 00/100", "", $formatter->toWords($iexCalificacion));
 
             if ($inscrito->bachiller_extraordinario->bachiller_materia->esAlfabetica()) {
                 $califLetras = $iexCalificacion == 0 ? 'APROBADO' : 'NO APROBADO';

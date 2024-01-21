@@ -74,8 +74,14 @@ class BachillerGrupoSemestreController extends Controller
     //hacer merge de cantidad de alumnos a grupos
     $grupos = $grupos->map(function ($item, $key) use ($inscritosByGrupoIds) {
 
+        if(is_null($item["bachiler_grupo"])){
+            $matClave = " ";
+        }else{
+            $matClave = $item["bachiler_grupo"]["bachiller_materia"]["matClave"];
+        }
+
       $item["sortGrupoClaveMat"] = str_slug($item["bachiller_grupo_merida"]["gpoClave"]
-      .'-'.$item["bachiler_grupo"]["bachiller_materia"]["matClave"], '-');
+      .'-'. $matClave , '-');
 
       $cantidadAlumnos = $inscritosByGrupoIds->filter(function ($value, $key) use ($item) {
         return $value->bachiller_grupo_id == $item["grupo_id"];

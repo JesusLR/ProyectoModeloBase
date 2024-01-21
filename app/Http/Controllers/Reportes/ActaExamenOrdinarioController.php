@@ -36,7 +36,7 @@ class ActaExamenOrdinarioController extends Controller
 
     	$inscritos = Inscrito::with(['grupo.materia.plan', 'curso.alumno.persona', 'calificacion'])
     	->whereHas('grupo.materia.plan', static function($query) use ($request) {
-    		
+
     		$query->where('programa_id', $request->programa_id)
                   ->where('periodo_id', $request->periodo_id);
     		if($request->plan_id) {
@@ -56,7 +56,7 @@ class ActaExamenOrdinarioController extends Controller
             }
             if($request->inscritos_gpo) {
                 $query->where('inscritos_gpo', $request->operadorInscritos, $request->inscritos_gpo);
-            }   
+            }
 
     	})
     	->get();
@@ -79,9 +79,9 @@ class ActaExamenOrdinarioController extends Controller
     		$empleado = $grupo->empleado;
             $materia = $grupo->materia;
             $optNombre = $grupo->optativa ? '- '.$grupo->optativa->optNombre : '';
-
+            $formatter = new NumeroALetras();
     		$calificacion = MetodosCalificaciones::definirCalificacion($inscrito->calificacion, $materia, 'CF');
-    		$calificacion_letras = $calificacion ? substr(NumeroALetras::convert($calificacion), 0, -11) : null;
+            $calificacion_letras = $calificacion === null ? '' : str_replace(" CON 00/100","",$formatter->toWords(intval($calificacion)));
     		if(in_array($calificacion, ['NPE', 'Npa'])) {
                 $motivo_falta = MetodosCalificaciones::motivo_falta($inscrito->calificacion->motivofalta_id);
     			$calificacion_letras = $motivo_falta ? strtoupper($motivo_falta->mfDescripcion) : '';
@@ -114,7 +114,6 @@ class ActaExamenOrdinarioController extends Controller
 
     	$fechaActual = Carbon::now('America/Merida');
         $nombreArchivo = "pdf_acta_examen_ordinario.pdf";
-
         return PDF::loadView("reportes.pdf.pdf_acta_examen_ordinario", [
         "semestres" => $datos,
         'periodo' => $periodo,
