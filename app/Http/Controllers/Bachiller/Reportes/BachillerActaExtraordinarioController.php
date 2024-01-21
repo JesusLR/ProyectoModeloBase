@@ -31,7 +31,7 @@ class BachillerActaExtraordinarioController extends Controller
 
   public function reporte()
   {
-    // Mostrar el conmbo solo las ubicaciones correspondientes 
+    // Mostrar el conmbo solo las ubicaciones correspondientes
     $ubicaciones = Ubicacion::whereIn('id', [1, 2, 3])->get();
 
     $docentes = Bachiller_empleados::where('empEstado', '!=', 'B')->get();
@@ -41,8 +41,9 @@ class BachillerActaExtraordinarioController extends Controller
 
   public function imprimir(Request $request)
   {
+    $formatter = new NumeroALetras();
     $inscritosEx = Bachiller_inscritosextraordinarios::with('bachiller_extraordinario.bachiller_materia.plan.programa.escuela.departamento.ubicacion', 'alumno.persona','bachiller_extraordinario.periodo')
-      
+
       ->whereHas('bachiller_extraordinario.periodo', function($query) use ($request) {
         $query->where('periodo_id', $request->periodo_id);
       })
@@ -78,13 +79,13 @@ class BachillerActaExtraordinarioController extends Controller
         alert()->warning('Sin coincidencias', 'No hay datos que coincidan con la información proporcionada. Favor de verificar.')->showConfirmButton();
             return back()->withInput();
       }
-    
+
     $inscritoEx = collect();
     $fechaActual = Carbon::now('America/Merida');
 
     //variables que se mandan a la vista fuera del array
     $periodo = $inscritosEx->first()->bachiller_extraordinario->periodo;
-  
+
     $perFechas = Carbon::parse($periodo->perFechaInicial)->format('d/m/Y').' al '.Carbon::parse($periodo->perFechaFinal)->format('d/m/Y').' ('.$periodo->perNumero.'/'.$periodo->perAnio.')';
 
     foreach($inscritosEx as $inscrito){
@@ -112,7 +113,7 @@ class BachillerActaExtraordinarioController extends Controller
       $extFecha = $inscrito->bachiller_extraordinario->extFecha;
       $extHora = $inscrito->bachiller_extraordinario->extHora;
       $extGrupo = $inscrito->bachiller_extraordinario->extGrupo;
-      $califLetras = $iexCalificacion === null ? '' : str_replace(" CON 00/100","",NumeroALetras::convert($iexCalificacion));
+      $califLetras = $iexCalificacion === null ? '' : str_replace(" CON 00/100","",$formatter->toWords($iexCalificacion));
 
       if($inscrito->bachiller_extraordinario->bachiller_materia->esAlfabetica()) {
         $califLetras = $iexCalificacion == 0 ? 'APROBADO' : 'NO APROBADO';
@@ -121,7 +122,7 @@ class BachillerActaExtraordinarioController extends Controller
 
       $optativa = Optativa::where('id',$inscrito->bachiller_extraordinario->optativa_id)->first();
 
-      $inscritoEx->push([  
+      $inscritoEx->push([
         'idExtra'=>$idExtra,
         'aluClave'=>$aluClave,
         'alumnoNombre'=>$alumnoNombre,
@@ -145,9 +146,9 @@ class BachillerActaExtraordinarioController extends Controller
         'ubiClave'=>$ubiClave,
         'ubiNombre'=>$ubiNombre
       ]);
-    
+
     }
-    
+
     $inscritoEx = $inscritoEx->sortBy('alumnoNombre')->groupBy('idExtra');
 
     $nombreArchivo = 'pdf_acta_extraordinario';

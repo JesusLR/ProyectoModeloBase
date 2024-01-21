@@ -498,7 +498,7 @@
 
     <div class="row">
       @foreach ($inscritoEx as $inscrito)
-        @php
+        {{-- @php
           $insFirst = $inscrito->first();
           $progClave = $insFirst['progClave'];
           $progNombre = $insFirst['progNombre'];
@@ -517,19 +517,19 @@
           $depTituloDoc = $insFirst['depTituloDoc'];
           $depNombreDoc = $insFirst['depNombreDoc'];
           $depPuestoDoc = $insFirst['depPuestoDoc'];
-        @endphp
+        @endphp --}}
         <div class="row">
           <div class="columns medium-12" style="margin: 0 0 0 30px;">
-            <p>Carrera: {{$progClave}} &nbsp;({{$planClave}}) &nbsp;{{$progNombre}}</p>
-            <p>Materia: {{$matClave}} &nbsp; &nbsp; {{$matNombre}} &nbsp; @if($optNombre) ({{$optNombre}}) @endif</p>
-            <p>Ubicac.: {{$ubiClave}} {{$ubiNombre}}</p>
+            <p>Carrera: {{$inscrito[0]['progClave']}} &nbsp;({{$inscrito[0]['planClave']}}) &nbsp;{{$inscrito[0]['progNombre']}}</p>
+            <p>Materia: {{$inscrito[0]['matClave']}} &nbsp; &nbsp; {{$inscrito[0]['matNombre']}} &nbsp; @if(isset($inscrito[0]['optNombre'])) ({{$inscrito[0]['optNombre']}}) @endif</p>
+            <p>Ubicac.: {{$inscrito[0]['ubiClave']}} {{$inscrito[0]['ubiNombre']}}</p>
           </div>
           <div class="columns medium-12" style="margin: 0 30px 0 0;">
             <div style="text-align: right;">
-              <p>Clave: {{$extClave}}</p>
-              <p>Fecha: {{ \Carbon\Carbon::parse($extFecha)->format('d/m/Y') }}</p>
-              <p>Hora: {{ \Carbon\Carbon::parse($extHora)->format('H:i') }}</p>
-              <p>Grupo: {{$extGrupo}}</p>
+                <p>Clave: {{$inscrito[0]['extClave']}}</p>
+                <p>Fecha: {{ \Carbon\Carbon::parse($inscrito[0]['extFecha'])->format('d/m/Y') }}</p>
+                <p>Hora: {{ \Carbon\Carbon::parse($inscrito[0]['extHora'])->format('H:i') }}</p>
+                <p>Grupo: {{$inscrito[0]['extGrupo']}}</p>
             </div>
           </div>
         </div>
@@ -572,13 +572,13 @@
         <div class="columns medium-12" style="padding:100px 0 0 0;">
           <div class="columns medium-12">
             <p>____________________________________________</p>
-            <p>{{$empleadoNombre}} ({{$empleadoId}})</p>
+            <p>{{$inscrito[0]['empleadoNombre']}} ({{$inscrito[0]['empleadoId']}})</p>
             <p>Sinodal Titular</p>
           </div>
           <div class="columns medium-12" align="right">
             <p>_________________________________________</p>
-            <p>{{$depTituloDoc}} {{$depNombreDoc}}</p>
-            <p>{{$depPuestoDoc}}</p>
+            <p>{{$inscrito[0]['depTituloDoc']}} {{$inscrito[0]['depNombreDoc']}}</p>
+            <p>{{$inscrito[0]['depPuestoDoc']}}</p>
           </div>
         </div>
 
